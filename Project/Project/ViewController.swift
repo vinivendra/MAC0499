@@ -7,16 +7,19 @@
 //
 
 import UIKit
-
 import JavaScriptCore
+
 
 class ViewController: UIViewController {
 
-    let context = JSContext()
+    var javaScript = JavaScript()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let scriptString = FileHelper.openTextFile("main.js")
+        
+        javaScript.load()
     }
 
 }
