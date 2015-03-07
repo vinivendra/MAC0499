@@ -6,3 +6,4 @@ print("hue");
 function load () {
     
 }
+

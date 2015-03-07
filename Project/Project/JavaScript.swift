@@ -39,6 +39,8 @@ class JavaScript {
     
     func setup() {
         
+        context.exceptionHandler = self.handleException
+        
         let jsPrint: @objc_block AnyObject -> Void = { input in
             println(input)
         }
@@ -61,6 +63,20 @@ class JavaScript {
     func update(dt : Double) {
     
         updateFunction?.callWithArguments([dt])
+    }
+    
+    
+    func handleException(context : JSContext!, value : JSValue!) {
+        var contextName : String;
+        
+        if (context == self.context) {
+            contextName = "the shared context"
+        }
+        else {
+            contextName = "\(context)"
+        }
+
+        assertionFailure("Error (JavaScript): JSContext (\(contextName)) had a problem evaluating code:\n\(value).\n")
     }
     
 }
