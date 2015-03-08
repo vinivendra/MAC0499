@@ -25,27 +25,27 @@ class ViewController: UIViewController {
 
         
         //
-        let material = SCNMaterial()
+        let material = Material()
             material.ambient.contents  = UIColor(red: 0.1, green: 0.1, blue: 0.3, alpha: 1.0)
             material.diffuse.contents  = UIColor(red: 0.2, green: 0.2, blue: 0.8, alpha: 1.0)
             material.specular.contents = UIColor(red: 0.8, green: 0.8, blue: 1.0, alpha: 1.0)
         
-        let earth = SCNSphere()
+        let earth = Sphere()
             earth.materials = [material]
         
-        var node = SCNNode(geometry: earth)
-            node.position = SCNVector3Make(0, 0, -2)
+        var node = Node(geometry: earth)
+            node.position = Vector(x:0, y:0, z:-2)
         
-        let scene = SCNScene()
+        let scene = Scene()
             scene.rootNode.addChildNode(node)
         
         //
-        let camera = SCNCamera()
+        let camera = Camera()
         
-            node = SCNNode()
+            node = Node()
             node.camera = camera
-            node.position = SCNVector3Make(0, 0, 2)
-            
+            node.position = Vector(x:0, y:0, z:2)
+        
             scene.rootNode.addChildNode(node)
         
         
