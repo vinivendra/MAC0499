@@ -48,9 +48,9 @@ class ViewController: UIViewController {
         
             scene.rootNode.addChildNode(node)
         
-        
         sceneView.scene = scene
     }
 
 }
+
 

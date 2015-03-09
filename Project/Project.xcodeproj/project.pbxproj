@@ -20,6 +20,7 @@
 		2439B7A51AAA521C00C257D4 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = 2439B7A41AAA521C00C257D4 /* main.js */; };
 		2439B7A71AAA561F00C257D4 /* JavaScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2439B7A61AAA561F00C257D4 /* JavaScript.swift */; };
 		24DEC3021AACBFE000A27F95 /* TypeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DEC3011AACBFE000A27F95 /* TypeHelper.swift */; };
+		24E2A3101AAD2C0F00E5DD7A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E2A30F1AAD2C0F00E5DD7A /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		2439B7A41AAA521C00C257D4 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
 		2439B7A61AAA561F00C257D4 /* JavaScript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JavaScript.swift; sourceTree = "<group>"; };
 		24DEC3011AACBFE000A27F95 /* TypeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeHelper.swift; sourceTree = "<group>"; };
+		24E2A30F1AAD2C0F00E5DD7A /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,8 +98,9 @@
 			children = (
 				2439B7761AAA484000C257D4 /* AppDelegate.swift */,
 				2439B7781AAA484000C257D4 /* ViewController.swift */,
-				2439B7A61AAA561F00C257D4 /* JavaScript.swift */,
 				2439B7A41AAA521C00C257D4 /* main.js */,
+				2439B7A61AAA561F00C257D4 /* JavaScript.swift */,
+				24E2A30F1AAD2C0F00E5DD7A /* Item.swift */,
 				2439B79F1AAA4A7100C257D4 /* Extensions */,
 				2439B7A31AAA4AC500C257D4 /* Helpers */,
 				2439B77A1AAA484000C257D4 /* Main.storyboard */,
@@ -272,6 +275,7 @@
 				2439B7A71AAA561F00C257D4 /* JavaScript.swift in Sources */,
 				2439B7771AAA484000C257D4 /* AppDelegate.swift in Sources */,
 				2439B79E1AAA4A5A00C257D4 /* JSContextExtension.swift in Sources */,
+				24E2A3101AAD2C0F00E5DD7A /* Item.swift in Sources */,
 				2439B7A21AAA4ABF00C257D4 /* FileHelper.swift in Sources */,
 				24DEC3021AACBFE000A27F95 /* TypeHelper.swift in Sources */,
 			);
