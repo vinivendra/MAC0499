@@ -52,8 +52,6 @@ class JavaScript {
         
         context.setObject(unsafeBitCast(jsPrint, AnyObject.self), forKeyedSubscript: "print")
         context.setObject(console.self,                           forKeyedSubscript: "console")
-        
-        context.setObject(Item.self, forKeyedSubscript: "Item")
     }
     
     

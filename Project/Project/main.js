@@ -7,8 +7,5 @@ function load () {
     
 }
 
-var item = Item.create();
 
-print(item);
-print(item.name);
-print(item.id);
+
