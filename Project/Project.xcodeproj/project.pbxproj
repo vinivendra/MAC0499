@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		240399FB1AABF1DD00134538 /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 240399FA1AABF1DD00134538 /* SceneKit.framework */; };
 		2439B7771AAA484000C257D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2439B7761AAA484000C257D4 /* AppDelegate.swift */; };
 		2439B7791AAA484000C257D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2439B7781AAA484000C257D4 /* ViewController.swift */; };
 		2439B77C1AAA484000C257D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2439B77A1AAA484000C257D4 /* Main.storyboard */; };
@@ -14,10 +15,15 @@
 		2439B7811AAA484000C257D4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2439B77F1AAA484000C257D4 /* LaunchScreen.xib */; };
 		2439B78D1AAA484000C257D4 /* ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2439B78C1AAA484000C257D4 /* ProjectTests.swift */; };
 		2439B7971AAA484B00C257D4 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2439B7961AAA484B00C257D4 /* JavaScriptCore.framework */; };
-		2439B79E1AAA4A5A00C257D4 /* JSContextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2439B79D1AAA4A5A00C257D4 /* JSContextExtension.swift */; };
 		2439B7A21AAA4ABF00C257D4 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2439B7A11AAA4ABF00C257D4 /* FileHelper.swift */; };
 		2439B7A51AAA521C00C257D4 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = 2439B7A41AAA521C00C257D4 /* main.js */; };
 		2439B7A71AAA561F00C257D4 /* JavaScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2439B7A61AAA561F00C257D4 /* JavaScript.swift */; };
+		247D4F961AAE69E10091C570 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4F951AAE69E10091C570 /* Item.swift */; };
+		247D4F9A1AAE69FD0091C570 /* Sphere.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4F991AAE69FD0091C570 /* Sphere.swift */; };
+		247D4F9C1AAE6D6E0091C570 /* JSContextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4F9B1AAE6D6E0091C570 /* JSContextExtension.swift */; };
+		247D4F9E1AAE6D940091C570 /* SceneKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4F9D1AAE6D940091C570 /* SceneKitExtensions.swift */; };
+		247D4FA21AAF3C200091C570 /* ItemGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4FA11AAF3C200091C570 /* ItemGeometry.swift */; };
+		24DEC3021AACBFE000A27F95 /* TypeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DEC3011AACBFE000A27F95 /* TypeHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		240399FA1AABF1DD00134538 /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
 		2439B7711AAA484000C257D4 /* Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2439B7751AAA484000C257D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2439B7761AAA484000C257D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -42,10 +49,15 @@
 		2439B78B1AAA484000C257D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2439B78C1AAA484000C257D4 /* ProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTests.swift; sourceTree = "<group>"; };
 		2439B7961AAA484B00C257D4 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		2439B79D1AAA4A5A00C257D4 /* JSContextExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JSContextExtension.swift; path = Extensions/JavaScriptCore/JSContextExtension.swift; sourceTree = "<group>"; };
 		2439B7A11AAA4ABF00C257D4 /* FileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileHelper.swift; path = Helpers/FileHelper.swift; sourceTree = "<group>"; };
 		2439B7A41AAA521C00C257D4 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
 		2439B7A61AAA561F00C257D4 /* JavaScript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JavaScript.swift; sourceTree = "<group>"; };
+		247D4F951AAE69E10091C570 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Item.swift; path = Items/Item.swift; sourceTree = "<group>"; };
+		247D4F991AAE69FD0091C570 /* Sphere.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sphere.swift; path = Items/Sphere.swift; sourceTree = "<group>"; };
+		247D4F9B1AAE6D6E0091C570 /* JSContextExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSContextExtension.swift; path = Extensions/JSContextExtension.swift; sourceTree = "<group>"; };
+		247D4F9D1AAE6D940091C570 /* SceneKitExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneKitExtensions.swift; path = Extensions/SceneKitExtensions.swift; sourceTree = "<group>"; };
+		247D4FA11AAF3C200091C570 /* ItemGeometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemGeometry.swift; path = Items/ItemGeometry.swift; sourceTree = "<group>"; };
+		24DEC3011AACBFE000A27F95 /* TypeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				240399FB1AABF1DD00134538 /* SceneKit.framework in Frameworks */,
 				2439B7971AAA484B00C257D4 /* JavaScriptCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -91,8 +104,9 @@
 			children = (
 				2439B7761AAA484000C257D4 /* AppDelegate.swift */,
 				2439B7781AAA484000C257D4 /* ViewController.swift */,
-				2439B7A61AAA561F00C257D4 /* JavaScript.swift */,
 				2439B7A41AAA521C00C257D4 /* main.js */,
+				2439B7A61AAA561F00C257D4 /* JavaScript.swift */,
+				247D4F941AAE69BC0091C570 /* Items */,
 				2439B79F1AAA4A7100C257D4 /* Extensions */,
 				2439B7A31AAA4AC500C257D4 /* Helpers */,
 				2439B77A1AAA484000C257D4 /* Main.storyboard */,
@@ -131,6 +145,7 @@
 		2439B7981AAA484F00C257D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				240399FA1AABF1DD00134538 /* SceneKit.framework */,
 				2439B7961AAA484B00C257D4 /* JavaScriptCore.framework */,
 			);
 			name = Frameworks;
@@ -139,25 +154,29 @@
 		2439B79F1AAA4A7100C257D4 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				2439B7A01AAA4A7B00C257D4 /* JavaScriptCore */,
+				247D4F9B1AAE6D6E0091C570 /* JSContextExtension.swift */,
+				247D4F9D1AAE6D940091C570 /* SceneKitExtensions.swift */,
 			);
 			name = Extensions;
-			sourceTree = "<group>";
-		};
-		2439B7A01AAA4A7B00C257D4 /* JavaScriptCore */ = {
-			isa = PBXGroup;
-			children = (
-				2439B79D1AAA4A5A00C257D4 /* JSContextExtension.swift */,
-			);
-			name = JavaScriptCore;
 			sourceTree = "<group>";
 		};
 		2439B7A31AAA4AC500C257D4 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				24DEC3011AACBFE000A27F95 /* TypeHelper.swift */,
 				2439B7A11AAA4ABF00C257D4 /* FileHelper.swift */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		247D4F941AAE69BC0091C570 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				247D4F951AAE69E10091C570 /* Item.swift */,
+				247D4FA11AAF3C200091C570 /* ItemGeometry.swift */,
+				247D4F991AAE69FD0091C570 /* Sphere.swift */,
+			);
+			name = Items;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,9 +282,14 @@
 			files = (
 				2439B7791AAA484000C257D4 /* ViewController.swift in Sources */,
 				2439B7A71AAA561F00C257D4 /* JavaScript.swift in Sources */,
+				247D4FA21AAF3C200091C570 /* ItemGeometry.swift in Sources */,
+				247D4F9E1AAE6D940091C570 /* SceneKitExtensions.swift in Sources */,
+				247D4F9C1AAE6D6E0091C570 /* JSContextExtension.swift in Sources */,
 				2439B7771AAA484000C257D4 /* AppDelegate.swift in Sources */,
-				2439B79E1AAA4A5A00C257D4 /* JSContextExtension.swift in Sources */,
+				247D4F961AAE69E10091C570 /* Item.swift in Sources */,
 				2439B7A21AAA4ABF00C257D4 /* FileHelper.swift in Sources */,
+				247D4F9A1AAE69FD0091C570 /* Sphere.swift in Sources */,
+				24DEC3021AACBFE000A27F95 /* TypeHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +483,7 @@
 				2439B7921AAA484000C257D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2439B7931AAA484000C257D4 /* Build configuration list for PBXNativeTarget "ProjectTests" */ = {
 			isa = XCConfigurationList;
@@ -467,6 +492,7 @@
 				2439B7951AAA484000C257D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

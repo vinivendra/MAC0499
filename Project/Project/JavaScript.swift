@@ -6,10 +6,12 @@ import JavaScriptCore
 
 let defaultFilename = "main.js"
 
+var JSContextInstance = JSContext()
+
 
 class JavaScript {
     
-    let context = JSContext.sharedContext()
+    let context = JavaScript.sharedContext()
     
     var script : String
     
@@ -36,13 +38,16 @@ class JavaScript {
         self.init(fileName: defaultFilename)
     }
 
+    class func sharedContext() -> JSContext {
+        return JSContextInstance
+    }
     
     func setup() {
         
         context.exceptionHandler = self.handleException
         
-        let jsPrint: @objc_block AnyObject -> Void = { input in
-            println(input)
+        let jsPrint: @objc_block AnyObject? -> Void = { input in
+            console.log(input)
         }
         
         context.setObject(unsafeBitCast(jsPrint, AnyObject.self), forKeyedSubscript: "print")
@@ -85,12 +90,26 @@ class JavaScript {
 
 
 @objc protocol consoleExports : JSExport {
-    class func log(object : AnyObject);
+    class func log(object : AnyObject?);
 }
 
 @objc class console : NSObject, consoleExports {
     
-    class func log(object : AnyObject) {
-        println(object)
+    class func log(object : AnyObject?) {
+        
+        if let optional: AnyObject = object {
+            println(optional)
+        }
+        else {
+            println("(null)")
+        }
     }
 }
+
+
+
+
+@objc protocol CreatableExport : JSExport {
+    class func create() -> JSValue
+}
+
