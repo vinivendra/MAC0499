@@ -28,8 +28,9 @@ import SceneKit
     }
     
     var size: CGFloat {
-        set { assertionFailure("(Shape): Attempted to write to 'size', a virtual property.\n") }
-        get { return 0                                                                         }
+        set { assertionFailure("(Shape): Attempted to access 'size', a virtual property.\n") }
+        get { assertionFailure("(Shape): Attempted to access 'size', a virtual property.\n")
+              return 0                                                                       }
     }
     
     var geometry: SCNGeometry {
