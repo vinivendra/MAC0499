@@ -15,8 +15,6 @@ import SceneKit
 
 @objc class Shape: Item, ShapeExport {
     
-    /*! Write-only
-     *! Placeholder for geometry's materials */
     var color: Color? {
         set {
             let material = SCNMaterial()
@@ -27,6 +25,11 @@ import SceneKit
             geometry.materials = [material]
         }
         get { return self.color }
+    }
+    
+    var size: CGFloat {
+        set {}
+        get { return 0 }
     }
     
     var geometry: SCNGeometry {

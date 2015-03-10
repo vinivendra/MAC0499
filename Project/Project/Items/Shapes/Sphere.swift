@@ -1,20 +1,17 @@
-//
-//  Sphere.swift
-//  Project
-//
-//  Created by Vinicius Vendramini on 09/03/15.
-//  Copyright (c) 2015 Vinicius Vendramini. All rights reserved.
-//
 
 import Foundation
 import SceneKit
 import JavaScriptCore
 
-let _radius: CGFloat = 1
 
-func _sphere() -> SCNSphere {
-    return SCNSphere(radius: _radius)
+
+let sphere_radius: CGFloat = 1
+
+func default_sphere() -> SCNSphere {
+    return SCNSphere(radius: sphere_radius)
 }
+
+
 
 @objc class Sphere: Shape {
     
@@ -23,7 +20,15 @@ func _sphere() -> SCNSphere {
         get { return sphere.radius     }
     }
     
-    /*! Auto-created */
+    override var size: CGFloat {
+        set {
+            sphere.radius = newValue / 2
+        }
+        get {
+            return 0;
+        }
+    }
+    
     var sphere: SCNSphere {
         set { geometry = newValue }
         get {
@@ -31,13 +36,13 @@ func _sphere() -> SCNSphere {
                 return optional
             }
             else {
-                geometry = _sphere()
+                geometry = default_sphere()
                 return geometry as SCNSphere
             }
         }
     }
     
     override init() {
-        super.init(geometry: _sphere())
+        super.init(geometry: default_sphere())
     }
 }

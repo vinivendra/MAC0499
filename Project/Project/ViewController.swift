@@ -30,13 +30,13 @@ class ViewController: UIViewController {
         let earth = Sphere()
             earth.position = Vector(0, 0, -2)
             earth.color = Color.blueColor()
-            earth.radius = 0.3
+            earth.size = 0.6
         scene.addItem(earth)
         
-        let moon = Sphere()
+        let moon = Cone()
             moon.position = Vector(Float(earth.radius * 3), 0, 0)
             moon.color = Color.lightGrayColor()
-            moon.radius = earth.radius / 2
+            moon.size = earth.radius / 2
         earth.addItem(moon)
         
         //

@@ -1,25 +1,22 @@
-//
-//  Box.swift
-//  Project
-//
-//  Created by Vinicius Vendramini on 10/03/15.
-//  Copyright (c) 2015 Vinicius Vendramini. All rights reserved.
-//
 
 import Foundation
 import SceneKit
 
-let _height : CGFloat = 1
-let _length : CGFloat = 1
-let _width : CGFloat = 1
-let _chamferRadius : CGFloat = 0
 
-func _box() -> SCNBox {
-    return SCNBox(width: _width,
-        height: _height,
-        length: _length,
-        chamferRadius: _chamferRadius)
+
+let box_height : CGFloat = 1
+let box_length : CGFloat = 1
+let box_width : CGFloat = 1
+let box_chamferRadius : CGFloat = 0
+
+func default_box() -> SCNBox {
+    return SCNBox(width: box_width,
+                 height: box_height,
+                 length: box_length,
+          chamferRadius: box_chamferRadius)
 }
+
+
 
 class Box: Shape {
     
@@ -43,7 +40,17 @@ class Box: Shape {
         get { return box.chamferRadius     }
     }
     
-    /*! Auto-created */
+    override var size: CGFloat {
+        set {
+            box.width = newValue
+            box.height = newValue
+            box.length = newValue
+        }
+        get {
+            return 0;
+        }
+    }
+    
     var box: SCNBox {
         set { geometry = newValue       }
         get {
@@ -51,13 +58,13 @@ class Box: Shape {
                 return optional
             }
             else {
-                geometry = _box()
+                geometry = default_box()
                 return geometry as SCNBox
             }
         }
     }
     
     override init() {
-        super.init(geometry: _box())
+        super.init(geometry: default_box())
     }
 }

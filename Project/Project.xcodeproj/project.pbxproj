@@ -24,6 +24,8 @@
 		247D4FAF1AAF4C280091C570 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4FAB1AAF4C280091C570 /* Shape.swift */; };
 		247D4FB01AAF4C280091C570 /* Sphere.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4FAD1AAF4C280091C570 /* Sphere.swift */; };
 		247D4FB21AAF52B90091C570 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4FB11AAF52B90091C570 /* Box.swift */; };
+		247D4FB41AAF616F0091C570 /* Cylinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4FB31AAF616F0091C570 /* Cylinder.swift */; };
+		247D4FB61AAF653F0091C570 /* Cone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4FB51AAF653F0091C570 /* Cone.swift */; };
 		24DEC3021AACBFE000A27F95 /* TypeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DEC3011AACBFE000A27F95 /* TypeHelper.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +61,8 @@
 		247D4FAB1AAF4C280091C570 /* Shape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
 		247D4FAD1AAF4C280091C570 /* Sphere.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sphere.swift; sourceTree = "<group>"; };
 		247D4FB11AAF52B90091C570 /* Box.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		247D4FB31AAF616F0091C570 /* Cylinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cylinder.swift; sourceTree = "<group>"; };
+		247D4FB51AAF653F0091C570 /* Cone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cone.swift; sourceTree = "<group>"; };
 		24DEC3011AACBFE000A27F95 /* TypeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -186,6 +190,8 @@
 			children = (
 				247D4FAD1AAF4C280091C570 /* Sphere.swift */,
 				247D4FB11AAF52B90091C570 /* Box.swift */,
+				247D4FB31AAF616F0091C570 /* Cylinder.swift */,
+				247D4FB51AAF653F0091C570 /* Cone.swift */,
 			);
 			path = Shapes;
 			sourceTree = "<group>";
@@ -294,10 +300,12 @@
 				247D4FB01AAF4C280091C570 /* Sphere.swift in Sources */,
 				2439B7791AAA484000C257D4 /* ViewController.swift in Sources */,
 				2439B7A71AAA561F00C257D4 /* JavaScript.swift in Sources */,
+				247D4FB61AAF653F0091C570 /* Cone.swift in Sources */,
 				247D4F9E1AAE6D940091C570 /* SceneKitExtensions.swift in Sources */,
 				247D4F9C1AAE6D6E0091C570 /* JSContextExtension.swift in Sources */,
 				247D4FB21AAF52B90091C570 /* Box.swift in Sources */,
 				247D4FAF1AAF4C280091C570 /* Shape.swift in Sources */,
+				247D4FB41AAF616F0091C570 /* Cylinder.swift in Sources */,
 				247D4FAE1AAF4C280091C570 /* Item.swift in Sources */,
 				2439B7771AAA484000C257D4 /* AppDelegate.swift in Sources */,
 				2439B7A21AAA4ABF00C257D4 /* FileHelper.swift in Sources */,
