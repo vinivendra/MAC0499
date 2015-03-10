@@ -12,7 +12,7 @@ import SceneKit
 
 
 @objc protocol ItemExport: JSExport {
-    var name: String {get set}
+    var name: String? {get set}
     
     var items: [Item] {get}
     
@@ -25,33 +25,28 @@ import SceneKit
     
     // MARK: Properties
     
-    var name : String {
-        set {
-            node.name = newValue
-        }
-        get {
-            if let optional = node.name {
-                return optional
-            }
-            else {
-                node.name = ""
-                return node.name!
-            }
-        }
+    var name : String? {
+        set { node.name = newValue }
+        get { return node.name     }
     }
     
     var items = [Item]()
     
     let node = SCNNode()
-    var position: SCNVector3 = origin {
-        didSet {
-            node.position = position
-        }
+    
+    var position: SCNVector3 {
+        set { node.position = newValue }
+        get { return node.position     }
     }
     
     override var description: String {
         get {
-            return name
+            if let optional = name {
+                return optional
+            }
+            else {
+                return "unnamed"
+            }
         }
     }
     
@@ -86,7 +81,7 @@ import SceneKit
         return value
     }
     
-    func create() ->JSValue {
+    func create() -> JSValue {
         let newItem = self.copy() as Item
         
         let value = JSValue(object: newItem, inContext: JavaScript.sharedContext())
