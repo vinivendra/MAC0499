@@ -9,13 +9,8 @@
 import JavaScriptCore
 
 
-var JSContextInstance = JSContext()
-
-
 extension JSContext {
     
-    class func sharedContext() -> JSContext {
-        return JSContextInstance
-    }
+    
     
 }
