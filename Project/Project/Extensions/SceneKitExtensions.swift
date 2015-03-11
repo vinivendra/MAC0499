@@ -24,7 +24,10 @@ extension SCNScene {
     func addItem(item : Item) {
         rootNode.addChildNode(item.node)
     }
+    
 }
+
+
 
 
 
