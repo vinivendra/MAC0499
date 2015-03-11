@@ -13,7 +13,7 @@
 		2439B77C1AAA484000C257D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2439B77A1AAA484000C257D4 /* Main.storyboard */; };
 		2439B77E1AAA484000C257D4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2439B77D1AAA484000C257D4 /* Images.xcassets */; };
 		2439B7811AAA484000C257D4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2439B77F1AAA484000C257D4 /* LaunchScreen.xib */; };
-		2439B78D1AAA484000C257D4 /* ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2439B78C1AAA484000C257D4 /* ProjectTests.swift */; };
+		2439B78D1AAA484000C257D4 /* SphereTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2439B78C1AAA484000C257D4 /* SphereTests.swift */; };
 		2439B7971AAA484B00C257D4 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2439B7961AAA484B00C257D4 /* JavaScriptCore.framework */; };
 		2439B7A21AAA4ABF00C257D4 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2439B7A11AAA4ABF00C257D4 /* FileHelper.swift */; };
 		2439B7A51AAA521C00C257D4 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = 2439B7A41AAA521C00C257D4 /* main.js */; };
@@ -34,6 +34,24 @@
 		247D4FB41AAF616F0091C570 /* Cylinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4FB31AAF616F0091C570 /* Cylinder.swift */; };
 		247D4FB61AAF653F0091C570 /* Cone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4FB51AAF653F0091C570 /* Cone.swift */; };
 		24DEC3021AACBFE000A27F95 /* TypeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DEC3011AACBFE000A27F95 /* TypeHelper.swift */; };
+		24E1284D1AB0DEBD0021FED1 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4FAA1AAF4C280091C570 /* Item.swift */; };
+		24E1284E1AB0DEBD0021FED1 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4FAB1AAF4C280091C570 /* Shape.swift */; };
+		24E1284F1AB0DEBD0021FED1 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4FB11AAF52B90091C570 /* Box.swift */; };
+		24E128501AB0DEBD0021FED1 /* Cylinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4FB31AAF616F0091C570 /* Cylinder.swift */; };
+		24E128511AB0DEBD0021FED1 /* Cone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4FB51AAF653F0091C570 /* Cone.swift */; };
+		24E128521AB0DEBD0021FED1 /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244EF45B1AB090B9005C583C /* Plane.swift */; };
+		24E128531AB0DEBD0021FED1 /* Pyramid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246D102E1AB0AC3D002A7E4D /* Pyramid.swift */; };
+		24E128541AB0DEBD0021FED1 /* Sphere.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4FAD1AAF4C280091C570 /* Sphere.swift */; };
+		24E128551AB0DEBD0021FED1 /* Torus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246D10301AB0CCEB002A7E4D /* Torus.swift */; };
+		24E128561AB0DEBD0021FED1 /* Tube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246D10321AB0CFC5002A7E4D /* Tube.swift */; };
+		24E128571AB0DEBD0021FED1 /* Capsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246D10341AB0D5FB002A7E4D /* Capsule.swift */; };
+		24E128581AB0DEBD0021FED1 /* Floor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246D10361AB0D6DE002A7E4D /* Floor.swift */; };
+		24E128591AB0DEBD0021FED1 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246D10381AB0D71B002A7E4D /* Text.swift */; };
+		24E1285A1AB0DF030021FED1 /* JavaScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2439B7A61AAA561F00C257D4 /* JavaScript.swift */; };
+		24E1285B1AB0DF120021FED1 /* JSContextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4F9B1AAE6D6E0091C570 /* JSContextExtension.swift */; };
+		24E1285C1AB0DF120021FED1 /* SceneKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4F9D1AAE6D940091C570 /* SceneKitExtensions.swift */; };
+		24E1285D1AB0DF160021FED1 /* TypeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DEC3011AACBFE000A27F95 /* TypeHelper.swift */; };
+		24E1285E1AB0DF160021FED1 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2439B7A11AAA4ABF00C257D4 /* FileHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +75,7 @@
 		2439B7801AAA484000C257D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		2439B7861AAA484000C257D4 /* ProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2439B78B1AAA484000C257D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2439B78C1AAA484000C257D4 /* ProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTests.swift; sourceTree = "<group>"; };
+		2439B78C1AAA484000C257D4 /* SphereTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphereTests.swift; sourceTree = "<group>"; };
 		2439B7961AAA484B00C257D4 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		2439B7A11AAA4ABF00C257D4 /* FileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileHelper.swift; path = Helpers/FileHelper.swift; sourceTree = "<group>"; };
 		2439B7A41AAA521C00C257D4 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
@@ -148,7 +166,7 @@
 		2439B7891AAA484000C257D4 /* ProjectTests */ = {
 			isa = PBXGroup;
 			children = (
-				2439B78C1AAA484000C257D4 /* ProjectTests.swift */,
+				2439B78C1AAA484000C257D4 /* SphereTests.swift */,
 				2439B78A1AAA484000C257D4 /* Supporting Files */,
 			);
 			path = ProjectTests;
@@ -345,7 +363,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2439B78D1AAA484000C257D4 /* ProjectTests.swift in Sources */,
+				24E128511AB0DEBD0021FED1 /* Cone.swift in Sources */,
+				24E128571AB0DEBD0021FED1 /* Capsule.swift in Sources */,
+				24E1285B1AB0DF120021FED1 /* JSContextExtension.swift in Sources */,
+				24E1284D1AB0DEBD0021FED1 /* Item.swift in Sources */,
+				24E128541AB0DEBD0021FED1 /* Sphere.swift in Sources */,
+				24E1284F1AB0DEBD0021FED1 /* Box.swift in Sources */,
+				24E128501AB0DEBD0021FED1 /* Cylinder.swift in Sources */,
+				24E1285A1AB0DF030021FED1 /* JavaScript.swift in Sources */,
+				24E128551AB0DEBD0021FED1 /* Torus.swift in Sources */,
+				24E128561AB0DEBD0021FED1 /* Tube.swift in Sources */,
+				24E1285C1AB0DF120021FED1 /* SceneKitExtensions.swift in Sources */,
+				24E1285D1AB0DF160021FED1 /* TypeHelper.swift in Sources */,
+				24E1284E1AB0DEBD0021FED1 /* Shape.swift in Sources */,
+				24E128581AB0DEBD0021FED1 /* Floor.swift in Sources */,
+				24E128591AB0DEBD0021FED1 /* Text.swift in Sources */,
+				2439B78D1AAA484000C257D4 /* SphereTests.swift in Sources */,
+				24E128531AB0DEBD0021FED1 /* Pyramid.swift in Sources */,
+				24E1285E1AB0DF160021FED1 /* FileHelper.swift in Sources */,
+				24E128521AB0DEBD0021FED1 /* Plane.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

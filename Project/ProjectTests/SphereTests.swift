@@ -8,8 +8,9 @@
 
 import UIKit
 import XCTest
+import SceneKit
 
-class ProjectTests: XCTestCase {
+class SphereTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -22,15 +23,15 @@ class ProjectTests: XCTestCase {
     }
     
     func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
-        }
+        
+        var sphere = Sphere()
+            sphere.position = Vector(0, 0, 0)
+            sphere.color = Color.lightGrayColor()
+            sphere.rotation = SCNVector4Make(1, 0, 0, Float(M_PI_2))
+            sphere.size = 1
+            sphere.radius = 2
+        
+        XCTAssertNotNil(sphere, "Failed to initialize a sphere!!")
     }
     
 }
