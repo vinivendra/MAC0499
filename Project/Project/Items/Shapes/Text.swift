@@ -22,12 +22,8 @@ import JavaScriptCore
     }
     
     override var size: CGFloat {
-        set {
-            text.font = text.font.fontWithSize(newValue)
-        }
-        get {
-            return text.font.pointSize
-        }
+        set { text.font = text.font.fontWithSize(newValue) }
+        get { return text.font.pointSize                   }
     }
     
     var text: SCNText {

@@ -33,7 +33,7 @@ class ViewController: UIViewController {
             moon.size = 1
         scene.addItem(moon)
         
-        moon.node.rotation = SCNVector4Make(0.2, 0.4, 0.3, 1.5)
+        moon.rotation = SCNVector4Make(0.2, 0.4, 0.3, 1.5)
         
         
         

@@ -39,6 +39,11 @@ import SceneKit
         get { return node.position     }
     }
     
+    var rotation: SCNVector4 {
+        set { node.rotation = newValue }
+        get { return node.rotation     }
+    }
+    
     override var description: String {
         get {
             if let optional = name {
