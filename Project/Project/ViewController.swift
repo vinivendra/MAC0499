@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         //
         let scene = SCNScene()
         
-        let moon = Tube()
+        let moon = Capsule()
             moon.position = Vector(0, 0, -1)
             moon.color = Color.lightGrayColor()
             moon.size = 1

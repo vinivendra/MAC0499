@@ -8,8 +8,6 @@ import JavaScriptCore
 
 @objc class Tube: Shape {
     
-    var ratio: CGFloat = 0
-    
     var radius: CGFloat {
         set { outerRadius = newValue }
         get { return outerRadius     }

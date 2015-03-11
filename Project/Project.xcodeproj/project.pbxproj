@@ -22,6 +22,9 @@
 		246D102F1AB0AC3D002A7E4D /* Pyramid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246D102E1AB0AC3D002A7E4D /* Pyramid.swift */; };
 		246D10311AB0CCEB002A7E4D /* Torus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246D10301AB0CCEB002A7E4D /* Torus.swift */; };
 		246D10331AB0CFC5002A7E4D /* Tube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246D10321AB0CFC5002A7E4D /* Tube.swift */; };
+		246D10351AB0D5FB002A7E4D /* Capsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246D10341AB0D5FB002A7E4D /* Capsule.swift */; };
+		246D10371AB0D6DE002A7E4D /* Floor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246D10361AB0D6DE002A7E4D /* Floor.swift */; };
+		246D10391AB0D71B002A7E4D /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246D10381AB0D71B002A7E4D /* Text.swift */; };
 		247D4F9C1AAE6D6E0091C570 /* JSContextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4F9B1AAE6D6E0091C570 /* JSContextExtension.swift */; };
 		247D4F9E1AAE6D940091C570 /* SceneKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4F9D1AAE6D940091C570 /* SceneKitExtensions.swift */; };
 		247D4FAE1AAF4C280091C570 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4FAA1AAF4C280091C570 /* Item.swift */; };
@@ -63,6 +66,9 @@
 		246D102E1AB0AC3D002A7E4D /* Pyramid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pyramid.swift; sourceTree = "<group>"; };
 		246D10301AB0CCEB002A7E4D /* Torus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Torus.swift; sourceTree = "<group>"; };
 		246D10321AB0CFC5002A7E4D /* Tube.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tube.swift; sourceTree = "<group>"; };
+		246D10341AB0D5FB002A7E4D /* Capsule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Capsule.swift; sourceTree = "<group>"; };
+		246D10361AB0D6DE002A7E4D /* Floor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Floor.swift; sourceTree = "<group>"; };
+		246D10381AB0D71B002A7E4D /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		247D4F9B1AAE6D6E0091C570 /* JSContextExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSContextExtension.swift; path = Extensions/JSContextExtension.swift; sourceTree = "<group>"; };
 		247D4F9D1AAE6D940091C570 /* SceneKitExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneKitExtensions.swift; path = Extensions/SceneKitExtensions.swift; sourceTree = "<group>"; };
 		247D4FAA1AAF4C280091C570 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -204,6 +210,9 @@
 				247D4FAD1AAF4C280091C570 /* Sphere.swift */,
 				246D10301AB0CCEB002A7E4D /* Torus.swift */,
 				246D10321AB0CFC5002A7E4D /* Tube.swift */,
+				246D10341AB0D5FB002A7E4D /* Capsule.swift */,
+				246D10361AB0D6DE002A7E4D /* Floor.swift */,
+				246D10381AB0D71B002A7E4D /* Text.swift */,
 			);
 			path = Shapes;
 			sourceTree = "<group>";
@@ -310,11 +319,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				247D4FB01AAF4C280091C570 /* Sphere.swift in Sources */,
+				246D10351AB0D5FB002A7E4D /* Capsule.swift in Sources */,
 				2439B7791AAA484000C257D4 /* ViewController.swift in Sources */,
 				2439B7A71AAA561F00C257D4 /* JavaScript.swift in Sources */,
 				246D10311AB0CCEB002A7E4D /* Torus.swift in Sources */,
 				247D4FB61AAF653F0091C570 /* Cone.swift in Sources */,
+				246D10391AB0D71B002A7E4D /* Text.swift in Sources */,
 				247D4F9E1AAE6D940091C570 /* SceneKitExtensions.swift in Sources */,
+				246D10371AB0D6DE002A7E4D /* Floor.swift in Sources */,
 				247D4F9C1AAE6D6E0091C570 /* JSContextExtension.swift in Sources */,
 				244EF45C1AB090B9005C583C /* Plane.swift in Sources */,
 				247D4FB21AAF52B90091C570 /* Box.swift in Sources */,

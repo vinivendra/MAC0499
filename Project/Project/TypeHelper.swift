@@ -25,5 +25,7 @@ typealias Scene    = SCNScene
 typealias Vector3 = SCNVector3
 typealias Vector4 = SCNVector4
 
+// SCNText
+
 typealias MaterialProperty = SCNMaterialProperty
 
