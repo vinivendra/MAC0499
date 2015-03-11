@@ -5,22 +5,8 @@ import JavaScriptCore
 
 
 
-extension SCNPlane {
-    var size: CGFloat {
-        set {
-            width = newValue
-            height = newValue
-        }
-        get {
-            return max(width, height)
-        }
-    }
-}
-
-
 
 @objc class Plane: Shape {
-    
     
     var width: CGFloat {
         set { plane.width = newValue }
@@ -32,6 +18,16 @@ extension SCNPlane {
         get { return plane.height     }
     }
     
+    override var size: CGFloat {
+        set {
+            width = newValue
+            height = newValue
+        }
+        get {
+            return max(width, height)
+        }
+    }
+    
     var plane: SCNPlane {
         set { geometry = newValue        }
         get { return geometry as SCNPlane }
@@ -41,3 +37,4 @@ extension SCNPlane {
         super.init(geometry: SCNPlane())
     }
 }
+

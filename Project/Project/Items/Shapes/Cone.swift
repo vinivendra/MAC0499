@@ -5,9 +5,34 @@ import JavaScriptCore
 
 
 
-extension SCNCone {
-    var size: CGFloat {
+
+@objc class Cone: Shape {
+    
+    
+    var radius: CGFloat {
+        set { bottomRadius = newValue }
+        get { return bottomRadius     }
+    };  var bottomRadius: CGFloat {
+        set { cone.bottomRadius = newValue }
+        get { return cone.bottomRadius     }
+    }
+    
+    var topRadius: CGFloat {
+        set { cone.topRadius = newValue }
+        get { return cone.topRadius     }
+    }
+    
+    var height: CGFloat {
+        set { cone.height = newValue }
+        get { return cone.height     }
+    }
+    
+    override var size: CGFloat {
         set {
+            
+            if size == 0 {
+                println("Warning: Setting torus size to 0; proportions will be lost.")
+            }
             
             if bottomRadius != 0 {
                 let ratio = topRadius / bottomRadius
@@ -33,41 +58,17 @@ extension SCNCone {
                     topRadius = bottomRadius / ratio
                 }
             }
+     
+            else {
+                bottomRadius = newValue / 2
+                topRadius = 0
+            }
             
             height = newValue
         }
         get {
             return max(max(bottomRadius * 2, topRadius * 2), height)
         }
-    }
-    
-    var radius: CGFloat {
-        set { bottomRadius = newValue }
-        get { return bottomRadius     }
-    }
-}
-
-
-
-@objc class Cone: Shape {
-    
-    
-    var radius: CGFloat {
-        set { cone.radius = newValue }
-        get { return cone.radius     }
-    };  var bottomRadius: CGFloat {
-        set { cone.bottomRadius = newValue }
-        get { return cone.bottomRadius     }
-    }
-    
-    var topRadius: CGFloat {
-        set { cone.topRadius = newValue }
-        get { return cone.topRadius     }
-    }
-    
-    var height: CGFloat {
-        set { cone.height = newValue }
-        get { return cone.height     }
     }
     
     var cone: SCNCone {
@@ -79,3 +80,4 @@ extension SCNCone {
         super.init(geometry: SCNCone())
     }
 }
+

@@ -25,10 +25,5 @@ typealias Scene    = SCNScene
 typealias Vector3 = SCNVector3
 typealias Vector4 = SCNVector4
 
-//typealias Pyramid  = SCNPyramid
-//typealias Sphere   = SCNSphere
-//typealias Torus    = SCNTorus
-//typealias Tube     = SCNTube
-
 typealias MaterialProperty = SCNMaterialProperty
 

@@ -5,20 +5,6 @@ import JavaScriptCore
 
 
 
-extension SCNPyramid {
-    var size: CGFloat {
-        set {
-            width = newValue
-            height = newValue
-            length = newValue
-        }
-        get {
-            return max(max (width, height), length)
-        }
-    }
-}
-
-
 
 @objc class Pyramid: Shape {
     
@@ -38,6 +24,17 @@ extension SCNPyramid {
         get { return pyramid.length     }
     }
     
+    override var size: CGFloat {
+        set {
+            width = newValue
+            height = newValue
+            length = newValue
+        }
+        get {
+            return max(max (width, height), length)
+        }
+    }
+    
     var pyramid: SCNPyramid {
         set { geometry = newValue        }
         get { return geometry as SCNPyramid }
@@ -47,3 +44,4 @@ extension SCNPyramid {
         super.init(geometry: SCNPyramid())
     }
 }
+

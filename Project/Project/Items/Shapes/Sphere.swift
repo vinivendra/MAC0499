@@ -5,18 +5,6 @@ import JavaScriptCore
 
 
 
-extension SCNSphere {
-    var size: CGFloat {
-        set {
-            radius = newValue / 2
-        }
-        get {
-            return radius * 2
-        }
-    }
-}
-
-
 @objc class Sphere: Shape {
     
     var radius: CGFloat {
@@ -24,6 +12,15 @@ extension SCNSphere {
         get { return sphere.radius     }
     }
     
+    override var size: CGFloat {
+        set {
+            radius = newValue / 2
+        }
+        get {
+            return radius * 2
+        }
+    }
+
     var sphere: SCNSphere {
         set { geometry = newValue          }
         get { return geometry as SCNSphere }
@@ -33,5 +30,4 @@ extension SCNSphere {
         super.init(geometry: SCNSphere())
     }
 }
-
 
