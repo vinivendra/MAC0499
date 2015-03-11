@@ -18,6 +18,7 @@
 		2439B7A21AAA4ABF00C257D4 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2439B7A11AAA4ABF00C257D4 /* FileHelper.swift */; };
 		2439B7A51AAA521C00C257D4 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = 2439B7A41AAA521C00C257D4 /* main.js */; };
 		2439B7A71AAA561F00C257D4 /* JavaScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2439B7A61AAA561F00C257D4 /* JavaScript.swift */; };
+		244EF45C1AB090B9005C583C /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244EF45B1AB090B9005C583C /* Plane.swift */; };
 		247D4F9C1AAE6D6E0091C570 /* JSContextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4F9B1AAE6D6E0091C570 /* JSContextExtension.swift */; };
 		247D4F9E1AAE6D940091C570 /* SceneKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4F9D1AAE6D940091C570 /* SceneKitExtensions.swift */; };
 		247D4FAE1AAF4C280091C570 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4FAA1AAF4C280091C570 /* Item.swift */; };
@@ -55,6 +56,7 @@
 		2439B7A11AAA4ABF00C257D4 /* FileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileHelper.swift; path = Helpers/FileHelper.swift; sourceTree = "<group>"; };
 		2439B7A41AAA521C00C257D4 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
 		2439B7A61AAA561F00C257D4 /* JavaScript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JavaScript.swift; sourceTree = "<group>"; };
+		244EF45B1AB090B9005C583C /* Plane.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plane.swift; sourceTree = "<group>"; };
 		247D4F9B1AAE6D6E0091C570 /* JSContextExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSContextExtension.swift; path = Extensions/JSContextExtension.swift; sourceTree = "<group>"; };
 		247D4F9D1AAE6D940091C570 /* SceneKitExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneKitExtensions.swift; path = Extensions/SceneKitExtensions.swift; sourceTree = "<group>"; };
 		247D4FAA1AAF4C280091C570 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				247D4FB11AAF52B90091C570 /* Box.swift */,
 				247D4FB31AAF616F0091C570 /* Cylinder.swift */,
 				247D4FB51AAF653F0091C570 /* Cone.swift */,
+				244EF45B1AB090B9005C583C /* Plane.swift */,
 			);
 			path = Shapes;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				247D4FB61AAF653F0091C570 /* Cone.swift in Sources */,
 				247D4F9E1AAE6D940091C570 /* SceneKitExtensions.swift in Sources */,
 				247D4F9C1AAE6D6E0091C570 /* JSContextExtension.swift in Sources */,
+				244EF45C1AB090B9005C583C /* Plane.swift in Sources */,
 				247D4FB21AAF52B90091C570 /* Box.swift in Sources */,
 				247D4FAF1AAF4C280091C570 /* Shape.swift in Sources */,
 				247D4FB41AAF616F0091C570 /* Cylinder.swift in Sources */,
