@@ -4,16 +4,17 @@ import SceneKit
 
 
 
-let box_height : CGFloat = 1
-let box_length : CGFloat = 1
-let box_width : CGFloat = 1
-let box_chamferRadius : CGFloat = 0
-
-func default_box() -> SCNBox {
-    return SCNBox(width: box_width,
-                 height: box_height,
-                 length: box_length,
-          chamferRadius: box_chamferRadius)
+extension SCNBox {
+    var size: CGFloat {
+        set {
+            width = newValue
+            height = newValue
+            length = newValue
+        }
+        get {
+            return max(max(width, height), length)
+        }
+    }
 }
 
 
@@ -40,31 +41,12 @@ class Box: Shape {
         get { return box.chamferRadius     }
     }
     
-    override var size: CGFloat {
-        set {
-            box.width = newValue
-            box.height = newValue
-            box.length = newValue
-        }
-        get {
-            return 0;
-        }
-    }
-    
     var box: SCNBox {
         set { geometry = newValue       }
-        get {
-            if let optional = geometry as? SCNBox {
-                return optional
-            }
-            else {
-                geometry = default_box()
-                return geometry as SCNBox
-            }
-        }
+        get { return geometry as SCNBox }
     }
     
     override init() {
-        super.init(geometry: default_box())
+        super.init(geometry: SCNBox())
     }
 }

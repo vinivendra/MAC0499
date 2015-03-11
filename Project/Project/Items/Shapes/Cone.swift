@@ -5,12 +5,46 @@ import JavaScriptCore
 
 
 
-let cone_radius: CGFloat = 1
-let cone_topRadius: CGFloat = 0
-let cone_height: CGFloat = 1
-
-func default_cone() -> SCNCone {
-    return SCNCone(topRadius: cone_topRadius, bottomRadius: cone_radius, height: cone_height)
+extension SCNCone {
+    var size: CGFloat {
+        set {
+            
+            if bottomRadius != 0 {
+                let ratio = topRadius / bottomRadius
+                
+                if topRadius > bottomRadius {
+                    topRadius = newValue / 2
+                    bottomRadius = topRadius / ratio
+                }
+                else {
+                    bottomRadius = newValue / 2
+                    topRadius = bottomRadius * ratio
+                }
+            }
+            else if topRadius != 0 {
+                let ratio = bottomRadius / topRadius
+                
+                if topRadius > bottomRadius {
+                    topRadius = newValue / 2
+                    bottomRadius = topRadius * ratio
+                }
+                else {
+                    bottomRadius = newValue / 2
+                    topRadius = bottomRadius / ratio
+                }
+            }
+            
+            height = newValue
+        }
+        get {
+            return max(max(bottomRadius * 2, topRadius * 2), height)
+        }
+    }
+    
+    var radius: CGFloat {
+        set { bottomRadius = newValue }
+        get { return bottomRadius     }
+    }
 }
 
 
@@ -19,8 +53,8 @@ func default_cone() -> SCNCone {
     
     
     var radius: CGFloat {
-        set { cone.bottomRadius = newValue }
-        get { return cone.bottomRadius     }
+        set { cone.radius = newValue }
+        get { return cone.radius     }
     };  var bottomRadius: CGFloat {
         set { cone.bottomRadius = newValue }
         get { return cone.bottomRadius     }
@@ -36,34 +70,12 @@ func default_cone() -> SCNCone {
         get { return cone.height     }
     }
     
-    override var size: CGFloat {
-        set {
-            let ratio = bottomRadius != 0 ?
-                        topRadius / bottomRadius : 1
-            
-            height = newValue
-            radius = newValue / 2
-            topRadius = radius * ratio
-        }
-        get {
-            return 0;
-        }
-    }
-    
     var cone: SCNCone {
-        set { geometry = newValue }
-        get {
-            if let optional = geometry as? SCNCone {
-                return optional
-            }
-            else {
-                geometry = default_cone()
-                return geometry as SCNCone
-            }
-        }
+        set { geometry = newValue        }
+        get { return geometry as SCNCone }
     }
     
     override init() {
-        super.init(geometry: default_cone())
+        super.init(geometry: SCNCone())
     }
 }

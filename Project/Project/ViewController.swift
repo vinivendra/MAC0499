@@ -27,17 +27,12 @@ class ViewController: UIViewController {
         //
         let scene = SCNScene()
         
-        let earth = Sphere()
-            earth.position = Vector(0, 0, -2)
-            earth.color = Color.blueColor()
-            earth.size = 0.6
-        scene.addItem(earth)
-        
         let moon = Cone()
-            moon.position = Vector(Float(earth.radius * 3), 0, 0)
+            moon.position = Vector(0, 0, -1)
             moon.color = Color.lightGrayColor()
-            moon.size = earth.radius / 2
-        earth.addItem(moon)
+            moon.bottomRadius = 0
+            moon.topRadius = 1
+        scene.addItem(moon)
         
         //
         let camera = Camera()
