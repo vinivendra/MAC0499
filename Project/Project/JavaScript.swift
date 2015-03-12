@@ -55,7 +55,6 @@ class JavaScript {
         
         context.setObject(JSValue(double: M_PI, inContext: context), forKeyedSubscript: "pi")
         
-        
         context.setObject(Box.self, forKeyedSubscript: "Box")
     }
     
