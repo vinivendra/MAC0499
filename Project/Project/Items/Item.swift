@@ -36,38 +36,10 @@ import SceneKit
     }
     
     var rotation: AnyObject {
-        didSet {
-            var success = false
-            
-            var nsarray: NSArray?
-            
-            if let array = rotation as? NSArray {
-                nsarray = array
-            }
-            
-            if let value = rotation as? JSValue {
-                if let array = value.toObjectOfClass(NSArray) as? NSArray {
-                    nsarray = array
-                }
-            }
-            
-            if let array = nsarray {
-                if array.count == 4 {
-                    if let x = array[0] as? Float {
-                        if let y = array[1] as? Float {
-                            if let z = array[2] as? Float {
-                                if let w = array[3] as? Float {
-                                    node.rotation = SCNVector4Make(x, y, z, w)
-                                    success = true
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            
-            assert(success, "Error: rotation method not implemented yet!")
+        set {
+            node.rotation = Rotation(anyObject: newValue).toVector()
         }
+        get { return Rotation(any: node.rotation) }
     }
     
     override var description: String {
@@ -84,7 +56,6 @@ import SceneKit
     // MARK: Lifecycle
     
     override init() {
-        rotation = [1, 0, 0, 0]
         
         super.init()
     }
@@ -92,7 +63,6 @@ import SceneKit
     init(geometry: SCNGeometry) {
         
         node.geometry = geometry
-        rotation = [1, 0, 0, 0]
         
         super.init()
     }

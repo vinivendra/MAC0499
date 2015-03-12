@@ -33,6 +33,8 @@
 		247D4FB21AAF52B90091C570 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4FB11AAF52B90091C570 /* Box.swift */; };
 		247D4FB41AAF616F0091C570 /* Cylinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4FB31AAF616F0091C570 /* Cylinder.swift */; };
 		247D4FB61AAF653F0091C570 /* Cone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4FB51AAF653F0091C570 /* Cone.swift */; };
+		248CEBF81AB239A100A79F04 /* MathHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248CEBF71AB239A100A79F04 /* MathHelper.swift */; };
+		248CEBF91AB2425400A79F04 /* MathHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248CEBF71AB239A100A79F04 /* MathHelper.swift */; };
 		24DEC3021AACBFE000A27F95 /* TypeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DEC3011AACBFE000A27F95 /* TypeHelper.swift */; };
 		24E1284D1AB0DEBD0021FED1 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4FAA1AAF4C280091C570 /* Item.swift */; };
 		24E1284E1AB0DEBD0021FED1 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4FAB1AAF4C280091C570 /* Shape.swift */; };
@@ -95,6 +97,7 @@
 		247D4FB11AAF52B90091C570 /* Box.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		247D4FB31AAF616F0091C570 /* Cylinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cylinder.swift; sourceTree = "<group>"; };
 		247D4FB51AAF653F0091C570 /* Cone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cone.swift; sourceTree = "<group>"; };
+		248CEBF71AB239A100A79F04 /* MathHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MathHelper.swift; path = Helpers/MathHelper.swift; sourceTree = "<group>"; };
 		24DEC3011AACBFE000A27F95 /* TypeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -203,6 +206,7 @@
 			children = (
 				24DEC3011AACBFE000A27F95 /* TypeHelper.swift */,
 				2439B7A11AAA4ABF00C257D4 /* FileHelper.swift */,
+				248CEBF71AB239A100A79F04 /* MathHelper.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -348,6 +352,7 @@
 				247D4F9C1AAE6D6E0091C570 /* JSContextExtension.swift in Sources */,
 				244EF45C1AB090B9005C583C /* Plane.swift in Sources */,
 				247D4FB21AAF52B90091C570 /* Box.swift in Sources */,
+				248CEBF81AB239A100A79F04 /* MathHelper.swift in Sources */,
 				247D4FAF1AAF4C280091C570 /* Shape.swift in Sources */,
 				246D10331AB0CFC5002A7E4D /* Tube.swift in Sources */,
 				247D4FB41AAF616F0091C570 /* Cylinder.swift in Sources */,
@@ -368,6 +373,7 @@
 				24E1285B1AB0DF120021FED1 /* JSContextExtension.swift in Sources */,
 				24E1284D1AB0DEBD0021FED1 /* Item.swift in Sources */,
 				24E128541AB0DEBD0021FED1 /* Sphere.swift in Sources */,
+				248CEBF91AB2425400A79F04 /* MathHelper.swift in Sources */,
 				24E1284F1AB0DEBD0021FED1 /* Box.swift in Sources */,
 				24E128501AB0DEBD0021FED1 /* Cylinder.swift in Sources */,
 				24E1285A1AB0DF030021FED1 /* JavaScript.swift in Sources */,
