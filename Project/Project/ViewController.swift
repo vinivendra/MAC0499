@@ -1,11 +1,14 @@
-//TODO: Try implementing rotation on Item back to get-set instead of didSet
-//TODO: Get rotation and position working on JS
+//TODO: Get position working on JS
 //TODO: Add rotation and position to copy() method
 //TODO: Find out what other properties should be added to Item
 
 //TODO: Repeat the process used on Box to the other shapes
 
 //TODO: Create tests for JS
+
+
+//TODO: rotation = [[0.2, 0.3, 0.4], 3]
+//TODO: rotation = [[x:0.2, y:0.3, z:0.4], 3]
 
 import UIKit
 import SceneKit
@@ -30,7 +33,7 @@ class ViewController: UIViewController {
         
         var node = Node()
             node.camera = camera
-            node.position = Vector(0, 0, 5)
+            node.position = SCNVector3Make(0, 0, 5)
         scene.rootNode.addChildNode(node)
         
         //
@@ -40,7 +43,7 @@ class ViewController: UIViewController {
         
             node = Node()
             node.light = light
-            node.position = Vector(3, 3, 3)
+            node.position = SCNVector3Make(3, 3, 3)
         scene.rootNode.addChildNode(node)
         
         //
@@ -50,7 +53,7 @@ class ViewController: UIViewController {
         
             node = Node()
             node.light = light
-            node.position = Vector(-3, -3, -3)
+            node.position = SCNVector3Make(-3, -3, -3)
         scene.rootNode.addChildNode(node)
         
         //
@@ -60,7 +63,7 @@ class ViewController: UIViewController {
         
             node = Node()
             node.light = light
-            node.position = Vector(0, 0, 0)
+            node.position = SCNVector3Make(0, 0, 0)
         scene.rootNode.addChildNode(node)
         
         

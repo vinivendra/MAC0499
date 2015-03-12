@@ -13,6 +13,7 @@ import SceneKit
     var name: String? {get set}
     var items: [Item] {get}
     var rotation: AnyObject {get set}
+    var position: AnyObject {get set}
     
     func addItem(item: Item)
 }
@@ -30,16 +31,14 @@ import SceneKit
     
     let node = SCNNode()
     
-    var position: SCNVector3 {
-        set { node.position = newValue }
-        get { return node.position     }
+    var position: AnyObject {
+        set { node.position = Vector(anyObject: newValue).toVector3() }
+        get { return Vector(any: node.position)                       }
     }
     
     var rotation: AnyObject {
-        set {
-            node.rotation = Rotation(anyObject: newValue).toVector()
-        }
-        get { return Rotation(any: node.rotation) }
+        set { node.rotation = Rotation(anyObject: newValue).toVector4() }
+        get { return Rotation(any: node.rotation)                       }
     }
     
     override var description: String {

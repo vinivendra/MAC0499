@@ -5,13 +5,27 @@ import Foundation
 import SceneKit
 
 
-let _x = Vector(1, 0, 0)
-let _y = Vector(1, 0, 0)
-let _z = Vector(1, 0, 0)
+let _x = SCNVector3Make(1, 0, 0)
+let _y = SCNVector3Make(1, 0, 0)
+let _z = SCNVector3Make(1, 0, 0)
 
-let _invalid = Vector(0, 0, 0)
+let _nil = SCNVector3Make(0, 0, 0)
 
-class Axis {
+
+func floatValue(any: AnyObject) -> Float {
+    if let value = any as? NSNumber {
+        return value.floatValue
+    }
+    else if let value = any as? NSString {
+        return value.floatValue
+    }
+    
+    assertionFailure("Error: trying to create Float from unsupported variable: \(any).")
+    return 0
+}
+
+
+class Vector {
     
     var vector: SCNVector3
     
@@ -30,7 +44,49 @@ class Axis {
     
     
     init() {
-        vector = _invalid
+        vector = _nil
+    }
+    
+    convenience init(anyObject: AnyObject) {
+        if let array = anyObject as? NSArray {
+            self.init(array: array)
+        }
+        else if let dictionary = anyObject as? NSDictionary {
+            self.init(dictionary: dictionary)
+        }
+        else if let name = anyObject as? String {
+            self.init(name: name)
+        }
+        else {
+            assertionFailure("Error: couldn't find a suitable vector initialization method for the variable: \(anyObject).")
+            self.init()
+        }
+    }
+    
+    convenience init(any: Any) {
+        if let vector = any as? SCNVector3 {
+            self.init(vector: vector)
+        }
+        else if let vector = any as? SCNVector4 {
+            self.init(vector: vector)
+        }
+        else if let array = any as? NSArray {
+            self.init(array: array)
+        }
+        else if let dictionary = any as? NSDictionary {
+            self.init(dictionary: dictionary)
+        }
+        else if let name = any as? String {
+            self.init(name: name)
+        }
+        else {
+            assertionFailure("Error: couldn't find a suitable vector initialization method for the variable: \(any).")
+            self.init()
+        }
+    }
+    
+    init(_ x: Float, _ y: Float, _ z: Float) {
+        self.vector = SCNVector3Make(x, y, z)
     }
     
     init(vector: SCNVector3) {
@@ -38,42 +94,42 @@ class Axis {
     }
     
     init(vector: SCNVector4) {
-        self.vector = Vector(vector.x, vector.y, vector.z)
+        self.vector = SCNVector3Make(vector.x, vector.y, vector.z)
     }
     
     init(array: NSArray) {
         var success = false
         
-        self.vector = _invalid
+        self.vector = _nil
         
         if let x = array[0] as? Float {
             if let y = array[1] as? Float {
                 if let z = array[2] as? Float {
-                    self.vector = Vector(x, y, z)
+                    self.vector = SCNVector3Make(x, y, z)
                     success = true
                 }
             }
         }
         
-        assert(success, "Error: trying to initialize an Axis using an invalid array: \(array).")
+        assert(success, "Error: trying to initialize an Vector using an invalid array: \(array).")
     }
     
     convenience init(dictionary: NSDictionary) {
     
         if let value:AnyObject = dictionary["axis"] {
-            if let name = value as? String {
-                self.init(name: name)
-            }
-            else if let array = value as? NSArray {
-                self.init(array: array)
-            }
-            else {
-                assertionFailure("Error: trying to initialize an Axis using an invalid dictionary: \(dictionary).")
-                self.init()
-            }
+            self.init(anyObject: value)
+        }
+        else if let value:AnyObject = dictionary["vector"] {
+            self.init(anyObject: value)
+        }
+        else if let x:AnyObject = dictionary["x"] {
+                let y:AnyObject = dictionary["y"]!
+                let z:AnyObject = dictionary["z"]!
+            
+            self.init(floatValue(x), floatValue(y), floatValue(z))
         }
         else {
-            assertionFailure("Error: trying to initialize an Axis using an invalid dictionary: \(dictionary).")
+            assertionFailure("Error: trying to initialize an Vector using an invalid dictionary: \(dictionary).")
             self.init()
         }
     }
@@ -89,8 +145,12 @@ class Axis {
             vector = _z
         }
         else {
-            vector = _invalid
+            vector = _nil
         }
+    }
+    
+    func toVector3() -> SCNVector3 {
+        return SCNVector3Make(x, y, z)
     }
 }
 
@@ -98,13 +158,13 @@ class Axis {
 
 class Rotation {
     
-    var axis: Axis
+    var axis: Vector
  
     var angle: Float
     
     
     init() {
-        axis = Axis()
+        axis = Vector()
         angle = 0
     }
     
@@ -138,12 +198,12 @@ class Rotation {
     }
     
     init(vector: SCNVector4) {
-        axis = Axis(vector: vector)
+        axis = Vector(vector: vector)
         angle = vector.w
     }
     
     init(array: NSArray) {
-        axis = Axis(array: array)
+        axis = Vector(array: array)
         angle = 0
         
         if let w = array[3] as? Float {
@@ -155,7 +215,7 @@ class Rotation {
     }
     
     init(dictionary: NSDictionary) {
-        axis = Axis(dictionary: dictionary)
+        axis = Vector(dictionary: dictionary)
         angle = 0
         
         if let value = dictionary["angle"] as? Float {
@@ -169,7 +229,7 @@ class Rotation {
     }
     
     
-    func toVector() -> SCNVector4 {
+    func toVector4() -> SCNVector4 {
         return SCNVector4Make(axis.x, axis.y, axis.z, angle)
     }
 }

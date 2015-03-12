@@ -10,12 +10,6 @@ import Foundation
 import SceneKit
 
 
-let origin = Vector(0, 0, 0)
-
-func Vector(x : Float, y : Float, z : Float) -> SCNVector3 {
-    return SCNVector3Make(x, y, z)
-}
-
 
 let scene = SCNScene()
 
