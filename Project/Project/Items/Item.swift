@@ -1,27 +1,23 @@
-//
-//  Item.swift
-//  Project
-//
-//  Created by Vinicius Vendramini on 08/03/15.
-//  Copyright (c) 2015 Vinicius Vendramini. All rights reserved.
-//
+
 
 import Foundation
 import SceneKit
 
+@objc protocol CreatableExport: JSExport {
+    class func template() -> JSValue
+    class func create() -> JSValue
+    func create() -> JSValue
+}
 
-
-@objc protocol ItemExport: JSExport {
+@objc protocol ItemExport: JSExport, CreatableExport {
     var name: String? {get set}
-    
     var items: [Item] {get}
-    
-    func create() ->JSValue
+    var rotation: AnyObject {get set}
     
     func addItem(item: Item)
 }
 
-@objc class Item: NSObject, NSCopying, Printable, ItemExport, CreatableExport {
+@objc class Item: NSObject, NSCopying, Printable, ItemExport {
     
     // MARK: Properties
     
@@ -39,9 +35,39 @@ import SceneKit
         get { return node.position     }
     }
     
-    var rotation: SCNVector4 {
-        set { node.rotation = newValue }
-        get { return node.rotation     }
+    var rotation: AnyObject {
+        didSet {
+            var success = false
+            
+            var nsarray: NSArray?
+            
+            if let array = rotation as? NSArray {
+                nsarray = array
+            }
+            
+            if let value = rotation as? JSValue {
+                if let array = value.toObjectOfClass(NSArray) as? NSArray {
+                    nsarray = array
+                }
+            }
+            
+            if let array = nsarray {
+                if array.count == 4 {
+                    if let x = array[0] as? Float {
+                        if let y = array[1] as? Float {
+                            if let z = array[2] as? Float {
+                                if let w = array[3] as? Float {
+                                    node.rotation = SCNVector4Make(x, y, z, w)
+                                    success = true
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+            assert(success, "Error: rotation method not implemented yet!")
+        }
     }
     
     override var description: String {
@@ -57,27 +83,23 @@ import SceneKit
     
     // MARK: Lifecycle
     
-    func commonInit() {
-        scene.addItem(self)
-    }
-    
     override init() {
+        rotation = [1, 0, 0, 0]
+        
         super.init()
-        commonInit()
     }
     
     init(geometry: SCNGeometry) {
         
         node.geometry = geometry
+        rotation = [1, 0, 0, 0]
         
         super.init()
-        commonInit()
     }
     
     func copyWithZone(zone: NSZone) -> AnyObject {
         
-        let copy = Item.allocWithZone(zone)
-            copy.commonInit()
+        let copy = Item()
             copy.name = name
         
         for item in items {
@@ -88,21 +110,27 @@ import SceneKit
     }
     
     class func template() -> JSValue {
-        return self.create()
+        return self.templateWithItem(Item())
     }
     
     class func create() -> JSValue {
-        let newItem = Item()
+        return self.createWithItem(Item())
+    }
+    
+    func create() -> JSValue {
+        return Item.createWithItem(self.copy() as Item)
+    }
+    
+    class func createWithItem(item: Item) -> JSValue {
+        scene.addItem(item)
         
-        let value = JSValue(object: newItem, inContext: JavaScript.sharedContext())
+        let value = JSValue(object: item, inContext: JavaScript.sharedContext())
         
         return value
     }
     
-    func create() -> JSValue {
-        let newItem = self.copy() as Item
-        
-        let value = JSValue(object: newItem, inContext: JavaScript.sharedContext())
+    class func templateWithItem(item: Item) -> JSValue {
+        let value = JSValue(object: item, inContext: JavaScript.sharedContext())
         
         return value
     }

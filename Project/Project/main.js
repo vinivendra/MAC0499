@@ -1,7 +1,11 @@
 
-function load () {
-    var boxTemplate = box.template()
+
+
+
+function load() {
+
+    
+    var t = Box.template()
+    
+    var i = t.create()
 }
-
-
-

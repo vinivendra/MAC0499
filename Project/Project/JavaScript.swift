@@ -53,8 +53,10 @@ class JavaScript {
         context.setObject(unsafeBitCast(jsPrint, AnyObject.self), forKeyedSubscript: "print")
         context.setObject(console.self,                           forKeyedSubscript: "console")
         
+        context.setObject(JSValue(double: M_PI, inContext: context), forKeyedSubscript: "pi")
         
-        context.setObject(Box(), forKeyedSubscript: "box")
+        
+        context.setObject(Box.self, forKeyedSubscript: "Box")
     }
     
     
@@ -65,6 +67,7 @@ class JavaScript {
         updateFunction = context.objectForKeyedSubscript("update")
 
         loadFunction   = context.objectForKeyedSubscript("load")
+        loadFunction?.callWithArguments([])
     }
 
     
@@ -112,7 +115,4 @@ class JavaScript {
 
 
 
-@objc protocol CreatableExport : JSExport {
-    class func create() -> JSValue
-}
 

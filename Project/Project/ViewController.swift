@@ -1,10 +1,11 @@
-//
-//  ViewController.swift
-//  Project
-//
-//  Created by Vinicius Vendramini on 06/03/15.
-//  Copyright (c) 2015 Vinicius Vendramini. All rights reserved.
-//
+//TODO: Try implementing rotation on Item back to get-set instead of didSet
+//TODO: Get rotation and position working on JS
+//TODO: Add rotation and position to copy() method
+//TODO: Find out what other properties should be added to Item
+
+//TODO: Repeat the process used on Box to the other shapes
+
+//TODO: Create tests for JS
 
 import UIKit
 import SceneKit
@@ -20,8 +21,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        javaScript.load()  
         
-        javaScript.load()        
         
         //
         let camera = Camera()
@@ -66,5 +68,4 @@ class ViewController: UIViewController {
     }
 
 }
-
 

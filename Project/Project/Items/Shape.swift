@@ -9,7 +9,7 @@
 import Foundation
 import SceneKit
 
-@objc protocol ShapeExport : JSExport {
+@objc protocol ShapeExport : ItemExport {
     var color: Color? {get set}
 }
 
