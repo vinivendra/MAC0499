@@ -57,18 +57,27 @@ import SceneKit
     
     // MARK: Lifecycle
     
+    func commonInit() {
+        scene.addItem(self)
+    }
+    
     override init() {
-        
+        super.init()
+        commonInit()
     }
     
     init(geometry: SCNGeometry) {
         
         node.geometry = geometry
+        
+        super.init()
+        commonInit()
     }
     
     func copyWithZone(zone: NSZone) -> AnyObject {
         
         let copy = Item.allocWithZone(zone)
+            copy.commonInit()
             copy.name = name
         
         for item in items {
@@ -76,6 +85,10 @@ import SceneKit
         }
         
         return copy
+    }
+    
+    class func template() -> JSValue {
+        return self.create()
     }
     
     class func create() -> JSValue {

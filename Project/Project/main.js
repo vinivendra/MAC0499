@@ -1,10 +1,6 @@
-var bla = "hue";
-
-console.log("hue");
-print("hue");
 
 function load () {
-    
+    var boxTemplate = box.template()
 }
 
 

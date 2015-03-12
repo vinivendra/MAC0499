@@ -22,16 +22,8 @@ class SphereTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    func testInitialization() {
         
-        var sphere = Sphere()
-            sphere.position = Vector(0, 0, 0)
-            sphere.color = Color.lightGrayColor()
-            sphere.rotation = SCNVector4Make(1, 0, 0, Float(M_PI_2))
-            sphere.size = 1
-            sphere.radius = 2
-        
-        XCTAssertNotNil(sphere, "Failed to initialize a sphere!!")
     }
     
 }

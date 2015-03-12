@@ -21,28 +21,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        javaScript.load()
-
-        
-        //
-        let scene = SCNScene()
-        
-        let moon = Capsule()
-            moon.position = Vector(0, 0, -1)
-            moon.color = Color.lightGrayColor()
-            moon.size = 1
-        scene.addItem(moon)
-        
-        moon.rotation = SCNVector4Make(0.2, 0.4, 0.3, 1.5)
-        
-        
+        javaScript.load()        
         
         //
         let camera = Camera()
         
         var node = Node()
             node.camera = camera
-            node.position = Vector(0, 0, 2)
+            node.position = Vector(0, 0, 5)
         scene.rootNode.addChildNode(node)
         
         //

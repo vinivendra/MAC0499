@@ -17,7 +17,7 @@ func Vector(x : Float, y : Float, z : Float) -> SCNVector3 {
 }
 
 
-
+let scene = SCNScene()
 
 extension SCNScene {
     

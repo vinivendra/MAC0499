@@ -46,12 +46,15 @@ class JavaScript {
         
         context.exceptionHandler = self.handleException
         
+        
         let jsPrint: @objc_block AnyObject? -> Void = { input in
             console.log(input)
         }
-        
         context.setObject(unsafeBitCast(jsPrint, AnyObject.self), forKeyedSubscript: "print")
         context.setObject(console.self,                           forKeyedSubscript: "console")
+        
+        
+        context.setObject(Box(), forKeyedSubscript: "box")
     }
     
     

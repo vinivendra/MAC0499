@@ -3,10 +3,16 @@ import Foundation
 import SceneKit
 
 
+@objc protocol BoxExport: JSExport {
+    var length:        CGFloat {get set}
+    var height:        CGFloat {get set}
+    var width:         CGFloat {get set}
+    var chamferRadius: CGFloat {get set}
+    var size:          CGFloat {get set}
+}
 
 
-
-class Box: Shape {
+@objc class Box: Shape {
     
     var length: CGFloat {
         set { box.length = newValue }
@@ -43,6 +49,7 @@ class Box: Shape {
         set { geometry = newValue       }
         get { return geometry as SCNBox }
     }
+    
     
     override init() {
         super.init(geometry: SCNBox())
