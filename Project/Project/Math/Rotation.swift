@@ -6,8 +6,8 @@ import SceneKit
 
 
 @objc protocol RotationExport: JSExport {
-    var axis:   Vector {get set}
-    var vector: Vector {get set}
+    var axis:   Axis {get set}
+    var vector: Axis {get set}
     var x:      Float  {get set}
     var y:      Float  {get set}
     var z:      Float  {get set}
@@ -19,9 +19,9 @@ import SceneKit
 
 @objc class Rotation: NSObject, RotationExport {
     
-    var axis: Vector
+    var axis: Axis
     
-    var vector: Vector {
+    var vector: Axis {
         set { axis = newValue }
         get { return axis     }
     }
@@ -89,12 +89,12 @@ import SceneKit
     }
     
     override init() {
-        axis = Vector()
+        axis = Axis()
         angle = 0
     }
     
     convenience init(_ x: Float, _ y: Float, _ z: Float, _ w: Float) {
-        self.init(vector: SCNVector4Make(x, y, z, w))
+        self.init(axis: SCNVector4Make(x, y, z, w))
     }
     
     convenience init(anyObject: AnyObject) {
@@ -111,8 +111,8 @@ import SceneKit
     }
     
     convenience init(any: Any) {
-        if let vector = any as? SCNVector4 {
-            self.init(vector: vector)
+        if let axis = any as? SCNVector4 {
+            self.init(axis: axis)
         }
         else if let array = any as? NSArray {
             self.init(array: array)
@@ -126,18 +126,18 @@ import SceneKit
         }
     }
     
-    init(vector: SCNVector4) {
-        axis = Vector(vector: vector)
-        angle = vector.w
+    init(axis: SCNVector4) {
+        self.axis = Axis(axis: axis)
+        self.angle = axis.w
     }
     
     init(array: NSArray) {
-        axis = Vector(array: array)
+        axis = Axis(array: array)
         angle = array[3] as Float
     }
     
     init(dictionary: NSDictionary) {
-        axis = Vector(dictionary: dictionary)
+        axis = Axis(dictionary: dictionary)
         angle = Float.infinity
         
         var success = false

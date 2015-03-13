@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		240399FB1AABF1DD00134538 /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 240399FA1AABF1DD00134538 /* SceneKit.framework */; };
+		241F9ABC1AB3838F00516E77 /* Axis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241F9ABB1AB3838F00516E77 /* Axis.swift */; };
+		241F9ABE1AB383AD00516E77 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241F9ABD1AB383AD00516E77 /* Vector.swift */; };
+		241F9ABF1AB3848F00516E77 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241F9ABD1AB383AD00516E77 /* Vector.swift */; };
+		241F9AC01AB3849200516E77 /* Axis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241F9ABB1AB3838F00516E77 /* Axis.swift */; };
+		241F9AC11AB385FB00516E77 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = 2439B7A41AAA521C00C257D4 /* main.js */; };
 		2439B7771AAA484000C257D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2439B7761AAA484000C257D4 /* AppDelegate.swift */; };
 		2439B7791AAA484000C257D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2439B7781AAA484000C257D4 /* ViewController.swift */; };
 		2439B77C1AAA484000C257D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2439B77A1AAA484000C257D4 /* Main.storyboard */; };
@@ -25,7 +30,6 @@
 		246D10351AB0D5FB002A7E4D /* Capsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246D10341AB0D5FB002A7E4D /* Capsule.swift */; };
 		246D10371AB0D6DE002A7E4D /* Floor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246D10361AB0D6DE002A7E4D /* Floor.swift */; };
 		246D10391AB0D71B002A7E4D /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246D10381AB0D71B002A7E4D /* Text.swift */; };
-		247D4F9C1AAE6D6E0091C570 /* JSContextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4F9B1AAE6D6E0091C570 /* JSContextExtension.swift */; };
 		247D4F9E1AAE6D940091C570 /* SceneKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4F9D1AAE6D940091C570 /* SceneKitExtensions.swift */; };
 		247D4FAE1AAF4C280091C570 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4FAA1AAF4C280091C570 /* Item.swift */; };
 		247D4FAF1AAF4C280091C570 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4FAB1AAF4C280091C570 /* Shape.swift */; };
@@ -33,8 +37,6 @@
 		247D4FB21AAF52B90091C570 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4FB11AAF52B90091C570 /* Box.swift */; };
 		247D4FB41AAF616F0091C570 /* Cylinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4FB31AAF616F0091C570 /* Cylinder.swift */; };
 		247D4FB61AAF653F0091C570 /* Cone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4FB51AAF653F0091C570 /* Cone.swift */; };
-		248CEBF81AB239A100A79F04 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248CEBF71AB239A100A79F04 /* Vector.swift */; };
-		248CEBF91AB2425400A79F04 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248CEBF71AB239A100A79F04 /* Vector.swift */; };
 		24C251851AB25CEC00A4F7C7 /* Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C251841AB25CEC00A4F7C7 /* Rotation.swift */; };
 		24C251871AB25D4A00A4F7C7 /* Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C251841AB25CEC00A4F7C7 /* Rotation.swift */; };
 		24DEC3021AACBFE000A27F95 /* TypeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DEC3011AACBFE000A27F95 /* TypeHelper.swift */; };
@@ -52,7 +54,6 @@
 		24E128581AB0DEBD0021FED1 /* Floor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246D10361AB0D6DE002A7E4D /* Floor.swift */; };
 		24E128591AB0DEBD0021FED1 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246D10381AB0D71B002A7E4D /* Text.swift */; };
 		24E1285A1AB0DF030021FED1 /* JavaScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2439B7A61AAA561F00C257D4 /* JavaScript.swift */; };
-		24E1285B1AB0DF120021FED1 /* JSContextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4F9B1AAE6D6E0091C570 /* JSContextExtension.swift */; };
 		24E1285C1AB0DF120021FED1 /* SceneKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247D4F9D1AAE6D940091C570 /* SceneKitExtensions.swift */; };
 		24E1285D1AB0DF160021FED1 /* TypeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DEC3011AACBFE000A27F95 /* TypeHelper.swift */; };
 		24E1285E1AB0DF160021FED1 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2439B7A11AAA4ABF00C257D4 /* FileHelper.swift */; };
@@ -70,6 +71,8 @@
 
 /* Begin PBXFileReference section */
 		240399FA1AABF1DD00134538 /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
+		241F9ABB1AB3838F00516E77 /* Axis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Axis.swift; path = Math/Axis.swift; sourceTree = "<group>"; };
+		241F9ABD1AB383AD00516E77 /* Vector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Vector.swift; path = Math/Vector.swift; sourceTree = "<group>"; };
 		2439B7711AAA484000C257D4 /* Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2439B7751AAA484000C257D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2439B7761AAA484000C257D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -91,7 +94,6 @@
 		246D10341AB0D5FB002A7E4D /* Capsule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Capsule.swift; sourceTree = "<group>"; };
 		246D10361AB0D6DE002A7E4D /* Floor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Floor.swift; sourceTree = "<group>"; };
 		246D10381AB0D71B002A7E4D /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
-		247D4F9B1AAE6D6E0091C570 /* JSContextExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSContextExtension.swift; path = Extensions/JSContextExtension.swift; sourceTree = "<group>"; };
 		247D4F9D1AAE6D940091C570 /* SceneKitExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneKitExtensions.swift; path = Extensions/SceneKitExtensions.swift; sourceTree = "<group>"; };
 		247D4FAA1AAF4C280091C570 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		247D4FAB1AAF4C280091C570 /* Shape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
@@ -99,7 +101,6 @@
 		247D4FB11AAF52B90091C570 /* Box.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		247D4FB31AAF616F0091C570 /* Cylinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cylinder.swift; sourceTree = "<group>"; };
 		247D4FB51AAF653F0091C570 /* Cone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cone.swift; sourceTree = "<group>"; };
-		248CEBF71AB239A100A79F04 /* Vector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Vector.swift; path = Helpers/Vector.swift; sourceTree = "<group>"; };
 		24C251841AB25CEC00A4F7C7 /* Rotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Rotation.swift; path = Math/Rotation.swift; sourceTree = "<group>"; };
 		24DEC3011AACBFE000A27F95 /* TypeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -199,7 +200,6 @@
 		2439B79F1AAA4A7100C257D4 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				247D4F9B1AAE6D6E0091C570 /* JSContextExtension.swift */,
 				247D4F9D1AAE6D940091C570 /* SceneKitExtensions.swift */,
 			);
 			name = Extensions;
@@ -245,8 +245,9 @@
 		24C251861AB25CF500A4F7C7 /* Math */ = {
 			isa = PBXGroup;
 			children = (
+				241F9ABB1AB3838F00516E77 /* Axis.swift */,
 				24C251841AB25CEC00A4F7C7 /* Rotation.swift */,
-				248CEBF71AB239A100A79F04 /* Vector.swift */,
+				241F9ABD1AB383AD00516E77 /* Vector.swift */,
 			);
 			name = Math;
 			sourceTree = "<group>";
@@ -342,6 +343,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				241F9AC11AB385FB00516E77 /* main.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,15 +364,15 @@
 				247D4F9E1AAE6D940091C570 /* SceneKitExtensions.swift in Sources */,
 				246D10371AB0D6DE002A7E4D /* Floor.swift in Sources */,
 				24C251851AB25CEC00A4F7C7 /* Rotation.swift in Sources */,
-				247D4F9C1AAE6D6E0091C570 /* JSContextExtension.swift in Sources */,
 				244EF45C1AB090B9005C583C /* Plane.swift in Sources */,
 				247D4FB21AAF52B90091C570 /* Box.swift in Sources */,
-				248CEBF81AB239A100A79F04 /* Vector.swift in Sources */,
+				241F9ABE1AB383AD00516E77 /* Vector.swift in Sources */,
 				247D4FAF1AAF4C280091C570 /* Shape.swift in Sources */,
 				246D10331AB0CFC5002A7E4D /* Tube.swift in Sources */,
 				247D4FB41AAF616F0091C570 /* Cylinder.swift in Sources */,
 				246D102F1AB0AC3D002A7E4D /* Pyramid.swift in Sources */,
 				247D4FAE1AAF4C280091C570 /* Item.swift in Sources */,
+				241F9ABC1AB3838F00516E77 /* Axis.swift in Sources */,
 				2439B7771AAA484000C257D4 /* AppDelegate.swift in Sources */,
 				2439B7A21AAA4ABF00C257D4 /* FileHelper.swift in Sources */,
 				24DEC3021AACBFE000A27F95 /* TypeHelper.swift in Sources */,
@@ -383,10 +385,9 @@
 			files = (
 				24E128511AB0DEBD0021FED1 /* Cone.swift in Sources */,
 				24E128571AB0DEBD0021FED1 /* Capsule.swift in Sources */,
-				24E1285B1AB0DF120021FED1 /* JSContextExtension.swift in Sources */,
+				241F9ABF1AB3848F00516E77 /* Vector.swift in Sources */,
 				24E1284D1AB0DEBD0021FED1 /* Item.swift in Sources */,
 				24E128541AB0DEBD0021FED1 /* Sphere.swift in Sources */,
-				248CEBF91AB2425400A79F04 /* Vector.swift in Sources */,
 				24E1284F1AB0DEBD0021FED1 /* Box.swift in Sources */,
 				24E128501AB0DEBD0021FED1 /* Cylinder.swift in Sources */,
 				24E1285A1AB0DF030021FED1 /* JavaScript.swift in Sources */,
@@ -398,6 +399,7 @@
 				24C251871AB25D4A00A4F7C7 /* Rotation.swift in Sources */,
 				24E128581AB0DEBD0021FED1 /* Floor.swift in Sources */,
 				24E128591AB0DEBD0021FED1 /* Text.swift in Sources */,
+				241F9AC01AB3849200516E77 /* Axis.swift in Sources */,
 				2439B78D1AAA484000C257D4 /* SphereTests.swift in Sources */,
 				24E128531AB0DEBD0021FED1 /* Pyramid.swift in Sources */,
 				24E1285E1AB0DF160021FED1 /* FileHelper.swift in Sources */,
