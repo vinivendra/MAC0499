@@ -5,6 +5,7 @@ import JavaScriptCore
 import SceneKit
 
 
+
 @objc protocol RotationExport: JSExport {
     var axis:   Axis {get set}
     var vector: Axis {get set}
@@ -50,7 +51,7 @@ import SceneKit
     
     var a: Float {
         set { angle = newValue }
-        get { return angle     }
+        get { return angle  }
     }
     
     subscript(index: Int) -> Float {
@@ -88,11 +89,6 @@ import SceneKit
         }
     }
     
-    override init() {
-        axis = Axis()
-        angle = 0
-    }
-    
     convenience init(_ x: Float, _ y: Float, _ z: Float, _ w: Float) {
         self.init(axis: SCNVector4Make(x, y, z, w))
     }
@@ -106,7 +102,6 @@ import SceneKit
         }
         else {
             assertionFailure("Error: couldn't find a suitable rotation initialization method for the variable: \(anyObject).")
-            self.init()
         }
     }
     
@@ -122,42 +117,22 @@ import SceneKit
         }
         else {
             assertionFailure("Error: couldn't find a suitable rotation initialization method for the variable: \(any).")
-            self.init()
         }
     }
     
     init(axis: SCNVector4) {
-        self.axis = Axis(axis: axis)
+        self.axis = Axis(axis)
         self.angle = axis.w
     }
     
     init(array: NSArray) {
-        axis = Axis(array: array)
-        angle = array[3] as Float
+        axis = Axis(array)
+        angle = Angle(array).toRadians()
     }
     
     init(dictionary: NSDictionary) {
-        axis = Axis(dictionary: dictionary)
-        angle = Float.infinity
-        
-        var success = false
-        
-        let subscripts = ["w", "W", "a", "A", "3", "angle", "Angle", "ANGLE"]
-        
-        for index in subscripts {
-            if let value = dictionary[index] as? Float {
-                angle = value
-                success = true
-            }
-            else if let array = dictionary[index] as? NSArray {
-                if let value = array[4] as? Float {
-                    angle = value
-                    success = true
-                }
-            }
-        }
-        
-        assert(success, "Error: couldn't find angle for Rotation when initializing with dictionary: \(dictionary).")
+        axis = Axis(dictionary)
+        angle = Angle(dictionary).toRadians()
     }
     
     

@@ -64,45 +64,40 @@ let _z = SCNVector3Make(1, 0, 0)
     }
     
     
-    override init() {
-        axis = _nilVector3
-    }
     
-    convenience init(anyObject: AnyObject) {
+    convenience init(_ anyObject: AnyObject) {
         if let array = anyObject as? NSArray {
-            self.init(array: array)
+            self.init(array)
         }
         else if let dictionary = anyObject as? NSDictionary {
-            self.init(dictionary: dictionary)
+            self.init(dictionary)
         }
         else if let name = anyObject as? NSString {
-            self.init(name: name)
+            self.init(name)
         }
         else {
             assertionFailure("Error: couldn't find a suitable axis initialization method for the variable: \(anyObject).")
-            self.init()
         }
     }
     
-    convenience init(any: Any) {
+    convenience init(_ any: Any) {
         if let axis = any as? SCNVector3 {
-            self.init(axis: axis)
+            self.init(axis)
         }
         else if let axis = any as? SCNVector4 {
-            self.init(axis: axis)
+            self.init(axis)
         }
         else if let array = any as? NSArray {
-            self.init(array: array)
+            self.init(array)
         }
         else if let dictionary = any as? NSDictionary {
-            self.init(dictionary: dictionary)
+            self.init(dictionary)
         }
         else if let name = any as? NSString {
-            self.init(name: name)
+            self.init(name)
         }
         else {
             assertionFailure("Error: couldn't find a suitable axis initialization method for the variable: \(any).")
-            self.init()
         }
     }
     
@@ -110,15 +105,15 @@ let _z = SCNVector3Make(1, 0, 0)
         self.axis = SCNVector3Make(x, y, z)
     }
     
-    init(axis: SCNVector3) {
-        self.axis = axis
+    init(_ vector: SCNVector3) {
+        self.axis = vector
     }
     
-    init(axis: SCNVector4) {
-        self.axis = SCNVector3Make(axis.x, axis.y, axis.z)
+    init(_ vector: SCNVector4) {
+        self.axis = SCNVector3Make(vector.x, vector.y, vector.z)
     }
     
-    init(array: NSArray) {
+    init(_ array: NSArray) {
         
         let x = array[0] as Float
         let y = array[1] as Float
@@ -126,13 +121,13 @@ let _z = SCNVector3Make(1, 0, 0)
         self.axis = SCNVector3Make(x, y, z)
     }
     
-    convenience init(dictionary: NSDictionary) {
+    convenience init(_ dictionary: NSDictionary) {
         
         let subscripts = ["axis", "Axis", "AXIS"]
         
         for index in subscripts {
             if let value:AnyObject = dictionary[index] {
-                self.init(anyObject: value)
+                self.init(value)
                 return
             }
         }
@@ -157,11 +152,10 @@ let _z = SCNVector3Make(1, 0, 0)
         }
         else {
             assertionFailure("Error: trying to initialize an Axis using an invalid dictionary: \(dictionary).")
-            self.init()
         }
     }
     
-    init(name: String) {
+    init(_ name: String) {
         if name == "x" || name == "X" {
             axis = _x
         }

@@ -15,6 +15,8 @@
 		241F9AC11AB385FB00516E77 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = 2439B7A41AAA521C00C257D4 /* main.js */; };
 		241F9AC31AB38C3500516E77 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241F9AC21AB38C3500516E77 /* Point.swift */; };
 		241F9AC41AB38C3500516E77 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241F9AC21AB38C3500516E77 /* Point.swift */; };
+		241F9AC61AB38F1600516E77 /* Angle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241F9AC51AB38F1600516E77 /* Angle.swift */; };
+		241F9AC71AB38F1600516E77 /* Angle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241F9AC51AB38F1600516E77 /* Angle.swift */; };
 		2439B7771AAA484000C257D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2439B7761AAA484000C257D4 /* AppDelegate.swift */; };
 		2439B7791AAA484000C257D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2439B7781AAA484000C257D4 /* ViewController.swift */; };
 		2439B77C1AAA484000C257D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2439B77A1AAA484000C257D4 /* Main.storyboard */; };
@@ -76,6 +78,7 @@
 		241F9ABB1AB3838F00516E77 /* Axis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Axis.swift; path = Math/Axis.swift; sourceTree = "<group>"; };
 		241F9ABD1AB383AD00516E77 /* Vector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Vector.swift; path = Math/Vector.swift; sourceTree = "<group>"; };
 		241F9AC21AB38C3500516E77 /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Point.swift; path = Math/Point.swift; sourceTree = "<group>"; };
+		241F9AC51AB38F1600516E77 /* Angle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Angle.swift; path = Math/Angle.swift; sourceTree = "<group>"; };
 		2439B7711AAA484000C257D4 /* Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2439B7751AAA484000C257D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2439B7761AAA484000C257D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -248,6 +251,7 @@
 		24C251861AB25CF500A4F7C7 /* Math */ = {
 			isa = PBXGroup;
 			children = (
+				241F9AC51AB38F1600516E77 /* Angle.swift */,
 				241F9ABB1AB3838F00516E77 /* Axis.swift */,
 				241F9AC21AB38C3500516E77 /* Point.swift */,
 				24C251841AB25CEC00A4F7C7 /* Rotation.swift */,
@@ -371,6 +375,7 @@
 				244EF45C1AB090B9005C583C /* Plane.swift in Sources */,
 				247D4FB21AAF52B90091C570 /* Box.swift in Sources */,
 				241F9ABE1AB383AD00516E77 /* Vector.swift in Sources */,
+				241F9AC61AB38F1600516E77 /* Angle.swift in Sources */,
 				247D4FAF1AAF4C280091C570 /* Shape.swift in Sources */,
 				246D10331AB0CFC5002A7E4D /* Tube.swift in Sources */,
 				247D4FB41AAF616F0091C570 /* Cylinder.swift in Sources */,
@@ -408,6 +413,7 @@
 				2439B78D1AAA484000C257D4 /* SphereTests.swift in Sources */,
 				241F9AC41AB38C3500516E77 /* Point.swift in Sources */,
 				24E128531AB0DEBD0021FED1 /* Pyramid.swift in Sources */,
+				241F9AC71AB38F1600516E77 /* Angle.swift in Sources */,
 				24E1285E1AB0DF160021FED1 /* FileHelper.swift in Sources */,
 				24E128521AB0DEBD0021FED1 /* Plane.swift in Sources */,
 			);
