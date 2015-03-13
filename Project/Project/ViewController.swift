@@ -1,6 +1,4 @@
-//TODO: Separate Vector from Point from Axis
 //TODO: Find out if the rotation axis needs to be normalized
-//TODO: Add rotation and position to copy() method
 //TODO: Create tests for JS
 
 //TODO: Find out what other properties should be added to Item

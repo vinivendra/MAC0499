@@ -29,7 +29,7 @@ import SceneKit
     
     var items = [Item]()
     
-    let node = SCNNode()
+    var node = SCNNode()
     
     var position: AnyObject {
         set { node.position = Point(anyObject: newValue).toVector3() }
@@ -70,6 +70,7 @@ import SceneKit
         
         let copy = Item()
             copy.name = name
+            copy.node = node.copy() as SCNNode
         
         for item in items {
             copy.items.append(item.copy() as Item)
