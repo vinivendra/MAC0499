@@ -1,5 +1,7 @@
 //TODO: Find out if the rotation axis needs to be normalized
 //TODO: Create tests for JS
+//TODO: j.rotation = i.rotation;
+//TODO: j.color = <any>
 
 //TODO: Find out what other properties should be added to Item
 
