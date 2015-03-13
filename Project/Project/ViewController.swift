@@ -1,3 +1,4 @@
+//TODO: Try to use a subclass of dictionary or array as an externalization for Vectors on JS
 //TODO: Find out if the rotation axis needs to be normalized
 //TODO: Create tests for JS
 //TODO: j.rotation = i.rotation;
