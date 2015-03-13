@@ -32,7 +32,7 @@ import SceneKit
     let node = SCNNode()
     
     var position: AnyObject {
-        set { node.position = Vector(anyObject: newValue).toVector3() }
+        set { node.position = Point(anyObject: newValue).toVector3() }
         get { return Vector(any: node.position)                       }
     }
     

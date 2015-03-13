@@ -13,6 +13,8 @@
 		241F9ABF1AB3848F00516E77 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241F9ABD1AB383AD00516E77 /* Vector.swift */; };
 		241F9AC01AB3849200516E77 /* Axis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241F9ABB1AB3838F00516E77 /* Axis.swift */; };
 		241F9AC11AB385FB00516E77 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = 2439B7A41AAA521C00C257D4 /* main.js */; };
+		241F9AC31AB38C3500516E77 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241F9AC21AB38C3500516E77 /* Point.swift */; };
+		241F9AC41AB38C3500516E77 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241F9AC21AB38C3500516E77 /* Point.swift */; };
 		2439B7771AAA484000C257D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2439B7761AAA484000C257D4 /* AppDelegate.swift */; };
 		2439B7791AAA484000C257D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2439B7781AAA484000C257D4 /* ViewController.swift */; };
 		2439B77C1AAA484000C257D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2439B77A1AAA484000C257D4 /* Main.storyboard */; };
@@ -73,6 +75,7 @@
 		240399FA1AABF1DD00134538 /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
 		241F9ABB1AB3838F00516E77 /* Axis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Axis.swift; path = Math/Axis.swift; sourceTree = "<group>"; };
 		241F9ABD1AB383AD00516E77 /* Vector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Vector.swift; path = Math/Vector.swift; sourceTree = "<group>"; };
+		241F9AC21AB38C3500516E77 /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Point.swift; path = Math/Point.swift; sourceTree = "<group>"; };
 		2439B7711AAA484000C257D4 /* Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2439B7751AAA484000C257D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2439B7761AAA484000C257D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -246,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				241F9ABB1AB3838F00516E77 /* Axis.swift */,
+				241F9AC21AB38C3500516E77 /* Point.swift */,
 				24C251841AB25CEC00A4F7C7 /* Rotation.swift */,
 				241F9ABD1AB383AD00516E77 /* Vector.swift */,
 			);
@@ -376,6 +380,7 @@
 				2439B7771AAA484000C257D4 /* AppDelegate.swift in Sources */,
 				2439B7A21AAA4ABF00C257D4 /* FileHelper.swift in Sources */,
 				24DEC3021AACBFE000A27F95 /* TypeHelper.swift in Sources */,
+				241F9AC31AB38C3500516E77 /* Point.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +406,7 @@
 				24E128591AB0DEBD0021FED1 /* Text.swift in Sources */,
 				241F9AC01AB3849200516E77 /* Axis.swift in Sources */,
 				2439B78D1AAA484000C257D4 /* SphereTests.swift in Sources */,
+				241F9AC41AB38C3500516E77 /* Point.swift in Sources */,
 				24E128531AB0DEBD0021FED1 /* Pyramid.swift in Sources */,
 				24E1285E1AB0DF160021FED1 /* FileHelper.swift in Sources */,
 				24E128521AB0DEBD0021FED1 /* Plane.swift in Sources */,
