@@ -74,17 +74,18 @@ static NSString *_defaultFilename = @"main.js";
 - (void)update {
     static NSDate *previousTime;
     static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        previousTime = [NSDate date];
-    });
-    
+    dispatch_once( &onceToken,
+                   ^{
+                       previousTime = [NSDate date];
+                   } );
+
     NSDate *currentTime = [NSDate date];
-    
+
     NSTimeInterval delta = [currentTime timeIntervalSinceDate:previousTime];
-    
+
     previousTime = currentTime;
-    
-    [self.updateFunction callWithArguments:@[ @(delta) ]];
+
+    [self.updateFunction callWithArguments:@[ @( delta ) ]];
 }
 
 //

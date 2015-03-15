@@ -1,6 +1,4 @@
 
-// TODO: JavaScript update()
-
 
 #import <XCTest/XCTest.h>
 #import <JavaScriptCore/JavaScriptCore.h>
