@@ -8,4 +8,5 @@
 
 - (void)setup;
 - (void)load;
+- (void)update;
 @end

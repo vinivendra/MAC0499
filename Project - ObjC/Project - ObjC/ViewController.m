@@ -16,6 +16,11 @@
     JavaScript *javaScript = [JavaScript shared];
     
     [javaScript load];
+    [javaScript update];
+    sleep(1);
+    [javaScript update];
+    sleep(1);
+    [javaScript update];
 }
 
 

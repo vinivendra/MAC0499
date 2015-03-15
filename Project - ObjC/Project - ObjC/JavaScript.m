@@ -58,9 +58,37 @@ static NSString *_defaultFilename = @"main.js";
     return self;
 }
 
+//
 - (void)setup {
     NSString *script = [FileHelper openTextFile:self.filename];
 
+    [self setObjects];
+    [self.context evaluateScript:script];
+    [self getObjects];
+}
+
+- (void)load {
+    [self.loadFunction callWithArguments:@[]];
+}
+
+- (void)update {
+    static NSDate *previousTime;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        previousTime = [NSDate date];
+    });
+    
+    NSDate *currentTime = [NSDate date];
+    
+    NSTimeInterval delta = [currentTime timeIntervalSinceDate:previousTime];
+    
+    previousTime = currentTime;
+    
+    [self.updateFunction callWithArguments:@[ @(delta) ]];
+}
+
+//
+- (void)setObjects {
     __block NSString *filename = self.filename;
 
     self.context.exceptionHandler = ^( JSContext *context, JSValue *value ) {
@@ -71,14 +99,11 @@ static NSString *_defaultFilename = @"main.js";
     self.context[ @"print" ] = ^( JSValue *value ) {
         [console log:value];
     };
-
-    [self.context evaluateScript:script];
 }
 
-- (void)load {
-    self.loadFunction = self.context[@"load"];
-    
-    [self.loadFunction callWithArguments:@[]];
+- (void)getObjects {
+    self.loadFunction = self.context[ @"load" ];
+    self.updateFunction = self.context[ @"update" ];
 }
 
 @end

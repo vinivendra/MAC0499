@@ -33,4 +33,8 @@
     [[JavaScript shared] load];
 }
 
+- (void)testUpdateFunction {
+    [[JavaScript shared] update];
+}
+
 @end
