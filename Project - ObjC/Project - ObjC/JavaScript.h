@@ -7,4 +7,5 @@
 - (instancetype)initWithFile:(NSString *)filename;
 
 - (void)setup;
+- (void)load;
 @end

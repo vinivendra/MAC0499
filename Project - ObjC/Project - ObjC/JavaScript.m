@@ -24,6 +24,8 @@ static NSString *_defaultFilename = @"main.js";
 @interface JavaScript ()
 @property ( nonatomic, strong ) JSContext *context;
 @property ( nonatomic, strong ) NSString *filename;
+@property ( nonatomic, strong ) JSValue *loadFunction;
+@property ( nonatomic, strong ) JSValue *updateFunction;
 @end
 
 
@@ -71,6 +73,12 @@ static NSString *_defaultFilename = @"main.js";
     };
 
     [self.context evaluateScript:script];
+}
+
+- (void)load {
+    self.loadFunction = self.context[@"load"];
+    
+    [self.loadFunction callWithArguments:@[]];
 }
 
 @end

@@ -14,6 +14,8 @@
     [super viewDidLoad];
     
     JavaScript *javaScript = [JavaScript shared];
+    
+    [javaScript load];
 }
 
 

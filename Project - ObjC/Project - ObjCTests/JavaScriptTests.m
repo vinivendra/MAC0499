@@ -1,5 +1,4 @@
 
-// TODO: JavaScript load()
 // TODO: JavaScript update()
 
 
