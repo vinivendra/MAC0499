@@ -13,7 +13,7 @@
 
 @implementation console
 + (void)log:(id)object {
-    NSLog( @"%@", object );
+    NSLog( @"#### %@", object );
 }
 @end
 
@@ -69,7 +69,7 @@ static NSString *_defaultFilename = @"main.js";
 
     self.context[ @"console" ] = [console class];
     self.context[ @"print" ] = ^( JSValue *value ) {
-        NSLog( @"%@", value );
+        [console log:value];
     };
 
     [self.context evaluateScript:script];

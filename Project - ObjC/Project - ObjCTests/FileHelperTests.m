@@ -24,7 +24,7 @@
 }
 
 - (void)testOpenTextFile {
-    XCTAssertEqualObjects( [FileHelper openTextFile:_testFileName], @"console.log(\"test\");" );
+    XCTAssert( [[FileHelper openTextFile:_testFileName] containsString: @"// test file"] );
 }
 
 @end

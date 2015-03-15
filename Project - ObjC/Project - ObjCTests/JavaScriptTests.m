@@ -29,4 +29,8 @@
     XCTAssertNotNil( [JavaScript shared] );
 }
 
+- (void)testLoadFuntion {
+    [[JavaScript shared] load];
+}
+
 @end
