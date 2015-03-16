@@ -8,5 +8,6 @@ typedef UIColor Color;
 
 @interface UIColor (Extension)
 + (Color *)colorWithCArray:(CGFloat[4])array;
++ (Color *)colorWithArray:(NSArray *)array;
 - (Color *)times:(CGFloat)scalar;
 @end

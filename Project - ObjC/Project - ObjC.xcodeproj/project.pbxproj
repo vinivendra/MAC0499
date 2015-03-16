@@ -52,6 +52,7 @@
 		246098C11AB711EF00CDEA5B /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 246098BF1AB711EF00CDEA5B /* Item.m */; };
 		246098C51AB7138D00CDEA5B /* SCNScene+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 246098C41AB7138D00CDEA5B /* SCNScene+Extension.m */; };
 		246098C61AB7138D00CDEA5B /* SCNScene+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 246098C41AB7138D00CDEA5B /* SCNScene+Extension.m */; };
+		24F7BB251AB7546100F28F64 /* NSArray+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F7BB241AB7546100F28F64 /* NSArray+Extension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +117,8 @@
 		246098BF1AB711EF00CDEA5B /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Item.m; path = Items/Item.m; sourceTree = "<group>"; };
 		246098C31AB7138D00CDEA5B /* SCNScene+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SCNScene+Extension.h"; path = "Extensions/SCNScene+Extension.h"; sourceTree = "<group>"; };
 		246098C41AB7138D00CDEA5B /* SCNScene+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SCNScene+Extension.m"; path = "Extensions/SCNScene+Extension.m"; sourceTree = "<group>"; };
+		24F7BB231AB7546100F28F64 /* NSArray+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+Extension.h"; path = "Extensions/NSArray+Extension.h"; sourceTree = "<group>"; };
+		24F7BB241AB7546100F28F64 /* NSArray+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+Extension.m"; path = "Extensions/NSArray+Extension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +235,8 @@
 			children = (
 				242CDE201AB5DAD400CC8067 /* JSContext+Extension.h */,
 				242CDE211AB5DAD400CC8067 /* JSContext+Extension.m */,
+				24F7BB231AB7546100F28F64 /* NSArray+Extension.h */,
+				24F7BB241AB7546100F28F64 /* NSArray+Extension.m */,
 				242CDE4D1AB5EF6D00CC8067 /* NSString+Extension.h */,
 				242CDE4E1AB5EF6D00CC8067 /* NSString+Extension.m */,
 				246098C31AB7138D00CDEA5B /* SCNScene+Extension.h */,
@@ -387,6 +392,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24F7BB251AB7546100F28F64 /* NSArray+Extension.m in Sources */,
 				242CDDFB1AB5D87E00CC8067 /* ViewController.m in Sources */,
 				242CDE401AB5EABE00CC8067 /* NSMutableArray+ObjectiveSugar.m in Sources */,
 				242CDE421AB5EABE00CC8067 /* NSNumber+ObjectiveSugar.m in Sources */,

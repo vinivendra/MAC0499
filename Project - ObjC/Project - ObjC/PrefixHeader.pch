@@ -4,6 +4,7 @@
 
 
 #import "JSContext+Extension.h"
+#import "NSArray+Extension.h"
 #import "NSString+Extension.h"
 #import "SCNScene+Extension.h"
 #import "UIColor+Extension.h"
