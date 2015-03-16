@@ -5,6 +5,20 @@
 
 @implementation UIColor (Extension)
 
++ (Color *)colorWithObject:(id)object {
+    if ([object isKindOfClass:[Color class]]) {
+        return [object copy];
+    } else if ([object isKindOfClass:[NSArray class]]) {
+        return [Color colorWithArray:object];
+    } else if ([object isKindOfClass:[NSNumber class]]) {
+        return
+            [Color colorWithWhite:((NSNumber *)object).doubleValue alpha:1.0];
+    }
+
+    NSLog(@"Warning: trying to initialize color with invalid object!");
+    return nil;
+}
+
 + (Color *)colorWithCArray:(CGFloat[4])array {
     return [Color colorWithRed:array[0]
                          green:array[1]

@@ -27,10 +27,10 @@ static NSArray *testColors;
 
     // With
     NSArray *expectedColors = testColors;
-    
+
     CGFloat testColors[3][4]
         = {{0.3, 0.3, 0.3, 1.0}, {0.4, 0.0, 1.0, 0.0}, {0.2, 0.3, 0.2, 0.4}};
-    
+
     // When
     NSArray *resultColors = @[
         [Color colorWithCArray:testColors[0]],
@@ -90,6 +90,32 @@ static NSArray *testColors;
         [((UIColor *)testColors[1])times:1.2],
         [((UIColor *)testColors[2])times:-1.0]
     ];
+
+    // Then
+    for (int i = 0; i < testColors.count; i++) {
+        XCTAssertEqualObjects(expectedColors[i], resultColors[i]);
+    }
+}
+
+- (void)testColorWithObject {
+
+    // With
+    NSArray *expectedColors = @[
+        [Color colorWithRed:0.2 green:0.3 blue:0.4 alpha:0.5],
+        [Color colorWithRed:0.3 green:0.4 blue:0.5 alpha:1.0],
+        [Color colorWithWhite:0.3 alpha:1.0]
+    ];
+
+    NSArray *testColors = @[
+        @[ @0.2, @0.3, @0.4, @0.5 ],
+        [Color colorWithRed:0.3 green:0.4 blue:0.5 alpha:1.0],
+        @0.3
+    ];
+
+    // When
+    NSArray *resultColors = [testColors map:^id(id object) {
+        return [Color colorWithObject:object];
+    }];
 
     // Then
     for (int i = 0; i < testColors.count; i++) {

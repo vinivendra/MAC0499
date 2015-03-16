@@ -4,5 +4,5 @@
 
 
 @interface Shape : Item
-@property (nonatomic, strong) Color *color;
+@property (nonatomic, strong) id color;
 @end
