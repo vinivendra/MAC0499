@@ -1,21 +1,24 @@
-//
-//  PrefixHeader.pch
-//  Project - ObjC
-//
-//  Created by Vinicius Vendramini on 15/03/15.
-//  Copyright (c) 2015 Vinicius Vendramini. All rights reserved.
-//
 
 #ifndef Project___ObjC_PrefixHeader_pch
 #define Project___ObjC_PrefixHeader_pch
 
+
 #import "JSContext+Extension.h"
 #import "NSString+Extension.h"
+#import "SCNScene+Extension.h"
+#import "UIColor+Extension.h"
 
 #import "ObjectiveSugar/ObjectiveSugar.h"
 
 #import "FileHelper.h"
 
+
+#import "Item.h"
+#import "Shape.h"
+#import "Sphere.h"
+
 static NSString *_testFileName = @"test.js";
+
+#define LIMIT(A, B, C) (MIN(MAX(B, A), C))
 
 #endif

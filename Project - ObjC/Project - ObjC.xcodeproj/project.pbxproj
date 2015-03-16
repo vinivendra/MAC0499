@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2418F2241AB71516004A31E5 /* Shape.m in Sources */ = {isa = PBXBuildFile; fileRef = 2418F2231AB71516004A31E5 /* Shape.m */; };
+		2418F2251AB71516004A31E5 /* Shape.m in Sources */ = {isa = PBXBuildFile; fileRef = 2418F2231AB71516004A31E5 /* Shape.m */; };
+		2418F2281AB71567004A31E5 /* Sphere.m in Sources */ = {isa = PBXBuildFile; fileRef = 2418F2271AB71567004A31E5 /* Sphere.m */; };
+		2418F2291AB71567004A31E5 /* Sphere.m in Sources */ = {isa = PBXBuildFile; fileRef = 2418F2271AB71567004A31E5 /* Sphere.m */; };
+		2418F22D1AB71BFC004A31E5 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2418F22C1AB71BFC004A31E5 /* UIColor+Extension.m */; };
+		2418F22E1AB71BFC004A31E5 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2418F22C1AB71BFC004A31E5 /* UIColor+Extension.m */; };
+		2418F2301AB71CCB004A31E5 /* ColorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2418F22F1AB71CCB004A31E5 /* ColorTests.m */; };
 		242CDDF51AB5D87E00CC8067 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 242CDDF41AB5D87E00CC8067 /* main.m */; };
 		242CDDF81AB5D87E00CC8067 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 242CDDF71AB5D87E00CC8067 /* AppDelegate.m */; };
 		242CDDFB1AB5D87E00CC8067 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 242CDDFA1AB5D87E00CC8067 /* ViewController.m */; };
@@ -40,6 +47,11 @@
 		242CDE4C1AB5EDD600CC8067 /* test.js in Resources */ = {isa = PBXBuildFile; fileRef = 242CDE4A1AB5ED4B00CC8067 /* test.js */; };
 		242CDE4F1AB5EF6D00CC8067 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 242CDE4E1AB5EF6D00CC8067 /* NSString+Extension.m */; };
 		242CDE501AB5EF6D00CC8067 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 242CDE4E1AB5EF6D00CC8067 /* NSString+Extension.m */; };
+		246098BD1AB711A700CDEA5B /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 246098BC1AB711A700CDEA5B /* SceneKit.framework */; };
+		246098C01AB711EF00CDEA5B /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 246098BF1AB711EF00CDEA5B /* Item.m */; };
+		246098C11AB711EF00CDEA5B /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 246098BF1AB711EF00CDEA5B /* Item.m */; };
+		246098C51AB7138D00CDEA5B /* SCNScene+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 246098C41AB7138D00CDEA5B /* SCNScene+Extension.m */; };
+		246098C61AB7138D00CDEA5B /* SCNScene+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 246098C41AB7138D00CDEA5B /* SCNScene+Extension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +65,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2418F2221AB71516004A31E5 /* Shape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Shape.h; path = Items/Shape.h; sourceTree = "<group>"; };
+		2418F2231AB71516004A31E5 /* Shape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Shape.m; path = Items/Shape.m; sourceTree = "<group>"; };
+		2418F2261AB71567004A31E5 /* Sphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sphere.h; path = Items/Shape/Sphere.h; sourceTree = "<group>"; };
+		2418F2271AB71567004A31E5 /* Sphere.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Sphere.m; path = Items/Shape/Sphere.m; sourceTree = "<group>"; };
+		2418F22B1AB71BFC004A31E5 /* UIColor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Extension.h"; path = "Extensions/UIColor+Extension.h"; sourceTree = "<group>"; };
+		2418F22C1AB71BFC004A31E5 /* UIColor+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Extension.m"; path = "Extensions/UIColor+Extension.m"; sourceTree = "<group>"; };
+		2418F22F1AB71CCB004A31E5 /* ColorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorTests.m; sourceTree = "<group>"; };
 		242CDDEF1AB5D87E00CC8067 /* Project - ObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project - ObjC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		242CDDF31AB5D87E00CC8067 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		242CDDF41AB5D87E00CC8067 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -92,6 +111,11 @@
 		242CDE4A1AB5ED4B00CC8067 /* test.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = test.js; sourceTree = "<group>"; };
 		242CDE4D1AB5EF6D00CC8067 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Extension.h"; path = "Extensions/NSString+Extension.h"; sourceTree = "<group>"; };
 		242CDE4E1AB5EF6D00CC8067 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Extension.m"; path = "Extensions/NSString+Extension.m"; sourceTree = "<group>"; };
+		246098BC1AB711A700CDEA5B /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
+		246098BE1AB711EF00CDEA5B /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Item.h; path = Items/Item.h; sourceTree = "<group>"; };
+		246098BF1AB711EF00CDEA5B /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Item.m; path = Items/Item.m; sourceTree = "<group>"; };
+		246098C31AB7138D00CDEA5B /* SCNScene+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SCNScene+Extension.h"; path = "Extensions/SCNScene+Extension.h"; sourceTree = "<group>"; };
+		246098C41AB7138D00CDEA5B /* SCNScene+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SCNScene+Extension.m"; path = "Extensions/SCNScene+Extension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				246098BD1AB711A700CDEA5B /* SceneKit.framework in Frameworks */,
 				242CDE191AB5D88E00CC8067 /* JavaScriptCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -113,6 +138,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2418F22A1AB717DC004A31E5 /* Sphere */ = {
+			isa = PBXGroup;
+			children = (
+				2418F2261AB71567004A31E5 /* Sphere.h */,
+				2418F2271AB71567004A31E5 /* Sphere.m */,
+			);
+			name = Sphere;
+			sourceTree = "<group>";
+		};
 		242CDDE61AB5D87E00CC8067 = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +177,7 @@
 				242CDE1D1AB5D8E000CC8067 /* JavaScript.m */,
 				242CDE261AB5E93A00CC8067 /* main.js */,
 				242CDE251AB5DBA500CC8067 /* PrefixHeader.pch */,
+				246098C21AB7131300CDEA5B /* Items */,
 				242CDE2D1AB5E9A200CC8067 /* Helpers */,
 				242CDE241AB5DADE00CC8067 /* Extensions */,
 				242CDE2E1AB5EABE00CC8067 /* ObjectiveSugar */,
@@ -168,6 +203,7 @@
 			children = (
 				242CDE0E1AB5D87F00CC8067 /* JavaScriptTests.m */,
 				242CDE481AB5ED2A00CC8067 /* FileHelperTests.m */,
+				2418F22F1AB71CCB004A31E5 /* ColorTests.m */,
 				242CDE4A1AB5ED4B00CC8067 /* test.js */,
 				242CDE0C1AB5D87E00CC8067 /* Supporting Files */,
 			);
@@ -185,6 +221,7 @@
 		242CDE1A1AB5D89200CC8067 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				246098BC1AB711A700CDEA5B /* SceneKit.framework */,
 				242CDE181AB5D88E00CC8067 /* JavaScriptCore.framework */,
 			);
 			name = Frameworks;
@@ -197,6 +234,10 @@
 				242CDE211AB5DAD400CC8067 /* JSContext+Extension.m */,
 				242CDE4D1AB5EF6D00CC8067 /* NSString+Extension.h */,
 				242CDE4E1AB5EF6D00CC8067 /* NSString+Extension.m */,
+				246098C31AB7138D00CDEA5B /* SCNScene+Extension.h */,
+				246098C41AB7138D00CDEA5B /* SCNScene+Extension.m */,
+				2418F22B1AB71BFC004A31E5 /* UIColor+Extension.h */,
+				2418F22C1AB71BFC004A31E5 /* UIColor+Extension.m */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -228,6 +269,18 @@
 				242CDE3B1AB5EABE00CC8067 /* ObjectiveSugar.h */,
 			);
 			path = ObjectiveSugar;
+			sourceTree = "<group>";
+		};
+		246098C21AB7131300CDEA5B /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				246098BE1AB711EF00CDEA5B /* Item.h */,
+				246098BF1AB711EF00CDEA5B /* Item.m */,
+				2418F2221AB71516004A31E5 /* Shape.h */,
+				2418F2231AB71516004A31E5 /* Shape.m */,
+				2418F22A1AB717DC004A31E5 /* Sphere */,
+			);
+			name = Items;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,6 +390,8 @@
 				242CDDFB1AB5D87E00CC8067 /* ViewController.m in Sources */,
 				242CDE401AB5EABE00CC8067 /* NSMutableArray+ObjectiveSugar.m in Sources */,
 				242CDE421AB5EABE00CC8067 /* NSNumber+ObjectiveSugar.m in Sources */,
+				2418F2241AB71516004A31E5 /* Shape.m in Sources */,
+				246098C51AB7138D00CDEA5B /* SCNScene+Extension.m in Sources */,
 				242CDDF81AB5D87E00CC8067 /* AppDelegate.m in Sources */,
 				242CDE3C1AB5EABE00CC8067 /* NSArray+ObjectiveSugar.m in Sources */,
 				242CDE1E1AB5D8E000CC8067 /* JavaScript.m in Sources */,
@@ -345,7 +400,10 @@
 				242CDE221AB5DAD400CC8067 /* JSContext+Extension.m in Sources */,
 				242CDE461AB5EABE00CC8067 /* NSString+ObjectiveSugar.m in Sources */,
 				242CDE2B1AB5E99E00CC8067 /* FileHelper.m in Sources */,
+				2418F22D1AB71BFC004A31E5 /* UIColor+Extension.m in Sources */,
 				242CDE441AB5EABE00CC8067 /* NSSet+ObjectiveSugar.m in Sources */,
+				2418F2281AB71567004A31E5 /* Sphere.m in Sources */,
+				246098C01AB711EF00CDEA5B /* Item.m in Sources */,
 				242CDE3E1AB5EABE00CC8067 /* NSDictionary+ObjectiveSugar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,18 +412,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				246098C11AB711EF00CDEA5B /* Item.m in Sources */,
 				242CDE1F1AB5D8E000CC8067 /* JavaScript.m in Sources */,
 				242CDE0F1AB5D87F00CC8067 /* JavaScriptTests.m in Sources */,
 				242CDE3D1AB5EABE00CC8067 /* NSArray+ObjectiveSugar.m in Sources */,
 				242CDE3F1AB5EABE00CC8067 /* NSDictionary+ObjectiveSugar.m in Sources */,
+				2418F2301AB71CCB004A31E5 /* ColorTests.m in Sources */,
 				242CDE471AB5EABE00CC8067 /* NSString+ObjectiveSugar.m in Sources */,
 				242CDE491AB5ED2A00CC8067 /* FileHelperTests.m in Sources */,
+				2418F22E1AB71BFC004A31E5 /* UIColor+Extension.m in Sources */,
 				242CDE231AB5DAD400CC8067 /* JSContext+Extension.m in Sources */,
 				242CDE501AB5EF6D00CC8067 /* NSString+Extension.m in Sources */,
 				242CDE451AB5EABE00CC8067 /* NSSet+ObjectiveSugar.m in Sources */,
+				2418F2291AB71567004A31E5 /* Sphere.m in Sources */,
 				242CDE411AB5EABE00CC8067 /* NSMutableArray+ObjectiveSugar.m in Sources */,
 				242CDE431AB5EABE00CC8067 /* NSNumber+ObjectiveSugar.m in Sources */,
+				2418F2251AB71516004A31E5 /* Shape.m in Sources */,
 				242CDE2C1AB5E99E00CC8067 /* FileHelper.m in Sources */,
+				246098C61AB7138D00CDEA5B /* SCNScene+Extension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,6 +618,7 @@
 				242CDE141AB5D87F00CC8067 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		242CDE151AB5D87F00CC8067 /* Build configuration list for PBXNativeTarget "Project - ObjCTests" */ = {
 			isa = XCConfigurationList;
@@ -562,6 +627,7 @@
 				242CDE171AB5D87F00CC8067 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

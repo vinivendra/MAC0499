@@ -48,8 +48,8 @@ SpacesBeforeTrailingComments: 1
 SpacesInAngles: false
 SpacesInCStyleCastParentheses: false
 SpacesInContainerLiterals: true
-SpacesInParentheses: true
-SpacesInSquareBrackets: true
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
 Standard: Auto
 TabWidth: 4
 UseTab: Never

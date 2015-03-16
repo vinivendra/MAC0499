@@ -39,7 +39,7 @@ static NSString *_defaultFilename = @"main.js";
                    ^{
                        singleton = [JavaScript new];
                    } );
-
+    
     return singleton;
 }
 

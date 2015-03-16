@@ -11,7 +11,7 @@
     static dispatch_once_t onceToken;
     dispatch_once( &onceToken,
                    ^{
-                       singleton = [JSContext new];
+                       singleton = [self new];
                    } );
 
     return singleton;
