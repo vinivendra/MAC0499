@@ -57,14 +57,14 @@
 }
 
 - (Color *)times:(CGFloat)scalar {
-
-    const CGFloat *rgb = CGColorGetComponents(self.CGColor);
-
     CGFloat result[4];
+    
+    [self getRed:&result[0] green:&result[1] blue:&result[2] alpha:&result[3]];
+
     result[3] = CGColorGetAlpha(self.CGColor);
 
     for (int i = 0; i < 3; i++) {
-        result[i] = LIMIT(0, rgb[i] * scalar, 1);
+        result[i] = LIMIT(0, result[i] * scalar, 1);
     }
 
     return [Color colorWithCArray:result];

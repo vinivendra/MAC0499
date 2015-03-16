@@ -15,6 +15,8 @@
     material.specular.contents = color;
     
     self.geometry.materials = @[material];
+    
+    self.position = SCNVector3Make(0, 0, -2);
 }
 
 - (id)color {

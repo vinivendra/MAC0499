@@ -13,7 +13,7 @@
 
 @implementation console
 + (void)log:(id)object {
-    NSLog( @"#### %@", object );
+    NSLog(@"#### %@", object);
 }
 @end
 
@@ -22,10 +22,10 @@ static NSString *_defaultFilename = @"main.js";
 
 
 @interface JavaScript ()
-@property ( nonatomic, strong ) JSContext *context;
-@property ( nonatomic, strong ) NSString *filename;
-@property ( nonatomic, strong ) JSValue *loadFunction;
-@property ( nonatomic, strong ) JSValue *updateFunction;
+@property (nonatomic, strong) JSContext *context;
+@property (nonatomic, strong) NSString *filename;
+@property (nonatomic, strong) JSValue *loadFunction;
+@property (nonatomic, strong) JSValue *updateFunction;
 @end
 
 
@@ -35,11 +35,11 @@ static NSString *_defaultFilename = @"main.js";
     static JavaScript *singleton;
 
     static dispatch_once_t onceToken;
-    dispatch_once( &onceToken,
-                   ^{
-                       singleton = [JavaScript new];
-                   } );
-    
+    dispatch_once(&onceToken,
+                  ^{
+                      singleton = [JavaScript new];
+                  });
+
     return singleton;
 }
 
@@ -49,8 +49,8 @@ static NSString *_defaultFilename = @"main.js";
 }
 
 - (instancetype)initWithFile:(NSString *)filename {
-    if ( self = [super init] ) {
-        assert( [filename valid] );
+    if (self = [super init]) {
+        assert([filename valid]);
         self.filename = filename;
         self.context = [JSContext shared];
         [self setup];
@@ -74,10 +74,10 @@ static NSString *_defaultFilename = @"main.js";
 - (void)update {
     static NSDate *previousTime;
     static dispatch_once_t onceToken;
-    dispatch_once( &onceToken,
-                   ^{
-                       previousTime = [NSDate date];
-                   } );
+    dispatch_once(&onceToken,
+                  ^{
+                      previousTime = [NSDate date];
+                  });
 
     NSDate *currentTime = [NSDate date];
 
@@ -85,26 +85,28 @@ static NSString *_defaultFilename = @"main.js";
 
     previousTime = currentTime;
 
-    [self.updateFunction callWithArguments:@[ @( delta ) ]];
+    [self.updateFunction callWithArguments:@[ @(delta) ]];
 }
 
 //
 - (void)setObjects {
     __block NSString *filename = self.filename;
 
-    self.context.exceptionHandler = ^( JSContext *context, JSValue *value ) {
-        NSLog( @"JavaScript Error in file %@: %@.", filename, [value toString] );
+    self.context.exceptionHandler = ^(JSContext *context, JSValue *value) {
+        NSLog(@"JavaScript Error in file %@: %@.", filename, [value toString]);
     };
 
-    self.context[ @"console" ] = [console class];
-    self.context[ @"print" ] = ^( JSValue *value ) {
+    self.context[@"console"] = [console class];
+    self.context[@"print"] = ^(JSValue *value) {
         [console log:value];
     };
+
+    self.context[@"sphere"] = [Sphere class];
 }
 
 - (void)getObjects {
-    self.loadFunction = self.context[ @"load" ];
-    self.updateFunction = self.context[ @"update" ];
+    self.loadFunction = self.context[@"load"];
+    self.updateFunction = self.context[@"update"];
 }
 
 @end

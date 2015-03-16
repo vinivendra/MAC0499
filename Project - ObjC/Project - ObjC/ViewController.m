@@ -51,10 +51,6 @@
     node.light = light;
     node.position = SCNVector3Make(-3, -3, -3);
     [self.sceneView.scene.rootNode addChildNode:node];
-    
-    Sphere *sphere = [Sphere new];
-    sphere.color = [UIColor orangeColor];
-    sphere.position = SCNVector3Make(0, 0, -2);
 }
 
 @end

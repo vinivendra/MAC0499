@@ -8,3 +8,6 @@ function load() {
 function update(dt) {
     print("update: " + dt);
 }
+
+var ball = sphere.create();
+ball.color = [0.5, 0.2, 0.3];

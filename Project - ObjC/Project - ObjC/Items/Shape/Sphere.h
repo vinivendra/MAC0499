@@ -1,6 +1,15 @@
 
 
-@interface Sphere : Shape
-@property (nonatomic, strong) SCNSphere *sphere;
+@protocol SphereExport <JSExport>
++ (instancetype)create;
++ (instancetype)sphere;
+@property (nonatomic) CGFloat radius;
+@property (nonatomic, strong) id color;
+@end
+
+
+@interface Sphere : Shape <SphereExport>
++ (instancetype)create;
++ (instancetype)sphere;
 @property (nonatomic) CGFloat radius;
 @end

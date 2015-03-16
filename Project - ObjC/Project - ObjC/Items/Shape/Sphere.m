@@ -5,6 +5,14 @@
 
 @implementation Sphere
 
++ (instancetype)create {
+    return [self new];
+}
+
++ (instancetype)sphere {
+    return [self create];
+}
+
 - (instancetype)init {
     if ( self = [super init] ) {
         self.sphere = [SCNSphere new];
