@@ -18,6 +18,8 @@
 #import "Vector.h"
 #import "Position.h"
 #import "Axis.h"
+#import "Angle.h"
+#import "Rotation.h"
 
 
 #import "Item.h"
