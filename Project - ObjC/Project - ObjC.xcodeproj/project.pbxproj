@@ -52,6 +52,8 @@
 		2430DD331AB8996C0095410C /* RotationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2430DD321AB8996C0095410C /* RotationTests.m */; };
 		2430DD361AB899FC0095410C /* Angle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2430DD351AB899FC0095410C /* Angle.m */; };
 		2430DD371AB899FC0095410C /* Angle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2430DD351AB899FC0095410C /* Angle.m */; };
+		2430DD3A1AB8AFBD0095410C /* Box.m in Sources */ = {isa = PBXBuildFile; fileRef = 2430DD391AB8AFBD0095410C /* Box.m */; };
+		2430DD3B1AB8AFBD0095410C /* Box.m in Sources */ = {isa = PBXBuildFile; fileRef = 2430DD391AB8AFBD0095410C /* Box.m */; };
 		244CA6DC1AB86D0300FD5F18 /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 244CA6DB1AB86D0300FD5F18 /* Position.m */; };
 		244CA6DE1AB8712100FD5F18 /* PositionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 244CA6DD1AB8712100FD5F18 /* PositionTests.m */; };
 		244CA6DF1AB8744C00FD5F18 /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 244CA6DB1AB86D0300FD5F18 /* Position.m */; };
@@ -133,6 +135,8 @@
 		2430DD321AB8996C0095410C /* RotationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RotationTests.m; sourceTree = "<group>"; };
 		2430DD341AB899FC0095410C /* Angle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Angle.h; path = Math/Angle.h; sourceTree = "<group>"; };
 		2430DD351AB899FC0095410C /* Angle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Angle.m; path = Math/Angle.m; sourceTree = "<group>"; };
+		2430DD381AB8AFBD0095410C /* Box.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Box.h; path = Items/Shape/Box.h; sourceTree = "<group>"; };
+		2430DD391AB8AFBD0095410C /* Box.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Box.m; path = Items/Shape/Box.m; sourceTree = "<group>"; };
 		244CA6DA1AB86D0300FD5F18 /* Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Position.h; path = Math/Position.h; sourceTree = "<group>"; };
 		244CA6DB1AB86D0300FD5F18 /* Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Position.m; path = Math/Position.m; sourceTree = "<group>"; };
 		244CA6DD1AB8712100FD5F18 /* PositionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionTests.m; sourceTree = "<group>"; };
@@ -173,13 +177,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2418F22A1AB717DC004A31E5 /* Sphere */ = {
+		2418F22A1AB717DC004A31E5 /* Shapes */ = {
 			isa = PBXGroup;
 			children = (
 				2418F2261AB71567004A31E5 /* Sphere.h */,
 				2418F2271AB71567004A31E5 /* Sphere.m */,
+				2430DD381AB8AFBD0095410C /* Box.h */,
+				2430DD391AB8AFBD0095410C /* Box.m */,
 			);
-			name = Sphere;
+			name = Shapes;
 			sourceTree = "<group>";
 		};
 		242CDDE61AB5D87E00CC8067 = {
@@ -322,7 +328,7 @@
 				246098BF1AB711EF00CDEA5B /* Item.m */,
 				2418F2221AB71516004A31E5 /* Shape.h */,
 				2418F2231AB71516004A31E5 /* Shape.m */,
-				2418F22A1AB717DC004A31E5 /* Sphere */,
+				2418F22A1AB717DC004A31E5 /* Shapes */,
 			);
 			name = Items;
 			sourceTree = "<group>";
@@ -451,6 +457,7 @@
 				244CA6DC1AB86D0300FD5F18 /* Position.m in Sources */,
 				24F7BB251AB7546100F28F64 /* NSArray+Extension.m in Sources */,
 				242CDDFB1AB5D87E00CC8067 /* ViewController.m in Sources */,
+				2430DD3A1AB8AFBD0095410C /* Box.m in Sources */,
 				242CDE401AB5EABE00CC8067 /* NSMutableArray+ObjectiveSugar.m in Sources */,
 				242CDE421AB5EABE00CC8067 /* NSNumber+ObjectiveSugar.m in Sources */,
 				2430DD301AB899440095410C /* Rotation.m in Sources */,
@@ -481,6 +488,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				246098C11AB711EF00CDEA5B /* Item.m in Sources */,
+				2430DD3B1AB8AFBD0095410C /* Box.m in Sources */,
 				242CDE1F1AB5D8E000CC8067 /* JavaScript.m in Sources */,
 				242CDE0F1AB5D87F00CC8067 /* JavaScriptTests.m in Sources */,
 				242CDE3D1AB5EABE00CC8067 /* NSArray+ObjectiveSugar.m in Sources */,
