@@ -47,11 +47,17 @@
 		242CDE4C1AB5EDD600CC8067 /* test.js in Resources */ = {isa = PBXBuildFile; fileRef = 242CDE4A1AB5ED4B00CC8067 /* test.js */; };
 		242CDE4F1AB5EF6D00CC8067 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 242CDE4E1AB5EF6D00CC8067 /* NSString+Extension.m */; };
 		242CDE501AB5EF6D00CC8067 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 242CDE4E1AB5EF6D00CC8067 /* NSString+Extension.m */; };
+		244CA6DC1AB86D0300FD5F18 /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 244CA6DB1AB86D0300FD5F18 /* Position.m */; };
+		244CA6DE1AB8712100FD5F18 /* PositionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 244CA6DD1AB8712100FD5F18 /* PositionTests.m */; };
+		244CA6DF1AB8744C00FD5F18 /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 244CA6DB1AB86D0300FD5F18 /* Position.m */; };
 		246098BD1AB711A700CDEA5B /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 246098BC1AB711A700CDEA5B /* SceneKit.framework */; };
 		246098C01AB711EF00CDEA5B /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 246098BF1AB711EF00CDEA5B /* Item.m */; };
 		246098C11AB711EF00CDEA5B /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 246098BF1AB711EF00CDEA5B /* Item.m */; };
 		246098C51AB7138D00CDEA5B /* SCNScene+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 246098C41AB7138D00CDEA5B /* SCNScene+Extension.m */; };
 		246098C61AB7138D00CDEA5B /* SCNScene+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 246098C41AB7138D00CDEA5B /* SCNScene+Extension.m */; };
+		24BF94891AB775C300B923A9 /* Vector.m in Sources */ = {isa = PBXBuildFile; fileRef = 24BF94881AB775C300B923A9 /* Vector.m */; };
+		24BF948A1AB775C300B923A9 /* Vector.m in Sources */ = {isa = PBXBuildFile; fileRef = 24BF94881AB775C300B923A9 /* Vector.m */; };
+		24BF948E1AB776A600B923A9 /* VectorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24BF948C1AB776A600B923A9 /* VectorTests.m */; };
 		24F7BB251AB7546100F28F64 /* NSArray+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F7BB241AB7546100F28F64 /* NSArray+Extension.m */; };
 /* End PBXBuildFile section */
 
@@ -112,11 +118,17 @@
 		242CDE4A1AB5ED4B00CC8067 /* test.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = test.js; sourceTree = "<group>"; };
 		242CDE4D1AB5EF6D00CC8067 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Extension.h"; path = "Extensions/NSString+Extension.h"; sourceTree = "<group>"; };
 		242CDE4E1AB5EF6D00CC8067 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Extension.m"; path = "Extensions/NSString+Extension.m"; sourceTree = "<group>"; };
+		244CA6DA1AB86D0300FD5F18 /* Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Position.h; path = Math/Position.h; sourceTree = "<group>"; };
+		244CA6DB1AB86D0300FD5F18 /* Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Position.m; path = Math/Position.m; sourceTree = "<group>"; };
+		244CA6DD1AB8712100FD5F18 /* PositionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionTests.m; sourceTree = "<group>"; };
 		246098BC1AB711A700CDEA5B /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
 		246098BE1AB711EF00CDEA5B /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Item.h; path = Items/Item.h; sourceTree = "<group>"; };
 		246098BF1AB711EF00CDEA5B /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Item.m; path = Items/Item.m; sourceTree = "<group>"; };
 		246098C31AB7138D00CDEA5B /* SCNScene+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SCNScene+Extension.h"; path = "Extensions/SCNScene+Extension.h"; sourceTree = "<group>"; };
 		246098C41AB7138D00CDEA5B /* SCNScene+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SCNScene+Extension.m"; path = "Extensions/SCNScene+Extension.m"; sourceTree = "<group>"; };
+		24BF94871AB775C300B923A9 /* Vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vector.h; path = Math/Vector.h; sourceTree = "<group>"; };
+		24BF94881AB775C300B923A9 /* Vector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Vector.m; path = Math/Vector.m; sourceTree = "<group>"; };
+		24BF948C1AB776A600B923A9 /* VectorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VectorTests.m; sourceTree = "<group>"; };
 		24F7BB231AB7546100F28F64 /* NSArray+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+Extension.h"; path = "Extensions/NSArray+Extension.h"; sourceTree = "<group>"; };
 		24F7BB241AB7546100F28F64 /* NSArray+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+Extension.m"; path = "Extensions/NSArray+Extension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -181,6 +193,7 @@
 				242CDE261AB5E93A00CC8067 /* main.js */,
 				242CDE251AB5DBA500CC8067 /* PrefixHeader.pch */,
 				246098C21AB7131300CDEA5B /* Items */,
+				24BF948B1AB775C800B923A9 /* Math */,
 				242CDE2D1AB5E9A200CC8067 /* Helpers */,
 				242CDE241AB5DADE00CC8067 /* Extensions */,
 				242CDE2E1AB5EABE00CC8067 /* ObjectiveSugar */,
@@ -207,6 +220,8 @@
 				242CDE0E1AB5D87F00CC8067 /* JavaScriptTests.m */,
 				242CDE481AB5ED2A00CC8067 /* FileHelperTests.m */,
 				2418F22F1AB71CCB004A31E5 /* ColorTests.m */,
+				24BF948C1AB776A600B923A9 /* VectorTests.m */,
+				244CA6DD1AB8712100FD5F18 /* PositionTests.m */,
 				242CDE4A1AB5ED4B00CC8067 /* test.js */,
 				242CDE0C1AB5D87E00CC8067 /* Supporting Files */,
 			);
@@ -286,6 +301,17 @@
 				2418F22A1AB717DC004A31E5 /* Sphere */,
 			);
 			name = Items;
+			sourceTree = "<group>";
+		};
+		24BF948B1AB775C800B923A9 /* Math */ = {
+			isa = PBXGroup;
+			children = (
+				24BF94871AB775C300B923A9 /* Vector.h */,
+				24BF94881AB775C300B923A9 /* Vector.m */,
+				244CA6DA1AB86D0300FD5F18 /* Position.h */,
+				244CA6DB1AB86D0300FD5F18 /* Position.m */,
+			);
+			name = Math;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -392,6 +418,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				244CA6DC1AB86D0300FD5F18 /* Position.m in Sources */,
 				24F7BB251AB7546100F28F64 /* NSArray+Extension.m in Sources */,
 				242CDDFB1AB5D87E00CC8067 /* ViewController.m in Sources */,
 				242CDE401AB5EABE00CC8067 /* NSMutableArray+ObjectiveSugar.m in Sources */,
@@ -406,6 +433,7 @@
 				242CDE221AB5DAD400CC8067 /* JSContext+Extension.m in Sources */,
 				242CDE461AB5EABE00CC8067 /* NSString+ObjectiveSugar.m in Sources */,
 				242CDE2B1AB5E99E00CC8067 /* FileHelper.m in Sources */,
+				24BF94891AB775C300B923A9 /* Vector.m in Sources */,
 				2418F22D1AB71BFC004A31E5 /* UIColor+Extension.m in Sources */,
 				242CDE441AB5EABE00CC8067 /* NSSet+ObjectiveSugar.m in Sources */,
 				2418F2281AB71567004A31E5 /* Sphere.m in Sources */,
@@ -425,16 +453,20 @@
 				242CDE3F1AB5EABE00CC8067 /* NSDictionary+ObjectiveSugar.m in Sources */,
 				2418F2301AB71CCB004A31E5 /* ColorTests.m in Sources */,
 				242CDE471AB5EABE00CC8067 /* NSString+ObjectiveSugar.m in Sources */,
+				244CA6DE1AB8712100FD5F18 /* PositionTests.m in Sources */,
 				242CDE491AB5ED2A00CC8067 /* FileHelperTests.m in Sources */,
 				2418F22E1AB71BFC004A31E5 /* UIColor+Extension.m in Sources */,
 				242CDE231AB5DAD400CC8067 /* JSContext+Extension.m in Sources */,
 				242CDE501AB5EF6D00CC8067 /* NSString+Extension.m in Sources */,
 				242CDE451AB5EABE00CC8067 /* NSSet+ObjectiveSugar.m in Sources */,
+				24BF948A1AB775C300B923A9 /* Vector.m in Sources */,
 				2418F2291AB71567004A31E5 /* Sphere.m in Sources */,
+				24BF948E1AB776A600B923A9 /* VectorTests.m in Sources */,
 				242CDE411AB5EABE00CC8067 /* NSMutableArray+ObjectiveSugar.m in Sources */,
 				242CDE431AB5EABE00CC8067 /* NSNumber+ObjectiveSugar.m in Sources */,
 				2418F2251AB71516004A31E5 /* Shape.m in Sources */,
 				242CDE2C1AB5E99E00CC8067 /* FileHelper.m in Sources */,
+				244CA6DF1AB8744C00FD5F18 /* Position.m in Sources */,
 				246098C61AB7138D00CDEA5B /* SCNScene+Extension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

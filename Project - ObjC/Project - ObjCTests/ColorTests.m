@@ -1,5 +1,5 @@
 
-// TODO: Create initializers for array, dict, etc
+// TODO: Create initializers for dict
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>

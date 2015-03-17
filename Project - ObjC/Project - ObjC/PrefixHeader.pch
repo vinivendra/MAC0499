@@ -14,6 +14,10 @@
 #import "FileHelper.h"
 
 
+#import "Vector.h"
+#import "Position.h"
+
+
 #import "Item.h"
 #import "Shape.h"
 #import "Sphere.h"

@@ -4,5 +4,5 @@
 
 
 @interface Item : SCNNode
-
++ (instancetype)create;
 @end

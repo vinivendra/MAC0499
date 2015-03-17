@@ -5,10 +5,6 @@
 
 @implementation Sphere
 
-+ (instancetype)create {
-    return [self new];
-}
-
 + (instancetype)sphere {
     return [self create];
 }
@@ -22,8 +18,7 @@
 
 - (instancetype)initWithRadius:(CGFloat)radius {
     if ( self = [super init] ) {
-        self.sphere = [SCNSphere new];
-        self.sphere.radius = radius;
+        self.sphere = [SCNSphere sphereWithRadius:radius];
     }
     return self;
 }

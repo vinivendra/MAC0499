@@ -9,7 +9,6 @@
 
 
 @interface Sphere : Shape <SphereExport>
-+ (instancetype)create;
 + (instancetype)sphere;
 @property (nonatomic) CGFloat radius;
 @end
