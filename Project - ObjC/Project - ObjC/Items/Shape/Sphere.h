@@ -2,9 +2,13 @@
 
 @protocol SphereExport <JSExport>
 + (instancetype)create;
-+ (instancetype)sphere;
-@property (nonatomic) CGFloat radius;
+//
+@property (nonatomic, strong) id position;
+@property (nonatomic, strong) id rotation;
+//
 @property (nonatomic, strong) id color;
+//
+@property (nonatomic) CGFloat radius;
 @end
 
 

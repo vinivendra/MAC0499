@@ -61,10 +61,16 @@
     if ([object isKindOfClass:[NSArray class]]) {
         self = [self initWithArray:object];
     }
-    else if ([object isKindOfClass:[NSArray class]]) {
+    else if ([object isKindOfClass:[Vector class]]) {
         self = [self initWithVector:object];
     }
-    return nil;
+    else if ([object isKindOfClass:[NSValue class]]) {
+        self = [self initWithSCNVector:((NSValue *)object).SCNVector3Value];
+    }
+    else {
+        return nil;
+    }
+    return self;
 }
 
 - (BOOL)isEqual:(id)object {
