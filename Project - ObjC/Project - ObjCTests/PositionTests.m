@@ -20,12 +20,12 @@
     // When
     NSArray *resultVectors = [expectedVectors map:^id(id object) {
         SCNVector3 vector = ((NSValue *)object).SCNVector3Value;
-        return [Vector vectorWithVector:vector];
+        return [[Vector alloc] initWithSCNVector:vector];
     }];
 
     NSArray *resultPositions = [resultVectors map:^id(id object) {
         Vector *vector = (Vector *)object;
-        return [Position positionWithVector:vector];
+        return [[Position alloc] initWithVector:vector];
     }];
     
     // Then

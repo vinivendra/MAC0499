@@ -20,7 +20,7 @@
     // When
     NSArray *resultVectors = [expectedVectors map:^id(id object) {
         SCNVector3 vector = ((NSValue *)object).SCNVector3Value;
-        return [Vector vectorWithVector:vector];
+        return [[Vector alloc] initWithSCNVector:vector];
     }];
 
     // Then
@@ -44,12 +44,12 @@
         @[ @0.2, @0.3, @0.4 ],
         @[ @0.0, @0.0, @0.0 ],
         @[ @(-0.2), @1230.3, @1.3 ]
-    ];
-
+        ];
+    
     // When
     NSArray *resultVectors = [testVectors map:^id(id object) {
         NSArray *array = (NSArray *)object;
-        return [Vector vectorWithArray:array];
+        return [[Vector alloc] initWithArray:array];
     }];
 
     // Then

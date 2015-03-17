@@ -14,4 +14,8 @@
     return (range.location != NSNotFound);
 }
 
+- (NSNumber *)numberValue {
+    return [NSNumber numberWithString:self];
+}
+
 @end

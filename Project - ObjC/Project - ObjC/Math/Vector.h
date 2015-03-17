@@ -1,7 +1,5 @@
 
 
-bool vectorsAreEqual(SCNVector3 vector1, SCNVector3 vector2);
-
 @interface Vector : NSObject
 @property (nonatomic) SCNVector3 vector;
 
@@ -9,9 +7,12 @@ bool vectorsAreEqual(SCNVector3 vector1, SCNVector3 vector2);
 @property (nonatomic, readonly) CGFloat y;
 @property (nonatomic, readonly) CGFloat z;
 
-+ (instancetype)vectorWithX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z;
-+ (instancetype)vectorWithVector:(SCNVector3)newValue;
-+ (instancetype)vectorWithArray:(NSArray *)array;
+- (instancetype)initWithX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z;
+- (instancetype)initWithSCNVector:(SCNVector3)newValue;
+- (instancetype)initWithCIVector:(CIVector *)newValue;
+- (instancetype)initWithVector:(Vector *)vector;
+- (instancetype)initWithArray:(NSArray *)array;
+- (instancetype)initWithObject:(id)object;
 - (BOOL)isEqualToVector:(SCNVector3)vector;
 - (SCNVector3)toSCNVector;
 @end

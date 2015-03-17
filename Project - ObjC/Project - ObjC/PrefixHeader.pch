@@ -6,6 +6,7 @@
 #import "JSContext+Extension.h"
 #import "NSArray+Extension.h"
 #import "NSString+Extension.h"
+#import "NSNumber+Extension.h"
 #import "SCNScene+Extension.h"
 #import "UIColor+Extension.h"
 
@@ -16,6 +17,7 @@
 
 #import "Vector.h"
 #import "Position.h"
+#import "Axis.h"
 
 
 #import "Item.h"

@@ -7,33 +7,53 @@
 @end
 
 
-bool vectorsAreEqual(SCNVector3 vector1, SCNVector3 vector2) {
-    return vector1.x == vector2.x && vector1.y == vector2.y
-           && vector1.z == vector2.z;
-}
-
-
 @implementation Vector
 
-+ (instancetype)vectorWithX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z {
-    Vector *vector = [Vector new];
-    vector.vector = SCNVector3Make(x, y, z);
-    return vector;
+- (instancetype)initWithX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z {
+    if (self = [super init]) {
+        self.vector = SCNVector3Make(x, y, z);
+    }
+    return self;
 }
 
-+ (instancetype)vectorWithVector:(SCNVector3)newValue {
-    Vector *vector = [Vector new];
-    vector.vector = newValue;
-    return vector;
+- (instancetype)initWithSCNVector:(SCNVector3)newValue {
+    if (self = [super init]) {
+        self.vector = newValue;
+    }
+    return self;
 }
 
-+ (instancetype)vectorWithArray:(NSArray *)array {
-    Vector *vector = [Vector new];
-    vector.vector = SCNVector3Make(((NSNumber *)array[0]).doubleValue,
-                                   ((NSNumber *)array[1]).doubleValue,
-                                   ((NSNumber *)array[2]).doubleValue);
-    ;
-    return vector;
+- (instancetype)initWithCIVector:(CIVector *)newValue {
+    if (self = [super init]) {
+        self.vector = SCNVector3Make(newValue.X, newValue.Y, newValue.Z);
+    }
+    return self;
+}
+
+- (instancetype)initWithVector:(Vector *)vector {
+    if (self = [super init]) {
+        self.vector = [vector toSCNVector];
+    }
+    return self;
+}
+
+- (instancetype)initWithArray:(NSArray *)array {
+    if (self = [super init]) {
+        self.vector = SCNVector3Make(((NSNumber *)array[0]).doubleValue,
+                                     ((NSNumber *)array[1]).doubleValue,
+                                     ((NSNumber *)array[2]).doubleValue);
+    }
+    return self;
+}
+
+- (instancetype)initWithObject:(id)object {
+    if ([object isKindOfClass:[NSArray class]]) {
+        self = [self initWithArray:object];
+    }
+    else if ([object isKindOfClass:[NSArray class]]) {
+        self = [self initWithVector:object];
+    }
+    return nil;
 }
 
 - (BOOL)isEqual:(id)object {
@@ -41,11 +61,12 @@ bool vectorsAreEqual(SCNVector3 vector1, SCNVector3 vector2) {
         return NO;
 
     Vector *other = (Vector *)object;
-    return vectorsAreEqual(self.vector, other.vector);
+    
+    return [self isEqualToVector:other.vector];
 }
 
 - (BOOL)isEqualToVector:(SCNVector3)vector {
-    return vectorsAreEqual(self.vector, vector);
+    return SCNVector3EqualToVector3(self.vector, vector);
 }
 
 - (SCNVector3)toSCNVector {
@@ -63,7 +84,7 @@ bool vectorsAreEqual(SCNVector3 vector1, SCNVector3 vector2) {
 #pragma mark - Property Overriding
 
 - (Vector *)setNewX:(CGFloat)x {
-    return [Vector vectorWithX:x Y:self.vector.y Z:self.vector.z];
+    return [[Vector alloc] initWithX:x Y:self.vector.y Z:self.vector.z];
 }
 
 - (CGFloat)x {
@@ -71,7 +92,7 @@ bool vectorsAreEqual(SCNVector3 vector1, SCNVector3 vector2) {
 }
 
 - (Vector *)setNewY:(CGFloat)y {
-    return [Vector vectorWithX:self.vector.x Y:y Z:self.vector.z];
+    return [[Vector alloc] initWithX:self.vector.x Y:y Z:self.vector.z];
 }
 
 - (CGFloat)y {
@@ -79,7 +100,7 @@ bool vectorsAreEqual(SCNVector3 vector1, SCNVector3 vector2) {
 }
 
 - (Vector *)setNewZ:(CGFloat)z {
-    return [Vector vectorWithX:self.vector.x Y:self.vector.y Z:z];
+    return [[Vector alloc] initWithX:self.vector.x Y:self.vector.y Z:z];
 }
 
 - (CGFloat)z {
