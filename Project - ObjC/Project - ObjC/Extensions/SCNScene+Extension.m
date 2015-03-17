@@ -19,7 +19,7 @@
 
 
 - (void)addItem:(Item *)item {
-    [self.rootNode addChildNode:item];
+    [self.rootNode addChildNode:item.node];
 }
 
 @end

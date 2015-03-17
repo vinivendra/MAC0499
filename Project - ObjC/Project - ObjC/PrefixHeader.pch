@@ -2,6 +2,12 @@
 #ifndef Project___ObjC_PrefixHeader_pch
 #define Project___ObjC_PrefixHeader_pch
 
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+static NSString *_testFileName = @"test.js";
+
+#define LIMIT(A, B, C) (MIN(MAX(B, A), C))
 
 #import "JSContext+Extension.h"
 #import "NSArray+Extension.h"
@@ -25,9 +31,5 @@
 #import "Item.h"
 #import "Shape.h"
 #import "Sphere.h"
-
-static NSString *_testFileName = @"test.js";
-
-#define LIMIT(A, B, C) (MIN(MAX(B, A), C))
 
 #endif

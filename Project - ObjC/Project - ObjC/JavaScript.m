@@ -101,6 +101,12 @@ static NSString *_defaultFilename = @"main.js";
         [console log:value];
     };
 
+    self.context[@"vector"] = [Vector class];
+    self.context[@"position"] = [Position class];
+    self.context[@"axis"] = [Axis class];
+    self.context[@"rotation"] = [Rotation class];
+    self.context[@"angle"] = [Angle class];
+
     self.context[@"sphere"] = [Sphere class];
 }
 

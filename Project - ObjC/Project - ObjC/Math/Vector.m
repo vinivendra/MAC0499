@@ -9,6 +9,10 @@
 
 @implementation Vector
 
++ (instancetype)origin {
+    return [[Vector alloc] initWithX:0 Y:0 Z:0];
+}
+
 - (instancetype)initWithX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z {
     if (self = [super init]) {
         self.vector = SCNVector3Make(x, y, z);
@@ -19,6 +23,13 @@
 - (instancetype)initWithSCNVector:(SCNVector3)newValue {
     if (self = [super init]) {
         self.vector = newValue;
+    }
+    return self;
+}
+
+- (instancetype)initWithSCNVector4:(SCNVector4)newValue {
+    if (self = [super init]) {
+        self.vector = SCNVector3Make(newValue.x, newValue.y, newValue.z);
     }
     return self;
 }

@@ -1,14 +1,34 @@
 
 
-#import "Vector.h"
+@protocol AxisExport <JSExport>
+@property (nonatomic) SCNVector3 vector;
 
+@property (nonatomic, readonly) CGFloat x;
+@property (nonatomic, readonly) CGFloat y;
+@property (nonatomic, readonly) CGFloat z;
 
-@interface Axis : Vector
+- (instancetype)initWithX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z;
+- (instancetype)initWithSCNVector:(SCNVector3)newValue;
+- (instancetype)initWithCIVector:(CIVector *)newValue;
+- (instancetype)initWithVector:(Vector *)vector;
+- (instancetype)initWithArray:(NSArray *)array;
+- (instancetype)initWithObject:(id)object;
+- (BOOL)isEqualToVector:(SCNVector3)vector;
+- (SCNVector3)toSCNVector;
 
+//
 - (instancetype)initWithString:(NSString *)string;
 
 + (instancetype)x;
 + (instancetype)y;
 + (instancetype)z;
+@end
 
+
+@interface Axis : Vector <AxisExport>
+- (instancetype)initWithString:(NSString *)string;
+
++ (instancetype)x;
++ (instancetype)y;
++ (instancetype)z;
 @end

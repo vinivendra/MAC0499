@@ -1,8 +1,10 @@
 
 
-#import <SceneKit/SceneKit.h>
+@interface Item : NSObject
+@property (nonatomic, strong) SCNNode *node;
+@property (nonatomic, strong) id position;
+@property (nonatomic, strong) id rotation;
+@property (nonatomic, strong) SCNGeometry *geometry;
 
-
-@interface Item : SCNNode
 + (instancetype)create;
 @end

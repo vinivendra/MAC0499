@@ -33,7 +33,7 @@ NamespaceIndentation: None
 ObjCBlockIndentWidth: 4
 ObjCSpaceAfterProperty: true
 ObjCSpaceBeforeProtocolList: true
-PenaltyBreakBeforeFirstCallParameter: 10
+PenaltyBreakBeforeFirstCallParameter: 100
 PenaltyBreakComment: 0
 PenaltyBreakFirstLessLess: 10
 PenaltyBreakString: 10
