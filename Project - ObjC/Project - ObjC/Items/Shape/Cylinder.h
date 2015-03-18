@@ -1,6 +1,8 @@
 
+@class Cylinder;
 
-@protocol SphereExport <JSExport>
+
+@protocol CylinderExport <JSExport>
 + (instancetype)create;
 //
 @property (nonatomic, strong) id position;
@@ -8,20 +10,14 @@
 //
 @property (nonatomic, strong) id color;
 //
++ (instancetype)cylinder;
 @property (nonatomic) CGFloat radius;
+@property (nonatomic) CGFloat height;
 @end
 
 
-@interface Sphere : Shape <SphereExport>
-+ (instancetype)sphere;
+@interface Cylinder : Shape <CylinderExport>
++ (instancetype)cylinder;
 @property (nonatomic) CGFloat radius;
+@property (nonatomic) CGFloat height;
 @end
-
-// Tube
-// Capsule
-// Torus
-// Floor
-// Text
-// Shape
-// Plane
-// Pyramid
