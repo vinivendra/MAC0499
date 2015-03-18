@@ -36,5 +36,6 @@ static NSString *_testFileName = @"test.js";
 #import "Cylinder.h"
 #import "Tube.h"
 #import "Capsule.h"
+#import "Torus.h"
 
 #endif

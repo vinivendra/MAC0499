@@ -115,6 +115,7 @@ static NSString *_defaultFilename = @"main.js";
     self.context[@"cylinder"] = [Cylinder class];
     self.context[@"tube"] = [Tube class];
     self.context[@"capsule"] = [Capsule class];
+    self.context[@"torus"] = [Torus class];
 }
 
 - (void)getObjects {
