@@ -108,6 +108,7 @@ static NSString *_defaultFilename = @"main.js";
     self.context[@"angle"] = [Angle class];
 
     self.context[@"sphere"] = [Sphere class];
+    self.context[@"box"] = [Box class];
 }
 
 - (void)getObjects {

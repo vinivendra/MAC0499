@@ -1,4 +1,4 @@
-// TODO: Finish implementing box (interface's properties, inits)
+
 
 #import "Box.h"
 
