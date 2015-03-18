@@ -8,7 +8,7 @@ function update(dt) {
 }
 
 var item = text.create();
-    item.color = [0.5, 0.2, 0.3];
+    item.color = "purple";
 
     item.position = [-1, 0, 0];
     item.scale = 0.1
@@ -16,9 +16,9 @@ var item = text.create();
     item.depth = 4;
 
 var cube = box.create();
-    cube.color = [0.4, 0.3, 0.1];
+    cube.color = "orange";
 
     cube.position = [-1, 0, 0];
-    cube.width = 0.1;
-    cube.height = 0.1;
-    cube.length = 0.1;
+    cube.width = 0.5;
+    cube.height = 0.5;
+    cube.length = 0.5;

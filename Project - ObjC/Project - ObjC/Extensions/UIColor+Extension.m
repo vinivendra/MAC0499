@@ -8,6 +8,8 @@
 + (Color *)colorWithObject:(id)object {
     if ([object isKindOfClass:[Color class]]) {
         return [object copy];
+    } else if ([object isKindOfClass:[NSString class]]) {
+        return [Color colorWithName:object];
     } else if ([object isKindOfClass:[NSArray class]]) {
         return [Color colorWithArray:object];
     } else if ([object isKindOfClass:[NSNumber class]]) {
@@ -17,6 +19,34 @@
 
     NSLog(@"Warning: trying to initialize color with invalid object!");
     return nil;
+}
+
++ (Color *)colorWithName:(NSString *)name {
+    static NSDictionary *colorNames;
+
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken,
+                  ^{
+                      colorNames = @{
+                          @"black" : [Color blackColor],
+                          @"dark gray" : [Color darkGrayColor],
+                          @"light gray" : [Color lightGrayColor],
+                          @"white" : [Color whiteColor],
+                          @"gray" : [Color grayColor],
+                          @"red" : [Color redColor],
+                          @"green" : [Color greenColor],
+                          @"blue" : [Color blueColor],
+                          @"cyan" : [Color cyanColor],
+                          @"yellow" : [Color yellowColor],
+                          @"magenta" : [Color magentaColor],
+                          @"orange" : [Color orangeColor],
+                          @"purple" : [Color purpleColor],
+                          @"brown" : [Color brownColor],
+                          @"clear" : [Color clearColor]
+                      };
+                  });
+
+    return colorNames[name];
 }
 
 + (Color *)colorWithCArray:(CGFloat[4])array {
@@ -58,7 +88,7 @@
 
 - (Color *)times:(CGFloat)scalar {
     CGFloat result[4];
-    
+
     [self getRed:&result[0] green:&result[1] blue:&result[2] alpha:&result[3]];
 
     result[3] = CGColorGetAlpha(self.CGColor);
