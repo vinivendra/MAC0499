@@ -54,6 +54,8 @@
 		2430DD371AB899FC0095410C /* Angle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2430DD351AB899FC0095410C /* Angle.m */; };
 		2430DD3A1AB8AFBD0095410C /* Box.m in Sources */ = {isa = PBXBuildFile; fileRef = 2430DD391AB8AFBD0095410C /* Box.m */; };
 		2430DD3B1AB8AFBD0095410C /* Box.m in Sources */ = {isa = PBXBuildFile; fileRef = 2430DD391AB8AFBD0095410C /* Box.m */; };
+		243AF9921AB9B6590070EF07 /* Cone.m in Sources */ = {isa = PBXBuildFile; fileRef = 243AF9911AB9B6590070EF07 /* Cone.m */; };
+		243AF9931AB9B6590070EF07 /* Cone.m in Sources */ = {isa = PBXBuildFile; fileRef = 243AF9911AB9B6590070EF07 /* Cone.m */; };
 		244CA6DC1AB86D0300FD5F18 /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 244CA6DB1AB86D0300FD5F18 /* Position.m */; };
 		244CA6DE1AB8712100FD5F18 /* PositionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 244CA6DD1AB8712100FD5F18 /* PositionTests.m */; };
 		244CA6DF1AB8744C00FD5F18 /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 244CA6DB1AB86D0300FD5F18 /* Position.m */; };
@@ -137,6 +139,8 @@
 		2430DD351AB899FC0095410C /* Angle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Angle.m; path = Math/Angle.m; sourceTree = "<group>"; };
 		2430DD381AB8AFBD0095410C /* Box.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Box.h; path = Items/Shape/Box.h; sourceTree = "<group>"; };
 		2430DD391AB8AFBD0095410C /* Box.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Box.m; path = Items/Shape/Box.m; sourceTree = "<group>"; };
+		243AF9901AB9B6590070EF07 /* Cone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cone.h; path = Items/Shape/Cone.h; sourceTree = "<group>"; };
+		243AF9911AB9B6590070EF07 /* Cone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cone.m; path = Items/Shape/Cone.m; sourceTree = "<group>"; };
 		244CA6DA1AB86D0300FD5F18 /* Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Position.h; path = Math/Position.h; sourceTree = "<group>"; };
 		244CA6DB1AB86D0300FD5F18 /* Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Position.m; path = Math/Position.m; sourceTree = "<group>"; };
 		244CA6DD1AB8712100FD5F18 /* PositionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionTests.m; sourceTree = "<group>"; };
@@ -184,6 +188,8 @@
 				2418F2271AB71567004A31E5 /* Sphere.m */,
 				2430DD381AB8AFBD0095410C /* Box.h */,
 				2430DD391AB8AFBD0095410C /* Box.m */,
+				243AF9901AB9B6590070EF07 /* Cone.h */,
+				243AF9911AB9B6590070EF07 /* Cone.m */,
 			);
 			name = Shapes;
 			sourceTree = "<group>";
@@ -476,6 +482,7 @@
 				2418F22D1AB71BFC004A31E5 /* UIColor+Extension.m in Sources */,
 				242CDE441AB5EABE00CC8067 /* NSSet+ObjectiveSugar.m in Sources */,
 				245F80921AB8832400FC295F /* NSNumber+Extension.m in Sources */,
+				243AF9921AB9B6590070EF07 /* Cone.m in Sources */,
 				2418F2281AB71567004A31E5 /* Sphere.m in Sources */,
 				246098C01AB711EF00CDEA5B /* Item.m in Sources */,
 				2430DD361AB899FC0095410C /* Angle.m in Sources */,
@@ -497,6 +504,7 @@
 				2418F2301AB71CCB004A31E5 /* ColorTests.m in Sources */,
 				242CDE471AB5EABE00CC8067 /* NSString+ObjectiveSugar.m in Sources */,
 				244CA6DE1AB8712100FD5F18 /* PositionTests.m in Sources */,
+				243AF9931AB9B6590070EF07 /* Cone.m in Sources */,
 				245F808D1AB87FB400FC295F /* Axis.m in Sources */,
 				242CDE491AB5ED2A00CC8067 /* FileHelperTests.m in Sources */,
 				245F808F1AB880F900FC295F /* AxisTest.m in Sources */,

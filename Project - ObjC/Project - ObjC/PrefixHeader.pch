@@ -32,5 +32,6 @@ static NSString *_testFileName = @"test.js";
 #import "Shape.h"
 #import "Sphere.h"
 #import "Box.h"
+#import "Cone.h"
 
 #endif

@@ -10,14 +10,14 @@
 }
 
 - (instancetype)init {
-    if ( self = [super init] ) {
+    if (self = [super init]) {
         self.sphere = [SCNSphere new];
     }
     return self;
 }
 
 - (instancetype)initWithRadius:(CGFloat)radius {
-    if ( self = [super init] ) {
+    if (self = [super init]) {
         self.sphere = [SCNSphere sphereWithRadius:radius];
     }
     return self;
