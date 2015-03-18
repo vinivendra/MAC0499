@@ -9,7 +9,7 @@ function update(dt) {
     print("update: " + dt);
 }
 
-var item = cylinder.create();
+var item = tube.create();
 item.color = [0.5, 0.2, 0.3];
 item.position = [0.2, 0.3, -0.3];
 item.rotation = [0.2, 0.3, 0.4, pi/2];

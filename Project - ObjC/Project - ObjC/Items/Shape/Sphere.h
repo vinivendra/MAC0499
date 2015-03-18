@@ -17,7 +17,6 @@
 @property (nonatomic) CGFloat radius;
 @end
 
-// Tube
 // Capsule
 // Torus
 // Floor
