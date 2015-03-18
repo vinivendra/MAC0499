@@ -101,6 +101,8 @@ static NSString *_defaultFilename = @"main.js";
         [console log:value];
     };
 
+    self.context[@"pi"] = @(M_PI);
+    
     self.context[@"vector"] = [Vector class];
     self.context[@"position"] = [Position class];
     self.context[@"axis"] = [Axis class];

@@ -14,3 +14,5 @@ ball.color = [0.5, 0.2, 0.3];
 ball.position = [0.2, 0.3, -0.3];
 ball.chamferRadius = 0.1;
 ball.width = 2;
+
+ball.rotation = [0.2, 0.3, 0.4, pi/2];
