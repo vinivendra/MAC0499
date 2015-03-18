@@ -60,6 +60,8 @@
 		243AF9971AB9B8960070EF07 /* Cylinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 243AF9951AB9B8960070EF07 /* Cylinder.m */; };
 		243AF99A1AB9B9B80070EF07 /* Tube.m in Sources */ = {isa = PBXBuildFile; fileRef = 243AF9991AB9B9B80070EF07 /* Tube.m */; };
 		243AF99B1AB9B9B80070EF07 /* Tube.m in Sources */ = {isa = PBXBuildFile; fileRef = 243AF9991AB9B9B80070EF07 /* Tube.m */; };
+		243AF99E1AB9BB830070EF07 /* Capsule.m in Sources */ = {isa = PBXBuildFile; fileRef = 243AF99D1AB9BB830070EF07 /* Capsule.m */; };
+		243AF99F1AB9BB830070EF07 /* Capsule.m in Sources */ = {isa = PBXBuildFile; fileRef = 243AF99D1AB9BB830070EF07 /* Capsule.m */; };
 		244CA6DC1AB86D0300FD5F18 /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 244CA6DB1AB86D0300FD5F18 /* Position.m */; };
 		244CA6DE1AB8712100FD5F18 /* PositionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 244CA6DD1AB8712100FD5F18 /* PositionTests.m */; };
 		244CA6DF1AB8744C00FD5F18 /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 244CA6DB1AB86D0300FD5F18 /* Position.m */; };
@@ -149,6 +151,8 @@
 		243AF9951AB9B8960070EF07 /* Cylinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cylinder.m; path = Items/Shape/Cylinder.m; sourceTree = "<group>"; };
 		243AF9981AB9B9B80070EF07 /* Tube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tube.h; path = Items/Shape/Tube.h; sourceTree = "<group>"; };
 		243AF9991AB9B9B80070EF07 /* Tube.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tube.m; path = Items/Shape/Tube.m; sourceTree = "<group>"; };
+		243AF99C1AB9BB830070EF07 /* Capsule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Capsule.h; path = Items/Shape/Capsule.h; sourceTree = "<group>"; };
+		243AF99D1AB9BB830070EF07 /* Capsule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Capsule.m; path = Items/Shape/Capsule.m; sourceTree = "<group>"; };
 		244CA6DA1AB86D0300FD5F18 /* Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Position.h; path = Math/Position.h; sourceTree = "<group>"; };
 		244CA6DB1AB86D0300FD5F18 /* Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Position.m; path = Math/Position.m; sourceTree = "<group>"; };
 		244CA6DD1AB8712100FD5F18 /* PositionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionTests.m; sourceTree = "<group>"; };
@@ -200,6 +204,8 @@
 				243AF9951AB9B8960070EF07 /* Cylinder.m */,
 				243AF9981AB9B9B80070EF07 /* Tube.h */,
 				243AF9991AB9B9B80070EF07 /* Tube.m */,
+				243AF99C1AB9BB830070EF07 /* Capsule.h */,
+				243AF99D1AB9BB830070EF07 /* Capsule.m */,
 				2418F2261AB71567004A31E5 /* Sphere.h */,
 				2418F2271AB71567004A31E5 /* Sphere.m */,
 			);
@@ -501,6 +507,7 @@
 				246098C01AB711EF00CDEA5B /* Item.m in Sources */,
 				2430DD361AB899FC0095410C /* Angle.m in Sources */,
 				242CDE3E1AB5EABE00CC8067 /* NSDictionary+ObjectiveSugar.m in Sources */,
+				243AF99E1AB9BB830070EF07 /* Capsule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,6 +520,7 @@
 				242CDE1F1AB5D8E000CC8067 /* JavaScript.m in Sources */,
 				242CDE0F1AB5D87F00CC8067 /* JavaScriptTests.m in Sources */,
 				242CDE3D1AB5EABE00CC8067 /* NSArray+ObjectiveSugar.m in Sources */,
+				243AF99F1AB9BB830070EF07 /* Capsule.m in Sources */,
 				242CDE3F1AB5EABE00CC8067 /* NSDictionary+ObjectiveSugar.m in Sources */,
 				2430DD371AB899FC0095410C /* Angle.m in Sources */,
 				243AF9971AB9B8960070EF07 /* Cylinder.m in Sources */,
