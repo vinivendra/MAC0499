@@ -13,6 +13,11 @@
     return [[Vector alloc] initWithX:0 Y:0 Z:0];
 }
 
+- (instancetype)initUniformWithNumber:(CGFloat)x {
+    self = [self initWithX:x Y:x Z:x];
+    return self;
+}
+
 - (instancetype)initWithX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z {
     if (self = [super init]) {
         self.vector = SCNVector3Make(x, y, z);
@@ -58,16 +63,15 @@
 }
 
 - (instancetype)initWithObject:(id)object {
-    if ([object isKindOfClass:[NSArray class]]) {
+    if ([object isKindOfClass:[NSNumber class]]) {
+        self = [self initUniformWithNumber:((NSNumber *)object).doubleValue];
+    } else if ([object isKindOfClass:[NSArray class]]) {
         self = [self initWithArray:object];
-    }
-    else if ([object isKindOfClass:[Vector class]]) {
+    } else if ([object isKindOfClass:[Vector class]]) {
         self = [self initWithVector:object];
-    }
-    else if ([object isKindOfClass:[NSValue class]]) {
+    } else if ([object isKindOfClass:[NSValue class]]) {
         self = [self initWithSCNVector:((NSValue *)object).SCNVector3Value];
-    }
-    else {
+    } else {
         return nil;
     }
     return self;
@@ -78,7 +82,7 @@
         return NO;
 
     Vector *other = (Vector *)object;
-    
+
     return [self isEqualToVector:other.vector];
 }
 

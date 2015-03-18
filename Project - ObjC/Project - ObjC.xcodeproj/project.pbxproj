@@ -167,8 +167,8 @@
 		243AF9A51AB9BE0D0070EF07 /* Pyramid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Pyramid.m; path = Items/Shape/Pyramid.m; sourceTree = "<group>"; };
 		243AF9A81AB9BEF90070EF07 /* Plane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Plane.h; path = Items/Shape/Plane.h; sourceTree = "<group>"; };
 		243AF9A91AB9BEF90070EF07 /* Plane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Plane.m; path = Items/Shape/Plane.m; sourceTree = "<group>"; };
-		243AF9AC1AB9C1AE0070EF07 /* Text.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Text.h; path = "Project - ObjC/Items/Shape/Text.h"; sourceTree = "<group>"; };
-		243AF9AD1AB9C1AE0070EF07 /* Text.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Text.m; path = "Project - ObjC/Items/Shape/Text.m"; sourceTree = "<group>"; };
+		243AF9AC1AB9C1AE0070EF07 /* Text.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Text.h; path = Items/Shape/Text.h; sourceTree = "<group>"; };
+		243AF9AD1AB9C1AE0070EF07 /* Text.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Text.m; path = Items/Shape/Text.m; sourceTree = "<group>"; };
 		244CA6DA1AB86D0300FD5F18 /* Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Position.h; path = Math/Position.h; sourceTree = "<group>"; };
 		244CA6DB1AB86D0300FD5F18 /* Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Position.m; path = Math/Position.m; sourceTree = "<group>"; };
 		244CA6DD1AB8712100FD5F18 /* PositionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionTests.m; sourceTree = "<group>"; };
@@ -226,6 +226,8 @@
 				243AF9A51AB9BE0D0070EF07 /* Pyramid.m */,
 				2418F2261AB71567004A31E5 /* Sphere.h */,
 				2418F2271AB71567004A31E5 /* Sphere.m */,
+				243AF9AC1AB9C1AE0070EF07 /* Text.h */,
+				243AF9AD1AB9C1AE0070EF07 /* Text.m */,
 				243AF9A01AB9BCE70070EF07 /* Torus.h */,
 				243AF9A11AB9BCE70070EF07 /* Torus.m */,
 				243AF9981AB9B9B80070EF07 /* Tube.h */,
@@ -237,8 +239,6 @@
 		242CDDE61AB5D87E00CC8067 = {
 			isa = PBXGroup;
 			children = (
-				243AF9AC1AB9C1AE0070EF07 /* Text.h */,
-				243AF9AD1AB9C1AE0070EF07 /* Text.m */,
 				242CDDF11AB5D87E00CC8067 /* Project - ObjC */,
 				242CDE1A1AB5D89200CC8067 /* Frameworks */,
 				242CDE0B1AB5D87E00CC8067 /* Project - ObjCTests */,

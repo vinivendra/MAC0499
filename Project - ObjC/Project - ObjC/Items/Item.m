@@ -35,6 +35,14 @@
     return [[Rotation alloc] initWithSCNVector4:self.node.rotation];
 }
 
+- (void)setScale:(id)scale {
+    self.node.scale = [[Vector alloc] initWithObject:scale].toSCNVector;
+}
+
+- (id)scale {
+    return [[Vector alloc] initWithSCNVector:self.node.scale];
+}
+
 - (void)setGeometry:(SCNGeometry *)geometry {
     self.node.geometry = geometry;
 }

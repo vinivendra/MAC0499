@@ -10,6 +10,7 @@
 @property (nonatomic, readonly) CGFloat z;
 
 + (instancetype)origin;
+- (instancetype)initUniformWithNumber:(CGFloat)x;
 - (instancetype)initWithX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z;
 - (instancetype)initWithSCNVector:(SCNVector3)newValue;
 - (instancetype)initWithSCNVector4:(SCNVector4)newValue;
@@ -30,6 +31,7 @@
 @property (nonatomic, readonly) CGFloat z;
 
 + (instancetype)origin;
+- (instancetype)initUniformWithNumber:(CGFloat)x;
 - (instancetype)initWithX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z;
 - (instancetype)initWithSCNVector:(SCNVector3)newValue;
 - (instancetype)initWithSCNVector4:(SCNVector4)newValue;
