@@ -119,6 +119,7 @@ static NSString *_defaultFilename = @"main.js";
     self.context[@"pyramid"] = [Pyramid class];
     self.context[@"plane"] = [Plane class];
     self.context[@"text"] = [Text class];
+    self.context[@"floor"] = [Floor class];
 }
 
 - (void)getObjects {

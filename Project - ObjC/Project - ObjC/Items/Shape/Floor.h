@@ -1,6 +1,9 @@
 
 
-@protocol SphereExport <JSExport>
+@class Floor;
+
+
+@protocol FloorExport <JSExport>
 + (instancetype)create;
 //
 @property (nonatomic, strong) id position;
@@ -8,12 +11,12 @@
 @property (nonatomic, strong) id scale;
 //
 @property (nonatomic, strong) id color;
+
 //
-@property (nonatomic) CGFloat radius;
++ (instancetype)floor;
 @end
 
 
-@interface Sphere : Shape <SphereExport>
-+ (instancetype)sphere;
-@property (nonatomic) CGFloat radius;
+@interface Floor : Shape <FloorExport>
++ (instancetype)floor;
 @end
