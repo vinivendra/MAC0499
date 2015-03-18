@@ -66,6 +66,8 @@
 		243AF9A31AB9BCE70070EF07 /* Torus.m in Sources */ = {isa = PBXBuildFile; fileRef = 243AF9A11AB9BCE70070EF07 /* Torus.m */; };
 		243AF9A61AB9BE0D0070EF07 /* Pyramid.m in Sources */ = {isa = PBXBuildFile; fileRef = 243AF9A51AB9BE0D0070EF07 /* Pyramid.m */; };
 		243AF9A71AB9BE0D0070EF07 /* Pyramid.m in Sources */ = {isa = PBXBuildFile; fileRef = 243AF9A51AB9BE0D0070EF07 /* Pyramid.m */; };
+		243AF9AA1AB9BEF90070EF07 /* Plane.m in Sources */ = {isa = PBXBuildFile; fileRef = 243AF9A91AB9BEF90070EF07 /* Plane.m */; };
+		243AF9AB1AB9BEF90070EF07 /* Plane.m in Sources */ = {isa = PBXBuildFile; fileRef = 243AF9A91AB9BEF90070EF07 /* Plane.m */; };
 		244CA6DC1AB86D0300FD5F18 /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 244CA6DB1AB86D0300FD5F18 /* Position.m */; };
 		244CA6DE1AB8712100FD5F18 /* PositionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 244CA6DD1AB8712100FD5F18 /* PositionTests.m */; };
 		244CA6DF1AB8744C00FD5F18 /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 244CA6DB1AB86D0300FD5F18 /* Position.m */; };
@@ -157,10 +159,12 @@
 		243AF9991AB9B9B80070EF07 /* Tube.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tube.m; path = Items/Shape/Tube.m; sourceTree = "<group>"; };
 		243AF99C1AB9BB830070EF07 /* Capsule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Capsule.h; path = Items/Shape/Capsule.h; sourceTree = "<group>"; };
 		243AF99D1AB9BB830070EF07 /* Capsule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Capsule.m; path = Items/Shape/Capsule.m; sourceTree = "<group>"; };
-		243AF9A01AB9BCE70070EF07 /* Torus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Torus.h; path = "Project - ObjC/Items/Shape/Torus.h"; sourceTree = "<group>"; };
-		243AF9A11AB9BCE70070EF07 /* Torus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Torus.m; path = "Project - ObjC/Items/Shape/Torus.m"; sourceTree = "<group>"; };
-		243AF9A41AB9BE0D0070EF07 /* Pyramid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Pyramid.h; path = "Project - ObjC/Items/Shape/Pyramid.h"; sourceTree = "<group>"; };
-		243AF9A51AB9BE0D0070EF07 /* Pyramid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Pyramid.m; path = "Project - ObjC/Items/Shape/Pyramid.m"; sourceTree = "<group>"; };
+		243AF9A01AB9BCE70070EF07 /* Torus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Torus.h; path = Items/Shape/Torus.h; sourceTree = "<group>"; };
+		243AF9A11AB9BCE70070EF07 /* Torus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Torus.m; path = Items/Shape/Torus.m; sourceTree = "<group>"; };
+		243AF9A41AB9BE0D0070EF07 /* Pyramid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Pyramid.h; path = Items/Shape/Pyramid.h; sourceTree = "<group>"; };
+		243AF9A51AB9BE0D0070EF07 /* Pyramid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Pyramid.m; path = Items/Shape/Pyramid.m; sourceTree = "<group>"; };
+		243AF9A81AB9BEF90070EF07 /* Plane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Plane.h; path = Items/Shape/Plane.h; sourceTree = "<group>"; };
+		243AF9A91AB9BEF90070EF07 /* Plane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Plane.m; path = Items/Shape/Plane.m; sourceTree = "<group>"; };
 		244CA6DA1AB86D0300FD5F18 /* Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Position.h; path = Math/Position.h; sourceTree = "<group>"; };
 		244CA6DB1AB86D0300FD5F18 /* Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Position.m; path = Math/Position.m; sourceTree = "<group>"; };
 		244CA6DD1AB8712100FD5F18 /* PositionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionTests.m; sourceTree = "<group>"; };
@@ -206,16 +210,22 @@
 			children = (
 				2430DD381AB8AFBD0095410C /* Box.h */,
 				2430DD391AB8AFBD0095410C /* Box.m */,
+				243AF99C1AB9BB830070EF07 /* Capsule.h */,
+				243AF99D1AB9BB830070EF07 /* Capsule.m */,
 				243AF9901AB9B6590070EF07 /* Cone.h */,
 				243AF9911AB9B6590070EF07 /* Cone.m */,
 				243AF9941AB9B8960070EF07 /* Cylinder.h */,
 				243AF9951AB9B8960070EF07 /* Cylinder.m */,
-				243AF9981AB9B9B80070EF07 /* Tube.h */,
-				243AF9991AB9B9B80070EF07 /* Tube.m */,
-				243AF99C1AB9BB830070EF07 /* Capsule.h */,
-				243AF99D1AB9BB830070EF07 /* Capsule.m */,
+				243AF9A81AB9BEF90070EF07 /* Plane.h */,
+				243AF9A91AB9BEF90070EF07 /* Plane.m */,
+				243AF9A41AB9BE0D0070EF07 /* Pyramid.h */,
+				243AF9A51AB9BE0D0070EF07 /* Pyramid.m */,
 				2418F2261AB71567004A31E5 /* Sphere.h */,
 				2418F2271AB71567004A31E5 /* Sphere.m */,
+				243AF9A01AB9BCE70070EF07 /* Torus.h */,
+				243AF9A11AB9BCE70070EF07 /* Torus.m */,
+				243AF9981AB9B9B80070EF07 /* Tube.h */,
+				243AF9991AB9B9B80070EF07 /* Tube.m */,
 			);
 			name = Shapes;
 			sourceTree = "<group>";
@@ -223,10 +233,6 @@
 		242CDDE61AB5D87E00CC8067 = {
 			isa = PBXGroup;
 			children = (
-				243AF9A01AB9BCE70070EF07 /* Torus.h */,
-				243AF9A11AB9BCE70070EF07 /* Torus.m */,
-				243AF9A41AB9BE0D0070EF07 /* Pyramid.h */,
-				243AF9A51AB9BE0D0070EF07 /* Pyramid.m */,
 				242CDDF11AB5D87E00CC8067 /* Project - ObjC */,
 				242CDE1A1AB5D89200CC8067 /* Frameworks */,
 				242CDE0B1AB5D87E00CC8067 /* Project - ObjCTests */,
@@ -517,6 +523,7 @@
 				245F80921AB8832400FC295F /* NSNumber+Extension.m in Sources */,
 				243AF9921AB9B6590070EF07 /* Cone.m in Sources */,
 				243AF9A61AB9BE0D0070EF07 /* Pyramid.m in Sources */,
+				243AF9AA1AB9BEF90070EF07 /* Plane.m in Sources */,
 				2418F2281AB71567004A31E5 /* Sphere.m in Sources */,
 				246098C01AB711EF00CDEA5B /* Item.m in Sources */,
 				2430DD361AB899FC0095410C /* Angle.m in Sources */,
@@ -547,6 +554,7 @@
 				242CDE491AB5ED2A00CC8067 /* FileHelperTests.m in Sources */,
 				245F808F1AB880F900FC295F /* AxisTest.m in Sources */,
 				2418F22E1AB71BFC004A31E5 /* UIColor+Extension.m in Sources */,
+				243AF9AB1AB9BEF90070EF07 /* Plane.m in Sources */,
 				242CDE231AB5DAD400CC8067 /* JSContext+Extension.m in Sources */,
 				243AF99B1AB9B9B80070EF07 /* Tube.m in Sources */,
 				242CDE501AB5EF6D00CC8067 /* NSString+Extension.m in Sources */,
