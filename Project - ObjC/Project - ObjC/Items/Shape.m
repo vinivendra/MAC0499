@@ -10,8 +10,8 @@
     
     SCNMaterial *material = [SCNMaterial new];
     
-    material.ambient.contents = [color times:0.7];
-    material.diffuse.contents = [color times:0.9];
+    material.ambient.contents = color;
+    material.diffuse.contents = color;
     material.specular.contents = color;
     
     self.geometry.materials = @[material];

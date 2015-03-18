@@ -68,6 +68,8 @@
 		243AF9A71AB9BE0D0070EF07 /* Pyramid.m in Sources */ = {isa = PBXBuildFile; fileRef = 243AF9A51AB9BE0D0070EF07 /* Pyramid.m */; };
 		243AF9AA1AB9BEF90070EF07 /* Plane.m in Sources */ = {isa = PBXBuildFile; fileRef = 243AF9A91AB9BEF90070EF07 /* Plane.m */; };
 		243AF9AB1AB9BEF90070EF07 /* Plane.m in Sources */ = {isa = PBXBuildFile; fileRef = 243AF9A91AB9BEF90070EF07 /* Plane.m */; };
+		243AF9AE1AB9C1AE0070EF07 /* Text.m in Sources */ = {isa = PBXBuildFile; fileRef = 243AF9AD1AB9C1AE0070EF07 /* Text.m */; };
+		243AF9AF1AB9C1AE0070EF07 /* Text.m in Sources */ = {isa = PBXBuildFile; fileRef = 243AF9AD1AB9C1AE0070EF07 /* Text.m */; };
 		244CA6DC1AB86D0300FD5F18 /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 244CA6DB1AB86D0300FD5F18 /* Position.m */; };
 		244CA6DE1AB8712100FD5F18 /* PositionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 244CA6DD1AB8712100FD5F18 /* PositionTests.m */; };
 		244CA6DF1AB8744C00FD5F18 /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 244CA6DB1AB86D0300FD5F18 /* Position.m */; };
@@ -165,6 +167,8 @@
 		243AF9A51AB9BE0D0070EF07 /* Pyramid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Pyramid.m; path = Items/Shape/Pyramid.m; sourceTree = "<group>"; };
 		243AF9A81AB9BEF90070EF07 /* Plane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Plane.h; path = Items/Shape/Plane.h; sourceTree = "<group>"; };
 		243AF9A91AB9BEF90070EF07 /* Plane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Plane.m; path = Items/Shape/Plane.m; sourceTree = "<group>"; };
+		243AF9AC1AB9C1AE0070EF07 /* Text.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Text.h; path = "Project - ObjC/Items/Shape/Text.h"; sourceTree = "<group>"; };
+		243AF9AD1AB9C1AE0070EF07 /* Text.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Text.m; path = "Project - ObjC/Items/Shape/Text.m"; sourceTree = "<group>"; };
 		244CA6DA1AB86D0300FD5F18 /* Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Position.h; path = Math/Position.h; sourceTree = "<group>"; };
 		244CA6DB1AB86D0300FD5F18 /* Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Position.m; path = Math/Position.m; sourceTree = "<group>"; };
 		244CA6DD1AB8712100FD5F18 /* PositionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionTests.m; sourceTree = "<group>"; };
@@ -233,6 +237,8 @@
 		242CDDE61AB5D87E00CC8067 = {
 			isa = PBXGroup;
 			children = (
+				243AF9AC1AB9C1AE0070EF07 /* Text.h */,
+				243AF9AD1AB9C1AE0070EF07 /* Text.m */,
 				242CDDF11AB5D87E00CC8067 /* Project - ObjC */,
 				242CDE1A1AB5D89200CC8067 /* Frameworks */,
 				242CDE0B1AB5D87E00CC8067 /* Project - ObjCTests */,
@@ -516,6 +522,7 @@
 				242CDE461AB5EABE00CC8067 /* NSString+ObjectiveSugar.m in Sources */,
 				245F808C1AB87FB400FC295F /* Axis.m in Sources */,
 				242CDE2B1AB5E99E00CC8067 /* FileHelper.m in Sources */,
+				243AF9AE1AB9C1AE0070EF07 /* Text.m in Sources */,
 				24BF94891AB775C300B923A9 /* Vector.m in Sources */,
 				2418F22D1AB71BFC004A31E5 /* UIColor+Extension.m in Sources */,
 				243AF99A1AB9B9B80070EF07 /* Tube.m in Sources */,
@@ -563,6 +570,7 @@
 				24BF948A1AB775C300B923A9 /* Vector.m in Sources */,
 				2418F2291AB71567004A31E5 /* Sphere.m in Sources */,
 				245F80931AB8832400FC295F /* NSNumber+Extension.m in Sources */,
+				243AF9AF1AB9C1AE0070EF07 /* Text.m in Sources */,
 				24BF948E1AB776A600B923A9 /* VectorTests.m in Sources */,
 				242CDE411AB5EABE00CC8067 /* NSMutableArray+ObjectiveSugar.m in Sources */,
 				242CDE431AB5EABE00CC8067 /* NSNumber+ObjectiveSugar.m in Sources */,

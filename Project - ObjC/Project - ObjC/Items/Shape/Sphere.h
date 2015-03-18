@@ -19,5 +19,3 @@
 
 // Floor
 // Text
-// Shape
-// Plane
