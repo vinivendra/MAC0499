@@ -64,6 +64,8 @@
 		243AF99F1AB9BB830070EF07 /* Capsule.m in Sources */ = {isa = PBXBuildFile; fileRef = 243AF99D1AB9BB830070EF07 /* Capsule.m */; };
 		243AF9A21AB9BCE70070EF07 /* Torus.m in Sources */ = {isa = PBXBuildFile; fileRef = 243AF9A11AB9BCE70070EF07 /* Torus.m */; };
 		243AF9A31AB9BCE70070EF07 /* Torus.m in Sources */ = {isa = PBXBuildFile; fileRef = 243AF9A11AB9BCE70070EF07 /* Torus.m */; };
+		243AF9A61AB9BE0D0070EF07 /* Pyramid.m in Sources */ = {isa = PBXBuildFile; fileRef = 243AF9A51AB9BE0D0070EF07 /* Pyramid.m */; };
+		243AF9A71AB9BE0D0070EF07 /* Pyramid.m in Sources */ = {isa = PBXBuildFile; fileRef = 243AF9A51AB9BE0D0070EF07 /* Pyramid.m */; };
 		244CA6DC1AB86D0300FD5F18 /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 244CA6DB1AB86D0300FD5F18 /* Position.m */; };
 		244CA6DE1AB8712100FD5F18 /* PositionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 244CA6DD1AB8712100FD5F18 /* PositionTests.m */; };
 		244CA6DF1AB8744C00FD5F18 /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 244CA6DB1AB86D0300FD5F18 /* Position.m */; };
@@ -157,6 +159,8 @@
 		243AF99D1AB9BB830070EF07 /* Capsule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Capsule.m; path = Items/Shape/Capsule.m; sourceTree = "<group>"; };
 		243AF9A01AB9BCE70070EF07 /* Torus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Torus.h; path = "Project - ObjC/Items/Shape/Torus.h"; sourceTree = "<group>"; };
 		243AF9A11AB9BCE70070EF07 /* Torus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Torus.m; path = "Project - ObjC/Items/Shape/Torus.m"; sourceTree = "<group>"; };
+		243AF9A41AB9BE0D0070EF07 /* Pyramid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Pyramid.h; path = "Project - ObjC/Items/Shape/Pyramid.h"; sourceTree = "<group>"; };
+		243AF9A51AB9BE0D0070EF07 /* Pyramid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Pyramid.m; path = "Project - ObjC/Items/Shape/Pyramid.m"; sourceTree = "<group>"; };
 		244CA6DA1AB86D0300FD5F18 /* Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Position.h; path = Math/Position.h; sourceTree = "<group>"; };
 		244CA6DB1AB86D0300FD5F18 /* Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Position.m; path = Math/Position.m; sourceTree = "<group>"; };
 		244CA6DD1AB8712100FD5F18 /* PositionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionTests.m; sourceTree = "<group>"; };
@@ -221,6 +225,8 @@
 			children = (
 				243AF9A01AB9BCE70070EF07 /* Torus.h */,
 				243AF9A11AB9BCE70070EF07 /* Torus.m */,
+				243AF9A41AB9BE0D0070EF07 /* Pyramid.h */,
+				243AF9A51AB9BE0D0070EF07 /* Pyramid.m */,
 				242CDDF11AB5D87E00CC8067 /* Project - ObjC */,
 				242CDE1A1AB5D89200CC8067 /* Frameworks */,
 				242CDE0B1AB5D87E00CC8067 /* Project - ObjCTests */,
@@ -510,6 +516,7 @@
 				242CDE441AB5EABE00CC8067 /* NSSet+ObjectiveSugar.m in Sources */,
 				245F80921AB8832400FC295F /* NSNumber+Extension.m in Sources */,
 				243AF9921AB9B6590070EF07 /* Cone.m in Sources */,
+				243AF9A61AB9BE0D0070EF07 /* Pyramid.m in Sources */,
 				2418F2281AB71567004A31E5 /* Sphere.m in Sources */,
 				246098C01AB711EF00CDEA5B /* Item.m in Sources */,
 				2430DD361AB899FC0095410C /* Angle.m in Sources */,
@@ -535,6 +542,7 @@
 				242CDE471AB5EABE00CC8067 /* NSString+ObjectiveSugar.m in Sources */,
 				244CA6DE1AB8712100FD5F18 /* PositionTests.m in Sources */,
 				243AF9931AB9B6590070EF07 /* Cone.m in Sources */,
+				243AF9A71AB9BE0D0070EF07 /* Pyramid.m in Sources */,
 				245F808D1AB87FB400FC295F /* Axis.m in Sources */,
 				242CDE491AB5ED2A00CC8067 /* FileHelperTests.m in Sources */,
 				245F808F1AB880F900FC295F /* AxisTest.m in Sources */,
