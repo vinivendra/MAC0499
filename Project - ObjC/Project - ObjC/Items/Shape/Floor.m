@@ -11,7 +11,7 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.floor = [SCNFloor new];
+        self.floor = [SCNFloor floor];
     }
     return self;
 }
