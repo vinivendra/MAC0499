@@ -63,6 +63,7 @@
             self = [self initWithSCNVector4:vector];
         }
         else {
+            assert(false);
             return nil;
         }
     }

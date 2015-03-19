@@ -1,3 +1,5 @@
+// TODO: Consider changing asserts() into exceptions
+
 
 #import "ViewController.h"
 
