@@ -19,5 +19,10 @@
 - (SCNVector3)toSCNVector;
 @end
 
+
+/*!
+ A representation of a 3D position. Much like the Vector class, but meant to be
+ used as a point instead of a vector.
+ */
 @interface Position : Vector <PositionExport>
 @end

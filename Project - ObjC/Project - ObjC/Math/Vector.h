@@ -3,7 +3,9 @@
 // TODO: init with dictionary
 // TODO: Create a copy method for all exported classes.
 // TODO: Make isEqual accept the same objects as initWithObject does.
-
+// TODO: Test rotation for non normalized vectors
+// TODO: Create standard arithmetic methods, including norm, normalization,
+// vector product and dot product.
 
 @class Vector;
 
@@ -50,7 +52,8 @@
  */
 + (instancetype)origin;
 /*!
- Creates a vector in which all components are set to @p x. Useful for uniform scales.
+ Creates a vector in which all components are set to @p x. Useful for uniform
+ scales.
  @param x The value to set to all the Vector's components.
  @return An initialized Vector object.
  */
@@ -64,26 +67,31 @@
  */
 - (instancetype)initWithX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z;
 /*!
- Creates a vector in which all components are set as just as the given SCNVector3.
+ Creates a vector in which all components are set as just as the given
+ SCNVector3.
  @param newValue The SCNVector3 that should be used as a model.
  @return An initialized Vector object.
  */
 - (instancetype)initWithSCNVector:(SCNVector3)newValue;
 /*!
- Creates a vector in which all components are set as just as the first 3 components in the given SCNVector4. If that vector is written as (x y z w), the created Vector object will be (x y z).
- 
+ Creates a vector in which all components are set as just as the first 3
+ components in the given SCNVector4. If that vector is written as (x y z w), the
+ created Vector object will be (x y z).
+
  Useful for obtaining the axis of a rotation, for instance.
- 
+
  @param newValue The SCNVector4 whose first three components should be used.
  @return An initialized Vector object.
  */
 - (instancetype)initWithSCNVector4:(SCNVector4)newValue;
 /*!
- Creates a vector in which all components are set as just as the first 3 components (x, y and z) in the given CIVector.
- This method trusts that the CIVector has been correctly initialized and has the necessary components.
- 
+ Creates a vector in which all components are set as just as the first 3
+ components (x, y and z) in the given CIVector.
+ This method trusts that the CIVector has been correctly initialized and has the
+ necessary components.
+
  Useful for obtaining a Vector through a CIVector initialization method.
- 
+
  @param newValue The CIValue whose x, y and z components should be used.
  @return An initialized Vector object.
  */
@@ -95,7 +103,9 @@
  */
 - (instancetype)initWithVector:(Vector *)vector;
 /*!
- Creates a Vector based on the given NSArray. Trusts that the array has enough (3 or more) components, and that the first 3 components may be cast into @P NSNumbers.
+ Creates a Vector based on the given NSArray. Trusts that the array has enough
+ (3 or more) components, and that the first 3 components may be cast into @P
+ NSNumbers.
  @param array The array to copy into the Vector.
  @return An initialized Vector object.
  */
@@ -104,18 +114,22 @@
  Creates a Vector based on the given object. The supported objects are:
  - NSNumber, which will be initialized just like @p -initUniformWithNumber.
  - NSArray, which will be initialized just like @p -initWithArray.
- - NSValue containing a SCNVector3, which will be initialized just like @p -initWithSCNVector3.
- - Vector (or any of its subclassses, which will be initialized just like @p -initWithVector.
- 
- @warning In case the object isn't a subclass of any of the above classes, an @p assert(false) will be triggered.
- 
+ - NSValue containing a SCNVector3, which will be initialized just like @p
+ -initWithSCNVector3.
+ - Vector (or any of its subclassses, which will be initialized just like @p
+ -initWithVector.
+
+ @warning In case the object isn't a subclass of any of the above classes, an @p
+ assert(false) will be triggered.
+
  @param object An object of any one of the classes mentioned above.
  @return An initialized Vector object.
  */
 - (instancetype)initWithObject:(id)object;
 
 /*!
- Returns @p YES if the Vector has the same components as the given @p vector, as determined by the @p SCNVector3EqualToVector3 function.
+ Returns @p YES if the Vector has the same components as the given @p vector, as
+ determined by the @p SCNVector3EqualToVector3 function.
  @param vector The @p SCNVector3 used for comparison.
  @return @p YES if the components are all the same; @p NO otherwise.
  */
