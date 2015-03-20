@@ -30,13 +30,13 @@
  */
 + (instancetype)torus;
 /*!
- An alias for the SCNTorus' @p ringRadius property. Speficies the radius that
- the Torus' ring will have, or how wide the donut will be.
+ An alias for the SCNTorus's @p ringRadius property. Speficies the radius that
+ the Torus's ring will have, or how wide the donut will be.
  */
 @property (nonatomic) CGFloat ringRadius;
 /*!
- An alias for the SCNTorus' @p pipeRadius property. Speficies the radius that
- the Torus' pipe will have, or the donut's thickness.
+ An alias for the SCNTorus's @p pipeRadius property. Speficies the radius that
+ the Torus's pipe will have, or the donut's thickness.
  */
 @property (nonatomic) CGFloat pipeRadius;
 @end
