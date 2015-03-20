@@ -54,9 +54,7 @@
 - (instancetype)initWithObject:(id)object {
     if (self = [super init]) {
         if ([object isKindOfClass:[NSArray class]]) {
-            self.axis = [[Axis alloc] initWithArray:object];
-            self.angle =
-            [Angle angleWithRadians:((NSNumber *)object[3]).doubleValue];
+            self = [self initWithArray:object];
         }
         else if ([object isKindOfClass:[NSValue class]]) {
             SCNVector4 vector = ((NSValue *)object).SCNVector4Value;

@@ -52,14 +52,14 @@
  */
 + (instancetype)origin;
 /*!
- Creates a vector in which all components are set to @p x. Useful for uniform
+ Creates a Vector in which all components are set to @p x. Useful for uniform
  scales.
  @param x The value to set to all the Vector's components.
  @return An initialized Vector object.
  */
 - (instancetype)initUniformWithNumber:(CGFloat)x;
 /*!
- Creates a vector in which all components are set as specified: (x y z).
+ Creates a Vector in which all components are set as specified: (x y z).
  @param x The Vector's first component.
  @param y The Vector's second component.
  @param z The Vector's third component.
@@ -67,14 +67,14 @@
  */
 - (instancetype)initWithX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z;
 /*!
- Creates a vector in which all components are set as just as the given
+ Creates a Vector in which all components are set as just as the given
  SCNVector3.
  @param newValue The SCNVector3 that should be used as a model.
  @return An initialized Vector object.
  */
 - (instancetype)initWithSCNVector:(SCNVector3)newValue;
 /*!
- Creates a vector in which all components are set as just as the first 3
+ Creates a Vector in which all components are set as just as the first 3
  components in the given SCNVector4. If that vector is written as (x y z w), the
  created Vector object will be (x y z).
 
@@ -85,7 +85,7 @@
  */
 - (instancetype)initWithSCNVector4:(SCNVector4)newValue;
 /*!
- Creates a vector in which all components are set as just as the first 3
+ Creates a Vector in which all components are set as just as the first 3
  components (x, y and z) in the given CIVector.
  This method trusts that the CIVector has been correctly initialized and has the
  necessary components.
@@ -104,7 +104,7 @@
 - (instancetype)initWithVector:(Vector *)vector;
 /*!
  Creates a Vector based on the given NSArray. Trusts that the array has enough
- (3 or more) components, and that the first 3 components may be cast into @P
+ (3 or more) components, and that the first 3 components may be cast into @p
  NSNumbers.
  @param array The array to copy into the Vector.
  @return An initialized Vector object.
