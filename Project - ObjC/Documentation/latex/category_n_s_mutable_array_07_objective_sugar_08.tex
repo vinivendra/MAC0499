@@ -1,0 +1,95 @@
+\hypertarget{category_n_s_mutable_array_07_objective_sugar_08}{}\section{N\+S\+Mutable\+Array(Objective\+Sugar) Category Reference}
+\label{category_n_s_mutable_array_07_objective_sugar_08}\index{N\+S\+Mutable\+Array(\+Objective\+Sugar)@{N\+S\+Mutable\+Array(\+Objective\+Sugar)}}
+\subsection*{Instance Methods}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{category_n_s_mutable_array_07_objective_sugar_08_a7ad429e686fb5cb9bd0e04680059ff5d}{}(void) -\/ \hyperlink{category_n_s_mutable_array_07_objective_sugar_08_a7ad429e686fb5cb9bd0e04680059ff5d}{push\+:}\label{category_n_s_mutable_array_07_objective_sugar_08_a7ad429e686fb5cb9bd0e04680059ff5d}
+
+\begin{DoxyCompactList}\small\item\em Alias for -\/add\+Object. Appends the given object at the end. \end{DoxyCompactList}\item 
+(id) -\/ \hyperlink{category_n_s_mutable_array_07_objective_sugar_08_ac4129208df596457e004645292f1434d}{pop}
+\item 
+(N\+S\+Array $\ast$) -\/ \hyperlink{category_n_s_mutable_array_07_objective_sugar_08_a256b5bdfd8dca2eb15f8363a871ad4b3}{pop\+:}
+\item 
+\hypertarget{category_n_s_mutable_array_07_objective_sugar_08_a4c08389f34039d2ca8f504c3991128e1}{}(void) -\/ {\bfseries concat\+:}\label{category_n_s_mutable_array_07_objective_sugar_08_a4c08389f34039d2ca8f504c3991128e1}
+
+\item 
+(id) -\/ \hyperlink{category_n_s_mutable_array_07_objective_sugar_08_af5f290289fa0fc28a9f55f0ceaf60b49}{shift}
+\item 
+(N\+S\+Array $\ast$) -\/ \hyperlink{category_n_s_mutable_array_07_objective_sugar_08_aa6f2930f4f68082112b676ddcce74942}{shift\+:}
+\item 
+(N\+S\+Array $\ast$) -\/ \hyperlink{category_n_s_mutable_array_07_objective_sugar_08_a6272b17139bdcf9dbfc8974cf05eae46}{keep\+If\+:}
+\end{DoxyCompactItemize}
+
+
+\subsection{Method Documentation}
+\hypertarget{category_n_s_mutable_array_07_objective_sugar_08_a6272b17139bdcf9dbfc8974cf05eae46}{}\index{N\+S\+Mutable\+Array(\+Objective\+Sugar)@{N\+S\+Mutable\+Array(\+Objective\+Sugar)}!keep\+If\+:@{keep\+If\+:}}
+\index{keep\+If\+:@{keep\+If\+:}!N\+S\+Mutable\+Array(\+Objective\+Sugar)@{N\+S\+Mutable\+Array(\+Objective\+Sugar)}}
+\subsubsection[{keep\+If\+:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\+S\+Array $\ast$) keep\+If\+: 
+\begin{DoxyParamCaption}
+\item[{(B\+O\+O\+L($^\wedge$)(id object))}]{block}
+\end{DoxyParamCaption}
+}\label{category_n_s_mutable_array_07_objective_sugar_08_a6272b17139bdcf9dbfc8974cf05eae46}
+Deletes every element of the array for which the given block evaluates to N\+O.
+
+
+\begin{DoxyParams}{Parameters}
+{\em block} & A block that returns Y\+E\+S/\+N\+O \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An array of elements 
+\end{DoxyReturn}
+\hypertarget{category_n_s_mutable_array_07_objective_sugar_08_ac4129208df596457e004645292f1434d}{}\index{N\+S\+Mutable\+Array(\+Objective\+Sugar)@{N\+S\+Mutable\+Array(\+Objective\+Sugar)}!pop@{pop}}
+\index{pop@{pop}!N\+S\+Mutable\+Array(\+Objective\+Sugar)@{N\+S\+Mutable\+Array(\+Objective\+Sugar)}}
+\subsubsection[{pop}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (id) pop 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}\label{category_n_s_mutable_array_07_objective_sugar_08_ac4129208df596457e004645292f1434d}
+Removes the last item of the array, and returns that item Note\+: This method changes the length of the array!
+
+\begin{DoxyReturn}{Returns}
+First array item or nil. 
+\end{DoxyReturn}
+\hypertarget{category_n_s_mutable_array_07_objective_sugar_08_a256b5bdfd8dca2eb15f8363a871ad4b3}{}\index{N\+S\+Mutable\+Array(\+Objective\+Sugar)@{N\+S\+Mutable\+Array(\+Objective\+Sugar)}!pop\+:@{pop\+:}}
+\index{pop\+:@{pop\+:}!N\+S\+Mutable\+Array(\+Objective\+Sugar)@{N\+S\+Mutable\+Array(\+Objective\+Sugar)}}
+\subsubsection[{pop\+:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\+S\+Array $\ast$) pop\+: 
+\begin{DoxyParamCaption}
+\item[{(N\+S\+U\+Integer)}]{number\+Of\+Elements}
+\end{DoxyParamCaption}
+}\label{category_n_s_mutable_array_07_objective_sugar_08_a256b5bdfd8dca2eb15f8363a871ad4b3}
+Removes the last n items of the array, and returns that item Note\+: This method changes the length of the array!
+
+\begin{DoxyReturn}{Returns}
+First array item or nil. 
+\end{DoxyReturn}
+\hypertarget{category_n_s_mutable_array_07_objective_sugar_08_af5f290289fa0fc28a9f55f0ceaf60b49}{}\index{N\+S\+Mutable\+Array(\+Objective\+Sugar)@{N\+S\+Mutable\+Array(\+Objective\+Sugar)}!shift@{shift}}
+\index{shift@{shift}!N\+S\+Mutable\+Array(\+Objective\+Sugar)@{N\+S\+Mutable\+Array(\+Objective\+Sugar)}}
+\subsubsection[{shift}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (id) shift 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}\label{category_n_s_mutable_array_07_objective_sugar_08_af5f290289fa0fc28a9f55f0ceaf60b49}
+Removes the first item of the array, and returns that item Note\+: This method changes the length of the array!
+
+\begin{DoxyReturn}{Returns}
+First array item or nil. 
+\end{DoxyReturn}
+\hypertarget{category_n_s_mutable_array_07_objective_sugar_08_aa6f2930f4f68082112b676ddcce74942}{}\index{N\+S\+Mutable\+Array(\+Objective\+Sugar)@{N\+S\+Mutable\+Array(\+Objective\+Sugar)}!shift\+:@{shift\+:}}
+\index{shift\+:@{shift\+:}!N\+S\+Mutable\+Array(\+Objective\+Sugar)@{N\+S\+Mutable\+Array(\+Objective\+Sugar)}}
+\subsubsection[{shift\+:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (N\+S\+Array $\ast$) shift\+: 
+\begin{DoxyParamCaption}
+\item[{(N\+S\+U\+Integer)}]{number\+Of\+Elements}
+\end{DoxyParamCaption}
+}\label{category_n_s_mutable_array_07_objective_sugar_08_aa6f2930f4f68082112b676ddcce74942}
+Removes N first items of the array, and returns that items Note\+: This method changes the length of the array!
+
+\begin{DoxyReturn}{Returns}
+Array of first N items or empty array. 
+\end{DoxyReturn}
+
+
+The documentation for this category was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Project -\/ Obj\+C/\+Objective\+Sugar/N\+S\+Mutable\+Array+\+Objective\+Sugar.\+h\item 
+Project -\/ Obj\+C/\+Objective\+Sugar/N\+S\+Mutable\+Array+\+Objective\+Sugar.\+m\end{DoxyCompactItemize}

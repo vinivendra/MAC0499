@@ -1,0 +1,296 @@
+\hypertarget{interface_vector}{}\section{Vector Class Reference}
+\label{interface_vector}\index{Vector@{Vector}}
+
+
+{\ttfamily \#import $<$Vector.\+h$>$}
+
+Inheritance diagram for Vector\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{interface_vector}
+\end{center}
+\end{figure}
+\subsection*{Instance Methods}
+\begin{DoxyCompactItemize}
+\item 
+(instancetype) -\/ \hyperlink{interface_vector_ab2f9f8cb5aed3938085bc658411084ac}{init\+Uniform\+With\+Number\+:}
+\item 
+(instancetype) -\/ \hyperlink{interface_vector_a678be7532656d3c2833b2acdb940be9b}{init\+With\+X\+:\+Y\+:\+Z\+:}
+\item 
+(instancetype) -\/ \hyperlink{interface_vector_a00a140fdfab0f2a9f511bfd9368b05c1}{init\+With\+S\+C\+N\+Vector\+:}
+\item 
+(instancetype) -\/ \hyperlink{interface_vector_a8ab40101d7921d728166653208d8b6f1}{init\+With\+S\+C\+N\+Vector4\+:}
+\item 
+(instancetype) -\/ \hyperlink{interface_vector_a6fefc863106ef83a124762d23f065a1a}{init\+With\+C\+I\+Vector\+:}
+\item 
+(instancetype) -\/ \hyperlink{interface_vector_a14175d2914f746e3d8260e5b922509db}{init\+With\+Vector\+:}
+\item 
+(instancetype) -\/ \hyperlink{interface_vector_aace155088fd47dfedb5cd7bcabf1c884}{init\+With\+Array\+:}
+\item 
+(instancetype) -\/ \hyperlink{interface_vector_a5b1248a4bbfca1c381e87a2ccae4b4a4}{init\+With\+Object\+:}
+\item 
+(B\+O\+O\+L) -\/ \hyperlink{interface_vector_a0867ba26e13ae0c8c3c0f58250d7e2e2}{is\+Equal\+To\+Vector\+:}
+\item 
+(S\+C\+N\+Vector3) -\/ \hyperlink{interface_vector_ada9cf0a0a9b4612fdbeb9815f5897d07}{to\+S\+C\+N\+Vector}
+\end{DoxyCompactItemize}
+\subsection*{Class Methods}
+\begin{DoxyCompactItemize}
+\item 
+(instancetype) + \hyperlink{interface_vector_a0389cf614e1d9cdfb96ef55978e3f329}{origin}
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+S\+C\+N\+Vector3 \hyperlink{interface_vector_a2adc4346de245274fbe30c58d96e68cc}{vector}
+\item 
+\hypertarget{interface_vector_ad65434f3295c919b6c6acbe682104572}{}C\+G\+Float \hyperlink{interface_vector_ad65434f3295c919b6c6acbe682104572}{x}\label{interface_vector_ad65434f3295c919b6c6acbe682104572}
+
+\begin{DoxyCompactList}\small\item\em The \hyperlink{interface_vector}{Vector}\textquotesingle{}s {\ttfamily x} component. \end{DoxyCompactList}\item 
+\hypertarget{interface_vector_a92d146a8b04ace2dd31e1169d704d973}{}C\+G\+Float \hyperlink{interface_vector_a92d146a8b04ace2dd31e1169d704d973}{y}\label{interface_vector_a92d146a8b04ace2dd31e1169d704d973}
+
+\begin{DoxyCompactList}\small\item\em The \hyperlink{interface_vector}{Vector}\textquotesingle{}s {\ttfamily y} component. \end{DoxyCompactList}\item 
+\hypertarget{interface_vector_a2ff2df69ab12d49bbb23cdf35b114120}{}C\+G\+Float \hyperlink{interface_vector_a2ff2df69ab12d49bbb23cdf35b114120}{z}\label{interface_vector_a2ff2df69ab12d49bbb23cdf35b114120}
+
+\begin{DoxyCompactList}\small\item\em The \hyperlink{interface_vector}{Vector}\textquotesingle{}s {\ttfamily z} component. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Represents a tuple of three {\ttfamily C\+G\+Floats}, here named {\ttfamily x}, {\ttfamily y} and {\ttfamily z}. 
+
+\subsection{Method Documentation}
+\hypertarget{interface_vector_ab2f9f8cb5aed3938085bc658411084ac}{}\index{Vector@{Vector}!init\+Uniform\+With\+Number\+:@{init\+Uniform\+With\+Number\+:}}
+\index{init\+Uniform\+With\+Number\+:@{init\+Uniform\+With\+Number\+:}!Vector@{Vector}}
+\subsubsection[{init\+Uniform\+With\+Number\+:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (instancetype) init\+Uniform\+With\+Number\+: 
+\begin{DoxyParamCaption}
+\item[{(C\+G\+Float)}]{x}
+\end{DoxyParamCaption}
+}\label{interface_vector_ab2f9f8cb5aed3938085bc658411084ac}
+Creates a \hyperlink{interface_vector}{Vector} in which all components are set to {\ttfamily x}. Useful for uniform scales. 
+\begin{DoxyParams}{Parameters}
+{\em x} & The value to set to all the \hyperlink{interface_vector}{Vector}\textquotesingle{}s components. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An initialized \hyperlink{interface_vector}{Vector} object. 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{protocol_vector_export-p}{$<$\+Vector\+Export$>$}.
+
+\hypertarget{interface_vector_aace155088fd47dfedb5cd7bcabf1c884}{}\index{Vector@{Vector}!init\+With\+Array\+:@{init\+With\+Array\+:}}
+\index{init\+With\+Array\+:@{init\+With\+Array\+:}!Vector@{Vector}}
+\subsubsection[{init\+With\+Array\+:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (instancetype) init\+With\+Array\+: 
+\begin{DoxyParamCaption}
+\item[{(N\+S\+Array $\ast$)}]{array}
+\end{DoxyParamCaption}
+}\label{interface_vector_aace155088fd47dfedb5cd7bcabf1c884}
+Creates a \hyperlink{interface_vector}{Vector} based on the given N\+S\+Array. Trusts that the array has enough (3 or more) components, and that the first 3 components may be cast into {\ttfamily N\+S\+Numbers}. 
+\begin{DoxyParams}{Parameters}
+{\em array} & The array to copy into the \hyperlink{interface_vector}{Vector}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An initialized \hyperlink{interface_vector}{Vector} object. 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{protocol_vector_export-p}{$<$\+Vector\+Export$>$}.
+
+\hypertarget{interface_vector_a6fefc863106ef83a124762d23f065a1a}{}\index{Vector@{Vector}!init\+With\+C\+I\+Vector\+:@{init\+With\+C\+I\+Vector\+:}}
+\index{init\+With\+C\+I\+Vector\+:@{init\+With\+C\+I\+Vector\+:}!Vector@{Vector}}
+\subsubsection[{init\+With\+C\+I\+Vector\+:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (instancetype) init\+With\+C\+I\+Vector\+: 
+\begin{DoxyParamCaption}
+\item[{(C\+I\+Vector $\ast$)}]{new\+Value}
+\end{DoxyParamCaption}
+}\label{interface_vector_a6fefc863106ef83a124762d23f065a1a}
+Creates a \hyperlink{interface_vector}{Vector} in which all components are set as just as the first 3 components (x, y and z) in the given C\+I\+Vector. This method trusts that the C\+I\+Vector has been correctly initialized and has the necessary components.
+
+Useful for obtaining a \hyperlink{interface_vector}{Vector} through a C\+I\+Vector initialization method.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Value} & The C\+I\+Value whose x, y and z components should be used. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An initialized \hyperlink{interface_vector}{Vector} object. 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{protocol_vector_export-p}{$<$\+Vector\+Export$>$}.
+
+\hypertarget{interface_vector_a5b1248a4bbfca1c381e87a2ccae4b4a4}{}\index{Vector@{Vector}!init\+With\+Object\+:@{init\+With\+Object\+:}}
+\index{init\+With\+Object\+:@{init\+With\+Object\+:}!Vector@{Vector}}
+\subsubsection[{init\+With\+Object\+:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (instancetype) init\+With\+Object\+: 
+\begin{DoxyParamCaption}
+\item[{(id)}]{object}
+\end{DoxyParamCaption}
+}\label{interface_vector_a5b1248a4bbfca1c381e87a2ccae4b4a4}
+Creates a \hyperlink{interface_vector}{Vector} based on the given object. The supported objects are\+:
+\begin{DoxyItemize}
+\item N\+S\+Number, which will be initialized just like {\ttfamily -\/init\+Uniform\+With\+Number}.
+\item N\+S\+Array, which will be initialized just like {\ttfamily -\/init\+With\+Array}.
+\item N\+S\+Value containing a S\+C\+N\+Vector3, which will be initialized just like {\ttfamily -\/init\+With\+S\+C\+N\+Vector3}.
+\item \hyperlink{interface_vector}{Vector} (or any of its subclassses, which will be initialized just like {\ttfamily -\/init\+With\+Vector}.
+\end{DoxyItemize}
+
+\begin{DoxyWarning}{Warning}
+In case the object isn\textquotesingle{}t a subclass of any of the above classes, an {\ttfamily assert(false)} will be triggered.
+\end{DoxyWarning}
+
+\begin{DoxyParams}{Parameters}
+{\em object} & An object of any one of the classes mentioned above. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An initialized \hyperlink{interface_vector}{Vector} object. 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{protocol_vector_export-p}{$<$\+Vector\+Export$>$}.
+
+\hypertarget{interface_vector_a8ab40101d7921d728166653208d8b6f1}{}\index{Vector@{Vector}!init\+With\+S\+C\+N\+Vector4\+:@{init\+With\+S\+C\+N\+Vector4\+:}}
+\index{init\+With\+S\+C\+N\+Vector4\+:@{init\+With\+S\+C\+N\+Vector4\+:}!Vector@{Vector}}
+\subsubsection[{init\+With\+S\+C\+N\+Vector4\+:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (instancetype) init\+With\+S\+C\+N\+Vector4\+: 
+\begin{DoxyParamCaption}
+\item[{(S\+C\+N\+Vector4)}]{new\+Value}
+\end{DoxyParamCaption}
+}\label{interface_vector_a8ab40101d7921d728166653208d8b6f1}
+Creates a \hyperlink{interface_vector}{Vector} in which all components are set as just as the first 3 components in the given S\+C\+N\+Vector4. If that vector is written as (x y z w), the created \hyperlink{interface_vector}{Vector} object will be (x y z).
+
+Useful for obtaining the axis of a rotation, for instance.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Value} & The S\+C\+N\+Vector4 whose first three components should be used. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An initialized \hyperlink{interface_vector}{Vector} object. 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{protocol_vector_export-p}{$<$\+Vector\+Export$>$}.
+
+\hypertarget{interface_vector_a00a140fdfab0f2a9f511bfd9368b05c1}{}\index{Vector@{Vector}!init\+With\+S\+C\+N\+Vector\+:@{init\+With\+S\+C\+N\+Vector\+:}}
+\index{init\+With\+S\+C\+N\+Vector\+:@{init\+With\+S\+C\+N\+Vector\+:}!Vector@{Vector}}
+\subsubsection[{init\+With\+S\+C\+N\+Vector\+:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (instancetype) init\+With\+S\+C\+N\+Vector\+: 
+\begin{DoxyParamCaption}
+\item[{(S\+C\+N\+Vector3)}]{new\+Value}
+\end{DoxyParamCaption}
+}\label{interface_vector_a00a140fdfab0f2a9f511bfd9368b05c1}
+Creates a \hyperlink{interface_vector}{Vector} in which all components are set as just as the given S\+C\+N\+Vector3. 
+\begin{DoxyParams}{Parameters}
+{\em new\+Value} & The S\+C\+N\+Vector3 that should be used as a model. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An initialized \hyperlink{interface_vector}{Vector} object. 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{protocol_vector_export-p}{$<$\+Vector\+Export$>$}.
+
+\hypertarget{interface_vector_a14175d2914f746e3d8260e5b922509db}{}\index{Vector@{Vector}!init\+With\+Vector\+:@{init\+With\+Vector\+:}}
+\index{init\+With\+Vector\+:@{init\+With\+Vector\+:}!Vector@{Vector}}
+\subsubsection[{init\+With\+Vector\+:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (instancetype) init\+With\+Vector\+: 
+\begin{DoxyParamCaption}
+\item[{({\bf Vector} $\ast$)}]{vector}
+\end{DoxyParamCaption}
+}\label{interface_vector_a14175d2914f746e3d8260e5b922509db}
+Creates a \hyperlink{interface_vector}{Vector} that is a copy of the given {\ttfamily vector}. 
+\begin{DoxyParams}{Parameters}
+{\em vector} & The \hyperlink{interface_vector}{Vector} object that should be copied. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An initialized \hyperlink{interface_vector}{Vector} object. 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{protocol_vector_export-p}{$<$\+Vector\+Export$>$}.
+
+\hypertarget{interface_vector_a678be7532656d3c2833b2acdb940be9b}{}\index{Vector@{Vector}!init\+With\+X\+:\+Y\+:\+Z\+:@{init\+With\+X\+:\+Y\+:\+Z\+:}}
+\index{init\+With\+X\+:\+Y\+:\+Z\+:@{init\+With\+X\+:\+Y\+:\+Z\+:}!Vector@{Vector}}
+\subsubsection[{init\+With\+X\+:\+Y\+:\+Z\+:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (instancetype) init\+With\+X\+: 
+\begin{DoxyParamCaption}
+\item[{(C\+G\+Float)}]{x}
+\item[{Y:(C\+G\+Float)}]{y}
+\item[{Z:(C\+G\+Float)}]{z}
+\end{DoxyParamCaption}
+}\label{interface_vector_a678be7532656d3c2833b2acdb940be9b}
+Creates a \hyperlink{interface_vector}{Vector} in which all components are set as specified\+: (x y z). 
+\begin{DoxyParams}{Parameters}
+{\em x} & The \hyperlink{interface_vector}{Vector}\textquotesingle{}s first component. \\
+\hline
+{\em y} & The \hyperlink{interface_vector}{Vector}\textquotesingle{}s second component. \\
+\hline
+{\em z} & The \hyperlink{interface_vector}{Vector}\textquotesingle{}s third component. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An initialized \hyperlink{interface_vector}{Vector} object. 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{protocol_vector_export-p}{$<$\+Vector\+Export$>$}.
+
+\hypertarget{interface_vector_a0867ba26e13ae0c8c3c0f58250d7e2e2}{}\index{Vector@{Vector}!is\+Equal\+To\+Vector\+:@{is\+Equal\+To\+Vector\+:}}
+\index{is\+Equal\+To\+Vector\+:@{is\+Equal\+To\+Vector\+:}!Vector@{Vector}}
+\subsubsection[{is\+Equal\+To\+Vector\+:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (B\+O\+O\+L) is\+Equal\+To\+Vector\+: 
+\begin{DoxyParamCaption}
+\item[{(S\+C\+N\+Vector3)}]{vector}
+\end{DoxyParamCaption}
+}\label{interface_vector_a0867ba26e13ae0c8c3c0f58250d7e2e2}
+Returns {\ttfamily Y\+E\+S} if the \hyperlink{interface_vector}{Vector} has the same components as the given {\ttfamily vector}, as determined by the {\ttfamily S\+C\+N\+Vector3\+Equal\+To\+Vector3} function. 
+\begin{DoxyParams}{Parameters}
+{\em vector} & The {\ttfamily S\+C\+N\+Vector3} used for comparison. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily Y\+E\+S} if the components are all the same; {\ttfamily N\+O} otherwise. 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{protocol_vector_export-p}{$<$\+Vector\+Export$>$}.
+
+\hypertarget{interface_vector_a0389cf614e1d9cdfb96ef55978e3f329}{}\index{Vector@{Vector}!origin@{origin}}
+\index{origin@{origin}!Vector@{Vector}}
+\subsubsection[{origin}]{\setlength{\rightskip}{0pt plus 5cm}+ (instancetype) origin 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}\label{interface_vector_a0389cf614e1d9cdfb96ef55978e3f329}
+Represents a commonly used \hyperlink{interface_vector}{Vector}, (0 0 0) \begin{DoxyReturn}{Returns}
+An {\ttfamily origin} \hyperlink{interface_vector}{Vector} object. 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{protocol_vector_export-p}{$<$\+Vector\+Export$>$}.
+
+\hypertarget{interface_vector_ada9cf0a0a9b4612fdbeb9815f5897d07}{}\index{Vector@{Vector}!to\+S\+C\+N\+Vector@{to\+S\+C\+N\+Vector}}
+\index{to\+S\+C\+N\+Vector@{to\+S\+C\+N\+Vector}!Vector@{Vector}}
+\subsubsection[{to\+S\+C\+N\+Vector}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (S\+C\+N\+Vector3) to\+S\+C\+N\+Vector 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}\label{interface_vector_ada9cf0a0a9b4612fdbeb9815f5897d07}
+Creates an S\+C\+N\+Vector3 with the same components as the \hyperlink{interface_vector}{Vector}. \begin{DoxyReturn}{Returns}
+An initialized S\+C\+N\+Vector3. 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{protocol_vector_export-p}{$<$\+Vector\+Export$>$}.
+
+
+
+\subsection{Property Documentation}
+\hypertarget{interface_vector_a2adc4346de245274fbe30c58d96e68cc}{}\index{Vector@{Vector}!vector@{vector}}
+\index{vector@{vector}!Vector@{Vector}}
+\subsubsection[{vector}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (S\+C\+N\+Vector3) vector\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [nonatomic]}, {\ttfamily [assign]}}\label{interface_vector_a2adc4346de245274fbe30c58d96e68cc}
+The \hyperlink{interface_vector}{Vector} class\textquotesingle{}s inner representation of a vector. Meant to be used only by subclasses; use {\ttfamily -\/to\+S\+C\+N\+Vector} instead. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Project -\/ Obj\+C/\+Math/Vector.\+h\item 
+Project -\/ Obj\+C/\+Math/Vector.\+m\end{DoxyCompactItemize}

@@ -1,0 +1,68 @@
+\hypertarget{interface_item}{}\section{Item Class Reference}
+\label{interface_item}\index{Item@{Item}}
+
+
+{\ttfamily \#import $<$Item.\+h$>$}
+
+Inheritance diagram for Item\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=12.000000cm]{interface_item}
+\end{center}
+\end{figure}
+\subsection*{Class Methods}
+\begin{DoxyCompactItemize}
+\item 
+(instancetype) + \hyperlink{interface_item_a4bef9d8be8269c8ed070d714c5286fa1}{create}
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{interface_item_a7a7fb3bbaa3ed68607a1bbb8999c63ae}{}S\+C\+N\+Node $\ast$ \hyperlink{interface_item_a7a7fb3bbaa3ed68607a1bbb8999c63ae}{node}\label{interface_item_a7a7fb3bbaa3ed68607a1bbb8999c63ae}
+
+\begin{DoxyCompactList}\small\item\em The node that this \hyperlink{interface_item}{Item} is wrapping. \end{DoxyCompactList}\item 
+id \hyperlink{interface_item_ace1d57af2155384a08ebfeb1058cb0ed}{position}
+\item 
+id \hyperlink{interface_item_abaf73184e4f6475c1cc319cba250d5ad}{rotation}
+\item 
+id \hyperlink{interface_item_a97f005fe980112511b6d5da41bd53beb}{scale}
+\item 
+S\+C\+N\+Geometry $\ast$ \hyperlink{interface_item_ad5a21ef3fab7a28054d4f55e4ea3033e}{geometry}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An \char`\"{}abstract\char`\"{} superclass for all graphic items. This includes anything that could be in the game world -\/ from objects and meshes to lights, cameras, etc. Basically, it\textquotesingle{}s a wrapper for {\ttfamily S\+C\+N\+Node}. 
+
+\subsection{Method Documentation}
+\hypertarget{interface_item_a4bef9d8be8269c8ed070d714c5286fa1}{}\index{Item@{Item}!create@{create}}
+\index{create@{create}!Item@{Item}}
+\subsubsection[{create}]{\setlength{\rightskip}{0pt plus 5cm}+ (instancetype) create 
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+}\label{interface_item_a4bef9d8be8269c8ed070d714c5286fa1}
+Used as a constructor for \hyperlink{interface_java_script}{Java\+Script}. Creates an empty \hyperlink{interface_item}{Item}, with an empty node. \begin{DoxyReturn}{Returns}
+An empty \hyperlink{interface_item}{Item}. 
+\end{DoxyReturn}
+
+
+\subsection{Property Documentation}
+\hypertarget{interface_item_ad5a21ef3fab7a28054d4f55e4ea3033e}{}\index{Item@{Item}!geometry@{geometry}}
+\index{geometry@{geometry}!Item@{Item}}
+\subsubsection[{geometry}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (S\+C\+N\+Geometry $\ast$) geometry\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [nonatomic]}, {\ttfamily [strong]}}\label{interface_item_ad5a21ef3fab7a28054d4f55e4ea3033e}
+An alias for this \hyperlink{interface_item}{Item}\textquotesingle{}s node\textquotesingle{}s geometry. \hypertarget{interface_item_ace1d57af2155384a08ebfeb1058cb0ed}{}\index{Item@{Item}!position@{position}}
+\index{position@{position}!Item@{Item}}
+\subsubsection[{position}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (id) position\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [nonatomic]}, {\ttfamily [strong]}}\label{interface_item_ace1d57af2155384a08ebfeb1058cb0ed}
+An alias for this \hyperlink{interface_item}{Item}\textquotesingle{}s node\textquotesingle{}s position. The object itself is a \hyperlink{interface_position}{Position} object. The setter accepts any object valid for the \hyperlink{interface_position}{Position}\textquotesingle{}s {\ttfamily -\/init\+With\+Object}\+: method, including a \hyperlink{interface_position}{Position} object that may be initialized in other ways. The getter always returns a \hyperlink{interface_position}{Position} object. Attempting to set an invalid object triggers an {\ttfamily assert(false)}. \hypertarget{interface_item_abaf73184e4f6475c1cc319cba250d5ad}{}\index{Item@{Item}!rotation@{rotation}}
+\index{rotation@{rotation}!Item@{Item}}
+\subsubsection[{rotation}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (id) rotation\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [nonatomic]}, {\ttfamily [strong]}}\label{interface_item_abaf73184e4f6475c1cc319cba250d5ad}
+An alias for this \hyperlink{interface_item}{Item}\textquotesingle{}s node\textquotesingle{}s rotation. The object itself is a \hyperlink{interface_rotation}{Rotation} object. The setter accepts any object valid for the \hyperlink{interface_rotation}{Rotation}\textquotesingle{}s {\ttfamily -\/init\+With\+Object}\+: method, including a \hyperlink{interface_rotation}{Rotation} object that may be initialized in other ways. The getter always returns a \hyperlink{interface_rotation}{Rotation} object. Attempting to set an invalid object triggers an {\ttfamily assert(false)}. \hypertarget{interface_item_a97f005fe980112511b6d5da41bd53beb}{}\index{Item@{Item}!scale@{scale}}
+\index{scale@{scale}!Item@{Item}}
+\subsubsection[{scale}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (id) scale\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}, {\ttfamily [nonatomic]}, {\ttfamily [strong]}}\label{interface_item_a97f005fe980112511b6d5da41bd53beb}
+An alias for this \hyperlink{interface_item}{Item}\textquotesingle{}s node\textquotesingle{}s scale. The object itself is a \hyperlink{interface_vector}{Vector} object. The setter accepts any object valid for the \hyperlink{interface_vector}{Vector}\textquotesingle{}s {\ttfamily -\/init\+With\+Object}\+: method, including a \hyperlink{interface_vector}{Vector} object that may be initialized in other ways. The getter always returns a \hyperlink{interface_vector}{Vector} object. Attempting to set an invalid object triggers an {\ttfamily assert(false)}. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Project -\/ Obj\+C/\+Items/Item.\+h\item 
+Project -\/ Obj\+C/\+Items/Item.\+m\end{DoxyCompactItemize}
