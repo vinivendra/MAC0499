@@ -1,3 +1,6 @@
+// TODO: Add *'s to the start of documentation comments; reload headerDoc; add
+// html's to the site; change the VVDocumenter's style to add *'s automatically.
+
 // TODO: Consider changing asserts() into exceptions
 
 
