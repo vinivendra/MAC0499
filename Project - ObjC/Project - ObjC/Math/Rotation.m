@@ -52,6 +52,7 @@
 }
 
 - (instancetype)initWithObject:(id)object {
+    
     if (self = [super init]) {
         if ([object isKindOfClass:[NSArray class]]) {
             self = [self initWithArray:object];
