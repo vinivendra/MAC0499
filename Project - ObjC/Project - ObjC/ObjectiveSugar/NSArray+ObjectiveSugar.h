@@ -38,7 +38,7 @@
 /**
  Allow subscripting to fetch elements within the specified range
 
- @param An NSString or NSValue wrapping an NSRange. It's intended to behave like Ruby's array range accessors.
+ @param key An NSString or NSValue wrapping an NSRange. It's intended to behave like Ruby's array range accessors.
 
         Given array of 10 elements, e.g. [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], you can perform these operations:
         array[@"1..3"] will give you [2, 3, 4]
@@ -54,21 +54,21 @@
 /**
  A simpler alias for `enumerateObjectsUsingBlock`
 
- @param A block with the object in its arguments.
+ @param block A block with the object in its arguments.
  */
 - (void)each:(void (^)(id object))block;
 
 /**
  A simpler alias for `enumerateObjectsUsingBlock` which also passes in an index
 
- @param A block with the object in its arguments.
+ @param block A block with the object in its arguments.
  */
 - (void)eachWithIndex:(void (^)(id object, NSUInteger index))block;
 
 /**
  A simpler alias for `enumerateObjectsWithOptions:usingBlock:`
 
- @param A block with the object in its arguments.
+ @param block A block with the object in its arguments.
  @param Enumerating options.
  */
 
@@ -77,7 +77,7 @@
 /**
  A simpler alias for `enumerateObjectsWithOptions:usingBlock:` which also passes in an index
 
- @param A block with the object in its arguments.
+ @param block A block with the object in its arguments.
  @param Enumerating options.
  */
 
@@ -87,7 +87,7 @@
 /**
  An alias for `containsObject`
 
- @param An object that the array may or may not contain.
+ @param block An object that the array may or may not contain.
  */
 - (BOOL)includes:(id)object;
 
@@ -95,7 +95,7 @@
  Take the first `numberOfElements` out of the array, or the maximum amount of
  elements if it is less.
 
- @param Number of elements to take from array
+ @param numberOfElements Number of elements to take from array
  @return An array of elements
  */
 - (NSArray *)take:(NSUInteger)numberOfElements;
@@ -104,7 +104,7 @@
  Passes elements to the `block` until the block returns NO,
  then stops iterating and returns an array of all prior elements.
 
- @param A block that returns YES/NO
+ @param block A block that returns YES/NO
  @return An array of elements
  */
 - (NSArray *)takeWhile:(BOOL (^)(id object))block;
