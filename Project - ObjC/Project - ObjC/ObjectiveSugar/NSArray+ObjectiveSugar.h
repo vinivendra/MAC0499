@@ -69,7 +69,7 @@
  A simpler alias for `enumerateObjectsWithOptions:usingBlock:`
 
  @param block A block with the object in its arguments.
- @param Enumerating options.
+ @param options Enumerating options.
  */
 
 - (void)each:(void (^)(id object))block options:(NSEnumerationOptions)options;
@@ -78,7 +78,7 @@
  A simpler alias for `enumerateObjectsWithOptions:usingBlock:` which also passes in an index
 
  @param block A block with the object in its arguments.
- @param Enumerating options.
+ @param options Enumerating options.
  */
 
 - (void)eachWithIndex:(void (^)(id object, NSUInteger index))block options:(NSEnumerationOptions)options;
@@ -87,7 +87,7 @@
 /**
  An alias for `containsObject`
 
- @param block An object that the array may or may not contain.
+ @param object An object that the array may or may not contain.
  */
 - (BOOL)includes:(id)object;
 
@@ -113,7 +113,7 @@
  Iterate through the current array running the block on each object and
  returning an array of the changed objects.
 
- @param A block that passes in each object and returns a modified object
+ @param block A block that passes in each object and returns a modified object
  @return An array of modified elements
  */
 - (NSArray *)map:(id (^)(id object))block;
@@ -121,7 +121,7 @@
 /**
  Iterate through current array asking whether to keep each element.
 
- @param A block that returns YES/NO for whether the object should stay
+ @param block A block that returns YES/NO for whether the object should stay
  @return An array of elements selected
  */
 - (NSArray *)select:(BOOL (^)(id object))block;
@@ -129,7 +129,7 @@
 /**
  Iterate through current array returning the first element meeting a criteria.
 
- @param A block that returns YES/NO
+ @param block A block that returns YES/NO
  @return The first matching element
  */
 - (id)detect:(BOOL (^)(id object))block;
@@ -139,7 +139,7 @@
  Alias for `detect`. Iterate through current array returning the first element
  meeting a criteria.
 
- @param A block that returns YES/NO
+ @param block A block that returns YES/NO
  @return The first matching element
  */
 - (id)find:(BOOL (^)(id object))block;
@@ -147,7 +147,7 @@
 /**
  Iterate through current array asking whether to remove each element.
 
- @param A block that returns YES/NO for whether the object should be removed
+ @param block A block that returns YES/NO for whether the object should be removed
  @return An array of elements not rejected
  */
 - (NSArray *)reject:(BOOL (^)(id object))block;
