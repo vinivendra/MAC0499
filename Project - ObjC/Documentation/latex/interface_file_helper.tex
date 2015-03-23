@@ -1,0 +1,61 @@
+\hypertarget{interface_file_helper}{}\section{File\+Helper Class Reference}
+\label{interface_file_helper}\index{File\+Helper@{File\+Helper}}
+
+
+{\ttfamily \#import $<$File\+Helper.\+h$>$}
+
+Inheritance diagram for File\+Helper\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interface_file_helper}
+\end{center}
+\end{figure}
+\subsection*{Class Methods}
+\begin{DoxyCompactItemize}
+\item 
+(N\+S\+String $\ast$) + \hyperlink{interface_file_helper_a34aa2af0292b8653b8a9d4dded1ee606}{open\+Text\+File\+:}
+\item 
+(N\+S\+String $\ast$) + \hyperlink{interface_file_helper_a7f41f6c61383d3173a885964c8910801}{path\+For\+Filename\+:}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A simple helper class used to facilitate file management. 
+
+\subsection{Method Documentation}
+\hypertarget{interface_file_helper_a34aa2af0292b8653b8a9d4dded1ee606}{}\index{File\+Helper@{File\+Helper}!open\+Text\+File\+:@{open\+Text\+File\+:}}
+\index{open\+Text\+File\+:@{open\+Text\+File\+:}!File\+Helper@{File\+Helper}}
+\subsubsection[{open\+Text\+File\+:}]{\setlength{\rightskip}{0pt plus 5cm}+ (N\+S\+String $\ast$) open\+Text\+File\+: 
+\begin{DoxyParamCaption}
+\item[{(N\+S\+String $\ast$)}]{filename}
+\end{DoxyParamCaption}
+}\label{interface_file_helper_a34aa2af0292b8653b8a9d4dded1ee606}
+Opens a text file specified by the given {\ttfamily filename}, which is actually a path relative to the project folder. 
+\begin{DoxyParams}{Parameters}
+{\em filename} & The path to the file, relative to the project foler. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An N\+S\+String with the file\textquotesingle{}s contents. 
+\end{DoxyReturn}
+\hypertarget{interface_file_helper_a7f41f6c61383d3173a885964c8910801}{}\index{File\+Helper@{File\+Helper}!path\+For\+Filename\+:@{path\+For\+Filename\+:}}
+\index{path\+For\+Filename\+:@{path\+For\+Filename\+:}!File\+Helper@{File\+Helper}}
+\subsubsection[{path\+For\+Filename\+:}]{\setlength{\rightskip}{0pt plus 5cm}+ (N\+S\+String $\ast$) path\+For\+Filename\+: 
+\begin{DoxyParamCaption}
+\item[{(N\+S\+String $\ast$)}]{filename}
+\end{DoxyParamCaption}
+}\label{interface_file_helper_a7f41f6c61383d3173a885964c8910801}
+Used mostly internally by the \hyperlink{interface_file_helper}{File\+Helper}, returns a path to the file specified by the given {\ttfamily filename}, which should actually be a path relative to the project folder.. The path returned should be ready to be opened by system methods such as {\ttfamily -\/string\+With\+Contents\+Of\+File}. 
+\begin{DoxyParams}{Parameters}
+{\em filename} & The path to the file, relative to the project foler. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A path to the specified file. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Project -\/ Obj\+C/File\+Helper.\+h\item 
+Project -\/ Obj\+C/File\+Helper.\+m\end{DoxyCompactItemize}

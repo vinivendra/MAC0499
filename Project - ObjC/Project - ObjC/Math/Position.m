@@ -4,7 +4,4 @@
 
 
 @implementation Position
-
-
-
 @end

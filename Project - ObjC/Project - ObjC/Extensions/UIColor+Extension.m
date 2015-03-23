@@ -6,19 +6,21 @@
 @implementation UIColor (Extension)
 
 + (Color *)colorWithObject:(id)object {
+    Color *result;
     if ([object isKindOfClass:[Color class]]) {
-        return [object copy];
+        result = [object copy];
     } else if ([object isKindOfClass:[NSString class]]) {
-        return [Color colorWithName:object];
+        result = [Color colorWithName:object];
     } else if ([object isKindOfClass:[NSArray class]]) {
-        return [Color colorWithArray:object];
+        result = [Color colorWithArray:object];
     } else if ([object isKindOfClass:[NSNumber class]]) {
-        return
+        result =
             [Color colorWithWhite:((NSNumber *)object).doubleValue alpha:1.0];
     }
+    
+    assert(result);
 
-    NSLog(@"Warning: trying to initialize color with invalid object!");
-    return nil;
+    return result;
 }
 
 + (Color *)colorWithName:(NSString *)name {
@@ -46,6 +48,8 @@
                       };
                   });
 
+    assert([colorNames.allKeys containsObject:name]);
+    
     return colorNames[name];
 }
 
@@ -57,33 +61,33 @@
 }
 
 + (Color *)colorWithArray:(NSArray *)array {
-    if (![array valid]) {
-        NSLog(@"Warning: initializing color with an empty array!");
-        return [Color lightGrayColor];
-    }
+    assert([array valid]);
 
+    Color *result;
+    
     if ([array[0] isKindOfClass:[NSNumber class]]) {
         if (array.count == 1) {
-            return [Color colorWithWhite:((NSNumber *)array[0]).doubleValue
+            result = [Color colorWithWhite:((NSNumber *)array[0]).doubleValue
                                    alpha:1.0];
         } else if (array.count == 2) {
-            return [Color colorWithWhite:((NSNumber *)array[0]).doubleValue
+            result = [Color colorWithWhite:((NSNumber *)array[0]).doubleValue
                                    alpha:((NSNumber *)array[1]).doubleValue];
         } else if (array.count == 3) {
-            return [Color colorWithRed:((NSNumber *)array[0]).doubleValue
+            result = [Color colorWithRed:((NSNumber *)array[0]).doubleValue
                                  green:((NSNumber *)array[1]).doubleValue
                                   blue:((NSNumber *)array[2]).doubleValue
                                  alpha:1.0];
         } else if (array.count >= 4) {
-            return [Color colorWithRed:((NSNumber *)array[0]).doubleValue
+            result = [Color colorWithRed:((NSNumber *)array[0]).doubleValue
                                  green:((NSNumber *)array[1]).doubleValue
                                   blue:((NSNumber *)array[2]).doubleValue
                                  alpha:((NSNumber *)array[3]).doubleValue];
         }
     }
+    
+    assert(result);
 
-    NSLog(@"Warning: initializing color with an empty array!");
-    return [Color lightGrayColor];
+    return result;
 }
 
 - (Color *)times:(CGFloat)scalar {

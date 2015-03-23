@@ -38,6 +38,9 @@
                    || [string containsString:@"Z"]) {
             self = [super initWithX:0 Y:0 Z:1];
         }
+        else {
+            assert(false);
+        }
     }
 
     return self;

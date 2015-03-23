@@ -72,6 +72,7 @@
     } else if ([object isKindOfClass:[NSValue class]]) {
         self = [self initWithSCNVector:((NSValue *)object).SCNVector3Value];
     } else {
+        assert(false);
         return nil;
     }
     return self;
