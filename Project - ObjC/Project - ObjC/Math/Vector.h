@@ -142,9 +142,39 @@
 - (SCNVector3)toSCNVector;
 
 /*!
- Creates an NSValue containing an SCNVector3 with the same components as the Vector.
+ Creates an NSValue containing an SCNVector3 with the same components as the
+ Vector.
  @return An instance of NSValue.
  */
 - (NSValue *)toValue;
+
+/*!
+ Returns a Vector representing a multiplication of this Vector [x y z] by a
+ scalar @p a: [a*x, a*y, a*z]
+ @param scalar The scalar value by which to multiply the Vector.
+ @return A new instance of a Vector object.
+ */
+- (Vector *)times:(CGFloat)scalar;
+/*!
+ Returns a Vector representing a division of this Vector [x y z] by a
+ scalar @p a: [x/a, y/a, z/a]
+ @param scalar The scalar value by which to divide the Vector.
+ @return A new instance of a Vector object.
+ */
+- (Vector *)over:(CGFloat)scalar;
+/*!
+ Returns a Vector representing a sum of this Vector [x y z] by another Vector [a
+ b c], resulting in [a+x  b+y  c+z].
+ @param vector The other Vector to use in the addition.
+ @return A new instance of a Vector object.
+ */
+- (Vector *)plus:(Vector *)vector;
+/*!
+ Returns a Vector representing a subtraction of another Vector [a b c] from this
+ Vector [x y z], resulting in [x-a  y-b  z-c].
+ @param vector The other Vector to use in the subtraction.
+ @return A new instance of a Vector object.
+ */
+- (Vector *)minus:(Vector *)vector;
 
 @end

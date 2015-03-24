@@ -35,9 +35,8 @@
  be queried for its @p type.
  */
 @property (nonatomic, strong) id physics;
-
 /*!
- An alias for this Shape's SCNNode's physicsBody property.
+ An alias for this Shape's node's physicsBody property.
  */
 @property (nonatomic, strong) SCNPhysicsBody *physicsBody;
 @end
