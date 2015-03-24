@@ -15,6 +15,19 @@
 ///////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Property Overriding
 
++ (Physics *)shared {
+    static Physics *singleton;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once( &onceToken,
+                  ^{
+                      singleton = [self new];
+                  } );
+    
+    return singleton;
+}
+
+
 - (SCNScene *)scene {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken,

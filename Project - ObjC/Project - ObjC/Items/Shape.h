@@ -39,4 +39,12 @@
  An alias for this Shape's node's physicsBody property.
  */
 @property (nonatomic, strong) SCNPhysicsBody *physicsBody;
+/*!
+ An alias for this Shape's node's physicsBody's velocity property. If the setter
+ receives an NSNumber, it tries to scale the current velocity so that it has
+ that norm. Otherwise, it tries to instantiate a Vector using the given object.
+ The getter always returns a Vector object obtained from the physicsBody's
+ original property.
+ */
+@property (nonatomic, strong) id velocity;
 @end

@@ -14,6 +14,13 @@
  */
 @interface Physics : NSObject <PhysicsExport>
 /*!
+ The singleton instance of the Physics class. The class is meant to be used as a
+ singleton and manages only other singleton instances, such as the SCNScene
+ singleton.
+ @return A singleton instance of the Physics class.
+ */
++ (Physics *)shared;
+/*!
  Used to set the SCNScene's Physics World's gravity property. If the object is
  an NSNumber, the gravity will be a vector pointing in the negative y direction
  with the NSNumber as its magnitude. Otherwise, the object will be used to

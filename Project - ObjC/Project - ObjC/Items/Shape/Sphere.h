@@ -9,6 +9,7 @@
 //
 @property (nonatomic, strong) id color;
 @property (nonatomic, strong) id physics;
+@property (nonatomic, strong) id velocity;
 //
 @property (nonatomic) CGFloat radius;
 @end

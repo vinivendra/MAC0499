@@ -12,6 +12,7 @@
 //
 @property (nonatomic, strong) id color;
 @property (nonatomic, strong) id physics;
+@property (nonatomic, strong) id velocity;
 //
 + (instancetype)torus;
 @property (nonatomic) CGFloat ringRadius;
