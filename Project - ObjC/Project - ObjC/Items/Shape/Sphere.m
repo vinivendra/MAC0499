@@ -36,6 +36,7 @@
 
 
 - (void)setRadius:(CGFloat)radius {
+    [self assertTheresNoPhysicsBody];
     self.sphere.radius = radius;
 }
 

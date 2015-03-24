@@ -1,5 +1,3 @@
-// TODO: Add *'s to the start of documentation comments; reload headerDoc; add
-// html's to the site; change the VVDocumenter's style to add *'s automatically.
 
 // TODO: Consider changing asserts() into exceptions
 
@@ -54,6 +52,27 @@
     node.light = light;
     node.position = SCNVector3Make(-3, -3, -3);
     [scene.rootNode addChildNode:node];
+
+//    Sphere *ball = [Sphere sphere];
+//    ball.color = [Color redColor];
+//    SCNPhysicsShape *shape = [SCNPhysicsShape
+//        shapeWithNode:ball.node
+//              options:@{SCNPhysicsShapeScaleKey : [ball.scale toValue]}];
+//    SCNPhysicsBody *body =
+//        [SCNPhysicsBody bodyWithType:SCNPhysicsBodyTypeDynamic shape:shape];
+//    ball.node.physicsBody = body;
+//
+//    Pyramid *floor = [Pyramid pyramid];
+//    floor.color = [Color orangeColor];
+//
+//    floor.width = floor.width * 2;
+//    floor.length = floor.length * 2;
+//    floor.height = floor.height * 2;
+//    body = [SCNPhysicsBody staticBody];
+//    floor.node.physicsBody = body;
+//
+//    floor.position = [[Position alloc] initWithX:-0.25 Y:-3 Z:0];
+//    floor.rotation = [Rotation rotationWithAxis:[Axis y] angle:[Angle angleWithRadians:0.2]];
 }
 
 @end

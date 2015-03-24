@@ -51,10 +51,21 @@
     return self;
 }
 
+- (instancetype)initWithRotation:(Rotation *)rotation {
+    if (self = [super init]) {
+        self.axis = rotation.axis;
+        self.angle = rotation.angle;
+    }
+    return self;
+}
+
 - (instancetype)initWithObject:(id)object {
     
     if (self = [super init]) {
-        if ([object isKindOfClass:[NSArray class]]) {
+        if ([object isKindOfClass:[Rotation class]]) {
+            self = [self initWithRotation:object];
+        }
+        else if ([object isKindOfClass:[NSArray class]]) {
             self = [self initWithArray:object];
         }
         else if ([object isKindOfClass:[NSValue class]]) {

@@ -84,7 +84,11 @@
 - (instancetype)initWithArray:(NSArray *)array;
 /*!
  Creates a Rotation based on the given object. The supported objects are:
+ 
+ - Rotation, which will create a copy of the given Rotation.
+ 
  - NSArray, which will be initialized just like @p -initWithArray.
+ 
  - NSValue containing a SCNVector4, which will be initialized just like @p
  -initWithSCNVector4.
 
@@ -97,6 +101,9 @@
  @see -initWithSCNVector4
  */
 - (instancetype)initWithObject:(id)object;
+
+// DOC:
+- (instancetype)initWithRotation:(Rotation *)rotation;
 
 /*!
  Returns a representation of the Rotation as an SCNVector4. The Rotation's Axis

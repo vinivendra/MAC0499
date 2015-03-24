@@ -40,6 +40,7 @@
 
 
 - (void)setRadius:(CGFloat)radius {
+    [self assertTheresNoPhysicsBody];
     self.cone.bottomRadius = radius;
 }
 
@@ -48,6 +49,7 @@
 }
 
 - (void)setBottomRadius:(CGFloat)radius {
+    [self assertTheresNoPhysicsBody];
     self.radius = radius;
 }
 
@@ -56,6 +58,7 @@
 }
 
 - (void)setTopRadius:(CGFloat)radius {
+    [self assertTheresNoPhysicsBody];
     self.cone.topRadius = radius;
 }
 
@@ -64,12 +67,12 @@
 }
 
 - (void)setHeight:(CGFloat)height {
+    [self assertTheresNoPhysicsBody];
     self.cone.height = height;
 }
 
 - (CGFloat)height {
     return self.cone.height;
 }
-
 
 @end

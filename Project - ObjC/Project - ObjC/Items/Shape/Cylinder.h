@@ -10,6 +10,7 @@
 @property (nonatomic, strong) id scale;
 //
 @property (nonatomic, strong) id color;
+@property (nonatomic, strong) id physics;
 //
 + (instancetype)cylinder;
 @property (nonatomic) CGFloat radius;

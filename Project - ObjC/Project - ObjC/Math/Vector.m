@@ -95,6 +95,10 @@
     return self.vector;
 }
 
+- (NSValue *)toValue {
+    return [NSValue valueWithSCNVector3:self.vector];
+}
+
 - (NSString *)description {
     return [NSString stringWithFormat:@"(x = %lf, y = %lf, z = %lf)",
                                       self.vector.x,

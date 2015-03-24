@@ -11,6 +11,7 @@
 @property (nonatomic, strong) id scale;
 //
 @property (nonatomic, strong) id color;
+@property (nonatomic, strong) id physics;
 //
 @property (nonatomic) CGFloat depth;
 @property (nonatomic) id string;

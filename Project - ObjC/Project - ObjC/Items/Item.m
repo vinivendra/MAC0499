@@ -17,6 +17,9 @@
     return self;
 }
 
+///////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Property Overriding
+
 - (void)setPosition:(id)position {
     self.node.position =
         [[[Position alloc] initWithObject:position] toSCNVector];

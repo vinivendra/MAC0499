@@ -36,6 +36,7 @@
 
 
 - (void)setRadius:(CGFloat)radius {
+    [self assertTheresNoPhysicsBody];
     self.cylinder.radius = radius;
 }
 
@@ -44,6 +45,7 @@
 }
 
 - (void)setHeight:(CGFloat)height {
+    [self assertTheresNoPhysicsBody];
     self.cylinder.height = height;
 }
 

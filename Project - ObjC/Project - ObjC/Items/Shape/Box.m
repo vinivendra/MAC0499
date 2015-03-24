@@ -42,6 +42,7 @@
 
 
 - (void)setWidth:(CGFloat)width {
+    [self assertTheresNoPhysicsBody];
     self.box.width = width;
 }
 
@@ -50,6 +51,7 @@
 }
 
 - (void)setHeight:(CGFloat)height {
+    [self assertTheresNoPhysicsBody];
     self.box.height = height;
 }
 
@@ -58,6 +60,7 @@
 }
 
 - (void)setLength:(CGFloat)length {
+    [self assertTheresNoPhysicsBody];
     self.box.length = length;
 }
 
@@ -66,6 +69,7 @@
 }
 
 - (void)setChamferRadius:(CGFloat)chamferRadius {
+    [self assertTheresNoPhysicsBody];
     self.box.chamferRadius = chamferRadius;
 }
 

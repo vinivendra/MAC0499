@@ -140,4 +140,11 @@
  @return An initialized SCNVector3.
  */
 - (SCNVector3)toSCNVector;
+
+/*!
+ Creates an NSValue containing an SCNVector3 with the same components as the Vector.
+ @return An instance of NSValue.
+ */
+- (NSValue *)toValue;
+
 @end

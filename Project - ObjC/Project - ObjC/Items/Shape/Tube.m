@@ -16,9 +16,13 @@
     return self;
 }
 
-- (instancetype)initWithInnerRadius:(CGFloat)innerRadius outerRadius:(CGFloat)outerRadius height:(CGFloat)height {
+- (instancetype)initWithInnerRadius:(CGFloat)innerRadius
+                        outerRadius:(CGFloat)outerRadius
+                             height:(CGFloat)height {
     if (self = [super init]) {
-        self.tube = [SCNTube tubeWithInnerRadius:innerRadius outerRadius:outerRadius height:height];
+        self.tube = [SCNTube tubeWithInnerRadius:innerRadius
+                                     outerRadius:outerRadius
+                                          height:height];
     }
     return self;
 }
@@ -36,6 +40,7 @@
 
 
 - (void)setRadius:(CGFloat)radius {
+    [self assertTheresNoPhysicsBody];
     self.tube.outerRadius = radius;
 }
 
@@ -44,6 +49,7 @@
 }
 
 - (void)setInnerRadius:(CGFloat)innerRadius {
+    [self assertTheresNoPhysicsBody];
     self.tube.innerRadius = innerRadius;
 }
 
@@ -52,6 +58,7 @@
 }
 
 - (void)setOuterRadius:(CGFloat)outerRadius {
+    [self assertTheresNoPhysicsBody];
     self.tube.outerRadius = outerRadius;
 }
 
@@ -60,6 +67,7 @@
 }
 
 - (void)setHeight:(CGFloat)height {
+    [self assertTheresNoPhysicsBody];
     self.tube.height = height;
 }
 
