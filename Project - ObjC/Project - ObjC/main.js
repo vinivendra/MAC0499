@@ -16,3 +16,5 @@ var piramide = pyramid.create();
     piramide.scale = 4;
     piramide.color = "blue";
     piramide.physics = "static";
+
+physics.gravity = [0, 1, 0];

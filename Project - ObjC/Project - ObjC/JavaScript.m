@@ -2,6 +2,7 @@
 
 #import "JavaScript.h"
 
+#import "Physics.h"
 
 @protocol consoleExport <JSExport>
 + (void)log:(id)object;
@@ -120,6 +121,8 @@ static NSString *_defaultFilename = @"main.js";
     self.context[@"plane"] = [Plane class];
     self.context[@"text"] = [Text class];
     self.context[@"floor"] = [Floor class];
+    
+    self.context[@"physics"] = [Physics new];
 }
 
 - (void)getObjects {

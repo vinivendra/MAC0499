@@ -30,6 +30,7 @@
  all the Shape's dimensions have been set. This means that after getting a @p
  physics object, the Shape's scale property (as well as others such as height,
  radius, etc) will be locked and will trigger assert's if set.
+ Supports only NSStrings: "dynamic", "static" and "kinematic".
  @note The getter of this property returns the SCNNode's physicsBody, which may
  be queried for its @p type.
  */
