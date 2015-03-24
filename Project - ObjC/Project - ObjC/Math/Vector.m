@@ -130,6 +130,23 @@
                                    Z:self.z - vector.z];
 }
 
+- (CGFloat)dot:(Vector *)vector {
+    return self.x * vector.x + self.y * vector.y + self.z * vector.z;
+}
+
+- (CGFloat)normSquared {
+    return [self dot:self];
+}
+
+- (CGFloat)norm {
+    return sqrt([self normSquared]);
+}
+
+- (Vector *)normalize {
+    return [self over:[self norm]];
+}
+
+
 ///////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Property Overriding
 
