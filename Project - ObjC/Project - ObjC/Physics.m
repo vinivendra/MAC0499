@@ -1,6 +1,7 @@
 
 
 #import "Physics.h"
+#import "Contact.h"
 
 
 @interface Physics ()
@@ -12,30 +13,47 @@
 
 @synthesize gravity = _gravity;
 
-///////////////////////////////////////////////////////////////////////////////////
-#pragma mark - Property Overriding
-
 + (Physics *)shared {
     static Physics *singleton;
     
     static dispatch_once_t onceToken;
-    dispatch_once( &onceToken,
+    dispatch_once(&onceToken,
                   ^{
                       singleton = [self new];
-                  } );
+                  });
     
     return singleton;
 }
 
+- (instancetype)init {
+    if (self = [super init]) {
+        self.scene.physicsWorld.contactDelegate = self;
+    }
+    return self;
+}
+
+- (void)physicsWorld:(SCNPhysicsWorld *)world
+     didBeginContact:(SCNPhysicsContact *)contact {
+    NSLog(@"Begin");
+}
+
+- (void)physicsWorld:(SCNPhysicsWorld *)world
+    didUpdateContact:(SCNPhysicsContact *)contact {
+    NSLog(@"Update");
+}
+
+- (void)physicsWorld:(SCNPhysicsWorld *)world
+       didEndContact:(SCNPhysicsContact *)contact {
+    NSLog(@"End");
+}
+
+
+
+///////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Property Overriding
 
 - (SCNScene *)scene {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken,
-                  ^{
-                      _scene = [Scene shared];
-                  });
-
-    return _scene;
+    return [Scene shared];
 }
 
 - (void)setGravity:(id)gravity {

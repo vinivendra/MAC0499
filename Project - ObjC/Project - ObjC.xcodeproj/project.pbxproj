@@ -83,6 +83,9 @@
 		246098C11AB711EF00CDEA5B /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 246098BF1AB711EF00CDEA5B /* Item.m */; };
 		246098C51AB7138D00CDEA5B /* SCNScene+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 246098C41AB7138D00CDEA5B /* SCNScene+Extension.m */; };
 		246098C61AB7138D00CDEA5B /* SCNScene+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 246098C41AB7138D00CDEA5B /* SCNScene+Extension.m */; };
+		24621BD71AC2E93100AD6B53 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 24621BD61AC2E93100AD6B53 /* Contact.m */; };
+		24621BD81AC2E93100AD6B53 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 24621BD61AC2E93100AD6B53 /* Contact.m */; };
+		24621BDB1AC2F18500AD6B53 /* ContactTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24621BDA1AC2F18500AD6B53 /* ContactTests.m */; };
 		24B8AD3F1AC1A81C00B1415C /* Physics.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B8AD3E1AC1A81C00B1415C /* Physics.m */; };
 		24B8AD401AC1A81C00B1415C /* Physics.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B8AD3E1AC1A81C00B1415C /* Physics.m */; };
 		24BF94891AB775C300B923A9 /* Vector.m in Sources */ = {isa = PBXBuildFile; fileRef = 24BF94881AB775C300B923A9 /* Vector.m */; };
@@ -186,6 +189,9 @@
 		246098BF1AB711EF00CDEA5B /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Item.m; path = Items/Item.m; sourceTree = "<group>"; };
 		246098C31AB7138D00CDEA5B /* SCNScene+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SCNScene+Extension.h"; path = "Extensions/SCNScene+Extension.h"; sourceTree = "<group>"; };
 		246098C41AB7138D00CDEA5B /* SCNScene+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SCNScene+Extension.m"; path = "Extensions/SCNScene+Extension.m"; sourceTree = "<group>"; };
+		24621BD51AC2E93100AD6B53 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Contact.h; path = Physics/Contact.h; sourceTree = "<group>"; };
+		24621BD61AC2E93100AD6B53 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Contact.m; path = Physics/Contact.m; sourceTree = "<group>"; };
+		24621BDA1AC2F18500AD6B53 /* ContactTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactTests.m; sourceTree = "<group>"; };
 		24B8AD3D1AC1A81C00B1415C /* Physics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Physics.h; sourceTree = "<group>"; };
 		24B8AD3E1AC1A81C00B1415C /* Physics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Physics.m; sourceTree = "<group>"; };
 		24BF94871AB775C300B923A9 /* Vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vector.h; path = Math/Vector.h; sourceTree = "<group>"; };
@@ -274,10 +280,9 @@
 				242CDDFA1AB5D87E00CC8067 /* ViewController.m */,
 				242CDE1C1AB5D8E000CC8067 /* JavaScript.h */,
 				242CDE1D1AB5D8E000CC8067 /* JavaScript.m */,
-				24B8AD3D1AC1A81C00B1415C /* Physics.h */,
-				24B8AD3E1AC1A81C00B1415C /* Physics.m */,
 				242CDE261AB5E93A00CC8067 /* main.js */,
 				242CDE251AB5DBA500CC8067 /* PrefixHeader.pch */,
+				24621BD91AC2E93700AD6B53 /* Physics */,
 				246098C21AB7131300CDEA5B /* Items */,
 				24BF948B1AB775C800B923A9 /* Math */,
 				242CDE2D1AB5E9A200CC8067 /* Helpers */,
@@ -310,6 +315,7 @@
 				244CA6DD1AB8712100FD5F18 /* PositionTests.m */,
 				245F808E1AB880F900FC295F /* AxisTest.m */,
 				2430DD321AB8996C0095410C /* RotationTests.m */,
+				24621BDA1AC2F18500AD6B53 /* ContactTests.m */,
 				242CDE4A1AB5ED4B00CC8067 /* test.js */,
 				242CDE0C1AB5D87E00CC8067 /* Supporting Files */,
 			);
@@ -391,6 +397,17 @@
 				2418F22A1AB717DC004A31E5 /* Shapes */,
 			);
 			name = Items;
+			sourceTree = "<group>";
+		};
+		24621BD91AC2E93700AD6B53 /* Physics */ = {
+			isa = PBXGroup;
+			children = (
+				24B8AD3D1AC1A81C00B1415C /* Physics.h */,
+				24B8AD3E1AC1A81C00B1415C /* Physics.m */,
+				24621BD51AC2E93100AD6B53 /* Contact.h */,
+				24621BD61AC2E93100AD6B53 /* Contact.m */,
+			);
+			name = Physics;
 			sourceTree = "<group>";
 		};
 		24BF948B1AB775C800B923A9 /* Math */ = {
@@ -533,6 +550,7 @@
 				243AF9A21AB9BCE70070EF07 /* Torus.m in Sources */,
 				242CDE221AB5DAD400CC8067 /* JSContext+Extension.m in Sources */,
 				243AF9961AB9B8960070EF07 /* Cylinder.m in Sources */,
+				24621BD71AC2E93100AD6B53 /* Contact.m in Sources */,
 				242CDE461AB5EABE00CC8067 /* NSString+ObjectiveSugar.m in Sources */,
 				245F808C1AB87FB400FC295F /* Axis.m in Sources */,
 				242CDE2B1AB5E99E00CC8067 /* FileHelper.m in Sources */,
@@ -589,6 +607,7 @@
 				243AF9AF1AB9C1AE0070EF07 /* Text.m in Sources */,
 				24BF948E1AB776A600B923A9 /* VectorTests.m in Sources */,
 				242CDE411AB5EABE00CC8067 /* NSMutableArray+ObjectiveSugar.m in Sources */,
+				24621BD81AC2E93100AD6B53 /* Contact.m in Sources */,
 				242CDE431AB5EABE00CC8067 /* NSNumber+ObjectiveSugar.m in Sources */,
 				2430DD331AB8996C0095410C /* RotationTests.m in Sources */,
 				2418F2251AB71516004A31E5 /* Shape.m in Sources */,
@@ -596,6 +615,7 @@
 				2430DD311AB899440095410C /* Rotation.m in Sources */,
 				244CA6DF1AB8744C00FD5F18 /* Position.m in Sources */,
 				246098C61AB7138D00CDEA5B /* SCNScene+Extension.m in Sources */,
+				24621BDB1AC2F18500AD6B53 /* ContactTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

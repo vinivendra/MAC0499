@@ -17,4 +17,19 @@ var piramide = pyramid.create();
     piramide.color = "orange";
     piramide.physics = "static";
 
-bola.velocity = [0, 5, 0];
+function bolaQuicando(bola, piramide) {
+    bola.velocity = [0, 1, 0];
+}
+
+
+
+
+
+physics.contact = [bolaQuicando, bola, piramide];
+
+
+
+physics.newContact = { "contact": bolaQuicando,
+                       "between": bola,
+                           "and": piramide };
+

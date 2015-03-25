@@ -4,6 +4,7 @@
 
 #import "ViewController.h"
 
+#import "Physics.h"
 #import "JavaScript.h"
 
 @interface ViewController ()
@@ -16,12 +17,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    Physics *physics = [Physics shared];
     JavaScript *javaScript = [JavaScript shared];
 
     [javaScript load];
     [javaScript update];
 
-    self.sceneView.scene = [Scene shared];
+    self.sceneView.scene = physics.scene;
 
     SCNScene *scene = self.sceneView.scene;
 
