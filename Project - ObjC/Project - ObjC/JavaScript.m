@@ -103,7 +103,9 @@ static NSString *_defaultFilename = @"main.js";
     };
 
     self.context[@"pi"] = @(M_PI);
-    
+
+    [self.context evaluateScript:@"var callback;"];
+
     self.context[@"vector"] = [Vector class];
     self.context[@"position"] = [Position class];
     self.context[@"axis"] = [Axis class];
@@ -121,7 +123,7 @@ static NSString *_defaultFilename = @"main.js";
     self.context[@"plane"] = [Plane class];
     self.context[@"text"] = [Text class];
     self.context[@"floor"] = [Floor class];
-    
+
     self.context[@"physics"] = [Physics new];
 }
 
@@ -130,4 +132,8 @@ static NSString *_defaultFilename = @"main.js";
     self.updateFunction = self.context[@"update"];
 }
 
+//
+- (JSValue *)contactCallback {
+    return self.context[@"contact"];
+}
 @end

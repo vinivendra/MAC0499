@@ -4,6 +4,7 @@
 
 
 @protocol PhysicsExport <JSExport>
+@property (nonatomic, weak) id addContact;
 @property (nonatomic, strong) id gravity;
 @end
 
@@ -34,4 +35,9 @@
  The getter always returns a Vector version of the physics world's SCNVector3.
  */
 @property (nonatomic, strong) id gravity;
+
+/*!
+ @p addContact is a property used only for its setter. It's the main way to register a Contact object, which is used to handle contacts in JavaScript code.
+ */
+@property (nonatomic, weak) id addContact;
 @end

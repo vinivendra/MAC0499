@@ -25,4 +25,4 @@
  used as a point instead of a vector.
  */
 @interface Position : Vector <PositionExport>
-@end
+@end 

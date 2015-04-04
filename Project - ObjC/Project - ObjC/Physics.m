@@ -5,7 +5,7 @@
 
 
 @interface Physics ()
-@property (nonatomic, strong) Scene *scene;
+@property (nonatomic, weak) Scene *scene;
 @end
 
 
@@ -15,13 +15,13 @@
 
 + (Physics *)shared {
     static Physics *singleton;
-    
+
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken,
                   ^{
                       singleton = [self new];
                   });
-    
+
     return singleton;
 }
 
@@ -34,22 +34,19 @@
 
 - (void)physicsWorld:(SCNPhysicsWorld *)world
      didBeginContact:(SCNPhysicsContact *)contact {
-    NSLog(@"Begin");
+    [Contact triggerActionForContact:contact];
 }
 
 - (void)physicsWorld:(SCNPhysicsWorld *)world
     didUpdateContact:(SCNPhysicsContact *)contact {
-    NSLog(@"Update");
 }
 
 - (void)physicsWorld:(SCNPhysicsWorld *)world
        didEndContact:(SCNPhysicsContact *)contact {
-    NSLog(@"End");
 }
 
 
-
-///////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Property Overriding
 
 - (SCNScene *)scene {
@@ -77,6 +74,14 @@
             [[Vector alloc] initWithSCNVector:self.scene.physicsWorld.gravity];
     }
     return _gravity;
+}
+
+- (void)setAddContact:(id)contact {
+    [Contact registerContact:contact];
+}
+
+- (id)addContact {
+    assert(false); // This property is meant to be used only for its setter.
 }
 
 @end

@@ -6,6 +6,30 @@
  Basically, it's a wrapper for @p SCNNode.
  */
 @interface Item : NSObject
+
+/*!
+ Used as a constructor for JavaScript. Creates an empty Item, with an empty
+ node.
+ @return An empty Item.
+ */
++ (instancetype)create;
+/*!
+ Creates a new unique ID to be used by a new instance of Item.
+ @return A new ID.
+ */
++ (NSUInteger)newID;
+/*!
+ @warning Must be called whenever an item should disappear, since Items and
+ their Nodes
+ create retain-cycles.
+ This method removes the Item's Node (and all its subnodes) from the Scene Graph
+ and readies the Item for destruction.
+ */
+- (void)destroy;
+/*!
+ An integer used to uniquely identify an Item.
+ */
+@property (nonatomic) NSUInteger ID;
 /// The node that this Item is wrapping.
 @property (nonatomic, strong) SCNNode *node;
 /*!
@@ -36,11 +60,4 @@
  An alias for this Item's node's geometry.
  */
 @property (nonatomic, strong) SCNGeometry *geometry;
-
-/*!
- Used as a constructor for JavaScript. Creates an empty Item, with an empty
- node.
- @return An empty Item.
- */
-+ (instancetype)create;
 @end

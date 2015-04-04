@@ -19,8 +19,6 @@
                                                    action:action];
 
     XCTAssert(contact);
-    XCTAssert([contact.firstItem isEqual:firstItem]);
-    XCTAssert([contact.secondItem isEqual:secondItem]);
     XCTAssert([contact.action isEqual:action]);
 }
 
@@ -34,8 +32,6 @@
         [[Contact alloc] initWithArray:@[ action, firstItem, secondItem ]];
 
     XCTAssert(contact);
-    XCTAssert([contact.firstItem isEqual:firstItem]);
-    XCTAssert([contact.secondItem isEqual:secondItem]);
     XCTAssert([contact.action isEqual:action]);
 }
 
@@ -52,8 +48,6 @@
     }];
 
     XCTAssert(contact);
-    XCTAssert([contact.firstItem isEqual:firstItem]);
-    XCTAssert([contact.secondItem isEqual:secondItem]);
     XCTAssert([contact.action isEqual:action]);
 }
 
@@ -74,8 +68,6 @@
 
     for (Contact *contact in results) {
         XCTAssert(contact);
-        XCTAssert([contact.firstItem isEqual:firstItem]);
-        XCTAssert([contact.secondItem isEqual:secondItem]);
         XCTAssert([contact.action isEqual:action]);
     }
 }

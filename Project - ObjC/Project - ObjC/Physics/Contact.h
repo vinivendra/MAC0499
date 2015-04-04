@@ -1,14 +1,28 @@
+
+
 // TODO: Create <object>WithSomething: methods for every initWithSomething:
 // method in the objc code.
 
 
 /*!
  The Contact class represents an object meant to manage contact events between
- two Items. Whenever Contact is detected, the Physics singleton is responsible
+ two Items. Whenever a contact is detected, the Physics singleton is responsible
  for checking if the corresponding Contact object exists; the Contact object
  itself is then responsible for firing a callback function in JavaScript.
  */
 @interface Contact : NSObject <NSCopying>
+/*!
+ Registers a contact so that its action may be activated on demand.
+ @param contact The Contact object to register, or an object that may be used
+ with the Contact class's @p -initWithObject.
+ */
++ (void)registerContact:(id)contact;
+/*!
+ Triggers an action for some specific type of contact, if it has been
+ registered.
+ @param physicsContact The contact whose corresponding action must be triggered.
+ */
++ (void)triggerActionForContact:(SCNPhysicsContact *)physicsContact;
 /*!
  Creates a Contact object ready to handle a contacts between the first and
  second
@@ -57,15 +71,12 @@
 - (instancetype)initWithObject:(id)object;
 
 /*!
- One of the Items involved in the contact.
- @see secondItem
+ Returns a key meant to be used as an NSDictionary key. This key ignores the
+ order of the Contact's Items (which is the firstItem and which is the
+ secondItem), so that contacts between the same two Items always get mapped to
+ the same object.
  */
-@property (nonatomic, strong) Item *firstItem;
-/*!
- One of the Items involved in the contact.
- @see firstItem
- */
-@property (nonatomic, strong) Item *secondItem;
+@property (nonatomic, strong) id<NSCopying> key;
 /*!
  The action to be triggered when a contact occurs between the @p firstObject and
  the @p secondObject.

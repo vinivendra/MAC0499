@@ -1,8 +1,5 @@
 
 
-#import <Foundation/Foundation.h>
-
-
 @interface NSArray (Extension)
 /*!
  Checks if the array is valid, which means that it exists and is not empty.

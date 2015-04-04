@@ -6,6 +6,7 @@
 @protocol TextExport <JSExport>
 + (instancetype)create;
 //
+- (void)destroy;
 @property (nonatomic, strong) id position;
 @property (nonatomic, strong) id rotation;
 @property (nonatomic, strong) id scale;
