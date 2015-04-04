@@ -61,4 +61,23 @@
     return self.node.physicsBody;
 }
 
+- (void)setVelocity:(id)velocity {
+    Vector *vector;
+
+    if ([velocity isKindOfClass:[NSNumber class]]) {
+        CGFloat scalar = ((NSNumber *)velocity).doubleValue;
+        Vector *old =
+            [[Vector alloc] initWithSCNVector:self.node.physicsBody.velocity];
+        vector = [[old normalize] times:scalar];
+    } else {
+        vector = [[Vector alloc] initWithObject:velocity];
+    }
+
+    self.node.physicsBody.velocity = vector.toSCNVector;
+}
+
+- (id)velocity {
+    return [[Vector alloc] initWithSCNVector:self.node.physicsBody.velocity];
+}
+
 @end

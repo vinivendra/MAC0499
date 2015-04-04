@@ -7,12 +7,14 @@
 @protocol TubeExport <JSExport>
 + (instancetype)create;
 //
+- (void)destroy;
 @property (nonatomic, strong) id position;
 @property (nonatomic, strong) id rotation;
 @property (nonatomic, strong) id scale;
 //
 @property (nonatomic, strong) id color;
 @property (nonatomic, strong) id physics;
+@property (nonatomic, strong) id velocity;
 //
 + (instancetype)tube;
 @property (nonatomic) CGFloat radius;

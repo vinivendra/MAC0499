@@ -30,13 +30,21 @@
  all the Shape's dimensions have been set. This means that after getting a @p
  physics object, the Shape's scale property (as well as others such as height,
  radius, etc) will be locked and will trigger assert's if set.
+ Supports only NSStrings: "dynamic", "static" and "kinematic".
  @note The getter of this property returns the SCNNode's physicsBody, which may
  be queried for its @p type.
  */
 @property (nonatomic, strong) id physics;
-
 /*!
- An alias for this Shape's SCNNode's physicsBody property.
+ An alias for this Shape's node's physicsBody property.
  */
 @property (nonatomic, strong) SCNPhysicsBody *physicsBody;
+/*!
+ An alias for this Shape's node's physicsBody's velocity property. If the setter
+ receives an NSNumber, it tries to scale the current velocity so that it has
+ that norm. Otherwise, it tries to instantiate a Vector using the given object.
+ The getter always returns a Vector object obtained from the physicsBody's
+ original property.
+ */
+@property (nonatomic, strong) id velocity;
 @end

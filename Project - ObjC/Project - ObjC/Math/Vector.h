@@ -142,9 +142,69 @@
 - (SCNVector3)toSCNVector;
 
 /*!
- Creates an NSValue containing an SCNVector3 with the same components as the Vector.
+ Creates an NSValue containing an SCNVector3 with the same components as the
+ Vector.
  @return An instance of NSValue.
  */
 - (NSValue *)toValue;
 
+/*!
+ Returns a Vector representing a multiplication of this Vector [x y z] by a
+ scalar @p a: [a*x, a*y, a*z]
+ @param scalar The scalar value by which to multiply the Vector.
+ @return A new instance of a Vector object.
+ */
+- (Vector *)times:(CGFloat)scalar;
+/*!
+ Returns a Vector representing a division of this Vector [x y z] by a
+ scalar @p a: [x/a, y/a, z/a]
+ @param scalar The scalar value by which to divide the Vector.
+ @return A new instance of a Vector object.
+ */
+- (Vector *)over:(CGFloat)scalar;
+/*!
+ Returns a Vector representing a sum of this Vector [x y z] by another Vector [a
+ b c], resulting in [a+x  b+y  c+z].
+ @param vector The other Vector to use in the addition.
+ @return A new instance of a Vector object.
+ */
+- (Vector *)plus:(Vector *)vector;
+/*!
+ Returns a Vector representing a subtraction of another Vector [a b c] from this
+ Vector [x y z], resulting in [x-a  y-b  z-c].
+ @param vector The other Vector to use in the subtraction.
+ @return A new instance of a Vector object.
+ */
+- (Vector *)minus:(Vector *)vector;
+/*!
+ Returns the dot product (which is a scalar value) representing a dot product of
+ this Vector [x y z] with another Vector [a b c], resulting in x*a + y*b + z*c.
+ @param vector The other Vector to use in the dot product.
+ @return The value of the dot product between the two vectors.
+ */
+- (CGFloat)dot:(Vector *)vector;
+/*!
+ Returns the squared norm of this Vector [x y z], which is the same as the dot
+ product of this vector with itself: x*x + y*y + z*z. Useful to compare the
+ magnitude of different vectors without having the performance hit of a squared
+ root (as the @p -norm method does).
+ @return The squared value of the Vector's norm.
+ */
+- (CGFloat)normSquared;
+/*!
+ Returns the norm of this Vector [x y z], which is the same as the square root
+ of the dot product of this vector with itself: sqrt(x*x + y*y + z*z). Might
+ have a performance hit from taking the squared root if used in a tight loop;
+ use the @p -squaredNorm method instead whenever possible.
+ @return The value of the Vector's norm.
+ */
+- (CGFloat)norm;
+/*!
+ Creates a new Vector as a result of changing all this Vector's components
+ uniformly, scaling them so that the resulting vector has a norm of 1. Might
+ have a performance hit from taking the squared root if used in a tight loop, so
+ use only when necessary.
+ @return A new instance of a Vector object.
+ */
+- (Vector *)normalize;
 @end

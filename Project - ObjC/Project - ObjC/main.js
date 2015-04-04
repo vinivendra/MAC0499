@@ -1,18 +1,29 @@
 
 function load() {
+
+    var bola = sphere.create();
+    bola.color = "red";
+    bola.physics = "dynamic";
     
+    var piramide = pyramid.create();
+    piramide.position = [-.5, -3, 0];
+    piramide.scale = 2;
+    piramide.color = "orange";
+    piramide.physics = "static";
+    
+    physics.addContact = [bola, piramide];
+    
+    physics.addContact = { "between": bola,
+        "and": piramide };
 }
 
 function update(dt) {
     
 }
 
-var bola = sphere.create();
-    bola.color = "red";
-    bola.physics = "dynamic";
+function contact(obj, outro) {
+    obj.destroy();
+    outro.destroy();
+}
 
-var piramide = pyramid.create();
-    piramide.position = [-1, -6, 0];
-    piramide.scale = 4;
-    piramide.color = "blue";
-    piramide.physics = "static";
+
