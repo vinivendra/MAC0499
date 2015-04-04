@@ -72,6 +72,7 @@
     } else if ([object isKindOfClass:[NSValue class]]) {
         self = [self initWithSCNVector:((NSValue *)object).SCNVector3Value];
     } else {
+        assert(false);
         return nil;
     }
     return self;
@@ -94,12 +95,57 @@
     return self.vector;
 }
 
+- (NSValue *)toValue {
+    return [NSValue valueWithSCNVector3:self.vector];
+}
+
 - (NSString *)description {
     return [NSString stringWithFormat:@"(x = %lf, y = %lf, z = %lf)",
                                       self.vector.x,
                                       self.vector.y,
                                       self.vector.z];
 }
+
+- (Vector *)times:(CGFloat)scalar {
+    return [[Vector alloc] initWithX:self.x * scalar
+                                   Y:self.y * scalar
+                                   Z:self.z * scalar];
+}
+
+- (Vector *)over:(CGFloat)scalar {
+    return [[Vector alloc] initWithX:self.x / scalar
+                                   Y:self.y / scalar
+                                   Z:self.z / scalar];
+}
+
+- (Vector *)plus:(Vector *)vector {
+    return [[Vector alloc] initWithX:self.x + vector.x
+                                   Y:self.y + vector.y
+                                   Z:self.z + vector.z];
+}
+
+- (Vector *)minus:(Vector *)vector {
+    return [[Vector alloc] initWithX:self.x - vector.x
+                                   Y:self.y - vector.y
+                                   Z:self.z - vector.z];
+}
+
+- (CGFloat)dot:(Vector *)vector {
+    return self.x * vector.x + self.y * vector.y + self.z * vector.z;
+}
+
+- (CGFloat)normSquared {
+    return [self dot:self];
+}
+
+- (CGFloat)norm {
+    return sqrt([self normSquared]);
+}
+
+- (Vector *)normalize {
+    return [self over:[self norm]];
+}
+
 
 ///////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Property Overriding

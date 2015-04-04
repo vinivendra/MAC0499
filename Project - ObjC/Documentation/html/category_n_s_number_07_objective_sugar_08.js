@@ -1,0 +1,28 @@
+var category_n_s_number_07_objective_sugar_08 =
+[
+    [ "ago", "category_n_s_number_07_objective_sugar_08.html#a462398f958430fa44b68f76f1ab81edb", null ],
+    [ "ago:", "category_n_s_number_07_objective_sugar_08.html#a2670ab0fcd3d770cd3fec3a5da0bfd75", null ],
+    [ "day", "category_n_s_number_07_objective_sugar_08.html#a853eb621678f13d6b2cb44d55889eb29", null ],
+    [ "days", "category_n_s_number_07_objective_sugar_08.html#a23a7e68587158034a529a93894f909d8", null ],
+    [ "downto:do:", "category_n_s_number_07_objective_sugar_08.html#a50d3c6ee94edf7032af2e95775e5a30f", null ],
+    [ "fortnight", "category_n_s_number_07_objective_sugar_08.html#ac1ddf6842cf40ba011c33b7076aabaa9", null ],
+    [ "fortnights", "category_n_s_number_07_objective_sugar_08.html#a9545d7f9098b624ed7be676e7dfdeeaf", null ],
+    [ "fromNow", "category_n_s_number_07_objective_sugar_08.html#aed580bcb7fd5600287a911aebd902087", null ],
+    [ "hour", "category_n_s_number_07_objective_sugar_08.html#a22af66d0426f059612a01c158c45a302", null ],
+    [ "hours", "category_n_s_number_07_objective_sugar_08.html#aa6989574cd2bf2691613a92f74cb2314", null ],
+    [ "minute", "category_n_s_number_07_objective_sugar_08.html#ace813af21c398f02c505f59faa2a7574", null ],
+    [ "minutes", "category_n_s_number_07_objective_sugar_08.html#a3816444f37809127de175f3b32dca8db", null ],
+    [ "month", "category_n_s_number_07_objective_sugar_08.html#a156820b4ded3dba725d1b72a99f1edf5", null ],
+    [ "months", "category_n_s_number_07_objective_sugar_08.html#abf23a2efc934300ac6ad7eae04170386", null ],
+    [ "second", "category_n_s_number_07_objective_sugar_08.html#ad32b72f84e7b663ea6f5c7d3f82086f7", null ],
+    [ "seconds", "category_n_s_number_07_objective_sugar_08.html#abe6a2532016e561cac3ab30731fc26e0", null ],
+    [ "since:", "category_n_s_number_07_objective_sugar_08.html#a6be3c168e759831ffe28945e82760c96", null ],
+    [ "times:", "category_n_s_number_07_objective_sugar_08.html#a3e455d5dc4b933f5de5791d9a112f8d6", null ],
+    [ "timesWithIndex:", "category_n_s_number_07_objective_sugar_08.html#a421a4af896575c4919d033d10b1da6a9", null ],
+    [ "until:", "category_n_s_number_07_objective_sugar_08.html#ad4513b421a65d5c349a91a5da39e9649", null ],
+    [ "upto:do:", "category_n_s_number_07_objective_sugar_08.html#a510218cff72fc9231af218f36450fd88", null ],
+    [ "week", "category_n_s_number_07_objective_sugar_08.html#af34e9eded153ded5989e1e62454ad05c", null ],
+    [ "weeks", "category_n_s_number_07_objective_sugar_08.html#aa235110b392b6715e610d3a3cca1de1b", null ],
+    [ "year", "category_n_s_number_07_objective_sugar_08.html#afe48ad7551932e03bcbaaee52395fa6d", null ],
+    [ "years", "category_n_s_number_07_objective_sugar_08.html#a2af2628b3df39bb6ceccf522c51ee379", null ]
+];

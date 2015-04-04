@@ -39,6 +39,7 @@
 
 
 - (void)setWidth:(CGFloat)width {
+    [self assertTheresNoPhysicsBody];
     self.pyramid.width = width;
 }
 
@@ -47,6 +48,7 @@
 }
 
 - (void)setHeight:(CGFloat)height {
+    [self assertTheresNoPhysicsBody];
     self.pyramid.height = height;
 }
 
@@ -55,11 +57,16 @@
 }
 
 - (void)setLength:(CGFloat)length {
+    [self assertTheresNoPhysicsBody];
     self.pyramid.length = length;
 }
 
 - (CGFloat)length {
     return self.pyramid.length;
+}
+
+- (SCNPhysicsBodyType)physicsBodyType {
+    return SCNPhysicsBodyTypeStatic;
 }
 
 @end

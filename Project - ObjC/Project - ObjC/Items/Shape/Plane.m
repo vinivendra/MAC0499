@@ -37,6 +37,7 @@
 
 
 - (void)setWidth:(CGFloat)width {
+    [self assertTheresNoPhysicsBody];
     self.plane.width = width;
 }
 
@@ -45,6 +46,7 @@
 }
 
 - (void)setHeight:(CGFloat)height {
+    [self assertTheresNoPhysicsBody];
     self.plane.height = height;
 }
 

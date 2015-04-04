@@ -1,0 +1,125 @@
+\hypertarget{category_u_i_color_07_extension_08}{}\section{U\+I\+Color(Extension) Category Reference}
+\label{category_u_i_color_07_extension_08}\index{U\+I\+Color(\+Extension)@{U\+I\+Color(\+Extension)}}
+\subsection*{Instance Methods}
+\begin{DoxyCompactItemize}
+\item 
+(Color $\ast$) -\/ \hyperlink{category_u_i_color_07_extension_08_a306898f02f449a0abb7ddd16dc79788c}{times\+:}
+\end{DoxyCompactItemize}
+\subsection*{Class Methods}
+\begin{DoxyCompactItemize}
+\item 
+(Color $\ast$) + \hyperlink{category_u_i_color_07_extension_08_a49648961e57941cc9cb4f3e513e9e2b8}{color\+With\+Object\+:}
+\item 
+(Color $\ast$) + \hyperlink{category_u_i_color_07_extension_08_a97524e01527a8334126b87c08e26dca7}{color\+With\+C\+Array\+:}
+\item 
+(Color $\ast$) + \hyperlink{category_u_i_color_07_extension_08_acdc1ef989ee41b9b3ba7a97cd32bae83}{color\+With\+Array\+:}
+\item 
+(Color $\ast$) + \hyperlink{category_u_i_color_07_extension_08_a2f0190d529474ce666c6c26a4ba5bc24}{color\+With\+Name\+:}
+\end{DoxyCompactItemize}
+
+
+\subsection{Method Documentation}
+\hypertarget{category_u_i_color_07_extension_08_acdc1ef989ee41b9b3ba7a97cd32bae83}{}\index{U\+I\+Color(\+Extension)@{U\+I\+Color(\+Extension)}!color\+With\+Array\+:@{color\+With\+Array\+:}}
+\index{color\+With\+Array\+:@{color\+With\+Array\+:}!U\+I\+Color(\+Extension)@{U\+I\+Color(\+Extension)}}
+\subsubsection[{color\+With\+Array\+:}]{\setlength{\rightskip}{0pt plus 5cm}+ (Color $\ast$) color\+With\+Array\+: 
+\begin{DoxyParamCaption}
+\item[{(N\+S\+Array $\ast$)}]{array}
+\end{DoxyParamCaption}
+}\label{category_u_i_color_07_extension_08_acdc1ef989ee41b9b3ba7a97cd32bae83}
+Creates a color with a given N\+S\+Array. The array must have from 1 to 4 N\+S\+Numbers.
+
+
+\begin{DoxyItemize}
+\item If there is 1 number only, it will be used as a white component (as in {\ttfamily -\/colorwith\+White}).
+\item If there are 2 numbers, the first one will be used as a white component and the second one as an alpha value.
+\item If there are 3 numbers, they will be used as R\+G\+B.
+\item If here are 4 numbers, they will be used as R\+G\+B and alpha, in that order.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & The array from which to get the values for the color. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An initialized U\+I\+Color instance. 
+\end{DoxyReturn}
+\hypertarget{category_u_i_color_07_extension_08_a97524e01527a8334126b87c08e26dca7}{}\index{U\+I\+Color(\+Extension)@{U\+I\+Color(\+Extension)}!color\+With\+C\+Array\+:@{color\+With\+C\+Array\+:}}
+\index{color\+With\+C\+Array\+:@{color\+With\+C\+Array\+:}!U\+I\+Color(\+Extension)@{U\+I\+Color(\+Extension)}}
+\subsubsection[{color\+With\+C\+Array\+:}]{\setlength{\rightskip}{0pt plus 5cm}+ (Color $\ast$) color\+With\+C\+Array\+: 
+\begin{DoxyParamCaption}
+\item[{(C\+G\+Float\mbox{[}4\mbox{]})}]{array}
+\end{DoxyParamCaption}
+}\label{category_u_i_color_07_extension_08_a97524e01527a8334126b87c08e26dca7}
+Creates a color with a given C array of floats. The array must have at least 4 components which will be used as red, green, blue and alpha, in that order. 
+\begin{DoxyParams}{Parameters}
+{\em array} & The array from which to get the values for the color. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An initialized U\+I\+Color instance. 
+\end{DoxyReturn}
+\hypertarget{category_u_i_color_07_extension_08_a2f0190d529474ce666c6c26a4ba5bc24}{}\index{U\+I\+Color(\+Extension)@{U\+I\+Color(\+Extension)}!color\+With\+Name\+:@{color\+With\+Name\+:}}
+\index{color\+With\+Name\+:@{color\+With\+Name\+:}!U\+I\+Color(\+Extension)@{U\+I\+Color(\+Extension)}}
+\subsubsection[{color\+With\+Name\+:}]{\setlength{\rightskip}{0pt plus 5cm}+ (Color $\ast$) color\+With\+Name\+: 
+\begin{DoxyParamCaption}
+\item[{(N\+S\+String $\ast$)}]{name}
+\end{DoxyParamCaption}
+}\label{category_u_i_color_07_extension_08_a2f0190d529474ce666c6c26a4ba5bc24}
+Creates a color based on a given name, such as \char`\"{}orange\char`\"{}, \char`\"{}green\char`\"{}, \char`\"{}light\+Gray\char`\"{}, etc. The accepted names are the same as the corresponding class methods of U\+I\+Color. 
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the desired color. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An initialized U\+I\+Color instance. 
+\end{DoxyReturn}
+\hypertarget{category_u_i_color_07_extension_08_a49648961e57941cc9cb4f3e513e9e2b8}{}\index{U\+I\+Color(\+Extension)@{U\+I\+Color(\+Extension)}!color\+With\+Object\+:@{color\+With\+Object\+:}}
+\index{color\+With\+Object\+:@{color\+With\+Object\+:}!U\+I\+Color(\+Extension)@{U\+I\+Color(\+Extension)}}
+\subsubsection[{color\+With\+Object\+:}]{\setlength{\rightskip}{0pt plus 5cm}+ (Color $\ast$) color\+With\+Object\+: 
+\begin{DoxyParamCaption}
+\item[{(id)}]{object}
+\end{DoxyParamCaption}
+}\label{category_u_i_color_07_extension_08_a49648961e57941cc9cb4f3e513e9e2b8}
+Initializes a U\+I\+Color based on the given object. The supported types are\+:
+
+
+\begin{DoxyItemize}
+\item U\+I\+Color, which creates a copy the color.
+\item N\+S\+String, which works a lot like -\/color\+With\+Name.
+\item N\+S\+Array, which works a lot like -\/color\+With\+Array.
+\item N\+S\+Number, which works a lot like -\/color\+With\+White.
+\end{DoxyItemize}
+
+\begin{DoxyWarning}{Warning}
+If the color isn\textquotesingle{}t a subclass of any of the accepted classes, an {\ttfamily assertion} is triggered. 
+\end{DoxyWarning}
+
+\begin{DoxyParams}{Parameters}
+{\em object} & The object from which to get the information for creating the color. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An initialized U\+I\+Color. 
+\end{DoxyReturn}
+\hypertarget{category_u_i_color_07_extension_08_a306898f02f449a0abb7ddd16dc79788c}{}\index{U\+I\+Color(\+Extension)@{U\+I\+Color(\+Extension)}!times\+:@{times\+:}}
+\index{times\+:@{times\+:}!U\+I\+Color(\+Extension)@{U\+I\+Color(\+Extension)}}
+\subsubsection[{times\+:}]{\setlength{\rightskip}{0pt plus 5cm}-\/ (Color $\ast$) times\+: 
+\begin{DoxyParamCaption}
+\item[{(C\+G\+Float)}]{scalar}
+\end{DoxyParamCaption}
+}\label{category_u_i_color_07_extension_08_a306898f02f449a0abb7ddd16dc79788c}
+Multiplies the Red, Green and Blue components of the color by the given scalar number. The alpha value is left untouched. 
+\begin{DoxyParams}{Parameters}
+{\em scalar} & The number by which to multiply the color\textquotesingle{}s components. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new color corresponding to the multiplicaton result. 
+\end{DoxyReturn}
+
+
+The documentation for this category was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Project -\/ Obj\+C/\+Extensions/U\+I\+Color+\+Extension.\+h\item 
+Project -\/ Obj\+C/\+Extensions/U\+I\+Color+\+Extension.\+m\end{DoxyCompactItemize}

@@ -36,6 +36,7 @@
 
 
 - (void)setRadius:(CGFloat)radius {
+    [self assertTheresNoPhysicsBody];
     self.capsule.capRadius = radius;
 }
 
@@ -44,6 +45,7 @@
 }
 
 - (void)setHeight:(CGFloat)height {
+    [self assertTheresNoPhysicsBody];
     self.capsule.height = height;
 }
 

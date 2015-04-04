@@ -36,6 +36,7 @@
 
 
 - (void)setPipeRadius:(CGFloat)pipeRadius {
+    [self assertTheresNoPhysicsBody];
     self.torus.pipeRadius = pipeRadius;
 }
 
@@ -44,11 +45,13 @@
 }
 
 - (void)setRingRadius:(CGFloat)ringRadius {
+    [self assertTheresNoPhysicsBody];
     self.torus.ringRadius = ringRadius;
 }
 
 - (CGFloat)ringRadius {
     return self.torus.ringRadius;
 }
+
 
 @end

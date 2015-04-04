@@ -36,6 +36,7 @@
 
 
 - (void)setString:(id)string {
+    [self assertTheresNoPhysicsBody];
     self.text.string = string;
 }
 
@@ -44,11 +45,16 @@
 }
 
 - (void)setDepth:(CGFloat)depth {
+    [self assertTheresNoPhysicsBody];
     self.text.extrusionDepth = depth;
 }
 
 - (CGFloat)depth {
     return self.text.extrusionDepth;
+}
+
+- (SCNPhysicsBodyType)physicsBodyType {
+    return SCNPhysicsBodyTypeStatic;
 }
 
 @end
