@@ -5,6 +5,7 @@
 
 @protocol PlaneExport <JSExport>
 + (instancetype)create;
+- (instancetype)create;
 + (instancetype) template;
 //
 - (void)destroy;

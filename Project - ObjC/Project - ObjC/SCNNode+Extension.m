@@ -18,14 +18,4 @@
     return objc_getAssociatedObject(self, @"node_item");
 }
 
-- (instancetype)deepCopy {
-    SCNNode *newNode = [self copy];
-    newNode.position = self.position;
-    newNode.rotation = self.rotation;
-    newNode.scale = self.scale;
-    newNode.geometry = [self.geometry deepCopy];
-    
-    return newNode;
-}
-
 @end

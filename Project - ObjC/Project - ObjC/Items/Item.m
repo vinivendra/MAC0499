@@ -30,6 +30,12 @@ static NSUInteger globalID = 0;
     return newItem;
 }
 
+- (instancetype)create {
+    Item *newItem = [self deepCopy];
+    [[SCNScene shared] addItem:newItem];
+    return newItem;
+}
+
 - (instancetype)init {
     if (self = [super init]) {
         self.node = [SCNNode node];
@@ -68,8 +74,14 @@ static NSUInteger globalID = 0;
 }
 
 - (void)copyInfoTo:(Item *)item {
-    item.node = [self.node deepCopy];
-    item.node.item = item;
+    if (!item.node) {
+        item.node = self.node.copy;
+        item.node.item = self;
+    }
+    
+    item.position = self.position;
+    item.rotation = self.rotation;
+    item.scale = self.scale;
     
     for (Item *child in self.children)
         [item addItem:[child deepCopy]];

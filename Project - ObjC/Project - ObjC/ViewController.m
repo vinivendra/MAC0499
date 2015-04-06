@@ -56,25 +56,21 @@
     [scene.rootNode addChildNode:node];
 
 
-    Sphere *ball = [Sphere create];
-    ball.color = @"red";
-
-    Item *temp = [Item template];
-    Sphere *earth = [Sphere template];
-    earth.color = @"blue";
-    earth.position = @[@0, @2, @0];
-    earth.scale = @1.5;
-    [temp addItem:earth];
-    
-    Item *instance = [temp deepCopy];
-    [scene addItem:instance];
-
-    Item *moon = [temp deepCopy];
-    ((Shape *)moon.children.firstObject).color = @"black";
-    ((Shape *)moon.children.firstObject).scale = @0.7;
-    ((Shape *)moon.children.firstObject).position = @[@1, @2, @0];
-    [scene addItem:moon];
-    
+//    Sphere *ball = [Sphere create];
+//    ball.color = @"red";
+//
+//    Sphere *earth = [Sphere template];
+//    earth.color = @"blue";
+//    earth.position = @[@0, @2, @0];
+//    earth.scale = @1.5;
+//    
+//    Item *instance = [earth create];
+//
+//    Sphere *moon = [earth create];
+//    moon.color = @"black";
+//    moon.scale = @0.7;
+//    moon.position = @[@1, @2, @0];
+//    
     [Parser parseFile:@"scene.fmt"];
 }
 

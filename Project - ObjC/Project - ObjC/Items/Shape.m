@@ -80,4 +80,15 @@
     return [[Vector alloc] initWithSCNVector:self.node.physicsBody.velocity];
 }
 
+- (void)copyInfoTo:(Shape *)item {
+    [super copyInfoTo:item];
+    
+    item.geometry.materials = self.geometry.materials;
+    
+    if (self.physicsBody)
+        item.physicsBody =
+            [SCNPhysicsBody bodyWithType:self.physicsBody.type
+                                   shape:self.physicsBody.physicsShape];
+}
+
 @end

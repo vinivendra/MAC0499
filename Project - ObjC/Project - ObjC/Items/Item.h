@@ -14,6 +14,12 @@
  */
 + (instancetype)create;
 /*!
+ Used to create instances of templates, which are added to the scene.
+ @return A deep copy of the item, which is basically an instance of the
+ template.
+ */
+- (instancetype)create;
+/*!
  Creates a template for the creation of new items. Equivalent to creating a new
  Item, but that Item isn't added to the scene.
  @return An empty Item.

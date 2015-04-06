@@ -23,6 +23,11 @@
     return self;
 }
 
+- (void)copyInfoTo:(Sphere *)item {
+    item.sphere = [SCNSphere sphereWithRadius:self.radius];
+    
+    [super copyInfoTo:item];
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Property Overriding
