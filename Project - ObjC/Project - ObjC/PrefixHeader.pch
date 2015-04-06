@@ -14,12 +14,14 @@ static NSString *_testFileName = @"test.js";
 #import "NSString+Extension.h"
 #import "NSNumber+Extension.h"
 #import "SCNScene+Extension.h"
+#import "SCNGeometry+Extension.h"
 #import "SCNNode+Extension.h"
 #import "UIColor+Extension.h"
 
 #import "ObjectiveSugar/ObjectiveSugar.h"
 
 #import "FileHelper.h"
+#import "Parser.h"
 
 
 #import "Vector.h"

@@ -9,10 +9,16 @@
 
 /*!
  Used as a constructor for JavaScript. Creates an empty Item, with an empty
- node.
+ node, and adds the node to the scene.
  @return An empty Item.
  */
 + (instancetype)create;
+/*!
+ Creates a template for the creation of new items. Equivalent to creating a new
+ Item, but that Item isn't added to the scene.
+ @return An empty Item.
+ */
++ (instancetype) template;
 /*!
  Creates a new unique ID to be used by a new instance of Item.
  @return A new ID.
@@ -26,6 +32,27 @@
  and readies the Item for destruction.
  */
 - (void)destroy;
+/*!
+ Creates a deep copy of the receiver, including in it any relevant information.
+ @return A new instance of Item, representing a copy of the receiver.
+ */
+- (Item *)deepCopy;
+/*!
+ Copies relevant information from the receiver to the given item. Used by
+ deepCopy to copy the actual information over.
+ @param item The new Item object, into which all copied information will be
+ written.
+ */
+- (void)copyInfoTo:(Item *)item;
+/*!
+ Adds a child item to the receiver's hierarchy, just as a child node would be.
+ @param newItem The child Item to be added.
+ */
+- (void)addItem:(Item *)newItem;
+/*!
+ Removes the receiver from its parent's hierarchy, just like a node.
+ */
+- (void)removeFromParent;
 /*!
  An integer used to uniquely identify an Item.
  */
@@ -60,4 +87,13 @@
  An alias for this Item's node's geometry.
  */
 @property (nonatomic, strong) SCNGeometry *geometry;
+/*!
+ The item's child items, which are equivalent to a node's child nodes. Should
+ not be handled manually; use @p addItem and @p removeFromParent instead.
+ */
+@property (nonatomic, strong, readonly) NSMutableArray *children;
+/*!
+ The item's parent item, equivalent to a node's parent node.
+ */
+@property (nonatomic, weak, readonly) Item *parent;
 @end

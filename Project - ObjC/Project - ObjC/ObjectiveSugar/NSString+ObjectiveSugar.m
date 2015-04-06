@@ -17,7 +17,8 @@ NSString *NSStringWithFormat(NSString *formatString, ...) {
     va_list args;
     va_start(args, formatString);
 
-    NSString *string = [[NSString alloc] initWithFormat:formatString arguments:args];
+    NSString *string =
+        [[NSString alloc] initWithFormat:formatString arguments:args];
 
     va_end(args);
 
@@ -29,10 +30,12 @@ NSString *NSStringWithFormat(NSString *formatString, ...) {
 }
 
 
-@implementation NSString(Additions)
+@implementation NSString (Additions)
 
 - (NSArray *)split {
-    NSArray *result = [self componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSArray *result =
+        [self componentsSeparatedByCharactersInSet:
+                  [NSCharacterSet whitespaceAndNewlineCharacterSet]];
     return [result select:^BOOL(NSString *string) {
         return string.length > 0;
     }];
@@ -43,25 +46,30 @@ NSString *NSStringWithFormat(NSString *formatString, ...) {
 }
 
 - (NSString *)camelCase {
-    NSString *spaced = [self stringByReplacingOccurrencesOfString:UNDERSCORE withString:SPACE];
+    NSString *spaced =
+        [self stringByReplacingOccurrencesOfString:UNDERSCORE withString:SPACE];
     NSString *capitalized = [spaced capitalizedString];
 
-    return [capitalized stringByReplacingOccurrencesOfString:SPACE withString:EMPTY_STRING];
+    return [capitalized stringByReplacingOccurrencesOfString:SPACE
+                                                  withString:EMPTY_STRING];
 }
 
 - (NSString *)lowerCamelCase {
     NSString *upperCamelCase = [self camelCase];
     NSString *firstLetter = [upperCamelCase substringToIndex:1];
-    return [upperCamelCase stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:firstLetter.lowercaseString];
+    return [upperCamelCase
+        stringByReplacingCharactersInRange:NSMakeRange(0, 1)
+                                withString:firstLetter.lowercaseString];
 }
 
-- (BOOL)containsString:(NSString *) string {
+- (BOOL)containsString:(NSString *)string {
     NSRange range = [self rangeOfString:string options:NSCaseInsensitiveSearch];
     return range.location != NSNotFound;
 }
 
 - (NSString *)strip {
-    return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    return [self stringByTrimmingCharactersInSet:
+                     [NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
 
 @end

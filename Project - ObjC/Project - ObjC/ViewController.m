@@ -55,18 +55,27 @@
     node.position = SCNVector3Make(-3, -3, -3);
     [scene.rootNode addChildNode:node];
 
-//    Sphere *ball = [Sphere create];
-//    ball.color = @"red";
-//    ball.physics = @"dynamic";
-//    ball.velocity = @[@0, @3, @0];
-//    
-//    Pyramid *floor = [Pyramid create];
-//    floor.color = @"orange";
-//    floor.width *= 2;
-//    floor.length *= 2;
-//    floor.height *= 2;
-//    floor.position = @[@-0.25, @-3, @0];
-//    floor.physics = @"static";
+
+    Sphere *ball = [Sphere create];
+    ball.color = @"red";
+
+    Item *temp = [Item template];
+    Sphere *earth = [Sphere template];
+    earth.color = @"blue";
+    earth.position = @[@0, @2, @0];
+    earth.scale = @1.5;
+    [temp addItem:earth];
+    
+    Item *instance = [temp deepCopy];
+    [scene addItem:instance];
+
+    Item *moon = [temp deepCopy];
+    ((Shape *)moon.children.firstObject).color = @"black";
+    ((Shape *)moon.children.firstObject).scale = @0.7;
+    ((Shape *)moon.children.firstObject).position = @[@1, @2, @0];
+    [scene addItem:moon];
+    
+    [Parser parseFile:@"scene.fmt"];
 }
 
 @end

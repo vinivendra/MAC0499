@@ -4,6 +4,7 @@
 
 @protocol CylinderExport <JSExport>
 + (instancetype)create;
++ (instancetype) template;
 //
 - (void)destroy;
 @property (nonatomic, strong) id position;
