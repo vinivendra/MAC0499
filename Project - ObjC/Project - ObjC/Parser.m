@@ -1,4 +1,4 @@
-
+// TODO: Implement other properties, add other Items.
 
 #import "Parser.h"
 
