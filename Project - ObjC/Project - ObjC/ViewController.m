@@ -55,22 +55,6 @@
     node.position = SCNVector3Make(-3, -3, -3);
     [scene.rootNode addChildNode:node];
 
-
-//    Sphere *ball = [Sphere create];
-//    ball.color = @"red";
-//
-//    Sphere *earth = [Sphere template];
-//    earth.color = @"blue";
-//    earth.position = @[@0, @2, @0];
-//    earth.scale = @1.5;
-//    
-//    Item *instance = [earth create];
-//
-//    Sphere *moon = [earth create];
-//    moon.color = @"black";
-//    moon.scale = @0.7;
-//    moon.position = @[@1, @2, @0];
-//    
     [Parser parseFile:@"scene.fmt"];
 }
 
