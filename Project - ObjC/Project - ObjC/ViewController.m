@@ -55,7 +55,7 @@
     node.position = SCNVector3Make(-3, -3, -3);
     [scene.rootNode addChildNode:node];
 
-    [Parser parseFile:@"scene.fmt"];
+    [[Parser new] parseFile:@"scene.fmt"];
 }
 
 @end

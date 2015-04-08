@@ -103,8 +103,8 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
         } else if ([itemName isEqualToString:@"items"]) {
             self.state = Items;
         } else {
-            Class class = itemClasses[itemName];
-            
+            Class class = itemClasses[components.lastObject];
+
             if (!class)
                 class = [Item class];
 
@@ -141,6 +141,20 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
     if ([line.firstObject isEqualToString:@"color"]) {
         NSString *value = line.lastObject;
         ((Shape *)item).color = value;
+    } else if ([line.firstObject isEqualToString:@"scale"]) {
+        NSNumber *value = [NSNumber numberWithString:line.lastObject];
+        ((Shape *)item).scale = value;
+    } else if ([line.firstObject isEqualToString:@"physics"]) {
+        NSString *value = line.lastObject;
+        ((Shape *)item).physics = value;
+    } else if ([line.firstObject isEqualToString:@"position"]) {
+        NSMutableArray *mutableLine = line.mutableCopy;
+
+        NSNumber *z = [NSNumber numberWithString:[mutableLine pop]];
+        NSNumber *y = [NSNumber numberWithString:[mutableLine pop]];
+        NSNumber *x = [NSNumber numberWithString:[mutableLine pop]];
+
+        ((Shape *)item).position = @[ x, y, z ];
     }
 }
 
