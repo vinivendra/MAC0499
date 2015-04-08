@@ -1,5 +1,5 @@
 
 
 @interface Parser : NSObject
-+ (void)parseFile:(NSString *)filename;
+- (void)parseFile:(NSString *)filename;
 @end

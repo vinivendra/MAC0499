@@ -46,6 +46,10 @@ static NSUInteger globalID = 0;
     return self;
 }
 
+- (NSString *)description {
+    return NSStringFromClass([self class]);
+}
+
 + (NSUInteger)newID {
     return globalID++;
 }

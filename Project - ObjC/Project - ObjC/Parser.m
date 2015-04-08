@@ -5,22 +5,58 @@
 
 static NSString *cleanLine;
 
+static NSArray *properties;
+static NSDictionary *itemClasses;
+
+typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
+
+
+@interface Parser ()
+@property (nonatomic, strong) NSMutableArray *itemsStack;
+@property (nonatomic, strong) NSMutableArray *indentationsStack;
+@property (nonatomic, strong) NSMutableArray *scopesStack;
+@property (nonatomic, strong) NSMutableDictionary *templates;
+
+@property (nonatomic) State state;
+@end
+
 
 @implementation Parser
 
-+ (void)parseFile:(NSString *)filename {
+- (instancetype)init {
+    if (self = [super init]) {
+        self.templates = [NSMutableDictionary new];
+
+        self.itemsStack = [NSMutableArray new];
+        self.indentationsStack = [NSMutableArray new];
+        self.scopesStack =
+            [NSMutableArray arrayWithObject:[NSMutableDictionary new]];
+
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken,
+                      ^{
+                          properties =
+                              @[ @"color", @"physics", @"position", @"scale" ];
+                          itemClasses = @{
+                              @"sphere" : [Sphere class],
+                              @"pyramid" : [Pyramid class]
+                          };
+                      });
+    }
+    return self;
+}
+
+- (void)parseFile:(NSString *)filename {
+
+    self.state = None;
+
     NSString *contents = [FileHelper openTextFile:filename];
-
-    NSLog(@"Contents:\n%@", contents);
-    NSLog(@"Parsing:\n");
-
     NSArray *lines = [contents split:@"\n"];
 
-    NSMutableArray *itemsStack = [NSMutableArray new];
-    NSMutableArray *indentationsStack = [NSMutableArray new];
-    id currentItem = @"";
+    Item *currentItem;
     NSUInteger currentIndentation = 0;
     NSUInteger lastIndentation = 0;
+
 
     for (NSString *line in lines) {
 
@@ -28,34 +64,87 @@ static NSString *cleanLine;
 
         unless([cleanLine valid]) continue;
 
+
         currentIndentation = cleanLine.indentation;
 
         if (currentIndentation > lastIndentation) {
-            [itemsStack push:currentItem];
-            [indentationsStack push:@(currentIndentation)];
-            currentItem = cleanLine;
+            [self pushScopeWithItem:currentItem indentation:currentIndentation];
         }
 
+
         while (1) {
-            lastIndentation = ((NSNumber *)indentationsStack.lastObject)
+            lastIndentation = ((NSNumber *)self.indentationsStack.lastObject)
                                   .unsignedIntegerValue;
+
             if (lastIndentation > currentIndentation) {
-                [indentationsStack pop];
-                [itemsStack pop];
+                [self popScope];
             } else {
                 break;
             }
         }
 
-        NSLog(@"Parsing command: %@ on item: %@",
-              cleanLine,
-              itemsStack.lastObject);
+
+        NSUInteger statementLength = cleanLine.length - currentIndentation;
+        NSRange whitespaceRange
+            = NSMakeRange(currentIndentation, statementLength);
+        cleanLine = [cleanLine substringWithRange:whitespaceRange];
+
+        NSArray *components = [cleanLine split:@" "];
+
+        NSString *itemName = components.firstObject;
+        NSString *propertyName = components.firstObject;
+
+        if ([self currentScopeHasTemplate:itemName]) {
+            [currentItem addItem:(Item *)[self.templates[itemName] deepCopy]];
+        } else if ([properties containsObject:propertyName]) {
+            [self setPropertyFromLine:components onItem:currentItem];
+        } else if ([itemName isEqualToString:@"templates"]) {
+            self.state = Templates;
+        } else if ([itemName isEqualToString:@"items"]) {
+            self.state = Items;
+        } else {
+            Class class = itemClasses[itemName];
+            
+            if (!class)
+                class = [Item class];
+
+
+            switch (self.state) {
+            case Templates: {
+                NSString *templateName = components.firstObject;
+
+                Item *newTemplate = [class template];
+
+                self.templates[templateName] = newTemplate;
+
+                currentItem = newTemplate;
+
+                NSMutableDictionary *currentScope = self.scopesStack.lastObject;
+                currentScope[templateName] = templateName;
+
+                break;
+            }
+            case Items:
+            case None:
+            default:
+                [self.templates[components.firstObject] create];
+                break;
+            }
+        }
+
 
         lastIndentation = currentIndentation;
     }
 }
 
-+ (NSString *)stripComments:(NSString *)string {
+- (void)setPropertyFromLine:(NSArray *)line onItem:(Item *)item {
+    if ([line.firstObject isEqualToString:@"color"]) {
+        NSString *value = line.lastObject;
+        ((Shape *)item).color = value;
+    }
+}
+
+- (NSString *)stripComments:(NSString *)string {
     NSRange slashes = [string rangeOfString:@"//"];
 
     if (slashes.location == NSNotFound)
@@ -67,6 +156,28 @@ static NSString *cleanLine;
     NSRange comment = NSMakeRange(slashes.location, length);
 
     return [string stringByReplacingCharactersInRange:comment withString:@""];
+}
+
+- (void)pushScopeWithItem:(Item *)currentItem
+              indentation:(NSUInteger)currentIndentation {
+    [self.itemsStack push:currentItem ?: [NSNull null]];
+    [self.scopesStack push:[NSMutableDictionary new]];
+    [self.indentationsStack push:@(currentIndentation)];
+}
+
+- (void)popScope {
+    [self.itemsStack pop];
+    [self.scopesStack pop];
+    [self.indentationsStack pop];
+}
+
+- (BOOL)currentScopeHasTemplate:(NSString *)templateName {
+    for (NSInteger i = (NSInteger)self.scopesStack.count - 1; i >= 0; i--) {
+
+        if (((NSMutableDictionary *)self.scopesStack[i])[templateName])
+            return YES;
+    }
+    return NO;
 }
 
 @end
