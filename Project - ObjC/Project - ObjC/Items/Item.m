@@ -79,8 +79,12 @@ static NSUInteger globalID = 0;
 
 - (void)copyInfoTo:(Item *)item {
     if (!item.node) {
-        item.node = self.node.copy;
+        item.node = [SCNNode new];
         item.node.item = self;
+        
+        item.position = self.position;
+        item.rotation = self.rotation;
+        item.scale = self.scale;
     }
     
     item.position = self.position;

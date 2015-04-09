@@ -29,6 +29,22 @@
     return self;
 }
 
+- (Item *)deepCopy {
+    Shape *newItem = [[self class] new];
+    [self copyInfoTo:newItem];
+    [super copyPhysicsTo:newItem];
+    return newItem;
+}
+
+- (void)copyInfoTo:(Box *)box {
+    [super copyInfoTo:box];
+
+    box.width = self.width;
+    box.height = self.height;
+    box.length = self.length;
+    box.chamferRadius = self.chamferRadius;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Property Overriding
 
@@ -41,40 +57,40 @@
 }
 
 
-- (void)setWidth:(CGFloat)width {
+- (void)setWidth:(NSNumber *)width {
     [self assertTheresNoPhysicsBody];
-    self.box.width = width;
+    self.box.width = width.doubleValue;
 }
 
-- (CGFloat)width {
-    return self.box.width;
+- (NSNumber *)width {
+    return @(self.box.width);
 }
 
-- (void)setHeight:(CGFloat)height {
+- (void)setHeight:(NSNumber *)height {
     [self assertTheresNoPhysicsBody];
-    self.box.height = height;
+    self.box.height = height.doubleValue;
 }
 
-- (CGFloat)height {
-    return self.box.height;
+- (NSNumber *)height {
+    return @(self.box.height);
 }
 
-- (void)setLength:(CGFloat)length {
+- (void)setLength:(NSNumber *)length {
     [self assertTheresNoPhysicsBody];
-    self.box.length = length;
+    self.box.length = length.doubleValue;
 }
 
-- (CGFloat)length {
-    return self.box.length;
+- (NSNumber *)length {
+    return @(self.box.length);
 }
 
-- (void)setChamferRadius:(CGFloat)chamferRadius {
+- (void)setChamferRadius:(NSNumber *)chamferRadius {
     [self assertTheresNoPhysicsBody];
-    self.box.chamferRadius = chamferRadius;
+    self.box.chamferRadius = chamferRadius.doubleValue;
 }
 
-- (CGFloat)chamferRadius {
-    return self.box.chamferRadius;
+- (NSNumber *)chamferRadius {
+    return @(self.box.chamferRadius);
 }
 
 @end

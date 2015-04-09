@@ -14,6 +14,26 @@
  */
 - (void)assertTheresNoPhysicsBody;
 /*!
+ Similar to -copyInfoTo:, meant to be used in the same context. -copyInfoTo:
+ copies information that should be available @b before subclasses can copy their
+ info, while -copyPhysicsTo: copies the physics body, which should usually be
+ the last thing. Ideally, a subclass of shape should have the following
+ implementation (or something similar):
+ @code
+ - (Item *)deepCopy {
+     Shape *newItem = [[self class] new];
+     [self copyInfoTo:newItem];
+     [super copyPhysicsTo:newItem];
+     return newItem;
+ }
+ @endcode
+ considering that the subclass's -copyInfoTo: method should follow convention
+ and call its super's -copyInfoTo: method before doing anything else.
+ @param item The item that will receive a copy of the receiver's physics
+ properties.
+ */
+- (void)copyPhysicsTo:(Shape *)item;
+/*!
  An easy setter for the @p Shape's @p node's  @p geometry's @p materials. It
  creates an @p SCNMaterial and sets it as the @p geometry's only @p material, so
  that the object will have the given @p color. It accepts any object that would

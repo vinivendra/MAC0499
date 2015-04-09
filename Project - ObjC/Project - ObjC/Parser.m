@@ -1,4 +1,8 @@
-// TODO: Implement other properties, add other Items.
+// TODO: Change Shape's subclasses' dimension properties to be NSNumbers.
+// TODO: Make sure Shape's subclasses override the deepCopy and copyInfoTo
+// methods, so that they can pass their dimensions along.
+
+// TODO: Implement setting other properties, add other Item classes.
 
 #import "Parser.h"
 
@@ -35,11 +39,18 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken,
                       ^{
-                          properties =
-                              @[ @"color", @"physics", @"position", @"scale" ];
+                          properties = @[
+                              @"color",
+                              @"physics",
+                              @"position",
+                              @"scale",
+                              @"rotation",
+                              @"width"
+                          ];
                           itemClasses = @{
                               @"sphere" : [Sphere class],
-                              @"pyramid" : [Pyramid class]
+                              @"pyramid" : [Pyramid class],
+                              @"box" : [Box class]
                           };
                       });
     }
@@ -155,6 +166,18 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
         NSNumber *x = [NSNumber numberWithString:[mutableLine pop]];
 
         ((Shape *)item).position = @[ x, y, z ];
+    } else if ([line.firstObject isEqualToString:@"rotation"]) {
+        NSMutableArray *mutableLine = line.mutableCopy;
+
+        NSNumber *w = [NSNumber numberWithString:[mutableLine pop]];
+        NSNumber *z = [NSNumber numberWithString:[mutableLine pop]];
+        NSNumber *y = [NSNumber numberWithString:[mutableLine pop]];
+        NSNumber *x = [NSNumber numberWithString:[mutableLine pop]];
+
+        ((Shape *)item).rotation = @[ x, y, z, w ];
+    } else if ([line.firstObject isEqualToString:@"width"]) {
+        NSNumber *value = [NSNumber numberWithString:line.lastObject];
+        [item setValue:value forKey:@"width"];
     }
 }
 

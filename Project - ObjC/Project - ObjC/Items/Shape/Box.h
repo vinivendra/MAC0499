@@ -18,10 +18,10 @@
 @property (nonatomic, strong) id velocity;
 //
 + (instancetype)box;
-@property (nonatomic) CGFloat width;
-@property (nonatomic) CGFloat height;
-@property (nonatomic) CGFloat length;
-@property (nonatomic) CGFloat chamferRadius;
+@property (nonatomic, strong) NSNumber *width;
+@property (nonatomic, strong) NSNumber *height;
+@property (nonatomic, strong) NSNumber *length;
+@property (nonatomic, strong) NSNumber *chamferRadius;
 @end
 
 
@@ -42,20 +42,20 @@
  An alias for the SCNBox's @p width property. Speficies the size of the box
  along its @p x axis.
  */
-@property (nonatomic) CGFloat width;
+@property (nonatomic, strong) NSNumber *width;
 /*!
  An alias for the SCNBox's @p height property. Speficies the size of the box
  along its @p y axis.
  */
-@property (nonatomic) CGFloat height;
+@property (nonatomic, strong) NSNumber *height;
 /*!
  An alias for the SCNBox's @p length property. Speficies the size of the box
  along its @p z axis.
  */
-@property (nonatomic) CGFloat length;
+@property (nonatomic, strong) NSNumber *length;
 /*!
  An alias for the SCNBox's @p chamferRadius property. Speficies the radius to
  use when rounding both the edges and the vertices of the Box.
  */
-@property (nonatomic) CGFloat chamferRadius;
+@property (nonatomic, strong) NSNumber *chamferRadius;
 @end
