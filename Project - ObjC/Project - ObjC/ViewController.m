@@ -56,7 +56,6 @@
     [scene.rootNode addChildNode:node];
 
     [[Parser new] parseFile:@"scene.fmt"];
-    
 }
 
 @end

@@ -23,6 +23,20 @@
     return self;
 }
 
+- (Item *)deepCopy {
+    Shape *newItem = [[self class] new];
+    [self copyInfoTo:newItem];
+    [super copyPhysicsTo:newItem];
+    return newItem;
+}
+
+- (void)copyInfoTo:(Text *)item {
+    [super copyInfoTo:item];
+
+    item.depth = self.depth;
+    item.string = self.string;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Property Overriding
 
@@ -44,17 +58,13 @@
     return self.text.string;
 }
 
-- (void)setDepth:(CGFloat)depth {
+- (void)setDepth:(NSNumber *)depth {
     [self assertTheresNoPhysicsBody];
-    self.text.extrusionDepth = depth;
+    self.text.extrusionDepth = depth.doubleValue;
 }
 
-- (CGFloat)depth {
-    return self.text.extrusionDepth;
-}
-
-- (SCNPhysicsBodyType)physicsBodyType {
-    return SCNPhysicsBodyTypeStatic;
+- (NSNumber *)depth {
+    return @(self.text.extrusionDepth);
 }
 
 @end

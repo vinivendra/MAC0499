@@ -26,6 +26,21 @@
     return self;
 }
 
+- (Item *)deepCopy {
+    Shape *newItem = [[self class] new];
+    [self copyInfoTo:newItem];
+    [super copyPhysicsTo:newItem];
+    return newItem;
+}
+
+- (void)copyInfoTo:(Pyramid *)item {
+    [super copyInfoTo:item];
+    
+    item.width = self.width;
+    item.height = self.height;
+    item.length = self.length;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Property Overriding
 
@@ -38,35 +53,31 @@
 }
 
 
-- (void)setWidth:(CGFloat)width {
+- (void)setWidth:(NSNumber *)width {
     [self assertTheresNoPhysicsBody];
-    self.pyramid.width = width;
+    self.pyramid.width = width.doubleValue;
 }
 
-- (CGFloat)width {
-    return self.pyramid.width;
+- (NSNumber *)width {
+    return @(self.pyramid.width);
 }
 
-- (void)setHeight:(CGFloat)height {
+- (void)setHeight:(NSNumber *)height {
     [self assertTheresNoPhysicsBody];
-    self.pyramid.height = height;
+    self.pyramid.height = height.doubleValue;
 }
 
-- (CGFloat)height {
-    return self.pyramid.height;
+- (NSNumber *)height {
+    return @(self.pyramid.height);
 }
 
-- (void)setLength:(CGFloat)length {
+- (void)setLength:(NSNumber *)length {
     [self assertTheresNoPhysicsBody];
-    self.pyramid.length = length;
+    self.pyramid.length = length.doubleValue;
 }
 
-- (CGFloat)length {
-    return self.pyramid.length;
-}
-
-- (SCNPhysicsBodyType)physicsBodyType {
-    return SCNPhysicsBodyTypeStatic;
+- (NSNumber *)length {
+    return @(self.pyramid.length);
 }
 
 @end

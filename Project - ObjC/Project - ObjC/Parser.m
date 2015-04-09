@@ -1,8 +1,4 @@
-// TODO: Change Shape's subclasses' dimension properties to be NSNumbers.
-// TODO: Make sure Shape's subclasses override the deepCopy and copyInfoTo
-// methods, so that they can pass their dimensions along.
-
-// TODO: Implement setting other properties, add other Item classes.
+// Find out why the plane doesnt work; add the rest of the shapes to the scene.
 
 #import "Parser.h"
 
@@ -45,12 +41,32 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
                               @"position",
                               @"scale",
                               @"rotation",
-                              @"width"
+                              @"width",
+                              @"length",
+                              @"height",
+                              @"chamferRadius",
+                              @"radius",
+                              @"topRadius",
+                              @"bottomRadius",
+                              @"innerRadius",
+                              @"outerRadius",
+                              @"ringRadius",
+                              @"pipeRadius",
+                              @"depth",
+                              @"string",
                           ];
                           itemClasses = @{
-                              @"sphere" : [Sphere class],
+                              @"box" : [Box class],
+                              @"capsule" : [Capsule class],
+                              @"cone" : [Cone class],
+                              @"cylinder" : [Cylinder class],
+                              @"floor" : [Floor class],
+                              @"plane" : [Plane class],
                               @"pyramid" : [Pyramid class],
-                              @"box" : [Box class]
+                              @"sphere" : [Sphere class],
+                              @"text" : [Text class],
+                              @"torus" : [Torus class],
+                              @"tube" : [Tube class]
                           };
                       });
     }
@@ -175,9 +191,19 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
         NSNumber *x = [NSNumber numberWithString:[mutableLine pop]];
 
         ((Shape *)item).rotation = @[ x, y, z, w ];
-    } else if ([line.firstObject isEqualToString:@"width"]) {
+    } else if ([line.firstObject isEqualToString:@"string"]) {
+        NSRange stringRange;
+        NSIndexSet *stringIndexes;
+        NSString *string;
+
+        stringRange = NSMakeRange(2, line.count - 2);
+        stringIndexes = [NSIndexSet indexSetWithIndexesInRange:stringRange];
+        string = [[line objectsAtIndexes:stringIndexes] join:@" "];
+
+        [item setValue:string forKey:@"string"];
+    } else {
         NSNumber *value = [NSNumber numberWithString:line.lastObject];
-        [item setValue:value forKey:@"width"];
+        [item setValue:value forKey:line.firstObject];
     }
 }
 

@@ -16,12 +16,25 @@
     return self;
 }
 
-- (instancetype)initWithWidth:(CGFloat)width
-                       height:(CGFloat)height {
+- (instancetype)initWithWidth:(CGFloat)width height:(CGFloat)height {
     if (self = [super init]) {
         self.plane = [SCNPlane planeWithWidth:width height:height];
     }
     return self;
+}
+
+- (Item *)deepCopy {
+    Shape *newItem = [[self class] new];
+    [self copyInfoTo:newItem];
+    [super copyPhysicsTo:newItem];
+    return newItem;
+}
+
+- (void)copyInfoTo:(Plane *)item {
+    [super copyInfoTo:item];
+    
+    item.width = self.width;
+    item.height = self.height;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -36,22 +49,22 @@
 }
 
 
-- (void)setWidth:(CGFloat)width {
+- (void)setWidth:(NSNumber *)width {
     [self assertTheresNoPhysicsBody];
-    self.plane.width = width;
+    self.plane.width = width.doubleValue;
 }
 
-- (CGFloat)width {
-    return self.plane.width;
+- (NSNumber *)width {
+    return @(self.plane.width);
 }
 
-- (void)setHeight:(CGFloat)height {
+- (void)setHeight:(NSNumber *)height {
     [self assertTheresNoPhysicsBody];
-    self.plane.height = height;
+    self.plane.height = height.doubleValue;
 }
 
-- (CGFloat)height {
-    return self.plane.height;
+- (NSNumber *)height {
+    return @(self.plane.height);
 }
 
 @end

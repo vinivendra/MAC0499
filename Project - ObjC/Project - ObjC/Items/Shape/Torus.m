@@ -23,6 +23,20 @@
     return self;
 }
 
+- (Item *)deepCopy {
+    Shape *newItem = [[self class] new];
+    [self copyInfoTo:newItem];
+    [super copyPhysicsTo:newItem];
+    return newItem;
+}
+
+- (void)copyInfoTo:(Torus *)item {
+    [super copyInfoTo:item];
+    
+    item.ringRadius = self.ringRadius;
+    item.pipeRadius = self.pipeRadius;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Property Overriding
 
@@ -35,22 +49,22 @@
 }
 
 
-- (void)setPipeRadius:(CGFloat)pipeRadius {
+- (void)setPipeRadius:(NSNumber *)pipeRadius {
     [self assertTheresNoPhysicsBody];
-    self.torus.pipeRadius = pipeRadius;
+    self.torus.pipeRadius = pipeRadius.doubleValue;
 }
 
-- (CGFloat)pipeRadius {
-    return self.torus.pipeRadius;
+- (NSNumber *)pipeRadius {
+    return @(self.torus.pipeRadius);
 }
 
-- (void)setRingRadius:(CGFloat)ringRadius {
+- (void)setRingRadius:(NSNumber *)ringRadius {
     [self assertTheresNoPhysicsBody];
-    self.torus.ringRadius = ringRadius;
+    self.torus.ringRadius = ringRadius.doubleValue;
 }
 
-- (CGFloat)ringRadius {
-    return self.torus.ringRadius;
+- (NSNumber *)ringRadius {
+    return @(self.torus.ringRadius);
 }
 
 

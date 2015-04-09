@@ -32,9 +32,11 @@
                       colorNames = @{
                           @"black" : [Color blackColor],
                           @"dark gray" : [Color darkGrayColor],
-                          @"light gray" : [Color lightGrayColor],
-                          @"white" : [Color whiteColor],
+                          @"darkGray" : [Color darkGrayColor],
                           @"gray" : [Color grayColor],
+                          @"light gray" : [Color lightGrayColor],
+                          @"lightGray" : [Color lightGrayColor],
+                          @"white" : [Color whiteColor],
                           @"red" : [Color redColor],
                           @"green" : [Color greenColor],
                           @"blue" : [Color blueColor],

@@ -18,8 +18,8 @@
 @property (nonatomic, strong) id velocity;
 //
 + (instancetype)capsule;
-@property (nonatomic) CGFloat radius;
-@property (nonatomic) CGFloat height;
+@property (nonatomic) NSNumber *radius;
+@property (nonatomic) NSNumber *height;
 @end
 
 
@@ -38,10 +38,10 @@
  both the Capsule's 'cylinder' and its 'hemispheres'. Both the cylinder's
  circular bases are aligned with the @p xz plane and centered in the origin.
  */
-@property (nonatomic) CGFloat radius;
+@property (nonatomic) NSNumber *radius;
 /*!
  An alias for the SCNCapsule's @p height property. Speficies the extent of the
  Capsule along the @p y axis.
  */
-@property (nonatomic) CGFloat height;
+@property (nonatomic) NSNumber *height;
 @end

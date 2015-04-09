@@ -18,8 +18,8 @@
 @property (nonatomic, strong) id velocity;
 //
 + (instancetype)plane;
-@property (nonatomic) CGFloat width;
-@property (nonatomic) CGFloat height;
+@property (nonatomic) NSNumber *width;
+@property (nonatomic) NSNumber *height;
 @end
 
 
@@ -39,10 +39,10 @@
  An alias for the SCNPlane's @p width property. Speficies the width used for
  the Plane, which represents its @p x axis extent.
  */
-@property (nonatomic) CGFloat width;
+@property (nonatomic) NSNumber *width;
 /*!
  An alias for the SCNPlane's @p height property. Speficies the height used for
  the Plane, which represents its @p y axis extent.
  */
-@property (nonatomic) CGFloat height;
+@property (nonatomic) NSNumber *height;
 @end

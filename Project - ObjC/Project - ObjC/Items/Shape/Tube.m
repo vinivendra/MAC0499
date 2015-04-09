@@ -27,6 +27,21 @@
     return self;
 }
 
+- (Item *)deepCopy {
+    Shape *newItem = [[self class] new];
+    [self copyInfoTo:newItem];
+    [super copyPhysicsTo:newItem];
+    return newItem;
+}
+
+- (void)copyInfoTo:(Tube *)item {
+    [super copyInfoTo:item];
+    
+    item.outerRadius = self.outerRadius;
+    item.innerRadius = self.innerRadius;
+    item.height = self.height;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Property Overriding
 
@@ -39,40 +54,40 @@
 }
 
 
-- (void)setRadius:(CGFloat)radius {
+- (void)setRadius:(NSNumber *)radius {
     [self assertTheresNoPhysicsBody];
-    self.tube.outerRadius = radius;
+    self.tube.outerRadius = radius.doubleValue;
 }
 
-- (CGFloat)radius {
-    return self.tube.outerRadius;
+- (NSNumber *)radius {
+    return @(self.tube.outerRadius);
 }
 
-- (void)setInnerRadius:(CGFloat)innerRadius {
+- (void)setInnerRadius:(NSNumber *)innerRadius {
     [self assertTheresNoPhysicsBody];
-    self.tube.innerRadius = innerRadius;
+    self.tube.innerRadius = innerRadius.doubleValue;
 }
 
-- (CGFloat)innerRadius {
-    return self.tube.innerRadius;
+- (NSNumber *)innerRadius {
+    return @(self.tube.innerRadius);
 }
 
-- (void)setOuterRadius:(CGFloat)outerRadius {
+- (void)setOuterRadius:(NSNumber *)outerRadius {
     [self assertTheresNoPhysicsBody];
-    self.tube.outerRadius = outerRadius;
+    self.tube.outerRadius = outerRadius.doubleValue;
 }
 
-- (CGFloat)outerRadius {
-    return self.tube.outerRadius;
+- (NSNumber *)outerRadius {
+    return @(self.tube.outerRadius);
 }
 
-- (void)setHeight:(CGFloat)height {
+- (void)setHeight:(NSNumber *)height {
     [self assertTheresNoPhysicsBody];
-    self.tube.height = height;
+    self.tube.height = height.doubleValue;
 }
 
-- (CGFloat)height {
-    return self.tube.height;
+- (NSNumber *)height {
+    return @(self.tube.height);
 }
 
 @end
