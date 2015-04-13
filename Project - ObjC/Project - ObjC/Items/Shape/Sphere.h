@@ -2,6 +2,8 @@
 
 @protocol SphereExport <JSExport>
 + (instancetype)create;
+- (instancetype)create;
++ (instancetype) template;
 //
 - (void)destroy;
 @property (nonatomic, strong) id position;
@@ -12,7 +14,7 @@
 @property (nonatomic, strong) id physics;
 @property (nonatomic, strong) id velocity;
 //
-@property (nonatomic) CGFloat radius;
+@property (nonatomic) NSNumber *radius;
 @end
 
 
@@ -31,5 +33,5 @@
  An alias for the SCNSphere's @p radius property. Speficies the radius used for
  the Sphere, which is centered in the origin.
  */
-@property (nonatomic) CGFloat radius;
+@property (nonatomic) NSNumber *radius;
 @end

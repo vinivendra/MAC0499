@@ -1,4 +1,5 @@
-
+// TODO: refactor SCNGeometry's initForCopy, turn it into a deepCopy; do the
+// same for SCNSphere and Sphere. Test template copying.
 
 #import "SCNNode+Extension.h"
 #import <objc/runtime.h>

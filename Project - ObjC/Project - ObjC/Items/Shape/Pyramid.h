@@ -5,6 +5,8 @@
 
 @protocol PyramidExport <JSExport>
 + (instancetype)create;
+- (instancetype)create;
++ (instancetype) template;
 //
 - (void)destroy;
 @property (nonatomic, strong) id position;
@@ -16,9 +18,9 @@
 @property (nonatomic, strong) id velocity;
 //
 + (instancetype)pyramid;
-@property (nonatomic) CGFloat width;
-@property (nonatomic) CGFloat height;
-@property (nonatomic) CGFloat length;
+@property (nonatomic) NSNumber *width;
+@property (nonatomic) NSNumber *height;
+@property (nonatomic) NSNumber *length;
 @end
 
 
@@ -38,15 +40,15 @@
  An alias for the SCNPyramid's @p width property. Speficies the width used for
  the Pyramid, which represents its @p x axis extent.
  */
-@property (nonatomic) CGFloat width;
+@property (nonatomic) NSNumber *width;
 /*!
  An alias for the SCNPyramid's @p height property. Speficies the height used for
  the Pyramid, which represents its @p y axis extent.
  */
-@property (nonatomic) CGFloat height;
+@property (nonatomic) NSNumber *height;
 /*!
  An alias for the SCNPyramid's @p length property. Speficies the length used for
  the Pyramid, which represents its @p z axis extent.
  */
-@property (nonatomic) CGFloat length;
+@property (nonatomic) NSNumber *length;
 @end

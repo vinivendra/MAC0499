@@ -20,9 +20,20 @@ static NSUInteger globalID = 0;
     return items;
 }
 
++ (instancetype) template {
+    return [self new];
+}
 
 + (instancetype)create {
-    return [self new];
+    Item *newItem = [self new];
+    [[SCNScene shared] addItem:newItem];
+    return newItem;
+}
+
+- (instancetype)create {
+    Item *newItem = [self deepCopy];
+    [[SCNScene shared] addItem:newItem];
+    return newItem;
 }
 
 - (instancetype)init {
@@ -30,10 +41,13 @@ static NSUInteger globalID = 0;
         self.node = [SCNNode node];
         self.node.item = self;
         self.ID = [Item newID];
-
-        [[SCNScene shared] addItem:self];
+        _children = [NSMutableArray new];
     }
     return self;
+}
+
+- (NSString *)description {
+    return NSStringFromClass([self class]);
 }
 
 + (NSUInteger)newID {
@@ -44,6 +58,41 @@ static NSUInteger globalID = 0;
 - (void)destroy {
     self.node.hidden = YES;
     self.node.position = SCNVector3Make(FLT_MAX, FLT_MAX, FLT_MAX);
+}
+
+- (void)addItem:(Item *)newItem {
+    [self.node addChildNode:newItem.node];
+    [self.children push:newItem];
+    newItem.parent = self;
+}
+
+- (void)removeFromParent {
+    [self.parent.children removeObject:self];
+    self.parent = nil;
+}
+
+- (Item *)deepCopy {
+    Item *newItem = [[self class] new];
+    [self copyInfoTo:newItem];
+    return newItem;
+}
+
+- (void)copyInfoTo:(Item *)item {
+    if (!item.node) {
+        item.node = [SCNNode new];
+        item.node.item = self;
+        
+        item.position = self.position;
+        item.rotation = self.rotation;
+        item.scale = self.scale;
+    }
+    
+    item.position = self.position;
+    item.rotation = self.rotation;
+    item.scale = self.scale;
+    
+    for (Item *child in self.children)
+        [item addItem:[child deepCopy]];
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -81,6 +130,15 @@ static NSUInteger globalID = 0;
 
 - (SCNGeometry *)geometry {
     return self.node.geometry;
+}
+
+
+- (void)setParent:(Item *)parent {
+    _parent = parent;
+}
+
+- (void)setChildren:(NSMutableArray *)children {
+    _children = children;
 }
 
 @end

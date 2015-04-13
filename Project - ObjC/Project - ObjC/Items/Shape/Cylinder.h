@@ -4,6 +4,8 @@
 
 @protocol CylinderExport <JSExport>
 + (instancetype)create;
+- (instancetype)create;
++ (instancetype) template;
 //
 - (void)destroy;
 @property (nonatomic, strong) id position;
@@ -15,8 +17,8 @@
 @property (nonatomic, strong) id velocity;
 //
 + (instancetype)cylinder;
-@property (nonatomic) CGFloat radius;
-@property (nonatomic) CGFloat height;
+@property (nonatomic) NSNumber *radius;
+@property (nonatomic) NSNumber *height;
 @end
 
 
@@ -37,11 +39,11 @@
  the origin.
  @see height
  */
-@property (nonatomic) CGFloat radius;
+@property (nonatomic) NSNumber *radius;
 /*!
  An alias for the SCNCylinder's @p height property. Speficies the extent of the
  cylinder in its @p y axis.
  @see radius
  */
-@property (nonatomic) CGFloat height;
+@property (nonatomic) NSNumber *height;
 @end

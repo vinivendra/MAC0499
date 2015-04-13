@@ -20,4 +20,17 @@
     return [NSNumber numberWithString:self];
 }
 
+- (NSUInteger)indentation {
+    NSCharacterSet *whitespaceSet =
+        [NSCharacterSet whitespaceAndNewlineCharacterSet];
+    
+    NSUInteger i;
+    for (i = 0; i < self.length; i++) {
+        if (![whitespaceSet characterIsMember:[self characterAtIndex:i]])
+            break;
+    }
+
+    return i;
+}
+
 @end

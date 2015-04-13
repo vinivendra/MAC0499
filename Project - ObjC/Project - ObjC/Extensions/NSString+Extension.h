@@ -16,4 +16,11 @@
  @return @p YES if the string is valid, @p NO otherwise.
  */
 - (BOOL)valid;
+/*!
+ Returns the number of whitespace characters preceding a non-whitespace
+ character in a line of text. Tabs, spaces and newlines are all counted as one
+ character.
+ @return A number representing the string's indentation level.
+ */
+- (NSUInteger)indentation;
 @end

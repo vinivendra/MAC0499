@@ -23,6 +23,19 @@
     return self;
 }
 
+- (Item *)deepCopy {
+    Shape *newItem = [[self class] new];
+    [self copyInfoTo:newItem];
+    [super copyPhysicsTo:newItem];
+    return newItem;
+}
+
+- (void)copyInfoTo:(Sphere *)item {
+    [super copyInfoTo:item];
+    
+    item.radius = self.radius;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Property Overriding
 
@@ -35,13 +48,13 @@
 }
 
 
-- (void)setRadius:(CGFloat)radius {
+- (void)setRadius:(NSNumber *)radius {
     [self assertTheresNoPhysicsBody];
-    self.sphere.radius = radius;
+    self.sphere.radius = radius.doubleValue;
 }
 
-- (CGFloat)radius {
-    return self.sphere.radius;
+- (NSNumber *)radius {
+    return @(self.sphere.radius);
 }
 
 @end

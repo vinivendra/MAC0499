@@ -80,4 +80,24 @@
     return [[Vector alloc] initWithSCNVector:self.node.physicsBody.velocity];
 }
 
+- (Item *)deepCopy {
+    Shape *newItem = [[self class] new];
+    [self copyInfoTo:newItem];
+    [self copyPhysicsTo:newItem];
+    return newItem;
+}
+
+- (void)copyInfoTo:(Shape *)item {
+    [super copyInfoTo:item];
+    
+    item.geometry.materials = self.geometry.materials;
+}
+
+- (void)copyPhysicsTo:(Shape *)item {
+    if (self.physicsBody)
+        item.physicsBody =
+        [SCNPhysicsBody bodyWithType:self.physicsBody.type
+                               shape:self.physicsBody.physicsShape];
+}
+
 @end

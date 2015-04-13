@@ -5,6 +5,8 @@
 
 @protocol TorusExport <JSExport>
 + (instancetype)create;
+- (instancetype)create;
++ (instancetype) template;
 //
 - (void)destroy;
 @property (nonatomic, strong) id position;
@@ -16,8 +18,8 @@
 @property (nonatomic, strong) id velocity;
 //
 + (instancetype)torus;
-@property (nonatomic) CGFloat ringRadius;
-@property (nonatomic) CGFloat pipeRadius;
+@property (nonatomic) NSNumber *ringRadius;
+@property (nonatomic) NSNumber *pipeRadius;
 @end
 
 
@@ -36,10 +38,10 @@
  An alias for the SCNTorus's @p ringRadius property. Speficies the radius that
  the Torus's ring will have, or how wide the donut will be.
  */
-@property (nonatomic) CGFloat ringRadius;
+@property (nonatomic) NSNumber *ringRadius;
 /*!
  An alias for the SCNTorus's @p pipeRadius property. Speficies the radius that
  the Torus's pipe will have, or the donut's thickness.
  */
-@property (nonatomic) CGFloat pipeRadius;
+@property (nonatomic) NSNumber *pipeRadius;
 @end

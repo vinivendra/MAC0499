@@ -27,6 +27,21 @@
     return self;
 }
 
+- (Item *)deepCopy {
+    Shape *newItem = [[self class] new];
+    [self copyInfoTo:newItem];
+    [super copyPhysicsTo:newItem];
+    return newItem;
+}
+
+- (void)copyInfoTo:(Cone *)item {
+    [super copyInfoTo:item];
+    
+    item.bottomRadius = self.bottomRadius;
+    item.topRadius = self.topRadius;
+    item.height = self.height;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Property Overriding
 
@@ -39,40 +54,40 @@
 }
 
 
-- (void)setRadius:(CGFloat)radius {
+- (void)setRadius:(NSNumber *)radius {
     [self assertTheresNoPhysicsBody];
-    self.cone.bottomRadius = radius;
+    self.cone.bottomRadius = radius.doubleValue;
 }
 
-- (CGFloat)radius {
-    return self.cone.bottomRadius;
+- (NSNumber *)radius {
+    return @(self.cone.bottomRadius);
 }
 
-- (void)setBottomRadius:(CGFloat)radius {
+- (void)setBottomRadius:(NSNumber *)radius {
     [self assertTheresNoPhysicsBody];
     self.radius = radius;
 }
 
-- (CGFloat)bottomRadius {
+- (NSNumber *)bottomRadius {
     return self.radius;
 }
 
-- (void)setTopRadius:(CGFloat)radius {
+- (void)setTopRadius:(NSNumber *)radius {
     [self assertTheresNoPhysicsBody];
-    self.cone.topRadius = radius;
+    self.cone.topRadius = radius.doubleValue;
 }
 
-- (CGFloat)topRadius {
-    return self.cone.topRadius;
+- (NSNumber *)topRadius {
+    return @(self.cone.topRadius);
 }
 
-- (void)setHeight:(CGFloat)height {
+- (void)setHeight:(NSNumber *)height {
     [self assertTheresNoPhysicsBody];
-    self.cone.height = height;
+    self.cone.height = height.doubleValue;
 }
 
-- (CGFloat)height {
-    return self.cone.height;
+- (NSNumber *)height {
+    return @(self.cone.height);
 }
 
 @end

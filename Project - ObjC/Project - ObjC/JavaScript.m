@@ -125,6 +125,10 @@ static NSString *_defaultFilename = @"main.js";
     self.context[@"floor"] = [Floor class];
 
     self.context[@"physics"] = [Physics new];
+    
+    self.context[@"template"] = ^Item *(void) {
+        return [Item template];
+    };
 }
 
 - (void)getObjects {

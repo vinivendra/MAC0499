@@ -6,6 +6,8 @@
 
 @protocol TubeExport <JSExport>
 + (instancetype)create;
+- (instancetype)create;
++ (instancetype) template;
 //
 - (void)destroy;
 @property (nonatomic, strong) id position;
@@ -17,10 +19,10 @@
 @property (nonatomic, strong) id velocity;
 //
 + (instancetype)tube;
-@property (nonatomic) CGFloat radius;
-@property (nonatomic) CGFloat innerRadius;
-@property (nonatomic) CGFloat outerRadius;
-@property (nonatomic) CGFloat height;
+@property (nonatomic) NSNumber *radius;
+@property (nonatomic) NSNumber *innerRadius;
+@property (nonatomic) NSNumber *outerRadius;
+@property (nonatomic) NSNumber *height;
 @end
 
 
@@ -38,20 +40,20 @@
  An alias for the SCNTube's @p outerRadius property. Speficies the radius that
  the Tube will have, or it's extent in the @p xz plane.
  */
-@property (nonatomic) CGFloat radius;
+@property (nonatomic) NSNumber *radius;
 /*!
  An alias for the SCNTube's @p outerRadius property. Speficies the radius that
  the Tube will have, or it's extent in the @p xz plane.
  */
-@property (nonatomic) CGFloat outerRadius;
+@property (nonatomic) NSNumber *outerRadius;
 /*!
  An alias for the SCNTube's @p innerRadius property. Speficies the radius that
  the Tube's hole will have.
  */
-@property (nonatomic) CGFloat innerRadius;
+@property (nonatomic) NSNumber *innerRadius;
 /*!
  An alias for the SCNTube's @p height property. Speficies the Tube's extent on
  the @p y axis.
  */
-@property (nonatomic) CGFloat height;
+@property (nonatomic) NSNumber *height;
 @end
