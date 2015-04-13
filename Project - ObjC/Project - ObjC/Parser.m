@@ -89,7 +89,7 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
 
         cleanLine = [self stripComments:line];
 
-        unless([cleanLine valid]) continue;
+        if (![cleanLine valid]) continue;
 
 
         currentIndentation = cleanLine.indentation;
@@ -116,7 +116,13 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
             = NSMakeRange(currentIndentation, statementLength);
         cleanLine = [cleanLine substringWithRange:whitespaceRange];
 
-        NSArray *components = [cleanLine split:@" "];
+        NSMutableArray *components = [[cleanLine split:@" "] mutableCopy];
+        for (NSInteger i = 0; i < components.count; i++) {
+            if (![components[i] valid]) {
+                [components removeObjectAtIndex:i];
+                i--;
+            }
+        }
 
         NSString *itemName = components.firstObject;
         NSString *propertyName = components.firstObject;
@@ -164,7 +170,7 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
     }
 }
 
-- (void)setPropertyFromLine:(NSArray *)line onItem:(Item *)item {
+- (void)setPropertyFromLine:(NSMutableArray *)line onItem:(Item *)item {
     if ([line.firstObject isEqualToString:@"color"]) {
         NSString *value = line.lastObject;
         ((Shape *)item).color = value;
@@ -175,20 +181,18 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
         NSString *value = line.lastObject;
         ((Shape *)item).physics = value;
     } else if ([line.firstObject isEqualToString:@"position"]) {
-        NSMutableArray *mutableLine = line.mutableCopy;
 
-        NSNumber *z = [NSNumber numberWithString:[mutableLine pop]];
-        NSNumber *y = [NSNumber numberWithString:[mutableLine pop]];
-        NSNumber *x = [NSNumber numberWithString:[mutableLine pop]];
+        NSNumber *z = [NSNumber numberWithString:[line pop]];
+        NSNumber *y = [NSNumber numberWithString:[line pop]];
+        NSNumber *x = [NSNumber numberWithString:[line pop]];
 
         ((Shape *)item).position = @[ x, y, z ];
     } else if ([line.firstObject isEqualToString:@"rotation"]) {
-        NSMutableArray *mutableLine = line.mutableCopy;
 
-        NSNumber *w = [NSNumber numberWithString:[mutableLine pop]];
-        NSNumber *z = [NSNumber numberWithString:[mutableLine pop]];
-        NSNumber *y = [NSNumber numberWithString:[mutableLine pop]];
-        NSNumber *x = [NSNumber numberWithString:[mutableLine pop]];
+        NSNumber *w = [NSNumber numberWithString:[line pop]];
+        NSNumber *z = [NSNumber numberWithString:[line pop]];
+        NSNumber *y = [NSNumber numberWithString:[line pop]];
+        NSNumber *x = [NSNumber numberWithString:[line pop]];
 
         ((Shape *)item).rotation = @[ x, y, z, w ];
     } else if ([line.firstObject isEqualToString:@"string"]) {
