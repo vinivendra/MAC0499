@@ -75,6 +75,7 @@
 		243AF9AB1AB9BEF90070EF07 /* Plane.m in Sources */ = {isa = PBXBuildFile; fileRef = 243AF9A91AB9BEF90070EF07 /* Plane.m */; };
 		243AF9AE1AB9C1AE0070EF07 /* Text.m in Sources */ = {isa = PBXBuildFile; fileRef = 243AF9AD1AB9C1AE0070EF07 /* Text.m */; };
 		243AF9AF1AB9C1AE0070EF07 /* Text.m in Sources */ = {isa = PBXBuildFile; fileRef = 243AF9AD1AB9C1AE0070EF07 /* Text.m */; };
+		244C6B371ADC530400EEBD15 /* ball.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 244C6B361ADC530400EEBD15 /* ball.fmt */; };
 		244CA6DC1AB86D0300FD5F18 /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 244CA6DB1AB86D0300FD5F18 /* Position.m */; };
 		244CA6DE1AB8712100FD5F18 /* PositionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 244CA6DD1AB8712100FD5F18 /* PositionTests.m */; };
 		244CA6DF1AB8744C00FD5F18 /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 244CA6DB1AB86D0300FD5F18 /* Position.m */; };
@@ -190,6 +191,7 @@
 		243AF9A91AB9BEF90070EF07 /* Plane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Plane.m; path = Items/Shape/Plane.m; sourceTree = "<group>"; };
 		243AF9AC1AB9C1AE0070EF07 /* Text.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Text.h; path = Items/Shape/Text.h; sourceTree = "<group>"; };
 		243AF9AD1AB9C1AE0070EF07 /* Text.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Text.m; path = Items/Shape/Text.m; sourceTree = "<group>"; };
+		244C6B361ADC530400EEBD15 /* ball.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ball.fmt; sourceTree = "<group>"; };
 		244CA6DA1AB86D0300FD5F18 /* Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Position.h; path = Math/Position.h; sourceTree = "<group>"; };
 		244CA6DB1AB86D0300FD5F18 /* Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Position.m; path = Math/Position.m; sourceTree = "<group>"; };
 		244CA6DD1AB8712100FD5F18 /* PositionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionTests.m; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 				2404BDFB1AD057510070F107 /* Parser.m */,
 				242CDE261AB5E93A00CC8067 /* main.js */,
 				2404BDF81AD055890070F107 /* scene.fmt */,
+				244C6B361ADC530400EEBD15 /* ball.fmt */,
 				242CDE251AB5DBA500CC8067 /* PrefixHeader.pch */,
 				24621BD91AC2E93700AD6B53 /* Physics */,
 				246098C21AB7131300CDEA5B /* Items */,
@@ -534,6 +537,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				244C6B371ADC530400EEBD15 /* ball.fmt in Resources */,
 				242CDE4C1AB5EDD600CC8067 /* test.js in Resources */,
 				242CDDFE1AB5D87E00CC8067 /* Main.storyboard in Resources */,
 				242CDE031AB5D87E00CC8067 /* LaunchScreen.xib in Resources */,

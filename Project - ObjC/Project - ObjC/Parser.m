@@ -1,7 +1,11 @@
-
+// TODO: Finish documenting the methods, turn vvdocumenter on, add parameters
+// and returns to previously documented methods, correct the class description
+// in the .h
 
 #import "Parser.h"
 
+
+static NSString *defaultFilename = @"scene.fmt";
 
 static NSString *cleanLine;
 
@@ -23,14 +27,20 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
 
 @implementation Parser
 
++ (Parser *)shared {
+    static Parser *singleton;
+
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken,
+                  ^{
+                      singleton = [self new];
+                  });
+
+    return singleton;
+}
+
 - (instancetype)init {
     if (self = [super init]) {
-        self.templates = [NSMutableDictionary new];
-
-        self.itemsStack = [NSMutableArray new];
-        self.indentationsStack = [NSMutableArray new];
-        self.scopesStack =
-            [NSMutableArray arrayWithObject:[NSMutableDictionary new]];
 
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken,
@@ -73,7 +83,26 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
     return self;
 }
 
+
+/*!
+ Resets the parser's state so that it's ready to parse a new file.
+ */
+- (void)reset {
+    self.templates = [NSMutableDictionary new];
+
+    self.itemsStack = [NSMutableArray new];
+    self.indentationsStack = [NSMutableArray new];
+    self.scopesStack =
+        [NSMutableArray arrayWithObject:[NSMutableDictionary new]];
+}
+
 - (void)parseFile:(NSString *)filename {
+
+    [self reset];
+
+    if (!filename) {
+        filename = defaultFilename;
+    }
 
     self.state = None;
 
@@ -89,7 +118,8 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
 
         cleanLine = [self stripComments:line];
 
-        if (![cleanLine valid]) continue;
+        if (![cleanLine valid])
+            continue;
 
 
         currentIndentation = cleanLine.indentation;
@@ -170,6 +200,23 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
     }
 }
 
+/*!
+ Interprets the @p line array as a text line separated by spaces. This method
+ assumes the line represents an assignment to a property (i.e. "color is red")
+ and assigns the value to the property (if the property and the value exist and
+ are valid, and if the given Item contains that property).
+ In the following case:
+ @code
+ ball sphere
+    color is red
+ @endcode
+ The line would have been formatted as ["color", "is", "red"] and the Item would
+ be the Sphere called "ball".
+ @param line The text line, separated by spaces and formatted as an array. For
+ instance: ["color", "is", "red"].
+ @param item The Item whose property should be set, i.e. the @p Sphere called
+ "ball".
+ */
 - (void)setPropertyFromLine:(NSMutableArray *)line onItem:(Item *)item {
     if ([line.firstObject isEqualToString:@"color"]) {
         NSString *value = line.lastObject;
@@ -211,6 +258,18 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
     }
 }
 
+/*!
+ Takes a line of text and removes comments from it. Supported comments should be
+ formatted as
+ @code
+ [some commands] //[comments]
+ @endcode
+ where both `[some commands]` and `[comments]` are optional. In this case, both
+ the `[comments]` and the slashes would be removed, leaving only the `[some
+ commands]`.
+ @param string The line of text whose comments will be removed.
+ @return A copy of the given string, without the comments.
+ */
 - (NSString *)stripComments:(NSString *)string {
     NSRange slashes = [string rangeOfString:@"//"];
 
@@ -225,6 +284,12 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
     return [string stringByReplacingCharactersInRange:comment withString:@""];
 }
 
+/*!
+ Pushes the necessary information about the current scope onto the appropriate
+ stacks.
+ @param currentItem        The Item object that is currently being configured.
+ @param currentIndentation The indentation level of the current commands.
+ */
 - (void)pushScopeWithItem:(Item *)currentItem
               indentation:(NSUInteger)currentIndentation {
     [self.itemsStack push:currentItem ?: [NSNull null]];
@@ -232,12 +297,23 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
     [self.indentationsStack push:@(currentIndentation)];
 }
 
+/*!
+ Pops the appropriate scope information from the stacks. Essentially returns the
+ scope's state to the last pushed state.
+ */
 - (void)popScope {
     [self.itemsStack pop];
     [self.scopesStack pop];
     [self.indentationsStack pop];
 }
 
+/*!
+ Attempts to find a reference to a template, if that reference is accessible
+ from the current scope.
+ @param templateName The name of the referenced template.
+ @return @p YES if the template is acessible by the current scope; @p NO
+ otherwise.
+ */
 - (BOOL)currentScopeHasTemplate:(NSString *)templateName {
     for (NSInteger i = (NSInteger)self.scopesStack.count - 1; i >= 0; i--) {
 
