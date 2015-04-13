@@ -68,16 +68,31 @@ templates
         position is -2 -1 0
         rotation is 1 0 0 -0.5
 
-        color is brown
+        color is darkGray
 
     plano plane
         position is 2 -1 0
-        scale is 3
+        scale is 1.3
 
         color is brown
 
+    texto text
+        position is -2 -3 0
+        scale 0.06
+        depth is 2
+
+        string is Hello, world!
+
+        color is cyan
+
+    chao floor
+        position is 0 0 -3
+        rotation is 1 0 0 1.6
+
+        color is lightGray
+
     cena
-        rotation is 0 1 0 3.14
+        rotation is 0 1 0 0.2
 
         esfera
         piramide
@@ -88,6 +103,8 @@ templates
         toro
         tubo
         plano
+        texto
+        chao
 
 
 items

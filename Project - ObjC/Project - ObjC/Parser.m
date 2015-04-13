@@ -1,4 +1,4 @@
-// Find out why the plane doesnt work; add the rest of the shapes to the scene.
+
 
 #import "Parser.h"
 
