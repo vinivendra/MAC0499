@@ -1,6 +1,4 @@
-// TODO: Finish documenting the methods, turn vvdocumenter on, add parameters
-// and returns to previously documented methods, correct the class description
-// in the .h
+
 
 #import "Parser.h"
 
