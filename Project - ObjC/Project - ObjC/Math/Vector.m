@@ -55,9 +55,10 @@
 
 - (instancetype)initWithArray:(NSArray *)array {
     if (self = [super init]) {
+        CGFloat z = array.count == 2 ? 0 : ((NSNumber *)array[2]).doubleValue;
         self.vector = SCNVector3Make(((NSNumber *)array[0]).doubleValue,
                                      ((NSNumber *)array[1]).doubleValue,
-                                     ((NSNumber *)array[2]).doubleValue);
+                                     z);
     }
     return self;
 }
