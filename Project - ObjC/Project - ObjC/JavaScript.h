@@ -42,10 +42,15 @@
 /*!
  Returns the current callback function for contact handling in javascript. It
  should be a function called "contact" or a variable, with the same name, that
- contains a function to be called.
+ contains the function to be called.
  @return An JSValue, hopefully containing the callback function to be called (if
  the JavaScript code is correct); if there is no such function or variable, the
  JSValue returned will be undefined.
  */
 - (JSValue *)contactCallback;
+/*!
+ Returns the current callback function for handling button presses in javascript. It should be a function called "button" or a variable, with the same name, that contains the function to be called.
+ @return An JSValue, hopefully containing the callback function to be called (if the JavaScript code is correct); if there is no such function or variable, the JSValue returned will be undefined.
+ */
+- (JSValue *)buttonCallback;
 @end

@@ -8,9 +8,6 @@
 #import "JavaScript.h"
 
 
-static Sphere *ball;
-
-
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet SCNView *sceneView;
 @property (weak, nonatomic) IBOutlet UIView *controlView;
@@ -24,6 +21,8 @@ static Sphere *ball;
 
     Physics *physics = [Physics shared];
     JavaScript *javaScript = [JavaScript shared];
+
+    [UI shared].view = self.controlView;
 
     [javaScript load];
     [javaScript update];
@@ -59,26 +58,6 @@ static Sphere *ball;
     node.light = light;
     node.position = SCNVector3Make(-3, -3, -3);
     [scene.rootNode addChildNode:node];
-
-
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
-    [btn setTitle:@"BOTAO" forState:UIControlStateNormal];
-    [btn addTarget:self action:@selector(btnPressed:) forControlEvents:UIControlEventTouchUpInside];
-    btn.frame = CGRectMake(20, 20, 100, 50);
-
-    [self.controlView addSubview:btn];
-
-
-    ball = [Sphere create];
-    ball.color = @"red";
-    ball.position = @[@1, @1, @0];
-}
-
-- (void)btnPressed:(id)sender {
-    NSLog(@"HUE");
-    Vector *v = ball.position;
-    Vector *r = [v plus:[[Vector alloc] initWithObject:@[@-0.1, @-0.1, @0]]];
-    ball.position = r;
 }
 
 @end

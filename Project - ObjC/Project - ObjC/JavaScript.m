@@ -125,7 +125,10 @@ static NSString *_defaultFilename = @"main.js";
     self.context[@"floor"] = [Floor class];
 
     self.context[@"physics"] = [Physics new];
-    
+
+    self.context[@"Button"] = [UIButton class];
+    self.context[@"UI"] = [UI shared];
+
     self.context[@"template"] = ^Item *(void) {
         return [Item template];
     };
@@ -139,5 +142,9 @@ static NSString *_defaultFilename = @"main.js";
 //
 - (JSValue *)contactCallback {
     return self.context[@"contact"];
+}
+
+- (JSValue *)buttonCallback {
+    return self.context[@"button"];
 }
 @end

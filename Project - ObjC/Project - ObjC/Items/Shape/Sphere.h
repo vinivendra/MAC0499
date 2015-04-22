@@ -4,6 +4,7 @@
 + (instancetype)create;
 - (instancetype)create;
 + (instancetype) template;
+- (void)addItem:(Item *)newItem;
 //
 - (void)destroy;
 @property (nonatomic, strong) id position;
