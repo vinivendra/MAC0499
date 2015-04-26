@@ -12,4 +12,5 @@
 @property (nonatomic, strong) UIView *view;
 @property (nonatomic, strong) NSMutableDictionary *actions;
 @property (nonatomic, weak) id addButton;
+@property (nonatomic, weak) id addSlider;
 @end

@@ -58,6 +58,15 @@
     node.light = light;
     node.position = SCNVector3Make(-3, -3, -3);
     [scene.rootNode addChildNode:node];
+
+//    UISlider *sli = [UISlider new];
+//    sli.frame = CGRectMake(50, 300, 200, 50);
+//    sli.maximumValue = 50;
+//    sli.minimumValue = -10;
+//    [[UI shared].view addSubview:sli];
+//    [UI shared].addSlider = sli;
 }
 
 @end
+
+

@@ -3,19 +3,7 @@
 #import "UI+Exports.h"
 
 
-@implementation UIButton (Export)
-
-+ (instancetype)create {
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-
-    [button setTitle:@"BOTAUM" forState:UIControlStateNormal];
-    button.frame = CGRectMake(100, 100, 100, 50);
-
-    [[UI shared].view addSubview:button];
-    [UI shared].addButton = button;
-
-    return button;
-}
+@implementation UIView (Export)
 
 - (void)setPosition:(id)position {
     Position *newValue = [[Position alloc] initWithObject:position];
@@ -47,12 +35,45 @@
                                      Z:0];
 }
 
+@end
+
+
+@implementation UIButton (Export)
+
++ (instancetype)create {
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+
+    [button setTitle:@"BOTAUM" forState:UIControlStateNormal];
+    button.frame = CGRectMake(100, 100, 100, 50);
+
+    [[UI shared].view addSubview:button];
+    [UI shared].addButton = button;
+
+    return button;
+}
+
 - (void)setString:(NSString *)string {
     [self setTitle:string forState:UIControlStateNormal];
 }
 
 - (NSString *)string {
     return [self titleForState:UIControlStateNormal];
+}
+
+@end
+
+
+@implementation UISlider (Export)
+
++ (instancetype)create {
+    UISlider *slider = [UISlider new];
+
+    slider.frame = CGRectMake(100, 100, 100, 50);
+
+    [[UI shared].view addSubview:slider];
+    [UI shared].addSlider = slider;
+
+    return slider;
 }
 
 @end

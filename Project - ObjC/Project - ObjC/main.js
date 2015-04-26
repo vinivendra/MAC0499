@@ -21,10 +21,18 @@ function load() {
     physics.addContact = {"between": moon,
                           "and": instance}
 
-    btn = Button.create();
+    btn = UIButton.create();
     btn.position = [300, 200];
     btn.size = [100, 100];
     btn.string = "JUMP!";
+
+    sli = UISlider.create();
+    print(sli);
+    print(UISlider);
+    sli.position = [50, 300];
+    sli.size = [200, 50];
+    sli.maximumValue = 50;
+    sli.minimumValue = -10;
 }
 
 
@@ -39,4 +47,8 @@ function button(pressedButton) {
     else {
         console.log("outro botaum.");
     }
+}
+
+function slider(slider) {
+    print(slider.value);
 }

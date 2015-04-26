@@ -126,7 +126,8 @@ static NSString *_defaultFilename = @"main.js";
 
     self.context[@"physics"] = [Physics new];
 
-    self.context[@"Button"] = [UIButton class];
+    self.context[@"UIButton"] = [UIButton class];
+    self.context[@"UISlider"] = [UISlider class];
     self.context[@"UI"] = [UI shared];
 
     self.context[@"template"] = ^Item *(void) {
@@ -147,4 +148,9 @@ static NSString *_defaultFilename = @"main.js";
 - (JSValue *)buttonCallback {
     return self.context[@"button"];
 }
+
+- (JSValue *)sliderCallback {
+    return self.context[@"slider"];
+}
+
 @end
