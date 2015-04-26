@@ -49,4 +49,6 @@ static NSString *_testFileName = @"test.js";
 #import "Text.h"
 #import "Floor.h"
 
+#import "SCN+Exports.h"
+
 #endif

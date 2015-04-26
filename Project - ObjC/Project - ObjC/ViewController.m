@@ -69,11 +69,13 @@
     if (sender.state == UIGestureRecognizerStateRecognized) {
         CGPoint location = [sender locationInView:self.sceneView];
         NSArray *hits = [self.sceneView hitTest:location options:nil];
+        NSMutableArray *validHits = [NSMutableArray new];
         NSMutableArray *items = [NSMutableArray new];
         for (SCNHitTestResult *hit in hits) {
+            [validHits push:hit];
             [items push:hit.node.item];
         }
-        [[JavaScript shared].tapCallback callWithArguments:@[items]];
+        [[JavaScript shared].tapCallback callWithArguments:@[items, validHits]];
     }
 }
 

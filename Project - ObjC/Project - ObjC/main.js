@@ -30,8 +30,16 @@ function load() {
 //    sli.minimumValue = -10;
 }
 
-function tap(items) {
+function tap(items, hits) {
     print(items);
+    print(hits);
+
+    print(hits[0].item);
+    print(hits[0].itemPoint);
+    print(hits[0].point);
+    print(hits[0].itemNormal);
+    print(hits[0].normal);
+
 }
 
 
