@@ -25,8 +25,15 @@ static NSString *_defaultFilename = @"main.js";
 @interface JavaScript ()
 @property (nonatomic, strong) JSContext *context;
 @property (nonatomic, strong) NSString *filename;
+
 @property (nonatomic, strong) JSValue *loadFunction;
 @property (nonatomic, strong) JSValue *updateFunction;
+
+@property (nonatomic, strong) JSValue *contactCallback;
+@property (nonatomic, strong) JSValue *buttonCallback;
+@property (nonatomic, strong) JSValue *sliderCallback;
+
+@property (nonatomic, strong) JSValue *tapCallback;
 @end
 
 
@@ -138,19 +145,12 @@ static NSString *_defaultFilename = @"main.js";
 - (void)getObjects {
     self.loadFunction = self.context[@"load"];
     self.updateFunction = self.context[@"update"];
-}
 
-//
-- (JSValue *)contactCallback {
-    return self.context[@"contact"];
-}
+    self.contactCallback = self.context[@"contact"];
+    self.buttonCallback = self.context[@"button"];
+    self.sliderCallback = self.context[@"slider"];
 
-- (JSValue *)buttonCallback {
-    return self.context[@"button"];
-}
-
-- (JSValue *)sliderCallback {
-    return self.context[@"slider"];
+    self.tapCallback = self.context[@"tap"];
 }
 
 @end

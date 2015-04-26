@@ -59,14 +59,22 @@
     node.position = SCNVector3Make(-3, -3, -3);
     [scene.rootNode addChildNode:node];
 
-//    UISlider *sli = [UISlider new];
-//    sli.frame = CGRectMake(50, 300, 200, 50);
-//    sli.maximumValue = 50;
-//    sli.minimumValue = -10;
-//    [[UI shared].view addSubview:sli];
-//    [UI shared].addSlider = sli;
+    UITapGestureRecognizer *tapGesture = [UITapGestureRecognizer new];
+    [tapGesture addTarget:self action:@selector(handleTap:)];
+    [self.controlView addGestureRecognizer:tapGesture];
+}
+
+- (void)handleTap:(UITapGestureRecognizer *)sender {
+
+    if (sender.state == UIGestureRecognizerStateRecognized) {
+        CGPoint location = [sender locationInView:self.sceneView];
+        NSArray *hits = [self.sceneView hitTest:location options:nil];
+        NSMutableArray *items = [NSMutableArray new];
+        for (SCNHitTestResult *hit in hits) {
+            [items push:hit.node.item];
+        }
+        [[JavaScript shared].tapCallback callWithArguments:@[items]];
+    }
 }
 
 @end
-
-
