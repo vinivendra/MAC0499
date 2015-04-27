@@ -23,4 +23,10 @@
  whenever taps occur in the gestureView.
  */
 - (void)setupTaps;
+/*!
+ Tells the Gestures object to add a gesture recognizer for swipes, which
+ automatically starts sending messages to the Javascript swipe callback function
+ whenever swipes occur in the gestureView.
+ */
+- (void)setupSwipes;
 @end

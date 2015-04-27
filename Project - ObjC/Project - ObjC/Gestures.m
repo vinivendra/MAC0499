@@ -26,6 +26,32 @@
     [self.gesturesView addGestureRecognizer:tapGesture];
 }
 
+- (void)setupSwipes {
+    UISwipeGestureRecognizer *swipeGestureRight =
+        [UISwipeGestureRecognizer new];
+    swipeGestureRight.direction = UISwipeGestureRecognizerDirectionRight;
+    [swipeGestureRight addTarget:self action:@selector(handleSwipeRight:)];
+    [self.gesturesView addGestureRecognizer:swipeGestureRight];
+
+    UISwipeGestureRecognizer *swipeGestureLeft =
+    [UISwipeGestureRecognizer new];
+    swipeGestureLeft.direction = UISwipeGestureRecognizerDirectionLeft;
+    [swipeGestureLeft addTarget:self action:@selector(handleSwipeLeft:)];
+    [self.gesturesView addGestureRecognizer:swipeGestureLeft];
+
+    UISwipeGestureRecognizer *swipeGestureDown =
+    [UISwipeGestureRecognizer new];
+    swipeGestureDown.direction = UISwipeGestureRecognizerDirectionDown;
+    [swipeGestureDown addTarget:self action:@selector(handleSwipeDown:)];
+    [self.gesturesView addGestureRecognizer:swipeGestureDown];
+
+    UISwipeGestureRecognizer *swipeGestureUp =
+    [UISwipeGestureRecognizer new];
+    swipeGestureUp.direction = UISwipeGestureRecognizerDirectionUp;
+    [swipeGestureUp addTarget:self action:@selector(handleSwipeUp:)];
+    [self.gesturesView addGestureRecognizer:swipeGestureUp];
+}
+
 #pragma mark - Handlers
 
 - (void)handleTap:(UITapGestureRecognizer *)sender {
@@ -41,6 +67,45 @@
         }
         [[JavaScript shared].tapCallback
             callWithArguments:@[ items, validHits ]];
+    }
+}
+
+- (void)handleSwipeRight:(UISwipeGestureRecognizer *)sender {
+    [self handleSwipe:sender
+          inDirection:UISwipeGestureRecognizerDirectionRight];
+}
+
+- (void)handleSwipeLeft:(UISwipeGestureRecognizer *)sender {
+    [self handleSwipe:sender
+          inDirection:UISwipeGestureRecognizerDirectionLeft];
+}
+
+- (void)handleSwipeDown:(UISwipeGestureRecognizer *)sender {
+    [self handleSwipe:sender
+          inDirection:UISwipeGestureRecognizerDirectionDown];
+}
+
+- (void)handleSwipeUp:(UISwipeGestureRecognizer *)sender {
+    [self handleSwipe:sender
+          inDirection:UISwipeGestureRecognizerDirectionUp];
+}
+
+- (void)handleSwipe:(UISwipeGestureRecognizer *)sender
+        inDirection:(UISwipeGestureRecognizerDirection)direction {
+
+    if (sender.state == UIGestureRecognizerStateRecognized) {
+        CGPoint location = [sender locationInView:self.sceneView];
+        NSArray *swipes = [self.sceneView hitTest:location options:nil];
+        NSMutableArray *validSwipes = [NSMutableArray new];
+        NSMutableArray *directions = [NSMutableArray new];
+        NSMutableArray *items = [NSMutableArray new];
+        for (SCNHitTestResult *swipe in swipes) {
+            [validSwipes push:swipe];
+            [directions push:@(direction)];
+            [items push:swipe.node.item];
+        }
+        [[JavaScript shared].swipeCallback
+            callWithArguments:@[ items, directions, validSwipes ]];
     }
 }
 

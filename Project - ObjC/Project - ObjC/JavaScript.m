@@ -34,6 +34,7 @@ static NSString *_defaultFilename = @"main.js";
 @property (nonatomic, strong) JSValue *sliderCallback;
 
 @property (nonatomic, strong) JSValue *tapCallback;
+@property (nonatomic, strong) JSValue *swipeCallback;
 @end
 
 
@@ -151,6 +152,7 @@ static NSString *_defaultFilename = @"main.js";
     self.sliderCallback = self.context[@"slider"];
 
     self.tapCallback = self.context[@"tap"];
+    self.swipeCallback = self.context[@"swipe"];
 }
 
 @end

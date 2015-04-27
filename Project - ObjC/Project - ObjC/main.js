@@ -42,6 +42,13 @@ function tap(items, hits) {
 
 }
 
+function swipe(items, directions, swipes) {
+    print(items);
+    print(directions);
+    print(swipes);
+    print(directions[0]);
+    print(swipes[0]);
+}
 
 function contact(left, right, contact) {
 
