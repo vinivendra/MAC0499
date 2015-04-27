@@ -6,6 +6,7 @@
 
 #import "Physics.h"
 #import "JavaScript.h"
+#import "Gestures.h"
 
 
 @interface ViewController ()
@@ -59,24 +60,10 @@
     node.position = SCNVector3Make(-3, -3, -3);
     [scene.rootNode addChildNode:node];
 
-    UITapGestureRecognizer *tapGesture = [UITapGestureRecognizer new];
-    [tapGesture addTarget:self action:@selector(handleTap:)];
-    [self.controlView addGestureRecognizer:tapGesture];
-}
-
-- (void)handleTap:(UITapGestureRecognizer *)sender {
-
-    if (sender.state == UIGestureRecognizerStateRecognized) {
-        CGPoint location = [sender locationInView:self.sceneView];
-        NSArray *hits = [self.sceneView hitTest:location options:nil];
-        NSMutableArray *validHits = [NSMutableArray new];
-        NSMutableArray *items = [NSMutableArray new];
-        for (SCNHitTestResult *hit in hits) {
-            [validHits push:hit];
-            [items push:hit.node.item];
-        }
-        [[JavaScript shared].tapCallback callWithArguments:@[items, validHits]];
-    }
+    Gestures *gestures = [Gestures shared];
+    gestures.gesturesView = self.controlView;
+    gestures.sceneView = self.sceneView;
+    [gestures setupTaps];
 }
 
 @end

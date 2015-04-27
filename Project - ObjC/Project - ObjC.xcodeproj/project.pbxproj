@@ -96,6 +96,8 @@
 		24621BDB1AC2F18500AD6B53 /* ContactTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24621BDA1AC2F18500AD6B53 /* ContactTests.m */; };
 		24775F8D1AD195EF0047B260 /* SCNGeometry+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 24775F8C1AD195EF0047B260 /* SCNGeometry+Extension.m */; };
 		24775F8E1AD195EF0047B260 /* SCNGeometry+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 24775F8C1AD195EF0047B260 /* SCNGeometry+Extension.m */; };
+		2491EC841AEEA8F0002F0FDE /* Gestures.m in Sources */ = {isa = PBXBuildFile; fileRef = 2491EC831AEEA8F0002F0FDE /* Gestures.m */; };
+		2491EC851AEEA8F0002F0FDE /* Gestures.m in Sources */ = {isa = PBXBuildFile; fileRef = 2491EC831AEEA8F0002F0FDE /* Gestures.m */; };
 		24B8AD3F1AC1A81C00B1415C /* Physics.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B8AD3E1AC1A81C00B1415C /* Physics.m */; };
 		24B8AD401AC1A81C00B1415C /* Physics.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B8AD3E1AC1A81C00B1415C /* Physics.m */; };
 		24BF94891AB775C300B923A9 /* Vector.m in Sources */ = {isa = PBXBuildFile; fileRef = 24BF94881AB775C300B923A9 /* Vector.m */; };
@@ -217,6 +219,8 @@
 		24621BDA1AC2F18500AD6B53 /* ContactTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactTests.m; sourceTree = "<group>"; };
 		24775F8B1AD195EF0047B260 /* SCNGeometry+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SCNGeometry+Extension.h"; sourceTree = "<group>"; };
 		24775F8C1AD195EF0047B260 /* SCNGeometry+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SCNGeometry+Extension.m"; sourceTree = "<group>"; };
+		2491EC821AEEA8F0002F0FDE /* Gestures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gestures.h; sourceTree = "<group>"; };
+		2491EC831AEEA8F0002F0FDE /* Gestures.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gestures.m; sourceTree = "<group>"; };
 		24B8AD3D1AC1A81C00B1415C /* Physics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Physics.h; sourceTree = "<group>"; };
 		24B8AD3E1AC1A81C00B1415C /* Physics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Physics.m; sourceTree = "<group>"; };
 		24BF94871AB775C300B923A9 /* Vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vector.h; path = Math/Vector.h; sourceTree = "<group>"; };
@@ -476,6 +480,8 @@
 		24F950E01AE7DA5C001D6AC9 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				2491EC821AEEA8F0002F0FDE /* Gestures.h */,
+				2491EC831AEEA8F0002F0FDE /* Gestures.m */,
 				24F950DC1AE7DA55001D6AC9 /* UI.h */,
 				24F950DD1AE7DA55001D6AC9 /* UI.m */,
 			);
@@ -593,6 +599,7 @@
 				2455A0141AC435C200E1F708 /* SCNNode+Extension.m in Sources */,
 				242CDDFB1AB5D87E00CC8067 /* ViewController.m in Sources */,
 				24B8AD3F1AC1A81C00B1415C /* Physics.m in Sources */,
+				2491EC841AEEA8F0002F0FDE /* Gestures.m in Sources */,
 				2430DD3A1AB8AFBD0095410C /* Box.m in Sources */,
 				242CDE401AB5EABE00CC8067 /* NSMutableArray+ObjectiveSugar.m in Sources */,
 				240BD31E1AC4618D002E76B1 /* SCNPhysicsContact+Extension.m in Sources */,
@@ -662,6 +669,7 @@
 				245F808D1AB87FB400FC295F /* Axis.m in Sources */,
 				242CDE491AB5ED2A00CC8067 /* FileHelperTests.m in Sources */,
 				245F808F1AB880F900FC295F /* AxisTest.m in Sources */,
+				2491EC851AEEA8F0002F0FDE /* Gestures.m in Sources */,
 				2418F22E1AB71BFC004A31E5 /* UIColor+Extension.m in Sources */,
 				243AF9AB1AB9BEF90070EF07 /* Plane.m in Sources */,
 				242CDE231AB5DAD400CC8067 /* JSContext+Extension.m in Sources */,
