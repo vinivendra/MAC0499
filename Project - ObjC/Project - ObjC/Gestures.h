@@ -29,4 +29,10 @@
  whenever swipes occur in the gestureView.
  */
 - (void)setupSwipes;
+/*!
+ Tells the Gestures object to add a gesture recognizer for pans, which
+ automatically starts sending messages to the Javascript pan callback function
+ whenever swipes occur in the gestureView.
+ */
+- (void)setupPans;
 @end

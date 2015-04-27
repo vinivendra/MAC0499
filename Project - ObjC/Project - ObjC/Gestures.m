@@ -1,7 +1,10 @@
-
+// TODO: export directions enum to js
 
 #import "Gestures.h"
 #import "JavaScript.h"
+
+
+static Vector *lastPanPoint = nil;
 
 
 @implementation Gestures
@@ -33,23 +36,26 @@
     [swipeGestureRight addTarget:self action:@selector(handleSwipeRight:)];
     [self.gesturesView addGestureRecognizer:swipeGestureRight];
 
-    UISwipeGestureRecognizer *swipeGestureLeft =
-    [UISwipeGestureRecognizer new];
+    UISwipeGestureRecognizer *swipeGestureLeft = [UISwipeGestureRecognizer new];
     swipeGestureLeft.direction = UISwipeGestureRecognizerDirectionLeft;
     [swipeGestureLeft addTarget:self action:@selector(handleSwipeLeft:)];
     [self.gesturesView addGestureRecognizer:swipeGestureLeft];
 
-    UISwipeGestureRecognizer *swipeGestureDown =
-    [UISwipeGestureRecognizer new];
+    UISwipeGestureRecognizer *swipeGestureDown = [UISwipeGestureRecognizer new];
     swipeGestureDown.direction = UISwipeGestureRecognizerDirectionDown;
     [swipeGestureDown addTarget:self action:@selector(handleSwipeDown:)];
     [self.gesturesView addGestureRecognizer:swipeGestureDown];
 
-    UISwipeGestureRecognizer *swipeGestureUp =
-    [UISwipeGestureRecognizer new];
+    UISwipeGestureRecognizer *swipeGestureUp = [UISwipeGestureRecognizer new];
     swipeGestureUp.direction = UISwipeGestureRecognizerDirectionUp;
     [swipeGestureUp addTarget:self action:@selector(handleSwipeUp:)];
     [self.gesturesView addGestureRecognizer:swipeGestureUp];
+}
+
+- (void)setupPans {
+    UIPanGestureRecognizer *panGesture = [UIPanGestureRecognizer new];
+    [panGesture addTarget:self action:@selector(handlePan:)];
+    [self.gesturesView addGestureRecognizer:panGesture];
 }
 
 #pragma mark - Handlers
@@ -76,18 +82,15 @@
 }
 
 - (void)handleSwipeLeft:(UISwipeGestureRecognizer *)sender {
-    [self handleSwipe:sender
-          inDirection:UISwipeGestureRecognizerDirectionLeft];
+    [self handleSwipe:sender inDirection:UISwipeGestureRecognizerDirectionLeft];
 }
 
 - (void)handleSwipeDown:(UISwipeGestureRecognizer *)sender {
-    [self handleSwipe:sender
-          inDirection:UISwipeGestureRecognizerDirectionDown];
+    [self handleSwipe:sender inDirection:UISwipeGestureRecognizerDirectionDown];
 }
 
 - (void)handleSwipeUp:(UISwipeGestureRecognizer *)sender {
-    [self handleSwipe:sender
-          inDirection:UISwipeGestureRecognizerDirectionUp];
+    [self handleSwipe:sender inDirection:UISwipeGestureRecognizerDirectionUp];
 }
 
 - (void)handleSwipe:(UISwipeGestureRecognizer *)sender
@@ -108,5 +111,21 @@
             callWithArguments:@[ items, directions, validSwipes ]];
     }
 }
+
+- (void)handlePan:(UIPanGestureRecognizer *)sender {
+
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        lastPanPoint = [Vector origin];
+    }
+    if (sender.state == UIGestureRecognizerStateChanged) {
+        CGPoint translation = [sender translationInView:self.sceneView];
+        Vector *currentPoint = [[Vector alloc] initWithCGPoint:translation];
+        Vector *relativeTranslation = [currentPoint minus:lastPanPoint];
+        [[JavaScript shared].panCallback
+            callWithArguments:@[ relativeTranslation ]];
+        lastPanPoint = currentPoint;
+    }
+}
+
 
 @end

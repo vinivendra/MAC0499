@@ -19,6 +19,15 @@
 - (instancetype)initWithObject:(id)object;
 - (BOOL)isEqualToVector:(SCNVector3)vector;
 - (SCNVector3)toSCNVector;
+
+- (Vector *)times:(CGFloat)scalar;
+- (Vector *)over:(CGFloat)scalar;
+- (Vector *)plus:(Vector *)vector;
+- (Vector *)minus:(Vector *)vector;
+- (CGFloat)dot:(Vector *)vector;
+- (CGFloat)normSquared;
+- (CGFloat)norm;
+- (Vector *)normalize;
 @end
 
 
@@ -66,6 +75,15 @@
  @return An initialized Vector object.
  */
 - (instancetype)initWithSCNVector:(SCNVector3)newValue;
+/*!
+ Creates a Vector in which x component is set as just as the given CGPoint's x
+ component, the y component is the opposite of the CGPoint's y component and in
+ which the z component is 0. This is done to ease the translation from screen
+ points to scene points.
+ @param newValue The CGPoint that should be used as a model.
+ @return An initialized Vector object.
+ */
+- (instancetype)initWithCGPoint:(CGPoint)newValue;
 /*!
  Creates a Vector in which all components are set as just as the first 3
  components in the given SCNVector4. If that vector is written as (x y z w), the
@@ -133,7 +151,6 @@
  @return An initialized SCNVector3.
  */
 - (SCNVector3)toSCNVector;
-
 /*!
  Creates an NSValue containing an SCNVector3 with the same components as the
  Vector.

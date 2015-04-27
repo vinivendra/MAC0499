@@ -32,6 +32,11 @@
     return self;
 }
 
+- (instancetype)initWithCGPoint:(CGPoint)newValue {
+    self = [self initWithX:newValue.x Y:-newValue.y Z:0];
+    return self;
+}
+
 - (instancetype)initWithSCNVector4:(SCNVector4)newValue {
     if (self = [super init]) {
         self.vector = SCNVector3Make(newValue.x, newValue.y, newValue.z);

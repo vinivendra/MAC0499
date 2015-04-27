@@ -84,4 +84,13 @@
  JSValue returned will be undefined.
  */
 - (JSValue *)swipeCallback;
+/*!
+ Returns the current callback function for handling pans in javascript. It
+ should be a function called "pan" or a variable, with the same name, that
+ contains the function to be called.
+ @return An JSValue, hopefully containing the callback function to be called (if
+ the JavaScript code is correct); if there is no such function or variable, the
+ JSValue returned will be undefined.
+ */
+- (JSValue *)panCallback;
 @end

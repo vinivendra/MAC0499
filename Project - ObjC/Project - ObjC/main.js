@@ -1,6 +1,7 @@
 
 var btn;
 var moon;
+var instance;
 
 function load() {
     
@@ -9,7 +10,7 @@ function load() {
     earth.position = [0, 0, -2];
     earth.radius = 1.5;
 
-    var instance = earth.create();
+    instance = earth.create();
 
     moon = earth.create();
     moon.color = "darkGray";
@@ -33,22 +34,19 @@ function load() {
 function tap(items, hits) {
     print(items);
     print(hits);
-
-    print(hits[0].item);
-    print(hits[0].itemPoint);
-    print(hits[0].point);
-    print(hits[0].itemNormal);
-    print(hits[0].normal);
-
 }
 
 function swipe(items, directions, swipes) {
     print(items);
     print(directions);
     print(swipes);
-    print(directions[0]);
-    print(swipes[0]);
 }
+
+function pan(translation) {
+    print(translation);
+    moon.position = moon.position.plus(translation.times(0.02));
+}
+
 
 function contact(left, right, contact) {
 

@@ -65,6 +65,7 @@
     gestures.sceneView = self.sceneView;
     [gestures setupTaps];
     [gestures setupSwipes];
+    [gestures setupPans];
 }
 
 @end
