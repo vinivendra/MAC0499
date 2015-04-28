@@ -34,11 +34,13 @@ function load() {
 function tap(items, hits) {
     print(items);
     print(hits);
+
+    items[0].scale = items[0].scale.times(1.1);
 }
 
-function swipe(items, directions, swipes) {
+function swipe(direction, items, swipes) {
+    print(direction);
     print(items);
-    print(directions);
     print(swipes);
 }
 

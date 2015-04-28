@@ -1,10 +1,18 @@
 // TODO: export directions enum to js
+// TODO: pinch, rotate, long press.
 
 #import "Gestures.h"
 #import "JavaScript.h"
 
 
-static Vector *lastPanPoint = nil;
+
+
+@interface Gestures ()
+@property (nonatomic, strong) Vector *lastPanPoint;
+@property (nonatomic, strong) NSArray *classes;
+@property (nonatomic, strong) NSArray *selectors;
+@property (nonatomic, strong) NSMutableArray *options;
+@end
 
 
 @implementation Gestures
@@ -21,41 +29,34 @@ static Vector *lastPanPoint = nil;
     return singleton;
 }
 
+- (instancetype)init {
+    if (self = [super init]) {
+        self.options =
+        [[NSMutableArray alloc] initWithCapacity:GestureRecognizersCount];
+        for (int i = 0; i < GestureRecognizersCount; i++) {
+            [self.options push:@(NO)];
+        }
+    }
+    return self;
+}
+
 #pragma mark - Setup
 
-- (void)setupTaps {
-    UITapGestureRecognizer *tapGesture = [UITapGestureRecognizer new];
-    [tapGesture addTarget:self action:@selector(handleTap:)];
-    [self.gesturesView addGestureRecognizer:tapGesture];
-}
+- (void)setupGestures {
+    for (int i = 0; i < GestureRecognizersCount; i++) {
+        if (((NSNumber *)self.options[i]).boolValue) {
+            Class class = self.classes[i];
+            SEL handler = NSSelectorFromString(self.selectors[i]);
 
-- (void)setupSwipes {
-    UISwipeGestureRecognizer *swipeGestureRight =
-        [UISwipeGestureRecognizer new];
-    swipeGestureRight.direction = UISwipeGestureRecognizerDirectionRight;
-    [swipeGestureRight addTarget:self action:@selector(handleSwipeRight:)];
-    [self.gesturesView addGestureRecognizer:swipeGestureRight];
+            UIGestureRecognizer *gesture = [class new];
+            [gesture addTarget:self action:handler];
 
-    UISwipeGestureRecognizer *swipeGestureLeft = [UISwipeGestureRecognizer new];
-    swipeGestureLeft.direction = UISwipeGestureRecognizerDirectionLeft;
-    [swipeGestureLeft addTarget:self action:@selector(handleSwipeLeft:)];
-    [self.gesturesView addGestureRecognizer:swipeGestureLeft];
+            if (i <= SwipeUp)
+                ((UISwipeGestureRecognizer *)gesture).direction = 1 << i;
 
-    UISwipeGestureRecognizer *swipeGestureDown = [UISwipeGestureRecognizer new];
-    swipeGestureDown.direction = UISwipeGestureRecognizerDirectionDown;
-    [swipeGestureDown addTarget:self action:@selector(handleSwipeDown:)];
-    [self.gesturesView addGestureRecognizer:swipeGestureDown];
-
-    UISwipeGestureRecognizer *swipeGestureUp = [UISwipeGestureRecognizer new];
-    swipeGestureUp.direction = UISwipeGestureRecognizerDirectionUp;
-    [swipeGestureUp addTarget:self action:@selector(handleSwipeUp:)];
-    [self.gesturesView addGestureRecognizer:swipeGestureUp];
-}
-
-- (void)setupPans {
-    UIPanGestureRecognizer *panGesture = [UIPanGestureRecognizer new];
-    [panGesture addTarget:self action:@selector(handlePan:)];
-    [self.gesturesView addGestureRecognizer:panGesture];
+            [self.gesturesView addGestureRecognizer:gesture];
+        }
+    }
 }
 
 #pragma mark - Handlers
@@ -76,55 +77,82 @@ static Vector *lastPanPoint = nil;
     }
 }
 
-- (void)handleSwipeRight:(UISwipeGestureRecognizer *)sender {
-    [self handleSwipe:sender
-          inDirection:UISwipeGestureRecognizerDirectionRight];
-}
-
-- (void)handleSwipeLeft:(UISwipeGestureRecognizer *)sender {
-    [self handleSwipe:sender inDirection:UISwipeGestureRecognizerDirectionLeft];
-}
-
-- (void)handleSwipeDown:(UISwipeGestureRecognizer *)sender {
-    [self handleSwipe:sender inDirection:UISwipeGestureRecognizerDirectionDown];
-}
-
-- (void)handleSwipeUp:(UISwipeGestureRecognizer *)sender {
-    [self handleSwipe:sender inDirection:UISwipeGestureRecognizerDirectionUp];
-}
-
-- (void)handleSwipe:(UISwipeGestureRecognizer *)sender
-        inDirection:(UISwipeGestureRecognizerDirection)direction {
+- (void)handleSwipe:(UISwipeGestureRecognizer *)sender {
 
     if (sender.state == UIGestureRecognizerStateRecognized) {
         CGPoint location = [sender locationInView:self.sceneView];
         NSArray *swipes = [self.sceneView hitTest:location options:nil];
-        NSMutableArray *validSwipes = [NSMutableArray new];
-        NSMutableArray *directions = [NSMutableArray new];
+        NSMutableArray *hits = [NSMutableArray new];
         NSMutableArray *items = [NSMutableArray new];
         for (SCNHitTestResult *swipe in swipes) {
-            [validSwipes push:swipe];
-            [directions push:@(direction)];
+            [hits push:swipe];
             [items push:swipe.node.item];
         }
         [[JavaScript shared].swipeCallback
-            callWithArguments:@[ items, directions, validSwipes ]];
+            callWithArguments:@[ @(sender.direction), items, hits ]];
     }
 }
 
 - (void)handlePan:(UIPanGestureRecognizer *)sender {
 
     if (sender.state == UIGestureRecognizerStateBegan) {
-        lastPanPoint = [Vector origin];
+        self.lastPanPoint = [Vector origin];
     }
     if (sender.state == UIGestureRecognizerStateChanged) {
         CGPoint translation = [sender translationInView:self.sceneView];
         Vector *currentPoint = [[Vector alloc] initWithCGPoint:translation];
-        Vector *relativeTranslation = [currentPoint minus:lastPanPoint];
+        Vector *relativeTranslation = [currentPoint minus:self.lastPanPoint];
         [[JavaScript shared].panCallback
             callWithArguments:@[ relativeTranslation ]];
-        lastPanPoint = currentPoint;
+        self.lastPanPoint = currentPoint;
     }
+}
+
+
+#pragma mark - Property Overriding
+
+- (NSArray *)classes {
+    static NSArray *singleton;
+
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken,
+                  ^{
+                      singleton = @[
+                          [UISwipeGestureRecognizer class],
+                          [UISwipeGestureRecognizer class],
+                          [UISwipeGestureRecognizer class],
+                          [UISwipeGestureRecognizer class],
+                          [UITapGestureRecognizer class],
+                          [UIPanGestureRecognizer class],
+                          [UIPinchGestureRecognizer class],
+                          [UIRotationGestureRecognizer class],
+                          [UILongPressGestureRecognizer class]
+                      ];
+                  });
+
+    return singleton;
+}
+
+- (NSArray *)selectors {
+    static NSArray *singleton;
+
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken,
+                  ^{
+                      singleton = @[
+                          @"handleSwipe:",
+                          @"handleSwipe:",
+                          @"handleSwipe:",
+                          @"handleSwipe:",
+                          @"handleTap:",
+                          @"handlePan:",
+                          @"handlePinch:",
+                          @"handleRotation:",
+                          @"handleLongPress:"
+                      ];
+                  });
+
+    return singleton;
 }
 
 

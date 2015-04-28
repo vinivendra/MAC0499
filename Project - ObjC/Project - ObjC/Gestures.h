@@ -1,5 +1,20 @@
 
 
+typedef NS_ENUM(NSUInteger, GestureRecognizers) {
+    SwipeRight = 0,
+    SwipeLeft,
+    SwipeDown,
+    SwipeUp,
+    Tap,
+    Pan,
+    Pinch,
+    Rotate,
+    LongPress,
+
+    GestureRecognizersCount
+};
+
+
 @interface Gestures : NSObject
 /*!
  The singleton instance of the Gestures class. The class is meant to be used as
@@ -18,21 +33,21 @@
  */
 @property (nonatomic, weak) SCNView *sceneView;
 /*!
- Tells the Gestures object to add a gesture recognizer for taps, which
- automatically starts sending messages to the Javascript tap callback function
- whenever taps occur in the gestureView.
+ Tells the Gestures object to add the gesture recognizers the user opted to
+ have, which automatically starts sending messages to the Javascript tap
+ callback function, whenever the gestures get recognized in the gestureView.
+
+ To opt into having a gesture recognizer, simply set the appropriate index of
+ this object's @p options array to @(YES). The indexes are based on the
+ GestureRecognizers enum.
  */
-- (void)setupTaps;
+- (void)setupGestures;
 /*!
- Tells the Gestures object to add a gesture recognizer for swipes, which
- automatically starts sending messages to the Javascript swipe callback function
- whenever swipes occur in the gestureView.
+ The array used to inform the Gestures object which gesture recognizers should
+ be initialized and added to the @p gesturesView. This is done based on the @p
+ GestureRecognizers enum, which indicates the correct indices. All objects in
+ this array have value @(NO); in order to opt into a specific gesture
+ recognizer, change its index's value to @(YES).
  */
-- (void)setupSwipes;
-/*!
- Tells the Gestures object to add a gesture recognizer for pans, which
- automatically starts sending messages to the Javascript pan callback function
- whenever swipes occur in the gestureView.
- */
-- (void)setupPans;
+@property (nonatomic, strong, readonly) NSMutableArray *options;
 @end
