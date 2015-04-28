@@ -49,6 +49,10 @@ function pan(translation) {
     moon.position = moon.position.plus(translation.times(0.02));
 }
 
+function pinch(scale) {
+    print(scale);
+    instance.radius = instance.radius * scale;
+}
 
 function contact(left, right, contact) {
 

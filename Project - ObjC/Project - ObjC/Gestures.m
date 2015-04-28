@@ -9,6 +9,8 @@
 
 @interface Gestures ()
 @property (nonatomic, strong) Vector *lastPanPoint;
+@property (nonatomic) CGFloat lastPinchValue;
+
 @property (nonatomic, strong) NSArray *classes;
 @property (nonatomic, strong) NSArray *selectors;
 @property (nonatomic, strong) NSMutableArray *options;
@@ -107,6 +109,43 @@
         self.lastPanPoint = currentPoint;
     }
 }
+
+- (void)handlePinch:(UIPinchGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        self.lastPinchValue = 1.0f;
+    }
+    if (sender.state == UIGestureRecognizerStateChanged) {
+        CGFloat scale = sender.scale;
+        NSLog(@"scale: %f", scale);
+        CGFloat relativeScale = scale / self.lastPinchValue;
+        [[JavaScript shared].pinchCallback
+         callWithArguments:@[ @(relativeScale) ]];
+        self.lastPinchValue = scale;
+    }
+}
+
+//switch (sender.state) {
+//    case UIGestureRecognizerStatePossible:
+//        NSLog(@"Possible");
+//        break;
+//    case UIGestureRecognizerStateBegan:
+//        NSLog(@"Began");
+//        break;
+//    case UIGestureRecognizerStateChanged:
+//        NSLog(@"Changed");
+//        break;
+//    case UIGestureRecognizerStateEnded:
+//        NSLog(@"Ended");
+//        break;
+//    case UIGestureRecognizerStateCancelled:
+//        NSLog(@"Cancelled");
+//        break;
+//    case UIGestureRecognizerStateFailed:
+//        NSLog(@"Failed");
+//        break;
+//    default:
+//        break;
+//}
 
 
 #pragma mark - Property Overriding

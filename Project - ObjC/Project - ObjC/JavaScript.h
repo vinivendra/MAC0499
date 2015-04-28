@@ -93,4 +93,13 @@
  JSValue returned will be undefined.
  */
 - (JSValue *)panCallback;
+/*!
+ Returns the current callback function for handling pinches in javascript. It
+ should be a function called "pinches" or a variable, with the same name, that
+ contains the function to be called.
+ @return An JSValue, hopefully containing the callback function to be called (if
+ the JavaScript code is correct); if there is no such function or variable, the
+ JSValue returned will be undefined.
+ */
+- (JSValue *)pinchCallback;
 @end

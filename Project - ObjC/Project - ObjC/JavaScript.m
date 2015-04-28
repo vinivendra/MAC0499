@@ -36,6 +36,7 @@ static NSString *_defaultFilename = @"main.js";
 @property (nonatomic, strong) JSValue *tapCallback;
 @property (nonatomic, strong) JSValue *swipeCallback;
 @property (nonatomic, strong) JSValue *panCallback;
+@property (nonatomic, strong) JSValue *pinchCallback;
 @end
 
 
@@ -155,6 +156,7 @@ static NSString *_defaultFilename = @"main.js";
     self.tapCallback = self.context[@"tap"];
     self.swipeCallback = self.context[@"swipe"];
     self.panCallback = self.context[@"pan"];
+    self.pinchCallback = self.context[@"pinch"];
 }
 
 @end
