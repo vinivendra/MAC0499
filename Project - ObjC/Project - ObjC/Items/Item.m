@@ -97,7 +97,13 @@ static NSUInteger globalID = 0;
 
 - (void)rotate:(id)rotation {
     Rotation *rotationObject = [Rotation rotationWithObject:rotation];
-    self.node.transform = [rotationObject rotateMatrix:self.node.transform];
+    Vector *position = self.position;
+    
+    SCNMatrix4 result = [position.opposite translateMatrix:self.node.transform];
+    result = [rotationObject rotateMatrix:result];
+    result = [position translateMatrix:result];
+
+    self.node.transform = result;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

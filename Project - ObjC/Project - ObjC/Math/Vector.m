@@ -136,6 +136,12 @@
                                    Z:self.z - vector.z];
 }
 
+- (Vector *)opposite {
+    return [[Vector alloc] initWithX:-self.x
+                                   Y:-self.y
+                                   Z:-self.z];
+}
+
 - (CGFloat)dot:(Vector *)vector {
     return self.x * vector.x + self.y * vector.y + self.z * vector.z;
 }
@@ -152,6 +158,9 @@
     return [self over:[self norm]];
 }
 
+- (SCNMatrix4)translateMatrix:(SCNMatrix4)matrix {
+    return SCNMatrix4Translate(matrix, self.x, self.y, self.z);
+}
 
 ///////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Property Overriding

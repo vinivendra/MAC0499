@@ -110,8 +110,8 @@
  The receiver applies the rotation it represents to the receiving SCNMatrix4,
  and then returns the result.
  @param matrix The matrix to rotate.
- @return A new SCNMatrix4, representing the result of the original matrix's
- rotation.
+ @return A new SCNMatrix4, representing the result of the rotation of the
+ original matrix.
  */
 - (SCNMatrix4)rotateMatrix:(SCNMatrix4)matrix;
 

@@ -187,6 +187,12 @@
  */
 - (Vector *)minus:(Vector *)vector;
 /*!
+ Returns a Vector representing the opposite ([-x, -y, -z]) of the receiver ([x,
+ y, z]).
+ @return A new instance of a Vector object.
+ */
+- (Vector *)opposite;
+/*!
  Returns the dot product (which is a scalar value) representing a dot product of
  this Vector [x y z] with another Vector [a b c], resulting in x*a + y*b + z*c.
  @param vector The other Vector to use in the dot product.
@@ -217,4 +223,12 @@
  @return A new instance of a Vector object.
  */
 - (Vector *)normalize;
+/*!
+ The receiver applies the translation it represents to the receiving SCNMatrix4,
+ and then returns the result.
+ @param matrix The matrix to translate.
+ @return A new SCNMatrix4, representing the result of the translation of the
+ original matrix.
+ */
+- (SCNMatrix4)translateMatrix:(SCNMatrix4)matrix;
 @end
