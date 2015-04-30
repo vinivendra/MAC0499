@@ -61,6 +61,11 @@ function rotate(angle) {
     instance.rotate([0, 0, 1, angle]);
 }
 
+function longPress(translation) {
+    print(translation);
+    instance.position = instance.position.plus(translation.times(0.02));
+}
+
 function contact(left, right, contact) {
 
 }

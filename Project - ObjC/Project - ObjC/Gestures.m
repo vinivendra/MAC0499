@@ -1,5 +1,4 @@
-// TODO: Add a -rotate:(Rotation *) method to Item
-// TODO: rotate, long press.
+// TODO: long press.
 // TODO: export directions enum to js
 
 #import "Gestures.h"
@@ -8,6 +7,7 @@
 
 @interface Gestures ()
 @property (nonatomic, strong) Vector *lastPanPoint;
+@property (nonatomic, strong) Vector *lastLongPressPoint;
 @property (nonatomic) CGFloat lastPinchValue;
 @property (nonatomic) CGFloat lastRotationValue;
 
@@ -136,28 +136,22 @@
     }
 }
 
-// switch (sender.state) {
-//    case UIGestureRecognizerStatePossible:
-//        NSLog(@"Possible");
-//        break;
-//    case UIGestureRecognizerStateBegan:
-//        NSLog(@"Began");
-//        break;
-//    case UIGestureRecognizerStateChanged:
-//        NSLog(@"Changed");
-//        break;
-//    case UIGestureRecognizerStateEnded:
-//        NSLog(@"Ended");
-//        break;
-//    case UIGestureRecognizerStateCancelled:
-//        NSLog(@"Cancelled");
-//        break;
-//    case UIGestureRecognizerStateFailed:
-//        NSLog(@"Failed");
-//        break;
-//    default:
-//        break;
-//}
+- (void)handleLongPress:(UILongPressGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        CGPoint startingLocation = [sender locationInView:self.sceneView];
+        self.lastLongPressPoint =
+            [[Vector alloc] initWithCGPoint:startingLocation];
+    }
+    if (sender.state == UIGestureRecognizerStateChanged) {
+        CGPoint location = [sender locationInView:self.sceneView];
+        Vector *currentPoint = [[Vector alloc] initWithCGPoint:location];
+        Vector *relativeTranslation =
+            [currentPoint minus:self.lastLongPressPoint];
+        [[JavaScript shared].longPressCallback
+            callWithArguments:@[ relativeTranslation ]];
+        self.lastLongPressPoint = currentPoint;
+    }
+}
 
 
 #pragma mark - Property Overriding
