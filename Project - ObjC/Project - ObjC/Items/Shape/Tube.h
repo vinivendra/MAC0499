@@ -8,6 +8,7 @@
 + (instancetype)create;
 - (instancetype)create;
 + (instancetype) template;
+- (void)rotate:(id)rotation;
 //
 - (void)destroy;
 @property (nonatomic, strong) id position;

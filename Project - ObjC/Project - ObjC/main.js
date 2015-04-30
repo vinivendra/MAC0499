@@ -15,7 +15,9 @@ function load() {
     moon = earth.create();
     moon.color = "darkGray";
     moon.scale = 0.7;
-    moon.position = [0, 0, 0];
+    moon.position = [0, 3, 0];
+
+    instance.addItem(moon);
 
 //    btn = UIButton.create();
 //    btn.position = [300, 200];
@@ -52,6 +54,11 @@ function pan(translation) {
 function pinch(scale) {
     print(scale);
     instance.radius = instance.radius * scale;
+}
+
+function rotate(angle) {
+    print(angle);
+    instance.rotate([0, 0, 1, angle]);
 }
 
 function contact(left, right, contact) {

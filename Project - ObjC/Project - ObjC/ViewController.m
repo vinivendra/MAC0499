@@ -69,7 +69,8 @@
 //    gestures.options[SwipeDown] = @(YES);
 //    gestures.options[SwipeUp] = @(YES);
 //    gestures.options[Pan] = @(YES);
-    gestures.options[Pinch] = @(YES);
+//    gestures.options[Pinch] = @(YES);
+    gestures.options[Rotate] = @(YES);
     [gestures setupGestures];
 //    [gestures setupTaps];
 //    [gestures setupSwipes];

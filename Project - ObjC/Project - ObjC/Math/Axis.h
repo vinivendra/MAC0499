@@ -1,4 +1,6 @@
 
+#import "Vector.h"
+
 @protocol AxisExport <JSExport>
 @property (nonatomic) SCNVector3 vector;
 

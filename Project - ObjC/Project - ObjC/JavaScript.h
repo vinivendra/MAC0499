@@ -101,5 +101,15 @@
  the JavaScript code is correct); if there is no such function or variable, the
  JSValue returned will be undefined.
  */
-- (JSValue *)pinchCallback;
+-
+(JSValue *)pinchCallback;
+/*!
+ Returns the current callback function for handling rotations in javascript. It
+ should be a function called "rotation" or a variable, with the same name, that
+ contains the function to be called.
+ @return An JSValue, hopefully containing the callback function to be called (if
+ the JavaScript code is correct); if there is no such function or variable, the
+ JSValue returned will be undefined.
+ */
+- (JSValue *)rotationCallback;
 @end

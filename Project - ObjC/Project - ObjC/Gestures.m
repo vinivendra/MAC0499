@@ -1,15 +1,15 @@
+// TODO: Add a -rotate:(Rotation *) method to Item
+// TODO: rotate, long press.
 // TODO: export directions enum to js
-// TODO: pinch, rotate, long press.
 
 #import "Gestures.h"
 #import "JavaScript.h"
 
 
-
-
 @interface Gestures ()
 @property (nonatomic, strong) Vector *lastPanPoint;
 @property (nonatomic) CGFloat lastPinchValue;
+@property (nonatomic) CGFloat lastRotationValue;
 
 @property (nonatomic, strong) NSArray *classes;
 @property (nonatomic, strong) NSArray *selectors;
@@ -34,7 +34,7 @@
 - (instancetype)init {
     if (self = [super init]) {
         self.options =
-        [[NSMutableArray alloc] initWithCapacity:GestureRecognizersCount];
+            [[NSMutableArray alloc] initWithCapacity:GestureRecognizersCount];
         for (int i = 0; i < GestureRecognizersCount; i++) {
             [self.options push:@(NO)];
         }
@@ -116,15 +116,27 @@
     }
     if (sender.state == UIGestureRecognizerStateChanged) {
         CGFloat scale = sender.scale;
-        NSLog(@"scale: %f", scale);
         CGFloat relativeScale = scale / self.lastPinchValue;
         [[JavaScript shared].pinchCallback
-         callWithArguments:@[ @(relativeScale) ]];
+            callWithArguments:@[ @(relativeScale) ]];
         self.lastPinchValue = scale;
     }
 }
 
-//switch (sender.state) {
+- (void)handleRotation:(UIRotationGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        self.lastRotationValue = 0.0f;
+    }
+    if (sender.state == UIGestureRecognizerStateChanged) {
+        CGFloat angle = sender.rotation;
+        CGFloat relativeAngle = self.lastRotationValue - angle;
+        [[JavaScript shared].rotationCallback
+            callWithArguments:@[ @(relativeAngle) ]];
+        self.lastRotationValue = angle;
+    }
+}
+
+// switch (sender.state) {
 //    case UIGestureRecognizerStatePossible:
 //        NSLog(@"Possible");
 //        break;
