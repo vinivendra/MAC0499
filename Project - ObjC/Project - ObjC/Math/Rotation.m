@@ -2,10 +2,12 @@
 
 #import "Rotation.h"
 
+
 @interface Rotation ()
 @property (nonatomic, strong) Axis *axis;
 @property (nonatomic, strong) Angle *angle;
 @end
+
 
 @implementation Rotation
 
@@ -86,4 +88,48 @@
         self.axis.x, self.axis.y, self.axis.z, [self.angle toRadians]);
 }
 
+- (SCNMatrix4)toSCNMatrix {
+    return SCNMatrix4MakeRotation(self.a, self.x, self.y, self.z);
+}
+
+- (SCNMatrix4)rotateMatrix:(SCNMatrix4)matrix {
+    return SCNMatrix4Rotate(matrix, self.a, self.x, self.y, self.z);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Property Overriding
+
+- (CGFloat)x {
+    return self.axis.x;
+}
+
+- (CGFloat)y {
+    return self.axis.y;
+}
+
+- (CGFloat)z {
+    return self.axis.z;
+}
+
+- (CGFloat)a {
+    return self.angle.toRadians;
+}
+
+- (Axis *)axis {
+    return _axis;
+}
+
+- (Angle *)angle {
+    return _angle;
+}
+
 @end
+
+
+
+
+
+
+
+
+

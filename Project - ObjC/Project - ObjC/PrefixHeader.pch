@@ -31,6 +31,10 @@ static NSString *_testFileName = @"test.js";
 #import "Rotation.h"
 
 
+#import "UI+Exports.h"
+#import "UI.h"
+
+
 #import "Item.h"
 #import "Shape.h"
 #import "Sphere.h"
@@ -44,5 +48,7 @@ static NSString *_testFileName = @"test.js";
 #import "Plane.h"
 #import "Text.h"
 #import "Floor.h"
+
+#import "SCN+Exports.h"
 
 #endif

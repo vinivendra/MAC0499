@@ -25,8 +25,20 @@ static NSString *_defaultFilename = @"main.js";
 @interface JavaScript ()
 @property (nonatomic, strong) JSContext *context;
 @property (nonatomic, strong) NSString *filename;
+
 @property (nonatomic, strong) JSValue *loadFunction;
 @property (nonatomic, strong) JSValue *updateFunction;
+
+@property (nonatomic, strong) JSValue *contactCallback;
+@property (nonatomic, strong) JSValue *buttonCallback;
+@property (nonatomic, strong) JSValue *sliderCallback;
+
+@property (nonatomic, strong) JSValue *tapCallback;
+@property (nonatomic, strong) JSValue *swipeCallback;
+@property (nonatomic, strong) JSValue *panCallback;
+@property (nonatomic, strong) JSValue *pinchCallback;
+@property (nonatomic, strong) JSValue *rotationCallback;
+@property (nonatomic, strong) JSValue *longPressCallback;
 @end
 
 
@@ -125,7 +137,11 @@ static NSString *_defaultFilename = @"main.js";
     self.context[@"floor"] = [Floor class];
 
     self.context[@"physics"] = [Physics new];
-    
+
+    self.context[@"UIButton"] = [UIButton class];
+    self.context[@"UISlider"] = [UISlider class];
+    self.context[@"UI"] = [UI shared];
+
     self.context[@"template"] = ^Item *(void) {
         return [Item template];
     };
@@ -134,10 +150,17 @@ static NSString *_defaultFilename = @"main.js";
 - (void)getObjects {
     self.loadFunction = self.context[@"load"];
     self.updateFunction = self.context[@"update"];
+
+    self.contactCallback = self.context[@"contact"];
+    self.buttonCallback = self.context[@"button"];
+    self.sliderCallback = self.context[@"slider"];
+
+    self.tapCallback = self.context[@"tap"];
+    self.swipeCallback = self.context[@"swipe"];
+    self.panCallback = self.context[@"pan"];
+    self.pinchCallback = self.context[@"pinch"];
+    self.rotationCallback = self.context[@"rotate"];
+    self.longPressCallback = self.context[@"longPress"];
 }
 
-//
-- (JSValue *)contactCallback {
-    return self.context[@"contact"];
-}
 @end

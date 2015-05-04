@@ -6,9 +6,12 @@
 
 #import "Physics.h"
 #import "JavaScript.h"
+#import "Gestures.h"
+
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet SCNView *sceneView;
+@property (weak, nonatomic) IBOutlet UIView *controlView;
 @end
 
 
@@ -19,6 +22,8 @@
 
     Physics *physics = [Physics shared];
     JavaScript *javaScript = [JavaScript shared];
+
+    [UI shared].view = self.controlView;
 
     [javaScript load];
     [javaScript update];
@@ -55,7 +60,19 @@
     node.position = SCNVector3Make(-3, -3, -3);
     [scene.rootNode addChildNode:node];
 
-    [[Parser shared] parseFile:nil];
+    Gestures *gestures = [Gestures shared];
+    gestures.gesturesView = self.controlView;
+    gestures.sceneView = self.sceneView;
+//    gestures.options[Tap] = @(YES);
+    gestures.options[SwipeRight] = @(YES);
+    gestures.options[SwipeLeft] = @(YES);
+    gestures.options[SwipeDown] = @(YES);
+    gestures.options[SwipeUp] = @(YES);
+//    gestures.options[Pan] = @(YES);
+//    gestures.options[Pinch] = @(YES);
+//    gestures.options[Rotate] = @(YES);
+//    gestures.options[LongPress] = @(YES);
+    [gestures setupGestures];
 }
 
 @end

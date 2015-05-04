@@ -1,4 +1,4 @@
-
+#import "Rotation.h"
 
 /*!
  An "abstract" superclass for all graphic items. This includes anything that
@@ -59,6 +59,15 @@
  Removes the receiver from its parent's hierarchy, just like a node.
  */
 - (void)removeFromParent;
+/*!
+ Creates a Rotation object from the given id object, then applies the resulting
+ rotation to the receiver. The rotation is applied on top of the receiver's
+ existing transform, so that it is concatenated on top of any existing rotation
+ the receiver may have.
+ @param rotation A Rotation object, representing the change that should be
+ applied to the receiver.
+ */
+- (void)rotate:(id)rotation;
 /*!
  An integer used to uniquely identify an Item.
  */

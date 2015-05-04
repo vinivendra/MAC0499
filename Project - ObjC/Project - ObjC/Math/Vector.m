@@ -32,6 +32,11 @@
     return self;
 }
 
+- (instancetype)initWithCGPoint:(CGPoint)newValue {
+    self = [self initWithX:newValue.x Y:-newValue.y Z:0];
+    return self;
+}
+
 - (instancetype)initWithSCNVector4:(SCNVector4)newValue {
     if (self = [super init]) {
         self.vector = SCNVector3Make(newValue.x, newValue.y, newValue.z);
@@ -55,9 +60,10 @@
 
 - (instancetype)initWithArray:(NSArray *)array {
     if (self = [super init]) {
+        CGFloat z = array.count == 2 ? 0 : ((NSNumber *)array[2]).doubleValue;
         self.vector = SCNVector3Make(((NSNumber *)array[0]).doubleValue,
                                      ((NSNumber *)array[1]).doubleValue,
-                                     ((NSNumber *)array[2]).doubleValue);
+                                     z);
     }
     return self;
 }
@@ -130,6 +136,12 @@
                                    Z:self.z - vector.z];
 }
 
+- (Vector *)opposite {
+    return [[Vector alloc] initWithX:-self.x
+                                   Y:-self.y
+                                   Z:-self.z];
+}
+
 - (CGFloat)dot:(Vector *)vector {
     return self.x * vector.x + self.y * vector.y + self.z * vector.z;
 }
@@ -146,6 +158,9 @@
     return [self over:[self norm]];
 }
 
+- (SCNMatrix4)translateMatrix:(SCNMatrix4)matrix {
+    return SCNMatrix4Translate(matrix, self.x, self.y, self.z);
+}
 
 ///////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Property Overriding

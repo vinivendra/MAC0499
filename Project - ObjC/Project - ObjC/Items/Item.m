@@ -81,18 +81,29 @@ static NSUInteger globalID = 0;
     if (!item.node) {
         item.node = [SCNNode new];
         item.node.item = self;
-        
+
         item.position = self.position;
         item.rotation = self.rotation;
         item.scale = self.scale;
     }
-    
+
     item.position = self.position;
     item.rotation = self.rotation;
     item.scale = self.scale;
-    
+
     for (Item *child in self.children)
         [item addItem:[child deepCopy]];
+}
+
+- (void)rotate:(id)rotation {
+    Rotation *rotationObject = [Rotation rotationWithObject:rotation];
+    Vector *position = self.position;
+    
+    SCNMatrix4 result = [position.opposite translateMatrix:self.node.transform];
+    result = [rotationObject rotateMatrix:result];
+    result = [position translateMatrix:result];
+
+    self.node.transform = result;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

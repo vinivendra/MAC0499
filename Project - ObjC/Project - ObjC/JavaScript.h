@@ -42,10 +42,82 @@
 /*!
  Returns the current callback function for contact handling in javascript. It
  should be a function called "contact" or a variable, with the same name, that
- contains a function to be called.
+ contains the function to be called.
  @return An JSValue, hopefully containing the callback function to be called (if
  the JavaScript code is correct); if there is no such function or variable, the
  JSValue returned will be undefined.
  */
 - (JSValue *)contactCallback;
+/*!
+ Returns the current callback function for handling button presses in
+ javascript. It should be a function called "button" or a variable, with the
+ same name, that contains the function to be called.
+ @return An JSValue, hopefully containing the callback function to be called (if
+ the JavaScript code is correct); if there is no such function or variable, the
+ JSValue returned will be undefined.
+ */
+- (JSValue *)buttonCallback;
+/*!
+ Returns the current callback function for handling slider value changes in
+ javascript. It should be a function called "slider" or a variable, with the
+ same name, that contains the function to be called.
+ @return An JSValue, hopefully containing the callback function to be called (if
+ the JavaScript code is correct); if there is no such function or variable, the
+ JSValue returned will be undefined.
+ */
+- (JSValue *)sliderCallback;
+/*!
+ Returns the current callback function for handling taps in javascript. It
+ should be a function called "tap" or a variable, with the same name, that
+ contains the function to be called.
+ @return An JSValue, hopefully containing the callback function to be called (if
+ the JavaScript code is correct); if there is no such function or variable, the
+ JSValue returned will be undefined.
+ */
+- (JSValue *)tapCallback;
+/*!
+ Returns the current callback function for handling swipes in javascript. It
+ should be a function called "swipe" or a variable, with the same name, that
+ contains the function to be called.
+ @return An JSValue, hopefully containing the callback function to be called (if
+ the JavaScript code is correct); if there is no such function or variable, the
+ JSValue returned will be undefined.
+ */
+- (JSValue *)swipeCallback;
+/*!
+ Returns the current callback function for handling pans in javascript. It
+ should be a function called "pan" or a variable, with the same name, that
+ contains the function to be called.
+ @return An JSValue, hopefully containing the callback function to be called (if
+ the JavaScript code is correct); if there is no such function or variable, the
+ JSValue returned will be undefined.
+ */
+- (JSValue *)panCallback;
+/*!
+ Returns the current callback function for handling pinches in javascript. It
+ should be a function called "pinches" or a variable, with the same name, that
+ contains the function to be called.
+ @return An JSValue, hopefully containing the callback function to be called (if
+ the JavaScript code is correct); if there is no such function or variable, the
+ JSValue returned will be undefined.
+ */
+- (JSValue *)pinchCallback;
+/*!
+ Returns the current callback function for handling rotations in javascript. It
+ should be a function called "rotation" or a variable, with the same name, that
+ contains the function to be called.
+ @return An JSValue, hopefully containing the callback function to be called (if
+ the JavaScript code is correct); if there is no such function or variable, the
+ JSValue returned will be undefined.
+ */
+- (JSValue *)rotationCallback;
+/*!
+ Returns the current callback function for handling long presses in javascript.
+ It should be a function called "longPress" or a variable, with the same name,
+ that contains the function to be called.
+ @return An JSValue, hopefully containing the callback function to be called (if
+ the JavaScript code is correct); if there is no such function or variable, the
+ JSValue returned will be undefined.
+ */
+- (JSValue *)longPressCallback;
 @end
