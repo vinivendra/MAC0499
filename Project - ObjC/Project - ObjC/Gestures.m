@@ -1,4 +1,3 @@
-// TODO: long press.
 // TODO: export directions enum to js
 
 #import "Gestures.h"
