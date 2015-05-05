@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24A302071AF90AC30098F809 /* libEngineKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24A302021AF90A9E0098F809 /* libEngineKit.a */; };
 		24DF79821AF7F79A00319C49 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DF79811AF7F79A00319C49 /* main.m */; };
 		24DF79851AF7F79A00319C49 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DF79841AF7F79A00319C49 /* AppDelegate.m */; };
 		24DF79881AF7F79A00319C49 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DF79871AF7F79A00319C49 /* ViewController.m */; };
@@ -14,7 +15,6 @@
 		24DF798D1AF7F79A00319C49 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24DF798C1AF7F79A00319C49 /* Images.xcassets */; };
 		24DF79901AF7F79A00319C49 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24DF798E1AF7F79A00319C49 /* LaunchScreen.xib */; };
 		24DF799C1AF7F79A00319C49 /* EngineKitGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DF799B1AF7F79A00319C49 /* EngineKitGameTests.m */; };
-		24DF79B21AF7F7E400319C49 /* libEngineKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24DF79AB1AF7F7A800319C49 /* libEngineKit.a */; };
 		24DF79BD1AF800F000319C49 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = 24DF79BB1AF800F000319C49 /* main.js */; };
 		24DF79BE1AF800F000319C49 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = 24DF79BB1AF800F000319C49 /* main.js */; };
 		24DF79BF1AF800F000319C49 /* scene.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 24DF79BC1AF800F000319C49 /* scene.fmt */; };
@@ -22,6 +22,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		24A302011AF90A9E0098F809 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24A301FB1AF90A9E0098F809 /* EngineKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 24DF78721AF7F6E100319C49;
+			remoteInfo = EngineKit;
+		};
+		24A302031AF90A9E0098F809 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24A301FB1AF90A9E0098F809 /* EngineKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 24DF787D1AF7F6E100319C49;
+			remoteInfo = EngineKitTests;
+		};
+		24A302051AF90AB80098F809 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24A301FB1AF90A9E0098F809 /* EngineKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 24DF78711AF7F6E100319C49;
+			remoteInfo = EngineKit;
+		};
 		24DF79961AF7F79A00319C49 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 24DF79741AF7F79A00319C49 /* Project object */;
@@ -29,30 +50,10 @@
 			remoteGlobalIDString = 24DF797B1AF7F79A00319C49;
 			remoteInfo = EngineKitGame;
 		};
-		24DF79AA1AF7F7A800319C49 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 24DF79A51AF7F7A800319C49 /* EngineKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 24DF78721AF7F6E100319C49;
-			remoteInfo = EngineKit;
-		};
-		24DF79AC1AF7F7A800319C49 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 24DF79A51AF7F7A800319C49 /* EngineKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 24DF787D1AF7F6E100319C49;
-			remoteInfo = EngineKitTests;
-		};
-		24DF79B01AF7F7D800319C49 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 24DF79A51AF7F7A800319C49 /* EngineKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 24DF78711AF7F6E100319C49;
-			remoteInfo = EngineKit;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		24A301FB1AF90A9E0098F809 /* EngineKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = EngineKit.xcodeproj; path = EngineKit/EngineKit.xcodeproj; sourceTree = "<group>"; };
 		24DF797C1AF7F79A00319C49 /* EngineKitGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EngineKitGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24DF79801AF7F79A00319C49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24DF79811AF7F79A00319C49 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -66,7 +67,6 @@
 		24DF79951AF7F79A00319C49 /* EngineKitGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EngineKitGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24DF799A1AF7F79A00319C49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24DF799B1AF7F79A00319C49 /* EngineKitGameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EngineKitGameTests.m; sourceTree = "<group>"; };
-		24DF79A51AF7F7A800319C49 /* EngineKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = EngineKit.xcodeproj; path = ../EngineKit/EngineKit.xcodeproj; sourceTree = "<group>"; };
 		24DF79BB1AF800F000319C49 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
 		24DF79BC1AF800F000319C49 /* scene.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scene.fmt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,7 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24DF79B21AF7F7E400319C49 /* libEngineKit.a in Frameworks */,
+				24A302071AF90AC30098F809 /* libEngineKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,10 +90,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		24A301FC1AF90A9E0098F809 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				24A302021AF90A9E0098F809 /* libEngineKit.a */,
+				24A302041AF90A9E0098F809 /* EngineKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		24DF79731AF7F79A00319C49 = {
 			isa = PBXGroup;
 			children = (
-				24DF79A51AF7F7A800319C49 /* EngineKit.xcodeproj */,
+				24A301FB1AF90A9E0098F809 /* EngineKit.xcodeproj */,
 				24DF797E1AF7F79A00319C49 /* EngineKitGame */,
 				24DF79981AF7F79A00319C49 /* EngineKitGameTests */,
 				24DF797D1AF7F79A00319C49 /* Products */,
@@ -152,15 +161,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		24DF79A61AF7F7A800319C49 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				24DF79AB1AF7F7A800319C49 /* libEngineKit.a */,
-				24DF79AD1AF7F7A800319C49 /* EngineKitTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -175,7 +175,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				24DF79B11AF7F7D800319C49 /* PBXTargetDependency */,
+				24A302061AF90AB80098F809 /* PBXTargetDependency */,
 			);
 			name = EngineKitGame;
 			productName = EngineKitGame;
@@ -231,8 +231,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 24DF79A61AF7F7A800319C49 /* Products */;
-					ProjectRef = 24DF79A51AF7F7A800319C49 /* EngineKit.xcodeproj */;
+					ProductGroup = 24A301FC1AF90A9E0098F809 /* Products */;
+					ProjectRef = 24A301FB1AF90A9E0098F809 /* EngineKit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -244,18 +244,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		24DF79AB1AF7F7A800319C49 /* libEngineKit.a */ = {
+		24A302021AF90A9E0098F809 /* libEngineKit.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libEngineKit.a;
-			remoteRef = 24DF79AA1AF7F7A800319C49 /* PBXContainerItemProxy */;
+			remoteRef = 24A302011AF90A9E0098F809 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		24DF79AD1AF7F7A800319C49 /* EngineKitTests.xctest */ = {
+		24A302041AF90A9E0098F809 /* EngineKitTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = EngineKitTests.xctest;
-			remoteRef = 24DF79AC1AF7F7A800319C49 /* PBXContainerItemProxy */;
+			remoteRef = 24A302031AF90A9E0098F809 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -306,15 +306,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		24A302061AF90AB80098F809 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = EngineKit;
+			targetProxy = 24A302051AF90AB80098F809 /* PBXContainerItemProxy */;
+		};
 		24DF79971AF7F79A00319C49 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 24DF797B1AF7F79A00319C49 /* EngineKitGame */;
 			targetProxy = 24DF79961AF7F79A00319C49 /* PBXContainerItemProxy */;
-		};
-		24DF79B11AF7F7D800319C49 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = EngineKit;
-			targetProxy = 24DF79B01AF7F7D800319C49 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
