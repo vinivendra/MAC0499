@@ -48,7 +48,9 @@ function swipe(direction, items, swipes) {
 
 function pan(translation) {
     print(translation);
-    moon.position = translation.times(0.02).translate(moon.position);
+    var resized = translation.times(0.02);
+    var newPosition = resized.translate(instance.position);
+    instance.position = newPosition;
 }
 
 function pinch(scale) {
