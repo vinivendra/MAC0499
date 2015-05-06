@@ -28,6 +28,7 @@
 @property (nonatomic) NSNumber *innerRadius;
 @property (nonatomic) NSNumber *outerRadius;
 @property (nonatomic) NSNumber *height;
+@property (nonatomic) NSNumber *thickness;
 @end
 
 
@@ -42,8 +43,8 @@
  */
 + (instancetype)tube;
 /*!
- An alias for the SCNTube's @p outerRadius property. Speficies the radius that
- the Tube will have, or it's extent in the @p xz plane.
+ A calculated property. Specifies the average between the tube's inner and outer
+ radii.
  */
 @property (nonatomic) NSNumber *radius;
 /*!
@@ -61,4 +62,10 @@
  the @p y axis.
  */
 @property (nonatomic) NSNumber *height;
+/*!
+ A calculated property. Specifies the diference between the tube's inner radius
+ and outer radius. When changed, changes both the inner and outer radius
+ proportionally, so that the @p radius property is kept constant.
+ */
+@property (nonatomic) NSNumber *thickness;
 @end

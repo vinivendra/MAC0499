@@ -36,7 +36,7 @@
 
 - (void)copyInfoTo:(Tube *)item {
     [super copyInfoTo:item];
-    
+
     item.outerRadius = self.outerRadius;
     item.innerRadius = self.innerRadius;
     item.height = self.height;
@@ -56,11 +56,16 @@
 
 - (void)setRadius:(NSNumber *)radius {
     [self assertTheresNoPhysicsBody];
-    self.tube.outerRadius = radius.doubleValue;
+
+    CGFloat currentRadius = (self.tube.outerRadius + self.tube.innerRadius) / 2;
+    CGFloat ratio = radius.doubleValue / currentRadius;
+
+    self.tube.innerRadius *= ratio;
+    self.tube.outerRadius *= ratio;
 }
 
 - (NSNumber *)radius {
-    return @(self.tube.outerRadius);
+    return @((self.tube.outerRadius + self.tube.innerRadius) / 2);
 }
 
 - (void)setInnerRadius:(NSNumber *)innerRadius {
@@ -88,6 +93,18 @@
 
 - (NSNumber *)height {
     return @(self.tube.height);
+}
+
+- (void)setThickness:(NSNumber *)thickness {
+    [self assertTheresNoPhysicsBody];
+
+    CGFloat currentRadius = (self.tube.outerRadius + self.tube.innerRadius) / 2;
+    self.tube.innerRadius = currentRadius - thickness.doubleValue/2;
+    self.tube.outerRadius = currentRadius + thickness.doubleValue/2;
+}
+
+- (NSNumber *)thickness {
+    return @(self.tube.outerRadius - self.tube.innerRadius);
 }
 
 @end

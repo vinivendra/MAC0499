@@ -19,6 +19,12 @@ function load() {
 
     instance.addItem(moon);
 
+    var tubo = tube.create();
+    tubo.radius = 1;
+    tubo.thickness = 1.9;
+    tubo.position = [0, -3, -2];
+    tubo.rotation = [0.2, 0.3, 0.4, 1];
+    tubo.color = "red";
 //    btn = UIButton.create();
 //    btn.position = [300, 200];
 //    btn.size = [100, 100];
