@@ -2,6 +2,11 @@
 
 #import "Vector.h"
 
+#import "ObjectiveSugar.h"
+
+#import "NSString+Extension.h"
+#import "NSNumber+Extension.h"
+
 
 @interface Vector ()
 @end
@@ -10,7 +15,15 @@
 @implementation Vector
 
 + (instancetype)origin {
-    return [[Vector alloc] initWithX:0 Y:0 Z:0];
+    __block Vector *origin;
+
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken,
+                  ^{
+                      origin = [[Vector alloc] initWithX:0 Y:0 Z:0];
+                  });
+
+    return origin;
 }
 
 - (instancetype)initUniformWithNumber:(CGFloat)x {
@@ -59,12 +72,50 @@
 }
 
 - (instancetype)initWithArray:(NSArray *)array {
+
+    SCNVector3 vector;
+
+    vector.x = array.count > 0
+                   ? [NSNumber numberWithObject:array[0]].doubleValue
+                   : 0;
+    vector.y = array.count > 1
+                   ? [NSNumber numberWithObject:array[1]].doubleValue
+                   : 0;
+    vector.z = array.count > 2
+                   ? [NSNumber numberWithObject:array[2]].doubleValue
+                   : 0;
+
     if (self = [super init]) {
-        CGFloat z = array.count == 2 ? 0 : ((NSNumber *)array[2]).doubleValue;
-        self.vector = SCNVector3Make(((NSNumber *)array[0]).doubleValue,
-                                     ((NSNumber *)array[1]).doubleValue,
-                                     z);
+        self.vector = vector;
     }
+    return self;
+}
+
+- (instancetype)initWithString:(NSString *)string {
+    NSScanner *scanner = [NSScanner scannerWithString:string];
+    NSCharacterSet *numbers =
+        [NSCharacterSet characterSetWithCharactersInString:@"-0123456789."];
+
+    NSMutableArray *array = [NSMutableArray array];
+
+    BOOL done = NO;
+    int contents = 0;
+
+    until(done || contents == 3) {
+        NSString *number;
+
+        [scanner scanUpToCharactersFromSet:numbers intoString:NULL];
+
+        done = ![scanner scanCharactersFromSet:numbers intoString:&number];
+
+        if (number) {
+            [array push:number.numberValue];
+            contents++;
+        }
+    }
+
+    self = [self initWithArray:array];
+
     return self;
 }
 
@@ -77,6 +128,8 @@
         self = [self initWithVector:object];
     } else if ([object isKindOfClass:[NSValue class]]) {
         self = [self initWithSCNVector:((NSValue *)object).SCNVector3Value];
+    } else if ([object isKindOfClass:[NSString class]]) {
+        self = [self initWithString:(NSString *)object];
     } else {
         assert(false);
         return nil;
@@ -137,9 +190,7 @@
 }
 
 - (Vector *)opposite {
-    return [[Vector alloc] initWithX:-self.x
-                                   Y:-self.y
-                                   Z:-self.z];
+    return [[Vector alloc] initWithX:-self.x Y:-self.y Z:-self.z];
 }
 
 - (CGFloat)dot:(Vector *)vector {
@@ -162,7 +213,11 @@
     return SCNMatrix4Translate(matrix, self.x, self.y, self.z);
 }
 
-///////////////////////////////////////////////////////////////////////////////////
+- (SCNMatrix4)scaleMatrix:(SCNMatrix4)matrix {
+    return SCNMatrix4Scale(matrix, self.x, self.y, self.z);
+}
+
+////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Property Overriding
 
 - (Vector *)setNewX:(CGFloat)x {

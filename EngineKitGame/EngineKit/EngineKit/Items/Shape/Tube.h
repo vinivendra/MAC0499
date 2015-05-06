@@ -1,4 +1,3 @@
-// TODO: Create a thickness variable.
 
 
 #import "Shape.h"

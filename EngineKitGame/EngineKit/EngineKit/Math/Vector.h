@@ -119,13 +119,22 @@
  */
 - (instancetype)initWithVector:(Vector *)vector;
 /*!
- Creates a Vector based on the given NSArray. Trusts that the array has enough
- (3 or more) components, and that the first 3 components may be cast into @p
- NSNumbers.
+ Creates a Vector based on the first three elements on a given NSArray. If the
+ array has less than 3 components or if any of the first three components is not
+ an NSNumber, the corresponding value is set to zero.
  @param array The array to copy into the Vector.
  @return An initialized Vector object.
  */
 - (instancetype)initWithArray:(NSArray *)array;
+/*!
+ Attempts to initialize a Vector by scanning the string for numbers. Each number
+ found is inserted into an array, and then the @p -initWithArray: method is
+ used.
+
+ @param string The NSString in which to search for the information.
+ @return An initialized Vector object.
+ */
+- (instancetype)initWithString:(NSString *)string;
 /*!
  Creates a Vector based on the given object. The supported objects are:
  - NSNumber, which will be initialized just like @p -initUniformWithNumber.
@@ -134,6 +143,7 @@
  -initWithSCNVector3.
  - Vector (or any of its subclassses, which will be initialized just like @p
  -initWithVector.
+ - NSString, which will be initialized just like @p -initWithString.
 
  @warning In case the object isn't a subclass of any of the above classes, an @p
  assert(false) will be triggered.
@@ -250,4 +260,12 @@
  original matrix.
  */
 - (SCNMatrix4)translateMatrix:(SCNMatrix4)matrix;
+/*!
+ The receiver applies the scale it represents to the receiving SCNMatrix4, and
+ then returns the result.
+ @param matrix The matrix to scale.
+ @return A new SCNMatrix4, representing the result of scaling the original
+ matrix.
+ */
+- (SCNMatrix4)scaleMatrix:(SCNMatrix4)matrix;
 @end

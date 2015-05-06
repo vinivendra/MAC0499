@@ -19,6 +19,7 @@
 @property (nonatomic, strong) id physics;
 @property (nonatomic, strong) id velocity;
 //
++ (instancetype)sphere;
 @property (nonatomic) NSNumber *radius;
 @end
 
