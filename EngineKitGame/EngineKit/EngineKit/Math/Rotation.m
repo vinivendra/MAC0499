@@ -1,6 +1,10 @@
 
+// TODO: Add a -numberWithArray:position: to NSNumber, use it in the
+// initWithArray methods.
 
 #import "Rotation.h"
+
+#import "NSArray+Extension.h"
 
 
 @interface Rotation ()
@@ -38,8 +42,7 @@
 - (instancetype)initWithSCNVector4:(SCNVector4)vector {
     if (self = [super init]) {
         self.axis = [[Axis alloc] initWithSCNVector4:vector];
-        self.angle =
-        [Angle angleWithRadians:vector.w];
+        self.angle = [Angle angleWithRadians:vector.w];
     }
     return self;
 }
@@ -47,8 +50,8 @@
 - (instancetype)initWithArray:(NSArray *)array {
     if (self = [super init]) {
         self.axis = [[Axis alloc] initWithArray:array];
-        self.angle =
-            [Angle angleWithRadians:((NSNumber *)array[3]).doubleValue];
+
+        self.angle = [Angle angleWithRadians:[array floatAtIndex:3]];
     }
     return self;
 }
@@ -62,29 +65,27 @@
 }
 
 - (instancetype)initWithObject:(id)object {
-    
-    if (self = [super init]) {
-        if ([object isKindOfClass:[Rotation class]]) {
-            self = [self initWithRotation:object];
-        }
-        else if ([object isKindOfClass:[NSArray class]]) {
-            self = [self initWithArray:object];
-        }
-        else if ([object isKindOfClass:[NSValue class]]) {
-            SCNVector4 vector = ((NSValue *)object).SCNVector4Value;
-            self = [self initWithSCNVector4:vector];
-        }
-        else {
-            assert(false);
-            return nil;
-        }
+
+    if ([object isKindOfClass:[Rotation class]]) {
+        self = [self initWithRotation:object];
+    } else if ([object isKindOfClass:[NSArray class]]) {
+        self = [self initWithArray:object];
+    } else if ([object isKindOfClass:[NSValue class]]) {
+        SCNVector4 vector = ((NSValue *)object).SCNVector4Value;
+        self = [self initWithSCNVector4:vector];
+    } else {
+        assert(false);
+        return nil;
     }
+
     return self;
 }
 
 - (SCNVector4)toSCNVector {
-    return SCNVector4Make(
-        self.axis.x, self.axis.y, self.axis.z, [self.angle toRadians]);
+    return SCNVector4Make(self.axis.x,
+                          self.axis.y,
+                          self.axis.z,
+                          [self.angle toRadians]);
 }
 
 - (SCNMatrix4)toSCNMatrix {
@@ -123,12 +124,3 @@
 }
 
 @end
-
-
-
-
-
-
-
-
-

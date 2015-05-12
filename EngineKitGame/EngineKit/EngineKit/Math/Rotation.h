@@ -4,10 +4,26 @@
 #import "Angle.h"
 
 
+@class Rotation;
+
+
+@protocol RotationExport <JSExport>
+- (instancetype)initWithObject:(id)object;
+
+- (CGFloat)x;
+- (CGFloat)y;
+- (CGFloat)z;
+- (CGFloat)a;
+- (Axis *)axis;
+- (Angle *)angle;
+@end
+
+
+
 /*!
  Represents a rotation by a determined angle around a determined axis.
  */
-@interface Rotation : NSObject
+@interface Rotation : NSObject <RotationExport>
 /*!
  Creates a Rotation of @p angle radians around the given @p axis.
  @param axis  The Axis around which to rotate.

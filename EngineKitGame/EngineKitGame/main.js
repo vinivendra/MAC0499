@@ -19,13 +19,13 @@ function load() {
 
     instance.addItem(moon);
 
-//    var v = vector.new("[0, -3, -2]");
+    var v = new rotation([0.2, 0.3, 0.4, 1]);
 
     var tubo = tube.create();
     tubo.radius = 1;
     tubo.thickness = 1.9;
-    tubo.position = "[0, -3, 0]";
-    tubo.rotation = [0.2, 0.3, 0.4, 1];
+    tubo.position = "[0, -3, -2]";
+    tubo.rotation = v;
     tubo.color = "red";
 //    btn = UIButton.create();
 //    btn.position = [300, 200];
@@ -49,9 +49,20 @@ function tap(items, hits) {
 }
 
 function swipe(direction, items, swipes) {
-    print(direction);
-    print(items);
-    print(swipes);
+    var item = items[0];
+
+    if (direction == up) {
+        item.position = item.position.plus(new vector([0, 1, 0]));
+    }
+    else if (direction == down) {
+        item.position = item.position.plus(new vector([0, -1, 0]));
+    }
+    else if (direction == left) {
+        item.position = item.position.plus(new vector([-1, 0, 0]));
+    }
+    else if (direction == right) {
+        item.position = item.position.plus(new vector([1, 0, 0]));
+    }
 }
 
 function pan(translation) {

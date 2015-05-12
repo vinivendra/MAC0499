@@ -7,13 +7,8 @@
 
 
 @protocol AngleExport <JSExport>
-+ (instancetype)create;
-//
-+ (instancetype)angleWithRadians:(CGFloat)radians;
-+ (instancetype)angleWithDegrees:(CGFloat)degrees;
-+ (instancetype)angleWithPiTimes:(CGFloat)ratio;
-- (instancetype)initWithRadians:(CGFloat)radians;
-- (instancetype)initWithDegrees:(CGFloat)degrees;
+- (instancetype)initWithObject:(id)object;
+
 - (CGFloat)toRadians;
 - (CGFloat)toDegrees;
 @end
@@ -43,6 +38,13 @@
  */
 + (instancetype)angleWithPiTimes:(CGFloat)ratio;
 /*!
+ Creates an Angle object with the given value in radians. Uses NSNumber's
+ initWithObject method to obtain the value from the given object.
+ @param object An angle measured in degrees.
+ @return An initialized Angle object.
+ */
++ (instancetype)angleWithObject:(id)object;
+/*!
  Creates an Angle object with the given value in radians.
  @param radians An angle measured in radians.
  @return An initialized Angle object.
@@ -54,6 +56,13 @@
  @return An initialized Angle object.
  */
 - (instancetype)initWithDegrees:(CGFloat)degrees;
+/*!
+ Creates an Angle object with the given value in radians. Uses NSNumber's
+ initWithObject method to obtain the value from the given object.
+ @param object An angle measured in degrees.
+ @return An initialized Angle object.
+ */
+- (instancetype)initWithObject:(id)object;
 /*!
  Converts the value of the Angle to radians.
  @return The Angle's value, measured in radians.

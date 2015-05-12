@@ -165,6 +165,11 @@ static NSString *_defaultFilename = @"main.js";
     self.context[@"UISlider"] = [UISlider class];
     self.context[@"UI"] = [UI shared];
 
+    self.context[@"up"] = @(UISwipeGestureRecognizerDirectionUp);
+    self.context[@"right"] = @(UISwipeGestureRecognizerDirectionRight);
+    self.context[@"left"] = @(UISwipeGestureRecognizerDirectionLeft);
+    self.context[@"down"] = @(UISwipeGestureRecognizerDirectionDown);
+
     self.context[@"template"] = ^Item *(void) {
         return [Item template];
     };

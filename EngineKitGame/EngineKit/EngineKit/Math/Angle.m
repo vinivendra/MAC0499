@@ -2,6 +2,8 @@
 
 #import "Angle.h"
 
+#import "NSNumber+Extension.h"
+
 
 CGFloat toRadians(CGFloat degrees) {
     return degrees / (180.0 * M_PI);
@@ -31,6 +33,10 @@ CGFloat toDegrees(CGFloat radians) {
     return [[Angle alloc] initWithRadians:ratio * M_PI];
 }
 
++ (instancetype)angleWithObject:(id)object {
+    return [[Angle alloc] initWithObject:object];
+}
+
 - (instancetype)initWithRadians:(CGFloat)radians {
     if (self = [super init]) {
         self.angle = radians;
@@ -40,7 +46,15 @@ CGFloat toDegrees(CGFloat radians) {
 
 - (instancetype)initWithDegrees:(CGFloat)degrees {
     if (self = [super init]) {
-        _angle = toRadians(degrees);
+        self.angle = toRadians(degrees);
+    }
+    return self;
+}
+
+- (instancetype)initWithObject:(id)object {
+    if (self = [super init]) {
+        NSNumber *result = [NSNumber numberWithObject:object];
+        self.angle = result.doubleValue;
     }
     return self;
 }

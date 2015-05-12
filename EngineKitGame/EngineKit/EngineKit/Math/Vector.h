@@ -193,14 +193,14 @@
  @param vector The other Vector to use in the addition.
  @return A new instance of a Vector object.
  */
-- (Vector *)plus:(Vector *)vector;
+- (Vector *)plus:(id)object;
 /*!
  Returns a Vector representing a subtraction of another Vector [a b c] from this
  Vector [x y z], resulting in [x-a  y-b  z-c].
  @param vector The other Vector to use in the subtraction.
  @return A new instance of a Vector object.
  */
-- (Vector *)minus:(Vector *)vector;
+- (Vector *)minus:(id)object;
 /*!
  Returns a Vector representing the opposite ([-x, -y, -z]) of the receiver ([x,
  y, z]).
@@ -213,7 +213,7 @@
  @param vector The other Vector to use in the dot product.
  @return The value of the dot product between the two vectors.
  */
-- (CGFloat)dot:(Vector *)vector;
+- (CGFloat)dot:(id)object;
 /*!
  Returns the squared norm of this Vector [x y z], which is the same as the dot
  product of this vector with itself: x*x + y*y + z*z. Useful to compare the
@@ -244,7 +244,7 @@
  @param vector The vector that will be translated.
  @return A new intance of a Vector object.
  */
-- (Vector *)translate:(Vector *)vector;
+- (Vector *)translate:(id)object;
 /*!
  Creates a new vector, by scaling the receiver by the appropriate amount, given
  by @p scale.

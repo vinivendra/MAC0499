@@ -66,11 +66,11 @@
     gestures.gesturesView = self.controlView;
     gestures.sceneView = self.sceneView;
     gestures.options[Tap] = @(YES);
-//    gestures.options[SwipeRight] = @(YES);
-//    gestures.options[SwipeLeft] = @(YES);
-//    gestures.options[SwipeDown] = @(YES);
-//    gestures.options[SwipeUp] = @(YES);
-    gestures.options[Pan] = @(YES);
+    gestures.options[SwipeRight] = @(YES);
+    gestures.options[SwipeLeft] = @(YES);
+    gestures.options[SwipeDown] = @(YES);
+    gestures.options[SwipeUp] = @(YES);
+//    gestures.options[Pan] = @(YES);
     //    gestures.options[Pinch] = @(YES);
     gestures.options[Rotate] = @(YES);
     gestures.options[LongPress] = @(YES);

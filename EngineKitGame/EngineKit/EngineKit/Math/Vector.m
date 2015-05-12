@@ -1,4 +1,6 @@
-
+// TODO: Switch init's for vectorWith's
+// TODO: vectorWithVector: can just return the same vector, since they're
+// immutable.
 
 #import "Vector.h"
 
@@ -6,6 +8,7 @@
 
 #import "NSString+Extension.h"
 #import "NSNumber+Extension.h"
+#import "NSArray+Extension.h"
 
 
 @interface Vector ()
@@ -75,15 +78,9 @@
 
     SCNVector3 vector;
 
-    vector.x = array.count > 0
-                   ? [NSNumber numberWithObject:array[0]].doubleValue
-                   : 0;
-    vector.y = array.count > 1
-                   ? [NSNumber numberWithObject:array[1]].doubleValue
-                   : 0;
-    vector.z = array.count > 2
-                   ? [NSNumber numberWithObject:array[2]].doubleValue
-                   : 0;
+    vector.x = [array floatAtIndex:0];
+    vector.y = [array floatAtIndex:1];
+    vector.z = [array floatAtIndex:2];
 
     if (self = [super init]) {
         self.vector = vector;
@@ -177,13 +174,15 @@
                                    Z:self.z / scalar];
 }
 
-- (Vector *)plus:(Vector *)vector {
+- (Vector *)plus:(id)object {
+    Vector *vector = [[Vector alloc] initWithObject:object];
     return [[Vector alloc] initWithX:self.x + vector.x
                                    Y:self.y + vector.y
                                    Z:self.z + vector.z];
 }
 
-- (Vector *)minus:(Vector *)vector {
+- (Vector *)minus:(id)object {
+    Vector *vector = [[Vector alloc] initWithObject:object];
     return [[Vector alloc] initWithX:self.x - vector.x
                                    Y:self.y - vector.y
                                    Z:self.z - vector.z];
@@ -193,7 +192,8 @@
     return [[Vector alloc] initWithX:-self.x Y:-self.y Z:-self.z];
 }
 
-- (CGFloat)dot:(Vector *)vector {
+- (CGFloat)dot:(id)object {
+    Vector *vector = [[Vector alloc] initWithObject:object];
     return self.x * vector.x + self.y * vector.y + self.z * vector.z;
 }
 
@@ -207,6 +207,15 @@
 
 - (Vector *)normalize {
     return [self over:[self norm]];
+}
+
+- (Vector *)translate:(id)object {
+    Vector *vector = [[Vector alloc] initWithObject:object];
+    return [vector plus:self];
+}
+
+- (Vector *)scale:(CGFloat)scale {
+    return [self times:scale];
 }
 
 - (SCNMatrix4)translateMatrix:(SCNMatrix4)matrix {
@@ -242,14 +251,6 @@
 
 - (CGFloat)z {
     return self.vector.z;
-}
-
-- (Vector *)translate:(Vector *)vector {
-    return [vector plus:self];
-}
-
-- (Vector *)scale:(CGFloat)scale {
-    return [self times:scale];
 }
 
 @end

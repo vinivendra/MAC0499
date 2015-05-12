@@ -5,6 +5,8 @@
 
 #import "SCNNode+Extension.h"
 
+#import "NSArray+Extension.h"
+
 
 @implementation Contact
 
@@ -73,7 +75,9 @@
 
 - (instancetype)initWithArray:(NSArray *)array {
     JSValue *action = [JavaScript shared].contactCallback;
-    self = [self initWithFirstItem:array[0] secondItem:array[1] action:action];
+    self = [self initWithFirstItem:[array at:0]
+                        secondItem:[array at:1]
+                            action:action];
     return self;
 }
 
