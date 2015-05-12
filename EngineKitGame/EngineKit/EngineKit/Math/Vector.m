@@ -1,6 +1,4 @@
-// TODO: Switch init's for vectorWith's
-// TODO: vectorWithVector: can just return the same vector, since they're
-// immutable.
+
 
 #import "Vector.h"
 
@@ -23,7 +21,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken,
                   ^{
-                      origin = [[Vector alloc] initWithX:0 Y:0 Z:0];
+                      origin = [Vector vectorWithX:0 Y:0 Z:0];
                   });
 
     return origin;
@@ -134,6 +132,46 @@
     return self;
 }
 
++ (Vector *)vectorWithUniformWithNumber:(CGFloat)x {
+    return [[Vector alloc] initUniformWithNumber:x];
+}
+
++ (Vector *)vectorWithX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z {
+    return [[Vector alloc] initWithX:x Y:y Z:z];
+}
+
++ (Vector *)vectorWithSCNVector:(SCNVector3)newValue {
+    return [[Vector alloc] initWithSCNVector:newValue];
+}
+
++ (Vector *)vectorWithCGPoint:(CGPoint)newValue {
+    return [[Vector alloc] initWithCGPoint:newValue];
+}
+
++ (Vector *)vectorWithSCNVector4:(SCNVector4)newValue {
+    return [[Vector alloc] initWithSCNVector4:newValue];
+}
+
++ (Vector *)vectorWithCIVector:(CIVector *)newValue {
+    return [[Vector alloc] initWithCIVector:newValue];
+}
+
++ (Vector *)vectorWithVector:(Vector *)vector {
+    return vector;
+}
+
++ (Vector *)vectorWithArray:(NSArray *)array {
+    return [[Vector alloc] initWithArray:array];
+}
+
++ (Vector *)vectorWithString:(NSString *)string {
+    return [[Vector alloc] initWithString:string];
+}
+
++ (Vector *)vectorWithObject:(id)object {
+    return [[Vector alloc] initWithObject:object];
+}
+
 - (BOOL)isEqual:(id)object {
     if (![object isKindOfClass:[Vector class]])
         return NO;
@@ -163,37 +201,36 @@
 }
 
 - (Vector *)times:(CGFloat)scalar {
-    return [[Vector alloc] initWithX:self.x * scalar
-                                   Y:self.y * scalar
-                                   Z:self.z * scalar];
+
+    return [Vector vectorWithX:self.x * scalar
+                             Y:self.y * scalar
+                             Z:self.z * scalar];
 }
 
 - (Vector *)over:(CGFloat)scalar {
-    return [[Vector alloc] initWithX:self.x / scalar
-                                   Y:self.y / scalar
-                                   Z:self.z / scalar];
+    return [Vector vectorWithX:self.x / scalar
+                             Y:self.y / scalar
+                             Z:self.z / scalar];
 }
 
 - (Vector *)plus:(id)object {
-    Vector *vector = [[Vector alloc] initWithObject:object];
-    return [[Vector alloc] initWithX:self.x + vector.x
-                                   Y:self.y + vector.y
-                                   Z:self.z + vector.z];
+    Vector *vector = [Vector vectorWithObject:object];
+    return [Vector vectorWithX:self.x + vector.x                             Y:self.y + vector.y                             Z:self.z + vector.z];
 }
 
 - (Vector *)minus:(id)object {
-    Vector *vector = [[Vector alloc] initWithObject:object];
-    return [[Vector alloc] initWithX:self.x - vector.x
-                                   Y:self.y - vector.y
-                                   Z:self.z - vector.z];
+    Vector *vector = [Vector vectorWithObject:object];
+    return [Vector vectorWithX:self.x - vector.x
+                             Y:self.y - vector.y
+                             Z:self.z - vector.z];
 }
 
 - (Vector *)opposite {
-    return [[Vector alloc] initWithX:-self.x Y:-self.y Z:-self.z];
+    return [Vector vectorWithX:-self.x Y:-self.y Z:-self.z];
 }
 
 - (CGFloat)dot:(id)object {
-    Vector *vector = [[Vector alloc] initWithObject:object];
+    Vector *vector = [Vector vectorWithObject:object];
     return self.x * vector.x + self.y * vector.y + self.z * vector.z;
 }
 
@@ -210,7 +247,7 @@
 }
 
 - (Vector *)translate:(id)object {
-    Vector *vector = [[Vector alloc] initWithObject:object];
+    Vector *vector = [Vector vectorWithObject:object];
     return [vector plus:self];
 }
 
@@ -230,7 +267,7 @@
 #pragma mark - Property Overriding
 
 - (Vector *)setNewX:(CGFloat)x {
-    return [[Vector alloc] initWithX:x Y:self.vector.y Z:self.vector.z];
+    return [Vector vectorWithX:x Y:self.vector.y Z:self.vector.z];
 }
 
 - (CGFloat)x {
@@ -238,7 +275,7 @@
 }
 
 - (Vector *)setNewY:(CGFloat)y {
-    return [[Vector alloc] initWithX:self.vector.x Y:y Z:self.vector.z];
+    return [Vector vectorWithX:self.vector.x Y:y Z:self.vector.z];
 }
 
 - (CGFloat)y {
@@ -246,7 +283,7 @@
 }
 
 - (Vector *)setNewZ:(CGFloat)z {
-    return [[Vector alloc] initWithX:self.vector.x Y:self.vector.y Z:z];
+    return [Vector vectorWithX:self.vector.x Y:self.vector.y Z:z];
 }
 
 - (CGFloat)z {

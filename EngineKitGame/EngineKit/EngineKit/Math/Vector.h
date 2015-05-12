@@ -141,7 +141,7 @@
  - NSArray, which will be initialized just like @p -initWithArray.
  - NSValue containing a SCNVector3, which will be initialized just like @p
  -initWithSCNVector3.
- - Vector (or any of its subclassses, which will be initialized just like @p
+ - Vector (or any of its subclassses), which will be initialized just like @p
  -initWithVector.
  - NSString, which will be initialized just like @p -initWithString.
 
@@ -152,6 +152,101 @@
  @return An initialized Vector object.
  */
 - (instancetype)initWithObject:(id)object;
+
+/*!
+ Creates a Vector in which all components are set to @p x. Useful for uniform
+ scales.
+ @param x The value to set to all the Vector's components.
+ @return An initialized Vector object.
+ */
++ (Vector *)vectorWithUniformWithNumber:(CGFloat)x;
+/*!
+ Creates a Vector in which all components are set as specified: (x y z).
+ @param x The Vector's first component.
+ @param y The Vector's second component.
+ @param z The Vector's third component.
+ @return An initialized Vector object.
+ */
++ (Vector *)vectorWithX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z;
+/*!
+ Creates a Vector in which all components are set as just as the given
+ SCNVector3.
+ @param newValue The SCNVector3 that should be used as a model.
+ @return An initialized Vector object.
+ */
++ (Vector *)vectorWithSCNVector:(SCNVector3)newValue;
+/*!
+ Creates a Vector in which x component is set as just as the given CGPoint's x
+ component, the y component is the opposite of the CGPoint's y component and in
+ which the z component is 0. This is done to ease the translation from screen
+ points to scene points.
+ @param newValue The CGPoint that should be used as a model.
+ @return An initialized Vector object.
+ */
++ (Vector *)vectorWithCGPoint:(CGPoint)newValue;
+/*!
+ Creates a Vector in which all components are set as just as the first 3
+ components in the given SCNVector4. If that vector is written as (x y z w), the
+ created Vector object will be (x y z).
+
+ Useful for obtaining the axis of a rotation, for instance.
+
+ @param newValue The SCNVector4 whose first three components should be used.
+ @return An initialized Vector object.
+ */
++ (Vector *)vectorWithSCNVector4:(SCNVector4)newValue;
+/*!
+ Creates a Vector in which all components are set as just as the first 3
+ components (x, y and z) in the given CIVector.
+ This method trusts that the CIVector has been correctly initialized and has the
+ necessary components.
+
+ Useful for obtaining a Vector through a CIVector initialization method.
+
+ @param newValue The CIValue whose x, y and z components should be used.
+ @return An initialized Vector object.
+ */
++ (Vector *)vectorWithCIVector:(CIVector *)newValue;
+/*!
+ Merely returns the given vector instead of creating a new one, for efficiency.
+ @param vector The Vector object that will be returned.
+ @return An initialized Vector object.
+ */
++ (Vector *)vectorWithVector:(Vector *)vector;
+/*!
+ Creates a Vector based on the first three elements on a given NSArray. If the
+ array has less than 3 components or if any of the first three components is not
+ an NSNumber, the corresponding value is set to zero.
+ @param array The array to copy into the Vector.
+ @return An initialized Vector object.
+ */
++ (Vector *)vectorWithArray:(NSArray *)array;
+/*!
+ Attempts to initialize a Vector by scanning the string for numbers. Each number
+ found is inserted into an array, and then the @p -initWithArray: method is
+ used.
+
+ @param string The NSString in which to search for the information.
+ @return An initialized Vector object.
+ */
++ (Vector *)vectorWithString:(NSString *)string;
+/*!
+ Creates a Vector based on the given object. The supported objects are:
+ - NSNumber, which will be initialized just like @p -initUniformWithNumber.
+ - NSArray, which will be initialized just like @p -initWithArray.
+ - NSValue containing a SCNVector3, which will be initialized just like @p
+ -initWithSCNVector3.
+ - Vector (or any of its subclassses), which will be initialized just like @p
+ -initWithVector.
+ - NSString, which will be initialized just like @p -initWithString.
+
+ @warning In case the object isn't a subclass of any of the above classes, an @p
+ assert(false) will be triggered.
+
+ @param object An object of any one of the classes mentioned above.
+ @return An initialized Vector object.
+ */
++ (Vector *)vectorWithObject:(id)object;
 
 /*!
  Returns @p YES if the Vector has the same components as the given @p vector, as
