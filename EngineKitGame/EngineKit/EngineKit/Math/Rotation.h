@@ -19,11 +19,18 @@
 @end
 
 
-
 /*!
  Represents a rotation by a determined angle around a determined axis.
  */
 @interface Rotation : NSObject <RotationExport>
+/*!
+ Creates a Rotation in which all components are set as just as the given
+ SCNVector4. This initialization is a lot like @p -initWithArray.
+ @param vector The SCNVector4 that should be used as a model.
+ @return An initialized Rotation object.
+ @see -initWithArray
+ */
++ (instancetype)rotationWithSCNVector4:(SCNVector4)vector;
 /*!
  Creates a Rotation of @p angle radians around the given @p axis.
  @param axis  The Axis around which to rotate.
@@ -45,6 +52,24 @@
  */
 + (instancetype)rotationWithArray:(NSArray *)array;
 /*!
+ Creates a Rotation based on the elements on a given NSDictionary. If there are
+ elements with the key "x", "y" and "z"(case insensitive), those elements are
+ used for the axis; "a" or "w" is used for the angle. If one of them is missing,
+ the corresponding "0", "1" or "2" is used instead for the axis, and "3" for the
+ angle. If any elements are still missing, the corresponding value is set to
+ 0.0.
+ @param array The dictionary from which to get the information.
+ @return An initialized Rotation object.
+ */
++ (instancetype)rotationWithDictionary:(NSDictionary *)dictionary;
+/*!
+ Returns the given Rotation object. Used for completion and standardization by
+ other methods.
+ @param rotation The Rotation object that will be returned.
+ @return A Rotation object.
+ */
++ (instancetype)rotationWithRotation:(Rotation *)rotation;
+/*!
  Creates a Rotation based on the given object. The supported objects are:
  - NSArray, which will be initialized just like @p -initWithArray.
  - NSValue containing a SCNVector4, which will be initialized just like @p
@@ -59,14 +84,6 @@
  @see -initWithSCNVector4
  */
 + (instancetype)rotationWithObject:(id)object;
-/*!
- Creates a Rotation in which all components are set as just as the given
- SCNVector4. This initialization is a lot like @p -initWithArray.
- @param vector The SCNVector4 that should be used as a model.
- @return An initialized Rotation object.
- @see -initWithArray
- */
-+ (instancetype)rotationWithSCNVector4:(SCNVector4)vector;
 /*!
  Creates a Rotation in which all components are set as just as the given
  SCNVector4. This initialization is a lot like @p -initWithArray.
@@ -96,6 +113,24 @@
  */
 - (instancetype)initWithArray:(NSArray *)array;
 /*!
+ Creates a Rotation based on the elements on a given NSDictionary. If there are
+ elements with the key "x", "y" and "z"(case insensitive), those elements are
+ used for the axis; "a" or "w" is used for the angle. If one of them is missing,
+ the corresponding "0", "1" or "2" is used instead for the axis, and "3" for the
+ angle. If any elements are still missing, the corresponding value is set to
+ 0.0.
+ @param array The dictionary from which to get the information.
+ @return An initialized Rotation object.
+ */
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+/*!
+ Initializes the receiver to copy the given rotation, such that is has the same
+ values for its axis and angle.
+ @param rotation The rotation from which to copy information.
+ @return An initialized Rotation object.
+ */
+- (instancetype)initWithRotation:(Rotation *)rotation;
+/*!
  Creates a Rotation based on the given object. The supported objects are:
 
  - Rotation, which will create a copy of the given Rotation.
@@ -114,13 +149,6 @@
  @see -initWithSCNVector4
  */
 - (instancetype)initWithObject:(id)object;
-/*!
- Initializes the receiver to copy the given rotation, such that is has the same
- values for its axis and angle.
- @param rotation The rotation from which to copy information.
- @return An initialized Rotation object.
- */
-- (instancetype)initWithRotation:(Rotation *)rotation;
 
 /*!
  The receiver applies the rotation it represents to the receiving SCNMatrix4,

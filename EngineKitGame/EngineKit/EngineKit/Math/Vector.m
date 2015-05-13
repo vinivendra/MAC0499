@@ -142,14 +142,14 @@
         self = [self initUniformWithNumber:((NSNumber *)object).doubleValue];
     } else if ([object isKindOfClass:[NSArray class]]) {
         self = [self initWithArray:object];
-    } else if ([object isKindOfClass:[Vector class]]) {
-        self = [self initWithVector:object];
     } else if ([object isKindOfClass:[NSValue class]]) {
         self = [self initWithSCNVector:((NSValue *)object).SCNVector3Value];
     } else if ([object isKindOfClass:[NSString class]]) {
         self = [self initWithString:(NSString *)object];
     } else if ([object isKindOfClass:[NSDictionary class]]) {
         self = [self initWithDictionary:(NSDictionary *)object];
+    } else if ([object isKindOfClass:[Vector class]]) {
+        self = [self initWithVector:object];
     } else {
         assert(false);
         return nil;
@@ -198,7 +198,10 @@
 }
 
 + (Vector *)vectorWithObject:(id)object {
-    return [[Vector alloc] initWithObject:object];
+    if ([object isKindOfClass:[Vector class]])
+        return [Vector vectorWithVector:object];
+    else
+        return [[Vector alloc] initWithObject:object];
 }
 
 - (BOOL)isEqual:(id)object {

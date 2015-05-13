@@ -244,6 +244,13 @@
  */
 + (Vector *)vectorWithString:(NSString *)string;
 /*!
+ Returns the given Vector object. Used for completion and standardization by
+ other methods.
+ @param vector The Vector object that will be returned.
+ @return A Vector object.
+ */
++ (Vector *)vectorWithVector:(Vector *)vector;
+/*!
  Creates a Vector based on the given object. The supported objects are:
  - NSNumber, which will be initialized just like @p -initUniformWithNumber.
  - NSArray, which will be initialized just like @p -initWithArray.
