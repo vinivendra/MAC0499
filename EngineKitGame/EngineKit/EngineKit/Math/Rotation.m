@@ -5,6 +5,9 @@
 
 #import "NSArray+Extension.h"
 #import "NSDictionary+Extension.h"
+#import "NSString+Extension.h"
+
+#import "ObjectiveSugar.h"
 
 
 @interface Rotation ()
@@ -21,6 +24,10 @@
 
 + (instancetype)rotationWithAxis:(Axis *)axis angle:(Angle *)angle {
     return [[Rotation alloc] initWithAxis:axis angle:angle];
+}
+
++ (instancetype)rotationWithString:(NSString *)string {
+    return [[Rotation alloc] initWithString:string];
 }
 
 + (instancetype)rotationWithArray:(NSArray *)array {
@@ -58,6 +65,34 @@
     return self;
 }
 
+- (instancetype)initWithString:(NSString *)string {
+    NSScanner *scanner = [NSScanner scannerWithString:string];
+    NSCharacterSet *numbers =
+    [NSCharacterSet characterSetWithCharactersInString:@"-0123456789."];
+
+    NSMutableArray *array = [NSMutableArray array];
+
+    BOOL done = NO;
+    int contents = 0;
+
+    until(done || contents == 4) {
+        NSString *number;
+
+        [scanner scanUpToCharactersFromSet:numbers intoString:NULL];
+
+        done = ![scanner scanCharactersFromSet:numbers intoString:&number];
+
+        if (number) {
+            [array push:number.numberValue];
+            contents++;
+        }
+    }
+
+    self = [self initWithArray:array];
+    
+    return self;
+}
+
 - (instancetype)initWithArray:(NSArray *)array {
     if (self = [super init]) {
         self.axis = [[Axis alloc] initWithArray:array];
@@ -91,13 +126,15 @@
 
 - (instancetype)initWithObject:(id)object {
 
-     if ([object isKindOfClass:[NSArray class]]) {
+    if ([object isKindOfClass:[NSArray class]]) {
         self = [self initWithArray:object];
     } else if ([object isKindOfClass:[NSDictionary class]]) {
         self = [self initWithDictionary:object];
     } else if ([object isKindOfClass:[NSValue class]]) {
         SCNVector4 vector = ((NSValue *)object).SCNVector4Value;
         self = [self initWithSCNVector4:vector];
+    } else if ([object isKindOfClass:[NSString class]]) {
+        self = [self initWithString:object];
     } else if ([object isKindOfClass:[Rotation class]]) {
         self = [self initWithRotation:object];
     } else {

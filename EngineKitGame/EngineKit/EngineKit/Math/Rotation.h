@@ -39,6 +39,15 @@
  */
 + (instancetype)rotationWithAxis:(Axis *)axis angle:(Angle *)angle;
 /*!
+ Attempts to initialize a Vector by scanning the string for numbers. Each number
+ found is inserted into an array, and then the @p -initWithArray: method is
+ used.
+
+ @param string The NSString in which to search for the information.
+ @return An initialized Vector object.
+ */
++ (instancetype)rotationWithString:(NSString *)string;
+/*!
  Creates a Rotation based on the given NSArray. Trusts that the array has enough
  (4 or more) components, and that the first 4 components may be cast into @p
  NSNumbers.
@@ -99,6 +108,15 @@
  @return An initialized Rotation object.
  */
 - (instancetype)initWithAxis:(Axis *)axis angle:(Angle *)angle;
+/*!
+ Attempts to initialize a Vector by scanning the string for numbers. Each number
+ found is inserted into an array, and then the @p -initWithArray: method is
+ used.
+
+ @param string The NSString in which to search for the information.
+ @return An initialized Vector object.
+ */
+- (instancetype)initWithString:(NSString *)string;
 /*!
  Creates a Rotation based on the given NSArray. Trusts that the array has enough
  (4 or more) components, and that the first 4 components may be cast into @p
