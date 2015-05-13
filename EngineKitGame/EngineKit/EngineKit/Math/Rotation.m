@@ -1,5 +1,4 @@
-// TODO: add initWithDictionary
-// TODO: flatten array for initWithArray
+
 
 #import "Rotation.h"
 
@@ -95,8 +94,15 @@
 
 - (instancetype)initWithArray:(NSArray *)array {
     if (self = [super init]) {
-        self.axis = [[Axis alloc] initWithArray:array];
+        if (array.count > 0) {
+            if (![array[0] isKindOfClass:[NSNumber class]]) {
+                self.axis = [[Axis alloc] initWithObject:array[0]];
+                self.angle = [Angle angleWithRadians:[array floatAtIndex:1]];
+                return self;
+            }
+        }
 
+        self.axis = [[Axis alloc] initWithArray:array];
         self.angle = [Angle angleWithRadians:[array floatAtIndex:3]];
     }
     return self;
