@@ -2,8 +2,6 @@
 #import "Vector.h"
 
 @protocol AxisExport <JSExport>
-@property (nonatomic) SCNVector3 vector;
-
 @property (nonatomic, readonly) CGFloat x;
 @property (nonatomic, readonly) CGFloat y;
 @property (nonatomic, readonly) CGFloat z;

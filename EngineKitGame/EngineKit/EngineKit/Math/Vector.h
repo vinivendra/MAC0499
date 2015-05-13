@@ -1,5 +1,3 @@
-// TODO: Make the vector property protected
-// TODO: init with string (@"[0, 2, 3]")
 // TODO: init with dictionary
 // TODO: Create a copy method for all exported classes.
 // TODO: Make isEqual accept the same objects as initWithObject does.
@@ -40,11 +38,6 @@
  Represents a tuple of three @p CGFloats, here named @p x, @p y and @p z.
  */
 @interface Vector : NSObject <VectorExport>
-/*!
- The Vector class's inner representation of a vector. Meant to be used only by
- subclasses; use @p -toSCNVector instead.
- */
-@property (nonatomic) SCNVector3 vector;
 
 /// The Vector's @p x component.
 @property (nonatomic, readonly) CGFloat x;
@@ -127,6 +120,16 @@
  */
 - (instancetype)initWithArray:(NSArray *)array;
 /*!
+ Creates a Vector based on the elements on a given NSDictionary. If there are
+ elements with the key "x", "y" and "z" (case insensitive), those elements are
+ used. If one of them is missing, the corresponding "0", "1" or "2" is used
+ instead. If any elements are still missing, the corresponding value is set to
+ 0.0.
+ @param array The dictionary from which to get the information.
+ @return An initialized Vector object.
+ */
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+/*!
  Attempts to initialize a Vector by scanning the string for numbers. Each number
  found is inserted into an array, and then the @p -initWithArray: method is
  used.
@@ -144,6 +147,7 @@
  - Vector (or any of its subclassses), which will be initialized just like @p
  -initWithVector.
  - NSString, which will be initialized just like @p -initWithString.
+ - NSDictionary, which will be initialized just like @p -initWithDictionary.
 
  @warning In case the object isn't a subclass of any of the above classes, an @p
  assert(false) will be triggered.
@@ -222,6 +226,16 @@
  */
 + (Vector *)vectorWithArray:(NSArray *)array;
 /*!
+ Creates a Vector based on the elements on a given NSDictionary. If there are
+ elements with the key "x", "y" and "z" (case insensitive), those elements are
+ used. If one of them is missing, the corresponding "0", "1" or "2" is used
+ instead. If any elements are still missing, the corresponding value is set to
+ 0.0.
+ @param array The dictionary from which to get the information.
+ @return An initialized Vector object.
+ */
++ (Vector *)vectorWithDictionary:(NSDictionary *)dictionary;
+/*!
  Attempts to initialize a Vector by scanning the string for numbers. Each number
  found is inserted into an array, and then the @p -initWithArray: method is
  used.
@@ -239,6 +253,7 @@
  - Vector (or any of its subclassses), which will be initialized just like @p
  -initWithVector.
  - NSString, which will be initialized just like @p -initWithString.
+ - NSDictionary, which will be initialized just like @p -initWithDictionary.
 
  @warning In case the object isn't a subclass of any of the above classes, an @p
  assert(false) will be triggered.

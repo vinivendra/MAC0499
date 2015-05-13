@@ -22,6 +22,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		2437865E1B02CB55003A3063 /* NSDictionary+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 2437865C1B02CB55003A3063 /* NSDictionary+Extension.h */; };
+		2437865F1B02CB55003A3063 /* NSDictionary+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2437865D1B02CB55003A3063 /* NSDictionary+Extension.m */; };
 		24DF787E1AF7F6E100319C49 /* libEngineKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24DF78721AF7F6E100319C49 /* libEngineKit.a */; };
 		24DF788D1AF7F6EA00319C49 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24DF788C1AF7F6EA00319C49 /* Foundation.framework */; };
 		24DF788F1AF7F6EE00319C49 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24DF788E1AF7F6EE00319C49 /* UIKit.framework */; };
@@ -186,6 +188,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2437865C1B02CB55003A3063 /* NSDictionary+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Extension.h"; sourceTree = "<group>"; };
+		2437865D1B02CB55003A3063 /* NSDictionary+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Extension.m"; sourceTree = "<group>"; };
 		24DF78721AF7F6E100319C49 /* libEngineKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEngineKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		24DF787D1AF7F6E100319C49 /* EngineKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EngineKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24DF78831AF7F6E100319C49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -367,6 +371,8 @@
 				24DF78971AF7F71600319C49 /* JSContext+Extension.m */,
 				24DF78981AF7F71600319C49 /* NSArray+Extension.h */,
 				24DF78991AF7F71600319C49 /* NSArray+Extension.m */,
+				2437865C1B02CB55003A3063 /* NSDictionary+Extension.h */,
+				2437865D1B02CB55003A3063 /* NSDictionary+Extension.m */,
 				24DF789A1AF7F71600319C49 /* NSNumber+Extension.h */,
 				24DF789B1AF7F71600319C49 /* NSNumber+Extension.m */,
 				24DF789C1AF7F71600319C49 /* NSString+Extension.h */,
@@ -529,6 +535,7 @@
 				24DF79331AF7F71700319C49 /* Cone.h in Headers */,
 				24DF79721AF7F71900319C49 /* ObjectiveSugar.h in Headers */,
 				24DF78FD1AF7F71600319C49 /* NSString+Extension.h in Headers */,
+				2437865E1B02CB55003A3063 /* NSDictionary+Extension.h in Headers */,
 				24DF79001AF7F71600319C49 /* SCN+Exports.h in Headers */,
 				24DF78FA1AF7F71600319C49 /* NSNumber+Extension.h in Headers */,
 				24DF79421AF7F71700319C49 /* Sphere.h in Headers */,
@@ -727,6 +734,7 @@
 				24DF79551AF7F71800319C49 /* Axis.m in Sources */,
 				24DF79101AF7F71700319C49 /* UI+Exports.m in Sources */,
 				24DF79461AF7F71800319C49 /* Text.m in Sources */,
+				2437865F1B02CB55003A3063 /* NSDictionary+Extension.m in Sources */,
 				24DF795B1AF7F71800319C49 /* Rotation.m in Sources */,
 				24DF79371AF7F71700319C49 /* Cylinder.m in Sources */,
 				24DF791C1AF7F71700319C49 /* Parser.m in Sources */,
@@ -984,6 +992,7 @@
 				24DF79B71AF7FF1800319C49 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

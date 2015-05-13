@@ -51,8 +51,10 @@ function tap(items, hits) {
 function swipe(direction, items, swipes) {
     var item = items[0];
 
+    var dict = {"0": 0, "Y": 1, "z": 0};
+
     if (direction == up) {
-        item.position = item.position.plus(new vector([0, 1, 0]));
+        item.position = item.position.plus(new vector(dict));
     }
     else if (direction == down) {
         item.position = item.position.plus(new vector([0, -1, 0]));

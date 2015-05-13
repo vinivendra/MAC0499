@@ -16,7 +16,7 @@
  -numberWithObject: method. If the index goes past the array's bounds, returns
  @(0).
  @param index The index in the array from which to get the number.
- @return An NSNumber index.
+ @return An NSNumber.
  */
 - (NSNumber *)numberAtIndex:(NSUInteger)index;
 /*!

@@ -7,9 +7,11 @@
 #import "NSString+Extension.h"
 #import "NSNumber+Extension.h"
 #import "NSArray+Extension.h"
+#import "NSDictionary+Extension.h"
 
 
 @interface Vector ()
+@property (nonatomic) SCNVector3 vector;
 @end
 
 
@@ -86,6 +88,27 @@
     return self;
 }
 
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+    SCNVector3 vector;
+
+    vector.x = [dictionary floatForStringKey:@"x"];
+    if (vector.x == 0.0)
+        vector.x = [dictionary floatForStringKey:@"0"];
+
+    vector.y = [dictionary floatForStringKey:@"y"];
+    if (vector.y == 0.0)
+        vector.y = [dictionary floatForStringKey:@"1"];
+
+    vector.z = [dictionary floatForStringKey:@"z"];
+    if (vector.z == 0.0)
+        vector.z = [dictionary floatForStringKey:@"2"];
+
+    if (self = [super init]) {
+        self.vector = vector;
+    }
+    return self;
+}
+
 - (instancetype)initWithString:(NSString *)string {
     NSScanner *scanner = [NSScanner scannerWithString:string];
     NSCharacterSet *numbers =
@@ -125,6 +148,8 @@
         self = [self initWithSCNVector:((NSValue *)object).SCNVector3Value];
     } else if ([object isKindOfClass:[NSString class]]) {
         self = [self initWithString:(NSString *)object];
+    } else if ([object isKindOfClass:[NSDictionary class]]) {
+        self = [self initWithDictionary:(NSDictionary *)object];
     } else {
         assert(false);
         return nil;
@@ -162,6 +187,10 @@
 
 + (Vector *)vectorWithArray:(NSArray *)array {
     return [[Vector alloc] initWithArray:array];
+}
+
++ (Vector *)vectorWithDictionary:(NSDictionary *)dictionary {
+    return [[Vector alloc] initWithDictionary:dictionary];
 }
 
 + (Vector *)vectorWithString:(NSString *)string {
@@ -215,7 +244,9 @@
 
 - (Vector *)plus:(id)object {
     Vector *vector = [Vector vectorWithObject:object];
-    return [Vector vectorWithX:self.x + vector.x                             Y:self.y + vector.y                             Z:self.z + vector.z];
+    return [Vector vectorWithX:self.x + vector.x
+                             Y:self.y + vector.y
+                             Z:self.z + vector.z];
 }
 
 - (Vector *)minus:(id)object {
