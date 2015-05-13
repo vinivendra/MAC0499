@@ -1,10 +1,10 @@
-
-// TODO: Add a -numberWithArray:position: to NSNumber, use it in the
-// initWithArray methods.
+// TODO: add initWithDictionary
+// TODO: flatten array for initWithArray
 
 #import "Rotation.h"
 
 #import "NSArray+Extension.h"
+#import "NSDictionary+Extension.h"
 
 
 @interface Rotation ()
@@ -56,6 +56,20 @@
     return self;
 }
 
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+
+    CGFloat radians = [dictionary floatForStringKey:@"a"];
+    if (radians == 0.0)
+        radians = [dictionary floatForStringKey:@"w"];
+    if (radians == 0.0)
+        radians = [dictionary floatForStringKey:@"3"];
+
+    Angle *angle = [Angle angleWithRadians:radians];
+    Axis *axis = [[Axis alloc] initWithDictionary:dictionary];
+    self = [self initWithAxis:axis angle:angle];
+    return self;
+}
+
 - (instancetype)initWithRotation:(Rotation *)rotation {
     if (self = [super init]) {
         self.axis = rotation.axis;
@@ -70,6 +84,8 @@
         self = [self initWithRotation:object];
     } else if ([object isKindOfClass:[NSArray class]]) {
         self = [self initWithArray:object];
+    } else if ([object isKindOfClass:[NSDictionary class]]) {
+        self = [self initWithDictionary:object];
     } else if ([object isKindOfClass:[NSValue class]]) {
         SCNVector4 vector = ((NSValue *)object).SCNVector4Value;
         self = [self initWithSCNVector4:vector];

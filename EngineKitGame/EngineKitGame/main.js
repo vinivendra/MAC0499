@@ -42,9 +42,6 @@ function load() {
 }
 
 function tap(items, hits) {
-    print(items);
-    print(hits);
-
     items[0].scale = items[0].scale.times(1.1);
 }
 
@@ -68,24 +65,20 @@ function swipe(direction, items, swipes) {
 }
 
 function pan(translation) {
-    print(translation);
     var resized = translation.times(0.02);
     var newPosition = resized.translate(instance.position);
     instance.position = newPosition;
 }
 
 function pinch(scale) {
-    print(scale);
     instance.radius = instance.radius * scale;
 }
 
 function rotate(angle) {
-    print(angle);
-    instance.rotate([0, 0, 1, angle]);
+    instance.rotate({"0":0, "1":0, "2":1, "a":angle});
 }
 
 function longPress(translation) {
-    print(translation);
     instance.position = instance.position.plus(translation.times(0.02));
 }
 
