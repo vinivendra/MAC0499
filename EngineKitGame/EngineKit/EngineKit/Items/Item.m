@@ -118,7 +118,7 @@ static NSUInteger globalID = 0;
 
 - (void)setPosition:(id)position {
     self.node.position =
-        [[[Position alloc] initWithObject:position] toSCNVector];
+        [[[Position alloc] initWithObject:position] toSCNVector3];
 }
 
 - (id)position {

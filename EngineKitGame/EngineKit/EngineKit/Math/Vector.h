@@ -6,6 +6,13 @@
 #import <JavaScriptCore/JavaScriptCore.h>
 #import <SceneKit/SceneKit.h>
 
+// Checklist
+// - constants
+// - vector withs
+// - inits
+// - to's
+// - isEqual's
+// - operations
 
 @class Vector;
 
@@ -54,11 +61,23 @@
 ///-----------------------------------------------------------------------------
 #pragma mark - Getting the Vector's information
 
-/// The `Vector`'s `x` component.
+/*!
+ The `Vector`'s `x` component.
+ @see y
+ @see z
+ */
 @property (nonatomic, readonly) CGFloat x;
-/// The `Vector`'s `y` component.
+/*!
+ The `Vector`'s `x` component.
+ @see x
+ @see z
+ */
 @property (nonatomic, readonly) CGFloat y;
-/// The `Vector`'s `z` component.
+/*!
+ The `Vector`'s `x` component.
+ @see x
+ @see y
+ */
 @property (nonatomic, readonly) CGFloat z;
 
 
@@ -68,11 +87,10 @@
 #pragma mark - Common Vector constants
 
 /*!
- Represents a commonly used Vector, (0 0 0)
+ Represents a commonly used Vector, (0 0 0).
  @return A `Vector` object.
  */
 + (instancetype)origin;
-
 
 ///-----------------------------------------------------------------------------
 /// @name Creating Vector objects
@@ -80,26 +98,11 @@
 #pragma mark - Creating Vector objects
 
 /*!
- Creates a `Vector` based on the given object.
-
- The supported objects are:
-
- - `NSNumber`, which will be initialized just like `initUniformWithNumber:`.
- - `NSArray`, which will be initialized just like `initWithArray:`.
- - `NSValue` containing a `SCNVector3`, which will be initialized just like
- `initWithSCNVector3:`.
- - `Vector` (or any of its subclassses), which will be initialized just like
- `initWithVector:`.
- - `NSString`, which will be initialized just like `initWithString:`.
- - `NSDictionary`, which will be initialized just like `initWithDictionary:`.
-
- @warning In case the object isn't a subclass of any of the above classes, an
- `assert(false)` will be triggered.
-
- @param object An object of any one of the classes mentioned above.
- @return An initialized `Vector` object.
+ Creates an "empty" `Vector`, initialized to `(0 0 0)`.
+ @return A `Vector` object.
+ @see origin
  */
-+ (Vector *)vectorWithObject:(id)object;
++ (Vector *)vector;
 /*!
  Creates a `Vector` whith the three given components, respectively.
  @param x The value to assign to the `Vector`'s `x` component.
@@ -113,6 +116,7 @@
  `Vector`s that represent uniform scales.
  @param s The value to set to all the `Vector`'s components.
  @return An initialized `Vector` object.
+ @see vectorWithObject:
  */
 + (Vector *)vectorWithUniformWithNumber:(CGFloat)s;
 /*!
@@ -139,6 +143,8 @@
  `SCNVector3`.
  @param newValue The `SCNVector3` that should be used as a model.
  @return An initialized `Vector` object.
+ @see vectorWithNSValue:
+ @see vectorWithSCNVector4:
  */
 + (Vector *)vectorWithSCNVector3:(SCNVector3)newValue;
 /*!
@@ -150,14 +156,26 @@
 
  @param newValue The `SCNVector4` whose first three components should be used.
  @return An initialized `Vector` object.
+ @see vectorWithSCNVector3:
  */
 + (Vector *)vectorWithSCNVector4:(SCNVector4)newValue;
+/*!
+ Creates a `Vector` based on the `SCNVector3` contained in the given
+ `NSValue`.
+
+ @param newValue An `NSValue` created with an `SCNVector3`, which will be
+ obtained using `SCNVector3Value`.
+ @see initWithSCNVector3:
+ @see vectorWithObject:
+ */
++ (Vector *)vectorWithNSValue:(NSValue *)newValue;
 /*!
  Creates a `Vector` based on the first three elements on a given `NSArray`. If
  the array has less than 3 components or if any of the first three components is
  not an `NSNumber`, the corresponding value is set to zero.
  @param array The `NSArray` that should be used as a model.
  @return An initialized `Vector` object.
+ @see vectorWithObject:
  */
 + (Vector *)vectorWithArray:(NSArray *)array;
 /*!
@@ -168,6 +186,7 @@
  set to 0.0.
  @param dictionary The `NSDictionary` that should be used as a model.
  @return An initialized `Vector` object.
+ @see vectorWithObject:
  */
 + (Vector *)vectorWithDictionary:(NSDictionary *)dictionary;
 /*!
@@ -176,6 +195,8 @@
  used.
  @param string The `NSString` to use as a model.
  @return An initialized `Vector` object.
+ @see initWithArray:
+ @see vectorWithObject:
  */
 + (Vector *)vectorWithString:(NSString *)string;
 /*!
@@ -183,14 +204,49 @@
  other methods.
  @param vector The `Vector` object that will be returned.
  @return A `Vector` object.
+ @see vectorWithObject:
  */
 + (Vector *)vectorWithVector:(Vector *)vector;
+/*!
+ Creates a `Vector` based on the given object.
+
+ The supported objects are:
+
+ - `NSNumber`, which will be initialized just like `initUniformWithNumber:`.
+ - `NSArray`, which will be initialized just like `initWithArray:`.
+ - `NSValue` containing a `SCNVector3`, which will be initialized just like
+ `initWithSCNVector3:`.
+ - `Vector` (or any of its subclassses), which will be initialized just like
+ `initWithVector:`.
+ - `NSString`, which will be initialized just like `initWithString:`.
+ - `NSDictionary`, which will be initialized just like `initWithDictionary:`.
+
+ @warning In case the object isn't a subclass of any of the above classes, an
+ `assert(false)` will be triggered.
+
+ @param object An object of any one of the classes mentioned above.
+ @return An initialized `Vector` object.
+ @see initUniformWithNumber:
+ @see initWithArray:
+ @see initWithSCNVector3:
+ @see initWithVector:
+ @see initWithString:
+ @see initWithDictionary:
+ */
++ (Vector *)vectorWithObject:(id)object;
 
 
 ///-----------------------------------------------------------------------------
 /// @name Initializing Vector objects
 ///-----------------------------------------------------------------------------
 #pragma mark - Initializing Vector objects
+
+/*!
+ Initializes an "empty" `Vector` with `(0 0 0)`.
+ @return An initialized `Vector` object.
+ @see origin
+ */
+- (instancetype)init;
 /*!
  Initializes a `Vector` whith the three given components, respectively.
  @param x The value to assign to the `Vector`'s `x` component.
@@ -204,6 +260,7 @@
  creating `Vector`s that represent uniform scales.
  @param s The value to set to all the `Vector`'s components.
  @return An initialized `Vector` object.
+ @see initWithObject:
  */
 - (instancetype)initUniformWithNumber:(CGFloat)s;
 /*!
@@ -230,6 +287,9 @@
  `SCNVector3`.
  @param newValue The `SCNVector3` that should be used as a model.
  @return An initialized `Vector` object.
+ @see initWithNSValue:
+ @see initWithSCNVector4:
+ @see initWithObject:
  */
 - (instancetype)initWithSCNVector3:(SCNVector3)newValue;
 /*!
@@ -241,14 +301,25 @@
 
  @param newValue The `SCNVector4` whose first three components should be used.
  @return An initialized `Vector` object.
+ @see initWithSCNVector3:
  */
 - (instancetype)initWithSCNVector4:(SCNVector4)newValue;
+/*!
+ Initializes a `Vector` based on the `SCNVector3` contained in the given
+ `NSValue`.
+
+ @param newValue An `NSValue` created with an `SCNVector3`, which will be
+ obtained using `SCNVector3Value`.
+ @see initWithSCNVector3:
+ */
+- (instancetype)initWithNSValue:(NSValue *)newValue;
 /*!
  Initializes a `Vector` based on the first three elements on a given `NSArray`.
  If the array has less than 3 components or if any of the first three components
  is not an `NSNumber`, the corresponding value is set to zero.
  @param array The `NSArray` that should be used as a model.
  @return An initialized `Vector` object.
+ @see initWithObject:
  */
 - (instancetype)initWithArray:(NSArray *)array;
 /*!
@@ -259,6 +330,7 @@
  value is set to 0.0.
  @param dictionary The `NSDictionary` that should be used as a model.
  @return An initialized `Vector` object.
+ @see initWithObject:
  */
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 /*!
@@ -267,6 +339,8 @@
  method is used.
  @param string The `NSString` to use as a model.
  @return An initialized `Vector` object.
+ @see initWithArray:
+ @see initWithObject:
  */
 - (instancetype)initWithString:(NSString *)string;
 /*!
@@ -295,6 +369,12 @@
 
  @param object An object of any one of the classes mentioned above.
  @return An initialized `Vector` object.
+ @see initUniformWithNumber:
+ @see initWithArray:
+ @see initWithSCNVector3:
+ @see initWithVector:
+ @see initWithString:
+ @see initWithDictionary:
  */
 - (instancetype)initWithObject:(id)object;
 
@@ -346,115 +426,220 @@
 #pragma mark - Operations with Vectors
 
 /*!
- Returns a `Vector` representing a multiplication of this `Vector`, of format
- `(x, y, z)`, by a scalar `a`, resulting in a `Vector` of format `(a*x, a*y,
- a*z)`.
- @param scalar The scalar value by which to multiply the `Vector`.
+ Creates a `Vector` representing a multiplication of the receiver by a scalar
+ `a`.
+
+ If we wrote the receiver as `(x, y, z)`, the resulting `Vector` would be
+ written as `(a*x, a*y, a*z)`.
+
+ @param a The scalar value by which to multiply the `Vector`.
  @return A new instance of a `Vector` object.
+ @see over:
+ @see scale:
  */
-- (Vector *)times:(CGFloat)scalar;
+- (Vector *)times:(CGFloat)a;
 /*!
- Returns a `Vector` representing a division of this `Vector`, of format `(x, y,
- z)`, by a scalar `a`, resulting in a `Vector` of format `(x/a, y/a, z/a)`.
- @param scalar The scalar value by which to divide the `Vector`.
+ Creates a `Vector` representing a division of the receiver by a scalar `a`.
+
+ If we wrote the receiver as `(x, y, z)`, the resulting `Vector` would be
+ written as `(x/a, y/a, z/a)`.
+
+ @param a The scalar value by which to divide the `Vector`.
  @return A new instance of a `Vector` object.
+ @see times:
  */
-- (Vector *)over:(CGFloat)scalar;
+- (Vector *)over:(CGFloat)a;
 /*!
- Returns a `Vector` representing a sum of this `Vector`, of format `(x, y, z)`,
- by another `Vector` of format (a, b, c), resulting in a `Vector` of format `(a
- + x, b + y, c + z)`.
+ Creates a new `Vector` from the given `object` by calling `vectorWithObject:`.
+ Adds this new `Vector` to the receiver and returns the result.
+
+ If we wrote the receiver as `(x, y, z)` and the `Vector` resulting from the
+ given object as `(a, b, c)`, the resulting `Vector` would be written as `(a +
+ x, b + y, c + z)`.
+
  @param object An object, used to initialize a new `Vector` using the
  `vectorWithObject:` method. The resulting `Vector` is then used in the
  addition.
  @return A new instance of a `Vector` object.
+ @see minus:
  */
 - (Vector *)plus:(id)object;
 /*!
- Returns a `Vector` representing a subtraction of another `Vector`, of format
- `(a, b, c)`, from this `Vector` of format `(x, y, z)`, resulting in a `Vector`
- of format `(x - a, y - b, z - c)`.
+ Creates a new `Vector` from the given `object` by calling `vectorWithObject:`.
+ Subtracts this new `Vector` from the receiver and returns the result.
+
+ If we wrote the receiver as `(x, y, z)` and the `Vector` resulting from the
+ given object as `(a, b, c)`, the resulting `Vector` would be written as `(a -
+ x, b - y, c - z)`.
+
  @param object An object, used to initialize a new `Vector` using the
  `vectorWithObject:` method. The resulting `Vector` is then used in the
  subtraction.
  @return A new instance of a `Vector` object.
+ @see plus:
  */
 - (Vector *)minus:(id)object;
 /*!
- Takes the receiver, of format `(x, y, z)`, and returns its opposite, of format
- `(- x, - y, - z)`.
+ Creates a new `Vector`, representing the opposite from the given `Vector`.
+
+ If we wrote the given `Vector` as `(x, y, z)`, the resulting `Vector` would be
+ written as `(- x, - y, - z)`.
+
  @return A new instance of a `Vector` object.
  */
 - (Vector *)opposite;
 /*!
- Returns the dot product (which is a scalar value) of the receiver `Vector`,
- which has format `(x, y, z)`, with another `Vector` of format `(a, b, c)`,
- resulting the number given by `x*a + y*b + z*c`.
+ Creates a new `Vector` from the given `object` by calling `vectorWithObject:`.
+ Calculates the dot product between that `Vector` and the receiver.
+
+ If we wrote the receiver as `(x, y, z)` and the `Vector` resulting from the
+ given object as `(a, b, c)`, the result would be written as `a*x + b*y + c*z`.
+
  @param object An object, used to initialize a new `Vector` using the
  `vectorWithObject:` method. The resulting `Vector` is then used in the dot
  product.
  @return The value of the dot product between the two vectors.
+ @see normSquared
+ @see norm
  */
 - (CGFloat)dot:(id)object;
 /*!
- Returns the squared norm of this `Vector`, which has format `(x, y, z)`. The
- norm is the same as the dot product of this vector with itself: `x*x + y*y +
- z*z`.
+ Returns the squared norm of the receiver.
 
  Useful to compare the magnitude of different vectors without having the
  performance hit of a squared root (as the `norm` method does).
+
+ If we wrote the receiver as `(x, y, z)`, the result would be written as `x*x +
+ y*y + z*z`.
+
  @return The squared value of the `Vector`'s norm.
+ @see dot:
+ @see norm
  */
 - (CGFloat)normSquared;
 /*!
- Returns the norm of this `Vector`, which has format `(x, y, z)`. The norm is
- the same as the square root of the dot product of this vector with itself:
+ Returns the norm of the receiver.
+
+ If we wrote the receiver as `(x, y, z)`, the result would be written as
  `sqrt(x*x + y*y + z*z)`.
 
  @warning This method might involve a performance hit from taking the squared
  root if used in a tight loop; use the `squaredNorm` method instead whenever
  possible.
  @return The value of the `Vector`'s norm.
+ @see normSquared
+ @see dot:
  */
 - (CGFloat)norm;
 /*!
  Creates a new `Vector` as a result of changing receiver's components uniformly,
  scaling them so that the resulting `Vector` object has a norm of 1.
 
+ If we write the receiver as `(x, y, z)` and its `norm` as `n`, the resulting
+ `Vector` would be written as `(x/n, y/n, z/n)`.
+
  @warning This method might involve a performance hit from taking the squared
- root if used in a tight loop, so use only when necessary.
+ root if used in a tight loop; use only when necessary.
  @return A new instance of a `Vector` object.
+ @see norm
+ @see normSquared
  */
 - (Vector *)normalize;
 /*!
- Creates a new `Vector`, using the receiver as a translation vector to translate
- the given `Vector` object.
+ Creates a new `Vector` from the given `object` by calling `vectorWithObject:`.
+ That `Vector` is then translated, using the receiver as a translation `Vector`.
+
+ Mathematically equivalent to adding both `Vector`s using the `plus` method.
+
  @param object An object, used to initialize a new `Vector` using the
  `vectorWithObject:` method. The resulting `Vector` is then translated.
  @return A new intance of a `Vector` object.
+ @see plus:
+ @see scale:
  */
 - (Vector *)translate:(id)object;
 /*!
- Creates a new `Vector`, by scaling the receiver by the appropriate amount,
- given by `scale`.
- @param scale The amount by which to scale the receiver.
+ Creates a new `Vector` from the given `object` by calling `vectorWithObject:`.
+ That `Vector` is then scaled, using the receiver as a scale `Vector`.
+
+ If an `NSNumber` is given, the result would be equivalent to simply scaling the
+ receiver by that number.
+
+ If we write the receiver as `(x, y, z)` and the given `Vector` as `(a, b, c)`,
+ the resulting `Vector` would be written as `(a*x, b*y, c*z)`
+
+ @param object An object, used to initialize a new `Vector` using the
+ `vectorWithObject:` method. The resulting `Vector` is then used as a scale.
  @return A new intance of a `Vector` object.
+ @see translate:
  */
-- (Vector *)scale:(CGFloat)scale;
+- (Vector *)scale:(id)object;
 /*!
- The receiver applies the translation it represents to the receiving
- `SCNMatrix4`, and then returns the result.
+ Applies the translation the receiver represents to the given `SCNMatrix4`.
  @param matrix The matrix to translate.
  @return A new `SCNMatrix4`, representing the result of the translation of the
  original matrix.
+ @see translate:
  */
 - (SCNMatrix4)translateMatrix:(SCNMatrix4)matrix;
 /*!
- The receiver applies the scale it represents to the receiving `SCNMatrix4`, and
- then returns the result.
+ Applies the scale the receiver represents to the given `SCNMatrix4`.
  @param matrix The matrix to scale.
  @return A new `SCNMatrix4`, representing the result of scaling the original
  matrix.
+ @see scale:
  */
 - (SCNMatrix4)scaleMatrix:(SCNMatrix4)matrix;
+
+
+///-----------------------------------------------------------------------------
+/// @name Attempting to change Vectors
+///-----------------------------------------------------------------------------
+#pragma mark - Attempting to change Vectors
+
+/*!
+ Creates a new `Vector` object with the same coordinates as the receiver but
+ with the new `x` coordinate.
+
+ Since `Vector`s are immutable, this method acts like a setter for the `x`
+ property but returns a new `Vector` instead.
+
+ If the receiver has format `(a, b, c)`, the resulting `Vector` has format `(x,
+ b, c)`.
+ @param x The new value to set in the `x` coordinate.
+ @return A new `Vector` object
+ @see setNewY:
+ @see setNewZ:
+ */
+- (Vector *)setNewX:(CGFloat)x;
+/*!
+ Creates a new `Vector` object with the same coordinates as the receiver but
+ with the new `y` coordinate.
+
+ Since `Vector`s are immutable, this method acts like a setter for the `y`
+ property but returns a new `Vector` instead.
+
+ If the receiver has format `(a, b, c)`, the resulting `Vector` has format `(a,
+ y, c)`.
+ @param y The new value to set in the `y` coordinate.
+ @return A new `Vector` object
+ @see setNewX:
+ @see setNewZ:
+ */
+- (Vector *)setNewY:(CGFloat)y;
+/*!
+ Creates a new `Vector` object with the same coordinates as the receiver but
+ with the new `z` coordinate.
+
+ Since `Vector`s are immutable, this method acts like a setter for the `z`
+ property but returns a new `Vector` instead.
+
+ If the receiver has format `(a, b, c)`, the resulting `Vector` has format `(a,
+ b, z)`.
+ @param z The new value to set in the `z` coordinate.
+ @return A new `Vector` object
+ @see setNewX:
+ @see setNewY:
+ */
+- (Vector *)setNewZ:(CGFloat)z;
 @end

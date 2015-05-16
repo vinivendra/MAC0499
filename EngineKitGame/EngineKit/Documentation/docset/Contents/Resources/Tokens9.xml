@@ -29,12 +29,12 @@ its local coordinate space).</Abstract>
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/Floor/deepCopy</TokenIdentifier>
-			<Abstract type="html">Creates a deep copy of the receiver, including in it any relevant information.</Abstract>
+			<Abstract type="html"></Abstract>
 			<DeclaredIn>Floor.m</DeclaredIn>
 			
 			<Declaration>- (Item *)deepCopy</Declaration>
 			
-			<ReturnValue><Abstract type="html">A new instance of Item, representing a copy of the receiver.</Abstract></ReturnValue>
+			
 			<Anchor>//api/name/deepCopy</Anchor>
             <NodeRef refid="9"/>
 		</Token>

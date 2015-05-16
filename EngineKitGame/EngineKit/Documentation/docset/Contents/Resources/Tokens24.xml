@@ -17,6 +17,12 @@
 			<Abstract type="html">The Vector&apos;s x component.</Abstract>
 			<DeclaredIn>Vector.h</DeclaredIn>
 			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/Vector/y</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instp/Vector/z</TokenIdentifier>
+		
+	</RelatedTokens>
+	
 			<Declaration>@property (nonatomic, readonly) CGFloat x</Declaration>
 			
 			
@@ -29,6 +35,12 @@
 			<Abstract type="html">The Vector&apos;s x component.</Abstract>
 			<DeclaredIn>Vector.h</DeclaredIn>
 			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/Vector/y</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instp/Vector/z</TokenIdentifier>
+		
+	</RelatedTokens>
+	
 			<Declaration>@property (nonatomic, readonly) CGFloat x</Declaration>
 			
 			
@@ -41,6 +53,12 @@
 			<Abstract type="html">The Vector&apos;s x component.</Abstract>
 			<DeclaredIn>Vector.h</DeclaredIn>
 			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/Vector/y</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instp/Vector/z</TokenIdentifier>
+		
+	</RelatedTokens>
+	
 			<Declaration>@property (nonatomic, readonly) CGFloat x</Declaration>
 			
 			
@@ -50,9 +68,15 @@
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/Vector/setY:</TokenIdentifier>
-			<Abstract type="html">The Vector&apos;s y component.</Abstract>
+			<Abstract type="html">The Vector&apos;s x component.</Abstract>
 			<DeclaredIn>Vector.h</DeclaredIn>
 			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/Vector/x</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instp/Vector/z</TokenIdentifier>
+		
+	</RelatedTokens>
+	
 			<Declaration>@property (nonatomic, readonly) CGFloat y</Declaration>
 			
 			
@@ -62,9 +86,15 @@
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/Vector/y</TokenIdentifier>
-			<Abstract type="html">The Vector&apos;s y component.</Abstract>
+			<Abstract type="html">The Vector&apos;s x component.</Abstract>
 			<DeclaredIn>Vector.h</DeclaredIn>
 			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/Vector/x</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instp/Vector/z</TokenIdentifier>
+		
+	</RelatedTokens>
+	
 			<Declaration>@property (nonatomic, readonly) CGFloat y</Declaration>
 			
 			
@@ -74,9 +104,15 @@
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instp/Vector/y</TokenIdentifier>
-			<Abstract type="html">The Vector&apos;s y component.</Abstract>
+			<Abstract type="html">The Vector&apos;s x component.</Abstract>
 			<DeclaredIn>Vector.h</DeclaredIn>
 			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/Vector/x</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instp/Vector/z</TokenIdentifier>
+		
+	</RelatedTokens>
+	
 			<Declaration>@property (nonatomic, readonly) CGFloat y</Declaration>
 			
 			
@@ -86,9 +122,15 @@
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/Vector/setZ:</TokenIdentifier>
-			<Abstract type="html">The Vector&apos;s z component.</Abstract>
+			<Abstract type="html">The Vector&apos;s x component.</Abstract>
 			<DeclaredIn>Vector.h</DeclaredIn>
 			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/Vector/x</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instp/Vector/y</TokenIdentifier>
+		
+	</RelatedTokens>
+	
 			<Declaration>@property (nonatomic, readonly) CGFloat z</Declaration>
 			
 			
@@ -98,9 +140,15 @@
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/Vector/z</TokenIdentifier>
-			<Abstract type="html">The Vector&apos;s z component.</Abstract>
+			<Abstract type="html">The Vector&apos;s x component.</Abstract>
 			<DeclaredIn>Vector.h</DeclaredIn>
 			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/Vector/x</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instp/Vector/y</TokenIdentifier>
+		
+	</RelatedTokens>
+	
 			<Declaration>@property (nonatomic, readonly) CGFloat z</Declaration>
 			
 			
@@ -110,9 +158,15 @@
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instp/Vector/z</TokenIdentifier>
-			<Abstract type="html">The Vector&apos;s z component.</Abstract>
+			<Abstract type="html">The Vector&apos;s x component.</Abstract>
 			<DeclaredIn>Vector.h</DeclaredIn>
 			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/Vector/x</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instp/Vector/y</TokenIdentifier>
+		
+	</RelatedTokens>
+	
 			<Declaration>@property (nonatomic, readonly) CGFloat z</Declaration>
 			
 			
@@ -122,7 +176,7 @@
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/clm/Vector/origin</TokenIdentifier>
-			<Abstract type="html">Represents a commonly used Vector, (0 0 0)</Abstract>
+			<Abstract type="html">Represents a commonly used Vector, (0 0 0).</Abstract>
 			<DeclaredIn>Vector.h</DeclaredIn>
 			
 			<Declaration>+ (instancetype)origin</Declaration>
@@ -133,19 +187,19 @@
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/Vector/vectorWithObject:</TokenIdentifier>
-			<Abstract type="html">Creates a Vector based on the given object.</Abstract>
+			<TokenIdentifier>//apple_ref/occ/clm/Vector/vector</TokenIdentifier>
+			<Abstract type="html">Creates an &quot;empty&quot; Vector, initialized to (0 0 0).</Abstract>
 			<DeclaredIn>Vector.h</DeclaredIn>
 			
-			<Declaration>+ (Vector *)vectorWithObject:(id)object</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>object</Name>
-					<Abstract type="html">An object of any one of the classes mentioned above.</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">An initialized Vector object.</Abstract></ReturnValue>
-			<Anchor>//api/name/vectorWithObject:</Anchor>
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/clm/Vector/origin</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>+ (Vector *)vector</Declaration>
+			
+			<ReturnValue><Abstract type="html">A Vector object.</Abstract></ReturnValue>
+			<Anchor>//api/name/vector</Anchor>
             <NodeRef refid="24"/>
 		</Token>
 		
@@ -178,6 +232,11 @@
 Vectors that represent uniform scales.</Abstract>
 			<DeclaredIn>Vector.h</DeclaredIn>
 			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/clm/Vector/vectorWithObject:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
 			<Declaration>+ (Vector *)vectorWithUniformWithNumber:(CGFloat)s</Declaration>
 			<Parameters>
 				<Parameter>
@@ -234,6 +293,12 @@ the CIVector has been correctly initialized and has the  necessary components.</
 SCNVector3.</Abstract>
 			<DeclaredIn>Vector.h</DeclaredIn>
 			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/clm/Vector/vectorWithNSValue:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/clm/Vector/vectorWithSCNVector4:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
 			<Declaration>+ (Vector *)vectorWithSCNVector3:(SCNVector3)newValue</Declaration>
 			<Parameters>
 				<Parameter>
@@ -253,6 +318,11 @@ components in the given SCNVector4. If that Vector has format (x y z w),
 the created Vector object will have format (x y z``.</Abstract>
 			<DeclaredIn>Vector.h</DeclaredIn>
 			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/clm/Vector/vectorWithSCNVector3:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
 			<Declaration>+ (Vector *)vectorWithSCNVector4:(SCNVector4)newValue</Declaration>
 			<Parameters>
 				<Parameter>
@@ -266,12 +336,42 @@ the created Vector object will have format (x y z``.</Abstract>
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Vector/vectorWithNSValue:</TokenIdentifier>
+			<Abstract type="html">Creates a Vector based on the SCNVector3 contained in the given
+NSValue.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithSCNVector3:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/clm/Vector/vectorWithObject:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>+ (Vector *)vectorWithNSValue:(NSValue *)newValue</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>newValue</Name>
+					<Abstract type="html">An NSValue created with an SCNVector3, which will be
+obtained using SCNVector3Value.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/vectorWithNSValue:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/clm/Vector/vectorWithArray:</TokenIdentifier>
 			<Abstract type="html">Creates a Vector based on the first three elements on a given NSArray. If
 the array has less than 3 components or if any of the first three components is
 not an NSNumber, the corresponding value is set to zero.</Abstract>
 			<DeclaredIn>Vector.h</DeclaredIn>
 			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/clm/Vector/vectorWithObject:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
 			<Declaration>+ (Vector *)vectorWithArray:(NSArray *)array</Declaration>
 			<Parameters>
 				<Parameter>
@@ -293,6 +393,11 @@ them as needed. If any elements are still missing, the corresponding value is
 set to 0.0.</Abstract>
 			<DeclaredIn>Vector.h</DeclaredIn>
 			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/clm/Vector/vectorWithObject:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
 			<Declaration>+ (Vector *)vectorWithDictionary:(NSDictionary *)dictionary</Declaration>
 			<Parameters>
 				<Parameter>
@@ -312,6 +417,12 @@ found is inserted into an NSArray, and then the initWithArray: method is
 used.</Abstract>
 			<DeclaredIn>Vector.h</DeclaredIn>
 			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithArray:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/clm/Vector/vectorWithObject:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
 			<Declaration>+ (Vector *)vectorWithString:(NSString *)string</Declaration>
 			<Parameters>
 				<Parameter>
@@ -330,6 +441,11 @@ used.</Abstract>
 other methods.</Abstract>
 			<DeclaredIn>Vector.h</DeclaredIn>
 			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/clm/Vector/vectorWithObject:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
 			<Declaration>+ (Vector *)vectorWithVector:(Vector *)vector</Declaration>
 			<Parameters>
 				<Parameter>
@@ -339,6 +455,50 @@ other methods.</Abstract>
 			</Parameters>
 			<ReturnValue><Abstract type="html">A Vector object.</Abstract></ReturnValue>
 			<Anchor>//api/name/vectorWithVector:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Vector/vectorWithObject:</TokenIdentifier>
+			<Abstract type="html">Creates a Vector based on the given object.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/initUniformWithNumber:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithArray:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithSCNVector3:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithVector:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithString:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithDictionary:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>+ (Vector *)vectorWithObject:(id)object</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>object</Name>
+					<Abstract type="html">An object of any one of the classes mentioned above.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized Vector object.</Abstract></ReturnValue>
+			<Anchor>//api/name/vectorWithObject:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/init</TokenIdentifier>
+			<Abstract type="html">Initializes an &quot;empty&quot; Vector with (0 0 0).</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/clm/Vector/origin</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (instancetype)init</Declaration>
+			
+			<ReturnValue><Abstract type="html">An initialized Vector object.</Abstract></ReturnValue>
+			<Anchor>//api/name/init</Anchor>
             <NodeRef refid="24"/>
 		</Token>
 		
@@ -371,6 +531,11 @@ other methods.</Abstract>
 creating Vectors that represent uniform scales.</Abstract>
 			<DeclaredIn>Vector.h</DeclaredIn>
 			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithObject:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
 			<Declaration>- (instancetype)initUniformWithNumber:(CGFloat)s</Declaration>
 			<Parameters>
 				<Parameter>
@@ -427,6 +592,13 @@ the CIVector has been correctly initialized and has the necessary components.</A
 SCNVector3.</Abstract>
 			<DeclaredIn>Vector.h</DeclaredIn>
 			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithNSValue:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithSCNVector4:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithObject:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
 			<Declaration>- (instancetype)initWithSCNVector3:(SCNVector3)newValue</Declaration>
 			<Parameters>
 				<Parameter>
@@ -446,6 +618,11 @@ components in the given SCNVector4. If that Vector has format (x y z w),
 the created Vector object will have format (x y z``.</Abstract>
 			<DeclaredIn>Vector.h</DeclaredIn>
 			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithSCNVector3:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
 			<Declaration>- (instancetype)initWithSCNVector4:(SCNVector4)newValue</Declaration>
 			<Parameters>
 				<Parameter>
@@ -459,12 +636,41 @@ the created Vector object will have format (x y z``.</Abstract>
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithNSValue:</TokenIdentifier>
+			<Abstract type="html">Initializes a Vector based on the SCNVector3 contained in the given
+NSValue.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithSCNVector3:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (instancetype)initWithNSValue:(NSValue *)newValue</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>newValue</Name>
+					<Abstract type="html">An NSValue created with an SCNVector3, which will be
+obtained using SCNVector3Value.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/initWithNSValue:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithArray:</TokenIdentifier>
 			<Abstract type="html">Initializes a Vector based on the first three elements on a given NSArray.
 If the array has less than 3 components or if any of the first three components
 is not an NSNumber, the corresponding value is set to zero.</Abstract>
 			<DeclaredIn>Vector.h</DeclaredIn>
 			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithObject:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
 			<Declaration>- (instancetype)initWithArray:(NSArray *)array</Declaration>
 			<Parameters>
 				<Parameter>
@@ -486,6 +692,11 @@ replace them as needed. If any elements are still missing, the corresponding
 value is set to 0.0.</Abstract>
 			<DeclaredIn>Vector.h</DeclaredIn>
 			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithObject:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
 			<Declaration>- (instancetype)initWithDictionary:(NSDictionary *)dictionary</Declaration>
 			<Parameters>
 				<Parameter>
@@ -505,6 +716,12 @@ number found is inserted into an NSArray, and then the initWithArray:
 method is used.</Abstract>
 			<DeclaredIn>Vector.h</DeclaredIn>
 			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithArray:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithObject:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
 			<Declaration>- (instancetype)initWithString:(NSString *)string</Declaration>
 			<Parameters>
 				<Parameter>
@@ -540,6 +757,16 @@ other methods.</Abstract>
 			<Abstract type="html">Initializes a Vector based on the given object.</Abstract>
 			<DeclaredIn>Vector.h</DeclaredIn>
 			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/initUniformWithNumber:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithArray:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithSCNVector3:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithVector:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithString:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithDictionary:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
 			<Declaration>- (instancetype)initWithObject:(id)object</Declaration>
 			<Parameters>
 				<Parameter>
@@ -617,15 +844,20 @@ components are equal.</Abstract>
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/Vector/times:</TokenIdentifier>
-			<Abstract type="html">Returns a Vector representing a multiplication of this Vector, of format
-(x, y, z, by a scalar a, resulting in a Vector of format (ax`, ay,
-a*z`.</Abstract>
+			<Abstract type="html">Creates a Vector representing a multiplication of the receiver by a scalar
+a.</Abstract>
 			<DeclaredIn>Vector.h</DeclaredIn>
 			
-			<Declaration>- (Vector *)times:(CGFloat)scalar</Declaration>
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/over:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/scale:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (Vector *)times:(CGFloat)a</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>scalar</Name>
+					<Name>a</Name>
 					<Abstract type="html">The scalar value by which to multiply the Vector.</Abstract>
 				</Parameter>
 			</Parameters>
@@ -636,14 +868,18 @@ a*z`.</Abstract>
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/Vector/over:</TokenIdentifier>
-			<Abstract type="html">Returns a Vector representing a division of this Vector, of format (x, y`,
-z, by a scalar a, resulting in a Vector of format (x/a, y/a, z/a)`.</Abstract>
+			<Abstract type="html">Creates a Vector representing a division of the receiver by a scalar a.</Abstract>
 			<DeclaredIn>Vector.h</DeclaredIn>
 			
-			<Declaration>- (Vector *)over:(CGFloat)scalar</Declaration>
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/times:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (Vector *)over:(CGFloat)a</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>scalar</Name>
+					<Name>a</Name>
 					<Abstract type="html">The scalar value by which to divide the Vector.</Abstract>
 				</Parameter>
 			</Parameters>
@@ -654,11 +890,15 @@ z, by a scalar a, resulting in a Vector of format (x/a, y/a, z/a)`.</Abstract>
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/Vector/plus:</TokenIdentifier>
-			<Abstract type="html">Returns a Vector representing a sum of this Vector, of format (x, y, z``,
-by another Vector of format (a, b, c), resulting in a Vector of format `(a
-+ x, b + y, c + z`.</Abstract>
+			<Abstract type="html">Creates a new Vector from the given object by calling vectorWithObject:.
+Adds this new Vector to the receiver and returns the result.</Abstract>
 			<DeclaredIn>Vector.h</DeclaredIn>
 			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/minus:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
 			<Declaration>- (Vector *)plus:(id)object</Declaration>
 			<Parameters>
 				<Parameter>
@@ -675,11 +915,15 @@ addition.</Abstract>
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/Vector/minus:</TokenIdentifier>
-			<Abstract type="html">Returns a Vector representing a subtraction of another Vector, of format
-(a, b, c), from this Vector of format (x, y, z, resulting in a Vector
-of format (x - a, y - b, z - c).</Abstract>
+			<Abstract type="html">Creates a new Vector from the given object by calling vectorWithObject:.
+Subtracts this new Vector from the receiver and returns the result.</Abstract>
 			<DeclaredIn>Vector.h</DeclaredIn>
 			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/plus:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
 			<Declaration>- (Vector *)minus:(id)object</Declaration>
 			<Parameters>
 				<Parameter>
@@ -696,8 +940,7 @@ subtraction.</Abstract>
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/Vector/opposite</TokenIdentifier>
-			<Abstract type="html">Takes the receiver, of format (x, y, z``, and returns its opposite, of format
-(- x, - y, - z``.</Abstract>
+			<Abstract type="html">Creates a new Vector, representing the opposite from the given Vector.</Abstract>
 			<DeclaredIn>Vector.h</DeclaredIn>
 			
 			<Declaration>- (Vector *)opposite</Declaration>
@@ -709,11 +952,16 @@ subtraction.</Abstract>
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/Vector/dot:</TokenIdentifier>
-			<Abstract type="html">Returns the dot product (which is a scalar value) of the receiver Vector,
-which has format (x, y, z, with another Vector of format (a, b, c),
-resulting the number given by xa + yb + z*c.</Abstract>
+			<Abstract type="html">Creates a new Vector from the given object by calling vectorWithObject:.
+Calculates the dot product between that Vector and the receiver.</Abstract>
 			<DeclaredIn>Vector.h</DeclaredIn>
 			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/normSquared</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/norm</TokenIdentifier>
+		
+	</RelatedTokens>
+	
 			<Declaration>- (CGFloat)dot:(id)object</Declaration>
 			<Parameters>
 				<Parameter>
@@ -730,11 +978,14 @@ product.</Abstract>
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/Vector/normSquared</TokenIdentifier>
-			<Abstract type="html">Returns the squared norm of this Vector, which has format (x, y, z``. The
-norm is the same as the dot product of this vector with itself: xx + yy` +
-z*z`.</Abstract>
+			<Abstract type="html">Returns the squared norm of the receiver.</Abstract>
 			<DeclaredIn>Vector.h</DeclaredIn>
 			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/norm</TokenIdentifier>
+		
+	</RelatedTokens>
+	
 			<Declaration>- (CGFloat)normSquared</Declaration>
 			
 			<ReturnValue><Abstract type="html">The squared value of the Vector&apos;s norm.</Abstract></ReturnValue>
@@ -744,11 +995,14 @@ z*z`.</Abstract>
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/Vector/norm</TokenIdentifier>
-			<Abstract type="html">Returns the norm of this Vector, which has format (x, y, z``. The norm is
-the same as the square root of the dot product of this vector with itself:
-sqrt(xx + yy + z*z``.</Abstract>
+			<Abstract type="html">Returns the norm of the receiver.</Abstract>
 			<DeclaredIn>Vector.h</DeclaredIn>
 			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/normSquared</TokenIdentifier>
+		
+	</RelatedTokens>
+	
 			<Declaration>- (CGFloat)norm</Declaration>
 			
 			<ReturnValue><Abstract type="html">The value of the Vector&apos;s norm.</Abstract></ReturnValue>
@@ -762,6 +1016,12 @@ sqrt(xx + yy + z*z``.</Abstract>
 scaling them so that the resulting Vector object has a norm of 1.</Abstract>
 			<DeclaredIn>Vector.h</DeclaredIn>
 			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/norm</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/normSquared</TokenIdentifier>
+		
+	</RelatedTokens>
+	
 			<Declaration>- (Vector *)normalize</Declaration>
 			
 			<ReturnValue><Abstract type="html">A new instance of a Vector object.</Abstract></ReturnValue>
@@ -771,10 +1031,16 @@ scaling them so that the resulting Vector object has a norm of 1.</Abstract>
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/Vector/translate:</TokenIdentifier>
-			<Abstract type="html">Creates a new Vector, using the receiver as a translation vector to translate
-the given Vector object.</Abstract>
+			<Abstract type="html">Creates a new Vector from the given object by calling vectorWithObject:.
+That Vector is then translated, using the receiver as a translation Vector.</Abstract>
 			<DeclaredIn>Vector.h</DeclaredIn>
 			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/plus:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/scale:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
 			<Declaration>- (Vector *)translate:(id)object</Declaration>
 			<Parameters>
 				<Parameter>
@@ -790,15 +1056,21 @@ vectorWithObject: method. The resulting Vector is then translated.</Abstract>
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/Vector/scale:</TokenIdentifier>
-			<Abstract type="html">Creates a new Vector, by scaling the receiver by the appropriate amount,
-given by scale.</Abstract>
+			<Abstract type="html">Creates a new Vector from the given object by calling vectorWithObject:.
+That Vector is then scaled, using the receiver as a scale Vector.</Abstract>
 			<DeclaredIn>Vector.h</DeclaredIn>
 			
-			<Declaration>- (Vector *)scale:(CGFloat)scale</Declaration>
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/translate:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (Vector *)scale:(id)object</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>scale</Name>
-					<Abstract type="html">The amount by which to scale the receiver.</Abstract>
+					<Name>object</Name>
+					<Abstract type="html">An object, used to initialize a new Vector using the
+vectorWithObject: method. The resulting Vector is then used as a scale.</Abstract>
 				</Parameter>
 			</Parameters>
 			<ReturnValue><Abstract type="html">A new intance of a Vector object.</Abstract></ReturnValue>
@@ -808,10 +1080,14 @@ given by scale.</Abstract>
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/Vector/translateMatrix:</TokenIdentifier>
-			<Abstract type="html">The receiver applies the translation it represents to the receiving
-SCNMatrix4, and then returns the result.</Abstract>
+			<Abstract type="html">Applies the translation the receiver represents to the given SCNMatrix4.</Abstract>
 			<DeclaredIn>Vector.h</DeclaredIn>
 			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/translate:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
 			<Declaration>- (SCNMatrix4)translateMatrix:(SCNMatrix4)matrix</Declaration>
 			<Parameters>
 				<Parameter>
@@ -827,10 +1103,14 @@ original matrix.</Abstract></ReturnValue>
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/Vector/scaleMatrix:</TokenIdentifier>
-			<Abstract type="html">The receiver applies the scale it represents to the receiving SCNMatrix4, and
-then returns the result.</Abstract>
+			<Abstract type="html">Applies the scale the receiver represents to the given SCNMatrix4.</Abstract>
 			<DeclaredIn>Vector.h</DeclaredIn>
 			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/scale:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
 			<Declaration>- (SCNMatrix4)scaleMatrix:(SCNMatrix4)matrix</Declaration>
 			<Parameters>
 				<Parameter>
@@ -841,6 +1121,78 @@ then returns the result.</Abstract>
 			<ReturnValue><Abstract type="html">A new SCNMatrix4, representing the result of scaling the original
 matrix.</Abstract></ReturnValue>
 			<Anchor>//api/name/scaleMatrix:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/setNewX:</TokenIdentifier>
+			<Abstract type="html">Creates a new Vector object with the same coordinates as the receiver but
+with the new x coordinate.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/setNewY:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/setNewZ:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (Vector *)setNewX:(CGFloat)x</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>x</Name>
+					<Abstract type="html">The new value to set in the x coordinate.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A new Vector object</Abstract></ReturnValue>
+			<Anchor>//api/name/setNewX:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/setNewY:</TokenIdentifier>
+			<Abstract type="html">Creates a new Vector object with the same coordinates as the receiver but
+with the new y coordinate.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/setNewX:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/setNewZ:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (Vector *)setNewY:(CGFloat)y</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>y</Name>
+					<Abstract type="html">The new value to set in the y coordinate.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A new Vector object</Abstract></ReturnValue>
+			<Anchor>//api/name/setNewY:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/setNewZ:</TokenIdentifier>
+			<Abstract type="html">Creates a new Vector object with the same coordinates as the receiver but
+with the new z coordinate.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/setNewX:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/setNewY:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (Vector *)setNewZ:(CGFloat)z</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>z</Name>
+					<Abstract type="html">The new value to set in the z coordinate.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A new Vector object</Abstract></ReturnValue>
+			<Anchor>//api/name/setNewZ:</Anchor>
             <NodeRef refid="24"/>
 		</Token>
 		

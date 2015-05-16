@@ -70,6 +70,8 @@
 		
 		<option value="//api/name/origin">+ origin</option>
 		
+		<option value="//api/name/vector">+ vector</option>
+		
 		<option value="//api/name/vectorWithArray:">+ vectorWithArray:</option>
 		
 		<option value="//api/name/vectorWithCGPoint:">+ vectorWithCGPoint:</option>
@@ -77,6 +79,8 @@
 		<option value="//api/name/vectorWithCIVector:">+ vectorWithCIVector:</option>
 		
 		<option value="//api/name/vectorWithDictionary:">+ vectorWithDictionary:</option>
+		
+		<option value="//api/name/vectorWithNSValue:">+ vectorWithNSValue:</option>
 		
 		<option value="//api/name/vectorWithObject:">+ vectorWithObject:</option>
 		
@@ -100,6 +104,8 @@
 		
 		<option value="//api/name/dot:">- dot:</option>
 		
+		<option value="//api/name/init">- init</option>
+		
 		<option value="//api/name/initUniformWithNumber:">- initUniformWithNumber:</option>
 		
 		<option value="//api/name/initWithArray:">- initWithArray:</option>
@@ -109,6 +115,8 @@
 		<option value="//api/name/initWithCIVector:">- initWithCIVector:</option>
 		
 		<option value="//api/name/initWithDictionary:">- initWithDictionary:</option>
+		
+		<option value="//api/name/initWithNSValue:">- initWithNSValue:</option>
 		
 		<option value="//api/name/initWithObject:">- initWithObject:</option>
 		
@@ -143,6 +151,12 @@
 		<option value="//api/name/scale:">- scale:</option>
 		
 		<option value="//api/name/scaleMatrix:">- scaleMatrix:</option>
+		
+		<option value="//api/name/setNewX:">- setNewX:</option>
+		
+		<option value="//api/name/setNewY:">- setNewY:</option>
+		
+		<option value="//api/name/setNewZ:">- setNewZ:</option>
 		
 		<option value="//api/name/times:">- times:</option>
 		
@@ -237,6 +251,17 @@
 			
 
 			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/y">@property y</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/z">@property z</a></p></code></li>
+					
+				</ul>
+			</div>
+			
 
 			
 			<div class="method-subsection declared-in-section">
@@ -259,7 +284,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The <code>Vector</code>&rsquo;s <code>y</code> component.</p>
+				<p>The <code>Vector</code>&rsquo;s <a href="#//api/name/x"><code>x</code></a> component.</p>
 			</div>
 			
 		    
@@ -277,6 +302,17 @@
 
 			
 
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/x">@property x</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/z">@property z</a></p></code></li>
+					
+				</ul>
+			</div>
 			
 
 			
@@ -300,7 +336,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The <code>Vector</code>&rsquo;s <code>z</code> component.</p>
+				<p>The <code>Vector</code>&rsquo;s <a href="#//api/name/x"><code>x</code></a> component.</p>
 			</div>
 			
 		    
@@ -318,6 +354,17 @@
 
 			
 
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/x">@property x</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/y">@property y</a></p></code></li>
+					
+				</ul>
+			</div>
 			
 
 			
@@ -341,7 +388,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Represents a commonl<a href="#//api/name/y">y</a> used Vector, (0 0 0)</p>
+				<p>Represents a commonl<a href="#//api/name/y">y</a> used Vector, (0 0 0).</p>
 			</div>
 			
 		    
@@ -376,8 +423,8 @@
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/vectorWithObject:" title="vectorWithObject:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/vectorWithObject:">+&nbsp;vectorWithObject:</a></code>
+	<a name="//api/name/vector" title="vector"></a>
+	<h3 class="method-title"><code><a href="#//api/name/vector">+&nbsp;vector</a></code>
 </h3>
 
 	<div class="method-info">
@@ -387,59 +434,38 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Creates a <code>Vector</code> based on the given object.</p>
+				<p>Creates an &ldquo;empty&rdquo; <code>Vector</code>, initialized to <code>(0 0 0)</code>.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>+ (Vector *)vectorWithObject:(id)<em>object</em></code></div>
+			<div class="method-subsection method-declaration"><code>+ (Vector *)vector</code></div>
 
 		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>object</code></th>
-						<td><p>An object of an<a href="#//api/name/y">y</a> one of the classes mentioned above.</p></td>
-					</tr>
-				
-				</table>
-			</div>
 			
 
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An initialized <code>Vector</code> object.</p>
+				<p>A <code>Vector</code> object.</p>
 			</div>
 			
 
 			
 
 			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<p>The supported objects are:</p>
 
-<ul>
-<li><code>NSNumber</code>, which will be initialized just like <a href="#//api/name/initUniformWithNumber:"><code>initUniformWithNumber:</code></a>.</li>
-<li><code>NSArra</code>y<code></code>, which will be initialized just like <a href="#//api/name/initWithArray:"><code>initWithArray:</code></a>.</li>
-<li><code>NSValue</code> containing a <code>SCNVector3</code>, which will be initialized just like
-<a href="#//api/name/initWithSCNVector3:"><code>initWithSCNVector3:</code></a>.</li>
-<li><code>Vector</code> (or an<a href="#//api/name/y">y</a> of its subclassses), which will be initialized just like
-<a href="#//api/name/initWithVector:"><code>initWithVector:</code></a>.</li>
-<li><code>NSString</code>, which will be initialized just like <a href="#//api/name/initWithString:"><code>initWithString:</code></a>.</li>
-<li><code>NSDictionar</code>y<code></code>, which will be initialized just like <a href="#//api/name/initWithDictionary:"><code>initWithDictionary:</code></a>.</li>
-</ul>
-<div class="warning"><p><strong>Warning:</strong> In case the object isn&rsquo;t a subclass of an<a href="#//api/name/y">y</a> of the above classes, an
-<code>assert(false)</code> will be triggered.</p></div>
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/origin">+ origin</a></p></code></li>
+					
+				</ul>
 			</div>
-			
-
-			
-
 			
 
 			
@@ -567,6 +593,15 @@
 
 			
 
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/vectorWithObject:">+ vectorWithObject:</a></p></code></li>
+					
+				</ul>
+			</div>
 			
 
 			
@@ -752,6 +787,17 @@ the CIVector has been correctl<a href="#//api/name/y">y</a> initialized and has 
 			
 
 			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/vectorWithNSValue:">+ vectorWithNSValue:</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/vectorWithSCNVector4:">+ vectorWithSCNVector4:</a></p></code></li>
+					
+				</ul>
+			</div>
+			
 
 			
 			<div class="method-subsection declared-in-section">
@@ -817,6 +863,81 @@ the created <code>Vector</code> object will have format <code>(</code>x<code> </
 			
 
 			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/vectorWithSCNVector3:">+ vectorWithSCNVector3:</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Vector.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/vectorWithNSValue:" title="vectorWithNSValue:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/vectorWithNSValue:">+&nbsp;vectorWithNSValue:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a <code>Vector</code> based on the <code>SCNVector3</code> contained in the given
+<code>NSValue</code>.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (Vector *)vectorWithNSValue:(NSValue *)<em>newValue</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>newValue</code></th>
+						<td><p>An <code>NSValue</code> created with an <code>SCNVector3</code>, which will be
+obtained using <code>SCNVector3Value</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/initWithSCNVector3:">- initWithSCNVector3:</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/vectorWithObject:">+ vectorWithObject:</a></p></code></li>
+					
+				</ul>
+			</div>
+			
 
 			
 			<div class="method-subsection declared-in-section">
@@ -876,6 +997,15 @@ not an <code>NSNumber</code>, the corresponding value is set to zero.</p>
 
 			
 
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/vectorWithObject:">+ vectorWithObject:</a></p></code></li>
+					
+				</ul>
+			</div>
 			
 
 			
@@ -939,6 +1069,15 @@ set to 0.0.</p>
 			
 
 			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/vectorWithObject:">+ vectorWithObject:</a></p></code></li>
+					
+				</ul>
+			</div>
+			
 
 			
 			<div class="method-subsection declared-in-section">
@@ -999,6 +1138,17 @@ used.</p>
 			
 
 			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/initWithArray:">- initWithArray:</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/vectorWithObject:">+ vectorWithObject:</a></p></code></li>
+					
+				</ul>
+			</div>
+			
 
 			
 			<div class="method-subsection declared-in-section">
@@ -1057,6 +1207,165 @@ other methods.</p>
 
 			
 
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/vectorWithObject:">+ vectorWithObject:</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Vector.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/vectorWithObject:" title="vectorWithObject:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/vectorWithObject:">+&nbsp;vectorWithObject:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a <code>Vector</code> based on the given object.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (Vector *)vectorWithObject:(id)<em>object</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>object</code></th>
+						<td><p>An object of an<a href="#//api/name/y">y</a> one of the classes mentioned above.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An initialized <code>Vector</code> object.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>The supported objects are:</p>
+
+<ul>
+<li><code>NSNumber</code>, which will be initialized just like <a href="#//api/name/initUniformWithNumber:"><code>initUniformWithNumber:</code></a>.</li>
+<li><code>NSArra</code>y<code></code>, which will be initialized just like <a href="#//api/name/initWithArray:"><code>initWithArray:</code></a>.</li>
+<li><code>NSValue</code> containing a <code>SCNVector3</code>, which will be initialized just like
+<a href="#//api/name/initWithSCNVector3:"><code>initWithSCNVector3:</code></a>.</li>
+<li><code>Vector</code> (or an<a href="#//api/name/y">y</a> of its subclassses), which will be initialized just like
+<a href="#//api/name/initWithVector:"><code>initWithVector:</code></a>.</li>
+<li><code>NSString</code>, which will be initialized just like <a href="#//api/name/initWithString:"><code>initWithString:</code></a>.</li>
+<li><code>NSDictionar</code>y<code></code>, which will be initialized just like <a href="#//api/name/initWithDictionary:"><code>initWithDictionary:</code></a>.</li>
+</ul>
+<div class="warning"><p><strong>Warning:</strong> In case the object isn&rsquo;t a subclass of an<a href="#//api/name/y">y</a> of the above classes, an
+<code>assert(false)</code> will be triggered.</p></div>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/initUniformWithNumber:">- initUniformWithNumber:</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/initWithArray:">- initWithArray:</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/initWithSCNVector3:">- initWithSCNVector3:</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/initWithVector:">- initWithVector:</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/initWithString:">- initWithString:</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/initWithDictionary:">- initWithDictionary:</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Vector.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/init" title="init"></a>
+	<h3 class="method-title"><code><a href="#//api/name/init">&ndash;&nbsp;init</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Initializes an &ldquo;empty&rdquo; <code>Vector</code> with <code>(0 0 0)</code>.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)init</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An initialized <code>Vector</code> object.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/origin">+ origin</a></p></code></li>
+					
+				</ul>
+			</div>
 			
 
 			
@@ -1184,6 +1493,15 @@ creating <code>Vector</code>s that represent uniform scales.</p>
 
 			
 
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/initWithObject:">- initWithObject:</a></p></code></li>
+					
+				</ul>
+			</div>
 			
 
 			
@@ -1369,6 +1687,19 @@ the CIVector has been correctl<a href="#//api/name/y">y</a> initialized and has 
 			
 
 			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/initWithNSValue:">- initWithNSValue:</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/initWithSCNVector4:">- initWithSCNVector4:</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/initWithObject:">- initWithObject:</a></p></code></li>
+					
+				</ul>
+			</div>
+			
 
 			
 			<div class="method-subsection declared-in-section">
@@ -1434,6 +1765,79 @@ the created <code>Vector</code> object will have format <code>(</code>x<code> </
 			
 
 			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/initWithSCNVector3:">- initWithSCNVector3:</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Vector.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithNSValue:" title="initWithNSValue:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithNSValue:">&ndash;&nbsp;initWithNSValue:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Initializes a <code>Vector</code> based on the <code>SCNVector3</code> contained in the given
+<code>NSValue</code>.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithNSValue:(NSValue *)<em>newValue</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>newValue</code></th>
+						<td><p>An <code>NSValue</code> created with an <code>SCNVector3</code>, which will be
+obtained using <code>SCNVector3Value</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/initWithSCNVector3:">- initWithSCNVector3:</a></p></code></li>
+					
+				</ul>
+			</div>
+			
 
 			
 			<div class="method-subsection declared-in-section">
@@ -1493,6 +1897,15 @@ is not an <code>NSNumber</code>, the corresponding value is set to zero.</p>
 
 			
 
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/initWithObject:">- initWithObject:</a></p></code></li>
+					
+				</ul>
+			</div>
 			
 
 			
@@ -1556,6 +1969,15 @@ value is set to 0.0.</p>
 			
 
 			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/initWithObject:">- initWithObject:</a></p></code></li>
+					
+				</ul>
+			</div>
+			
 
 			
 			<div class="method-subsection declared-in-section">
@@ -1615,6 +2037,17 @@ method is used.</p>
 
 			
 
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/initWithArray:">- initWithArray:</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/initWithObject:">- initWithObject:</a></p></code></li>
+					
+				</ul>
+			</div>
 			
 
 			
@@ -1750,6 +2183,25 @@ other methods.</p>
 
 			
 
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/initUniformWithNumber:">- initUniformWithNumber:</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/initWithArray:">- initWithArray:</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/initWithSCNVector3:">- initWithSCNVector3:</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/initWithVector:">- initWithVector:</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/initWithString:">- initWithString:</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/initWithDictionary:">- initWithDictionary:</a></p></code></li>
+					
+				</ul>
+			</div>
 			
 
 			
@@ -1986,14 +2438,13 @@ components are equal.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Returns a <code>Vector</code> representing a multiplication of this <code>Vector</code>, of format
-<code>(</code>x<code>, </code>y<code>, </code>z<code>)</code>, b<a href="#//api/name/y">y</a> a scalar <code>a</code>, resulting in a <code>Vector</code> of format <code>(a*</code>x<code>, a*</code>y<code>,
-a*</code>z<code>)</code>.</p>
+				<p>Creates a <code>Vector</code> representing a multiplication of the receiver b<a href="#//api/name/y">y</a> a scalar
+<code>a</code>.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (Vector *)times:(CGFloat)<em>scalar</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (Vector *)times:(CGFloat)<em>a</em></code></div>
 
 		    
 			
@@ -2002,7 +2453,7 @@ a*</code>z<code>)</code>.</p>
 				<table class="argument-def parameter-def">
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>scalar</code></th>
+						<th scope="row" class="argument-name"><code>a</code></th>
 						<td><p>The scalar value b<a href="#//api/name/y">y</a> which to multipl<a href="#//api/name/y">y</a> the <code>Vector</code>.</p></td>
 					</tr>
 				
@@ -2020,9 +2471,26 @@ a*</code>z<code>)</code>.</p>
 			
 
 			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>If we wrote the receiver as <code>(</code>x<code>, </code>y<code>, </code>z<code>)</code>, the resulting <code>Vector</code> would be
+written as <code>(a*</code>x<code>, a*</code>y<code>, a*</code>z<code>)</code>.</p>
+			</div>
+			
 
 			
 
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/over:">- over:</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/scale:">- scale:</a></p></code></li>
+					
+				</ul>
+			</div>
 			
 
 			
@@ -2046,13 +2514,12 @@ a*</code>z<code>)</code>.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Returns a <code>Vector</code> representing a division of this <code>Vector</code>, of format <code>(</code>x<code>, </code>y<code>,
-</code>z<code>)</code>, b<a href="#//api/name/y">y</a> a scalar <code>a</code>, resulting in a <code>Vector</code> of format <code>(x/a, y/a, z/a)</code>.</p>
+				<p>Creates a <code>Vector</code> representing a division of the receiver b<a href="#//api/name/y">y</a> a scalar <code>a</code>.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (Vector *)over:(CGFloat)<em>scalar</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (Vector *)over:(CGFloat)<em>a</em></code></div>
 
 		    
 			
@@ -2061,7 +2528,7 @@ a*</code>z<code>)</code>.</p>
 				<table class="argument-def parameter-def">
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>scalar</code></th>
+						<th scope="row" class="argument-name"><code>a</code></th>
 						<td><p>The scalar value b<a href="#//api/name/y">y</a> which to divide the <code>Vector</code>.</p></td>
 					</tr>
 				
@@ -2079,9 +2546,24 @@ a*</code>z<code>)</code>.</p>
 			
 
 			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>If we wrote the receiver as <code>(</code>x<code>, </code>y<code>, </code>z<code>)</code>, the resulting <code>Vector</code> would be
+written as <code>(x/a, y/a, z/a)</code>.</p>
+			</div>
+			
 
 			
 
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/times:">- times:</a></p></code></li>
+					
+				</ul>
+			</div>
 			
 
 			
@@ -2105,9 +2587,8 @@ a*</code>z<code>)</code>.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Returns a <code>Vector</code> representing a sum of this <code>Vector</code>, of format <code>(</code>x<code>, </code>y<code>, </code>z<code>)</code>,
-b<a href="#//api/name/y">y</a> another <code>Vector</code> of format (a, b, c), resulting in a <code>Vector</code> of format <code>(a
-+ </code>x<code>, b + </code>y<code>, c + </code>z<code>)</code>.</p>
+				<p>Creates a new <code>Vector</code> from the given <code>object</code> b<a href="#//api/name/y">y</a> calling <a href="#//api/name/vectorWithObject:"><code>vectorWithObject:</code></a>.
+Adds this new <code>Vector</code> to the receiver and returns the result.</p>
 			</div>
 			
 		    
@@ -2141,9 +2622,25 @@ addition.</p></td>
 			
 
 			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>If we wrote the receiver as <code>(</code>x<code>, </code>y<code>, </code>z<code>)</code> and the <code>Vector</code> resulting from the
+given object as <code>(a, b, c)</code>, the resulting <code>Vector</code> would be written as <code>(a +
+</code>x<code>, b + </code>y<code>, c + </code>z<code>)</code>.</p>
+			</div>
+			
 
 			
 
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/minus:">- minus:</a></p></code></li>
+					
+				</ul>
+			</div>
 			
 
 			
@@ -2167,9 +2664,8 @@ addition.</p></td>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Returns a <code>Vector</code> representing a subtraction of another <code>Vector</code>, of format
-<code>(a, b, c)</code>, from this <code>Vector</code> of format <code>(</code>x<code>, </code>y<code>, </code>z<code>)</code>, resulting in a <code>Vector</code>
-of format <code>(</code>x<code> - a, </code>y<code> - b, </code>z<code> - c)</code>.</p>
+				<p>Creates a new <code>Vector</code> from the given <code>object</code> b<a href="#//api/name/y">y</a> calling <a href="#//api/name/vectorWithObject:"><code>vectorWithObject:</code></a>.
+Subtracts this new <code>Vector</code> from the receiver and returns the result.</p>
 			</div>
 			
 		    
@@ -2203,9 +2699,25 @@ subtraction.</p></td>
 			
 
 			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>If we wrote the receiver as <code>(</code>x<code>, </code>y<code>, </code>z<code>)</code> and the <code>Vector</code> resulting from the
+given object as <code>(a, b, c)</code>, the resulting <code>Vector</code> would be written as <code>(a -
+</code>x<code>, b - </code>y<code>, c - </code>z<code>)</code>.</p>
+			</div>
+			
 
 			
 
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/plus:">- plus:</a></p></code></li>
+					
+				</ul>
+			</div>
 			
 
 			
@@ -2229,8 +2741,7 @@ subtraction.</p></td>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Takes the receiver, of format <code>(</code>x<code>, </code>y<code>, </code>z<code>)</code>, and returns its opposite, of format
-<code>(- </code>x<code>, - </code>y<code>, - </code>z<code>)</code>.</p>
+				<p>Creates a new <code>Vector</code>, representing the opposite from the given <code>Vector</code>.</p>
 			</div>
 			
 		    
@@ -2249,6 +2760,12 @@ subtraction.</p></td>
 
 			
 
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>If we wrote the given <code>Vector</code> as <code>(</code>x<code>, </code>y<code>, </code>z<code>)</code>, the resulting <code>Vector</code> would be
+written as <code>(- </code>x<code>, - </code>y<code>, - </code>z<code>)</code>.</p>
+			</div>
 			
 
 			
@@ -2276,9 +2793,8 @@ subtraction.</p></td>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Returns the dot product (which is a scalar value) of the receiver <code>Vector</code>,
-which has format <code>(</code>x<code>, </code>y<code>, </code>z<code>)</code>, with another <code>Vector</code> of format <code>(a, b, c)</code>,
-resulting the number given b<a href="#//api/name/y">y</a> <code>x*a + y*b + z*c</code>.</p>
+				<p>Creates a new <code>Vector</code> from the given <code>object</code> b<a href="#//api/name/y">y</a> calling <a href="#//api/name/vectorWithObject:"><code>vectorWithObject:</code></a>.
+Calculates the dot product between that <code>Vector</code> and the receiver.</p>
 			</div>
 			
 		    
@@ -2312,9 +2828,26 @@ product.</p></td>
 			
 
 			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>If we wrote the receiver as <code>(</code>x<code>, </code>y<code>, </code>z<code>)</code> and the <code>Vector</code> resulting from the
+given object as <code>(a, b, c)</code>, the result would be written as <code>a*</code>x<code> + b*</code>y<code> + c*</code>z<code></code>.</p>
+			</div>
+			
 
 			
 
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/normSquared">- normSquared</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/norm">- norm</a></p></code></li>
+					
+				</ul>
+			</div>
 			
 
 			
@@ -2338,9 +2871,7 @@ product.</p></td>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Returns the squared <a href="#//api/name/norm">norm</a> of this <code>Vector</code>, which has format <code>(</code>x<code>, </code>y<code>, </code>z<code>)</code>. The
-<a href="#//api/name/norm">norm</a> is the same as the dot product of this <a href="#//api/name/vector">vector</a> with itself: <code>x*</code>x<code> + y*</code>y<code> +
-z*</code>z<code></code>.</p>
+				<p>Returns the squared <a href="#//api/name/norm">norm</a> of the receiver.</p>
 			</div>
 			
 		    
@@ -2364,11 +2895,23 @@ z*</code>z<code></code>.</p>
 				<h4 class="method-subtitle">Discussion</h4>
 				<p>Useful to compare the magnitude of different vectors without having the
 performance hit of a squared root (as the <a href="#//api/name/norm"><code>norm</code></a> method does).</p>
+
+<p>If we wrote the receiver as <code>(</code>x<code>, </code>y<code>, </code>z<code>)</code>, the result would be written as <code>x*</code>x<code> +
+y*</code>y<code> + z*</code>z<code></code>.</p>
 			</div>
 			
 
 			
 
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/norm">- norm</a></p></code></li>
+					
+				</ul>
+			</div>
 			
 
 			
@@ -2392,9 +2935,7 @@ performance hit of a squared root (as the <a href="#//api/name/norm"><code>norm<
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Returns the norm of this <code>Vector</code>, which has format <code>(</code>x<code>, </code>y<code>, </code>z<code>)</code>. The norm is
-the same as the square root of the dot product of this <a href="#//api/name/vector">vector</a> with itself:
-<code>sqrt(x*</code>x<code> + y*</code>y<code> + z*</code>z<code>)</code>.</p>
+				<p>Returns the norm of the receiver.</p>
 			</div>
 			
 		    
@@ -2416,7 +2957,8 @@ the same as the square root of the dot product of this <a href="#//api/name/vect
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<div class="warning"><p><strong>Warning:</strong> This method might involve a performance hit from taking the squared
+				<p>If we wrote the receiver as <code>(</code>x<code>, </code>y<code>, </code>z<code>)</code>, the result would be written as
+<code>sqrt(x*</code>x<code> + y*</code>y<code> + z*</code>z<code>)</code>.</p><div class="warning"><p><strong>Warning:</strong> This method might involve a performance hit from taking the squared
 root if used in a tight loop; use the <code>squaredNorm</code> method instead whenever
 possible.</p></div>
 			</div>
@@ -2424,6 +2966,15 @@ possible.</p></div>
 
 			
 
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/normSquared">- normSquared</a></p></code></li>
+					
+				</ul>
+			</div>
 			
 
 			
@@ -2470,13 +3021,25 @@ scaling them so that the resulting <code>Vector</code> object has a <a href="#//
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<div class="warning"><p><strong>Warning:</strong> This method might involve a performance hit from taking the squared
-root if used in a tight loop, so use onl<a href="#//api/name/y">y</a> when necessar<a href="#//api/name/y">y</a>.</p></div>
+				<p>If we write the receiver as <code>(</code>x<code>, </code>y<code>, </code>z<code>)</code> and its <a href="#//api/name/norm"><code>norm</code></a> as <code>n</code>, the resulting
+<code>Vector</code> would be written as <code>(x/n, y/n, z/n)</code>.</p><div class="warning"><p><strong>Warning:</strong> This method might involve a performance hit from taking the squared
+root if used in a tight loop; use onl<a href="#//api/name/y">y</a> when necessar<a href="#//api/name/y">y</a>.</p></div>
 			</div>
 			
 
 			
 
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/norm">- norm</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/normSquared">- normSquared</a></p></code></li>
+					
+				</ul>
+			</div>
 			
 
 			
@@ -2500,8 +3063,8 @@ root if used in a tight loop, so use onl<a href="#//api/name/y">y</a> when neces
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Creates a new <code>Vector</code>, using the receiver as a translation <a href="#//api/name/vector">vector</a> to translate
-the given <code>Vector</code> object.</p>
+				<p>Creates a new <code>Vector</code> from the given <code>object</code> b<a href="#//api/name/y">y</a> calling <a href="#//api/name/vectorWithObject:"><code>vectorWithObject:</code></a>.
+That <code>Vector</code> is then translated, using the receiver as a translation <code>Vector</code>.</p>
 			</div>
 			
 		    
@@ -2534,9 +3097,25 @@ the given <code>Vector</code> object.</p>
 			
 
 			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Mathematicall<a href="#//api/name/y">y</a> equivalent to adding both <code>Vector</code>s using the <code>plus</code> method.</p>
+			</div>
+			
 
 			
 
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/plus:">- plus:</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/scale:">- scale:</a></p></code></li>
+					
+				</ul>
+			</div>
 			
 
 			
@@ -2560,13 +3139,13 @@ the given <code>Vector</code> object.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Creates a new <code>Vector</code>, b<a href="#//api/name/y">y</a> scaling the receiver b<a href="#//api/name/y">y</a> the appropriate amount,
-given b<a href="#//api/name/y">y</a> <code>scale</code>.</p>
+				<p>Creates a new <code>Vector</code> from the given <code>object</code> b<a href="#//api/name/y">y</a> calling <a href="#//api/name/vectorWithObject:"><code>vectorWithObject:</code></a>.
+That <code>Vector</code> is then scaled, using the receiver as a scale <code>Vector</code>.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (Vector *)scale:(CGFloat)<em>scale</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (Vector *)scale:(id)<em>object</em></code></div>
 
 		    
 			
@@ -2575,8 +3154,9 @@ given b<a href="#//api/name/y">y</a> <code>scale</code>.</p>
 				<table class="argument-def parameter-def">
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>scale</code></th>
-						<td><p>The amount b<a href="#//api/name/y">y</a> which to scale the receiver.</p></td>
+						<th scope="row" class="argument-name"><code>object</code></th>
+						<td><p>An object, used to initialize a new <code>Vector</code> using the
+<a href="#//api/name/vectorWithObject:"><code>vectorWithObject:</code></a> method. The resulting <code>Vector</code> is then used as a scale.</p></td>
 					</tr>
 				
 				</table>
@@ -2593,9 +3173,27 @@ given b<a href="#//api/name/y">y</a> <code>scale</code>.</p>
 			
 
 			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>If an <code>NSNumber</code> is given, the result would be equivalent to simpl<a href="#//api/name/y">y</a> scaling the
+receiver b<a href="#//api/name/y">y</a> that number.</p>
+
+<p>If we write the receiver as <code>(</code>x<code>, </code>y<code>, </code>z<code>)</code> and the given <code>Vector</code> as <code>(a, b, c)</code>,
+the resulting <code>Vector</code> would be written as <code>(a*</code>x<code>, b*</code>y<code>, c*</code>z<code>)</code></p>
+			</div>
+			
 
 			
 
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/translate:">- translate:</a></p></code></li>
+					
+				</ul>
+			</div>
 			
 
 			
@@ -2619,8 +3217,7 @@ given b<a href="#//api/name/y">y</a> <code>scale</code>.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The receiver applies the translation it represents to the receiving
-<code>SCNMatrix4</code>, and then returns the result.</p>
+				<p>Applies the translation the receiver represents to the given <code>SCNMatrix4</code>.</p>
 			</div>
 			
 		    
@@ -2657,6 +3254,15 @@ original matri<a href="#//api/name/x">x</a>.</p>
 			
 
 			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/translate:">- translate:</a></p></code></li>
+					
+				</ul>
+			</div>
+			
 
 			
 			<div class="method-subsection declared-in-section">
@@ -2679,8 +3285,7 @@ original matri<a href="#//api/name/x">x</a>.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The receiver applies the scale it represents to the receiving <code>SCNMatrix4</code>, and
-then returns the result.</p>
+				<p>Applies the scale the receiver represents to the given <code>SCNMatrix4</code>.</p>
 			</div>
 			
 		    
@@ -2717,6 +3322,252 @@ matri<a href="#//api/name/x">x</a>.</p>
 			
 
 			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/scale:">- scale:</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Vector.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setNewX:" title="setNewX:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setNewX:">&ndash;&nbsp;setNewX:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a new <code>Vector</code> object with the same coordinates as the receiver but
+with the new <a href="#//api/name/x"><code>x</code></a> coordinate.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (Vector *)setNewX:(CGFloat)<em>x</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>x</code></th>
+						<td><p>The new value to set in the <a href="#//api/name/x"><code>x</code></a> coordinate.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A new <code>Vector</code> object</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Since <code>Vector</code>s are immutable, this method acts like a setter for the <a href="#//api/name/x"><code>x</code></a>
+propert<a href="#//api/name/y">y</a> but returns a new <code>Vector</code> instead.</p>
+
+<p>If the receiver has format <code>(a, b, c)</code>, the resulting <code>Vector</code> has format <code>(</code>x<code>,
+b, c)</code>.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/setNewY:">- setNewY:</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/setNewZ:">- setNewZ:</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Vector.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setNewY:" title="setNewY:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setNewY:">&ndash;&nbsp;setNewY:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a new <code>Vector</code> object with the same coordinates as the receiver but
+with the new <a href="#//api/name/y"><code>y</code></a> coordinate.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (Vector *)setNewY:(CGFloat)<em>y</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>y</code></th>
+						<td><p>The new value to set in the <a href="#//api/name/y"><code>y</code></a> coordinate.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A new <code>Vector</code> object</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Since <code>Vector</code>s are immutable, this method acts like a setter for the <a href="#//api/name/y"><code>y</code></a>
+propert<a href="#//api/name/y">y</a> but returns a new <code>Vector</code> instead.</p>
+
+<p>If the receiver has format <code>(a, b, c)</code>, the resulting <code>Vector</code> has format <code>(a,
+</code>y<code>, c)</code>.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/setNewX:">- setNewX:</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/setNewZ:">- setNewZ:</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Vector.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setNewZ:" title="setNewZ:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setNewZ:">&ndash;&nbsp;setNewZ:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a new <code>Vector</code> object with the same coordinates as the receiver but
+with the new <a href="#//api/name/z"><code>z</code></a> coordinate.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (Vector *)setNewZ:(CGFloat)<em>z</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>z</code></th>
+						<td><p>The new value to set in the <a href="#//api/name/z"><code>z</code></a> coordinate.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A new <code>Vector</code> object</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Since <code>Vector</code>s are immutable, this method acts like a setter for the <a href="#//api/name/z"><code>z</code></a>
+propert<a href="#//api/name/y">y</a> but returns a new <code>Vector</code> instead.</p>
+
+<p>If the receiver has format <code>(a, b, c)</code>, the resulting <code>Vector</code> has format <code>(a,
+b, </code>z<code>)</code>.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/setNewX:">- setNewX:</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/setNewY:">- setNewY:</a></p></code></li>
+					
+				</ul>
+			</div>
+			
 
 			
 			<div class="method-subsection declared-in-section">
@@ -2742,7 +3593,7 @@ matri<a href="#//api/name/x">x</a>.</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2015 IME. All rights reserved. Updated: 2015-05-15</p>
+						<p class="copyright">Copyright &copy; 2015 IME. All rights reserved. Updated: 2015-05-16</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

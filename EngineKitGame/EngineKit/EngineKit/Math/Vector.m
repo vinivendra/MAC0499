@@ -38,11 +38,8 @@
 #pragma mark - Creating Vector objects
 //------------------------------------------------------------------------------
 
-+ (Vector *)vectorWithObject:(id)object {
-    if ([object isKindOfClass:[Vector class]])
-        return [Vector vectorWithVector:object];
-    else
-        return [[Vector alloc] initWithObject:object];
++ (Vector *)vector {
+    return [Vector origin];
 }
 
 + (Vector *)vectorWithX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z {
@@ -69,6 +66,10 @@
     return [[Vector alloc] initWithSCNVector4:newValue];
 }
 
++ (Vector *)vectorWithNSValue:(NSValue *)newValue {
+    return [[Vector alloc] initWithNSValue:newValue];
+}
+
 + (Vector *)vectorWithArray:(NSArray *)array {
     return [[Vector alloc] initWithArray:array];
 }
@@ -85,11 +86,22 @@
     return vector;
 }
 
++ (Vector *)vectorWithObject:(id)object {
+    if ([object isKindOfClass:[Vector class]])
+        return [Vector vectorWithVector:object];
+    else
+        return [[Vector alloc] initWithObject:object];
+}
+
 
 //------------------------------------------------------------------------------
 #pragma mark - Initializing Vector objects
 //------------------------------------------------------------------------------
 
+- (instancetype)init {
+    self = [self initWithX:0 Y:0 Z:0];
+    return self;
+}
 
 - (instancetype)initWithX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z {
     if (self = [super init]) {
@@ -125,6 +137,13 @@
 - (instancetype)initWithSCNVector4:(SCNVector4)newValue {
     if (self = [super init]) {
         self.vector = SCNVector3Make(newValue.x, newValue.y, newValue.z);
+    }
+    return self;
+}
+
+- (instancetype)initWithNSValue:(NSValue *)newValue {
+    if (self = [super init]) {
+        self.vector = newValue.SCNVector3Value;
     }
     return self;
 }
@@ -304,8 +323,11 @@
     return [vector plus:self];
 }
 
-- (Vector *)scale:(CGFloat)scale {
-    return [self times:scale];
+- (Vector *)scale:(id)object {
+    Vector *vector = [Vector vectorWithObject:object];
+    return [Vector vectorWithX:self.x * vector.x
+                             Y:self.y * vector.y
+                             Z:self.z * vector.z];
 }
 
 - (SCNMatrix4)translateMatrix:(SCNMatrix4)matrix {
@@ -322,9 +344,9 @@
 
 - (NSString *)description {
     return [NSString stringWithFormat:@"(x = %lf, y = %lf, z = %lf)",
-            self.vector.x,
-            self.vector.y,
-            self.vector.z];
+                                      self.vector.x,
+                                      self.vector.y,
+                                      self.vector.z];
 }
 
 - (Vector *)setNewX:(CGFloat)x {

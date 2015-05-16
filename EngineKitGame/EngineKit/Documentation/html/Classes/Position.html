@@ -48,13 +48,55 @@
 
 	
 	
+	<option value="tasks">Tasks</option>
+	
 	
 
 	
 	
 
 	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/origin">+ origin</option>
+		
+		<option value="//api/name/position">+ position</option>
+		
+		<option value="//api/name/positionWithArray:">+ positionWithArray:</option>
+		
+		<option value="//api/name/positionWithCGPoint:">+ positionWithCGPoint:</option>
+		
+		<option value="//api/name/positionWithCIVector:">+ positionWithCIVector:</option>
+		
+		<option value="//api/name/positionWithDictionary:">+ positionWithDictionary:</option>
+		
+		<option value="//api/name/positionWithNSValue:">+ positionWithNSValue:</option>
+		
+		<option value="//api/name/positionWithObject:">+ positionWithObject:</option>
+		
+		<option value="//api/name/positionWithPosition:">+ positionWithPosition:</option>
+		
+		<option value="//api/name/positionWithSCNVector3:">+ positionWithSCNVector3:</option>
+		
+		<option value="//api/name/positionWithSCNVector4:">+ positionWithSCNVector4:</option>
+		
+		<option value="//api/name/positionWithString:">+ positionWithString:</option>
+		
+		<option value="//api/name/positionWithUniformWithNumber:">+ positionWithUniformWithNumber:</option>
+		
+		<option value="//api/name/positionWithVector:">+ positionWithVector:</option>
+		
+		<option value="//api/name/positionWithX:Y:Z:">+ positionWithX:Y:Z:</option>
+		
+	</optgroup>
+	
 
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/initWithVector:">- initWithVector:</option>
+		
+	</optgroup>
 	
 	
 </select>
@@ -91,13 +133,1093 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>A representation of a 3D position. Much like the <a href="../Classes/Vector.html">Vector</a> class, but meant to be
+						<p>A representation of a 3D <a href="#//api/name/position">position</a>. Much like the <a href="../Classes/Vector.html">Vector</a> class, but meant to be
 used as a point instead of a vector.</p>
 					</div>
 					
 					
 
 					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/origin" title="origin"></a>
+	<h3 class="method-title"><code><a href="#//api/name/origin">+&nbsp;origin</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Represents a commonly used Position, (0 0 0).</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)origin</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A <code>Position</code> object.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Position.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/position" title="position"></a>
+	<h3 class="method-title"><code><a href="#//api/name/position">+&nbsp;position</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates an &ldquo;empty&rdquo; <code>Position</code>, initialized to <code>(0 0 0)</code>.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (Position *)position</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A <code>Position</code> object.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/origin">+ origin</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Position.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/positionWithX:Y:Z:" title="positionWithX:Y:Z:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/positionWithX:Y:Z:">+&nbsp;positionWithX:Y:Z:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a <code>Position</code> whith the three given components, respectively.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (Position *)positionWithX:(CGFloat)<em>x</em> Y:(CGFloat)<em>y</em> Z:(CGFloat)<em>z</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>x</code></th>
+						<td><p>The value to assign to the <code>Position</code>&rsquo;s <code>x</code> component.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>y</code></th>
+						<td><p>The value to assign to the <code>Position</code>&rsquo;s <code>y</code> component.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>z</code></th>
+						<td><p>The value to assign to the <code>Position</code>&rsquo;s <code>z</code> component.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An initialized <code>Position</code> object.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Position.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/positionWithUniformWithNumber:" title="positionWithUniformWithNumber:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/positionWithUniformWithNumber:">+&nbsp;positionWithUniformWithNumber:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a <code>Position</code> in which all components are set to <code>s</code>. Useful for
+creating <code>Position</code>s that represent uniform scales.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (Position *)positionWithUniformWithNumber:(CGFloat)<em>s</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>s</code></th>
+						<td><p>The value to set to all the <code>Position</code>&rsquo;s components.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An initialized <code>Position</code> object.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/positionWithObject:">+ positionWithObject:</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Position.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/positionWithCGPoint:" title="positionWithCGPoint:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/positionWithCGPoint:">+&nbsp;positionWithCGPoint:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Given a <code>CGPoint</code> of format <code>(x, y)</code>, creates a <code>Position</code> object of format
+<code>(x, - y, 0)</code>. This is done to ease the translation from screen points to scene
+points.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (Position *)positionWithCGPoint:(CGPoint)<em>newValue</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>newValue</code></th>
+						<td><p>The <code>CGPoint</code> that should be used as a model.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An initialized <code>Position</code> object.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Position.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/positionWithCIVector:" title="positionWithCIVector:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/positionWithCIVector:">+&nbsp;positionWithCIVector:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a <code>Position</code> in which all components are set as just as the first 3
+components (<code>x</code>, <code>y</code> and <code>z</code>) in the given <code>CI</code>Vector<code></code>.  This method trusts that
+the CI<a href="../Classes/Vector.html">Vector</a> has been correctly initialized and has the  necessary components.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (Position *)positionWithCIVector:(CIVector *)<em>newValue</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>newValue</code></th>
+						<td><p>The <code>CIValue</code> whose <code>x</code>, <code>y</code> and <code>z</code> components should be used.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An initialized <code>Position</code> object.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Useful for obtaining a <code>Position</code> through a <code>CI</code>Vector<code></code> initialization method.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Position.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/positionWithSCNVector3:" title="positionWithSCNVector3:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/positionWithSCNVector3:">+&nbsp;positionWithSCNVector3:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a <code>Position</code> in which all components are set as just as the given
+<code>SCNVector3</code>.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (Position *)positionWithSCNVector3:(SCNVector3)<em>newValue</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>newValue</code></th>
+						<td><p>The <code>SCNVector3</code> that should be used as a model.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An initialized <code>Position</code> object.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/positionWithNSValue:">+ positionWithNSValue:</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/positionWithSCNVector4:">+ positionWithSCNVector4:</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Position.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/positionWithSCNVector4:" title="positionWithSCNVector4:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/positionWithSCNVector4:">+&nbsp;positionWithSCNVector4:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a <code>Position</code> in which all components are set as just as the first 3
+components in the given <code>SCNVector4</code>. If that <code>Position</code> has format <code>(x y z
+w)</code>, the created <code>Position</code> object will have format <code>(x y z)</code>.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (Position *)positionWithSCNVector4:(SCNVector4)<em>newValue</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>newValue</code></th>
+						<td><p>The <code>SCNVector4</code> whose first three components should be used.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An initialized <code>Position</code> object.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/positionWithSCNVector3:">+ positionWithSCNVector3:</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Position.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/positionWithNSValue:" title="positionWithNSValue:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/positionWithNSValue:">+&nbsp;positionWithNSValue:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a <code>Position</code> based on the <code>SCNVector3</code> contained in the given
+<code>NSValue</code>.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (Position *)positionWithNSValue:(NSValue *)<em>newValue</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>newValue</code></th>
+						<td><p>An <code>NSValue</code> created with an <code>SCNVector3</code>, which will be
+obtained using <code>SCNVector3Value</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/Vector.html#//api/name/initWithSCNVector3:">[Vector initWithSCNVector3:]</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/positionWithObject:">+ positionWithObject:</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Position.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/positionWithArray:" title="positionWithArray:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/positionWithArray:">+&nbsp;positionWithArray:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a <code>Position</code> based on the first three elements on a given <code>NSArray</code>. If
+the array has less than 3 components or if any of the first three components is
+not an <code>NSNumber</code>, the corresponding value is set to zero.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (Position *)positionWithArray:(NSArray *)<em>array</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>array</code></th>
+						<td><p>The <code>NSArray</code> that should be used as a model.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An initialized <code>Position</code> object.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/positionWithObject:">+ positionWithObject:</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Position.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/positionWithDictionary:" title="positionWithDictionary:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/positionWithDictionary:">+&nbsp;positionWithDictionary:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a <code>Position</code> based on the elements on a given NSDictionary. If there
+are elements with the key &ldquo;x&rdquo;, &ldquo;y&rdquo; and &ldquo;z&rdquo; (case insensitive), those elements
+are used. If one of them is missing, the keys &ldquo;0&rdquo;, &ldquo;1&rdquo; or &ldquo;2&rdquo; are used to
+replace them as needed. If any elements are still missing, the corresponding
+value is set to 0.0.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (Position *)positionWithDictionary:(NSDictionary *)<em>dictionary</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>dictionary</code></th>
+						<td><p>The <code>NSDictionary</code> that should be used as a model.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An initialized <code>Position</code> object.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/positionWithObject:">+ positionWithObject:</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Position.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/positionWithString:" title="positionWithString:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/positionWithString:">+&nbsp;positionWithString:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Attempts to create a <code>Position</code> by scanning the string for numbers. Each number
+found is inserted into an <code>NSArray</code>, and then the <code>initWithArray:</code> method is
+used.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (Position *)positionWithString:(NSString *)<em>string</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>string</code></th>
+						<td><p>The <code>NSString</code> to use as a model.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An initialized <code>Position</code> object.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/Vector.html#//api/name/initWithArray:">[Vector initWithArray:]</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/positionWithObject:">+ positionWithObject:</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Position.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/positionWithVector:" title="positionWithVector:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/positionWithVector:">+&nbsp;positionWithVector:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the given <a href="../Classes/Vector.html"><code>Vector</code></a> object, cast to a <code>Position</code>. Used for completion
+and standardization by other methods.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (Position *)positionWithVector:(Vector *)<em>vector</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>vector</code></th>
+						<td><p>The <a href="../Classes/Vector.html"><code>Vector</code></a> object that will be returned.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A <code>Position</code> object.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/positionWithObject:">+ positionWithObject:</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Position.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/positionWithPosition:" title="positionWithPosition:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/positionWithPosition:">+&nbsp;positionWithPosition:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the given <code>Position</code> object. Used for completion and standardization by
+other methods.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (Position *)positionWithPosition:(Position *)<em>position</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>position</code></th>
+						<td><p>The <code>Position</code> object that will be returned.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A <code>Position</code> object.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Position.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/positionWithObject:" title="positionWithObject:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/positionWithObject:">+&nbsp;positionWithObject:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a <code>Position</code> based on the given object.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (Position *)positionWithObject:(id)<em>object</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>object</code></th>
+						<td><p>An object of any one of the classes mentioned above.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An initialized <code>Position</code> object.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>The supported objects are:</p>
+
+<ul>
+<li><code>NSNumber</code>, which will be initialized just like <code>initUniformWithNumber:</code>.</li>
+<li><code>NSArray</code>, which will be initialized just like <code>initWithArray:</code>.</li>
+<li><code>NSValue</code> containing a <code>SCNVector3</code>, which will be initialized just like
+<code>initWithSCNVector3:</code>.</li>
+<li><a href="../Classes/Vector.html"><code>Vector</code></a> (or any of its subclassses), which will be initialized just like
+<a href="#//api/name/initWithVector:"><code>initWithVector:</code></a>.</li>
+<li><code>NSString</code>, which will be initialized just like <code>initWithString:</code>.</li>
+<li><code>NSDictionary</code>, which will be initialized just like <code>initWithDictionary:</code>.</li>
+</ul>
+<div class="warning"><p><strong>Warning:</strong> In case the object isn&rsquo;t a subclass of any of the above classes, an
+<code>assert(false)</code> will be triggered.</p></div>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/Vector.html#//api/name/initUniformWithNumber:">[Vector initUniformWithNumber:]</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/Vector.html#//api/name/initWithArray:">[Vector initWithArray:]</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/Vector.html#//api/name/initWithSCNVector3:">[Vector initWithSCNVector3:]</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/Vector.html#//api/name/initWithVector:">[Vector initWithVector:]</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/Vector.html#//api/name/initWithString:">[Vector initWithString:]</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/Vector.html#//api/name/initWithDictionary:">[Vector initWithDictionary:]</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Position.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/initWithVector:" title="initWithVector:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithVector:">&ndash;&nbsp;initWithVector:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the given <code>Vector</code> object. Used for completion and standardization b<a href="#//api/name/y">y</a>
+other methods.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithVector:(Vector *)<em>vector</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>vector</code></th>
+						<td><p>The <code>Vector</code> object that will be returned.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A <code>Vector</code> object.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Vector.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
 					
 					
 
@@ -109,7 +1231,7 @@ used as a point instead of a vector.</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2015 IME. All rights reserved. Updated: 2015-05-15</p>
+						<p class="copyright">Copyright &copy; 2015 IME. All rights reserved. Updated: 2015-05-16</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

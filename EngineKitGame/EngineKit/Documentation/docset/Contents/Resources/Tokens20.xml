@@ -66,30 +66,23 @@ the Sphere, which is centered in the origin.</Abstract>
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/Sphere/deepCopy</TokenIdentifier>
-			<Abstract type="html">Creates a deep copy of the receiver, including in it any relevant information.</Abstract>
+			<Abstract type="html"></Abstract>
 			<DeclaredIn>Sphere.m</DeclaredIn>
 			
 			<Declaration>- (Item *)deepCopy</Declaration>
 			
-			<ReturnValue><Abstract type="html">A new instance of Item, representing a copy of the receiver.</Abstract></ReturnValue>
+			
 			<Anchor>//api/name/deepCopy</Anchor>
             <NodeRef refid="20"/>
 		</Token>
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/Sphere/copyInfoTo:</TokenIdentifier>
-			<Abstract type="html">Copies relevant information from the receiver to the given item. Used by
-deepCopy to copy the actual information over.</Abstract>
+			<Abstract type="html"></Abstract>
 			<DeclaredIn>Sphere.m</DeclaredIn>
 			
 			<Declaration>- (void)copyInfoTo:(Sphere *)item</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>item</Name>
-					<Abstract type="html">The new Item object, into which all copied information will be
-written.</Abstract>
-				</Parameter>
-			</Parameters>
+			
 			
 			<Anchor>//api/name/copyInfoTo:</Anchor>
             <NodeRef refid="20"/>
