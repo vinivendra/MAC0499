@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/Angle.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/Angle</TokenIdentifier>
+			<Abstract type="html">Represents an Angle, usually for a Rotation. Used mostly for initialization and
+conversion. More efficient when used exclusively with radians, but not slow
+unless used in a very tight loop.</Abstract>
+			<DeclaredIn>Angle.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Angle/angleWithRadians:</TokenIdentifier>
+			<Abstract type="html">Creates an Angle object with the given value in radians.</Abstract>
+			<DeclaredIn>Angle.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)angleWithRadians:(CGFloat)radians</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>radians</Name>
+					<Abstract type="html">An angle measured in radians.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized Angle object.</Abstract></ReturnValue>
+			<Anchor>//api/name/angleWithRadians:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Angle/angleWithDegrees:</TokenIdentifier>
+			<Abstract type="html">Creates an Angle object with the given value in degrees.</Abstract>
+			<DeclaredIn>Angle.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)angleWithDegrees:(CGFloat)degrees</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>degrees</Name>
+					<Abstract type="html">An angle measured in degrees.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized Angle object.</Abstract></ReturnValue>
+			<Anchor>//api/name/angleWithDegrees:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Angle/angleWithPiTimes:</TokenIdentifier>
+			<Abstract type="html">Creates an Angle object with the value of @p ratio*pi, measured in radians.</Abstract>
+			<DeclaredIn>Angle.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)angleWithPiTimes:(CGFloat)ratio</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>ratio</Name>
+					<Abstract type="html">The value used to multiply by pi.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized Angle object.</Abstract></ReturnValue>
+			<Anchor>//api/name/angleWithPiTimes:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Angle/angleWithObject:</TokenIdentifier>
+			<Abstract type="html">Creates an Angle object with the given value in radians. Uses NSNumber&apos;s
+initWithObject method to obtain the value from the given object.</Abstract>
+			<DeclaredIn>Angle.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)angleWithObject:(id)object</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>object</Name>
+					<Abstract type="html">An angle measured in degrees.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized Angle object.</Abstract></ReturnValue>
+			<Anchor>//api/name/angleWithObject:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Angle/initWithRadians:</TokenIdentifier>
+			<Abstract type="html">Creates an Angle object with the given value in radians.</Abstract>
+			<DeclaredIn>Angle.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithRadians:(CGFloat)radians</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>radians</Name>
+					<Abstract type="html">An angle measured in radians.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized Angle object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithRadians:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Angle/initWithDegrees:</TokenIdentifier>
+			<Abstract type="html">Creates an Angle object with the given value in degrees.</Abstract>
+			<DeclaredIn>Angle.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithDegrees:(CGFloat)degrees</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>degrees</Name>
+					<Abstract type="html">An angle measured in degrees.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized Angle object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithDegrees:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Angle/initWithObject:</TokenIdentifier>
+			<Abstract type="html">Creates an Angle object with the given value in radians. Uses NSNumber&apos;s
+initWithObject method to obtain the value from the given object.</Abstract>
+			<DeclaredIn>Angle.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithObject:(id)object</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>object</Name>
+					<Abstract type="html">An angle measured in degrees.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized Angle object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithObject:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Angle/toRadians</TokenIdentifier>
+			<Abstract type="html">Converts the value of the Angle to radians.</Abstract>
+			<DeclaredIn>Angle.h</DeclaredIn>
+			
+			<Declaration>- (CGFloat)toRadians</Declaration>
+			
+			<ReturnValue><Abstract type="html">The Angle&apos;s value, measured in radians.</Abstract></ReturnValue>
+			<Anchor>//api/name/toRadians</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Angle/toDegrees</TokenIdentifier>
+			<Abstract type="html">Converts the value of the Angle to degrees.</Abstract>
+			<DeclaredIn>Angle.h</DeclaredIn>
+			
+			<Declaration>- (CGFloat)toDegrees</Declaration>
+			
+			<ReturnValue><Abstract type="html">The Angle&apos;s value, measured in degrees.</Abstract></ReturnValue>
+			<Anchor>//api/name/toDegrees</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

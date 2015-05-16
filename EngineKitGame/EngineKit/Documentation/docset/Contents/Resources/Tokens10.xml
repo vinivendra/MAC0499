@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/Gestures.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/Gestures</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>Gestures.h</DeclaredIn>
+            
+			
+			<NodeRef refid="10"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Gestures/shared</TokenIdentifier>
+			<Abstract type="html">The singleton instance of the Gestures class. The class is meant to be used as
+a singleton may deal with other singleton instances.</Abstract>
+			<DeclaredIn>Gestures.h</DeclaredIn>
+			
+			<Declaration>+ (Gestures *)shared</Declaration>
+			
+			<ReturnValue><Abstract type="html">A singleton instance of the Gestures class.</Abstract></ReturnValue>
+			<Anchor>//api/name/shared</Anchor>
+            <NodeRef refid="10"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Gestures/setGesturesView:</TokenIdentifier>
+			<Abstract type="html">The view to which the Gestures object should add the Gesture Recognizers.
+Ideally, this should be either the sceneView itself or a view above the scene
+view, one that has no views above it to intercept touch events.</Abstract>
+			<DeclaredIn>Gestures.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) UIView *gesturesView</Declaration>
+			
+			
+			<Anchor>//api/name/gesturesView</Anchor>
+            <NodeRef refid="10"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Gestures/gesturesView</TokenIdentifier>
+			<Abstract type="html">The view to which the Gestures object should add the Gesture Recognizers.
+Ideally, this should be either the sceneView itself or a view above the scene
+view, one that has no views above it to intercept touch events.</Abstract>
+			<DeclaredIn>Gestures.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) UIView *gesturesView</Declaration>
+			
+			
+			<Anchor>//api/name/gesturesView</Anchor>
+            <NodeRef refid="10"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Gestures/gesturesView</TokenIdentifier>
+			<Abstract type="html">The view to which the Gestures object should add the Gesture Recognizers.
+Ideally, this should be either the sceneView itself or a view above the scene
+view, one that has no views above it to intercept touch events.</Abstract>
+			<DeclaredIn>Gestures.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) UIView *gesturesView</Declaration>
+			
+			
+			<Anchor>//api/name/gesturesView</Anchor>
+            <NodeRef refid="10"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Gestures/setSceneView:</TokenIdentifier>
+			<Abstract type="html">The scene view used to test hits on taps and other similar gestures.</Abstract>
+			<DeclaredIn>Gestures.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) SCNView *sceneView</Declaration>
+			
+			
+			<Anchor>//api/name/sceneView</Anchor>
+            <NodeRef refid="10"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Gestures/sceneView</TokenIdentifier>
+			<Abstract type="html">The scene view used to test hits on taps and other similar gestures.</Abstract>
+			<DeclaredIn>Gestures.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) SCNView *sceneView</Declaration>
+			
+			
+			<Anchor>//api/name/sceneView</Anchor>
+            <NodeRef refid="10"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Gestures/sceneView</TokenIdentifier>
+			<Abstract type="html">The scene view used to test hits on taps and other similar gestures.</Abstract>
+			<DeclaredIn>Gestures.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) SCNView *sceneView</Declaration>
+			
+			
+			<Anchor>//api/name/sceneView</Anchor>
+            <NodeRef refid="10"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Gestures/setupGestures</TokenIdentifier>
+			<Abstract type="html">Tells the Gestures object to add the gesture recognizers the user opted to
+have, which automatically starts sending messages to the Javascript tap
+callback function, whenever the gestures get recognized in the gestureView.</Abstract>
+			<DeclaredIn>Gestures.h</DeclaredIn>
+			
+			<Declaration>- (void)setupGestures</Declaration>
+			
+			
+			<Anchor>//api/name/setupGestures</Anchor>
+            <NodeRef refid="10"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Gestures/setOptions:</TokenIdentifier>
+			<Abstract type="html">The array used to inform the Gestures object which gesture recognizers should
+be initialized and added to the @p gesturesView. This is done based on the @p
+GestureRecognizers enum, which indicates the correct indices. All objects in
+this array have value @(NO); in order to opt into a specific gesture
+recognizer, change its index&apos;s value to @(YES).</Abstract>
+			<DeclaredIn>Gestures.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSMutableArray *options</Declaration>
+			
+			
+			<Anchor>//api/name/options</Anchor>
+            <NodeRef refid="10"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Gestures/options</TokenIdentifier>
+			<Abstract type="html">The array used to inform the Gestures object which gesture recognizers should
+be initialized and added to the @p gesturesView. This is done based on the @p
+GestureRecognizers enum, which indicates the correct indices. All objects in
+this array have value @(NO); in order to opt into a specific gesture
+recognizer, change its index&apos;s value to @(YES).</Abstract>
+			<DeclaredIn>Gestures.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSMutableArray *options</Declaration>
+			
+			
+			<Anchor>//api/name/options</Anchor>
+            <NodeRef refid="10"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Gestures/options</TokenIdentifier>
+			<Abstract type="html">The array used to inform the Gestures object which gesture recognizers should
+be initialized and added to the @p gesturesView. This is done based on the @p
+GestureRecognizers enum, which indicates the correct indices. All objects in
+this array have value @(NO); in order to opt into a specific gesture
+recognizer, change its index&apos;s value to @(YES).</Abstract>
+			<DeclaredIn>Gestures.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSMutableArray *options</Declaration>
+			
+			
+			<Anchor>//api/name/options</Anchor>
+            <NodeRef refid="10"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

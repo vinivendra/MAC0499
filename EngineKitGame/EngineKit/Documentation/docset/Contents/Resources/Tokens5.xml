@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/Cone.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/Cone</TokenIdentifier>
+			<Abstract type="html">A cone, which is may be whole or cut off at the top (like a conical frustrum).</Abstract>
+			<DeclaredIn>Cone.h</DeclaredIn>
+            
+			
+			<NodeRef refid="5"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Cone/cone</TokenIdentifier>
+			<Abstract type="html">Creates a new instance of @p Cone, with the default measures set by @p
+SCNCone.</Abstract>
+			<DeclaredIn>Cone.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)cone</Declaration>
+			
+			<ReturnValue><Abstract type="html">a new, default instance of @p Cone.</Abstract></ReturnValue>
+			<Anchor>//api/name/cone</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Cone/setRadius:</TokenIdentifier>
+			<Abstract type="html">An alias for the SCNCone&apos;s @p bottomRadius property. Speficies the radius used
+for the Cone&apos;s base, which is very intuitive when the Cone is not a frustrum.
+The base is aligned with the @p xz plane and is centered in the origin.</Abstract>
+			<DeclaredIn>Cone.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/Cone/topRadius</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instp/Cone/height</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic) NSNumber *radius</Declaration>
+			
+			
+			<Anchor>//api/name/radius</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Cone/radius</TokenIdentifier>
+			<Abstract type="html">An alias for the SCNCone&apos;s @p bottomRadius property. Speficies the radius used
+for the Cone&apos;s base, which is very intuitive when the Cone is not a frustrum.
+The base is aligned with the @p xz plane and is centered in the origin.</Abstract>
+			<DeclaredIn>Cone.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/Cone/topRadius</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instp/Cone/height</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic) NSNumber *radius</Declaration>
+			
+			
+			<Anchor>//api/name/radius</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Cone/radius</TokenIdentifier>
+			<Abstract type="html">An alias for the SCNCone&apos;s @p bottomRadius property. Speficies the radius used
+for the Cone&apos;s base, which is very intuitive when the Cone is not a frustrum.
+The base is aligned with the @p xz plane and is centered in the origin.</Abstract>
+			<DeclaredIn>Cone.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/Cone/topRadius</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instp/Cone/height</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic) NSNumber *radius</Declaration>
+			
+			
+			<Anchor>//api/name/radius</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Cone/setBottomRadius:</TokenIdentifier>
+			<Abstract type="html">An alias for the SCNCone&apos;s @p bottomRadius property. Speficies the radius used
+for the Cone&apos;s base, which is very intuitive when the Cone is not a frustrum.
+The base is aligned with the @p xz plane and is centered in the origin.</Abstract>
+			<DeclaredIn>Cone.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/Cone/topRadius</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instp/Cone/height</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic) NSNumber *bottomRadius</Declaration>
+			
+			
+			<Anchor>//api/name/bottomRadius</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Cone/bottomRadius</TokenIdentifier>
+			<Abstract type="html">An alias for the SCNCone&apos;s @p bottomRadius property. Speficies the radius used
+for the Cone&apos;s base, which is very intuitive when the Cone is not a frustrum.
+The base is aligned with the @p xz plane and is centered in the origin.</Abstract>
+			<DeclaredIn>Cone.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/Cone/topRadius</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instp/Cone/height</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic) NSNumber *bottomRadius</Declaration>
+			
+			
+			<Anchor>//api/name/bottomRadius</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Cone/bottomRadius</TokenIdentifier>
+			<Abstract type="html">An alias for the SCNCone&apos;s @p bottomRadius property. Speficies the radius used
+for the Cone&apos;s base, which is very intuitive when the Cone is not a frustrum.
+The base is aligned with the @p xz plane and is centered in the origin.</Abstract>
+			<DeclaredIn>Cone.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/Cone/topRadius</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instp/Cone/height</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic) NSNumber *bottomRadius</Declaration>
+			
+			
+			<Anchor>//api/name/bottomRadius</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Cone/setTopRadius:</TokenIdentifier>
+			<Abstract type="html">An alias for the SCNCone&apos;s @p topRadius property. Speficies the radius used
+for the Cone&apos;s top circle when it is a conical frustrum. A top radius of 0 is
+the default and results in an ordinary cone. The top circle is aligned with the
+@p xz plane and is centered in the origin.</Abstract>
+			<DeclaredIn>Cone.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/Cone/bottomRadius</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instp/Cone/height</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic) NSNumber *topRadius</Declaration>
+			
+			
+			<Anchor>//api/name/topRadius</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Cone/topRadius</TokenIdentifier>
+			<Abstract type="html">An alias for the SCNCone&apos;s @p topRadius property. Speficies the radius used
+for the Cone&apos;s top circle when it is a conical frustrum. A top radius of 0 is
+the default and results in an ordinary cone. The top circle is aligned with the
+@p xz plane and is centered in the origin.</Abstract>
+			<DeclaredIn>Cone.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/Cone/bottomRadius</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instp/Cone/height</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic) NSNumber *topRadius</Declaration>
+			
+			
+			<Anchor>//api/name/topRadius</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Cone/topRadius</TokenIdentifier>
+			<Abstract type="html">An alias for the SCNCone&apos;s @p topRadius property. Speficies the radius used
+for the Cone&apos;s top circle when it is a conical frustrum. A top radius of 0 is
+the default and results in an ordinary cone. The top circle is aligned with the
+@p xz plane and is centered in the origin.</Abstract>
+			<DeclaredIn>Cone.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/Cone/bottomRadius</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instp/Cone/height</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic) NSNumber *topRadius</Declaration>
+			
+			
+			<Anchor>//api/name/topRadius</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Cone/setHeight:</TokenIdentifier>
+			<Abstract type="html">An alias for the SCNCone&apos;s @p height property. Speficies the extent of the cone
+along the @p y axis.</Abstract>
+			<DeclaredIn>Cone.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/Cone/bottomRadius</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instp/Cone/topRadius</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic) NSNumber *height</Declaration>
+			
+			
+			<Anchor>//api/name/height</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Cone/height</TokenIdentifier>
+			<Abstract type="html">An alias for the SCNCone&apos;s @p height property. Speficies the extent of the cone
+along the @p y axis.</Abstract>
+			<DeclaredIn>Cone.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/Cone/bottomRadius</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instp/Cone/topRadius</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic) NSNumber *height</Declaration>
+			
+			
+			<Anchor>//api/name/height</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Cone/height</TokenIdentifier>
+			<Abstract type="html">An alias for the SCNCone&apos;s @p height property. Speficies the extent of the cone
+along the @p y axis.</Abstract>
+			<DeclaredIn>Cone.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instp/Cone/bottomRadius</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instp/Cone/topRadius</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic) NSNumber *height</Declaration>
+			
+			
+			<Anchor>//api/name/height</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Cone/deepCopy</TokenIdentifier>
+			<Abstract type="html">Creates a deep copy of the receiver, including in it any relevant information.</Abstract>
+			<DeclaredIn>Cone.m</DeclaredIn>
+			
+			<Declaration>- (Item *)deepCopy</Declaration>
+			
+			<ReturnValue><Abstract type="html">A new instance of Item, representing a copy of the receiver.</Abstract></ReturnValue>
+			<Anchor>//api/name/deepCopy</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Cone/copyInfoTo:</TokenIdentifier>
+			<Abstract type="html">Copies relevant information from the receiver to the given item. Used by
+deepCopy to copy the actual information over.</Abstract>
+			<DeclaredIn>Cone.m</DeclaredIn>
+			
+			<Declaration>- (void)copyInfoTo:(Cone *)item</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>item</Name>
+					<Abstract type="html">The new Item object, into which all copied information will be
+written.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/copyInfoTo:</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

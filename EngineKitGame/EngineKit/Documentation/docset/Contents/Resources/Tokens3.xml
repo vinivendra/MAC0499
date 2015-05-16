@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/Box.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/Box</TokenIdentifier>
+			<Abstract type="html">A paralelepiped, with specificiable width, length and height. The edges and
+vertices of the Box&apos;s geometry may also be rounded with the @p chamferRadius
+property. Essentially, a wrapper for @p SCNBox.</Abstract>
+			<DeclaredIn>Box.h</DeclaredIn>
+            
+			
+			<NodeRef refid="3"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Box/box</TokenIdentifier>
+			<Abstract type="html">Creates a new instance of @p Box, with the default measures set by @p SCNBox,
+which create a cube with no chamfer.</Abstract>
+			<DeclaredIn>Box.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)box</Declaration>
+			
+			<ReturnValue><Abstract type="html">a new instance of @p Box.</Abstract></ReturnValue>
+			<Anchor>//api/name/box</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Box/setWidth:</TokenIdentifier>
+			<Abstract type="html">An alias for the SCNBox&apos;s @p width property. Speficies the size of the box
+along its @p x axis.</Abstract>
+			<DeclaredIn>Box.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *width</Declaration>
+			
+			
+			<Anchor>//api/name/width</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Box/width</TokenIdentifier>
+			<Abstract type="html">An alias for the SCNBox&apos;s @p width property. Speficies the size of the box
+along its @p x axis.</Abstract>
+			<DeclaredIn>Box.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *width</Declaration>
+			
+			
+			<Anchor>//api/name/width</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Box/width</TokenIdentifier>
+			<Abstract type="html">An alias for the SCNBox&apos;s @p width property. Speficies the size of the box
+along its @p x axis.</Abstract>
+			<DeclaredIn>Box.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *width</Declaration>
+			
+			
+			<Anchor>//api/name/width</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Box/setHeight:</TokenIdentifier>
+			<Abstract type="html">An alias for the SCNBox&apos;s @p height property. Speficies the size of the box
+along its @p y axis.</Abstract>
+			<DeclaredIn>Box.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *height</Declaration>
+			
+			
+			<Anchor>//api/name/height</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Box/height</TokenIdentifier>
+			<Abstract type="html">An alias for the SCNBox&apos;s @p height property. Speficies the size of the box
+along its @p y axis.</Abstract>
+			<DeclaredIn>Box.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *height</Declaration>
+			
+			
+			<Anchor>//api/name/height</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Box/height</TokenIdentifier>
+			<Abstract type="html">An alias for the SCNBox&apos;s @p height property. Speficies the size of the box
+along its @p y axis.</Abstract>
+			<DeclaredIn>Box.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *height</Declaration>
+			
+			
+			<Anchor>//api/name/height</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Box/setLength:</TokenIdentifier>
+			<Abstract type="html">An alias for the SCNBox&apos;s @p length property. Speficies the size of the box
+along its @p z axis.</Abstract>
+			<DeclaredIn>Box.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *length</Declaration>
+			
+			
+			<Anchor>//api/name/length</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Box/length</TokenIdentifier>
+			<Abstract type="html">An alias for the SCNBox&apos;s @p length property. Speficies the size of the box
+along its @p z axis.</Abstract>
+			<DeclaredIn>Box.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *length</Declaration>
+			
+			
+			<Anchor>//api/name/length</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Box/length</TokenIdentifier>
+			<Abstract type="html">An alias for the SCNBox&apos;s @p length property. Speficies the size of the box
+along its @p z axis.</Abstract>
+			<DeclaredIn>Box.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *length</Declaration>
+			
+			
+			<Anchor>//api/name/length</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Box/setChamferRadius:</TokenIdentifier>
+			<Abstract type="html">An alias for the SCNBox&apos;s @p chamferRadius property. Speficies the radius to
+use when rounding both the edges and the vertices of the Box.</Abstract>
+			<DeclaredIn>Box.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *chamferRadius</Declaration>
+			
+			
+			<Anchor>//api/name/chamferRadius</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Box/chamferRadius</TokenIdentifier>
+			<Abstract type="html">An alias for the SCNBox&apos;s @p chamferRadius property. Speficies the radius to
+use when rounding both the edges and the vertices of the Box.</Abstract>
+			<DeclaredIn>Box.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *chamferRadius</Declaration>
+			
+			
+			<Anchor>//api/name/chamferRadius</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Box/chamferRadius</TokenIdentifier>
+			<Abstract type="html">An alias for the SCNBox&apos;s @p chamferRadius property. Speficies the radius to
+use when rounding both the edges and the vertices of the Box.</Abstract>
+			<DeclaredIn>Box.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *chamferRadius</Declaration>
+			
+			
+			<Anchor>//api/name/chamferRadius</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Box/deepCopy</TokenIdentifier>
+			<Abstract type="html">Creates a deep copy of the receiver, including in it any relevant information.</Abstract>
+			<DeclaredIn>Box.m</DeclaredIn>
+			
+			<Declaration>- (Item *)deepCopy</Declaration>
+			
+			<ReturnValue><Abstract type="html">A new instance of Item, representing a copy of the receiver.</Abstract></ReturnValue>
+			<Anchor>//api/name/deepCopy</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Box/copyInfoTo:</TokenIdentifier>
+			<Abstract type="html">Copies relevant information from the receiver to the given item. Used by
+deepCopy to copy the actual information over.</Abstract>
+			<DeclaredIn>Box.m</DeclaredIn>
+			
+			<Declaration>- (void)copyInfoTo:(Box *)box</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>item</Name>
+					<Abstract type="html">The new Item object, into which all copied information will be
+written.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/copyInfoTo:</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

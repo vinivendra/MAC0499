@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Categories/SCNScene+Extension.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cat/SCNScene(Extension)</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>SCNScene+Extension.h</DeclaredIn>
+            
+			
+			<NodeRef refid="36"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SCNScene/shared</TokenIdentifier>
+			<Abstract type="html">The singleton instance of a scene, meant to be used by the whole application.
+If multiple scenes are needed, one might consider changing this approach.</Abstract>
+			<DeclaredIn>SCNScene+Extension.h</DeclaredIn>
+			
+			<Declaration>+ (SCNScene *)shared</Declaration>
+			
+			<ReturnValue><Abstract type="html">An initialized instance of SCNScene.</Abstract></ReturnValue>
+			<Anchor>//api/name/shared</Anchor>
+            <NodeRef refid="36"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SCNScene/addItem:</TokenIdentifier>
+			<Abstract type="html">Adds an @p Item to the scene, much like adding an SCNNode as a subnode to the
+scene&apos;s rootNode.</Abstract>
+			<DeclaredIn>SCNScene+Extension.h</DeclaredIn>
+			
+			<Declaration>- (void)addItem:(Item *)item</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>item</Name>
+					<Abstract type="html">The Item to be added to the scene.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/addItem:</Anchor>
+            <NodeRef refid="36"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

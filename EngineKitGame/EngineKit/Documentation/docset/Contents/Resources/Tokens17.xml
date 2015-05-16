@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/Pyramid.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/Pyramid</TokenIdentifier>
+			<Abstract type="html">A square based pyramid, with specifiable width, length and height.</Abstract>
+			<DeclaredIn>Pyramid.h</DeclaredIn>
+            
+			
+			<NodeRef refid="17"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Pyramid/pyramid</TokenIdentifier>
+			<Abstract type="html">Creates a new instance of @p Pyramid, with the default measures set by @p
+SCNPyramid.</Abstract>
+			<DeclaredIn>Pyramid.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)pyramid</Declaration>
+			
+			<ReturnValue><Abstract type="html">a new, default instance of @p Pyramid.</Abstract></ReturnValue>
+			<Anchor>//api/name/pyramid</Anchor>
+            <NodeRef refid="17"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Pyramid/setWidth:</TokenIdentifier>
+			<Abstract type="html">An alias for the SCNPyramid&apos;s @p width property. Speficies the width used for
+the Pyramid, which represents its @p x axis extent.</Abstract>
+			<DeclaredIn>Pyramid.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSNumber *width</Declaration>
+			
+			
+			<Anchor>//api/name/width</Anchor>
+            <NodeRef refid="17"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Pyramid/width</TokenIdentifier>
+			<Abstract type="html">An alias for the SCNPyramid&apos;s @p width property. Speficies the width used for
+the Pyramid, which represents its @p x axis extent.</Abstract>
+			<DeclaredIn>Pyramid.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSNumber *width</Declaration>
+			
+			
+			<Anchor>//api/name/width</Anchor>
+            <NodeRef refid="17"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Pyramid/width</TokenIdentifier>
+			<Abstract type="html">An alias for the SCNPyramid&apos;s @p width property. Speficies the width used for
+the Pyramid, which represents its @p x axis extent.</Abstract>
+			<DeclaredIn>Pyramid.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSNumber *width</Declaration>
+			
+			
+			<Anchor>//api/name/width</Anchor>
+            <NodeRef refid="17"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Pyramid/setHeight:</TokenIdentifier>
+			<Abstract type="html">An alias for the SCNPyramid&apos;s @p height property. Speficies the height used for
+the Pyramid, which represents its @p y axis extent.</Abstract>
+			<DeclaredIn>Pyramid.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSNumber *height</Declaration>
+			
+			
+			<Anchor>//api/name/height</Anchor>
+            <NodeRef refid="17"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Pyramid/height</TokenIdentifier>
+			<Abstract type="html">An alias for the SCNPyramid&apos;s @p height property. Speficies the height used for
+the Pyramid, which represents its @p y axis extent.</Abstract>
+			<DeclaredIn>Pyramid.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSNumber *height</Declaration>
+			
+			
+			<Anchor>//api/name/height</Anchor>
+            <NodeRef refid="17"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Pyramid/height</TokenIdentifier>
+			<Abstract type="html">An alias for the SCNPyramid&apos;s @p height property. Speficies the height used for
+the Pyramid, which represents its @p y axis extent.</Abstract>
+			<DeclaredIn>Pyramid.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSNumber *height</Declaration>
+			
+			
+			<Anchor>//api/name/height</Anchor>
+            <NodeRef refid="17"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Pyramid/setLength:</TokenIdentifier>
+			<Abstract type="html">An alias for the SCNPyramid&apos;s @p length property. Speficies the length used for
+the Pyramid, which represents its @p z axis extent.</Abstract>
+			<DeclaredIn>Pyramid.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSNumber *length</Declaration>
+			
+			
+			<Anchor>//api/name/length</Anchor>
+            <NodeRef refid="17"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Pyramid/length</TokenIdentifier>
+			<Abstract type="html">An alias for the SCNPyramid&apos;s @p length property. Speficies the length used for
+the Pyramid, which represents its @p z axis extent.</Abstract>
+			<DeclaredIn>Pyramid.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSNumber *length</Declaration>
+			
+			
+			<Anchor>//api/name/length</Anchor>
+            <NodeRef refid="17"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Pyramid/length</TokenIdentifier>
+			<Abstract type="html">An alias for the SCNPyramid&apos;s @p length property. Speficies the length used for
+the Pyramid, which represents its @p z axis extent.</Abstract>
+			<DeclaredIn>Pyramid.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSNumber *length</Declaration>
+			
+			
+			<Anchor>//api/name/length</Anchor>
+            <NodeRef refid="17"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Pyramid/deepCopy</TokenIdentifier>
+			<Abstract type="html">Creates a deep copy of the receiver, including in it any relevant information.</Abstract>
+			<DeclaredIn>Pyramid.m</DeclaredIn>
+			
+			<Declaration>- (Item *)deepCopy</Declaration>
+			
+			<ReturnValue><Abstract type="html">A new instance of Item, representing a copy of the receiver.</Abstract></ReturnValue>
+			<Anchor>//api/name/deepCopy</Anchor>
+            <NodeRef refid="17"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Pyramid/copyInfoTo:</TokenIdentifier>
+			<Abstract type="html">Copies relevant information from the receiver to the given item. Used by
+deepCopy to copy the actual information over.</Abstract>
+			<DeclaredIn>Pyramid.m</DeclaredIn>
+			
+			<Declaration>- (void)copyInfoTo:(Pyramid *)item</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>item</Name>
+					<Abstract type="html">The new Item object, into which all copied information will be
+written.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/copyInfoTo:</Anchor>
+            <NodeRef refid="17"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

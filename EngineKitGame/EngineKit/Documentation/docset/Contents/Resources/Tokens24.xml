@@ -1,0 +1,850 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/Vector.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/Vector</TokenIdentifier>
+			<Abstract type="html">Represents a tuple of three CGFloats, here named x, y and z.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+            
+			
+			<NodeRef refid="24"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/setX:</TokenIdentifier>
+			<Abstract type="html">The Vector&apos;s x component.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) CGFloat x</Declaration>
+			
+			
+			<Anchor>//api/name/x</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/x</TokenIdentifier>
+			<Abstract type="html">The Vector&apos;s x component.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) CGFloat x</Declaration>
+			
+			
+			<Anchor>//api/name/x</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Vector/x</TokenIdentifier>
+			<Abstract type="html">The Vector&apos;s x component.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) CGFloat x</Declaration>
+			
+			
+			<Anchor>//api/name/x</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/setY:</TokenIdentifier>
+			<Abstract type="html">The Vector&apos;s y component.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) CGFloat y</Declaration>
+			
+			
+			<Anchor>//api/name/y</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/y</TokenIdentifier>
+			<Abstract type="html">The Vector&apos;s y component.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) CGFloat y</Declaration>
+			
+			
+			<Anchor>//api/name/y</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Vector/y</TokenIdentifier>
+			<Abstract type="html">The Vector&apos;s y component.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) CGFloat y</Declaration>
+			
+			
+			<Anchor>//api/name/y</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/setZ:</TokenIdentifier>
+			<Abstract type="html">The Vector&apos;s z component.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) CGFloat z</Declaration>
+			
+			
+			<Anchor>//api/name/z</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/z</TokenIdentifier>
+			<Abstract type="html">The Vector&apos;s z component.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) CGFloat z</Declaration>
+			
+			
+			<Anchor>//api/name/z</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Vector/z</TokenIdentifier>
+			<Abstract type="html">The Vector&apos;s z component.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) CGFloat z</Declaration>
+			
+			
+			<Anchor>//api/name/z</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Vector/origin</TokenIdentifier>
+			<Abstract type="html">Represents a commonly used Vector, (0 0 0)</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)origin</Declaration>
+			
+			<ReturnValue><Abstract type="html">A Vector object.</Abstract></ReturnValue>
+			<Anchor>//api/name/origin</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Vector/vectorWithObject:</TokenIdentifier>
+			<Abstract type="html">Creates a Vector based on the given object.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>+ (Vector *)vectorWithObject:(id)object</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>object</Name>
+					<Abstract type="html">An object of any one of the classes mentioned above.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized Vector object.</Abstract></ReturnValue>
+			<Anchor>//api/name/vectorWithObject:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Vector/vectorWithX:Y:Z:</TokenIdentifier>
+			<Abstract type="html">Creates a Vector whith the three given components, respectively.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>+ (Vector *)vectorWithX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>x</Name>
+					<Abstract type="html">The value to assign to the Vector&apos;s x component.</Abstract>
+				</Parameter><Parameter>
+					<Name>y</Name>
+					<Abstract type="html">The value to assign to the Vector&apos;s y component.</Abstract>
+				</Parameter><Parameter>
+					<Name>z</Name>
+					<Abstract type="html">The value to assign to the Vector&apos;s z component.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized Vector object.</Abstract></ReturnValue>
+			<Anchor>//api/name/vectorWithX:Y:Z:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Vector/vectorWithUniformWithNumber:</TokenIdentifier>
+			<Abstract type="html">Creates a Vector in which all components are set to s. Useful for creating
+Vectors that represent uniform scales.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>+ (Vector *)vectorWithUniformWithNumber:(CGFloat)s</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>s</Name>
+					<Abstract type="html">The value to set to all the Vector&apos;s components.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized Vector object.</Abstract></ReturnValue>
+			<Anchor>//api/name/vectorWithUniformWithNumber:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Vector/vectorWithCGPoint:</TokenIdentifier>
+			<Abstract type="html">Given a CGPoint of format (x, y`, creates a Vector object of format (x,
+- y, 0)`. This is done to ease the translation from screen points to scene
+points.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>+ (Vector *)vectorWithCGPoint:(CGPoint)newValue</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>newValue</Name>
+					<Abstract type="html">The CGPoint that should be used as a model.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized Vector object.</Abstract></ReturnValue>
+			<Anchor>//api/name/vectorWithCGPoint:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Vector/vectorWithCIVector:</TokenIdentifier>
+			<Abstract type="html">Creates a Vector in which all components are set as just as the first 3
+components (x, y and z in the given CIVector.  This method trusts that
+the CIVector has been correctly initialized and has the  necessary components.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>+ (Vector *)vectorWithCIVector:(CIVector *)newValue</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>newValue</Name>
+					<Abstract type="html">The CIValue whose x, y and z components should be used.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized Vector object.</Abstract></ReturnValue>
+			<Anchor>//api/name/vectorWithCIVector:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Vector/vectorWithSCNVector3:</TokenIdentifier>
+			<Abstract type="html">Creates a Vector in which all components are set as just as the given
+SCNVector3.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>+ (Vector *)vectorWithSCNVector3:(SCNVector3)newValue</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>newValue</Name>
+					<Abstract type="html">The SCNVector3 that should be used as a model.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized Vector object.</Abstract></ReturnValue>
+			<Anchor>//api/name/vectorWithSCNVector3:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Vector/vectorWithSCNVector4:</TokenIdentifier>
+			<Abstract type="html">Creates a Vector in which all components are set as just as the first 3
+components in the given SCNVector4. If that Vector has format (x y z w),
+the created Vector object will have format (x y z``.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>+ (Vector *)vectorWithSCNVector4:(SCNVector4)newValue</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>newValue</Name>
+					<Abstract type="html">The SCNVector4 whose first three components should be used.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized Vector object.</Abstract></ReturnValue>
+			<Anchor>//api/name/vectorWithSCNVector4:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Vector/vectorWithArray:</TokenIdentifier>
+			<Abstract type="html">Creates a Vector based on the first three elements on a given NSArray. If
+the array has less than 3 components or if any of the first three components is
+not an NSNumber, the corresponding value is set to zero.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>+ (Vector *)vectorWithArray:(NSArray *)array</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>array</Name>
+					<Abstract type="html">The NSArray that should be used as a model.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized Vector object.</Abstract></ReturnValue>
+			<Anchor>//api/name/vectorWithArray:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Vector/vectorWithDictionary:</TokenIdentifier>
+			<Abstract type="html">Creates a Vector based on the elements on a given NSDictionary. If there are
+elements with the key &quot;x&quot;, &quot;y&quot; and &quot;z&quot; (case insensitive), those elements are
+used. If one of them is missing, the keys &quot;0&quot;, &quot;1&quot; or &quot;2&quot; are used to replace
+them as needed. If any elements are still missing, the corresponding value is
+set to 0.0.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>+ (Vector *)vectorWithDictionary:(NSDictionary *)dictionary</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>dictionary</Name>
+					<Abstract type="html">The NSDictionary that should be used as a model.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized Vector object.</Abstract></ReturnValue>
+			<Anchor>//api/name/vectorWithDictionary:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Vector/vectorWithString:</TokenIdentifier>
+			<Abstract type="html">Attempts to create a Vector by scanning the string for numbers. Each number
+found is inserted into an NSArray, and then the initWithArray: method is
+used.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>+ (Vector *)vectorWithString:(NSString *)string</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>string</Name>
+					<Abstract type="html">The NSString to use as a model.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized Vector object.</Abstract></ReturnValue>
+			<Anchor>//api/name/vectorWithString:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Vector/vectorWithVector:</TokenIdentifier>
+			<Abstract type="html">Returns the given Vector object. Used for completion and standardization by
+other methods.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>+ (Vector *)vectorWithVector:(Vector *)vector</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>vector</Name>
+					<Abstract type="html">The Vector object that will be returned.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A Vector object.</Abstract></ReturnValue>
+			<Anchor>//api/name/vectorWithVector:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithX:Y:Z:</TokenIdentifier>
+			<Abstract type="html">Initializes a Vector whith the three given components, respectively.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>x</Name>
+					<Abstract type="html">The value to assign to the Vector&apos;s x component.</Abstract>
+				</Parameter><Parameter>
+					<Name>y</Name>
+					<Abstract type="html">The value to assign to the Vector&apos;s y component.</Abstract>
+				</Parameter><Parameter>
+					<Name>z</Name>
+					<Abstract type="html">The value to assign to the Vector&apos;s z component.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized Vector object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithX:Y:Z:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/initUniformWithNumber:</TokenIdentifier>
+			<Abstract type="html">Initializes a Vector in which all components are set to s. Useful for
+creating Vectors that represent uniform scales.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initUniformWithNumber:(CGFloat)s</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>s</Name>
+					<Abstract type="html">The value to set to all the Vector&apos;s components.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized Vector object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initUniformWithNumber:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithCGPoint:</TokenIdentifier>
+			<Abstract type="html">Given a CGPoint of format (x, y`, creates a Vector object of format (x,
+- y, 0)`. This is done to ease the translation from screen points to scene
+points.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithCGPoint:(CGPoint)newValue</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>newValue</Name>
+					<Abstract type="html">The CGPoint that should be used as a model.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized Vector object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithCGPoint:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithCIVector:</TokenIdentifier>
+			<Abstract type="html">Initializes a Vector in which all components are set as just as the first 3
+components (x, y and z in the given CIVector. This method trusts that
+the CIVector has been correctly initialized and has the necessary components.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithCIVector:(CIVector *)newValue</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>newValue</Name>
+					<Abstract type="html">The CIValue whose x, y and z components should be used.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized Vector object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithCIVector:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithSCNVector3:</TokenIdentifier>
+			<Abstract type="html">Initializes a Vector in which all components are set as just as the given
+SCNVector3.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithSCNVector3:(SCNVector3)newValue</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>newValue</Name>
+					<Abstract type="html">The SCNVector3 that should be used as a model.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized Vector object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithSCNVector3:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithSCNVector4:</TokenIdentifier>
+			<Abstract type="html">Initializes a Vector in which all components are set as just as the first 3
+components in the given SCNVector4. If that Vector has format (x y z w),
+the created Vector object will have format (x y z``.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithSCNVector4:(SCNVector4)newValue</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>newValue</Name>
+					<Abstract type="html">The SCNVector4 whose first three components should be used.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized Vector object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithSCNVector4:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithArray:</TokenIdentifier>
+			<Abstract type="html">Initializes a Vector based on the first three elements on a given NSArray.
+If the array has less than 3 components or if any of the first three components
+is not an NSNumber, the corresponding value is set to zero.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithArray:(NSArray *)array</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>array</Name>
+					<Abstract type="html">The NSArray that should be used as a model.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized Vector object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithArray:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithDictionary:</TokenIdentifier>
+			<Abstract type="html">Initializes a Vector based on the elements on a given NSDictionary. If there
+are elements with the key &quot;x&quot;, &quot;y&quot; and &quot;z&quot; (case insensitive), those elements
+are used. If one of them is missing, the keys &quot;0&quot;, &quot;1&quot; or &quot;2&quot; are used to
+replace them as needed. If any elements are still missing, the corresponding
+value is set to 0.0.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithDictionary:(NSDictionary *)dictionary</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>dictionary</Name>
+					<Abstract type="html">The NSDictionary that should be used as a model.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized Vector object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithDictionary:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithString:</TokenIdentifier>
+			<Abstract type="html">Attempts to initialize a Vector by scanning the string for numbers. Each
+number found is inserted into an NSArray, and then the initWithArray:
+method is used.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithString:(NSString *)string</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>string</Name>
+					<Abstract type="html">The NSString to use as a model.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized Vector object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithString:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithVector:</TokenIdentifier>
+			<Abstract type="html">Returns the given Vector object. Used for completion and standardization by
+other methods.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithVector:(Vector *)vector</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>vector</Name>
+					<Abstract type="html">The Vector object that will be returned.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A Vector object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithVector:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithObject:</TokenIdentifier>
+			<Abstract type="html">Initializes a Vector based on the given object.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithObject:(id)object</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>object</Name>
+					<Abstract type="html">An object of any one of the classes mentioned above.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized Vector object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithObject:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/toSCNVector3</TokenIdentifier>
+			<Abstract type="html">Creates an SCNVector3 with the same components as the Vector.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>- (SCNVector3)toSCNVector3</Declaration>
+			
+			<ReturnValue><Abstract type="html">An initialized SCNVector3.</Abstract></ReturnValue>
+			<Anchor>//api/name/toSCNVector3</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/toNSValue</TokenIdentifier>
+			<Abstract type="html">Creates an NSValue containing an SCNVector3 with the same components as the
+Vector.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>- (NSValue *)toNSValue</Declaration>
+			
+			<ReturnValue><Abstract type="html">An instance of NSValue.</Abstract></ReturnValue>
+			<Anchor>//api/name/toNSValue</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/isEqual:</TokenIdentifier>
+			<Abstract type="html">Compares the receiver with another Vector for equality by testing if all
+their components are equal.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>- (BOOL)isEqual:(id)object</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>object</Name>
+					<Abstract type="html">An object used to initialize a Vector by calling
+vectorWithObject:. The resulting Vector will then be compared to the
+receiver.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">YES if both objects are considered equal; NO otherwise.</Abstract></ReturnValue>
+			<Anchor>//api/name/isEqual:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/isEqualToVector:</TokenIdentifier>
+			<Abstract type="html">Compares the receiver with an SCNVector3 for equality by testing if all their
+components are equal.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>- (BOOL)isEqualToVector:(SCNVector3)vector</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>vector</Name>
+					<Abstract type="html">An SCNVector3 to compare with the receiver.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">YES if both vectors are considered equal; NO otherwise.</Abstract></ReturnValue>
+			<Anchor>//api/name/isEqualToVector:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/times:</TokenIdentifier>
+			<Abstract type="html">Returns a Vector representing a multiplication of this Vector, of format
+(x, y, z, by a scalar a, resulting in a Vector of format (ax`, ay,
+a*z`.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>- (Vector *)times:(CGFloat)scalar</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>scalar</Name>
+					<Abstract type="html">The scalar value by which to multiply the Vector.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A new instance of a Vector object.</Abstract></ReturnValue>
+			<Anchor>//api/name/times:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/over:</TokenIdentifier>
+			<Abstract type="html">Returns a Vector representing a division of this Vector, of format (x, y`,
+z, by a scalar a, resulting in a Vector of format (x/a, y/a, z/a)`.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>- (Vector *)over:(CGFloat)scalar</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>scalar</Name>
+					<Abstract type="html">The scalar value by which to divide the Vector.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A new instance of a Vector object.</Abstract></ReturnValue>
+			<Anchor>//api/name/over:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/plus:</TokenIdentifier>
+			<Abstract type="html">Returns a Vector representing a sum of this Vector, of format (x, y, z``,
+by another Vector of format (a, b, c), resulting in a Vector of format `(a
++ x, b + y, c + z`.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>- (Vector *)plus:(id)object</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>object</Name>
+					<Abstract type="html">An object, used to initialize a new Vector using the
+vectorWithObject: method. The resulting Vector is then used in the
+addition.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A new instance of a Vector object.</Abstract></ReturnValue>
+			<Anchor>//api/name/plus:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/minus:</TokenIdentifier>
+			<Abstract type="html">Returns a Vector representing a subtraction of another Vector, of format
+(a, b, c), from this Vector of format (x, y, z, resulting in a Vector
+of format (x - a, y - b, z - c).</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>- (Vector *)minus:(id)object</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>object</Name>
+					<Abstract type="html">An object, used to initialize a new Vector using the
+vectorWithObject: method. The resulting Vector is then used in the
+subtraction.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A new instance of a Vector object.</Abstract></ReturnValue>
+			<Anchor>//api/name/minus:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/opposite</TokenIdentifier>
+			<Abstract type="html">Takes the receiver, of format (x, y, z``, and returns its opposite, of format
+(- x, - y, - z``.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>- (Vector *)opposite</Declaration>
+			
+			<ReturnValue><Abstract type="html">A new instance of a Vector object.</Abstract></ReturnValue>
+			<Anchor>//api/name/opposite</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/dot:</TokenIdentifier>
+			<Abstract type="html">Returns the dot product (which is a scalar value) of the receiver Vector,
+which has format (x, y, z, with another Vector of format (a, b, c),
+resulting the number given by xa + yb + z*c.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>- (CGFloat)dot:(id)object</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>object</Name>
+					<Abstract type="html">An object, used to initialize a new Vector using the
+vectorWithObject: method. The resulting Vector is then used in the dot
+product.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The value of the dot product between the two vectors.</Abstract></ReturnValue>
+			<Anchor>//api/name/dot:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/normSquared</TokenIdentifier>
+			<Abstract type="html">Returns the squared norm of this Vector, which has format (x, y, z``. The
+norm is the same as the dot product of this vector with itself: xx + yy` +
+z*z`.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>- (CGFloat)normSquared</Declaration>
+			
+			<ReturnValue><Abstract type="html">The squared value of the Vector&apos;s norm.</Abstract></ReturnValue>
+			<Anchor>//api/name/normSquared</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/norm</TokenIdentifier>
+			<Abstract type="html">Returns the norm of this Vector, which has format (x, y, z``. The norm is
+the same as the square root of the dot product of this vector with itself:
+sqrt(xx + yy + z*z``.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>- (CGFloat)norm</Declaration>
+			
+			<ReturnValue><Abstract type="html">The value of the Vector&apos;s norm.</Abstract></ReturnValue>
+			<Anchor>//api/name/norm</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/normalize</TokenIdentifier>
+			<Abstract type="html">Creates a new Vector as a result of changing receiver&apos;s components uniformly,
+scaling them so that the resulting Vector object has a norm of 1.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>- (Vector *)normalize</Declaration>
+			
+			<ReturnValue><Abstract type="html">A new instance of a Vector object.</Abstract></ReturnValue>
+			<Anchor>//api/name/normalize</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/translate:</TokenIdentifier>
+			<Abstract type="html">Creates a new Vector, using the receiver as a translation vector to translate
+the given Vector object.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>- (Vector *)translate:(id)object</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>object</Name>
+					<Abstract type="html">An object, used to initialize a new Vector using the
+vectorWithObject: method. The resulting Vector is then translated.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A new intance of a Vector object.</Abstract></ReturnValue>
+			<Anchor>//api/name/translate:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/scale:</TokenIdentifier>
+			<Abstract type="html">Creates a new Vector, by scaling the receiver by the appropriate amount,
+given by scale.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>- (Vector *)scale:(CGFloat)scale</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>scale</Name>
+					<Abstract type="html">The amount by which to scale the receiver.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A new intance of a Vector object.</Abstract></ReturnValue>
+			<Anchor>//api/name/scale:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/translateMatrix:</TokenIdentifier>
+			<Abstract type="html">The receiver applies the translation it represents to the receiving
+SCNMatrix4, and then returns the result.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>- (SCNMatrix4)translateMatrix:(SCNMatrix4)matrix</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>matrix</Name>
+					<Abstract type="html">The matrix to translate.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A new SCNMatrix4, representing the result of the translation of the
+original matrix.</Abstract></ReturnValue>
+			<Anchor>//api/name/translateMatrix:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Vector/scaleMatrix:</TokenIdentifier>
+			<Abstract type="html">The receiver applies the scale it represents to the receiving SCNMatrix4, and
+then returns the result.</Abstract>
+			<DeclaredIn>Vector.h</DeclaredIn>
+			
+			<Declaration>- (SCNMatrix4)scaleMatrix:(SCNMatrix4)matrix</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>matrix</Name>
+					<Abstract type="html">The matrix to scale.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A new SCNMatrix4, representing the result of scaling the original
+matrix.</Abstract></ReturnValue>
+			<Anchor>//api/name/scaleMatrix:</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

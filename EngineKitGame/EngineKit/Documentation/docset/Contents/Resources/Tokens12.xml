@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/JavaScript.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/JavaScript</TokenIdentifier>
+			<Abstract type="html">A JavaScript manager class, used to handle the interaction between the
+Objective-C game architecture and the JavaScript code.</Abstract>
+			<DeclaredIn>JavaScript.h</DeclaredIn>
+            
+			
+			<NodeRef refid="12"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/JavaScript/shared</TokenIdentifier>
+			<Abstract type="html">The singleton instance of the JavaScript class. The class is meant to be used
+as a singleton and deals with other singleton instances, such as the SCNScene
+and the JSContext singletons.</Abstract>
+			<DeclaredIn>JavaScript.h</DeclaredIn>
+			
+			<Declaration>+ (JavaScript *)shared</Declaration>
+			
+			<ReturnValue><Abstract type="html">A singleton instance of the JavaScript class.</Abstract></ReturnValue>
+			<Anchor>//api/name/shared</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/JavaScript/initWithFile:</TokenIdentifier>
+			<Abstract type="html">Initializes all needed JavaScript data and runs the file determined by the
+given @p filename, executing the code in its global scope and setting up
+default functions (such as @p load and @p update.</Abstract>
+			<DeclaredIn>JavaScript.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithFile:(NSString *)filename</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>filename</Name>
+					<Abstract type="html">A path to the file, relative to the project&apos;s folder. If the
+file is in the project&apos;s folder itself, this string would only be the file&apos;s
+name.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized JavaScript object set up to handle the given file.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithFile:</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/JavaScript/setup</TokenIdentifier>
+			<Abstract type="html">Sets up the framework for use in the Javascript code, runs the global code and
+loads the necessary functions (such as @p load and @p update so that they are
+ready to be called.</Abstract>
+			<DeclaredIn>JavaScript.h</DeclaredIn>
+			
+			<Declaration>- (void)setup</Declaration>
+			
+			
+			<Anchor>//api/name/setup</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/JavaScript/load</TokenIdentifier>
+			<Abstract type="html">Calls the @p load function in the JavaScript code, if it exists.</Abstract>
+			<DeclaredIn>JavaScript.h</DeclaredIn>
+			
+			<Declaration>- (void)load</Declaration>
+			
+			
+			<Anchor>//api/name/load</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/JavaScript/update</TokenIdentifier>
+			<Abstract type="html">Calls the @p update function in the JavaSript code, if it exists.</Abstract>
+			<DeclaredIn>JavaScript.h</DeclaredIn>
+			
+			<Declaration>- (void)update</Declaration>
+			
+			
+			<Anchor>//api/name/update</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/JavaScript/contactCallback</TokenIdentifier>
+			<Abstract type="html">Returns the current callback function for contact handling in javascript. It
+should be a function called &quot;contact&quot; or a variable, with the same name, that
+contains the function to be called.</Abstract>
+			<DeclaredIn>JavaScript.h</DeclaredIn>
+			
+			<Declaration>- (JSValue *)contactCallback</Declaration>
+			
+			<ReturnValue><Abstract type="html">An JSValue, hopefully containing the callback function to be called (if
+the JavaScript code is correct); if there is no such function or variable, the
+JSValue returned will be undefined.</Abstract></ReturnValue>
+			<Anchor>//api/name/contactCallback</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/JavaScript/buttonCallback</TokenIdentifier>
+			<Abstract type="html">Returns the current callback function for handling button presses in
+javascript. It should be a function called &quot;button&quot; or a variable, with the
+same name, that contains the function to be called.</Abstract>
+			<DeclaredIn>JavaScript.h</DeclaredIn>
+			
+			<Declaration>- (JSValue *)buttonCallback</Declaration>
+			
+			<ReturnValue><Abstract type="html">An JSValue, hopefully containing the callback function to be called (if
+the JavaScript code is correct); if there is no such function or variable, the
+JSValue returned will be undefined.</Abstract></ReturnValue>
+			<Anchor>//api/name/buttonCallback</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/JavaScript/sliderCallback</TokenIdentifier>
+			<Abstract type="html">Returns the current callback function for handling slider value changes in
+javascript. It should be a function called &quot;slider&quot; or a variable, with the
+same name, that contains the function to be called.</Abstract>
+			<DeclaredIn>JavaScript.h</DeclaredIn>
+			
+			<Declaration>- (JSValue *)sliderCallback</Declaration>
+			
+			<ReturnValue><Abstract type="html">An JSValue, hopefully containing the callback function to be called (if
+the JavaScript code is correct); if there is no such function or variable, the
+JSValue returned will be undefined.</Abstract></ReturnValue>
+			<Anchor>//api/name/sliderCallback</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/JavaScript/tapCallback</TokenIdentifier>
+			<Abstract type="html">Returns the current callback function for handling taps in javascript. It
+should be a function called &quot;tap&quot; or a variable, with the same name, that
+contains the function to be called.</Abstract>
+			<DeclaredIn>JavaScript.h</DeclaredIn>
+			
+			<Declaration>- (JSValue *)tapCallback</Declaration>
+			
+			<ReturnValue><Abstract type="html">An JSValue, hopefully containing the callback function to be called (if
+the JavaScript code is correct); if there is no such function or variable, the
+JSValue returned will be undefined.</Abstract></ReturnValue>
+			<Anchor>//api/name/tapCallback</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/JavaScript/swipeCallback</TokenIdentifier>
+			<Abstract type="html">Returns the current callback function for handling swipes in javascript. It
+should be a function called &quot;swipe&quot; or a variable, with the same name, that
+contains the function to be called.</Abstract>
+			<DeclaredIn>JavaScript.h</DeclaredIn>
+			
+			<Declaration>- (JSValue *)swipeCallback</Declaration>
+			
+			<ReturnValue><Abstract type="html">An JSValue, hopefully containing the callback function to be called (if
+the JavaScript code is correct); if there is no such function or variable, the
+JSValue returned will be undefined.</Abstract></ReturnValue>
+			<Anchor>//api/name/swipeCallback</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/JavaScript/panCallback</TokenIdentifier>
+			<Abstract type="html">Returns the current callback function for handling pans in javascript. It
+should be a function called &quot;pan&quot; or a variable, with the same name, that
+contains the function to be called.</Abstract>
+			<DeclaredIn>JavaScript.h</DeclaredIn>
+			
+			<Declaration>- (JSValue *)panCallback</Declaration>
+			
+			<ReturnValue><Abstract type="html">An JSValue, hopefully containing the callback function to be called (if
+the JavaScript code is correct); if there is no such function or variable, the
+JSValue returned will be undefined.</Abstract></ReturnValue>
+			<Anchor>//api/name/panCallback</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/JavaScript/pinchCallback</TokenIdentifier>
+			<Abstract type="html">Returns the current callback function for handling pinches in javascript. It
+should be a function called &quot;pinches&quot; or a variable, with the same name, that
+contains the function to be called.</Abstract>
+			<DeclaredIn>JavaScript.h</DeclaredIn>
+			
+			<Declaration>- (JSValue *)pinchCallback</Declaration>
+			
+			<ReturnValue><Abstract type="html">An JSValue, hopefully containing the callback function to be called (if
+the JavaScript code is correct); if there is no such function or variable, the
+JSValue returned will be undefined.</Abstract></ReturnValue>
+			<Anchor>//api/name/pinchCallback</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/JavaScript/rotationCallback</TokenIdentifier>
+			<Abstract type="html">Returns the current callback function for handling rotations in javascript. It
+should be a function called &quot;rotation&quot; or a variable, with the same name, that
+contains the function to be called.</Abstract>
+			<DeclaredIn>JavaScript.h</DeclaredIn>
+			
+			<Declaration>- (JSValue *)rotationCallback</Declaration>
+			
+			<ReturnValue><Abstract type="html">An JSValue, hopefully containing the callback function to be called (if
+the JavaScript code is correct); if there is no such function or variable, the
+JSValue returned will be undefined.</Abstract></ReturnValue>
+			<Anchor>//api/name/rotationCallback</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/JavaScript/longPressCallback</TokenIdentifier>
+			<Abstract type="html">Returns the current callback function for handling long presses in javascript.
+It should be a function called &quot;longPress&quot; or a variable, with the same name,
+that contains the function to be called.</Abstract>
+			<DeclaredIn>JavaScript.h</DeclaredIn>
+			
+			<Declaration>- (JSValue *)longPressCallback</Declaration>
+			
+			<ReturnValue><Abstract type="html">An JSValue, hopefully containing the callback function to be called (if
+the JavaScript code is correct); if there is no such function or variable, the
+JSValue returned will be undefined.</Abstract></ReturnValue>
+			<Anchor>//api/name/longPressCallback</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

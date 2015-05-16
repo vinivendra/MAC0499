@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/Parser.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/Parser</TokenIdentifier>
+			<Abstract type="html">The Parser class is responsible for interpreting the *.fmt files, creating the
+templates and items and adding them to the scene as necessary. To use it,
+et the shared instance and call its parseFile method on the file that should be
+interpreted.</Abstract>
+			<DeclaredIn>Parser.h</DeclaredIn>
+            
+			
+			<NodeRef refid="13"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Parser/shared</TokenIdentifier>
+			<Abstract type="html">The singleton instance of the Parser class.</Abstract>
+			<DeclaredIn>Parser.h</DeclaredIn>
+			
+			<Declaration>+ (Parser *)shared</Declaration>
+			
+			<ReturnValue><Abstract type="html">In initialized instance of a Parser.</Abstract></ReturnValue>
+			<Anchor>//api/name/shared</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Parser/parseFile:</TokenIdentifier>
+			<Abstract type="html">Interprets the given file, creates the necessary Templates and Items, sets
+their properties and adds them to the scene as requested.</Abstract>
+			<DeclaredIn>Parser.h</DeclaredIn>
+			
+			<Declaration>- (void)parseFile:(NSString *)filename</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>filename</Name>
+					<Abstract type="html">The name of the file, as should be recognized by FileHelper&apos;s
+-openTextFile: method.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/parseFile:</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Parser/reset</TokenIdentifier>
+			<Abstract type="html">Resets the parser&apos;s state so that it&apos;s ready to parse a new file.</Abstract>
+			<DeclaredIn>Parser.m</DeclaredIn>
+			
+			<Declaration>- (void)reset</Declaration>
+			
+			
+			<Anchor>//api/name/reset</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Parser/setPropertyFromLine:onItem:</TokenIdentifier>
+			<Abstract type="html">Interprets the @p line array as a text line separated by spaces. This method
+assumes the line represents an assignment to a property (i.e. &quot;color is red&quot;)
+and assigns the value to the property (if the property and the value exist and
+are valid, and if the given Item contains that property).
+In the following case:
+@code
+ball sphere
+    color is red
+@endcode
+The line would have been formatted as [&quot;color&quot;, &quot;is&quot;, &quot;red&quot;] and the Item would
+be the Sphere called &quot;ball&quot;.</Abstract>
+			<DeclaredIn>Parser.m</DeclaredIn>
+			
+			<Declaration>- (void)setPropertyFromLine:(NSMutableArray *)line onItem:(Item *)item</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>line</Name>
+					<Abstract type="html">The text line, separated by spaces and formatted as an array. For
+instance: [&quot;color&quot;, &quot;is&quot;, &quot;red&quot;].</Abstract>
+				</Parameter><Parameter>
+					<Name>item</Name>
+					<Abstract type="html">The Item whose property should be set, i.e. the @p Sphere called
+&quot;ball&quot;.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/setPropertyFromLine:onItem:</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Parser/stripComments:</TokenIdentifier>
+			<Abstract type="html">Takes a line of text and removes comments from it. Supported comments should be
+formatted as
+@code
+[some commands] //[comments]
+@endcode
+where both [some commands] and [comments] are optional. In this case, both
+the [comments] and the slashes would be removed, leaving only the [some commands].</Abstract>
+			<DeclaredIn>Parser.m</DeclaredIn>
+			
+			<Declaration>- (NSString *)stripComments:(NSString *)string</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>string</Name>
+					<Abstract type="html">The line of text whose comments will be removed.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A copy of the given string, without the comments.</Abstract></ReturnValue>
+			<Anchor>//api/name/stripComments:</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Parser/pushScopeWithItem:indentation:</TokenIdentifier>
+			<Abstract type="html">Pushes the necessary information about the current scope onto the appropriate
+stacks.</Abstract>
+			<DeclaredIn>Parser.m</DeclaredIn>
+			
+			<Declaration>- (void)pushScopeWithItem:(Item *)currentItem indentation:(NSUInteger)currentIndentation</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>currentItem</Name>
+					<Abstract type="html">The Item object that is currently being configured.</Abstract>
+				</Parameter><Parameter>
+					<Name>currentIndentation</Name>
+					<Abstract type="html">The indentation level of the current commands.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/pushScopeWithItem:indentation:</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Parser/popScope</TokenIdentifier>
+			<Abstract type="html">Pops the appropriate scope information from the stacks. Essentially returns the
+scope&apos;s state to the last pushed state.</Abstract>
+			<DeclaredIn>Parser.m</DeclaredIn>
+			
+			<Declaration>- (void)popScope</Declaration>
+			
+			
+			<Anchor>//api/name/popScope</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Parser/currentScopeHasTemplate:</TokenIdentifier>
+			<Abstract type="html">Attempts to find a reference to a template, if that reference is accessible
+from the current scope.</Abstract>
+			<DeclaredIn>Parser.m</DeclaredIn>
+			
+			<Declaration>- (BOOL)currentScopeHasTemplate:(NSString *)templateName</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>templateName</Name>
+					<Abstract type="html">The name of the referenced template.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">@p YES if the template is acessible by the current scope; @p NO
+otherwise.</Abstract></ReturnValue>
+			<Anchor>//api/name/currentScopeHasTemplate:</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

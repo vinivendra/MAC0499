@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/GestureRecognizers.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/GestureRecognizers</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>Gestures.h</DeclaredIn>
+            
+			
+			<NodeRef refid="38"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/SwipeRight</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>SwipeRight</Declaration>
+            
+            <DeclaredIn>Gestures.h</DeclaredIn>
+            
+            <NodeRef refid="38"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/SwipeLeft</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>SwipeLeft</Declaration>
+            
+            <DeclaredIn>Gestures.h</DeclaredIn>
+            
+            <NodeRef refid="38"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/SwipeDown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>SwipeDown</Declaration>
+            
+            <DeclaredIn>Gestures.h</DeclaredIn>
+            
+            <NodeRef refid="38"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/SwipeUp</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>SwipeUp</Declaration>
+            
+            <DeclaredIn>Gestures.h</DeclaredIn>
+            
+            <NodeRef refid="38"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/Tap</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>Tap</Declaration>
+            
+            <DeclaredIn>Gestures.h</DeclaredIn>
+            
+            <NodeRef refid="38"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/Pan</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>Pan</Declaration>
+            
+            <DeclaredIn>Gestures.h</DeclaredIn>
+            
+            <NodeRef refid="38"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/Pinch</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>Pinch</Declaration>
+            
+            <DeclaredIn>Gestures.h</DeclaredIn>
+            
+            <NodeRef refid="38"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/Rotate</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>Rotate</Declaration>
+            
+            <DeclaredIn>Gestures.h</DeclaredIn>
+            
+            <NodeRef refid="38"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/LongPress</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>LongPress</Declaration>
+            
+            <DeclaredIn>Gestures.h</DeclaredIn>
+            
+            <NodeRef refid="38"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/GestureRecognizersCount</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>GestureRecognizersCount</Declaration>
+            
+            <DeclaredIn>Gestures.h</DeclaredIn>
+            
+            <NodeRef refid="38"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/Position.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/Position</TokenIdentifier>
+			<Abstract type="html">A representation of a 3D position. Much like the Vector class, but meant to be
+used as a point instead of a vector.</Abstract>
+			<DeclaredIn>Position.h</DeclaredIn>
+            
+			
+			<NodeRef refid="16"/>
+		</Token>
+		
+		
+        
+        
+	</File>
+</Tokens>

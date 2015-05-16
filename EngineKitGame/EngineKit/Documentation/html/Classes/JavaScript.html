@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>JavaScript Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">EngineKit </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">IME</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/shared">+ shared</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/buttonCallback">- buttonCallback</option>
+		
+		<option value="//api/name/contactCallback">- contactCallback</option>
+		
+		<option value="//api/name/initWithFile:">- initWithFile:</option>
+		
+		<option value="//api/name/load">- load</option>
+		
+		<option value="//api/name/longPressCallback">- longPressCallback</option>
+		
+		<option value="//api/name/panCallback">- panCallback</option>
+		
+		<option value="//api/name/pinchCallback">- pinchCallback</option>
+		
+		<option value="//api/name/rotationCallback">- rotationCallback</option>
+		
+		<option value="//api/name/setup">- setup</option>
+		
+		<option value="//api/name/sliderCallback">- sliderCallback</option>
+		
+		<option value="//api/name/swipeCallback">- swipeCallback</option>
+		
+		<option value="//api/name/tapCallback">- tapCallback</option>
+		
+		<option value="//api/name/update">- update</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">JavaScript Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>JavaScript.h<br />JavaScript.m</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>A JavaScript manager class, used to handle the interaction between the
+Objective-C game architecture and the JavaScript code.</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/shared" title="shared"></a>
+	<h3 class="method-title"><code><a href="#//api/name/shared">+&nbsp;shared</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The singleton instance of the JavaScript class. The class is meant to be used
+as a singleton and deals with other singleton instances, such as the SCNScene
+and the JSContext singletons.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (JavaScript *)shared</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A singleton instance of the JavaScript class.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">JavaScript.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithFile:" title="initWithFile:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithFile:">&ndash;&nbsp;initWithFile:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Initializes all needed JavaScript data and runs the file determined by the
+given @p <a href="#//api/name/filename">filename</a>, executing the code in its global scope and setting up
+default functions (such as @p <a href="#//api/name/load">load</a> and @p <a href="#//api/name/update">update</a>).</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithFile:(NSString *)<em>filename</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>filename</code></th>
+						<td><p>A path to the file, relative to the project&rsquo;s folder. If the
+file is in the project&rsquo;s folder itself, this string would only be the file&rsquo;s
+name.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An initialized JavaScript object set up to handle the given file.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">JavaScript.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setup" title="setup"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setup">&ndash;&nbsp;setup</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Sets up the framework for use in the Javascript code, runs the global code and
+loads the necessary functions (such as @p <a href="#//api/name/load">load</a> and @p <a href="#//api/name/update">update</a>) so that they are
+ready to be called.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setup</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> this method is called automatically by @p -initWithFile and @p <a href="#//api/name/init">init</a>,
+so there should be no need to call it manually.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">JavaScript.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/load" title="load"></a>
+	<h3 class="method-title"><code><a href="#//api/name/load">&ndash;&nbsp;load</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Calls the @p load function in the JavaScript code, if it exists.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)load</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">JavaScript.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/update" title="update"></a>
+	<h3 class="method-title"><code><a href="#//api/name/update">&ndash;&nbsp;update</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Calls the @p update function in the JavaSript code, if it exists.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)update</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">JavaScript.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/contactCallback" title="contactCallback"></a>
+	<h3 class="method-title"><code><a href="#//api/name/contactCallback">&ndash;&nbsp;contactCallback</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the current callback function for contact handling in javascript. It
+should be a function called &ldquo;contact&rdquo; or a variable, with the same name, that
+contains the function to be called.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (JSValue *)contactCallback</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An JSValue, hopefully containing the callback function to be called (if
+the JavaScript code is correct); if there is no such function or variable, the
+JSValue returned will be undefined.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">JavaScript.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/buttonCallback" title="buttonCallback"></a>
+	<h3 class="method-title"><code><a href="#//api/name/buttonCallback">&ndash;&nbsp;buttonCallback</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the current callback function for handling button presses in
+javascript. It should be a function called &ldquo;button&rdquo; or a variable, with the
+same name, that contains the function to be called.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (JSValue *)buttonCallback</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An JSValue, hopefully containing the callback function to be called (if
+the JavaScript code is correct); if there is no such function or variable, the
+JSValue returned will be undefined.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">JavaScript.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/sliderCallback" title="sliderCallback"></a>
+	<h3 class="method-title"><code><a href="#//api/name/sliderCallback">&ndash;&nbsp;sliderCallback</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the current callback function for handling slider value changes in
+javascript. It should be a function called &ldquo;slider&rdquo; or a variable, with the
+same name, that contains the function to be called.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (JSValue *)sliderCallback</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An JSValue, hopefully containing the callback function to be called (if
+the JavaScript code is correct); if there is no such function or variable, the
+JSValue returned will be undefined.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">JavaScript.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/tapCallback" title="tapCallback"></a>
+	<h3 class="method-title"><code><a href="#//api/name/tapCallback">&ndash;&nbsp;tapCallback</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the current callback function for handling taps in javascript. It
+should be a function called &ldquo;tap&rdquo; or a variable, with the same name, that
+contains the function to be called.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (JSValue *)tapCallback</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An JSValue, hopefully containing the callback function to be called (if
+the JavaScript code is correct); if there is no such function or variable, the
+JSValue returned will be undefined.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">JavaScript.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/swipeCallback" title="swipeCallback"></a>
+	<h3 class="method-title"><code><a href="#//api/name/swipeCallback">&ndash;&nbsp;swipeCallback</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the current callback function for handling swipes in javascript. It
+should be a function called &ldquo;swipe&rdquo; or a variable, with the same name, that
+contains the function to be called.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (JSValue *)swipeCallback</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An JSValue, hopefully containing the callback function to be called (if
+the JavaScript code is correct); if there is no such function or variable, the
+JSValue returned will be undefined.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">JavaScript.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/panCallback" title="panCallback"></a>
+	<h3 class="method-title"><code><a href="#//api/name/panCallback">&ndash;&nbsp;panCallback</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the current callback function for handling pans in javascript. It
+should be a function called &ldquo;pan&rdquo; or a variable, with the same name, that
+contains the function to be called.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (JSValue *)panCallback</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An JSValue, hopefully containing the callback function to be called (if
+the JavaScript code is correct); if there is no such function or variable, the
+JSValue returned will be undefined.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">JavaScript.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/pinchCallback" title="pinchCallback"></a>
+	<h3 class="method-title"><code><a href="#//api/name/pinchCallback">&ndash;&nbsp;pinchCallback</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the current callback function for handling pinches in javascript. It
+should be a function called &ldquo;pinches&rdquo; or a variable, with the same name, that
+contains the function to be called.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (JSValue *)pinchCallback</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An JSValue, hopefully containing the callback function to be called (if
+the JavaScript code is correct); if there is no such function or variable, the
+JSValue returned will be undefined.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">JavaScript.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/rotationCallback" title="rotationCallback"></a>
+	<h3 class="method-title"><code><a href="#//api/name/rotationCallback">&ndash;&nbsp;rotationCallback</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the current callback function for handling rotations in javascript. It
+should be a function called &ldquo;rotation&rdquo; or a variable, with the same name, that
+contains the function to be called.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (JSValue *)rotationCallback</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An JSValue, hopefully containing the callback function to be called (if
+the JavaScript code is correct); if there is no such function or variable, the
+JSValue returned will be undefined.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">JavaScript.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/longPressCallback" title="longPressCallback"></a>
+	<h3 class="method-title"><code><a href="#//api/name/longPressCallback">&ndash;&nbsp;longPressCallback</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the current callback function for handling long presses in javascript.
+It should be a function called &ldquo;longPress&rdquo; or a variable, with the same name,
+that contains the function to be called.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (JSValue *)longPressCallback</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An JSValue, hopefully containing the callback function to be called (if
+the JavaScript code is correct); if there is no such function or variable, the
+JSValue returned will be undefined.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">JavaScript.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2015 IME. All rights reserved. Updated: 2015-05-15</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

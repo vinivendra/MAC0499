@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Categories/NSSet+Accessors.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cat/NSSet(Accessors)</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSSet+ObjectiveSugar.h</DeclaredIn>
+            
+			
+			<NodeRef refid="31"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NSSet/setFirstObject:</TokenIdentifier>
+			<Abstract type="html">Returns the first object of a given set.
+Note that sets are unordered, so this method won&apos;t always return the same thing</Abstract>
+			<DeclaredIn>NSSet+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (readonly) id firstObject</Declaration>
+			
+			
+			<Anchor>//api/name/firstObject</Anchor>
+            <NodeRef refid="31"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NSSet/firstObject</TokenIdentifier>
+			<Abstract type="html">Returns the first object of a given set.
+Note that sets are unordered, so this method won&apos;t always return the same thing</Abstract>
+			<DeclaredIn>NSSet+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (readonly) id firstObject</Declaration>
+			
+			
+			<Anchor>//api/name/firstObject</Anchor>
+            <NodeRef refid="31"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/NSSet/firstObject</TokenIdentifier>
+			<Abstract type="html">Returns the first object of a given set.
+Note that sets are unordered, so this method won&apos;t always return the same thing</Abstract>
+			<DeclaredIn>NSSet+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (readonly) id firstObject</Declaration>
+			
+			
+			<Anchor>//api/name/firstObject</Anchor>
+            <NodeRef refid="31"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NSSet/setLastObject:</TokenIdentifier>
+			<Abstract type="html">Returns the last object of a given set.
+Note that sets are unordered, so this method won&apos;t always return the same thing</Abstract>
+			<DeclaredIn>NSSet+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (readonly) id lastObject</Declaration>
+			
+			
+			<Anchor>//api/name/lastObject</Anchor>
+            <NodeRef refid="31"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NSSet/lastObject</TokenIdentifier>
+			<Abstract type="html">Returns the last object of a given set.
+Note that sets are unordered, so this method won&apos;t always return the same thing</Abstract>
+			<DeclaredIn>NSSet+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (readonly) id lastObject</Declaration>
+			
+			
+			<Anchor>//api/name/lastObject</Anchor>
+            <NodeRef refid="31"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/NSSet/lastObject</TokenIdentifier>
+			<Abstract type="html">Returns the last object of a given set.
+Note that sets are unordered, so this method won&apos;t always return the same thing</Abstract>
+			<DeclaredIn>NSSet+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (readonly) id lastObject</Declaration>
+			
+			
+			<Anchor>//api/name/lastObject</Anchor>
+            <NodeRef refid="31"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NSSet/setSample:</TokenIdentifier>
+			<Abstract type="html">Alias for -anyObject. Returns a random object from a given set</Abstract>
+			<DeclaredIn>NSSet+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (readonly) id sample</Declaration>
+			
+			
+			<Anchor>//api/name/sample</Anchor>
+            <NodeRef refid="31"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NSSet/sample</TokenIdentifier>
+			<Abstract type="html">Alias for -anyObject. Returns a random object from a given set</Abstract>
+			<DeclaredIn>NSSet+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (readonly) id sample</Declaration>
+			
+			
+			<Anchor>//api/name/sample</Anchor>
+            <NodeRef refid="31"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/NSSet/sample</TokenIdentifier>
+			<Abstract type="html">Alias for -anyObject. Returns a random object from a given set</Abstract>
+			<DeclaredIn>NSSet+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (readonly) id sample</Declaration>
+			
+			
+			<Anchor>//api/name/sample</Anchor>
+            <NodeRef refid="31"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NSSet/each:</TokenIdentifier>
+			<Abstract type="html">Alias for -anyObject. Returns a random object from a given set</Abstract>
+			<DeclaredIn>NSSet+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>- (void)each:(void ( ^ ) ( id object ))block</Declaration>
+			
+			
+			<Anchor>//api/name/each:</Anchor>
+            <NodeRef refid="31"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NSSet/select:</TokenIdentifier>
+			<Abstract type="html">Filters the given set using provided block, and returns an array copy</Abstract>
+			<DeclaredIn>NSSet+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>- (NSArray *)select:(BOOL ( ^ ) ( id object ))block</Declaration>
+			
+			
+			<Anchor>//api/name/select:</Anchor>
+            <NodeRef refid="31"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NSSet/reject:</TokenIdentifier>
+			<Abstract type="html">Keeps the objects passing the given block, and returns an array copy</Abstract>
+			<DeclaredIn>NSSet+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>- (NSArray *)reject:(BOOL ( ^ ) ( id object ))block</Declaration>
+			
+			
+			<Anchor>//api/name/reject:</Anchor>
+            <NodeRef refid="31"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NSSet/sort</TokenIdentifier>
+			<Abstract type="html">Returns a sorted array copy of the given set</Abstract>
+			<DeclaredIn>NSSet+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>- (NSArray *)sort</Declaration>
+			
+			
+			<Anchor>//api/name/sort</Anchor>
+            <NodeRef refid="31"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NSSet/map:</TokenIdentifier>
+			<Abstract type="html">Maps the given NSSet to NSArray.
+NOTE: If the block returns -nil, values are ignored.
+This is intentional to keep the behavior of -valueForKeyPath.
+This is different from NSArray -map, which puts NSNulls in the given case.
+If you want to preserve the count and use NSNulls, use set.allObjects -map:</Abstract>
+			<DeclaredIn>NSSet+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>- (NSArray *)map:(id ( ^ ) ( id object ))block</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>block</Name>
+					<Abstract type="html">- a transform block</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An NSArray copy of the transformed set.</Abstract></ReturnValue>
+			<Anchor>//api/name/map:</Anchor>
+            <NodeRef refid="31"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NSSet/reduce:</TokenIdentifier>
+			<Abstract type="html">Return a single value from an array by iterating through the elements and transforming a running total.</Abstract>
+			<DeclaredIn>NSSet+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>- (id)reduce:(id ( ^ ) ( id accumulator , id object ))block</Declaration>
+			
+			<ReturnValue><Abstract type="html">A single value that is the end result of apply the block function to each element successively.
+*</Abstract></ReturnValue>
+			<Anchor>//api/name/reduce:</Anchor>
+            <NodeRef refid="31"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NSSet/reduce:withBlock:</TokenIdentifier>
+			<Abstract type="html">Same as -reduce, with initial value provided by yourself
+*</Abstract>
+			<DeclaredIn>NSSet+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>- (id)reduce:(id)initial withBlock:(id ( ^ ) ( id accumulator , id object ))block</Declaration>
+			
+			
+			<Anchor>//api/name/reduce:withBlock:</Anchor>
+            <NodeRef refid="31"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

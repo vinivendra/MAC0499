@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/Sphere.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/Sphere</TokenIdentifier>
+			<Abstract type="html">A sphere, with specifiable radius.</Abstract>
+			<DeclaredIn>Sphere.h</DeclaredIn>
+            
+			
+			<NodeRef refid="20"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Sphere/sphere</TokenIdentifier>
+			<Abstract type="html">Creates a new instance of @p Sphere, with the default measures set by @p
+SCNSphere.</Abstract>
+			<DeclaredIn>Sphere.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)sphere</Declaration>
+			
+			<ReturnValue><Abstract type="html">a new, default instance of @p Sphere.</Abstract></ReturnValue>
+			<Anchor>//api/name/sphere</Anchor>
+            <NodeRef refid="20"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Sphere/setRadius:</TokenIdentifier>
+			<Abstract type="html">An alias for the SCNSphere&apos;s @p radius property. Speficies the radius used for
+the Sphere, which is centered in the origin.</Abstract>
+			<DeclaredIn>Sphere.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSNumber *radius</Declaration>
+			
+			
+			<Anchor>//api/name/radius</Anchor>
+            <NodeRef refid="20"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Sphere/radius</TokenIdentifier>
+			<Abstract type="html">An alias for the SCNSphere&apos;s @p radius property. Speficies the radius used for
+the Sphere, which is centered in the origin.</Abstract>
+			<DeclaredIn>Sphere.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSNumber *radius</Declaration>
+			
+			
+			<Anchor>//api/name/radius</Anchor>
+            <NodeRef refid="20"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Sphere/radius</TokenIdentifier>
+			<Abstract type="html">An alias for the SCNSphere&apos;s @p radius property. Speficies the radius used for
+the Sphere, which is centered in the origin.</Abstract>
+			<DeclaredIn>Sphere.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSNumber *radius</Declaration>
+			
+			
+			<Anchor>//api/name/radius</Anchor>
+            <NodeRef refid="20"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Sphere/deepCopy</TokenIdentifier>
+			<Abstract type="html">Creates a deep copy of the receiver, including in it any relevant information.</Abstract>
+			<DeclaredIn>Sphere.m</DeclaredIn>
+			
+			<Declaration>- (Item *)deepCopy</Declaration>
+			
+			<ReturnValue><Abstract type="html">A new instance of Item, representing a copy of the receiver.</Abstract></ReturnValue>
+			<Anchor>//api/name/deepCopy</Anchor>
+            <NodeRef refid="20"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Sphere/copyInfoTo:</TokenIdentifier>
+			<Abstract type="html">Copies relevant information from the receiver to the given item. Used by
+deepCopy to copy the actual information over.</Abstract>
+			<DeclaredIn>Sphere.m</DeclaredIn>
+			
+			<Declaration>- (void)copyInfoTo:(Sphere *)item</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>item</Name>
+					<Abstract type="html">The new Item object, into which all copied information will be
+written.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/copyInfoTo:</Anchor>
+            <NodeRef refid="20"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>
