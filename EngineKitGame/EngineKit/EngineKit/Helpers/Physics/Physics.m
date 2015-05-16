@@ -61,10 +61,10 @@
         vector = [[Vector alloc] initWithX:0
                                          Y:-((NSNumber *)gravity).doubleValue
                                          Z:0];
-        self.scene.physicsWorld.gravity = [vector toSCNVector];
+        self.scene.physicsWorld.gravity = [vector toSCNVector3];
     } else {
         vector = [[Vector alloc] initWithObject:gravity];
-        self.scene.physicsWorld.gravity = [vector toSCNVector];
+        self.scene.physicsWorld.gravity = [vector toSCNVector3];
     }
 
     _gravity = vector;
@@ -73,7 +73,7 @@
 - (id)gravity {
     if (!_gravity) {
         _gravity =
-            [[Vector alloc] initWithSCNVector:self.scene.physicsWorld.gravity];
+            [[Vector alloc] initWithSCNVector3:self.scene.physicsWorld.gravity];
     }
     return _gravity;
 }

@@ -16,11 +16,11 @@
 }
 
 - (Position *)point {
-    return [[Position alloc] initWithSCNVector:self.contactPoint];
+    return [[Position alloc] initWithSCNVector3:self.contactPoint];
 }
 
 - (Vector *)normal {
-    return [[Vector alloc] initWithSCNVector:self.contactNormal];
+    return [[Vector alloc] initWithSCNVector3:self.contactNormal];
 }
 
 - (NSNumber *)impulse {

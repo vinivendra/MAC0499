@@ -122,7 +122,7 @@ static NSUInteger globalID = 0;
 }
 
 - (id)position {
-    return [[Position alloc] initWithSCNVector:self.node.position];
+    return [[Position alloc] initWithSCNVector3:self.node.position];
 }
 
 - (void)setRotation:(id)rotation {
@@ -135,11 +135,11 @@ static NSUInteger globalID = 0;
 }
 
 - (void)setScale:(id)scale {
-    self.node.scale = [[Vector alloc] initWithObject:scale].toSCNVector;
+    self.node.scale = [[Vector alloc] initWithObject:scale].toSCNVector3;
 }
 
 - (id)scale {
-    return [[Vector alloc] initWithSCNVector:self.node.scale];
+    return [[Vector alloc] initWithSCNVector3:self.node.scale];
 }
 
 - (void)setGeometry:(SCNGeometry *)geometry {

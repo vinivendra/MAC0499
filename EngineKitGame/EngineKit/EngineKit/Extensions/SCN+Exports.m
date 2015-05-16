@@ -12,19 +12,19 @@
 }
 
 - (Vector *)itemPoint {
-    return [[Vector alloc] initWithSCNVector:self.localCoordinates];
+    return [[Vector alloc] initWithSCNVector3:self.localCoordinates];
 }
 
 - (Vector *)point {
-    return [[Vector alloc] initWithSCNVector:self.worldCoordinates];
+    return [[Vector alloc] initWithSCNVector3:self.worldCoordinates];
 }
 
 - (Vector *)itemNormal {
-    return [[Vector alloc] initWithSCNVector:self.localNormal];
+    return [[Vector alloc] initWithSCNVector3:self.localNormal];
 }
 
 - (Vector *)normal {
-    return [[Vector alloc] initWithSCNVector:self.worldNormal];
+    return [[Vector alloc] initWithSCNVector3:self.worldNormal];
 }
 
 @end

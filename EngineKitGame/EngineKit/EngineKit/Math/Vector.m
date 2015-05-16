@@ -17,6 +17,10 @@
 
 @implementation Vector
 
+//------------------------------------------------------------------------------
+#pragma mark - Common Vector constants
+//------------------------------------------------------------------------------
+
 + (instancetype)origin {
     __block Vector *origin;
 
@@ -29,10 +33,63 @@
     return origin;
 }
 
-- (instancetype)initUniformWithNumber:(CGFloat)x {
-    self = [self initWithX:x Y:x Z:x];
-    return self;
+
+//------------------------------------------------------------------------------
+#pragma mark - Creating Vector objects
+//------------------------------------------------------------------------------
+
++ (Vector *)vectorWithObject:(id)object {
+    if ([object isKindOfClass:[Vector class]])
+        return [Vector vectorWithVector:object];
+    else
+        return [[Vector alloc] initWithObject:object];
 }
+
++ (Vector *)vectorWithX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z {
+    return [[Vector alloc] initWithX:x Y:y Z:z];
+}
+
++ (Vector *)vectorWithUniformWithNumber:(CGFloat)x {
+    return [[Vector alloc] initUniformWithNumber:x];
+}
+
++ (Vector *)vectorWithCGPoint:(CGPoint)newValue {
+    return [[Vector alloc] initWithCGPoint:newValue];
+}
+
++ (Vector *)vectorWithCIVector:(CIVector *)newValue {
+    return [[Vector alloc] initWithCIVector:newValue];
+}
+
++ (Vector *)vectorWithSCNVector3:(SCNVector3)newValue {
+    return [[Vector alloc] initWithSCNVector3:newValue];
+}
+
++ (Vector *)vectorWithSCNVector4:(SCNVector4)newValue {
+    return [[Vector alloc] initWithSCNVector4:newValue];
+}
+
++ (Vector *)vectorWithArray:(NSArray *)array {
+    return [[Vector alloc] initWithArray:array];
+}
+
++ (Vector *)vectorWithDictionary:(NSDictionary *)dictionary {
+    return [[Vector alloc] initWithDictionary:dictionary];
+}
+
++ (Vector *)vectorWithString:(NSString *)string {
+    return [[Vector alloc] initWithString:string];
+}
+
++ (Vector *)vectorWithVector:(Vector *)vector {
+    return vector;
+}
+
+
+//------------------------------------------------------------------------------
+#pragma mark - Initializing Vector objects
+//------------------------------------------------------------------------------
+
 
 - (instancetype)initWithX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z {
     if (self = [super init]) {
@@ -41,22 +98,13 @@
     return self;
 }
 
-- (instancetype)initWithSCNVector:(SCNVector3)newValue {
-    if (self = [super init]) {
-        self.vector = newValue;
-    }
+- (instancetype)initUniformWithNumber:(CGFloat)x {
+    self = [self initWithX:x Y:x Z:x];
     return self;
 }
 
 - (instancetype)initWithCGPoint:(CGPoint)newValue {
     self = [self initWithX:newValue.x Y:-newValue.y Z:0];
-    return self;
-}
-
-- (instancetype)initWithSCNVector4:(SCNVector4)newValue {
-    if (self = [super init]) {
-        self.vector = SCNVector3Make(newValue.x, newValue.y, newValue.z);
-    }
     return self;
 }
 
@@ -67,9 +115,16 @@
     return self;
 }
 
-- (instancetype)initWithVector:(Vector *)vector {
+- (instancetype)initWithSCNVector3:(SCNVector3)newValue {
     if (self = [super init]) {
-        self.vector = [vector toSCNVector];
+        self.vector = newValue;
+    }
+    return self;
+}
+
+- (instancetype)initWithSCNVector4:(SCNVector4)newValue {
+    if (self = [super init]) {
+        self.vector = SCNVector3Make(newValue.x, newValue.y, newValue.z);
     }
     return self;
 }
@@ -137,13 +192,21 @@
     return self;
 }
 
+
+- (instancetype)initWithVector:(Vector *)vector {
+    if (self = [super init]) {
+        self.vector = [vector toSCNVector3];
+    }
+    return self;
+}
+
 - (instancetype)initWithObject:(id)object {
     if ([object isKindOfClass:[NSNumber class]]) {
         self = [self initUniformWithNumber:((NSNumber *)object).doubleValue];
     } else if ([object isKindOfClass:[NSArray class]]) {
         self = [self initWithArray:object];
     } else if ([object isKindOfClass:[NSValue class]]) {
-        self = [self initWithSCNVector:((NSValue *)object).SCNVector3Value];
+        self = [self initWithSCNVector3:((NSValue *)object).SCNVector3Value];
     } else if ([object isKindOfClass:[NSString class]]) {
         self = [self initWithString:(NSString *)object];
     } else if ([object isKindOfClass:[NSDictionary class]]) {
@@ -157,80 +220,36 @@
     return self;
 }
 
-+ (Vector *)vectorWithUniformWithNumber:(CGFloat)x {
-    return [[Vector alloc] initUniformWithNumber:x];
+
+//------------------------------------------------------------------------------
+#pragma mark - Extracting data
+//------------------------------------------------------------------------------
+
+- (SCNVector3)toSCNVector3 {
+    return self.vector;
 }
 
-+ (Vector *)vectorWithX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z {
-    return [[Vector alloc] initWithX:x Y:y Z:z];
+- (NSValue *)toNSValue {
+    return [NSValue valueWithSCNVector3:self.vector];
 }
 
-+ (Vector *)vectorWithSCNVector:(SCNVector3)newValue {
-    return [[Vector alloc] initWithSCNVector:newValue];
-}
 
-+ (Vector *)vectorWithCGPoint:(CGPoint)newValue {
-    return [[Vector alloc] initWithCGPoint:newValue];
-}
-
-+ (Vector *)vectorWithSCNVector4:(SCNVector4)newValue {
-    return [[Vector alloc] initWithSCNVector4:newValue];
-}
-
-+ (Vector *)vectorWithCIVector:(CIVector *)newValue {
-    return [[Vector alloc] initWithCIVector:newValue];
-}
-
-+ (Vector *)vectorWithVector:(Vector *)vector {
-    return vector;
-}
-
-+ (Vector *)vectorWithArray:(NSArray *)array {
-    return [[Vector alloc] initWithArray:array];
-}
-
-+ (Vector *)vectorWithDictionary:(NSDictionary *)dictionary {
-    return [[Vector alloc] initWithDictionary:dictionary];
-}
-
-+ (Vector *)vectorWithString:(NSString *)string {
-    return [[Vector alloc] initWithString:string];
-}
-
-+ (Vector *)vectorWithObject:(id)object {
-    if ([object isKindOfClass:[Vector class]])
-        return [Vector vectorWithVector:object];
-    else
-        return [[Vector alloc] initWithObject:object];
-}
+//------------------------------------------------------------------------------
+#pragma mark - Comparing objects
+//------------------------------------------------------------------------------
 
 - (BOOL)isEqual:(id)object {
-    if (![object isKindOfClass:[Vector class]])
-        return NO;
-
-    Vector *other = (Vector *)object;
-
-    return [self isEqualToVector:other.vector];
+    return [self isEqualToVector:[Vector vectorWithObject:object].vector];
 }
 
 - (BOOL)isEqualToVector:(SCNVector3)vector {
     return SCNVector3EqualToVector3(self.vector, vector);
 }
 
-- (SCNVector3)toSCNVector {
-    return self.vector;
-}
 
-- (NSValue *)toValue {
-    return [NSValue valueWithSCNVector3:self.vector];
-}
-
-- (NSString *)description {
-    return [NSString stringWithFormat:@"(x = %lf, y = %lf, z = %lf)",
-                                      self.vector.x,
-                                      self.vector.y,
-                                      self.vector.z];
-}
+//------------------------------------------------------------------------------
+#pragma mark - Operations with Vectors
+//------------------------------------------------------------------------------
 
 - (Vector *)times:(CGFloat)scalar {
 
@@ -297,8 +316,16 @@
     return SCNMatrix4Scale(matrix, self.x, self.y, self.z);
 }
 
-////////////////////////////////////////////////////////////////////////////////
-#pragma mark - Property Overriding
+//------------------------------------------------------------------------------
+#pragma mark - Overrides
+//------------------------------------------------------------------------------
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"(x = %lf, y = %lf, z = %lf)",
+            self.vector.x,
+            self.vector.y,
+            self.vector.z];
+}
 
 - (Vector *)setNewX:(CGFloat)x {
     return [Vector vectorWithX:x Y:self.vector.y Z:self.vector.z];

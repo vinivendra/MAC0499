@@ -69,17 +69,17 @@
     if ([velocity isKindOfClass:[NSNumber class]]) {
         CGFloat scalar = ((NSNumber *)velocity).doubleValue;
         Vector *old =
-            [[Vector alloc] initWithSCNVector:self.node.physicsBody.velocity];
+            [[Vector alloc] initWithSCNVector3:self.node.physicsBody.velocity];
         vector = [[old normalize] times:scalar];
     } else {
         vector = [[Vector alloc] initWithObject:velocity];
     }
 
-    self.node.physicsBody.velocity = vector.toSCNVector;
+    self.node.physicsBody.velocity = vector.toSCNVector3;
 }
 
 - (id)velocity {
-    return [[Vector alloc] initWithSCNVector:self.node.physicsBody.velocity];
+    return [[Vector alloc] initWithSCNVector3:self.node.physicsBody.velocity];
 }
 
 - (Item *)deepCopy {
