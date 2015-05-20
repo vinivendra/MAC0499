@@ -86,7 +86,7 @@ templates
         color is cyan
 
     chao floor
-        position is 0 0 -3
+        position is 0 0 -2
         rotation is 1 0 0 1.6
 
         color is lightGray

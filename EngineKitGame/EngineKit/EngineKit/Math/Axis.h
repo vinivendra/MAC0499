@@ -9,7 +9,6 @@
 + (instancetype)origin;
 - (instancetype)initWithObject:(id)object;
 - (BOOL)isEqualToVector:(SCNVector3)vector;
-- (SCNVector3)toSCNVector;
 
 - (Vector *)times:(CGFloat)scalar;
 - (Vector *)over:(CGFloat)scalar;
@@ -21,11 +20,6 @@
 - (Vector *)normalize;
 - (Vector *)translate:(Vector *)vector;
 - (Vector *)scale:(CGFloat)scale;
-- (instancetype)initWithX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z;
-- (instancetype)initWithSCNVector:(SCNVector3)newValue;
-- (instancetype)initWithCIVector:(CIVector *)newValue;
-- (instancetype)initWithVector:(Vector *)vector;
-- (instancetype)initWithArray:(NSArray *)array;
 
 //
 - (instancetype)initWithString:(NSString *)string;

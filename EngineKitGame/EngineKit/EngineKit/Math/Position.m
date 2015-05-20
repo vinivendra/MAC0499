@@ -32,8 +32,8 @@
     return [Position positionWithVector:[Vector vectorWithX:x Y:y Z:z]];
 }
 
-+ (Position *)positionWithUniformWithNumber:(CGFloat)s {
-    return [Position positionWithVector:[Vector vectorWithUniformWithNumber:s]];
++ (Position *)positionWithUniformNumbers:(CGFloat)s {
+    return [Position positionWithVector:[Vector vectorWithUniformNumbers:s]];
 }
 
 + (Position *)positionWithCGPoint:(CGPoint)newValue {

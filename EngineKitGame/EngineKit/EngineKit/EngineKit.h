@@ -15,6 +15,7 @@
 #import "JavaScript.h"
 #import "Physics.h"
 #import "UI.h"
+#import "Parser.h"
 
 @interface EngineKit : NSObject
 

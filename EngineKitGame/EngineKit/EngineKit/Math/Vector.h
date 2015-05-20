@@ -79,6 +79,14 @@
  @see y
  */
 @property (nonatomic, readonly) CGFloat z;
+/*!
+ A `Vector`'s components may be accessed by subscripts. Index `0` corresponds to
+ the `x` component, `1` to the `y` component and `2` to the `z` component. Any
+ other index returns `nil`.
+ @param index The index corresponding to one of the `Vector`'s components.
+ @return The value of the corresponding component.
+ */
+- (NSNumber *)objectAtIndexedSubscript:(NSUInteger)index;
 
 
 ///-----------------------------------------------------------------------------
@@ -91,6 +99,7 @@
  @return A `Vector` object.
  */
 + (instancetype)origin;
+
 
 ///-----------------------------------------------------------------------------
 /// @name Creating Vector objects
@@ -118,7 +127,7 @@
  @return An initialized `Vector` object.
  @see vectorWithObject:
  */
-+ (Vector *)vectorWithUniformWithNumber:(CGFloat)s;
++ (Vector *)vectorWithUniformNumbers:(CGFloat)s;
 /*!
  Given a `CGPoint` of format `(x, y)`, creates a `Vector` object of format `(x,
  - y, 0)`. This is done to ease the translation from screen points to scene
@@ -212,10 +221,10 @@
 
  The supported objects are:
 
- - `NSNumber`, which will be initialized just like `initUniformWithNumber:`.
+ - `NSNumber`, which will be initialized just like `initWithUniformNumbers:`.
  - `NSArray`, which will be initialized just like `initWithArray:`.
  - `NSValue` containing a `SCNVector3`, which will be initialized just like
- `initWithSCNVector3:`.
+ `initWithNSValue:`.
  - `Vector` (or any of its subclassses), which will be initialized just like
  `initWithVector:`.
  - `NSString`, which will be initialized just like `initWithString:`.
@@ -226,9 +235,9 @@
 
  @param object An object of any one of the classes mentioned above.
  @return An initialized `Vector` object.
- @see initUniformWithNumber:
+ @see initWithUniformNumbers:
  @see initWithArray:
- @see initWithSCNVector3:
+ @see initWithNSValue:
  @see initWithVector:
  @see initWithString:
  @see initWithDictionary:
@@ -262,7 +271,7 @@
  @return An initialized `Vector` object.
  @see initWithObject:
  */
-- (instancetype)initUniformWithNumber:(CGFloat)s;
+- (instancetype)initWithUniformNumbers:(CGFloat)s;
 /*!
  Given a `CGPoint` of format `(x, y)`, creates a `Vector` object of format `(x,
  - y, 0)`. This is done to ease the translation from screen points to scene
@@ -355,7 +364,7 @@
 
  The supported objects are:
 
- - `NSNumber`, which will be initialized just like `initUniformWithNumber:`.
+ - `NSNumber`, which will be initialized just like `initWithUniformNumbers:`.
  - `NSArray`, which will be initialized just like `initWithArray:`.
  - `NSValue` containing a `SCNVector3`, which will be initialized just like
  `initWithSCNVector3:`.
@@ -369,7 +378,7 @@
 
  @param object An object of any one of the classes mentioned above.
  @return An initialized `Vector` object.
- @see initUniformWithNumber:
+ @see initWithUniformNumbers:
  @see initWithArray:
  @see initWithSCNVector3:
  @see initWithVector:
@@ -386,7 +395,7 @@
 
 /*!
  Creates an `SCNVector3` with the same components as the `Vector`.
- @return An initialized `SCNVector3`.
+ @return An instance of `SCNVector3`.
  */
 - (SCNVector3)toSCNVector3;
 /*!
@@ -395,7 +404,11 @@
  @return An instance of `NSValue`.
  */
 - (NSValue *)toNSValue;
-
+/*!
+ Creates an NSArray containing the `Vector`'s three components as NSNumbers.
+ @return An instance of `NSArray`.
+ */
+- (NSArray *)toArray;
 
 ///-----------------------------------------------------------------------------
 /// @name Comparing objects

@@ -84,7 +84,7 @@
  @return An initialized `Position` object.
  @see positionWithObject:
  */
-+ (Position *)positionWithUniformWithNumber:(CGFloat)s;
++ (Position *)positionWithUniformNumbers:(CGFloat)s;
 /*!
  Given a `CGPoint` of format `(x, y)`, creates a `Position` object of format
  `(x, - y, 0)`. This is done to ease the translation from screen points to scene
@@ -183,7 +183,7 @@
  The supported objects are:
 
  - `NSNumber`, which will be initialized just like `[Vector
- initUniformWithNumber:]`.
+ initWithUniformNumbers:]`.
  - `NSArray`, which will be initialized just like `[Vector initWithArray:]`.
  - `NSValue` containing a `SCNVector3`, which will be initialized just like
  `[Vector initWithSCNVector3:]`.
@@ -198,7 +198,7 @@
 
  @param object An object of any one of the classes mentioned above.
  @return An initialized `Position` object.
- @see [Vector initUniformWithNumber:]
+ @see [Vector initWithUniformNumbers:]
  @see [Vector initWithArray:]
  @see [Vector initWithSCNVector3:]
  @see [Vector initWithVector:]

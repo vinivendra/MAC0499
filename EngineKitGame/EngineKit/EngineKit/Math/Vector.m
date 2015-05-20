@@ -15,20 +15,47 @@
 @end
 
 
+unsigned long mutationsCounter;
+
+
 @implementation Vector
+
+
+//------------------------------------------------------------------------------
+#pragma mark Getting the Vector's information
+//------------------------------------------------------------------------------
+
+- (NSNumber *)objectAtIndexedSubscript:(NSUInteger)index {
+    switch (index) {
+    case 0:
+        return @(self.x);
+        break;
+    case 1:
+        return @(self.y);
+        break;
+    case 2:
+        return @(self.z);
+        break;
+    default:
+        return nil;
+        break;
+    }
+
+    return nil;
+}
+
+
+
 
 //------------------------------------------------------------------------------
 #pragma mark - Common Vector constants
 //------------------------------------------------------------------------------
 
 + (instancetype)origin {
-    __block Vector *origin;
+    static Vector *origin;
 
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken,
-                  ^{
-                      origin = [Vector vectorWithX:0 Y:0 Z:0];
-                  });
+    if (!origin)
+        origin = [Vector vectorWithX:0 Y:0 Z:0];
 
     return origin;
 }
@@ -46,8 +73,8 @@
     return [[Vector alloc] initWithX:x Y:y Z:z];
 }
 
-+ (Vector *)vectorWithUniformWithNumber:(CGFloat)x {
-    return [[Vector alloc] initUniformWithNumber:x];
++ (Vector *)vectorWithUniformNumbers:(CGFloat)x {
+    return [[Vector alloc] initWithUniformNumbers:x];
 }
 
 + (Vector *)vectorWithCGPoint:(CGPoint)newValue {
@@ -110,7 +137,7 @@
     return self;
 }
 
-- (instancetype)initUniformWithNumber:(CGFloat)x {
+- (instancetype)initWithUniformNumbers:(CGFloat)x {
     self = [self initWithX:x Y:x Z:x];
     return self;
 }
@@ -221,7 +248,7 @@
 
 - (instancetype)initWithObject:(id)object {
     if ([object isKindOfClass:[NSNumber class]]) {
-        self = [self initUniformWithNumber:((NSNumber *)object).doubleValue];
+        self = [self initWithUniformNumbers:((NSNumber *)object).doubleValue];
     } else if ([object isKindOfClass:[NSArray class]]) {
         self = [self initWithArray:object];
     } else if ([object isKindOfClass:[NSValue class]]) {
@@ -250,6 +277,10 @@
 
 - (NSValue *)toNSValue {
     return [NSValue valueWithSCNVector3:self.vector];
+}
+
+- (NSArray *)toArray {
+    return @[@(self.x), @(self.y), @(self.z)];
 }
 
 
