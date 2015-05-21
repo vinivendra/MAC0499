@@ -26,6 +26,7 @@
 		2437865E1B02CB55003A3063 /* NSDictionary+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 2437865C1B02CB55003A3063 /* NSDictionary+Extension.h */; };
 		2437865F1B02CB55003A3063 /* NSDictionary+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2437865D1B02CB55003A3063 /* NSDictionary+Extension.m */; };
 		24AA431A1B076D9200E81B21 /* VectorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AA43191B076D9200E81B21 /* VectorTests.m */; };
+		24C895101B0E25F30057CCBE /* NSDictionary+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2437865D1B02CB55003A3063 /* NSDictionary+Extension.m */; };
 		24DF787E1AF7F6E100319C49 /* libEngineKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24DF78721AF7F6E100319C49 /* libEngineKit.a */; };
 		24DF788D1AF7F6EA00319C49 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24DF788C1AF7F6EA00319C49 /* Foundation.framework */; };
 		24DF788F1AF7F6EE00319C49 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24DF788E1AF7F6EE00319C49 /* UIKit.framework */; };
@@ -766,6 +767,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24C895101B0E25F30057CCBE /* NSDictionary+Extension.m in Sources */,
 				24DF79441AF7F71700319C49 /* Sphere.m in Sources */,
 				24DF78F91AF7F71600319C49 /* NSArray+Extension.m in Sources */,
 				24DF795F1AF7F71800319C49 /* Vector.m in Sources */,
@@ -942,6 +944,11 @@
 				);
 				INFOPLIST_FILE = EngineKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -956,6 +963,11 @@
 				);
 				INFOPLIST_FILE = EngineKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

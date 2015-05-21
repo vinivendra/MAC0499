@@ -369,7 +369,9 @@ NSString *stringForSCNVector3(SCNVector3 vector) {
                             standard.y,
                             standard.z];
         result = [Vector vectorWithObject:string];
-        XCTAssertEqualObjects(result, standard);
+        XCTAssertEqualWithAccuracy(result.x, standard.x, 0.000001);
+        XCTAssertEqualWithAccuracy(result.y, standard.y, 0.000001);
+        XCTAssertEqualWithAccuracy(result.z, standard.z, 0.000001);
 
         result = [Vector vectorWithObject:standard];
         XCTAssertEqualObjects(result, standard);
