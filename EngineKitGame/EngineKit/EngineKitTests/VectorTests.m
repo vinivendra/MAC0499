@@ -19,7 +19,14 @@ NSString *stringForSCNVector3(SCNVector3 vector) {
 @end
 
 
+CGFloat randomFloat() {
+    CGFloat f = ((double)rand() / rand()) - ((double)rand() / rand());
+    return f * f * f;
+}
+
+
 @implementation VectorTests
+
 
 - (void)setUp {
     [super setUp];
@@ -37,15 +44,12 @@ NSString *stringForSCNVector3(SCNVector3 vector) {
     self.standardArrays = [NSMutableArray array];
     [self.standardArrays push:@[ @0, @0, @0 ]];
     [self.standardArrays push:@[ @1, @0, @0 ]];
-    [self.standardArrays push:@[ @0, @1, @0 ]];
-    [self.standardArrays push:@[ @0, @0, @1 ]];
+    [self.standardArrays push:@[ @0, @-1, @0 ]];
+    [self.standardArrays push:@[ @0, @0, @2 ]];
 
     for (int i = 0; i < 10; i++)
-        [self.standardArrays push:@[
-            @((double)rand() / rand()),
-            @((double)rand() / rand()),
-            @((double)rand() / rand())
-        ]];
+        [self.standardArrays
+            push:@[ @(randomFloat()), @(randomFloat()), @(randomFloat()) ]];
 
     self.standardVectors = [NSMutableArray array];
 
@@ -103,17 +107,17 @@ NSString *stringForSCNVector3(SCNVector3 vector) {
         Vector *result;
 
         NSDictionary *dictionary = @{
-                                     @"x" : @(standard.x),
-                                     @"y" : @(standard.y),
-                                     @"z" : @(standard.z)
-                                     };
+            @"x" : @(standard.x),
+            @"y" : @(standard.y),
+            @"z" : @(standard.z)
+        };
         result = [[Vector alloc] initWithObject:dictionary];
         XCTAssertEqualObjects(result, dictionary);
 
         NSString *string = [NSString stringWithFormat:@"%lf %lf %lf",
-                            standard.x,
-                            standard.y,
-                            standard.z];
+                                                      standard.x,
+                                                      standard.y,
+                                                      standard.z];
         result = [[Vector alloc] initWithObject:string];
         XCTAssertEqualObjects(result, string);
 
@@ -151,9 +155,15 @@ NSString *stringForSCNVector3(SCNVector3 vector) {
         CGFloat zResult = vector.z;
 
         // Comparison
-        XCTAssertEqualWithAccuracy(xStandard, xResult, 0.000001);
-        XCTAssertEqualWithAccuracy(yStandard, yResult, 0.000001);
-        XCTAssertEqualWithAccuracy(zStandard, zResult, 0.000001);
+        XCTAssertEqualWithAccuracy(xStandard,
+                                   xResult,
+                                   fabs(xStandard / 100));
+        XCTAssertEqualWithAccuracy(yStandard,
+                                   yResult,
+                                   fabs(yStandard / 100));
+        XCTAssertEqualWithAccuracy(zStandard,
+                                   zResult,
+                                   fabs(zStandard / 100));
     }
 }
 
@@ -193,9 +203,9 @@ NSString *stringForSCNVector3(SCNVector3 vector) {
         NSArray *vectorArray = self.standardArrays[i];
 
         SCNVector3 standard
-        = SCNVector3Make(((NSNumber *)vectorArray[0]).doubleValue,
-                         ((NSNumber *)vectorArray[1]).doubleValue,
-                         ((NSNumber *)vectorArray[2]).doubleValue);
+            = SCNVector3Make(((NSNumber *)vectorArray[0]).doubleValue,
+                             ((NSNumber *)vectorArray[1]).doubleValue,
+                             ((NSNumber *)vectorArray[2]).doubleValue);
 
         // Actual result
         NSValue *value = ((Vector *)self.standardVectors[i]).toNSValue;
@@ -391,9 +401,15 @@ NSString *stringForSCNVector3(SCNVector3 vector) {
         Vector *result = [Vector vectorWithString:string];
 
         // Comparison
-        XCTAssertEqualWithAccuracy(result.x, standard.x, 0.000001);
-        XCTAssertEqualWithAccuracy(result.y, standard.y, 0.000001);
-        XCTAssertEqualWithAccuracy(result.z, standard.z, 0.000001);
+        XCTAssertEqualWithAccuracy(result.x,
+                                   standard.x,
+                                   fabs(standard.x / 100));
+        XCTAssertEqualWithAccuracy(result.y,
+                                   standard.y,
+                                   fabs(standard.y / 100));
+        XCTAssertEqualWithAccuracy(result.z,
+                                   standard.z,
+                                   fabs(standard.z / 100));
     }
 }
 
@@ -433,9 +449,15 @@ NSString *stringForSCNVector3(SCNVector3 vector) {
                                                       standard.y,
                                                       standard.z];
         result = [Vector vectorWithObject:string];
-        XCTAssertEqualWithAccuracy(result.x, standard.x, 0.000001);
-        XCTAssertEqualWithAccuracy(result.y, standard.y, 0.000001);
-        XCTAssertEqualWithAccuracy(result.z, standard.z, 0.000001);
+        XCTAssertEqualWithAccuracy(result.x,
+                                   standard.x,
+                                   fabs(standard.x / 100));
+        XCTAssertEqualWithAccuracy(result.y,
+                                   standard.y,
+                                   fabs(standard.y / 100));
+        XCTAssertEqualWithAccuracy(result.z,
+                                   standard.z,
+                                   fabs(standard.z / 100));
 
         result = [Vector vectorWithObject:standard];
         XCTAssertEqualObjects(result, standard);
@@ -624,9 +646,15 @@ NSString *stringForSCNVector3(SCNVector3 vector) {
         Vector *result = [[Vector alloc] initWithString:string];
 
         // Comparison
-        XCTAssertEqualWithAccuracy(result.x, standard.x, 0.000001);
-        XCTAssertEqualWithAccuracy(result.y, standard.y, 0.000001);
-        XCTAssertEqualWithAccuracy(result.z, standard.z, 0.000001);
+        XCTAssertEqualWithAccuracy(result.x,
+                                   standard.x,
+                                   fabs(standard.x / 100));
+        XCTAssertEqualWithAccuracy(result.y,
+                                   standard.y,
+                                   fabs(standard.y / 100));
+        XCTAssertEqualWithAccuracy(result.z,
+                                   standard.z,
+                                   fabs(standard.z / 100));
     }
 }
 
@@ -666,9 +694,15 @@ NSString *stringForSCNVector3(SCNVector3 vector) {
                                                       standard.y,
                                                       standard.z];
         result = [[Vector alloc] initWithObject:string];
-        XCTAssertEqualWithAccuracy(result.x, standard.x, 0.000001);
-        XCTAssertEqualWithAccuracy(result.y, standard.y, 0.000001);
-        XCTAssertEqualWithAccuracy(result.z, standard.z, 0.000001);
+        XCTAssertEqualWithAccuracy(result.x,
+                                   standard.x,
+                                   fabs(standard.x / 100));
+        XCTAssertEqualWithAccuracy(result.y,
+                                   standard.y,
+                                   fabs(standard.y / 100));
+        XCTAssertEqualWithAccuracy(result.z,
+                                   standard.z,
+                                   fabs(standard.z / 100));
 
         result = [[Vector alloc] initWithObject:standard];
         XCTAssertEqualObjects(result, standard);
@@ -686,5 +720,120 @@ NSString *stringForSCNVector3(SCNVector3 vector) {
     }
 }
 
+- (void)testTimes {
+    for (Vector *vector in self.standardVectors) {
+        // Gold standard
+        CGFloat scalar = randomFloat();
+        SCNVector3 vector3 = vector.toSCNVector3;
+        SCNVector3 standard = SCNVector3Make(vector3.x * scalar,
+                                             vector3.y * scalar,
+                                             vector3.z * scalar);
+
+        // Actual results
+        Vector *result = [[Vector vectorWithSCNVector3:vector3] times:scalar];
+
+        // Comparison
+        XCTAssert([result isEqualToVector:standard]);
+    }
+}
+
+- (void)testOver {
+    for (Vector *vector in self.standardVectors) {
+        // Gold standard
+        CGFloat scalar = randomFloat();
+        SCNVector3 vector3 = vector.toSCNVector3;
+        SCNVector3 standard = SCNVector3Make(vector3.x / scalar,
+                                             vector3.y / scalar,
+                                             vector3.z / scalar);
+
+        // Actual results
+        Vector *result = [[Vector vectorWithSCNVector3:vector3] over:scalar];
+
+        // Comparison
+        XCTAssert([result isEqualToVector:standard]);
+    }
+}
+
+#warning Test these methods with multiple different objects
+- (void)testPlus {
+    for (int i = 0; i < self.standardVectors.count; i++) {
+        Vector *vector1 = self.standardVectors[i];
+        SCNVector3 scnvector1 = vector1.toSCNVector3;
+        Vector *vector2
+            = self.standardVectors[(i + 1) % self.standardVectors.count];
+        SCNVector3 scnvector2 = vector2.toSCNVector3;
+
+        // Gold standard
+        SCNVector3 standard = SCNVector3Make(scnvector1.x + scnvector2.x,
+                                             scnvector1.y + scnvector2.y,
+                                             scnvector1.z + scnvector2.z);
+
+        // Actual results
+        Vector *result =
+            [[Vector vectorWithSCNVector3:scnvector1] plus:vector2];
+
+        // Comparison
+        XCTAssert([result isEqualToVector:standard]);
+    }
+}
+
+- (void)testMinus {
+    for (int i = 0; i < self.standardVectors.count; i++) {
+        Vector *vector1 = self.standardVectors[i];
+        SCNVector3 scnvector1 = vector1.toSCNVector3;
+        Vector *vector2
+            = self.standardVectors[(i + 1) % self.standardVectors.count];
+        SCNVector3 scnvector2 = vector2.toSCNVector3;
+
+        // Gold standard
+        SCNVector3 standard = SCNVector3Make(scnvector1.x - scnvector2.x,
+                                             scnvector1.y - scnvector2.y,
+                                             scnvector1.z - scnvector2.z);
+
+        // Actual results
+        Vector *result =
+            [[Vector vectorWithSCNVector3:scnvector1] minus:vector2];
+
+        // Comparison
+        XCTAssert([result isEqualToVector:standard]);
+    }
+}
+
+- (void)testOpposite {
+    for (int i = 0; i < self.standardVectors.count; i++) {
+        // Gold standard
+        Vector *vector = self.standardVectors[i];
+        SCNVector3 vector3 = vector.toSCNVector3;
+        SCNVector3 standard
+            = SCNVector3Make(-vector3.x, -vector3.y, -vector3.z);
+
+        // Actual results
+        Vector *result = [Vector vectorWithSCNVector3:vector3].opposite;
+
+        // Comparison
+        XCTAssert([result isEqualToVector:standard]);
+    }
+}
+
+- (void)testDot {
+    for (int i = 0; i < self.standardVectors.count; i++) {
+        Vector *vector1 = self.standardVectors[i];
+        SCNVector3 scnvector1 = vector1.toSCNVector3;
+        Vector *vector2
+            = self.standardVectors[(i + 1) % self.standardVectors.count];
+        SCNVector3 scnvector2 = vector2.toSCNVector3;
+
+        // Gold standard
+        CGFloat standard = (scnvector1.x * scnvector2.x)
+                           + (scnvector1.y * scnvector2.y)
+                           + (scnvector1.z * scnvector2.z);
+
+        // Actual results
+        CGFloat result = [vector1 dot:vector2];
+
+        // Comparison
+        XCTAssertEqualWithAccuracy(standard, result, fabs(standard / 100));
+    }
+}
 
 @end
