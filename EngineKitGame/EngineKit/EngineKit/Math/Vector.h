@@ -88,6 +88,22 @@
  */
 - (NSNumber *)objectAtIndexedSubscript:(NSUInteger)index;
 
+/*!
+ Creates an `SCNVector3` with the same components as the `Vector`.
+ @return An instance of `SCNVector3`.
+ */
+- (SCNVector3)toSCNVector3;
+/*!
+ Creates an `NSValue` containing an `SCNVector3` with the same components as the
+ `Vector`.
+ @return An instance of `NSValue`.
+ */
+- (NSValue *)toNSValue;
+/*!
+ Creates an NSArray containing the `Vector`'s three components as NSNumbers.
+ @return An instance of `NSArray`.
+ */
+- (NSArray *)toArray;
 
 ///-----------------------------------------------------------------------------
 /// @name Common Vector constants
@@ -386,29 +402,6 @@
  @see initWithDictionary:
  */
 - (instancetype)initWithObject:(id)object;
-
-
-///-----------------------------------------------------------------------------
-/// @name Extracting data
-///-----------------------------------------------------------------------------
-#pragma mark - Extracting data
-
-/*!
- Creates an `SCNVector3` with the same components as the `Vector`.
- @return An instance of `SCNVector3`.
- */
-- (SCNVector3)toSCNVector3;
-/*!
- Creates an `NSValue` containing an `SCNVector3` with the same components as the
- `Vector`.
- @return An instance of `NSValue`.
- */
-- (NSValue *)toNSValue;
-/*!
- Creates an NSArray containing the `Vector`'s three components as NSNumbers.
- @return An instance of `NSArray`.
- */
-- (NSArray *)toArray;
 
 ///-----------------------------------------------------------------------------
 /// @name Comparing objects

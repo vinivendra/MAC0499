@@ -61,7 +61,7 @@ NSString *stringForSCNVector3(SCNVector3 vector) {
 #pragma mark - Basis
 //------------------------------------------------------------------------------
 
-- (void)testVectorWithXYZAndEqual {
+- (void)testVectorWithXYZAndEquals {
     for (int i = 0; i < self.standardArrays.count; i++) {
         // Bijection
         NSArray *vectorArray = self.standardArrays[i];
@@ -83,13 +83,56 @@ NSString *stringForSCNVector3(SCNVector3 vector) {
                               Y:((NSNumber *)nextVectorArray[1]).doubleValue
                               Z:((NSNumber *)nextVectorArray[2]).doubleValue];
 
+        XCTAssert([vector1 isEqual:vector2]);
+        XCTAssert([vector1 isEqualToVector:vector2.toSCNVector3]);
         XCTAssertEqualObjects(vector1, vector2);
+
         XCTAssertNotEqualObjects(vector1, vector3);
+        XCTAssertFalse([vector1 isEqual:vector3]);
+        XCTAssertFalse([vector1 isEqualToVector:vector3.toSCNVector3]);
     }
 }
 
+//
+- (void)testEqualsToObject {
+    for (int i = 0; i < self.standardVectors.count; i++) {
+        // Gold standard
+        Vector *standard = self.standardVectors[i];
+
+        // Results and comparisons
+        Vector *result;
+
+        NSDictionary *dictionary = @{
+                                     @"x" : @(standard.x),
+                                     @"y" : @(standard.y),
+                                     @"z" : @(standard.z)
+                                     };
+        result = [[Vector alloc] initWithObject:dictionary];
+        XCTAssertEqualObjects(result, dictionary);
+
+        NSString *string = [NSString stringWithFormat:@"%lf %lf %lf",
+                            standard.x,
+                            standard.y,
+                            standard.z];
+        result = [[Vector alloc] initWithObject:string];
+        XCTAssertEqualObjects(result, string);
+
+        NSValue *value = [NSValue valueWithSCNVector3:standard.toSCNVector3];
+        result = [[Vector alloc] initWithObject:value];
+        XCTAssertEqualObjects(result, value);
+
+        result = [[Vector alloc] initWithObject:standard.toArray];
+        XCTAssertEqualObjects(result, standard.toArray);
+
+        result = [[Vector alloc] initWithObject:@(standard.x)];
+        standard = [Vector vectorWithUniformNumbers:standard.x];
+        XCTAssertEqualObjects(result, @(standard.x));
+    }
+}
+
+
 //------------------------------------------------------------------------------
-#pragma mark - Access
+#pragma mark - Extracting data
 //------------------------------------------------------------------------------
 
 //
@@ -137,6 +180,27 @@ NSString *stringForSCNVector3(SCNVector3 vector) {
 
         // Actual result
         SCNVector3 result = ((Vector *)self.standardVectors[i]).toSCNVector3;
+
+        // Comparison
+        XCTAssert(SCNVector3EqualToVector3(standard, result));
+    }
+}
+
+//
+- (void)testToNSValue {
+    for (int i = 0; i < self.standardArrays.count; i++) {
+        // Gold standard
+        NSArray *vectorArray = self.standardArrays[i];
+
+        SCNVector3 standard
+        = SCNVector3Make(((NSNumber *)vectorArray[0]).doubleValue,
+                         ((NSNumber *)vectorArray[1]).doubleValue,
+                         ((NSNumber *)vectorArray[2]).doubleValue);
+
+        // Actual result
+        NSValue *value = ((Vector *)self.standardVectors[i]).toNSValue;
+        SCNVector3 result = value.SCNVector3Value;
+
 
         // Comparison
         XCTAssert(SCNVector3EqualToVector3(standard, result));

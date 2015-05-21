@@ -44,7 +44,17 @@ unsigned long mutationsCounter;
     return nil;
 }
 
+- (SCNVector3)toSCNVector3 {
+    return self.vector;
+}
 
+- (NSValue *)toNSValue {
+    return [NSValue valueWithSCNVector3:self.vector];
+}
+
+- (NSArray *)toArray {
+    return @[@(self.x), @(self.y), @(self.z)];
+}
 
 
 //------------------------------------------------------------------------------
@@ -264,23 +274,6 @@ unsigned long mutationsCounter;
         return nil;
     }
     return self;
-}
-
-
-//------------------------------------------------------------------------------
-#pragma mark - Extracting data
-//------------------------------------------------------------------------------
-
-- (SCNVector3)toSCNVector3 {
-    return self.vector;
-}
-
-- (NSValue *)toNSValue {
-    return [NSValue valueWithSCNVector3:self.vector];
-}
-
-- (NSArray *)toArray {
-    return @[@(self.x), @(self.y), @(self.z)];
 }
 
 
