@@ -302,6 +302,7 @@ unsigned long mutationsCounter;
 }
 
 - (Vector *)over:(CGFloat)scalar {
+    scalar = scalar ?: 1;
     return [Vector vectorWithX:self.x / scalar
                              Y:self.y / scalar
                              Z:self.z / scalar];
