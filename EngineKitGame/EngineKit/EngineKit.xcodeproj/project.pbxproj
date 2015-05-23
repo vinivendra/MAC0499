@@ -25,6 +25,8 @@
 /* Begin PBXBuildFile section */
 		2437865E1B02CB55003A3063 /* NSDictionary+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 2437865C1B02CB55003A3063 /* NSDictionary+Extension.h */; };
 		2437865F1B02CB55003A3063 /* NSDictionary+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2437865D1B02CB55003A3063 /* NSDictionary+Extension.m */; };
+		2487D8D11B10E15F000B3994 /* PositionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2487D8D01B10E15F000B3994 /* PositionTests.m */; };
+		2487D8D31B10E1C5000B3994 /* TestCommons.m in Sources */ = {isa = PBXBuildFile; fileRef = 2487D8D21B10E1C5000B3994 /* TestCommons.m */; };
 		24AA431A1B076D9200E81B21 /* VectorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AA43191B076D9200E81B21 /* VectorTests.m */; };
 		24C895101B0E25F30057CCBE /* NSDictionary+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2437865D1B02CB55003A3063 /* NSDictionary+Extension.m */; };
 		24DF787E1AF7F6E100319C49 /* libEngineKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24DF78721AF7F6E100319C49 /* libEngineKit.a */; };
@@ -193,6 +195,9 @@
 /* Begin PBXFileReference section */
 		2437865C1B02CB55003A3063 /* NSDictionary+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Extension.h"; sourceTree = "<group>"; };
 		2437865D1B02CB55003A3063 /* NSDictionary+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Extension.m"; sourceTree = "<group>"; };
+		2487D8D01B10E15F000B3994 /* PositionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionTests.m; sourceTree = "<group>"; };
+		2487D8D21B10E1C5000B3994 /* TestCommons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCommons.m; sourceTree = "<group>"; };
+		2487D8D41B10E1E0000B3994 /* TestCommons.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestCommons.h; sourceTree = "<group>"; };
 		24AA43191B076D9200E81B21 /* VectorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VectorTests.m; sourceTree = "<group>"; };
 		24DF78721AF7F6E100319C49 /* libEngineKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEngineKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		24DF787D1AF7F6E100319C49 /* EngineKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EngineKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -345,6 +350,7 @@
 		24DF78811AF7F6E100319C49 /* EngineKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				2487D8D01B10E15F000B3994 /* PositionTests.m */,
 				24DF78821AF7F6E100319C49 /* Supporting Files */,
 				24AA43191B076D9200E81B21 /* VectorTests.m */,
 			);
@@ -355,6 +361,8 @@
 			isa = PBXGroup;
 			children = (
 				24DF78831AF7F6E100319C49 /* Info.plist */,
+				2487D8D41B10E1E0000B3994 /* TestCommons.h */,
+				2487D8D21B10E1C5000B3994 /* TestCommons.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -769,6 +777,7 @@
 			files = (
 				24C895101B0E25F30057CCBE /* NSDictionary+Extension.m in Sources */,
 				24DF79441AF7F71700319C49 /* Sphere.m in Sources */,
+				2487D8D31B10E1C5000B3994 /* TestCommons.m in Sources */,
 				24DF78F91AF7F71600319C49 /* NSArray+Extension.m in Sources */,
 				24DF795F1AF7F71800319C49 /* Vector.m in Sources */,
 				24DF78FC1AF7F71600319C49 /* NSNumber+Extension.m in Sources */,
@@ -777,6 +786,7 @@
 				24DF79021AF7F71600319C49 /* SCN+Exports.m in Sources */,
 				24DF796E1AF7F71900319C49 /* NSSet+ObjectiveSugar.m in Sources */,
 				24DF79651AF7F71800319C49 /* NSDictionary+ObjectiveSugar.m in Sources */,
+				2487D8D11B10E15F000B3994 /* PositionTests.m in Sources */,
 				24DF790E1AF7F71600319C49 /* SCNScene+Extension.m in Sources */,
 				24DF79141AF7F71700319C49 /* UIColor+Extension.m in Sources */,
 				24DF792F1AF7F71700319C49 /* Box.m in Sources */,

@@ -2,15 +2,11 @@
 
 #import <XCTest/XCTest.h>
 
+#import "TestCommons.h"
+
 #import "NSDictionary+Extension.h"
 #import "ObjectiveSugar.h"
 #import "Vector.h"
-
-
-NSString *stringForSCNVector3(SCNVector3 vector) {
-    return [NSString
-        stringWithFormat:@"(%lf %lf %lf)", vector.x, vector.y, vector.z];
-}
 
 
 @interface VectorTests : XCTestCase
@@ -19,30 +15,13 @@ NSString *stringForSCNVector3(SCNVector3 vector) {
 @end
 
 
-CGFloat randomFloat() {
-    CGFloat f = ((double)rand() / rand()) - ((double)rand() / rand());
-
-    f = (int)f % 10 ? f : 0;
-
-    return f * f * f;
-}
-
-
 @implementation VectorTests
 
 
 - (void)setUp {
     [super setUp];
 
-    NSDateComponents *components = [[NSCalendar currentCalendar]
-        components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear
-          fromDate:[NSDate date]];
-
-    unsigned int seed = (unsigned int)components.day
-                        + (unsigned int)components.month * 31
-                        + (unsigned int)components.year * 12 * 31;
-
-    srand(seed);
+    setupRandomSeed();
 
     self.standardArrays = [NSMutableArray array];
     [self.standardArrays push:@[ @0, @0, @0 ]];
@@ -100,7 +79,6 @@ CGFloat randomFloat() {
     }
 }
 
-//
 - (void)testEqualsToObject {
     for (int i = 0; i < self.standardVectors.count; i++) {
         // Gold standard
@@ -142,7 +120,6 @@ CGFloat randomFloat() {
 #pragma mark - Extracting data
 //------------------------------------------------------------------------------
 
-//
 - (void)testXYZ {
     for (int i = 0; i < self.standardArrays.count; i++) {
         // Gold standard
@@ -164,7 +141,6 @@ CGFloat randomFloat() {
     }
 }
 
-// x, y, z
 - (void)testToArray {
     for (Vector *vector in self.standardVectors) {
         XCTAssertEqual(vector.x, ((NSNumber *)vector.toArray[0]).doubleValue);
@@ -174,7 +150,6 @@ CGFloat randomFloat() {
     }
 }
 
-//
 - (void)testToSCNVector3 {
     for (int i = 0; i < self.standardArrays.count; i++) {
         // Gold standard
@@ -193,7 +168,6 @@ CGFloat randomFloat() {
     }
 }
 
-//
 - (void)testToNSValue {
     for (int i = 0; i < self.standardArrays.count; i++) {
         // Gold standard
@@ -214,7 +188,6 @@ CGFloat randomFloat() {
     }
 }
 
-// x, y, z
 - (void)testObjectAtIndexedSubscript {
     for (Vector *vector in self.standardVectors) {
         XCTAssertEqual(vector.x, vector[0].doubleValue);
@@ -224,11 +197,11 @@ CGFloat randomFloat() {
     }
 }
 
+
 //------------------------------------------------------------------------------
 #pragma mark - Creation
 //------------------------------------------------------------------------------
 
-//
 - (void)testOrigin {
 
     // Gold standard
@@ -241,12 +214,10 @@ CGFloat randomFloat() {
     XCTAssertEqualObjects(standard, result);
 }
 
-//
 - (void)testVector {
     XCTAssertNotNil([Vector vector]);
 }
 
-//
 - (void)testVectorWithCGPoint {
     for (NSArray *array in self.standardArrays) {
         // Gold standard
@@ -263,7 +234,6 @@ CGFloat randomFloat() {
     }
 }
 
-//
 - (void)testVectorWithUniformNumbers {
     for (NSArray *array in self.standardArrays) {
         for (NSNumber *number1 in array) {
@@ -281,7 +251,6 @@ CGFloat randomFloat() {
     }
 }
 
-//
 - (void)testVectorWithCIVector {
     for (int i = 0; i < self.standardArrays.count; i++) {
         // Gold standard
@@ -300,7 +269,6 @@ CGFloat randomFloat() {
     }
 }
 
-// toSCNVector3
 - (void)testVectorWithSCNVector3 {
     for (int i = 0; i < self.standardVectors.count; i++) {
         // Gold standard
@@ -315,7 +283,6 @@ CGFloat randomFloat() {
     }
 }
 
-// x, y, z
 - (void)testVectorWithSCNVector4 {
     for (int i = 0; i < self.standardVectors.count; i++) {
         // Gold standard
@@ -331,7 +298,6 @@ CGFloat randomFloat() {
     }
 }
 
-//
 - (void)testVectorWithNSValue {
     for (int i = 0; i < self.standardVectors.count; i++) {
         // Gold standard
@@ -347,7 +313,6 @@ CGFloat randomFloat() {
     }
 }
 
-// toArray
 - (void)testVectorWithArray {
     for (int i = 0; i < self.standardVectors.count; i++) {
         // Gold standard
@@ -362,7 +327,6 @@ CGFloat randomFloat() {
     }
 }
 
-// x, y, z
 - (void)testVectorWithDictionary {
     for (int i = 0; i < self.standardVectors.count; i++) {
         // Gold standard
@@ -381,7 +345,6 @@ CGFloat randomFloat() {
     }
 }
 
-// x, y, z
 - (void)testVectorWithString {
     for (int i = 0; i < self.standardVectors.count; i++) {
         // Gold standard
@@ -410,7 +373,6 @@ CGFloat randomFloat() {
     }
 }
 
-//
 - (void)testVectorWithVector {
     for (int i = 0; i < self.standardVectors.count; i++) {
         // Gold standard
@@ -424,7 +386,6 @@ CGFloat randomFloat() {
     }
 }
 
-//
 - (void)testVectorWithObject {
     for (int i = 0; i < self.standardVectors.count; i++) {
         // Gold standard
@@ -472,7 +433,6 @@ CGFloat randomFloat() {
     }
 }
 
-// x, y, z
 - (void)testInitWithXYZ {
     // Gold Standard
     for (Vector *standard in self.standardVectors) {
@@ -486,12 +446,10 @@ CGFloat randomFloat() {
     }
 }
 
-//
 - (void)testInit {
     XCTAssertNotNil([[Vector alloc] init]);
 }
 
-//
 - (void)testInitWithCGPoint {
     for (NSArray *array in self.standardArrays) {
         // Gold standard
@@ -508,7 +466,6 @@ CGFloat randomFloat() {
     }
 }
 
-//
 - (void)testInitWithUniformNumbers {
     for (NSArray *array in self.standardArrays) {
         for (NSNumber *number1 in array) {
@@ -526,7 +483,6 @@ CGFloat randomFloat() {
     }
 }
 
-//
 - (void)testInitWithCIVector {
     for (int i = 0; i < self.standardArrays.count; i++) {
         // Gold standard
@@ -545,7 +501,6 @@ CGFloat randomFloat() {
     }
 }
 
-// toSCNVector3
 - (void)testInitWithSCNVector3 {
     for (int i = 0; i < self.standardVectors.count; i++) {
         // Gold standard
@@ -560,7 +515,6 @@ CGFloat randomFloat() {
     }
 }
 
-// x, y, z
 - (void)testInitWithSCNVector4 {
     for (int i = 0; i < self.standardVectors.count; i++) {
         // Gold standard
@@ -576,7 +530,6 @@ CGFloat randomFloat() {
     }
 }
 
-//
 - (void)testInitWithNSValue {
     for (int i = 0; i < self.standardVectors.count; i++) {
         // Gold standard
@@ -592,7 +545,6 @@ CGFloat randomFloat() {
     }
 }
 
-// toArray
 - (void)testInitWithArray {
     for (int i = 0; i < self.standardVectors.count; i++) {
         // Gold standard
@@ -607,7 +559,6 @@ CGFloat randomFloat() {
     }
 }
 
-// x, y, z
 - (void)testInitWithDictionary {
     for (int i = 0; i < self.standardVectors.count; i++) {
         // Gold standard
@@ -626,7 +577,6 @@ CGFloat randomFloat() {
     }
 }
 
-// x, y, z
 - (void)testInitWithString {
     for (int i = 0; i < self.standardVectors.count; i++) {
         // Gold standard
@@ -655,7 +605,6 @@ CGFloat randomFloat() {
     }
 }
 
-//
 - (void)testInitWithVector {
     for (int i = 0; i < self.standardVectors.count; i++) {
         // Gold standard
@@ -669,7 +618,6 @@ CGFloat randomFloat() {
     }
 }
 
-//
 - (void)testInitWithObject {
     for (int i = 0; i < self.standardVectors.count; i++) {
         // Gold standard
@@ -751,7 +699,6 @@ CGFloat randomFloat() {
     }
 }
 
-#warning Test these methods with multiple different objects
 - (void)testPlus {
     for (int i = 0; i < self.standardVectors.count; i++) {
         // Gold standard
@@ -1046,7 +993,7 @@ CGFloat randomFloat() {
         Vector *vector1 = self.standardVectors[i];
         SCNVector3 scnvector1 = vector1.toSCNVector3;
         Vector *vector2 =
-        [Vector vectorWithX:randomFloat() Y:randomFloat() Z:randomFloat()];
+            [Vector vectorWithX:randomFloat() Y:randomFloat() Z:randomFloat()];
         SCNVector3 scnvector2 = vector2.toSCNVector3;
 
         Vector *standard = [Vector vectorWithX:scnvector1.x * scnvector2.x
@@ -1057,15 +1004,14 @@ CGFloat randomFloat() {
         Vector *result;
 
         NSDictionary *dictionary =
-        @{ @"x" : @(vector2.x),
-           @"y" : @(vector2.y),
-           @"z" : @(vector2.z) };
-        result =
-        [[Vector vectorWithSCNVector3:scnvector1] scale:dictionary];
+            @{ @"x" : @(vector2.x),
+               @"y" : @(vector2.y),
+               @"z" : @(vector2.z) };
+        result = [[Vector vectorWithSCNVector3:scnvector1] scale:dictionary];
         XCTAssertEqualObjects(result, standard);
 
         NSString *string = [NSString
-                            stringWithFormat:@"%lf %lf %lf", vector2.x, vector2.y, vector2.z];
+            stringWithFormat:@"%lf %lf %lf", vector2.x, vector2.y, vector2.z];
         result = [[Vector vectorWithSCNVector3:scnvector1] scale:string];
         XCTAssertEqualWithAccuracy(result.x,
                                    standard.x,
@@ -1084,12 +1030,11 @@ CGFloat randomFloat() {
         result = [[Vector vectorWithSCNVector3:scnvector1] scale:value];
         XCTAssertEqualObjects(result, standard);
 
-        result = [[Vector vectorWithSCNVector3:scnvector1]
-                  scale:vector2.toArray];
+        result =
+            [[Vector vectorWithSCNVector3:scnvector1] scale:vector2.toArray];
         XCTAssertEqualObjects(result, standard);
 
-        result =
-        [[Vector vectorWithSCNVector3:scnvector1] scale:@(vector2.x)];
+        result = [[Vector vectorWithSCNVector3:scnvector1] scale:@(vector2.x)];
         standard = [Vector vectorWithX:scnvector1.x * scnvector2.x
                                      Y:scnvector1.y * scnvector2.x
                                      Z:scnvector1.z * scnvector2.x];

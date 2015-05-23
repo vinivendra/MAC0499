@@ -1,5 +1,4 @@
 // TODO: Create a copy method for all exported classes.
-// TODO: Make isEqual accept the same objects as initWithObject does.
 // TODO: Test rotation for non normalized vectors
 
 
