@@ -6,7 +6,6 @@
 @property (nonatomic, readonly) CGFloat y;
 @property (nonatomic, readonly) CGFloat z;
 
-+ (instancetype)origin;
 - (instancetype)initWithObject:(id)object;
 - (BOOL)isEqualToVector:(SCNVector3)vector;
 

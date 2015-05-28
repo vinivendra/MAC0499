@@ -150,9 +150,15 @@
         CGFloat zResult = vector.z;
 
         // Comparison
-        XCTAssertEqualWithAccuracy(xStandard, xResult, fabs(xStandard / 100));
-        XCTAssertEqualWithAccuracy(yStandard, yResult, fabs(yStandard / 100));
-        XCTAssertEqualWithAccuracy(zStandard, zResult, fabs(zStandard / 100));
+        XCTAssertEqualWithAccuracy(xStandard,
+                                   xResult,
+                                   fabs(xStandard / 10000) + 0.000001);
+        XCTAssertEqualWithAccuracy(yStandard,
+                                   yResult,
+                                   fabs(yStandard / 10000) + 0.000001);
+        XCTAssertEqualWithAccuracy(zStandard,
+                                   zResult,
+                                   fabs(zStandard / 10000) + 0.000001);
     }
 }
 
@@ -189,10 +195,10 @@
         NSArray *vectorArray = self.standardArrays[i];
 
         SCNVector4 standard
-        = SCNVector4Make(((NSNumber *)vectorArray[0]).doubleValue,
-                         ((NSNumber *)vectorArray[1]).doubleValue,
-                         ((NSNumber *)vectorArray[2]).doubleValue,
-                         1.0);
+            = SCNVector4Make(((NSNumber *)vectorArray[0]).doubleValue,
+                             ((NSNumber *)vectorArray[1]).doubleValue,
+                             ((NSNumber *)vectorArray[2]).doubleValue,
+                             1.0);
 
         // Actual result
         SCNVector4 result = ((Vector *)self.standardVectors[i]).toSCNVector4;
@@ -397,13 +403,13 @@
         // Comparison
         XCTAssertEqualWithAccuracy(result.x,
                                    standard.x,
-                                   fabs(standard.x / 100));
+                                   fabs(standard.x / 10000) + 0.000001);
         XCTAssertEqualWithAccuracy(result.y,
                                    standard.y,
-                                   fabs(standard.y / 100));
+                                   fabs(standard.y / 10000) + 0.000001);
         XCTAssertEqualWithAccuracy(result.z,
                                    standard.z,
-                                   fabs(standard.z / 100));
+                                   fabs(standard.z / 10000) + 0.000001);
     }
 }
 
@@ -443,13 +449,13 @@
         result = [Vector vectorWithObject:string];
         XCTAssertEqualWithAccuracy(result.x,
                                    standard.x,
-                                   fabs(standard.x / 100));
+                                   fabs(standard.x / 10000) + 0.000001);
         XCTAssertEqualWithAccuracy(result.y,
                                    standard.y,
-                                   fabs(standard.y / 100));
+                                   fabs(standard.y / 10000) + 0.000001);
         XCTAssertEqualWithAccuracy(result.z,
                                    standard.z,
-                                   fabs(standard.z / 100));
+                                   fabs(standard.z / 10000) + 0.000001);
 
         result = [Vector vectorWithObject:standard];
         XCTAssertEqualObjects(result, standard);
@@ -629,13 +635,13 @@
         // Comparison
         XCTAssertEqualWithAccuracy(result.x,
                                    standard.x,
-                                   fabs(standard.x / 100));
+                                   fabs(standard.x / 10000) + 0.000001);
         XCTAssertEqualWithAccuracy(result.y,
                                    standard.y,
-                                   fabs(standard.y / 100));
+                                   fabs(standard.y / 10000) + 0.000001);
         XCTAssertEqualWithAccuracy(result.z,
                                    standard.z,
-                                   fabs(standard.z / 100));
+                                   fabs(standard.z / 10000) + 0.000001);
     }
 }
 
@@ -675,13 +681,13 @@
         result = [[Vector alloc] initWithObject:string];
         XCTAssertEqualWithAccuracy(result.x,
                                    standard.x,
-                                   fabs(standard.x / 100));
+                                   fabs(standard.x / 10000) + 0.000001);
         XCTAssertEqualWithAccuracy(result.y,
                                    standard.y,
-                                   fabs(standard.y / 100));
+                                   fabs(standard.y / 10000) + 0.000001);
         XCTAssertEqualWithAccuracy(result.z,
                                    standard.z,
-                                   fabs(standard.z / 100));
+                                   fabs(standard.z / 10000) + 0.000001);
 
         result = [[Vector alloc] initWithObject:standard];
         XCTAssertEqualObjects(result, standard);
@@ -761,13 +767,13 @@
         result = [[Vector vectorWithSCNVector3:scnvector1] plus:string];
         XCTAssertEqualWithAccuracy(result.x,
                                    standard.x,
-                                   fabs(standard.x / 100));
+                                   fabs(standard.x / 10000) + 0.000001);
         XCTAssertEqualWithAccuracy(result.y,
                                    standard.y,
-                                   fabs(standard.y / 100));
+                                   fabs(standard.y / 10000) + 0.000001);
         XCTAssertEqualWithAccuracy(result.z,
                                    standard.z,
-                                   fabs(standard.z / 100));
+                                   fabs(standard.z / 10000) + 0.000001);
 
         result = [[Vector vectorWithSCNVector3:scnvector1] plus:vector2];
         XCTAssertEqualObjects(result, standard);
@@ -816,13 +822,13 @@
         result = [[Vector vectorWithSCNVector3:scnvector1] minus:string];
         XCTAssertEqualWithAccuracy(result.x,
                                    standard.x,
-                                   fabs(standard.x / 100));
+                                   fabs(standard.x / 10000) + 0.000001);
         XCTAssertEqualWithAccuracy(result.y,
                                    standard.y,
-                                   fabs(standard.y / 100));
+                                   fabs(standard.y / 10000) + 0.000001);
         XCTAssertEqualWithAccuracy(result.z,
                                    standard.z,
-                                   fabs(standard.z / 100));
+                                   fabs(standard.z / 10000) + 0.000001);
 
         result = [[Vector vectorWithSCNVector3:scnvector1] minus:vector2];
         XCTAssertEqualObjects(result, standard);
@@ -880,27 +886,39 @@
                @"y" : @(vector2.y),
                @"z" : @(vector2.z) };
         result = [vector1 dot:dictionary];
-        XCTAssertEqualWithAccuracy(standard, result, fabs(standard / 100));
+        XCTAssertEqualWithAccuracy(standard,
+                                   result,
+                                   fabs(standard / 10000) + 0.000001);
 
         NSString *string = [NSString
             stringWithFormat:@"%lf %lf %lf", vector2.x, vector2.y, vector2.z];
         result = [vector1 dot:string];
-        XCTAssertEqualWithAccuracy(standard, result, fabs(standard / 100));
+        XCTAssertEqualWithAccuracy(standard,
+                                   result,
+                                   fabs(standard / 10000) + 0.000001);
 
         result = [vector1 dot:vector2];
-        XCTAssertEqualWithAccuracy(standard, result, fabs(standard / 100));
+        XCTAssertEqualWithAccuracy(standard,
+                                   result,
+                                   fabs(standard / 10000) + 0.000001);
 
         NSValue *value = [NSValue valueWithSCNVector3:vector2.toSCNVector3];
         result = [vector1 dot:value];
-        XCTAssertEqualWithAccuracy(standard, result, fabs(standard / 100));
+        XCTAssertEqualWithAccuracy(standard,
+                                   result,
+                                   fabs(standard / 10000) + 0.000001);
 
         result = [vector1 dot:vector2.toArray];
-        XCTAssertEqualWithAccuracy(standard, result, fabs(standard / 100));
+        XCTAssertEqualWithAccuracy(standard,
+                                   result,
+                                   fabs(standard / 10000) + 0.000001);
 
         result = [vector1 dot:@(vector2.x)];
         standard = (scnvector1.x * scnvector2.x) + (scnvector1.y * scnvector2.x)
                    + (scnvector1.z * scnvector2.x);
-        XCTAssertEqualWithAccuracy(standard, result, fabs(standard / 100));
+        XCTAssertEqualWithAccuracy(standard,
+                                   result,
+                                   fabs(standard / 10000) + 0.000001);
     }
 }
 
@@ -917,7 +935,9 @@
         CGFloat result = vector.normSquared;
 
         // Comparison
-        XCTAssertEqualWithAccuracy(standard, result, fabs(standard / 100));
+        XCTAssertEqualWithAccuracy(standard,
+                                   result,
+                                   fabs(standard / 10000) + 0.000001);
     }
 }
 
@@ -934,7 +954,9 @@
         CGFloat result = vector.norm;
 
         // Comparison
-        XCTAssertEqualWithAccuracy(standard, result, fabs(standard / 100));
+        XCTAssertEqualWithAccuracy(standard,
+                                   result,
+                                   fabs(standard / 10000) + 0.000001);
     }
 }
 
@@ -993,13 +1015,13 @@
         result = [[Vector vectorWithSCNVector3:scnvector1] translate:string];
         XCTAssertEqualWithAccuracy(result.x,
                                    standard.x,
-                                   fabs(standard.x / 100));
+                                   fabs(standard.x / 10000) + 0.000001);
         XCTAssertEqualWithAccuracy(result.y,
                                    standard.y,
-                                   fabs(standard.y / 100));
+                                   fabs(standard.y / 10000) + 0.000001);
         XCTAssertEqualWithAccuracy(result.z,
                                    standard.z,
-                                   fabs(standard.z / 100));
+                                   fabs(standard.z / 10000) + 0.000001);
 
         result = [[Vector vectorWithSCNVector3:scnvector1] translate:vector2];
         XCTAssertEqualObjects(result, standard);
@@ -1049,13 +1071,13 @@
         result = [[Vector vectorWithSCNVector3:scnvector1] scale:string];
         XCTAssertEqualWithAccuracy(result.x,
                                    standard.x,
-                                   fabs(standard.x / 100));
+                                   fabs(standard.x / 10000) + 0.000001);
         XCTAssertEqualWithAccuracy(result.y,
                                    standard.y,
-                                   fabs(standard.y / 100));
+                                   fabs(standard.y / 10000) + 0.000001);
         XCTAssertEqualWithAccuracy(result.z,
                                    standard.z,
-                                   fabs(standard.z / 100));
+                                   fabs(standard.z / 10000) + 0.000001);
 
         result = [[Vector vectorWithSCNVector3:scnvector1] scale:vector2];
         XCTAssertEqualObjects(result, standard);

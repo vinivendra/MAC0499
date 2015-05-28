@@ -19,8 +19,9 @@ void setupRandomSeed() {
 CGFloat randomFloat() {
 
     CGFloat f = ((double)rand() / rand()) - ((double)rand() / rand());
+    f = f * f * f;
 
-    f = (int)f % 10 ? f : 0;
+    if (f == 0) return randomFloat();
 
-    return f * f * f;
+    return f;
 }

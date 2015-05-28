@@ -6,11 +6,11 @@
 
 
 CGFloat toRadians(CGFloat degrees) {
-    return degrees / (180.0 * M_PI);
+    return degrees / 180.0 * M_PI;
 }
 
 CGFloat toDegrees(CGFloat radians) {
-    return radians * (180.0 / M_PI);
+    return radians / M_PI * 180.0;
 }
 
 
@@ -65,6 +65,20 @@ CGFloat toDegrees(CGFloat radians) {
 
 - (CGFloat)toDegrees {
     return toDegrees(self.angle);
+}
+
+- (BOOL)isEqual:(id)object {
+    if ([object isKindOfClass:[Angle class]]) {
+        return self.angle == ((Angle *)object).toRadians;
+    }
+    if ([object isKindOfClass:[NSNumber class]]) {
+        return self.angle == ((NSNumber *)object).doubleValue;
+    }
+    return NO;
+}
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"%lf", self.angle];
 }
 
 @end

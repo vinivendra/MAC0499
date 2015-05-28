@@ -26,11 +26,17 @@
     [self.standardArrays push:@[ @0, @-1, @0 ]];
     [self.standardArrays push:@[ @0, @0, @2 ]];
 
-#warning make sure the generated vectors are never 0,0,0
-
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 10; i++) {
+        CGFloat x = randomFloat();
+        CGFloat y = randomFloat();
+        CGFloat z = randomFloat();
+        if (x == 0 && y == 0 && z == 0) {
+            i--;
+            continue;
+        }
         [self.standardArrays
-            push:@[ @(randomFloat()), @(randomFloat()), @(randomFloat()) ]];
+            push:@[ @(x), @(y), @(z) ]];
+    }
 
     self.standardAxes = [NSMutableArray array];
 
@@ -82,23 +88,13 @@
 #pragma mark - Creation
 //------------------------------------------------------------------------------
 
-- (void)testOrigin {
-
-    // Gold standard
-    Axis *standard = [Axis axisWithX:0 Y:0 Z:0];
-
-    // Actual result
-    Axis *result = [Axis origin];
-
-    // Comparison
-    XCTAssertEqualObjects(standard, result);
-}
-
 - (void)testAxisWithUniformNumbers {
     for (NSArray *array in self.standardArrays) {
         for (NSNumber *number1 in array) {
             // Gold standard
             CGFloat u = number1.doubleValue;
+            if (u == 0)
+                continue;
             Axis *standard = [Axis axisWithX:u Y:u Z:u];
 
             // Acutal result
@@ -304,6 +300,8 @@
         result = [Axis axisWithObject:standard.toArray];
         XCTAssertEqualObjects(result, standard);
 
+        if (standard.x == 0)
+            continue;
         result = [Axis axisWithObject:@(standard.x)];
         standard = [Axis axisWithUniformNumbers:standard.x];
         XCTAssertEqualObjects(result, standard);

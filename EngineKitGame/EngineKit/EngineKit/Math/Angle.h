@@ -39,9 +39,10 @@
 + (instancetype)angleWithPiTimes:(CGFloat)ratio;
 /*!
  Creates an Angle object with the given value in radians. Uses NSNumber's
- initWithObject method to obtain the value from the given object.
+ numberWithObject method to obtain the value from the given object.
  @param object An angle measured in degrees.
  @return An initialized Angle object.
+ @see [NSNumber numberWithObject]
  */
 + (instancetype)angleWithObject:(id)object;
 /*!
@@ -58,9 +59,10 @@
 - (instancetype)initWithDegrees:(CGFloat)degrees;
 /*!
  Creates an Angle object with the given value in radians. Uses NSNumber's
- initWithObject method to obtain the value from the given object.
+ numberWithObject method to obtain the value from the given object.
  @param object An angle measured in degrees.
  @return An initialized Angle object.
+ @see [NSNumber numberWithObject]
  */
 - (instancetype)initWithObject:(id)object;
 /*!
@@ -73,4 +75,10 @@
  @return The Angle's value, measured in degrees.
  */
 - (CGFloat)toDegrees;
+/*!
+ Tests the receiver and the given object for equality.
+ @param object The object to test for equality with the receiver.
+ @return A boolean value indicating if the objects are equal.
+ */
+- (BOOL)isEqual:(id)object;
 @end

@@ -30,6 +30,7 @@
 		2487D8D11B10E15F000B3994 /* PositionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2487D8D01B10E15F000B3994 /* PositionTests.m */; };
 		2487D8D31B10E1C5000B3994 /* TestCommons.m in Sources */ = {isa = PBXBuildFile; fileRef = 2487D8D21B10E1C5000B3994 /* TestCommons.m */; };
 		24AA431A1B076D9200E81B21 /* VectorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AA43191B076D9200E81B21 /* VectorTests.m */; };
+		24B075031B1782AD00CAB20F /* AngleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B075021B1782AD00CAB20F /* AngleTests.m */; };
 		24C895101B0E25F30057CCBE /* NSDictionary+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2437865D1B02CB55003A3063 /* NSDictionary+Extension.m */; };
 		24DF787E1AF7F6E100319C49 /* libEngineKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24DF78721AF7F6E100319C49 /* libEngineKit.a */; };
 		24DF788D1AF7F6EA00319C49 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24DF788C1AF7F6EA00319C49 /* Foundation.framework */; };
@@ -203,6 +204,7 @@
 		2487D8D21B10E1C5000B3994 /* TestCommons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCommons.m; sourceTree = "<group>"; };
 		2487D8D41B10E1E0000B3994 /* TestCommons.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestCommons.h; sourceTree = "<group>"; };
 		24AA43191B076D9200E81B21 /* VectorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VectorTests.m; sourceTree = "<group>"; };
+		24B075021B1782AD00CAB20F /* AngleTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AngleTests.m; sourceTree = "<group>"; };
 		24DF78721AF7F6E100319C49 /* libEngineKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEngineKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		24DF787D1AF7F6E100319C49 /* EngineKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EngineKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24DF78831AF7F6E100319C49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -354,6 +356,7 @@
 		24DF78811AF7F6E100319C49 /* EngineKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				24B075021B1782AD00CAB20F /* AngleTests.m */,
 				2460DB951B17619700B8FD5C /* AxisTests.m */,
 				2487D8D01B10E15F000B3994 /* PositionTests.m */,
 				2460DB971B17689500B8FD5C /* RotationTests.m */,
@@ -787,6 +790,7 @@
 				24DF78F91AF7F71600319C49 /* NSArray+Extension.m in Sources */,
 				24DF795F1AF7F71800319C49 /* Vector.m in Sources */,
 				24DF78FC1AF7F71600319C49 /* NSNumber+Extension.m in Sources */,
+				24B075031B1782AD00CAB20F /* AngleTests.m in Sources */,
 				24DF793E1AF7F71700319C49 /* Plane.m in Sources */,
 				24DF794A1AF7F71800319C49 /* Torus.m in Sources */,
 				24DF79021AF7F71600319C49 /* SCN+Exports.m in Sources */,
