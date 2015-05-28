@@ -93,7 +93,7 @@
         = SCNVector4Make(((NSNumber *)vectorArray[0]).doubleValue,
                          ((NSNumber *)vectorArray[1]).doubleValue,
                          ((NSNumber *)vectorArray[2]).doubleValue,
-                         1.0);
+                         0.0);
 
         // Actual result
         SCNVector4 result = ((Vector *)self.standardPositions[i]).toSCNVector4;
