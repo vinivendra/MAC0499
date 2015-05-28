@@ -175,7 +175,7 @@
     }
 }
 
-- (void)testPositionWithSCNPosition3 {
+- (void)testPositionWithSCNVector3 {
     for (int i = 0; i < self.standardPositions.count; i++) {
         // Gold standard
         Position *standard = self.standardPositions[i];

@@ -25,6 +25,7 @@
 /* Begin PBXBuildFile section */
 		2437865E1B02CB55003A3063 /* NSDictionary+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 2437865C1B02CB55003A3063 /* NSDictionary+Extension.h */; };
 		2437865F1B02CB55003A3063 /* NSDictionary+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2437865D1B02CB55003A3063 /* NSDictionary+Extension.m */; };
+		2460DB961B17619700B8FD5C /* AxisTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2460DB951B17619700B8FD5C /* AxisTests.m */; };
 		2487D8D11B10E15F000B3994 /* PositionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2487D8D01B10E15F000B3994 /* PositionTests.m */; };
 		2487D8D31B10E1C5000B3994 /* TestCommons.m in Sources */ = {isa = PBXBuildFile; fileRef = 2487D8D21B10E1C5000B3994 /* TestCommons.m */; };
 		24AA431A1B076D9200E81B21 /* VectorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AA43191B076D9200E81B21 /* VectorTests.m */; };
@@ -195,6 +196,7 @@
 /* Begin PBXFileReference section */
 		2437865C1B02CB55003A3063 /* NSDictionary+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Extension.h"; sourceTree = "<group>"; };
 		2437865D1B02CB55003A3063 /* NSDictionary+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Extension.m"; sourceTree = "<group>"; };
+		2460DB951B17619700B8FD5C /* AxisTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AxisTests.m; sourceTree = "<group>"; };
 		2487D8D01B10E15F000B3994 /* PositionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionTests.m; sourceTree = "<group>"; };
 		2487D8D21B10E1C5000B3994 /* TestCommons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCommons.m; sourceTree = "<group>"; };
 		2487D8D41B10E1E0000B3994 /* TestCommons.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestCommons.h; sourceTree = "<group>"; };
@@ -351,6 +353,7 @@
 			isa = PBXGroup;
 			children = (
 				2487D8D01B10E15F000B3994 /* PositionTests.m */,
+				2460DB951B17619700B8FD5C /* AxisTests.m */,
 				24DF78821AF7F6E100319C49 /* Supporting Files */,
 				24AA43191B076D9200E81B21 /* VectorTests.m */,
 			);
@@ -793,6 +796,7 @@
 				24DF79531AF7F71800319C49 /* Angle.m in Sources */,
 				24DF79501AF7F71800319C49 /* Shape.m in Sources */,
 				24DF790B1AF7F71600319C49 /* SCNPhysicsContact+Extension.m in Sources */,
+				2460DB961B17619700B8FD5C /* AxisTests.m in Sources */,
 				24DF78F61AF7F71600319C49 /* JSContext+Extension.m in Sources */,
 				24DF79231AF7F71700319C49 /* Physics.m in Sources */,
 				24AA431A1B076D9200E81B21 /* VectorTests.m in Sources */,
