@@ -48,6 +48,10 @@ unsigned long mutationsCounter;
     return self.vector;
 }
 
+- (SCNVector4)toSCNVector4 {
+    return SCNVector4Make(self.x, self.y, self.z, 1.0);
+}
+
 - (NSValue *)toNSValue {
     return [NSValue valueWithSCNVector3:self.vector];
 }

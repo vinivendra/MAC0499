@@ -168,6 +168,25 @@
     }
 }
 
+- (void)testToSCNVector4 {
+    for (int i = 0; i < self.standardArrays.count; i++) {
+        // Gold standard
+        NSArray *vectorArray = self.standardArrays[i];
+
+        SCNVector4 standard
+        = SCNVector4Make(((NSNumber *)vectorArray[0]).doubleValue,
+                         ((NSNumber *)vectorArray[1]).doubleValue,
+                         ((NSNumber *)vectorArray[2]).doubleValue,
+                         1.0);
+
+        // Actual result
+        SCNVector4 result = ((Vector *)self.standardVectors[i]).toSCNVector4;
+
+        // Comparison
+        XCTAssert(SCNVector4EqualToVector4(standard, result));
+    }
+}
+
 - (void)testToNSValue {
     for (int i = 0; i < self.standardArrays.count; i++) {
         // Gold standard

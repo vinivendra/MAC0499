@@ -47,9 +47,24 @@
 
 
 ///-----------------------------------------------------------------------------
-/// @name Common Vector constants
+/// @name Getting the Position's information
 ///-----------------------------------------------------------------------------
-#pragma mark - Common Vector constants
+#pragma mark - Getting the Position's information
+
+/*!
+ Creates an `SCNVector4` representing the receiver in homogeneous coordinates.
+
+ If we write the receiver as `(x, y, z)`, the resulting `SCNVector4` can be
+ written as `(x, y, z, 0)`.
+ @return An instance of `SCNVector4`.
+ */
+- (SCNVector4)toSCNVector4;
+
+
+///-----------------------------------------------------------------------------
+/// @name Common Position constants
+///-----------------------------------------------------------------------------
+#pragma mark - Common Position constants
 
 /*!
  Represents a commonly used Position, (0 0 0).
@@ -61,7 +76,7 @@
 ///-----------------------------------------------------------------------------
 /// @name Creating Position objects
 ///-----------------------------------------------------------------------------
-#pragma mark - Getting the Vector's information
+#pragma mark - Creating Position objects
 
 /*!
  Creates an "empty" `Position`, initialized to `(0 0 0)`.

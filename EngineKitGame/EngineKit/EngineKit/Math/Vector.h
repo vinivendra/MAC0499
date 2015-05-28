@@ -1,7 +1,6 @@
 // TODO: Create a copy method for all exported classes.
 // TODO: Test rotation for non normalized vectors
 
-
 #import <JavaScriptCore/JavaScriptCore.h>
 #import <SceneKit/SceneKit.h>
 
@@ -92,6 +91,14 @@
  @return An instance of `SCNVector3`.
  */
 - (SCNVector3)toSCNVector3;
+/*!
+ Creates an `SCNVector4` representing the receiver in homogeneous coordinates.
+
+ If we write the receiver as `(x, y, z)`, the resulting `SCNVector4` can be
+ written as `(x, y, z, 1)`.
+ @return An instance of `SCNVector4`.
+ */
+- (SCNVector4)toSCNVector4;
 /*!
  Creates an `NSValue` containing an `SCNVector3` with the same components as the
  `Vector`.

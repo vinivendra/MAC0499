@@ -12,7 +12,16 @@
 
 
 //------------------------------------------------------------------------------
-#pragma mark - Common Vector constants
+#pragma mark Getting the Position's information
+//------------------------------------------------------------------------------
+
+
+- (SCNVector4)toSCNVector4 {
+    return SCNVector4Make(self.x, self.y, self.z, 0.0);
+}
+
+//------------------------------------------------------------------------------
+#pragma mark - Common Position constants
 //------------------------------------------------------------------------------
 
 + (instancetype)origin {
