@@ -23,6 +23,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		2402965A1B17A2BA0088274C /* FoundationExtensionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 240296591B17A2BA0088274C /* FoundationExtensionTests.m */; };
 		2437865E1B02CB55003A3063 /* NSDictionary+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 2437865C1B02CB55003A3063 /* NSDictionary+Extension.h */; };
 		2437865F1B02CB55003A3063 /* NSDictionary+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2437865D1B02CB55003A3063 /* NSDictionary+Extension.m */; };
 		2460DB961B17619700B8FD5C /* AxisTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2460DB951B17619700B8FD5C /* AxisTests.m */; };
@@ -196,6 +197,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		240296591B17A2BA0088274C /* FoundationExtensionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundationExtensionTests.m; sourceTree = "<group>"; };
 		2437865C1B02CB55003A3063 /* NSDictionary+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Extension.h"; sourceTree = "<group>"; };
 		2437865D1B02CB55003A3063 /* NSDictionary+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Extension.m"; sourceTree = "<group>"; };
 		2460DB951B17619700B8FD5C /* AxisTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AxisTests.m; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 			children = (
 				24B075021B1782AD00CAB20F /* AngleTests.m */,
 				2460DB951B17619700B8FD5C /* AxisTests.m */,
+				240296591B17A2BA0088274C /* FoundationExtensionTests.m */,
 				2487D8D01B10E15F000B3994 /* PositionTests.m */,
 				2460DB971B17689500B8FD5C /* RotationTests.m */,
 				24DF78821AF7F6E100319C49 /* Supporting Files */,
@@ -824,6 +827,7 @@
 				24DF791A1AF7F71700319C49 /* JavaScript.m in Sources */,
 				24DF79711AF7F71900319C49 /* NSString+ObjectiveSugar.m in Sources */,
 				24DF79561AF7F71800319C49 /* Axis.m in Sources */,
+				2402965A1B17A2BA0088274C /* FoundationExtensionTests.m in Sources */,
 				24DF79111AF7F71700319C49 /* UI+Exports.m in Sources */,
 				24DF79471AF7F71800319C49 /* Text.m in Sources */,
 				24DF795C1AF7F71800319C49 /* Rotation.m in Sources */,

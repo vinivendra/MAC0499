@@ -17,6 +17,7 @@
  @(0).
  @param index The index in the array from which to get the number.
  @return An NSNumber.
+ @see [NSNumber numberWithObject]
  */
 - (NSNumber *)numberAtIndex:(NSUInteger)index;
 /*!

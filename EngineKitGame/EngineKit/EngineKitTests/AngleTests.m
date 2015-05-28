@@ -4,7 +4,7 @@
 
 #import "TestCommons.h"
 
-#import "NSDictionary+Extension.h"
+#import "NSArray+Extension.h"
 #import "ObjectiveSugar.h"
 #import "Angle.h"
 
@@ -61,8 +61,8 @@
     for (int i = 0; i < self.standardNumbers.count; i++) {
         // Bijection
         NSNumber *number = self.standardNumbers[i];
-        NSNumber *nextNumber
-            = self.standardNumbers[(i + 1) % self.standardNumbers.count];
+        NSNumber *nextNumber = [self.standardNumbers
+            numberAtIndex:(i + 1) % self.standardNumbers.count];
 
         Angle *angle1 = [Angle angleWithRadians:number.doubleValue];
 
@@ -86,7 +86,7 @@
 - (void)testToRadians {
     for (int i = 0; i < self.standardNumbers.count; i++) {
         // Gold standard
-        CGFloat standard = ((NSNumber *)self.standardNumbers[i]).doubleValue;
+        CGFloat standard = [self.standardNumbers floatAtIndex:i];
 
         // Actual result
         CGFloat result = ((Angle *)self.standardAngles[i]).toRadians;
@@ -101,8 +101,7 @@
 - (void)testToDegrees {
     for (int i = 0; i < self.standardNumbers.count; i++) {
         // Gold standard
-        CGFloat standard = ((NSNumber *)self.standardNumbers[i]).doubleValue
-                           / M_PI * 180;
+        CGFloat standard = [self.standardNumbers floatAtIndex:i] / M_PI * 180;
 
         // Actual result
         CGFloat result = ((Angle *)self.standardAngles[i]).toDegrees;
@@ -121,8 +120,8 @@
 
         // Actual result
         CGFloat result =
-            [Angle angleWithDegrees:((NSNumber *)self.standardNumbers[i])
-                                        .doubleValue / M_PI * 180]
+            [Angle angleWithDegrees:[self.standardNumbers floatAtIndex:i] / M_PI
+                                    * 180]
                 .toRadians;
 
         // Comparison
@@ -139,8 +138,8 @@
 
         // Actual result
         CGFloat result =
-            [Angle angleWithPiTimes:((NSNumber *)self.standardNumbers[i])
-                                        .doubleValue / M_PI]
+            [Angle
+                angleWithPiTimes:[self.standardNumbers floatAtIndex:i] / M_PI]
                 .toRadians;
 
         // Comparison
@@ -157,11 +156,10 @@
 
         // Actual result
         NSString *string = [NSString
-            stringWithFormat:@"%lf",
-                             ((NSNumber *)self.standardNumbers[i]).doubleValue];
+            stringWithFormat:@"%lf", [self.standardNumbers floatAtIndex:i]];
         CGFloat result1 = [Angle angleWithObject:string].toRadians;
         CGFloat result2 =
-            [Angle angleWithObject:((NSNumber *)self.standardNumbers[i])]
+            [Angle angleWithObject:[self.standardNumbers numberAtIndex:i]]
                 .toRadians;
 
         // Comparison
@@ -181,8 +179,8 @@
 
         // Actual result
         CGFloat result =
-            [[Angle alloc] initWithDegrees:((NSNumber *)self.standardNumbers[i])
-                                               .doubleValue / M_PI * 180]
+            [[Angle alloc] initWithDegrees:[self.standardNumbers floatAtIndex:i]
+                                           / M_PI * 180]
                 .toRadians;
 
         // Comparison
@@ -199,8 +197,8 @@
 
         // Actual result
         CGFloat result =
-            [[Angle alloc] initWithRadians:((NSNumber *)self.standardNumbers[i])
-                                               .doubleValue]
+            [[Angle alloc]
+                initWithRadians:[self.standardNumbers floatAtIndex:i]]
                 .toRadians;
 
         // Comparison
@@ -221,7 +219,8 @@
                              ((NSNumber *)self.standardNumbers[i]).doubleValue];
         CGFloat result1 = [[Angle alloc] initWithObject:string].toRadians;
         CGFloat result2 =
-            [[Angle alloc] initWithObject:((NSNumber *)self.standardNumbers[i])]
+            [[Angle alloc]
+                initWithObject:[self.standardNumbers numberAtIndex:i]]
                 .toRadians;
 
         // Comparison
