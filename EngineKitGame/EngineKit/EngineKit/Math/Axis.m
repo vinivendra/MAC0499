@@ -31,58 +31,82 @@
 //------------------------------------------------------------------------------
 
 + (Axis *)axisWithX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z {
-    return [Axis axisWithVector:[Vector vectorWithX:x Y:y Z:z]];
+    Axis *newAxis = [Axis axisWithVector:[Vector vectorWithX:x Y:y Z:z]];
+    assert(newAxis.notZero);
+    return newAxis;
 }
 
 + (Axis *)axisWithUniformNumbers:(CGFloat)s {
-    return [Axis axisWithVector:[Vector vectorWithUniformNumbers:s]];
+    Axis *newAxis = [Axis axisWithVector:[Vector vectorWithUniformNumbers:s]];
+    assert(newAxis.notZero);
+    return newAxis;
 }
 
 + (Axis *)axisWithCIVector:(CIVector *)newValue {
-    return [Axis axisWithVector:[Vector vectorWithCIVector:newValue]];
+    Axis *newAxis = [Axis axisWithVector:[Vector vectorWithCIVector:newValue]];
+    assert(newAxis.notZero);
+    return newAxis;
 }
 
 + (Axis *)axisWithSCNVector3:(SCNVector3)newValue {
-    return [Axis axisWithVector:[Vector vectorWithSCNVector3:newValue]];
+    Axis *newAxis =
+        [Axis axisWithVector:[Vector vectorWithSCNVector3:newValue]];
+    assert(newAxis.notZero);
+    return newAxis;
 }
 
 + (Axis *)axisWithSCNVector4:(SCNVector4)newValue {
-    return [Axis axisWithVector:[Vector vectorWithSCNVector4:newValue]];
+    Axis *newAxis =
+        [Axis axisWithVector:[Vector vectorWithSCNVector4:newValue]];
+    assert(newAxis.notZero);
+    return newAxis;
 }
 
 + (Axis *)axisWithNSValue:(NSValue *)newValue {
-    return [Axis
-            axisWithVector:[Vector
-                                vectorWithSCNVector3:newValue.SCNVector3Value]];
+    Axis *newAxis = [Axis
+        axisWithVector:[Vector vectorWithSCNVector3:newValue.SCNVector3Value]];
+    assert(newAxis.notZero);
+    return newAxis;
 }
 
 + (Axis *)axisWithArray:(NSArray *)array {
-    return [Axis axisWithVector:[Vector vectorWithArray:array]];
+    Axis *newAxis = [Axis axisWithVector:[Vector vectorWithArray:array]];
+    assert(newAxis.notZero);
+    return newAxis;
 }
 
 + (Axis *)axisWithDictionary:(NSDictionary *)dictionary {
-    return
-    [Axis axisWithVector:[Vector vectorWithDictionary:dictionary]];
+    Axis *newAxis =
+        [Axis axisWithVector:[Vector vectorWithDictionary:dictionary]];
+    assert(newAxis.notZero);
+    return newAxis;
 }
 
 + (Axis *)axisWithString:(NSString *)string {
-    return [[Axis alloc] initWithString:string];
+    Axis *newAxis = [[Axis alloc] initWithString:string];
+    assert(newAxis.notZero);
+    return newAxis;
 }
 
 + (Axis *)axisWithVector:(Vector *)vector {
-    return [[Axis alloc] initWithVector:vector];
+    Axis *newAxis = [[Axis alloc] initWithVector:vector];
+    assert(newAxis.notZero);
+    return newAxis;
 }
 
 + (Axis *)axisWithAxis:(Axis *)axis {
-    return axis;
+    Axis *newAxis = [[Axis alloc] initWithVector:axis];
+    assert(newAxis.notZero);
+    return newAxis;
 }
 
 + (Axis *)axisWithObject:(id)object {
-    return [Axis axisWithVector:[Vector vectorWithObject:object]];
+    Axis *newAxis = [Axis axisWithVector:[Vector vectorWithObject:object]];
+    assert(newAxis.notZero);
+    return newAxis;
 }
 
 - (instancetype)initWithString:(NSString *)string {
-
     if ([string isEqualToString:@"x"] || [string isEqualToString:@"X"]) {
         self = [super initWithX:1 Y:0 Z:0];
     } else if ([string isEqualToString:@"y"] || [string isEqualToString:@"Y"]) {
@@ -98,4 +122,3 @@
 
 
 @end
-

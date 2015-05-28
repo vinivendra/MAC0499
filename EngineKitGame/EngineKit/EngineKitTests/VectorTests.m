@@ -117,6 +117,21 @@
 
 
 //------------------------------------------------------------------------------
+#pragma mark - Getting the Vector's information
+//------------------------------------------------------------------------------
+
+- (void)testNotZero {
+    XCTAssertFalse([Vector vectorWithX:0 Y:0 Z:0].notZero);
+    XCTAssert([Vector vectorWithX:1 Y:0 Z:0].notZero);
+    XCTAssert([Vector vectorWithX:2 Y:0 Z:3].notZero);
+    XCTAssert([Vector vectorWithX:-4 Y:5 Z:0].notZero);
+    XCTAssert([Vector vectorWithX:1 Y:-6 Z:7].notZero);
+    XCTAssert([Vector vectorWithX:0 Y:9 Z:0].notZero);
+    XCTAssert([Vector vectorWithX:0 Y:-2 Z:4000].notZero);
+    XCTAssert([Vector vectorWithX:0 Y:0 Z:-1000].notZero);
+}
+
+//------------------------------------------------------------------------------
 #pragma mark - Extracting data
 //------------------------------------------------------------------------------
 

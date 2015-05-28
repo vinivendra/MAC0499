@@ -17,6 +17,15 @@
 
 @implementation Rotation
 
++ (Rotation *)rotationWithX:(CGFloat)x
+                          Y:(CGFloat)y
+                          Z:(CGFloat)z
+                      Angle:(CGFloat)angle {
+    Axis *newAxis = [Axis axisWithX:x Y:y Z:z];
+    Angle *newAngle = [Angle angleWithRadians:angle];
+    return [[Rotation alloc] initWithAxis:newAxis angle:newAngle];
+}
+
 + (instancetype)rotationWithSCNVector4:(SCNVector4)vector {
     return [[Rotation alloc] initWithSCNVector4:vector];
 }

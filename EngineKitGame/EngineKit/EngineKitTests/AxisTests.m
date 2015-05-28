@@ -22,10 +22,11 @@
     setupRandomSeed();
 
     self.standardArrays = [NSMutableArray array];
-    [self.standardArrays push:@[ @0, @0, @0 ]];
     [self.standardArrays push:@[ @1, @0, @0 ]];
     [self.standardArrays push:@[ @0, @-1, @0 ]];
     [self.standardArrays push:@[ @0, @0, @2 ]];
+
+#warning make sure the generated vectors are never 0,0,0
 
     for (int i = 0; i < 10; i++)
         [self.standardArrays
@@ -101,8 +102,7 @@
             Axis *standard = [Axis axisWithX:u Y:u Z:u];
 
             // Acutal result
-            Axis *result =
-            [Axis axisWithUniformNumbers:number1.doubleValue];
+            Axis *result = [Axis axisWithUniformNumbers:number1.doubleValue];
 
             // Comparison
             XCTAssertEqualObjects(standard, result);
@@ -118,9 +118,9 @@
         // Actual result
         NSArray *axisArray = self.standardArrays[i];
         CIVector *ciaxis =
-        [CIVector vectorWithX:((NSNumber *)axisArray[0]).doubleValue
-                            Y:((NSNumber *)axisArray[1]).doubleValue
-                            Z:((NSNumber *)axisArray[2]).doubleValue];
+            [CIVector vectorWithX:((NSNumber *)axisArray[0]).doubleValue
+                                Y:((NSNumber *)axisArray[1]).doubleValue
+                                Z:((NSNumber *)axisArray[2]).doubleValue];
         Axis *result = [Axis axisWithCIVector:ciaxis];
 
         // Comparison
@@ -149,7 +149,7 @@
 
         // Actual result
         SCNVector4 axis4
-        = SCNVector4Make(standard.x, standard.y, standard.z, arc4random());
+            = SCNVector4Make(standard.x, standard.y, standard.z, arc4random());
         Axis *result = [Axis axisWithSCNVector4:axis4];
 
         // Comparison
@@ -194,10 +194,10 @@
 
         // Actual result
         NSDictionary *dictionary = @{
-                                     @"x" : @(standard.x),
-                                     @"y" : @(standard.y),
-                                     @"z" : @(standard.z)
-                                     };
+            @"x" : @(standard.x),
+            @"y" : @(standard.y),
+            @"z" : @(standard.z)
+        };
         Axis *result = [Axis axisWithDictionary:dictionary];
 
         // Comparison
@@ -212,12 +212,12 @@
 
         // Actual result
         NSArray *formats =
-        @[ @"[%lf, %lf, %lf]", @"vn %lf %lf %lf", @"(%lf %lf %lf)" ];
+            @[ @"[%lf, %lf, %lf]", @"vn %lf %lf %lf", @"(%lf %lf %lf)" ];
 
         NSString *string = [NSString stringWithFormat:formats[i % 3],
-                            standard.x,
-                            standard.y,
-                            standard.z];
+                                                      standard.x,
+                                                      standard.y,
+                                                      standard.z];
         Axis *result = [Axis axisWithString:string];
 
         // Comparison
@@ -272,17 +272,17 @@
         Axis *result;
 
         NSDictionary *dictionary = @{
-                                     @"x" : @(standard.x),
-                                     @"y" : @(standard.y),
-                                     @"z" : @(standard.z)
-                                     };
+            @"x" : @(standard.x),
+            @"y" : @(standard.y),
+            @"z" : @(standard.z)
+        };
         result = [Axis axisWithObject:dictionary];
         XCTAssertEqualObjects(result, standard);
 
         NSString *string = [NSString stringWithFormat:@"%lf %lf %lf",
-                            standard.x,
-                            standard.y,
-                            standard.z];
+                                                      standard.x,
+                                                      standard.y,
+                                                      standard.z];
         result = [Axis axisWithObject:string];
         XCTAssertEqualWithAccuracy(result.x,
                                    standard.x,
@@ -303,7 +303,7 @@
 
         result = [Axis axisWithObject:standard.toArray];
         XCTAssertEqualObjects(result, standard);
-        
+
         result = [Axis axisWithObject:@(standard.x)];
         standard = [Axis axisWithUniformNumbers:standard.x];
         XCTAssertEqualObjects(result, standard);

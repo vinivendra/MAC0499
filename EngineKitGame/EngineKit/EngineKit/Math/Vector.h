@@ -111,6 +111,19 @@
  */
 - (NSArray *)toArray;
 
+
+//------------------------------------------------------------------------------
+/// @name Getting the Vector's information
+//------------------------------------------------------------------------------
+#pragma mark - Getting the Vector's information
+/*!
+ Returns `NO` if all the `Vector`'s components are `0`; `YES` otherwise.
+ @return A boolean value indicating wether or not the receiver has zeroes in all
+ components.
+ */
+- (BOOL)notZero;
+
+
 ///-----------------------------------------------------------------------------
 /// @name Common Vector constants
 ///-----------------------------------------------------------------------------

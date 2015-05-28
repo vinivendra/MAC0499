@@ -24,6 +24,18 @@
  */
 @interface Rotation : NSObject <RotationExport>
 /*!
+ Creates a `Rotation` whith the four given components, respectively.
+ @param x The value to assign to the `Rotation`'s `Axis`'s `x` component.
+ @param y The value to assign to the `Rotation`'s `Axis`'s `y` component.
+ @param z The value to assign to the `Rotation`'s `Axis`'s `z` component.
+ @param angle The value to assign to the `Rotation`'s `Angle` component.
+ @return An initialized `Rotation` object.
+ */
++ (Rotation *)rotationWithX:(CGFloat)x
+                          Y:(CGFloat)y
+                          Z:(CGFloat)z
+                      Angle:(CGFloat)angle;
+/*!
  Creates a Rotation in which all components are set as just as the given
  SCNVector4. This initialization is a lot like @p -initWithArray.
  @param vector The SCNVector4 that should be used as a model.
