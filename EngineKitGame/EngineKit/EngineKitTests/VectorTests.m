@@ -1071,13 +1071,13 @@
         result = [[Vector vectorWithSCNVector3:scnvector1] scale:string];
         XCTAssertEqualWithAccuracy(result.x,
                                    standard.x,
-                                   fabs(standard.x / 10000) + 0.000001);
+                                   fabs(standard.x / 1000) + 0.00001);
         XCTAssertEqualWithAccuracy(result.y,
                                    standard.y,
-                                   fabs(standard.y / 10000) + 0.000001);
+                                   fabs(standard.y / 1000) + 0.00001);
         XCTAssertEqualWithAccuracy(result.z,
                                    standard.z,
-                                   fabs(standard.z / 10000) + 0.000001);
+                                   fabs(standard.z / 1000) + 0.00001);
 
         result = [[Vector vectorWithSCNVector3:scnvector1] scale:vector2];
         XCTAssertEqualObjects(result, standard);

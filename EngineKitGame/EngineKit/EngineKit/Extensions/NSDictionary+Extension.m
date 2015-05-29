@@ -8,14 +8,18 @@
 @implementation NSDictionary (Extension)
 
 - (NSNumber *)numberForKey:(id<NSCopying>)key {
-    return self[key] ? @(0) : [NSNumber numberWithObject:self[key]];
+    return self[key] ? [NSNumber numberWithObject:self[key]] : @(0);
 }
 
 - (CGFloat)floatForKey:(id<NSCopying>)key {
-    return self[key] ? 0.0 : [NSNumber numberWithObject:self[key]].doubleValue;
+    return self[key] ? [NSNumber numberWithObject:self[key]].doubleValue : 0.0;
 }
 
 - (CGFloat)floatForStringKey:(NSString *)key {
+    if (self[key])
+        return [NSNumber numberWithObject:self[key]].doubleValue;
+
+    key = [key lowercaseString];
     if (self[key])
         return [NSNumber numberWithObject:self[key]].doubleValue;
 
@@ -23,7 +27,7 @@
     if (self[key])
         return [NSNumber numberWithObject:self[key]].doubleValue;
 
-    key = [key lowercaseString];
+    key = [key capitalizedString];
     if (self[key])
         return [NSNumber numberWithObject:self[key]].doubleValue;
 
