@@ -32,6 +32,9 @@
                                    fabs([results numberAtIndex:i].doubleValue
                                         / 10000) + 0.000001);
     }
+    XCTAssertEqualObjects([results numberAtIndex:standards.count], @(0));
+    XCTAssertEqualObjects([results numberAtIndex:standards.count + 1], @(0));
+    XCTAssertEqualObjects([results numberAtIndex:standards.count + 2], @(0));
 }
 
 - (void)testNSArrayFloatAtIndex {
@@ -43,6 +46,9 @@
                                    fabs([results floatAtIndex:i] / 10000)
                                        + 0.000001);
     }
+    XCTAssertEqual([results floatAtIndex:standards.count], 0.0);
+    XCTAssertEqual([results floatAtIndex:standards.count + 1], 0.0);
+    XCTAssertEqual([results floatAtIndex:standards.count + 2], 0.0);
 }
 
 - (void)testNSArrayAt {
@@ -85,6 +91,8 @@
                                    result,
                                    fabs(result / 10000) + 0.000001);
     }
+
+    XCTAssertEqualObjects([results numberForKey:@"invalidTestKey"], @0);
 }
 
 - (void)testNSDictionaryFloatForKey {
@@ -113,6 +121,7 @@
                                    result,
                                    fabs(result / 10000) + 0.000001);
     }
+    XCTAssertEqual([results floatForKey:@"invalidTestKey"], 0.0);
 }
 
 - (void)testNSDictionaryFloatForStringKey {
@@ -141,6 +150,7 @@
                                    result,
                                    fabs(result / 10000) + 0.000001);
     }
+    XCTAssertEqual([results floatForStringKey:@"invalidTestKey"], 0.0);
 }
 
 @end
