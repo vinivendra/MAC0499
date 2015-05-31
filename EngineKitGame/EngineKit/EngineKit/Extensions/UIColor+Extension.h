@@ -3,6 +3,9 @@
 #import <UIKit/UIKit.h>
 
 
+#define LIMIT(A, B, C) (MIN(MAX(B, A), C))
+
+
 typedef UIColor Color;
 
 

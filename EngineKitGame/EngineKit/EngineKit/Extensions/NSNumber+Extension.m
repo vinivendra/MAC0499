@@ -15,15 +15,7 @@
     } else if ([object isKindOfClass:[NSString class]]) {
         return [NSNumber numberWithString:object];
     } else {
-        __block NSNumber *zero;
-
-        static dispatch_once_t onceToken;
-        dispatch_once(&onceToken,
-                      ^{
-                          zero = @(0);
-                      });
-
-        return zero;
+        return @(0);
     }
 }
 

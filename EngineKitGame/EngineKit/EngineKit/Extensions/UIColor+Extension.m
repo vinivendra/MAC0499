@@ -4,13 +4,12 @@
 
 #import "NSArray+Extension.h"
 
-#define LIMIT(A, B, C) (MIN(MAX(B, A), C))
-
 
 @implementation UIColor (Extension)
 
 + (Color *)colorWithObject:(id)object {
     Color *result;
+
     if ([object isKindOfClass:[Color class]]) {
         result = [object copy];
     } else if ([object isKindOfClass:[NSString class]]) {
@@ -21,8 +20,6 @@
         result =
             [Color colorWithWhite:((NSNumber *)object).doubleValue alpha:1.0];
     }
-    
-    assert(result);
 
     return result;
 }
@@ -53,8 +50,6 @@
                           @"clear" : [Color clearColor]
                       };
                   });
-
-    assert([colorNames.allKeys containsObject:name]);
     
     return colorNames[name];
 }
@@ -67,31 +62,27 @@
 }
 
 + (Color *)colorWithArray:(NSArray *)array {
-    assert([array valid]);
-
     Color *result;
     
     if ([array[0] isKindOfClass:[NSNumber class]]) {
         if (array.count == 1) {
-            result = [Color colorWithWhite:((NSNumber *)array[0]).doubleValue
+            result = [Color colorWithWhite:[array floatAtIndex:0]
                                    alpha:1.0];
         } else if (array.count == 2) {
-            result = [Color colorWithWhite:((NSNumber *)array[0]).doubleValue
-                                   alpha:((NSNumber *)array[1]).doubleValue];
+            result = [Color colorWithWhite:[array floatAtIndex:0]
+                                   alpha:[array floatAtIndex:1]];
         } else if (array.count == 3) {
-            result = [Color colorWithRed:((NSNumber *)array[0]).doubleValue
-                                 green:((NSNumber *)array[1]).doubleValue
-                                  blue:((NSNumber *)array[2]).doubleValue
+            result = [Color colorWithRed:[array floatAtIndex:0]
+                                 green:[array floatAtIndex:1]
+                                  blue:[array floatAtIndex:2]
                                  alpha:1.0];
         } else if (array.count >= 4) {
-            result = [Color colorWithRed:((NSNumber *)array[0]).doubleValue
-                                 green:((NSNumber *)array[1]).doubleValue
-                                  blue:((NSNumber *)array[2]).doubleValue
-                                 alpha:((NSNumber *)array[3]).doubleValue];
+            result = [Color colorWithRed:[array floatAtIndex:0]
+                                 green:[array floatAtIndex:1]
+                                  blue:[array floatAtIndex:2]
+                                 alpha:[array floatAtIndex:3]];
         }
     }
-    
-    assert(result);
 
     return result;
 }
@@ -100,8 +91,6 @@
     CGFloat result[4];
 
     [self getRed:&result[0] green:&result[1] blue:&result[2] alpha:&result[3]];
-
-    result[3] = CGColorGetAlpha(self.CGColor);
 
     for (int i = 0; i < 3; i++) {
         result[i] = LIMIT(0, result[i] * scalar, 1);
