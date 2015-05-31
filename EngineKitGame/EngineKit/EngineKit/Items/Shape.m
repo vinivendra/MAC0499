@@ -14,7 +14,7 @@
                                // change now to reflect its new size.
 }
 
-///////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Property Overriding
 
 - (void)setColor:(id)newValue {
@@ -91,15 +91,15 @@
 
 - (void)copyInfoTo:(Shape *)item {
     [super copyInfoTo:item];
-    
+
     item.geometry.materials = self.geometry.materials;
 }
 
 - (void)copyPhysicsTo:(Shape *)item {
     if (self.physicsBody)
         item.physicsBody =
-        [SCNPhysicsBody bodyWithType:self.physicsBody.type
-                               shape:self.physicsBody.physicsShape];
+            [SCNPhysicsBody bodyWithType:self.physicsBody.type
+                                   shape:self.physicsBody.physicsShape];
 }
 
 @end

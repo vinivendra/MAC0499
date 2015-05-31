@@ -74,21 +74,27 @@ function swipe(direction, items, swipes) {
     }
 }
 
-function pan(translation) {
-    var resized = translation.times(0.02);
+function pan(translation, items) {
+    var instance = items[0];
+    var resized = translation.times(0.01);
     var newPosition = resized.translate(instance.position);
     instance.position = newPosition;
 }
 
-function pinch(scale) {
-    instance.radius = instance.radius * scale;
+function pinch(scale, items) {
+    var instance = items[0];
+    print(instance.scale);
+    instance.scale = instance.scale.times(scale);
+    print(instance.scale);
 }
 
-function rotate(angle) {
+function rotate(angle, items) {
+    var instance = items[0];
     instance.rotate({"0":0, "1":0, "2":1, "a":angle});
 }
 
-function longPress(translation) {
+function longPress(translation, items) {
+    var instance = items[0];
     instance.position = instance.position.plus(translation.times(0.02));
 }
 

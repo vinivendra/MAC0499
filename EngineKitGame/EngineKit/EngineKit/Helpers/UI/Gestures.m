@@ -18,6 +18,8 @@
 @property (nonatomic) CGFloat lastPinchValue;
 @property (nonatomic) CGFloat lastRotationValue;
 
+@property (nonatomic, strong) NSArray *selectedItems;
+
 @property (nonatomic, strong) NSArray *classes;
 @property (nonatomic, strong) NSArray *selectors;
 @property (nonatomic, strong) NSMutableArray *options;
@@ -81,8 +83,8 @@
             [validHits push:hit];
             [items push:hit.node.item];
         }
-        [[JavaScript shared].tapCallback
-            callWithArguments:@[ items, validHits ]];
+        [[JavaScript shared]
+                .tapCallback callWithArguments:@[ items, validHits ]];
     }
 }
 
@@ -97,7 +99,8 @@
             [hits push:swipe];
             [items push:swipe.node.item];
         }
-        [[JavaScript shared].swipeCallback
+        [[JavaScript shared]
+                .swipeCallback
             callWithArguments:@[ @(sender.direction), items, hits ]];
     }
 }
@@ -106,40 +109,73 @@
 
     if (sender.state == UIGestureRecognizerStateBegan) {
         self.lastPanPoint = [Vector origin];
+
+        CGPoint location = [sender locationInView:self.sceneView];
+        NSArray *hits = [self.sceneView hitTest:location options:nil];
+        NSMutableArray *items = [NSMutableArray new];
+        for (SCNHitTestResult *hit in hits)
+            [items push:hit.node.item];
+        self.selectedItems = items;
     }
     if (sender.state == UIGestureRecognizerStateChanged) {
         CGPoint translation = [sender translationInView:self.sceneView];
         Vector *currentPoint = [[Vector alloc] initWithCGPoint:translation];
         Vector *relativeTranslation = [currentPoint minus:self.lastPanPoint];
-        [[JavaScript shared].panCallback
-            callWithArguments:@[ relativeTranslation ]];
+        [[JavaScript shared]
+                .panCallback
+            callWithArguments:@[ relativeTranslation, self.selectedItems ]];
         self.lastPanPoint = currentPoint;
+    }
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        self.selectedItems = @[];
     }
 }
 
 - (void)handlePinch:(UIPinchGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateBegan) {
         self.lastPinchValue = 1.0f;
+
+        CGPoint location = [sender locationInView:self.sceneView];
+        NSArray *hits = [self.sceneView hitTest:location options:nil];
+        NSMutableArray *items = [NSMutableArray new];
+        for (SCNHitTestResult *hit in hits)
+            [items push:hit.node.item];
+        self.selectedItems = items;
     }
     if (sender.state == UIGestureRecognizerStateChanged) {
         CGFloat scale = sender.scale;
         CGFloat relativeScale = scale / self.lastPinchValue;
-        [[JavaScript shared].pinchCallback
-            callWithArguments:@[ @(relativeScale) ]];
+        [[JavaScript shared]
+                .pinchCallback
+            callWithArguments:@[ @(relativeScale), self.selectedItems ]];
         self.lastPinchValue = scale;
+    }
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        self.selectedItems = @[];
     }
 }
 
 - (void)handleRotation:(UIRotationGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateBegan) {
         self.lastRotationValue = 0.0f;
+
+        CGPoint location = [sender locationInView:self.sceneView];
+        NSArray *hits = [self.sceneView hitTest:location options:nil];
+        NSMutableArray *items = [NSMutableArray new];
+        for (SCNHitTestResult *hit in hits)
+            [items push:hit.node.item];
+        self.selectedItems = items;
     }
     if (sender.state == UIGestureRecognizerStateChanged) {
         CGFloat angle = sender.rotation;
         CGFloat relativeAngle = self.lastRotationValue - angle;
-        [[JavaScript shared].rotationCallback
-            callWithArguments:@[ @(relativeAngle) ]];
+        [[JavaScript shared]
+                .rotationCallback
+            callWithArguments:@[ @(relativeAngle), self.selectedItems ]];
         self.lastRotationValue = angle;
+    }
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        self.selectedItems = @[];
     }
 }
 
@@ -148,15 +184,26 @@
         CGPoint startingLocation = [sender locationInView:self.sceneView];
         self.lastLongPressPoint =
             [[Vector alloc] initWithCGPoint:startingLocation];
+
+        CGPoint location = [sender locationInView:self.sceneView];
+        NSArray *hits = [self.sceneView hitTest:location options:nil];
+        NSMutableArray *items = [NSMutableArray new];
+        for (SCNHitTestResult *hit in hits)
+            [items push:hit.node.item];
+        self.selectedItems = items;
     }
     if (sender.state == UIGestureRecognizerStateChanged) {
         CGPoint location = [sender locationInView:self.sceneView];
         Vector *currentPoint = [[Vector alloc] initWithCGPoint:location];
         Vector *relativeTranslation =
             [currentPoint minus:self.lastLongPressPoint];
-        [[JavaScript shared].longPressCallback
-            callWithArguments:@[ relativeTranslation ]];
+        [[JavaScript shared]
+                .longPressCallback
+            callWithArguments:@[ relativeTranslation, self.selectedItems ]];
         self.lastLongPressPoint = currentPoint;
+    }
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        self.selectedItems = @[];
     }
 }
 
