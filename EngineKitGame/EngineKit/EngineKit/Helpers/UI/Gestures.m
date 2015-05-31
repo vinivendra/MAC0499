@@ -77,15 +77,11 @@
     if (sender.state == UIGestureRecognizerStateRecognized) {
         CGPoint location = [sender locationInView:self.sceneView];
         NSArray *hits = [self.sceneView hitTest:location options:nil];
-        NSMutableArray *validHits = [NSMutableArray new];
-        NSMutableArray *items = [NSMutableArray new];
-        for (SCNHitTestResult *hit in hits) {
-            [validHits push:hit];
-            [items push:hit.node.item];
-        }
+        self.selectedItems = [hits valueForKeyPath:@"node.item"];
         [[JavaScript shared]
-                .tapCallback callWithArguments:@[ items, validHits ]];
+                .tapCallback callWithArguments:@[ self.selectedItems, hits ]];
     }
+    self.selectedItems = @[];
 }
 
 - (void)handleSwipe:(UISwipeGestureRecognizer *)sender {
@@ -93,16 +89,13 @@
     if (sender.state == UIGestureRecognizerStateRecognized) {
         CGPoint location = [sender locationInView:self.sceneView];
         NSArray *swipes = [self.sceneView hitTest:location options:nil];
-        NSMutableArray *hits = [NSMutableArray new];
-        NSMutableArray *items = [NSMutableArray new];
-        for (SCNHitTestResult *swipe in swipes) {
-            [hits push:swipe];
-            [items push:swipe.node.item];
-        }
+        self.selectedItems = [swipes valueForKeyPath:@"node.item"];
         [[JavaScript shared]
                 .swipeCallback
-            callWithArguments:@[ @(sender.direction), items, hits ]];
+            callWithArguments:
+                @[ @(sender.direction), self.selectedItems, swipes ]];
     }
+    self.selectedItems = @[];
 }
 
 - (void)handlePan:(UIPanGestureRecognizer *)sender {
@@ -112,10 +105,7 @@
 
         CGPoint location = [sender locationInView:self.sceneView];
         NSArray *hits = [self.sceneView hitTest:location options:nil];
-        NSMutableArray *items = [NSMutableArray new];
-        for (SCNHitTestResult *hit in hits)
-            [items push:hit.node.item];
-        self.selectedItems = items;
+        self.selectedItems = [hits valueForKeyPath:@"node.item"];
     }
     if (sender.state == UIGestureRecognizerStateChanged) {
         CGPoint translation = [sender translationInView:self.sceneView];
@@ -137,10 +127,7 @@
 
         CGPoint location = [sender locationInView:self.sceneView];
         NSArray *hits = [self.sceneView hitTest:location options:nil];
-        NSMutableArray *items = [NSMutableArray new];
-        for (SCNHitTestResult *hit in hits)
-            [items push:hit.node.item];
-        self.selectedItems = items;
+        self.selectedItems = [hits valueForKeyPath:@"node.item"];
     }
     if (sender.state == UIGestureRecognizerStateChanged) {
         CGFloat scale = sender.scale;
@@ -161,10 +148,7 @@
 
         CGPoint location = [sender locationInView:self.sceneView];
         NSArray *hits = [self.sceneView hitTest:location options:nil];
-        NSMutableArray *items = [NSMutableArray new];
-        for (SCNHitTestResult *hit in hits)
-            [items push:hit.node.item];
-        self.selectedItems = items;
+        self.selectedItems = [hits valueForKeyPath:@"node.item"];
     }
     if (sender.state == UIGestureRecognizerStateChanged) {
         CGFloat angle = sender.rotation;
@@ -187,10 +171,7 @@
 
         CGPoint location = [sender locationInView:self.sceneView];
         NSArray *hits = [self.sceneView hitTest:location options:nil];
-        NSMutableArray *items = [NSMutableArray new];
-        for (SCNHitTestResult *hit in hits)
-            [items push:hit.node.item];
-        self.selectedItems = items;
+        self.selectedItems = [hits valueForKeyPath:@"node.item"];
     }
     if (sender.state == UIGestureRecognizerStateChanged) {
         CGPoint location = [sender locationInView:self.sceneView];
