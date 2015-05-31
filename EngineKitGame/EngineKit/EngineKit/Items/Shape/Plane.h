@@ -3,15 +3,14 @@
 #import "Shape.h"
 
 
-@class Plane;
-
-
 @protocol PlaneExport <JSExport>
 - (instancetype)initAndAddToScene;
 - (instancetype)create;
 + (instancetype) template;
 - (void)addItem:(Item *)newItem;
 - (void)rotate:(id)rotation;
+@property (nonatomic, weak, readonly) Item *parent;
+@property (nonatomic, strong) NSString *name;
 //
 - (void)destroy;
 @property (nonatomic, strong) id position;

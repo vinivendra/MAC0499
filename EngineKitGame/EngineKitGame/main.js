@@ -29,9 +29,11 @@ function load() {
 
     var instance1 = earth.create();
     instance1.position = [-1.3, 0, 0];
+    instance1.name = "left";
 
     var instance2 = earth.create();
     instance2.position = [ 1.3, 0, 0];
+    instance2.name = "right";
 
 //    btn = UIButton.create();
 //    btn.position = [300, 200];
@@ -76,6 +78,7 @@ function swipe(direction, items, swipes) {
 
 function pan(translation, items) {
     var instance = items[0];
+
     var resized = translation.times(0.01);
     var newPosition = resized.translate(instance.position);
     instance.position = newPosition;

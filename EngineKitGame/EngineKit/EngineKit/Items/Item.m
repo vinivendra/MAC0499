@@ -62,6 +62,7 @@ static NSUInteger globalID = 0;
     self.node = [SCNNode node];
     self.node.item = self;
     self.ID = [Item newID];
+    self.name = @"";
     _children = [NSMutableArray new];
 }
 

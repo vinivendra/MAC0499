@@ -111,4 +111,8 @@
  The item's parent item, equivalent to a node's parent node.
  */
 @property (nonatomic, weak, readonly) Item *parent;
+/*!
+ A string to be used at will in order to easily reference `Item` objects.
+ */
+@property (nonatomic, strong) NSString *name;
 @end
