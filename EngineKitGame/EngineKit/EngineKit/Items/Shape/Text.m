@@ -10,6 +10,13 @@
 }
 
 - (instancetype)init {
+    if (self = [super init]) {
+        self.text = [SCNText new];
+    }
+    return self;
+}
+
+- (instancetype)initAndAddToScene {
     if (self = [super initAndAddToScene]) {
         self.text = [SCNText new];
     }

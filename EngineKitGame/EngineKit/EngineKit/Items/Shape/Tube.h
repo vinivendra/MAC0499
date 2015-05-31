@@ -7,7 +7,7 @@
 
 
 @protocol TubeExport <JSExport>
-- (instancetype)init;
+- (instancetype)initAndAddToScene;
 - (instancetype)create;
 + (instancetype) template;
 - (void)addItem:(Item *)newItem;

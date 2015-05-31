@@ -10,6 +10,13 @@
 }
 
 - (instancetype)init {
+    if (self = [super init]) {
+        self.plane = [SCNPlane new];
+    }
+    return self;
+}
+
+- (instancetype)initAndAddToScene {
     if (self = [super initAndAddToScene]) {
         self.plane = [SCNPlane new];
     }

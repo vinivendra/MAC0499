@@ -10,6 +10,13 @@
 }
 
 - (instancetype)init {
+    if (self = [super init]) {
+        self.box = [SCNBox new];
+    }
+    return self;
+}
+
+- (instancetype)initAndAddToScene {
     if (self = [super initAndAddToScene]) {
         self.box = [SCNBox new];
     }

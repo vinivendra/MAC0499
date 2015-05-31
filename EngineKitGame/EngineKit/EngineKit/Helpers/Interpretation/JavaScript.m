@@ -161,6 +161,8 @@ static NSString *_defaultFilename = @"main.js";
 
     self.context[@"physics"] = [Physics new];
 
+    self.context[@"color"] = [UIColor class];
+
     self.context[@"UIButton"] = [UIButton class];
     self.context[@"UISlider"] = [UISlider class];
     self.context[@"UI"] = [UI shared];

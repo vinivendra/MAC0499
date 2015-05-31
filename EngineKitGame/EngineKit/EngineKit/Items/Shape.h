@@ -1,4 +1,4 @@
-
+// TODO: Add size properties to the shapes
 
 #import "Item.h"
 

@@ -10,6 +10,13 @@
 }
 
 - (instancetype)init {
+    if (self = [super init]) {
+        self.pyramid = [SCNPyramid new];
+    }
+    return self;
+}
+
+- (instancetype)initAndAddToScene {
     if (self = [super initAndAddToScene]) {
         self.pyramid = [SCNPyramid new];
     }

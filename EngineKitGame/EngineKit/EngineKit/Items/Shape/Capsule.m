@@ -10,6 +10,13 @@
 }
 
 - (instancetype)init {
+    if (self = [super init]) {
+        self.capsule = [SCNCapsule new];
+    }
+    return self;
+}
+
+- (instancetype)initAndAddToScene {
     if (self = [super initAndAddToScene]) {
         self.capsule = [SCNCapsule new];
     }

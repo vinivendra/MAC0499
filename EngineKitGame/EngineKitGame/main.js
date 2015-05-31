@@ -1,35 +1,38 @@
 
 var btn;
-var moon;
-var instance;
 
 function load() {
-    
+
     var earth = sphere.template();
     earth.color = "blue";
     earth.position = [0, 0, -2];
-    earth.radius = 1.5;
+    earth.radius = 1;
 
-    instance = earth.create();
+    var moon = earth.create();
+    moon.color = "dark gray";
+    moon.radius = 0.5;
+    moon.position = [0, 2, 0];
 
-    moon = earth.create();
-    moon.color = "darkGray";
-    moon.scale = 0.7;
-    moon.position = [0, 3, 0];
+    var satelite = new box();
+    satelite.color = "light gray";
+    satelite.scale = 0.2;
+    satelite.position = [0.7, 0, 0];
 
-    instance.addItem(moon);
+    var spaaace = new box();
+    spaaace.color = [0.6, 0.6, 1];
+    spaaace.scale = 0.3;
+    spaaace.position = [0, 1, 0];
 
-    var tubo = new tube();
-    tubo.radius = 1;
-    tubo.thickness = 1.9;
-    tubo.position = "[0, -3, -2]";
-    tubo.rotation = ["[0.2, 0.3, 0.4]", 1];
-    tubo.color = "red";
+    earth.addItem(moon);
+    moon.addItem(satelite);
+    satelite.addItem(spaaace);
 
-    var bola = new sphere();
-    bola.radius = 3;
-    bola.color = "green";
-    bola.position = [0, -0.5, 0];
+    var instance1 = earth.create();
+    instance1.position = [-1.3, 0, 0];
+
+    var instance2 = earth.create();
+    instance2.position = [ 1.3, 0, 0];
+
 //    btn = UIButton.create();
 //    btn.position = [300, 200];
 //    btn.size = [100, 100];
@@ -42,6 +45,10 @@ function load() {
 //    sli.size = [200, 50];
 //    sli.maximumValue = 50;
 //    sli.minimumValue = -10;
+}
+
+function update() {
+
 }
 
 function tap(items, hits) {

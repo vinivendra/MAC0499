@@ -7,6 +7,10 @@
 
 @implementation UIColor (Extension)
 
++ (instancetype)color:(id)object {
+    return [Color colorWithObject:object];
+}
+
 + (Color *)colorWithObject:(id)object {
     Color *result;
 

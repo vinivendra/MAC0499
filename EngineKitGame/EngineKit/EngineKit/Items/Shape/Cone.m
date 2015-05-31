@@ -10,11 +10,19 @@
 }
 
 - (instancetype)init {
+    if (self = [super init]) {
+        self.cone = [SCNCone new];
+    }
+    return self;
+}
+
+- (instancetype)initAndAddToScene {
     if (self = [super initAndAddToScene]) {
         self.cone = [SCNCone new];
     }
     return self;
 }
+
 
 - (instancetype)initWithTopRadius:(CGFloat)topRadius
                      bottomRadius:(CGFloat)bottomRadius
