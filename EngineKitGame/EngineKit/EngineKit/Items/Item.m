@@ -43,14 +43,26 @@ static NSUInteger globalID = 0;
     return newItem;
 }
 
-- (instancetype)init {
+- (instancetype)initAndAddToScene {
     if (self = [super init]) {
-        self.node = [SCNNode node];
-        self.node.item = self;
-        self.ID = [Item newID];
-        _children = [NSMutableArray new];
+        [self commonInit];
+        [[SCNScene shared] addItem:self];
     }
     return self;
+}
+
+- (instancetype)init {
+    if (self = [super init]) {
+        [self commonInit];
+    }
+    return self;
+}
+
+- (void)commonInit {
+    self.node = [SCNNode node];
+    self.node.item = self;
+    self.ID = [Item newID];
+    _children = [NSMutableArray new];
 }
 
 - (NSString *)description {

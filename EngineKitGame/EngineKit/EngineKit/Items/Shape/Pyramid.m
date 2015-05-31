@@ -6,11 +6,11 @@
 @implementation Pyramid
 
 + (instancetype)pyramid {
-    return [self create];
+    return [self new];
 }
 
 - (instancetype)init {
-    if (self = [super init]) {
+    if (self = [super initAndAddToScene]) {
         self.pyramid = [SCNPyramid new];
     }
     return self;
@@ -19,7 +19,7 @@
 - (instancetype)initWithWidth:(CGFloat)width
                        height:(CGFloat)height
                        length:(CGFloat)length {
-    if (self = [super init]) {
+    if (self = [super initAndAddToScene]) {
         self.pyramid =
             [SCNPyramid pyramidWithWidth:width height:height length:length];
     }

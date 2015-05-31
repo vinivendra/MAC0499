@@ -8,11 +8,11 @@
 @interface Item : NSObject
 
 /*!
- Used as a constructor for JavaScript. Creates an empty Item, with an empty
- node, and adds the node to the scene.
- @return An empty Item.
+ Initializes the `Item` and adds it to the scene. Meant to be used by any
+ subclasses' initializers that are exported to JavaScript.
+ @return An initialized `Item`.
  */
-+ (instancetype)create;
+- (instancetype)initAndAddToScene;
 /*!
  Used to create instances of templates, which are added to the scene.
  @return A deep copy of the item, which is basically an instance of the

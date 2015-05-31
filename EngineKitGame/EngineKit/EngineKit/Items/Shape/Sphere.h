@@ -4,7 +4,7 @@
 
 
 @protocol SphereExport <JSExport>
-+ (instancetype)create;
+- (instancetype)init;
 - (instancetype)create;
 + (instancetype) template;
 - (void)addItem:(Item *)newItem;

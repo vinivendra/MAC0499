@@ -6,18 +6,18 @@
 @implementation Text
 
 + (instancetype)text {
-    return [self create];
+    return [self new];
 }
 
 - (instancetype)init {
-    if (self = [super init]) {
+    if (self = [super initAndAddToScene]) {
         self.text = [SCNText new];
     }
     return self;
 }
 
 - (instancetype)initWithString:(id)string depth:(CGFloat)depth {
-    if (self = [super init]) {
+    if (self = [super initAndAddToScene]) {
         self.text = [SCNText textWithString:string extrusionDepth:depth];
     }
     return self;

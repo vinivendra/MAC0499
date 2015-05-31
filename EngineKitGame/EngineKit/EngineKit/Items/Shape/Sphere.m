@@ -6,18 +6,18 @@
 @implementation Sphere
 
 + (instancetype)sphere {
-    return [self create];
+    return [self new];
 }
 
 - (instancetype)init {
-    if (self = [super init]) {
+    if (self = [super initAndAddToScene]) {
         self.sphere = [SCNSphere new];
     }
     return self;
 }
 
 - (instancetype)initWithRadius:(CGFloat)radius {
-    if (self = [super init]) {
+    if (self = [super initAndAddToScene]) {
         self.sphere = [SCNSphere sphereWithRadius:radius];
     }
     return self;

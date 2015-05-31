@@ -6,11 +6,11 @@
 @implementation Tube
 
 + (instancetype)tube {
-    return [self create];
+    return [self new];
 }
 
 - (instancetype)init {
-    if (self = [super init]) {
+    if (self = [super initAndAddToScene]) {
         self.tube = [SCNTube new];
     }
     return self;
@@ -19,7 +19,7 @@
 - (instancetype)initWithInnerRadius:(CGFloat)innerRadius
                         outerRadius:(CGFloat)outerRadius
                              height:(CGFloat)height {
-    if (self = [super init]) {
+    if (self = [super initAndAddToScene]) {
         self.tube = [SCNTube tubeWithInnerRadius:innerRadius
                                      outerRadius:outerRadius
                                           height:height];

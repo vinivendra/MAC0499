@@ -6,11 +6,11 @@
 @implementation Cone
 
 + (instancetype)cone {
-    return [self create];
+    return [self new];
 }
 
 - (instancetype)init {
-    if (self = [super init]) {
+    if (self = [super initAndAddToScene]) {
         self.cone = [SCNCone new];
     }
     return self;
@@ -19,7 +19,7 @@
 - (instancetype)initWithTopRadius:(CGFloat)topRadius
                      bottomRadius:(CGFloat)bottomRadius
                            height:(CGFloat)height {
-    if (self = [super init]) {
+    if (self = [super initAndAddToScene]) {
         self.cone = [SCNCone coneWithTopRadius:topRadius
                                   bottomRadius:bottomRadius
                                         height:height];

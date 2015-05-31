@@ -6,11 +6,11 @@
 @implementation Box
 
 + (instancetype)box {
-    return [self create];
+    return [self new];
 }
 
 - (instancetype)init {
-    if (self = [super init]) {
+    if (self = [super initAndAddToScene]) {
         self.box = [SCNBox new];
     }
     return self;
@@ -20,7 +20,7 @@
                        height:(CGFloat)height
                        length:(CGFloat)length
                 chamferRadius:(CGFloat)chamferRadius {
-    if (self = [super init]) {
+    if (self = [super initAndAddToScene]) {
         self.box = [SCNBox boxWithWidth:width
                                  height:height
                                  length:length

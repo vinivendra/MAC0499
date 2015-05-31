@@ -6,18 +6,18 @@
 @implementation Capsule
 
 + (instancetype)capsule {
-    return [self create];
+    return [self new];
 }
 
 - (instancetype)init {
-    if (self = [super init]) {
+    if (self = [super initAndAddToScene]) {
         self.capsule = [SCNCapsule new];
     }
     return self;
 }
 
 - (instancetype)initWithRadius:(CGFloat)radius height:(CGFloat)height {
-    if (self = [super init]) {
+    if (self = [super initAndAddToScene]) {
         self.capsule = [SCNCapsule capsuleWithCapRadius:radius height:height];
     }
     return self;

@@ -6,18 +6,18 @@
 @implementation Cylinder
 
 + (instancetype)cylinder {
-    return [self create];
+    return [self new];
 }
 
 - (instancetype)init {
-    if (self = [super init]) {
+    if (self = [super initAndAddToScene]) {
         self.cylinder = [SCNCylinder new];
     }
     return self;
 }
 
 - (instancetype)initWithRadius:(CGFloat)radius height:(CGFloat)height {
-    if (self = [super init]) {
+    if (self = [super initAndAddToScene]) {
         self.cylinder = [SCNCylinder cylinderWithRadius:radius height:height];
     }
     return self;

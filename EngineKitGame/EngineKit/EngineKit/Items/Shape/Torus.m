@@ -6,19 +6,21 @@
 @implementation Torus
 
 + (instancetype)torus {
-    return [self create];
+    return [self new];
 }
 
 - (instancetype)init {
-    if (self = [super init]) {
+    if (self = [super initAndAddToScene]) {
         self.torus = [SCNTorus new];
     }
     return self;
 }
 
-- (instancetype)initWithRingRadius:(CGFloat)ringRadius pipeRadius:(CGFloat)pipeRadius {
-    if (self = [super init]) {
-        self.torus = [SCNTorus torusWithRingRadius:ringRadius pipeRadius:pipeRadius];
+- (instancetype)initWithRingRadius:(CGFloat)ringRadius
+                        pipeRadius:(CGFloat)pipeRadius {
+    if (self = [super initAndAddToScene]) {
+        self.torus =
+            [SCNTorus torusWithRingRadius:ringRadius pipeRadius:pipeRadius];
     }
     return self;
 }
@@ -32,7 +34,7 @@
 
 - (void)copyInfoTo:(Torus *)item {
     [super copyInfoTo:item];
-    
+
     item.ringRadius = self.ringRadius;
     item.pipeRadius = self.pipeRadius;
 }

@@ -6,18 +6,18 @@
 @implementation Plane
 
 + (instancetype)plane {
-    return [self create];
+    return [self new];
 }
 
 - (instancetype)init {
-    if (self = [super init]) {
+    if (self = [super initAndAddToScene]) {
         self.plane = [SCNPlane new];
     }
     return self;
 }
 
 - (instancetype)initWithWidth:(CGFloat)width height:(CGFloat)height {
-    if (self = [super init]) {
+    if (self = [super initAndAddToScene]) {
         self.plane = [SCNPlane planeWithWidth:width height:height];
     }
     return self;

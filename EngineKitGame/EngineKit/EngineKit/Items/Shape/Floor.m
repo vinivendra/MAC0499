@@ -6,11 +6,11 @@
 @implementation Floor
 
 + (instancetype)floor {
-    return [self create];
+    return [self new];
 }
 
 - (instancetype)init {
-    if (self = [super init]) {
+    if (self = [super initAndAddToScene]) {
         self.floor = [SCNFloor floor];
     }
     return self;
