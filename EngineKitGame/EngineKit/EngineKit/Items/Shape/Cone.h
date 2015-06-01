@@ -11,6 +11,7 @@
 - (void)rotate:(id)rotation;
 @property (nonatomic, weak, readonly) Item *parent;
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) id materials;
 //
 - (void)destroy;
 @property (nonatomic, strong) id position;

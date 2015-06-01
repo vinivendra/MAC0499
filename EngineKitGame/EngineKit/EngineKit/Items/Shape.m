@@ -17,6 +17,14 @@
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Property Overriding
 
+- (void)setMaterials:(id)materials {
+    self.geometry.materials = materials;
+}
+
+- (id)materials {
+    return self.geometry.materials;
+}
+
 - (void)setColor:(id)newValue {
     Color *color = [Color colorWithObject:newValue];
 

@@ -1,6 +1,9 @@
 
 var btn;
 
+var selectedItem;
+var previousMaterials;
+
 function load() {
 
     var earth = sphere.template();
@@ -54,7 +57,15 @@ function update() {
 }
 
 function tap(items, hits) {
-    items[0].scale = items[0].scale.times(1.1);
+    if (typeof selectedItem != 'undefined') {
+        selectedItem.materials = previousMaterials;
+    }
+
+    if (typeof items[0] != 'undefined') {
+        selectedItem = items[0];
+        previousMaterials = selectedItem.materials;
+        selectedItem.color = "red";
+    }
 }
 
 function swipe(direction, items, swipes) {
