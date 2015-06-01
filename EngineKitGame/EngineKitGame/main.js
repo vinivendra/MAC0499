@@ -1,6 +1,4 @@
 
-var btn;
-
 var selectedItem;
 var previousMaterials;
 
@@ -38,22 +36,49 @@ function load() {
     instance2.position = [ 1.3, 0, 0];
     instance2.name = "right";
 
-//    btn = UIButton.create();
-//    btn.position = [300, 200];
-//    btn.size = [100, 100];
-//    btn.string = "JUMP!";
-//
-//    sli = UISlider.create();
-//    print(sli);
-//    print(UISlider);
-//    sli.position = [50, 300];
-//    sli.size = [200, 50];
-//    sli.maximumValue = 50;
-//    sli.minimumValue = -10;
+    loadSliders();
 }
 
 function update() {
 
+}
+
+var btn;
+function loadButtons() {
+    btn = UIButton.create();
+    btn.position = [300, 200];
+    btn.size = [100, 100];
+    btn.string = "JUMP!";
+}
+
+var sliderPosition;
+var sliderScale;
+function loadSliders() {
+    sliderPosition = UISlider.create();
+    sliderPosition.position = [50, 300];
+    sliderPosition.size = [200, 50];
+    sliderPosition.maximumValue = 1;
+    sliderPosition.minimumValue = -1;
+
+    sliderScale = UISlider.create();
+    sliderScale.position = [50, 350];
+    sliderScale.size = [200, 50];
+    sliderScale.maximumValue = 2;
+    sliderScale.minimumValue = 0;
+}
+
+function slider(slider) {
+    if (typeof selectedItem != 'undefined') {
+        if (slider == sliderPosition) {
+            var position = selectedItem.position;
+            var newPosition = position.setNewX(slider.value);
+            selectedItem.position = newPosition;
+        }
+        else if (slider == sliderScale) {
+            var newScale = new vector(sliderScale.value);
+            selectedItem.scale = newScale;
+        }
+    }
 }
 
 function tap(items, hits) {
@@ -116,15 +141,13 @@ function contact(left, right, contact) {
 
 }
 
-//function button(pressedButton) {
-//    if (pressedButton == btn) {
+function button(pressedButton) {
+    if (pressedButton == btn) {
+        console.log("esse botaum.");
 //        moon.velocity = [0, 5, 0];
-//    }
-//    else {
-//        console.log("outro botaum.");
-//    }
-//}
-//
-//function slider(slider) {
-//    print(slider.value);
-//}
+    }
+    else {
+        console.log("outro botaum.");
+    }
+}
+

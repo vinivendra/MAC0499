@@ -45,6 +45,9 @@
 - (Vector *)normalize;
 - (Vector *)translate:(Vector *)vector;
 - (Vector *)scale:(CGFloat)scale;
+- (Vector *)setNewX:(CGFloat)x;
+- (Vector *)setNewY:(CGFloat)y;
+- (Vector *)setNewZ:(CGFloat)z;
 @end
 
 
