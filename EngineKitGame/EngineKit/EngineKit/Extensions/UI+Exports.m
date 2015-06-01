@@ -81,3 +81,26 @@
 }
 
 @end
+
+
+@implementation UILabel (Export)
+
++ (instancetype)create {
+    UILabel *label = [UILabel new];
+
+//    label.frame = CGRectMake(100, 100, 100, 50);
+
+    [[UI shared].view addSubview:label];
+
+    return label;
+}
+
+- (void)setAlignment:(NSTextAlignment)alignment {
+    self.textAlignment = alignment;
+}
+
+- (NSTextAlignment)alignment {
+    return self.textAlignment;
+}
+
+@end

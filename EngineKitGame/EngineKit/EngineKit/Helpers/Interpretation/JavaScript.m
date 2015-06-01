@@ -165,7 +165,12 @@ static NSString *_defaultFilename = @"main.js";
 
     self.context[@"UIButton"] = [UIButton class];
     self.context[@"UISlider"] = [UISlider class];
+    self.context[@"UILabel"] = [UILabel class];
     self.context[@"UI"] = [UI shared];
+
+    self.context[@"alignmentRight"] = @(NSTextAlignmentRight);
+    self.context[@"alignmentLeft"] = @(NSTextAlignmentLeft);
+    self.context[@"alignmentCenter"] = @(NSTextAlignmentCenter);
 
     self.context[@"up"] = @(UISwipeGestureRecognizerDirectionUp);
     self.context[@"right"] = @(UISwipeGestureRecognizerDirectionRight);

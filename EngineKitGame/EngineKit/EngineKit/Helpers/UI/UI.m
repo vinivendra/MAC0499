@@ -1,4 +1,4 @@
-
+// TODO: Change setAddSlider and similars to actual normal methods.
 
 #import "UI.h"
 #import "JavaScript.h"

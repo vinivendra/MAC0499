@@ -11,7 +11,7 @@ function load() {
 
     var moon = earth.create();
     moon.color = "dark gray";
-    moon.radius = 0.5;
+    moon.radius = 0.4;
     moon.position = [0, 2, 0];
 
     var satelite = new box();
@@ -29,14 +29,15 @@ function load() {
     satelite.addItem(spaaace);
 
     var instance1 = earth.create();
-    instance1.position = [-1.3, 0, 0];
+    instance1.position = [-1, 0, 0];
     instance1.name = "left";
 
     var instance2 = earth.create();
-    instance2.position = [ 1.3, 0, 0];
+    instance2.position = [ 1, 0, 0];
     instance2.name = "right";
 
     loadSliders();
+    loadLabels();
 }
 
 function update() {
@@ -61,11 +62,67 @@ function loadSliders() {
     sliderPosition.minimumValue = -1;
 
     sliderScale = UISlider.create();
-    sliderScale.position = [50, 350];
+    sliderScale.position = [50, 400];
     sliderScale.size = [200, 50];
     sliderScale.maximumValue = 2;
     sliderScale.minimumValue = 0;
 }
+
+var labelPositionMax;
+var labelPositionMin;
+var labelScaleMax;
+var labelScaleMin;
+
+function loadLabels() {
+    labelPositionMax = UILabel.create();
+    labelPositionMin = UILabel.create();
+    labelScaleMax = UILabel.create();
+    labelScaleMin = UILabel.create();
+
+    loadSliderLabels(sliderPosition, labelPositionMax, labelPositionMin);
+    loadSliderLabels(sliderScale, labelScaleMax, labelScaleMin);
+}
+
+function loadSliderLabels(slider, labelMax, labelMin) {
+    labelMin.position = [slider.position.x, slider.position.y + 20];
+    labelMin.size = [slider.size.x / 2, 50];
+    labelMin.text = slider.maximumValue.toFixed(2);
+
+    labelMax.position = [slider.position.x + slider.size.x / 2,
+                         slider.position.y + 20];
+    labelMax.size = [slider.size.x / 2, 50];
+    labelMax.text = slider.minimumValue.toFixed(2);
+    labelMax.alignment = alignmentRight;
+}
+
+function updateSlider(slider, minValue, maxValue, value, labelMax, labelMin) {
+    print(minValue);
+    print(maxValue);
+
+    slider.minimumValue = minValue;
+    slider.maximumValue = maxValue;
+    slider.value = value;
+    labelMax.text = slider.maximumValue.toFixed(2);
+    labelMin.text = slider.minimumValue.toFixed(2);
+}
+
+function selectItem(item) {
+
+    if (typeof selectedItem != 'undefined') {
+        var positionX = selectedItem.position.x;
+        var scale = selectedItem.scale.x;
+        var minScale;
+        if (scale <= 1) minScale = 0;
+
+        updateSlider(sliderPosition,
+                     positionX - 1, positionX + 1, positionX,
+                     labelPositionMax, labelPositionMin);
+        updateSlider(sliderScale,
+                     minScale, scale + 1, scale,
+                     labelScaleMax, labelScaleMin);
+    }
+}
+
 
 function slider(slider) {
     if (typeof selectedItem != 'undefined') {
@@ -90,6 +147,7 @@ function tap(items, hits) {
         selectedItem = items[0];
         previousMaterials = selectedItem.materials;
         selectedItem.color = "red";
+        selectItem(selectItem);
     }
 }
 

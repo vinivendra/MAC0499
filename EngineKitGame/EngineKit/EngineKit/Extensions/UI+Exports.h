@@ -26,6 +26,14 @@
 @property (nonatomic) float maximumValue;
 @end
 
+@protocol UILabelExport <JSExport>
++ (instancetype)create;
+@property (nonatomic, strong) id position;
+@property (nonatomic, strong) id size;
+//
+@property(nonatomic, copy) NSString *text;
+@property (nonatomic) NSTextAlignment alignment;
+@end
 
 
 
@@ -43,6 +51,12 @@
 @interface UISlider (Export) <UISliderExport>
 + (instancetype)create;
 //
+@end
+
+@interface UILabel (Export) <UILabelExport>
++ (instancetype)create;
+//
+@property (nonatomic) NSTextAlignment alignment;
 @end
 
 
