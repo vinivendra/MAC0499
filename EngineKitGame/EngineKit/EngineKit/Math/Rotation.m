@@ -17,6 +17,10 @@
 
 @implementation Rotation
 
+//------------------------------------------------------------------------------
+#pragma mark - Initializing Rotation objects
+//------------------------------------------------------------------------------
+
 + (Rotation *)rotationWithX:(CGFloat)x
                           Y:(CGFloat)y
                           Z:(CGFloat)z
@@ -76,7 +80,7 @@
 - (instancetype)initWithString:(NSString *)string {
     NSScanner *scanner = [NSScanner scannerWithString:string];
     NSCharacterSet *numbers =
-    [NSCharacterSet characterSetWithCharactersInString:@"-0123456789."];
+        [NSCharacterSet characterSetWithCharactersInString:@"-0123456789."];
 
     NSMutableArray *array = [NSMutableArray array];
 
@@ -97,7 +101,7 @@
     }
 
     self = [self initWithArray:array];
-    
+
     return self;
 }
 
@@ -167,6 +171,37 @@
                           [self.angle toRadians]);
 }
 
+- (SCNVector4)toSCNQuaternion {
+    CGFloat halfAngle = self.angle.toRadians / 2;
+    CGFloat cosine = cos(halfAngle);
+    CGFloat sine = sin(halfAngle);
+    return SCNVector4Make(sine * self.axis.x,
+                          sine * self.axis.y,
+                          sine * self.axis.z,
+                          cosine);
+}
+
+- (Vector *)rotate:(id)vector {
+    Vector *v = [Vector vectorWithObject:vector];
+    SCNQuaternion q = self.toSCNQuaternion;
+
+    SCNQuaternion p = SCNVector4Make(q.w * v.x + q.y * v.z - q.z * v.y,
+                                     q.w * v.y - q.x * v.z + q.z * v.x,
+                                     q.w * v.z + q.x * v.y - q.y * v.x,
+                                     -q.x * v.x - q.y * v.y - q.z * v.z);
+
+    q.x *= -1;
+    q.y *= -1;
+    q.z *= -1;
+
+    SCNVector3 result
+        = SCNVector3Make(p.w * q.x + p.x * q.w + p.y * q.z - p.z * q.y,
+                         p.w * q.y - p.x * q.z + p.y * q.w + p.z * q.x,
+                         p.w * q.z + p.x * q.y - p.y * q.x + p.z * q.w);
+
+    return [Vector vectorWithSCNVector3:result];
+}
+
 - (SCNMatrix4)toSCNMatrix {
     return SCNMatrix4MakeRotation(self.a, self.x, self.y, self.z);
 }
@@ -175,8 +210,17 @@
     return SCNMatrix4Rotate(matrix, self.a, self.x, self.y, self.z);
 }
 
-////////////////////////////////////////////////////////////////////////////////
-#pragma mark - Property Overriding
+//------------------------------------------------------------------------------
+#pragma mark - Overriding
+//------------------------------------------------------------------------------
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"(x = %lf, y = %lf, z = %lf | a = %lf)",
+                                      self.axis.x,
+                                      self.axis.y,
+                                      self.axis.z,
+                                      self.angle.toRadians];
+}
 
 - (CGFloat)x {
     return self.axis.x;

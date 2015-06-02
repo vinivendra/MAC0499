@@ -10,6 +10,8 @@
 @protocol RotationExport <JSExport>
 - (instancetype)initWithObject:(id)object;
 
+- (Vector *)rotate:(id)vector;
+
 - (CGFloat)x;
 - (CGFloat)y;
 - (CGFloat)z;
@@ -23,6 +25,10 @@
  Represents a rotation by a determined angle around a determined axis.
  */
 @interface Rotation : NSObject <RotationExport>
+///-----------------------------------------------------------------------------
+/// @name Creating Rotation objects
+///-----------------------------------------------------------------------------
+#pragma mark - Creating Rotation objects
 /*!
  Creates a `Rotation` whith the four given components, respectively.
  @param x The value to assign to the `Rotation`'s `Axis`'s `x` component.
@@ -180,6 +186,11 @@
  */
 - (instancetype)initWithObject:(id)object;
 
+///-----------------------------------------------------------------------------
+/// @name Operations with Rotations
+///-----------------------------------------------------------------------------
+#pragma mark - Operations with Rotations
+
 /*!
  The receiver applies the rotation it represents to the receiving SCNMatrix4,
  and then returns the result.
@@ -188,7 +199,20 @@
  original matrix.
  */
 - (SCNMatrix4)rotateMatrix:(SCNMatrix4)matrix;
+/*!
+ Creates a new `Vector` from the given `object` by calling `vectorWithObject:`.
+ That `Vector` is then rotated by the rotation that the receiver represents.
 
+ @param object An object, used to initialize a new `Vector` using the
+ `vectorWithObject:` method. The resulting `Vector` is then rotated.
+ @return A new intance of a `Vector` object.
+ */
+- (Vector *)rotate:(id)vector;
+
+///-----------------------------------------------------------------------------
+/// @name Getting the Rotation's information
+///-----------------------------------------------------------------------------
+#pragma mark - Getting the Rotation's information
 /*!
  Returns a representation of the Rotation as an SCNVector4. The Rotation's Axis
  will be represented in the first three components (x y z), while the angle will

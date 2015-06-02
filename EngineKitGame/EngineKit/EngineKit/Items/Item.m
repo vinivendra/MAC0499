@@ -118,13 +118,26 @@ static NSUInteger globalID = 0;
 - (void)rotate:(id)rotation {
     Rotation *rotationObject = [Rotation rotationWithObject:rotation];
     Vector *position = self.position;
-    
+
     SCNMatrix4 result = [position.opposite translateMatrix:self.node.transform];
     result = [rotationObject rotateMatrix:result];
     result = [position translateMatrix:result];
 
     self.node.transform = result;
 }
+
+- (void)rotate:(id)rotation around:(id)anchor {
+    Rotation *rotationObject = [Rotation rotationWithObject:rotation];
+    Vector *translation = [Vector vectorWithObject:anchor];
+
+    SCNMatrix4 result =
+        [translation.opposite translateMatrix:self.node.transform];
+    result = [rotationObject rotateMatrix:result];
+    result = [translation translateMatrix:result];
+
+    self.node.transform = result;
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Property Overriding

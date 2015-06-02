@@ -7,6 +7,8 @@
 #import "Position.h"
 #import "Rotation.h"
 
+#import "Camera.h"
+
 #import "Box.h"
 #import "Capsule.h"
 #import "Cone.h"
@@ -138,6 +140,7 @@ static NSString *_defaultFilename = @"main.js";
     };
 
     self.context[@"pi"] = @(M_PI);
+    self.context[@"origin"] = [Vector origin];
 
     [self.context evaluateScript:@"var callback;"];
 
@@ -146,6 +149,8 @@ static NSString *_defaultFilename = @"main.js";
     self.context[@"axis"] = [Axis class];
     self.context[@"rotation"] = [Rotation class];
     self.context[@"angle"] = [Angle class];
+
+    self.context[@"camera"] = [Camera shared];
 
     self.context[@"sphere"] = [Sphere class];
     self.context[@"box"] = [Box class];

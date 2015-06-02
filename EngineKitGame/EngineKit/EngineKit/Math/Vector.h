@@ -282,12 +282,6 @@
  */
 + (Vector *)vectorWithObject:(id)object;
 
-
-///-----------------------------------------------------------------------------
-/// @name Initializing Vector objects
-///-----------------------------------------------------------------------------
-#pragma mark - Initializing Vector objects
-
 /*!
  Initializes an "empty" `Vector` with `(0 0 0)`.
  @return An initialized `Vector` object.

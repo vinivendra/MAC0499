@@ -142,11 +142,6 @@ unsigned long mutationsCounter;
         return [[Vector alloc] initWithObject:object];
 }
 
-
-//------------------------------------------------------------------------------
-#pragma mark - Initializing Vector objects
-//------------------------------------------------------------------------------
-
 - (instancetype)init {
     self = [self initWithX:0 Y:0 Z:0];
     return self;
@@ -376,7 +371,7 @@ unsigned long mutationsCounter;
 }
 
 //------------------------------------------------------------------------------
-#pragma mark - Overrides
+#pragma mark - Overriding
 //------------------------------------------------------------------------------
 
 - (NSString *)description {
