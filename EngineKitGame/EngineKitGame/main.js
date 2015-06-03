@@ -41,16 +41,14 @@ function update() {
 
 }
 
-function tap(items, hits) {
-    if (typeof items[0] != 'undefined') {
-        if (selectedItem != items[0]) {
-            if (typeof selectedItem != 'undefined') {
-                selectedItem.materials = previousMaterials;
-            }
-            selectedItem = items[0];
-            previousMaterials = selectedItem.materials;
-            selectedItem.color = "red";
+function tap(items, hits, numberOfTouches) {
+    if (typeof items[0] != 'undefined' && selectedItem != items[0]) {
+        if (typeof selectedItem != 'undefined') {
+            selectedItem.materials = previousMaterials;
         }
+        selectedItem = items[0];
+        previousMaterials = selectedItem.materials;
+        selectedItem.color = "red";
     }
     else {
         selectedItem.materials = previousMaterials;
@@ -58,7 +56,7 @@ function tap(items, hits) {
     }
 }
 
-function swipe(direction, items, swipes) {
+function swipe(direction, items, swipes, numberOfTouches) {
     var item = items[0];
 
     if (typeof item != 'undefined') {
@@ -79,28 +77,44 @@ function swipe(direction, items, swipes) {
     }
 }
 
-function pan(translation, items) {
+function pan(translation, items, numberOfTouches) {
 
-    if (typeof selectedItem != 'undefined') {
-        var resized = translation.times(0.01);
-        var newPosition = resized.translate(selectedItem.position);
-        selectedItem.position = newPosition;
+    if (numberOfTouches == 1) {
+        if (typeof selectedItem != 'undefined') {
+            var resized = translation.times(0.01);
+            var rot = camera.rotation;
+
+            var xAxis = rot.rotate([1, 0, 0]);
+            var yAxis = rot.rotate([0, 1, 0]);
+            var translation = xAxis.times(resized.x).plus(yAxis.times(resized.y));
+
+            selectedItem.position = selectedItem.position.plus(translation);
+        }
+        else {
+            var resized = translation.times(0.02);
+            var rot = camera.rotation;
+
+            var xAxis = rot.rotate([1, 0, 0]);
+            var yAxis = rot.rotate([0, 1, 0]);
+            var axis = xAxis.times(resized.y).plus(yAxis.times(-resized.x));
+
+            rot = new rotation([axis, resized.normSquared()]);
+            camera.rotateAround(rot, [0, 0, 0]);
+        }
     }
     else {
         var resized = translation.times(0.01);
         var rot = camera.rotation;
 
         var xAxis = rot.rotate([1, 0, 0]);
-        var rotX = new rotation([xAxis, resized.y]);
-        camera.rotateAround(rotX, [0, 0, 0]);
-
         var yAxis = rot.rotate([0, 1, 0]);
-        var rotY = new rotation([yAxis, -resized.x]);
-        camera.rotateAround(rotY, [0, 0, 0]);
+        var translation = xAxis.times(-resized.x).plus(yAxis.times(-resized.y));
+
+        camera.position = camera.position.plus(translation);
     }
 }
 
-function pinch(scale, items) {
+function pinch(scale, items, numberOfTouches) {
     var instance = items[0];
 
     if (typeof instance != 'undefined') {
@@ -111,7 +125,7 @@ function pinch(scale, items) {
     }
 }
 
-function rotate(angle, items) {
+function rotate(angle, items, numberOfTouches) {
 
     if (typeof selectedItem != 'undefined') {
         selectedItem.rotate({"0":0, "1":0, "2":1, "a":angle});
@@ -124,7 +138,7 @@ function rotate(angle, items) {
     }
 }
 
-function longPress(translation, items) {
+function longPress(translation, items, numberOfTouches) {
     var instance = items[0];
 
     if (typeof instance != 'undefined') {

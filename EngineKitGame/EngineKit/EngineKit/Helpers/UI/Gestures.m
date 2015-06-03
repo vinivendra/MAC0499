@@ -79,7 +79,9 @@
         NSArray *hits = [self.sceneView hitTest:location options:nil];
         self.selectedItems = [hits valueForKeyPath:@"node.item"];
         [[JavaScript shared]
-                .tapCallback callWithArguments:@[ self.selectedItems, hits ]];
+                .tapCallback
+            callWithArguments:
+                @[ self.selectedItems, hits, @(sender.numberOfTouches) ]];
     }
     self.selectedItems = @[];
 }
@@ -91,9 +93,12 @@
         NSArray *swipes = [self.sceneView hitTest:location options:nil];
         self.selectedItems = [swipes valueForKeyPath:@"node.item"];
         [[JavaScript shared]
-                .swipeCallback
-            callWithArguments:
-                @[ @(sender.direction), self.selectedItems, swipes ]];
+                .swipeCallback callWithArguments:@[
+            @(sender.direction),
+            self.selectedItems,
+            swipes,
+            @(sender.numberOfTouches)
+        ]];
     }
     self.selectedItems = @[];
 }
@@ -112,8 +117,11 @@
         Vector *currentPoint = [[Vector alloc] initWithCGPoint:translation];
         Vector *relativeTranslation = [currentPoint minus:self.lastPanPoint];
         [[JavaScript shared]
-                .panCallback
-            callWithArguments:@[ relativeTranslation, self.selectedItems ]];
+                .panCallback callWithArguments:@[
+            relativeTranslation,
+            self.selectedItems,
+            @(sender.numberOfTouches)
+        ]];
         self.lastPanPoint = currentPoint;
     }
     if (sender.state == UIGestureRecognizerStateEnded) {
@@ -133,8 +141,11 @@
         CGFloat scale = sender.scale;
         CGFloat relativeScale = scale / self.lastPinchValue;
         [[JavaScript shared]
-                .pinchCallback
-            callWithArguments:@[ @(relativeScale), self.selectedItems ]];
+                .pinchCallback callWithArguments:@[
+            @(relativeScale),
+            self.selectedItems,
+            @(sender.numberOfTouches)
+        ]];
         self.lastPinchValue = scale;
     }
     if (sender.state == UIGestureRecognizerStateEnded) {
@@ -154,8 +165,11 @@
         CGFloat angle = sender.rotation;
         CGFloat relativeAngle = self.lastRotationValue - angle;
         [[JavaScript shared]
-                .rotationCallback
-            callWithArguments:@[ @(relativeAngle), self.selectedItems ]];
+                .rotationCallback callWithArguments:@[
+            @(relativeAngle),
+            self.selectedItems,
+            @(sender.numberOfTouches)
+        ]];
         self.lastRotationValue = angle;
     }
     if (sender.state == UIGestureRecognizerStateEnded) {
@@ -179,8 +193,11 @@
         Vector *relativeTranslation =
             [currentPoint minus:self.lastLongPressPoint];
         [[JavaScript shared]
-                .longPressCallback
-            callWithArguments:@[ relativeTranslation, self.selectedItems ]];
+                .longPressCallback callWithArguments:@[
+            relativeTranslation,
+            self.selectedItems,
+            @(sender.numberOfTouches)
+        ]];
         self.lastLongPressPoint = currentPoint;
     }
     if (sender.state == UIGestureRecognizerStateEnded) {
