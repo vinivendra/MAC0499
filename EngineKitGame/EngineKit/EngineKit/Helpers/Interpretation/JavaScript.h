@@ -3,6 +3,8 @@
 #import <Foundation/Foundation.h>
 #import <JavaScriptCore/JavaScriptCore.h>
 
+#import "Gestures.h"
+
 
 /*!
  A JavaScript manager class, used to handle the interaction between the
@@ -70,58 +72,22 @@
  JSValue returned will be undefined.
  */
 - (JSValue *)sliderCallback;
+#warning finish the function names in this documentation, add the argument types for each function.
 /*!
- Returns the current callback function for handling taps in javascript. It
- should be a function called "tap" or a variable, with the same name, that
- contains the function to be called.
+ Calls the calback function for handling the given `gesture` in javascript.
+
+ The function name is built based on the name of the gesture. Some gestures have
+ longer durations (i.e. pans, that can last several seconds, as opposed to taps,
+ which only last an instant). In those cases, three funtions may be created by
+ concatenating the name of the gesture with its state.
+
+ - tap(items, hits, numberOfTouches)
+ - swipe(direction, items, swipes, numberOfTouches)
+
  @return An JSValue, hopefully containing the callback function to be called (if
  the JavaScript code is correct); if there is no such function or variable, the
  JSValue returned will be undefined.
  */
-- (JSValue *)tapCallback;
-/*!
- Returns the current callback function for handling swipes in javascript. It
- should be a function called "swipe" or a variable, with the same name, that
- contains the function to be called.
- @return An JSValue, hopefully containing the callback function to be called (if
- the JavaScript code is correct); if there is no such function or variable, the
- JSValue returned will be undefined.
- */
-- (JSValue *)swipeCallback;
-/*!
- Returns the current callback function for handling pans in javascript. It
- should be a function called "pan" or a variable, with the same name, that
- contains the function to be called.
- @return An JSValue, hopefully containing the callback function to be called (if
- the JavaScript code is correct); if there is no such function or variable, the
- JSValue returned will be undefined.
- */
-- (JSValue *)panCallback;
-/*!
- Returns the current callback function for handling pinches in javascript. It
- should be a function called "pinches" or a variable, with the same name, that
- contains the function to be called.
- @return An JSValue, hopefully containing the callback function to be called (if
- the JavaScript code is correct); if there is no such function or variable, the
- JSValue returned will be undefined.
- */
-- (JSValue *)pinchCallback;
-/*!
- Returns the current callback function for handling rotations in javascript. It
- should be a function called "rotation" or a variable, with the same name, that
- contains the function to be called.
- @return An JSValue, hopefully containing the callback function to be called (if
- the JavaScript code is correct); if there is no such function or variable, the
- JSValue returned will be undefined.
- */
-- (JSValue *)rotationCallback;
-/*!
- Returns the current callback function for handling long presses in javascript.
- It should be a function called "longPress" or a variable, with the same name,
- that contains the function to be called.
- @return An JSValue, hopefully containing the callback function to be called (if
- the JavaScript code is correct); if there is no such function or variable, the
- JSValue returned will be undefined.
- */
-- (JSValue *)longPressCallback;
+- (void)callGestureCallbackForGesture:(GestureRecognizers)gesture
+                                state:(UIGestureRecognizerState)state;
 @end

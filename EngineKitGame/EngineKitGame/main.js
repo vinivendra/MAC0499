@@ -77,38 +77,43 @@ function swipe(direction, items, swipes, numberOfTouches) {
     }
 }
 
+var cameraX;
+var cameraY;
+var cameraZ;
+
+var x = [1, 0, 0];
+var y = [0, 1, 0];
+var z = [0, 0, 1];
+
 function pan(translation, items, numberOfTouches) {
 
     if (numberOfTouches == 1) {
         if (typeof selectedItem != 'undefined') {
             var resized = translation.times(0.01);
-            var rot = camera.rotation;
 
-            var xAxis = rot.rotate([1, 0, 0]);
-            var yAxis = rot.rotate([0, 1, 0]);
-            var translation = xAxis.times(resized.x).plus(yAxis.times(resized.y));
+            var translation = cameraX.times(resized.x)
+                        .plus(cameraY.times(resized.y));
 
             selectedItem.position = selectedItem.position.plus(translation);
         }
         else {
+            cameraX = camera.rotation.rotate(x);
+            cameraY = camera.rotation.rotate(y);
+
             var resized = translation.times(0.02);
-            var rot = camera.rotation;
 
-            var xAxis = rot.rotate([1, 0, 0]);
-            var yAxis = rot.rotate([0, 1, 0]);
-            var axis = xAxis.times(resized.y).plus(yAxis.times(-resized.x));
+            var axis = cameraX.times(resized.y)
+                 .plus(cameraY.times(-resized.x));
 
-            rot = new rotation([axis, resized.normSquared()]);
+            var rot = new rotation([axis, resized.normSquared()]);
             camera.rotateAround(rot, [0, 0, 0]);
         }
     }
     else {
         var resized = translation.times(0.01);
-        var rot = camera.rotation;
 
-        var xAxis = rot.rotate([1, 0, 0]);
-        var yAxis = rot.rotate([0, 1, 0]);
-        var translation = xAxis.times(-resized.x).plus(yAxis.times(-resized.y));
+        var translation = cameraX.times(-resized.x)
+                    .plus(cameraY.times(-resized.y));
 
         camera.position = camera.position.plus(translation);
     }
@@ -131,9 +136,8 @@ function rotate(angle, items, numberOfTouches) {
         selectedItem.rotate({"0":0, "1":0, "2":1, "a":angle});
     }
     else {
-        var rot = camera.rotation;
-        var zAxis = rot.rotate([0, 0, 1]);
-        var rotZ = new rotation([zAxis, -angle]);
+        cameraZ = camera.rotation.rotate(z);
+        var rotZ = new rotation([cameraZ, -angle]);
         camera.rotateAround(rotZ, [0, 0, 0]);
     }
 }
