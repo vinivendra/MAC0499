@@ -41,7 +41,7 @@ function update() {
 
 }
 
-function tap(items, hits, numberOfTouches) {
+function tap(items, numberOfTouches, hits) {
     if (typeof items[0] != 'undefined' && selectedItem != items[0]) {
         if (typeof selectedItem != 'undefined') {
             selectedItem.materials = previousMaterials;
@@ -56,7 +56,7 @@ function tap(items, hits, numberOfTouches) {
     }
 }
 
-function swipe(direction, items, swipes, numberOfTouches) {
+function swipe(direction, items, numberOfTouches, hits) {
     var item = items[0];
 
     if (typeof item != 'undefined') {
@@ -126,7 +126,7 @@ function pinch(scale, items, numberOfTouches) {
         instance.scale = instance.scale.times(scale);
     }
     else {
-        
+
     }
 }
 
@@ -143,6 +143,7 @@ function rotate(angle, items, numberOfTouches) {
 }
 
 function longPress(translation, items, numberOfTouches) {
+
     var instance = items[0];
 
     if (typeof instance != 'undefined') {

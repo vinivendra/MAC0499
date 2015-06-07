@@ -58,12 +58,7 @@ static NSString *_defaultFilename = @"main.js";
 @property (nonatomic, strong) JSValue *buttonCallback;
 @property (nonatomic, strong) JSValue *sliderCallback;
 
-@property (nonatomic, strong) JSValue *tapCallback;
-@property (nonatomic, strong) JSValue *swipeCallback;
-@property (nonatomic, strong) JSValue *panCallback;
-@property (nonatomic, strong) JSValue *pinchCallback;
-@property (nonatomic, strong) JSValue *rotationCallback;
-@property (nonatomic, strong) JSValue *longPressCallback;
+@property (nonatomic, strong) NSArray *gestureCallbacks;
 @end
 
 
@@ -195,12 +190,66 @@ static NSString *_defaultFilename = @"main.js";
     self.buttonCallback = self.context[@"button"];
     self.sliderCallback = self.context[@"slider"];
 
-    self.tapCallback = self.context[@"tap"];
-    self.swipeCallback = self.context[@"swipe"];
-    self.panCallback = self.context[@"pan"];
-    self.pinchCallback = self.context[@"pinch"];
-    self.rotationCallback = self.context[@"rotate"];
-    self.longPressCallback = self.context[@"longPress"];
+    NSMutableArray *gestureCallbacks =
+        [NSMutableArray arrayWithCapacity:GestureRecognizersCount];
+
+    NSMutableArray *tapArray = [NSMutableArray arrayWithCapacity:1];
+    NSMutableArray *swipeArray = [NSMutableArray arrayWithCapacity:1];
+    NSMutableArray *panArray = [NSMutableArray arrayWithCapacity:6];
+    NSMutableArray *pinchArray = [NSMutableArray arrayWithCapacity:6];
+    NSMutableArray *rotateArray = [NSMutableArray arrayWithCapacity:6];
+    NSMutableArray *longPressArray = [NSMutableArray arrayWithCapacity:6];
+
+    int max = MAX(MAX(MAX(UIGestureRecognizerStateRecognized,
+                          UIGestureRecognizerStateEnded),
+                      UIGestureRecognizerStateBegan),
+                  UIGestureRecognizerStateBegan);
+    for (int i = 0; i < max + 1; i++) {
+        tapArray[i] = [NSNull null];
+        swipeArray[i] = [NSNull null];
+        panArray[i] = [NSNull null];
+        pinchArray[i] = [NSNull null];
+        rotateArray[i] = [NSNull null];
+        longPressArray[i] = [NSNull null];
+    }
+    for (int i = 0; i < UIGesturesCount; i++) {
+        gestureCallbacks[i] = [NSNull null];
+    }
+
+    tapArray[UIGestureRecognizerStateRecognized] = self.context[@"tap"];
+    swipeArray[UIGestureRecognizerStateRecognized] = self.context[@"swipe"];
+    panArray[UIGestureRecognizerStateBegan] = self.context[@"panBegan"];
+    panArray[UIGestureRecognizerStateChanged] = self.context[@"pan"];
+    panArray[UIGestureRecognizerStateEnded] = self.context[@"panEnded"];
+    pinchArray[UIGestureRecognizerStateBegan] = self.context[@"pinchBegan"];
+    pinchArray[UIGestureRecognizerStateChanged] = self.context[@"pinch"];
+    pinchArray[UIGestureRecognizerStateEnded] = self.context[@"pinchEnded"];
+    rotateArray[UIGestureRecognizerStateBegan] = self.context[@"rorateBegan"];
+    rotateArray[UIGestureRecognizerStateChanged]
+        = self.context[@"rotate"];
+    rotateArray[UIGestureRecognizerStateEnded] = self.context[@"rotateEnded"];
+    longPressArray[UIGestureRecognizerStateBegan]
+        = self.context[@"longPressBegan"];
+    longPressArray[UIGestureRecognizerStateChanged]
+        = self.context[@"longPress"];
+    longPressArray[UIGestureRecognizerStateEnded]
+        = self.context[@"longPressEnded"];
+
+    gestureCallbacks[TapGesture] = tapArray;
+    gestureCallbacks[SwipeGesture] = swipeArray;
+    gestureCallbacks[PanGesture] = panArray;
+    gestureCallbacks[PinchGesture] = pinchArray;
+    gestureCallbacks[RotateGesture] = rotateArray;
+    gestureCallbacks[LongPressGesture] = longPressArray;
+
+    self.gestureCallbacks = gestureCallbacks;
+}
+
+- (void)callGestureCallbackForGesture:(UIGestures)gesture
+                                state:(UIGestureRecognizerState)state
+                        withArguments:(NSArray *)arguments {
+
+    [self.gestureCallbacks[gesture][state] callWithArguments:arguments];
 }
 
 @end

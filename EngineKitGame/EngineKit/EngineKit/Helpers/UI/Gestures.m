@@ -1,4 +1,4 @@
-// TODO: export directions enum to js
+// TODO: Rotate around the center of the screen, not the center of the world.
 
 
 #import "Gestures.h"
@@ -19,6 +19,7 @@
 @property (nonatomic) CGFloat lastRotationValue;
 
 @property (nonatomic, strong) NSArray *selectedItems;
+@property (nonatomic, strong) NSArray *selectedHits;
 
 @property (nonatomic, strong) NSArray *classes;
 @property (nonatomic, strong) NSArray *selectors;
@@ -62,7 +63,7 @@
             UIGestureRecognizer *gesture = [class new];
             [gesture addTarget:self action:handler];
 
-            if (i <= SwipeUp)
+            if (i <= SwipeUpRecognizer)
                 ((UISwipeGestureRecognizer *)gesture).direction = 1 << i;
 
             [self.gesturesView addGestureRecognizer:gesture];
@@ -77,132 +78,173 @@
     if (sender.state == UIGestureRecognizerStateRecognized) {
         CGPoint location = [sender locationInView:self.sceneView];
         NSArray *hits = [self.sceneView hitTest:location options:nil];
-        self.selectedItems = [hits valueForKeyPath:@"node.item"];
+        NSArray *items = [hits valueForKeyPath:@"node.item"];
         [[JavaScript shared]
-                .tapCallback
-            callWithArguments:
-                @[ self.selectedItems, hits, @(sender.numberOfTouches) ]];
+            callGestureCallbackForGesture:TapGesture
+                                    state:UIGestureRecognizerStateRecognized
+                            withArguments:
+                                @[ items, @(sender.numberOfTouches), hits ]];
     }
-    self.selectedItems = @[];
 }
 
 - (void)handleSwipe:(UISwipeGestureRecognizer *)sender {
 
     if (sender.state == UIGestureRecognizerStateRecognized) {
         CGPoint location = [sender locationInView:self.sceneView];
-        NSArray *swipes = [self.sceneView hitTest:location options:nil];
-        self.selectedItems = [swipes valueForKeyPath:@"node.item"];
+        NSArray *hits = [self.sceneView hitTest:location options:nil];
+        NSArray *items = [hits valueForKeyPath:@"node.item"];
         [[JavaScript shared]
-                .swipeCallback callWithArguments:@[
-            @(sender.direction),
-            self.selectedItems,
-            swipes,
-            @(sender.numberOfTouches)
-        ]];
+            callGestureCallbackForGesture:SwipeGesture
+                                    state:UIGestureRecognizerStateRecognized
+                            withArguments:@[
+                                @(sender.direction),
+                                items,
+                                @(sender.numberOfTouches),
+                                hits
+                            ]];
     }
-    self.selectedItems = @[];
 }
 
 - (void)handlePan:(UIPanGestureRecognizer *)sender {
+
+    Vector *translation;
 
     if (sender.state == UIGestureRecognizerStateBegan) {
         self.lastPanPoint = [Vector origin];
 
         CGPoint location = [sender locationInView:self.sceneView];
-        NSArray *hits = [self.sceneView hitTest:location options:nil];
-        self.selectedItems = [hits valueForKeyPath:@"node.item"];
+        self.selectedHits = [self.sceneView hitTest:location options:nil];
+
+        self.selectedItems = [self.selectedHits valueForKeyPath:@"node.item"];
+
+        translation = [Vector origin];
     }
     if (sender.state == UIGestureRecognizerStateChanged) {
-        CGPoint translation = [sender translationInView:self.sceneView];
-        Vector *currentPoint = [[Vector alloc] initWithCGPoint:translation];
-        Vector *relativeTranslation = [currentPoint minus:self.lastPanPoint];
-        [[JavaScript shared]
-                .panCallback callWithArguments:@[
-            relativeTranslation,
-            self.selectedItems,
-            @(sender.numberOfTouches)
-        ]];
+        CGPoint absoluteTranslation = [sender translationInView:self.sceneView];
+        Vector *currentPoint =
+            [[Vector alloc] initWithCGPoint:absoluteTranslation];
+        translation = [currentPoint minus:self.lastPanPoint];
         self.lastPanPoint = currentPoint;
     }
     if (sender.state == UIGestureRecognizerStateEnded) {
         self.selectedItems = @[];
+        self.selectedHits = @[];
+
+        translation = [Vector origin];
     }
+
+    [[JavaScript shared]
+        callGestureCallbackForGesture:PanGesture
+                                state:UIGestureRecognizerStateChanged
+                        withArguments:@[
+                            translation,
+                            self.selectedItems,
+                            @(sender.numberOfTouches),
+                            self.selectedHits
+                        ]];
 }
 
 - (void)handlePinch:(UIPinchGestureRecognizer *)sender {
+
+    CGFloat scale = 1.0;
+
     if (sender.state == UIGestureRecognizerStateBegan) {
         self.lastPinchValue = 1.0f;
 
         CGPoint location = [sender locationInView:self.sceneView];
-        NSArray *hits = [self.sceneView hitTest:location options:nil];
-        self.selectedItems = [hits valueForKeyPath:@"node.item"];
+        self.selectedHits = [self.sceneView hitTest:location options:nil];
+        self.selectedItems = [self.selectedHits valueForKeyPath:@"node.item"];
     }
     if (sender.state == UIGestureRecognizerStateChanged) {
-        CGFloat scale = sender.scale;
-        CGFloat relativeScale = scale / self.lastPinchValue;
-        [[JavaScript shared]
-                .pinchCallback callWithArguments:@[
-            @(relativeScale),
-            self.selectedItems,
-            @(sender.numberOfTouches)
-        ]];
-        self.lastPinchValue = scale;
+        CGFloat absoluteScale = sender.scale;
+        scale = absoluteScale / self.lastPinchValue;
+        self.lastPinchValue = absoluteScale;
     }
     if (sender.state == UIGestureRecognizerStateEnded) {
         self.selectedItems = @[];
+        self.selectedHits = @[];
     }
+
+    [[JavaScript shared]
+        callGestureCallbackForGesture:PinchGesture
+                                state:UIGestureRecognizerStateChanged
+                        withArguments:@[
+                            @(scale),
+                            self.selectedItems,
+                            @(sender.numberOfTouches),
+                            self.selectedHits
+                        ]];
 }
 
 - (void)handleRotation:(UIRotationGestureRecognizer *)sender {
+
+    CGFloat angle = 0.0;
+
     if (sender.state == UIGestureRecognizerStateBegan) {
         self.lastRotationValue = 0.0f;
 
         CGPoint location = [sender locationInView:self.sceneView];
-        NSArray *hits = [self.sceneView hitTest:location options:nil];
-        self.selectedItems = [hits valueForKeyPath:@"node.item"];
+        self.selectedHits = [self.sceneView hitTest:location options:nil];
+        self.selectedItems = [self.selectedHits valueForKeyPath:@"node.item"];
     }
     if (sender.state == UIGestureRecognizerStateChanged) {
-        CGFloat angle = sender.rotation;
-        CGFloat relativeAngle = self.lastRotationValue - angle;
-        [[JavaScript shared]
-                .rotationCallback callWithArguments:@[
-            @(relativeAngle),
-            self.selectedItems,
-            @(sender.numberOfTouches)
-        ]];
-        self.lastRotationValue = angle;
+        CGFloat absoluteAngle = sender.rotation;
+        angle = self.lastRotationValue - absoluteAngle;
+        self.lastRotationValue = absoluteAngle;
     }
     if (sender.state == UIGestureRecognizerStateEnded) {
         self.selectedItems = @[];
+        self.selectedHits = @[];
     }
+
+    [[JavaScript shared]
+        callGestureCallbackForGesture:RotateGesture
+                                state:UIGestureRecognizerStateChanged
+                        withArguments:@[
+                            @(angle),
+                            self.selectedItems,
+                            @(sender.numberOfTouches),
+                            self.selectedHits
+                        ]];
 }
 
 - (void)handleLongPress:(UILongPressGestureRecognizer *)sender {
+
+    Vector *translation;
+
     if (sender.state == UIGestureRecognizerStateBegan) {
         CGPoint startingLocation = [sender locationInView:self.sceneView];
         self.lastLongPressPoint =
             [[Vector alloc] initWithCGPoint:startingLocation];
 
         CGPoint location = [sender locationInView:self.sceneView];
-        NSArray *hits = [self.sceneView hitTest:location options:nil];
-        self.selectedItems = [hits valueForKeyPath:@"node.item"];
+        self.selectedHits = [self.sceneView hitTest:location options:nil];
+        self.selectedItems = [self.selectedHits valueForKeyPath:@"node.item"];
+
+        translation = [Vector origin];
     }
     if (sender.state == UIGestureRecognizerStateChanged) {
         CGPoint location = [sender locationInView:self.sceneView];
         Vector *currentPoint = [[Vector alloc] initWithCGPoint:location];
-        Vector *relativeTranslation =
-            [currentPoint minus:self.lastLongPressPoint];
-        [[JavaScript shared]
-                .longPressCallback callWithArguments:@[
-            relativeTranslation,
-            self.selectedItems,
-            @(sender.numberOfTouches)
-        ]];
+        translation = [currentPoint minus:self.lastLongPressPoint];
         self.lastLongPressPoint = currentPoint;
     }
     if (sender.state == UIGestureRecognizerStateEnded) {
         self.selectedItems = @[];
+        self.selectedHits = @[];
+
+        translation = [Vector origin];
     }
+
+    [[JavaScript shared]
+        callGestureCallbackForGesture:LongPressGesture
+                                state:UIGestureRecognizerStateChanged
+                        withArguments:@[
+                            translation,
+                            self.selectedItems,
+                            @(sender.numberOfTouches),
+                            self.selectedHits
+                        ]];
 }
 
 

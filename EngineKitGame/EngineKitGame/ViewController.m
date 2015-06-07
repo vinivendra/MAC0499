@@ -53,15 +53,15 @@
     Gestures *gestures = [Gestures shared];
     gestures.gesturesView = self.controlView;
     gestures.sceneView = self.sceneView;
-    gestures.options[Tap] = @(YES);
-//    gestures.options[SwipeRight] = @(YES);
-//    gestures.options[SwipeLeft] = @(YES);
-//    gestures.options[SwipeDown] = @(YES);
-//    gestures.options[SwipeUp] = @(YES);
-    gestures.options[Pan] = @(YES);
-    gestures.options[Pinch] = @(YES);
-    gestures.options[Rotate] = @(YES);
-//    gestures.options[LongPress] = @(YES);
+    gestures.options[TapRecognizer] = @(YES);
+//    gestures.options[SwipeRightRecognizer] = @(YES);
+//    gestures.options[SwipeLeftRecognizer] = @(YES);
+//    gestures.options[SwipeDownRecognizer] = @(YES);
+//    gestures.options[SwipeUpRecognizer] = @(YES);
+    gestures.options[PanRecognizer] = @(YES);
+    gestures.options[PinchRecognizer] = @(YES);
+    gestures.options[RotateRecognizer] = @(YES);
+//    gestures.options[LongPressRecognizer] = @(YES);
     [gestures setupGestures];
 
 //    [[Parser shared] parseFile:@"scene.fmt"];
