@@ -10,7 +10,7 @@
  @warning A valid array may still contain only @p NSNulls.
  @return @p YES if the array is valid, @p NO otherwise.
  */
-- (BOOL)valid;
+@property (nonatomic, readonly) BOOL valid;
 /*!
  Returns an NSNumber with the value from the given @p index, using NSNumber's @p
  -numberWithObject: method. If the index goes past the array's bounds, returns

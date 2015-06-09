@@ -5,9 +5,6 @@
 #import "Item.h"
 
 
-typedef SCNScene Scene;
-
-
 @interface SCNScene (Extension)
 /*!
  The singleton instance of a scene, meant to be used by the whole application.

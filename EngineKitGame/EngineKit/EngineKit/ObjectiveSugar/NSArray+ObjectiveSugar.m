@@ -10,12 +10,13 @@
 #import "NSMutableArray+ObjectiveSugar.h"
 #import "NSString+ObjectiveSugar.h"
 
-static NSString * const OSMinusString = @"-";
+static NSString *const OSMinusString = @"-";
 
 @implementation NSArray (ObjectiveSugar)
 
 - (id)sample {
-    if (self.count == 0) return nil;
+    if (self.count == 0)
+        return nil;
 
     NSUInteger index = arc4random_uniform((u_int32_t)self.count);
     return self[index];
@@ -29,7 +30,10 @@ static NSString * const OSMinusString = @"-";
         return [self subarrayWithRange:[key rangeValue]];
 
     else
-        [NSException raise:NSInvalidArgumentException format:@"expected NSString or NSValue argument, got %@ instead", [key class]];
+        [NSException
+             raise:NSInvalidArgumentException
+            format:@"expected NSString or NSValue argument, got %@ instead",
+                   [key class]];
 
     return nil;
 }
@@ -38,10 +42,14 @@ static NSString * const OSMinusString = @"-";
     NSRange range = NSRangeFromString(string);
 
     if ([string containsString:@"..."]) {
-        range.length = isBackwardsRange(string) ? (self.count - 2) - range.length : range.length - range.location;
+        range.length = isBackwardsRange(string)
+                           ? (self.count - 2) - range.length
+                           : range.length - range.location;
 
     } else if ([string containsString:@".."]) {
-        range.length = isBackwardsRange(string) ? (self.count - 1) - range.length : range.length - range.location + 1;
+        range.length = isBackwardsRange(string)
+                           ? (self.count - 1) - range.length
+                           : range.length - range.location + 1;
     }
 
     return range;
@@ -60,15 +68,18 @@ static NSString * const OSMinusString = @"-";
 }
 
 - (void)each:(void (^)(id object))block options:(NSEnumerationOptions)options {
-    [self enumerateObjectsWithOptions:options usingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        block(obj);
-    }];
+    [self enumerateObjectsWithOptions:options
+                           usingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                               block(obj);
+                           }];
 }
 
-- (void)eachWithIndex:(void (^)(id object, NSUInteger index))block options:(NSEnumerationOptions)options {
-    [self enumerateObjectsWithOptions:options usingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        block(obj, idx);
-    }];
+- (void)eachWithIndex:(void (^)(id object, NSUInteger index))block
+              options:(NSEnumerationOptions)options {
+    [self enumerateObjectsWithOptions:options
+                           usingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                               block(obj, idx);
+                           }];
 }
 
 - (BOOL)includes:(id)object {
@@ -76,7 +87,8 @@ static NSString * const OSMinusString = @"-";
 }
 
 - (NSArray *)take:(NSUInteger)numberOfElements {
-    return [self subarrayWithRange:NSMakeRange(0, MIN(numberOfElements, [self count]))];
+    return [self
+        subarrayWithRange:NSMakeRange(0, MIN(numberOfElements, [self count]))];
 }
 
 - (NSArray *)takeWhile:(BOOL (^)(id object))block {
@@ -86,7 +98,8 @@ static NSString * const OSMinusString = @"-";
         if (block(arrayObject))
             [array addObject:arrayObject];
 
-        else break;
+        else
+            break;
     }
 
     return array;
@@ -103,15 +116,21 @@ static NSString * const OSMinusString = @"-";
 }
 
 - (NSArray *)select:(BOOL (^)(id object))block {
-    return [self filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
-        return block(evaluatedObject);
-    }]];
+    return [self
+        filteredArrayUsingPredicate:
+            [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject,
+                                                  NSDictionary *bindings) {
+                return block(evaluatedObject);
+            }]];
 }
 
 - (NSArray *)reject:(BOOL (^)(id object))block {
-    return [self filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
-        return !block(evaluatedObject);
-    }]];
+    return [self
+        filteredArrayUsingPredicate:
+            [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject,
+                                                  NSDictionary *bindings) {
+                return !block(evaluatedObject);
+            }]];
 }
 
 - (id)detect:(BOOL (^)(id object))block {
@@ -158,9 +177,11 @@ static NSString * const OSMinusString = @"-";
     return [self sortedArrayUsingSelector:@selector(compare:)];
 }
 
-- (NSArray *)sortBy:(NSString*)key; {
-    NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:key ascending:YES];
-    return [self sortedArrayUsingDescriptors:@[descriptor]];
+- (NSArray *)sortBy:(NSString *)key;
+{
+    NSSortDescriptor *descriptor =
+        [[NSSortDescriptor alloc] initWithKey:key ascending:YES];
+    return [self sortedArrayUsingDescriptors:@[ descriptor ]];
 }
 
 - (NSArray *)reverse {
@@ -172,23 +193,23 @@ static NSString * const OSMinusString = @"-";
 }
 
 - (id)reduce:(id)initial withBlock:(id (^)(id accumulator, id object))block {
-	id accumulator = initial;
+    id accumulator = initial;
 
-	for(id object in self)
+    for (id object in self)
         accumulator = accumulator ? block(accumulator, object) : object;
 
-	return accumulator;
+    return accumulator;
 }
 
-- (NSArray *)unique
-{
-  return [[NSOrderedSet orderedSetWithArray:self] array];
+- (NSArray *)unique {
+    return [[NSOrderedSet orderedSetWithArray:self] array];
 }
 
 #pragma mark - Set operations
 
 - (NSArray *)intersectionWithArray:(NSArray *)array {
-    NSPredicate *intersectPredicate = [NSPredicate predicateWithFormat:@"SELF IN %@", array];
+    NSPredicate *intersectPredicate =
+        [NSPredicate predicateWithFormat:@"SELF IN %@", array];
     return [self filteredArrayUsingPredicate:intersectPredicate];
 }
 
@@ -198,7 +219,8 @@ static NSString * const OSMinusString = @"-";
 }
 
 - (NSArray *)relativeComplement:(NSArray *)array {
-    NSPredicate *relativeComplementPredicate = [NSPredicate predicateWithFormat:@"NOT SELF IN %@", array];
+    NSPredicate *relativeComplementPredicate =
+        [NSPredicate predicateWithFormat:@"NOT SELF IN %@", array];
     return [self filteredArrayUsingPredicate:relativeComplementPredicate];
 }
 
@@ -229,4 +251,3 @@ static inline BOOL isBackwardsRange(NSString *rangeString) {
 }
 
 @end
-

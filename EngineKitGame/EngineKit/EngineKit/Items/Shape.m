@@ -26,7 +26,7 @@
 }
 
 - (void)setColor:(id)newValue {
-    Color *color = [Color colorWithObject:newValue];
+    UIColor *color = [UIColor colorWithObject:newValue];
 
     SCNMaterial *material = [SCNMaterial new];
 

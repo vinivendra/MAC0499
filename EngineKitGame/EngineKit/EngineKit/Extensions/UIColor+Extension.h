@@ -7,9 +7,6 @@
 #define LIMIT(A, B, C) (MIN(MAX(B, A), C))
 
 
-typedef UIColor Color;
-
-
 @protocol UIColorExport <JSExport>
 + (instancetype)color:(id)object;
 - (UIColor *)times:(CGFloat)scalar;
@@ -43,7 +40,7 @@ typedef UIColor Color;
   color.
   @return An initialized UIColor.
  */
-+ (Color *)colorWithObject:(id)object;
++ (UIColor *)colorWithObject:(id)object;
 /*!
   Creates a color with a given C array of floats. The array must have at least
   4
@@ -51,7 +48,7 @@ typedef UIColor Color;
   @param array The array from which to get the values for the color.
   @return An initialized UIColor instance.
  */
-+ (Color *)colorWithCArray:(CGFloat[4])array;
++ (UIColor *)colorWithCArray:(CGFloat[4])array;
 /*!
   Creates a color with a given NSArray. The array must have from 1 to 4
   NSNumbers.
@@ -69,7 +66,7 @@ typedef UIColor Color;
   @param array The array from which to get the values for the color.
   @return An initialized UIColor instance.
  */
-+ (Color *)colorWithArray:(NSArray *)array;
++ (UIColor *)colorWithArray:(NSArray *)array;
 /*!
   Creates a color based on a given name, such as "orange", "green",
   "lightGray",
@@ -78,7 +75,7 @@ typedef UIColor Color;
   @param name The name of the desired color.
   @return An initialized UIColor instance.
  */
-+ (Color *)colorWithName:(NSString *)name;
++ (UIColor *)colorWithName:(NSString *)name;
 /*!
   Multiplies the Red, Green and Blue components of the color by the given
   scalar
@@ -86,5 +83,5 @@ typedef UIColor Color;
   @param scalar The number by which to multiply the color's components.
   @return A new color corresponding to the multiplicaton result.
  */
-- (Color *)times:(CGFloat)scalar;
+- (UIColor *)times:(CGFloat)scalar;
 @end

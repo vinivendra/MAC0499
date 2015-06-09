@@ -29,19 +29,20 @@
  An easy way to access the shared SCNScene instance.
  @return The SCNScene singleton.
  */
-- (SCNScene *)scene;
+@property (nonatomic, readonly, strong) SCNScene *scene;
 /*!
  Used to set the SCNScene's Physics World's gravity property. If the object is
  an NSNumber, the gravity will be a vector pointing in the negative y direction
  with the NSNumber as its magnitude. Otherwise, the object will be used to
  instantiate a Vector, which will then be set.
- 
+
  The getter always returns a Vector version of the physics world's SCNVector3.
  */
 @property (nonatomic, strong) id gravity;
 
 /*!
- @p addContact is a property used only for its setter. It's the main way to register a Contact object, which is used to handle contacts in JavaScript code.
+ @p addContact is a property used only for its setter. It's the main way to
+ register a Contact object, which is used to handle contacts in JavaScript code.
  */
 @property (nonatomic, weak) id addContact;
 @end

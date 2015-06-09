@@ -6,11 +6,6 @@
 #import "SCNScene+Extension.h"
 
 
-@interface Physics ()
-@property (nonatomic, weak) Scene *scene;
-@end
-
-
 @implementation Physics
 
 @synthesize gravity = _gravity;
@@ -52,7 +47,7 @@
 #pragma mark - Property Overriding
 
 - (SCNScene *)scene {
-    return [Scene shared];
+    return [SCNScene shared];
 }
 
 - (void)setGravity:(id)gravity {

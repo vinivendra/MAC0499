@@ -58,7 +58,7 @@
  written as `(x, y, z, 0)`.
  @return An instance of `SCNVector4`.
  */
-- (SCNVector4)toSCNVector4;
+@property (nonatomic, readonly) SCNVector4 toSCNVector4;
 
 
 ///-----------------------------------------------------------------------------

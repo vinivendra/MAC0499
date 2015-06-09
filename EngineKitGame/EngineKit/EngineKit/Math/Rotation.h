@@ -118,14 +118,14 @@
  @return An initialized Rotation object.
  @see -initWithArray
  */
-- (instancetype)initWithSCNVector4:(SCNVector4)vector;
+- (instancetype)initWithSCNVector4:(SCNVector4)vector NS_DESIGNATED_INITIALIZER;
 /*!
  Creates a Rotation of @p angle radians around the given @p axis.
  @param axis  The Axis around which to rotate.
  @param angle The Angle by which to rotate.
  @return An initialized Rotation object.
  */
-- (instancetype)initWithAxis:(Axis *)axis angle:(Angle *)angle;
+- (instancetype)initWithAxis:(Axis *)axis angle:(Angle *)angle NS_DESIGNATED_INITIALIZER;
 /*!
  Attempts to initialize a Vector by scanning the string for numbers. Each number
  found is inserted into an array, and then the @p -initWithArray: method is
@@ -147,7 +147,7 @@
  @param array The array representing the rotation.
  @return An initialized Rotation object.
  */
-- (instancetype)initWithArray:(NSArray *)array;
+- (instancetype)initWithArray:(NSArray *)array NS_DESIGNATED_INITIALIZER;
 /*!
  Creates a Rotation based on the elements on a given NSDictionary. If there are
  elements with the key "x", "y" and "z"(case insensitive), those elements are
@@ -165,7 +165,7 @@
  @param rotation The rotation from which to copy information.
  @return An initialized Rotation object.
  */
-- (instancetype)initWithRotation:(Rotation *)rotation;
+- (instancetype)initWithRotation:(Rotation *)rotation NS_DESIGNATED_INITIALIZER;
 /*!
  Creates a Rotation based on the given object. The supported objects are:
 
@@ -220,34 +220,34 @@
  be used with SceneKit.
  @return An initialized SCNVector4.
  */
-- (SCNVector4)toSCNVector;
+@property (nonatomic, readonly) SCNVector4 toSCNVector;
 /*!
  Returns an SCNMatrix4 representing the same rotation as the receiver.
  @return An initialized SCNMatrix4.
  */
-- (SCNMatrix4)toSCNMatrix;
+@property (nonatomic, readonly) SCNMatrix4 toSCNMatrix;
 /*!
  The x component of the axis around which the rotation is being done.
  */
-- (CGFloat)x;
+@property (nonatomic, readonly) CGFloat x;
 /*!
  The y component of the axis around which the rotation is being done.
  */
-- (CGFloat)y;
+@property (nonatomic, readonly) CGFloat y;
 /*!
  The z component of the axis around which the rotation is being done.
  */
-- (CGFloat)z;
+@property (nonatomic, readonly) CGFloat z;
 /*!
  The value of the angle by which the rotation is being done, in radians.
  */
-- (CGFloat)a;
+@property (nonatomic, readonly) CGFloat a;
 /*!
  The axis around which the rotation is being done.
  */
-- (Axis *)axis;
+@property (nonatomic, readonly, strong) Axis *axis;
 /*!
  The angle by which the rotation is being done.
  */
-- (Angle *)angle;
+@property (nonatomic, readonly, strong) Angle *angle;
 @end

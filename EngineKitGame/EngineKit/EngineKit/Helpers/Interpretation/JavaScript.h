@@ -27,7 +27,7 @@
  name.
  @return An initialized JavaScript object set up to handle the given file.
  */
-- (instancetype)initWithFile:(NSString *)filename;
+- (instancetype)initWithFile:(NSString *)filename NS_DESIGNATED_INITIALIZER;
 
 /*!
  Sets up the framework for use in the Javascript code, runs the global code and
@@ -53,7 +53,7 @@
  the JavaScript code is correct); if there is no such function or variable, the
  JSValue returned will be undefined.
  */
-- (JSValue *)contactCallback;
+@property (nonatomic, readonly, strong) JSValue *contactCallback;
 /*!
  Returns the current callback function for handling button presses in
  javascript. It should be a function called "button" or a variable, with the
@@ -62,7 +62,7 @@
  the JavaScript code is correct); if there is no such function or variable, the
  JSValue returned will be undefined.
  */
-- (JSValue *)buttonCallback;
+@property (nonatomic, readonly, strong) JSValue *buttonCallback;
 /*!
  Returns the current callback function for handling slider value changes in
  javascript. It should be a function called "slider" or a variable, with the
@@ -71,7 +71,7 @@
  the JavaScript code is correct); if there is no such function or variable, the
  JSValue returned will be undefined.
  */
-- (JSValue *)sliderCallback;
+@property (nonatomic, readonly, strong) JSValue *sliderCallback;
 /*!
  Calls the calback function for handling the given `gesture` in javascript.
 

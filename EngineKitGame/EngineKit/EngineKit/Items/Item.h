@@ -37,7 +37,12 @@
  subclasses' initializers that are exported to JavaScript.
  @return An initialized `Item`.
  */
-- (instancetype)initAndAddToScene;
+- (instancetype)initAndAddToScene NS_DESIGNATED_INITIALIZER;
+/*!
+ Initializes the `Item` but does not add it to the scene.
+ @return An initialized `Item`.
+ */
+- (instancetype)init NS_DESIGNATED_INITIALIZER;
 /*!
  Used to create instances of templates, which are added to the scene.
  @return A deep copy of the item, which is basically an instance of the
@@ -67,7 +72,7 @@
  Creates a deep copy of the receiver, including in it any relevant information.
  @return A new instance of Item, representing a copy of the receiver.
  */
-- (Item *)deepCopy;
+@property (nonatomic, readonly, strong) Item *deepCopy;
 /*!
  Copies relevant information from the receiver to the given item. Used by
  deepCopy to copy the actual information over.

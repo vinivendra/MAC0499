@@ -93,7 +93,7 @@
  Creates an `SCNVector3` with the same components as the `Vector`.
  @return An instance of `SCNVector3`.
  */
-- (SCNVector3)toSCNVector3;
+@property (nonatomic, readonly) SCNVector3 toSCNVector3;
 /*!
  Creates an `SCNVector4` representing the receiver in homogeneous coordinates.
 
@@ -101,18 +101,18 @@
  written as `(x, y, z, 1)`.
  @return An instance of `SCNVector4`.
  */
-- (SCNVector4)toSCNVector4;
+@property (nonatomic, readonly) SCNVector4 toSCNVector4;
 /*!
  Creates an `NSValue` containing an `SCNVector3` with the same components as the
  `Vector`.
  @return An instance of `NSValue`.
  */
-- (NSValue *)toNSValue;
+@property (nonatomic, readonly, copy) NSValue *toNSValue;
 /*!
  Creates an NSArray containing the `Vector`'s three components as NSNumbers.
  @return An instance of `NSArray`.
  */
-- (NSArray *)toArray;
+@property (nonatomic, readonly, copy) NSArray *toArray;
 
 
 //------------------------------------------------------------------------------
@@ -124,7 +124,7 @@
  @return A boolean value indicating wether or not the receiver has zeroes in all
  components.
  */
-- (BOOL)notZero;
+@property (nonatomic, readonly) BOOL notZero;
 
 
 ///-----------------------------------------------------------------------------
@@ -295,7 +295,7 @@
  @param z The value to assign to the `Vector`'s `z` component.
  @return An initialized `Vector` object.
  */
-- (instancetype)initWithX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z;
+- (instancetype)initWithX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z NS_DESIGNATED_INITIALIZER;
 /*!
  Initializes a `Vector` in which all components are set to `s`. Useful for
  creating `Vector`s that represent uniform scales.
@@ -509,7 +509,7 @@
 
  @return A new instance of a `Vector` object.
  */
-- (Vector *)opposite;
+@property (nonatomic, readonly, strong) Vector *opposite;
 /*!
  Creates a new `Vector` from the given `object` by calling `vectorWithObject:`.
  Calculates the dot product between that `Vector` and the receiver.
@@ -538,7 +538,7 @@
  @see dot:
  @see norm
  */
-- (CGFloat)normSquared;
+@property (nonatomic, readonly) CGFloat normSquared;
 /*!
  Returns the norm of the receiver.
 
@@ -552,7 +552,7 @@
  @see normSquared
  @see dot:
  */
-- (CGFloat)norm;
+@property (nonatomic, readonly) CGFloat norm;
 /*!
  Creates a new `Vector` as a result of changing receiver's components uniformly,
  scaling them so that the resulting `Vector` object has a norm of 1.
@@ -566,7 +566,7 @@
  @see norm
  @see normSquared
  */
-- (Vector *)normalize;
+@property (nonatomic, readonly, strong) Vector *normalize;
 /*!
  Creates a new `Vector` from the given `object` by calling `vectorWithObject:`.
  That `Vector` is then translated, using the receiver as a translation `Vector`.

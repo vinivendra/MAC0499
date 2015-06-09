@@ -15,12 +15,12 @@
  Checks if the string is empty or contains only whitespace.
  @return @p YES if the string is valid, @p NO otherwise.
  */
-- (BOOL)valid;
+@property (nonatomic, readonly) BOOL valid;
 /*!
  Returns the number of whitespace characters preceding a non-whitespace
  character in a line of text. Tabs, spaces and newlines are all counted as one
  character.
  @return A number representing the string's indentation level.
  */
-- (NSUInteger)indentation;
+@property (nonatomic, readonly) NSUInteger indentation;
 @end

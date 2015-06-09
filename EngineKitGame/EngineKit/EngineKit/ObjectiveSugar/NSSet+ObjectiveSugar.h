@@ -33,7 +33,7 @@
 - (NSArray *)reject:(BOOL (^)(id object))block;
 
 /// Returns a sorted array copy of the given set
-- (NSArray *)sort;
+@property (nonatomic, readonly, copy) NSArray *sort;
 
 /**
  *  Maps the given NSSet to NSArray.

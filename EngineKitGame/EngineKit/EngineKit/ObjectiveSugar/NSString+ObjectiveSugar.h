@@ -19,7 +19,7 @@ NSString *NSStringWithFormat(NSString *format, ...) NS_FORMAT_FUNCTION(1, 2);
  @return An array containing substrings that have been divided by a whitespace
  delimiter
  */
-- (NSArray *)split;
+@property (nonatomic, readonly, copy) NSArray *split;
 
 
 /**
@@ -37,7 +37,7 @@ NSString *NSStringWithFormat(NSString *format, ...) NS_FORMAT_FUNCTION(1, 2);
 
  @return A string made by converting a snake_case_string to CamelCaseString
  */
-- (NSString *)camelCase;
+@property (nonatomic, readonly, copy) NSString *camelCase;
 
 
 /**
@@ -46,7 +46,7 @@ NSString *NSStringWithFormat(NSString *format, ...) NS_FORMAT_FUNCTION(1, 2);
 
  @return A string made by converting a snake_case_string to CamelCaseString
  */
-- (NSString *)lowerCamelCase;
+@property (nonatomic, readonly, copy) NSString *lowerCamelCase;
 
 
 /**
@@ -64,6 +64,6 @@ NSString *NSStringWithFormat(NSString *format, ...) NS_FORMAT_FUNCTION(1, 2);
 
  @return A string without trailing or leading whitespaces and newlines
  */
-- (NSString *)strip;
+@property (nonatomic, readonly, copy) NSString *strip;
 
 @end
