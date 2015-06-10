@@ -25,7 +25,7 @@
 //------------------------------------------------------------------------------
 
 + (instancetype)origin {
-    return [[Position alloc] initWithVector:[Vector origin]];
+    return [[[self class] alloc] initWithVector:[Vector origin]];
 }
 
 //------------------------------------------------------------------------------
