@@ -15,6 +15,10 @@
 #import "JavaScript.h"
 #import "Physics.h"
 #import "UI.h"
+#import "Parser.h"
+#import "Item.h"
+
+#import "SCNScene+Extension.h"
 
 @interface EngineKit : NSObject
 

@@ -17,29 +17,29 @@
 - (void)downto:(int)number do:(void(^)(NSInteger number))block;
 
 // Numeric inflections
-- (NSNumber *)seconds;
-- (NSNumber *)minutes;
-- (NSNumber *)hours;
-- (NSNumber *)days;
-- (NSNumber *)weeks;
-- (NSNumber *)fortnights;
-- (NSNumber *)months;
-- (NSNumber *)years;
+@property (nonatomic, readonly, copy) NSNumber *seconds;
+@property (nonatomic, readonly, copy) NSNumber *minutes;
+@property (nonatomic, readonly, copy) NSNumber *hours;
+@property (nonatomic, readonly, copy) NSNumber *days;
+@property (nonatomic, readonly, copy) NSNumber *weeks;
+@property (nonatomic, readonly, copy) NSNumber *fortnights;
+@property (nonatomic, readonly, copy) NSNumber *months;
+@property (nonatomic, readonly, copy) NSNumber *years;
 
 // There are singular aliases for the above methods
-- (NSNumber *)second;
-- (NSNumber *)minute;
-- (NSNumber *)hour;
-- (NSNumber *)day;
-- (NSNumber *)week;
-- (NSNumber *)fortnight;
-- (NSNumber *)month;
-- (NSNumber *)year;
+@property (nonatomic, readonly, copy) NSNumber *second;
+@property (nonatomic, readonly, copy) NSNumber *minute;
+@property (nonatomic, readonly, copy) NSNumber *hour;
+@property (nonatomic, readonly, copy) NSNumber *day;
+@property (nonatomic, readonly, copy) NSNumber *week;
+@property (nonatomic, readonly, copy) NSNumber *fortnight;
+@property (nonatomic, readonly, copy) NSNumber *month;
+@property (nonatomic, readonly, copy) NSNumber *year;
 
-- (NSDate *)ago;
+@property (nonatomic, readonly, copy) NSDate *ago;
 - (NSDate *)ago:(NSDate *)time;
 - (NSDate *)since:(NSDate *)time;
 - (NSDate *)until:(NSDate *)time;
-- (NSDate *)fromNow;
+@property (nonatomic, readonly, copy) NSDate *fromNow;
 
 @end

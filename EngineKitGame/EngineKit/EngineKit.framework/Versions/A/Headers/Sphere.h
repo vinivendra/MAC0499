@@ -4,18 +4,20 @@
 
 
 @protocol SphereExport <JSExport>
-+ (instancetype)create;
+- (instancetype)initAndAddToScene;
 - (instancetype)create;
 + (instancetype) template;
+- (void)destroy;
 - (void)addItem:(Item *)newItem;
 - (void)rotate:(id)rotation;
-//
-- (void)destroy;
+@property (nonatomic, weak, readonly) Item *parent;
+@property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) id position;
 @property (nonatomic, strong) id rotation;
 @property (nonatomic, strong) id scale;
 //
 @property (nonatomic, strong) id color;
+@property (nonatomic, strong) id materials;
 @property (nonatomic, strong) id physics;
 @property (nonatomic, strong) id velocity;
 //

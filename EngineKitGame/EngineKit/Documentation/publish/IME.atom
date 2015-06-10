@@ -1,18 +1,18 @@
 <?xml version="1.0" standalone="no"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:docset="http://developer.apple.com/rss/docset_extensions" xml:lang="en">
-    <id>https://linux.ime.usp.br/~vinivendra/mac0499//IME/IME.atom/20150516091117</id>
+    <id>https://linux.ime.usp.br/~vinivendra/mac0499//IME/IME.atom/20150609222541</id>
     <title type="text">EngineKit Documentation</title>
     <rights>Copyright © 2015 IME. All rights reserved.</rights>
     <link rel="self" href="https://linux.ime.usp.br/~vinivendra/mac0499//IME/IME.atom"></link>
     <docset:publisherName>IME</docset:publisherName>
     <docset:publisherID>com.IME.documentation</docset:publisherID>
-    <updated>2015-05-16T09:11:17-03:00</updated>
+    <updated>2015-06-09T22:25:41-03:00</updated>
     <entry>
-        <id>tag:linux.ime.usp.br,2015-05-16:com.IME.EngineKit/1.0.0</id>
+        <id>tag:linux.ime.usp.br,2015-06-09:com.IME.EngineKit/1.0.0</id>
         <title type="text">EngineKit Documentation</title>
-        <updated>2015-05-16T09:11:17-03:00</updated>
+        <updated>2015-06-09T22:25:41-03:00</updated>
         <content type="text">EngineKit Documentation (v1.0.0)</content>
-        <link rel="enclosure" type="application/octet-stream" href="https:/linux.ime.usp.br/~vinivendra/mac0499/IME/com.IME.EngineKit-1.0.xar" length="1052393"></link>
+        <link rel="enclosure" type="application/octet-stream" href="https:/linux.ime.usp.br/~vinivendra/mac0499/IME/com.IME.EngineKit-1.0.xar" length="1204322"></link>
         <docset:identifier>com.IME.EngineKit</docset:identifier>
         <docset:version>1.0.0</docset:version>
         <docset:minimumXcodeVersion>3.0.0</docset:minimumXcodeVersion>

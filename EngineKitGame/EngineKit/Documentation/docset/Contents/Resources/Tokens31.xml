@@ -163,11 +163,35 @@ Note that sets are unordered, so this method won&apos;t always return the same t
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NSSet/setSort:</TokenIdentifier>
+			<Abstract type="html">Returns a sorted array copy of the given set</Abstract>
+			<DeclaredIn>NSSet+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, copy) NSArray *sort</Declaration>
+			
+			
+			<Anchor>//api/name/sort</Anchor>
+            <NodeRef refid="31"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/NSSet/sort</TokenIdentifier>
 			<Abstract type="html">Returns a sorted array copy of the given set</Abstract>
 			<DeclaredIn>NSSet+ObjectiveSugar.h</DeclaredIn>
 			
-			<Declaration>- (NSArray *)sort</Declaration>
+			<Declaration>@property (nonatomic, readonly, copy) NSArray *sort</Declaration>
+			
+			
+			<Anchor>//api/name/sort</Anchor>
+            <NodeRef refid="31"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/NSSet/sort</TokenIdentifier>
+			<Abstract type="html">Returns a sorted array copy of the given set</Abstract>
+			<DeclaredIn>NSSet+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, copy) NSArray *sort</Declaration>
 			
 			
 			<Anchor>//api/name/sort</Anchor>

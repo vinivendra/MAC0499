@@ -266,6 +266,31 @@ along the @p y axis.</Abstract>
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Cone/init</TokenIdentifier>
+			<Abstract type="html">Initializes the Item but does not add it to the scene.</Abstract>
+			<DeclaredIn>Cone.m</DeclaredIn>
+			
+			<Declaration>- (instancetype)init</Declaration>
+			
+			<ReturnValue><Abstract type="html">An initialized Item.</Abstract></ReturnValue>
+			<Anchor>//api/name/init</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Cone/initAndAddToScene</TokenIdentifier>
+			<Abstract type="html">Initializes the Item and adds it to the scene. Meant to be used by any
+subclasses&apos; initializers that are exported to JavaScript.</Abstract>
+			<DeclaredIn>Cone.m</DeclaredIn>
+			
+			<Declaration>- (instancetype)initAndAddToScene</Declaration>
+			
+			<ReturnValue><Abstract type="html">An initialized Item.</Abstract></ReturnValue>
+			<Anchor>//api/name/initAndAddToScene</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/Cone/deepCopy</TokenIdentifier>
 			<Abstract type="html"></Abstract>
 			<DeclaredIn>Cone.m</DeclaredIn>

@@ -3,15 +3,15 @@
 #import "Shape.h"
 
 
-@class Text;
-
-
 @protocol TextExport <JSExport>
-+ (instancetype)create;
+- (instancetype)initAndAddToScene;
 - (instancetype)create;
 + (instancetype) template;
 - (void)addItem:(Item *)newItem;
 - (void)rotate:(id)rotation;
+@property (nonatomic, weak, readonly) Item *parent;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) id materials;
 //
 - (void)destroy;
 @property (nonatomic, strong) id position;

@@ -242,6 +242,45 @@ original property.</Abstract>
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Shape/setMaterials:</TokenIdentifier>
+			<Abstract type="html">An alias for this Shape&apos;s node&apos;s material property. Used mainly for storing and
+resetting the materials in JavaScript.</Abstract>
+			<DeclaredIn>Shape.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) id materials</Declaration>
+			
+			
+			<Anchor>//api/name/materials</Anchor>
+            <NodeRef refid="19"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Shape/materials</TokenIdentifier>
+			<Abstract type="html">An alias for this Shape&apos;s node&apos;s material property. Used mainly for storing and
+resetting the materials in JavaScript.</Abstract>
+			<DeclaredIn>Shape.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) id materials</Declaration>
+			
+			
+			<Anchor>//api/name/materials</Anchor>
+            <NodeRef refid="19"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Shape/materials</TokenIdentifier>
+			<Abstract type="html">An alias for this Shape&apos;s node&apos;s material property. Used mainly for storing and
+resetting the materials in JavaScript.</Abstract>
+			<DeclaredIn>Shape.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) id materials</Declaration>
+			
+			
+			<Anchor>//api/name/materials</Anchor>
+            <NodeRef refid="19"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/Shape/deepCopy</TokenIdentifier>
 			<Abstract type="html"></Abstract>
 			<DeclaredIn>Shape.m</DeclaredIn>

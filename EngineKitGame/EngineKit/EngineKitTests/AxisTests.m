@@ -42,7 +42,7 @@
 
     for (NSArray *axis in self.standardArrays) {
         [self.standardAxes
-            push:[Axis axisWithX:((NSNumber *)axis[0]).doubleValue
+            push:[[Axis alloc] initWithX:((NSNumber *)axis[0]).doubleValue
                                Y:((NSNumber *)axis[1]).doubleValue
                                Z:((NSNumber *)axis[2]).doubleValue]];
     }
@@ -60,16 +60,16 @@
         NSArray *nextAxisArray
             = self.standardArrays[(i + 1) % self.standardArrays.count];
 
-        Axis *axis1 = [Axis axisWithX:((NSNumber *)axisArray[0]).doubleValue
+        Axis *axis1 = [[Axis alloc] initWithX:((NSNumber *)axisArray[0]).doubleValue
                                     Y:((NSNumber *)axisArray[1]).doubleValue
                                     Z:((NSNumber *)axisArray[2]).doubleValue];
 
-        Axis *axis2 = [Axis axisWithX:((NSNumber *)axisArray[0]).doubleValue
+        Axis *axis2 = [[Axis alloc] initWithX:((NSNumber *)axisArray[0]).doubleValue
                                     Y:((NSNumber *)axisArray[1]).doubleValue
                                     Z:((NSNumber *)axisArray[2]).doubleValue];
 
         Axis *axis3 =
-            [Axis axisWithX:((NSNumber *)nextAxisArray[0]).doubleValue
+            [[Axis alloc] initWithX:((NSNumber *)nextAxisArray[0]).doubleValue
                           Y:((NSNumber *)nextAxisArray[1]).doubleValue
                           Z:((NSNumber *)nextAxisArray[2]).doubleValue];
 
@@ -95,10 +95,10 @@
             CGFloat u = number1.doubleValue;
             if (u == 0)
                 continue;
-            Axis *standard = [Axis axisWithX:u Y:u Z:u];
+            Axis *standard = [[Axis alloc] initWithX:u Y:u Z:u];
 
             // Acutal result
-            Axis *result = [Axis axisWithUniformNumbers:number1.doubleValue];
+            Axis *result = [[Axis alloc] initWithUniformNumbers:number1.doubleValue];
 
             // Comparison
             XCTAssertEqualObjects(standard, result);
@@ -117,7 +117,7 @@
             [CIVector vectorWithX:((NSNumber *)axisArray[0]).doubleValue
                                 Y:((NSNumber *)axisArray[1]).doubleValue
                                 Z:((NSNumber *)axisArray[2]).doubleValue];
-        Axis *result = [Axis axisWithCIVector:ciaxis];
+        Axis *result = [[Axis alloc] initWithCIVector:ciaxis];
 
         // Comparison
         XCTAssertEqualObjects(result, standard);
@@ -131,7 +131,7 @@
 
         // Actual result
         SCNVector3 axis3 = standard.toSCNVector3;
-        Axis *result = [Axis axisWithSCNVector3:axis3];
+        Axis *result = [[Axis alloc] initWithSCNVector3:axis3];
 
         // Comparison
         XCTAssertEqualObjects(result, standard);
@@ -146,23 +146,7 @@
         // Actual result
         SCNVector4 axis4
             = SCNVector4Make(standard.x, standard.y, standard.z, arc4random());
-        Axis *result = [Axis axisWithSCNVector4:axis4];
-
-        // Comparison
-        XCTAssertEqualObjects(result, standard);
-    }
-}
-
-
-- (void)testAxisWithNSValue {
-    for (int i = 0; i < self.standardAxes.count; i++) {
-        // Gold standard
-        Axis *standard = self.standardAxes[i];
-
-        // Actual result
-        SCNVector3 axis3 = standard.toSCNVector3;
-        NSValue *value = [NSValue valueWithSCNVector3:axis3];
-        Axis *result = [Axis axisWithNSValue:value];
+        Axis *result = [[Axis alloc] initWithSCNVector4:axis4];
 
         // Comparison
         XCTAssertEqualObjects(result, standard);
@@ -176,7 +160,7 @@
 
         // Actual result
         NSArray *array = standard.toArray;
-        Axis *result = [Axis axisWithArray:array];
+        Axis *result = [[Axis alloc] initWithArray:array];
 
         // Comparison
         XCTAssertEqualObjects(result, standard);
@@ -194,7 +178,7 @@
             @"y" : @(standard.y),
             @"z" : @(standard.z)
         };
-        Axis *result = [Axis axisWithDictionary:dictionary];
+        Axis *result = [[Axis alloc] initWithDictionary:dictionary];
 
         // Comparison
         XCTAssertEqualObjects(result, standard);
@@ -214,18 +198,18 @@
                                                       standard.x,
                                                       standard.y,
                                                       standard.z];
-        Axis *result = [Axis axisWithString:string];
+        Axis *result = [[Axis alloc] initWithString:string];
 
         // Comparison
         XCTAssertEqualWithAccuracy(result.x,
                                    standard.x,
-                                   fabs(standard.x / 100));
+                                   fabs(standard.x / 100) + 0.00001);
         XCTAssertEqualWithAccuracy(result.y,
                                    standard.y,
-                                   fabs(standard.y / 100));
+                                   fabs(standard.y / 100) + 0.00001);
         XCTAssertEqualWithAccuracy(result.z,
                                    standard.z,
-                                   fabs(standard.z / 100));
+                                   fabs(standard.z / 100) + 0.00001);
     }
 }
 
@@ -235,9 +219,9 @@
         Axis *standard = self.standardAxes[i];
 
         // Actual result
-        Vector *vector = [Vector vectorWithVector:standard];
-        Axis *result1 = [Axis axisWithVector:vector];
-        Axis *result2 = [Axis axisWithVector:standard];
+        Vector *vector = [[Vector alloc] initWithVector:standard];
+        Axis *result1 = [[Axis alloc] initWithVector:vector];
+        Axis *result2 = [[Axis alloc] initWithVector:standard];
 
         // Comparison
         XCTAssertEqualObjects(result1, standard);
@@ -251,7 +235,7 @@
         Axis *standard = self.standardAxes[i];
 
         // Actual result
-        Axis *result = [Axis axisWithAxis:standard];
+        Axis *result = [[Axis alloc] initWithVector:standard];
 
         // Comparison
         XCTAssertEqualObjects(result, standard);
@@ -272,38 +256,34 @@
             @"y" : @(standard.y),
             @"z" : @(standard.z)
         };
-        result = [Axis axisWithObject:dictionary];
+        result = [[Axis alloc] initWithObject:dictionary];
         XCTAssertEqualObjects(result, standard);
 
         NSString *string = [NSString stringWithFormat:@"%lf %lf %lf",
                                                       standard.x,
                                                       standard.y,
                                                       standard.z];
-        result = [Axis axisWithObject:string];
+        result = [[Axis alloc] initWithObject:string];
         XCTAssertEqualWithAccuracy(result.x,
                                    standard.x,
-                                   fabs(standard.x / 100));
+                                   fabs(standard.x / 100) + 0.00001);
         XCTAssertEqualWithAccuracy(result.y,
                                    standard.y,
-                                   fabs(standard.y / 100));
+                                   fabs(standard.y / 100) + 0.00001);
         XCTAssertEqualWithAccuracy(result.z,
                                    standard.z,
-                                   fabs(standard.z / 100));
+                                   fabs(standard.z / 100) + 0.00001);
 
-        result = [Axis axisWithObject:standard];
+        result = [[Axis alloc] initWithObject:standard];
         XCTAssertEqualObjects(result, standard);
 
-        NSValue *value = [NSValue valueWithSCNVector3:standard.toSCNVector3];
-        result = [Axis axisWithObject:value];
-        XCTAssertEqualObjects(result, standard);
-
-        result = [Axis axisWithObject:standard.toArray];
+        result = [[Axis alloc] initWithObject:standard.toArray];
         XCTAssertEqualObjects(result, standard);
 
         if (standard.x == 0)
             continue;
-        result = [Axis axisWithObject:@(standard.x)];
-        standard = [Axis axisWithUniformNumbers:standard.x];
+        result = [[Axis alloc] initWithObject:@(standard.x)];
+        standard = [[Axis alloc] initWithUniformNumbers:standard.x];
         XCTAssertEqualObjects(result, standard);
     }
 }

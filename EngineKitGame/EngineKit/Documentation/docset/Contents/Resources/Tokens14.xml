@@ -28,11 +28,35 @@ singleton.</Abstract>
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Physics/setScene:</TokenIdentifier>
+			<Abstract type="html">An easy way to access the shared SCNScene instance.</Abstract>
+			<DeclaredIn>Physics.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) SCNScene *scene</Declaration>
+			
+			<ReturnValue><Abstract type="html">The SCNScene singleton.</Abstract></ReturnValue>
+			<Anchor>//api/name/scene</Anchor>
+            <NodeRef refid="14"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/Physics/scene</TokenIdentifier>
 			<Abstract type="html">An easy way to access the shared SCNScene instance.</Abstract>
 			<DeclaredIn>Physics.h</DeclaredIn>
 			
-			<Declaration>- (SCNScene *)scene</Declaration>
+			<Declaration>@property (nonatomic, readonly, strong) SCNScene *scene</Declaration>
+			
+			<ReturnValue><Abstract type="html">The SCNScene singleton.</Abstract></ReturnValue>
+			<Anchor>//api/name/scene</Anchor>
+            <NodeRef refid="14"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Physics/scene</TokenIdentifier>
+			<Abstract type="html">An easy way to access the shared SCNScene instance.</Abstract>
+			<DeclaredIn>Physics.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) SCNScene *scene</Declaration>
 			
 			<ReturnValue><Abstract type="html">The SCNScene singleton.</Abstract></ReturnValue>
 			<Anchor>//api/name/scene</Anchor>
@@ -86,7 +110,8 @@ instantiate a Vector, which will then be set.</Abstract>
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/Physics/setAddContact:</TokenIdentifier>
-			<Abstract type="html">@p addContact is a property used only for its setter. It&apos;s the main way to register a Contact object, which is used to handle contacts in JavaScript code.</Abstract>
+			<Abstract type="html">@p addContact is a property used only for its setter. It&apos;s the main way to
+register a Contact object, which is used to handle contacts in JavaScript code.</Abstract>
 			<DeclaredIn>Physics.h</DeclaredIn>
 			
 			<Declaration>@property (nonatomic, weak) id addContact</Declaration>
@@ -98,7 +123,8 @@ instantiate a Vector, which will then be set.</Abstract>
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/Physics/addContact</TokenIdentifier>
-			<Abstract type="html">@p addContact is a property used only for its setter. It&apos;s the main way to register a Contact object, which is used to handle contacts in JavaScript code.</Abstract>
+			<Abstract type="html">@p addContact is a property used only for its setter. It&apos;s the main way to
+register a Contact object, which is used to handle contacts in JavaScript code.</Abstract>
 			<DeclaredIn>Physics.h</DeclaredIn>
 			
 			<Declaration>@property (nonatomic, weak) id addContact</Declaration>
@@ -110,7 +136,8 @@ instantiate a Vector, which will then be set.</Abstract>
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instp/Physics/addContact</TokenIdentifier>
-			<Abstract type="html">@p addContact is a property used only for its setter. It&apos;s the main way to register a Contact object, which is used to handle contacts in JavaScript code.</Abstract>
+			<Abstract type="html">@p addContact is a property used only for its setter. It&apos;s the main way to
+register a Contact object, which is used to handle contacts in JavaScript code.</Abstract>
 			<DeclaredIn>Physics.h</DeclaredIn>
 			
 			<Declaration>@property (nonatomic, weak) id addContact</Declaration>

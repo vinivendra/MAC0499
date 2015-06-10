@@ -116,7 +116,7 @@ static NSUInteger globalID = 0;
 }
 
 - (void)rotate:(id)rotation {
-    Rotation *rotationObject = [Rotation rotationWithObject:rotation];
+    Rotation *rotationObject = [[Rotation alloc] initWithObject:rotation];
     Vector *position = self.position;
 
     SCNMatrix4 result = [position.opposite translateMatrix:self.node.transform];
@@ -127,8 +127,8 @@ static NSUInteger globalID = 0;
 }
 
 - (void)rotate:(id)rotation around:(id)anchor {
-    Rotation *rotationObject = [Rotation rotationWithObject:rotation];
-    Vector *translation = [Vector vectorWithObject:anchor];
+    Rotation *rotationObject = [[Rotation alloc] initWithObject:rotation];
+    Vector *translation = [[Vector alloc] initWithObject:anchor];
 
     SCNMatrix4 result =
         [translation.opposite translateMatrix:self.node.transform];

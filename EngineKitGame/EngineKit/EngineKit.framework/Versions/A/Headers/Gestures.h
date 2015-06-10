@@ -5,16 +5,27 @@
 #import <SceneKit/SceneKit.h>
 
 
+typedef NS_ENUM(NSUInteger, UIGestures) {
+    SwipeGesture,
+    TapGesture,
+    PanGesture,
+    PinchGesture,
+    RotateGesture,
+    LongPressGesture,
+
+    UIGesturesCount
+};
+
 typedef NS_ENUM(NSUInteger, GestureRecognizers) {
-    SwipeRight = 0,
-    SwipeLeft,
-    SwipeDown,
-    SwipeUp,
-    Tap,
-    Pan,
-    Pinch,
-    Rotate,
-    LongPress,
+    SwipeDownRecognizer = 0,
+    SwipeLeftRecognizer,
+    SwipeRightRecognizer,
+    SwipeUpRecognizer,
+    TapRecognizer,
+    PanRecognizer,
+    PinchRecognizer,
+    RotateRecognizer,
+    LongPressRecognizer,
 
     GestureRecognizersCount
 };

@@ -37,11 +37,11 @@
 
     for (NSArray *rotation in self.standardArrays) {
         [self.standardRotations
-            push:[Rotation
-                     rotationWithX:((NSNumber *)rotation[0]).doubleValue
-                                 Y:((NSNumber *)rotation[1]).doubleValue
-                                 Z:((NSNumber *)rotation[2]).doubleValue
-                             Angle:((NSNumber *)rotation[3]).doubleValue]];
+            push:[[Rotation alloc]
+                     initWithX:((NSNumber *)rotation[0]).doubleValue
+                             Y:((NSNumber *)rotation[1]).doubleValue
+                             Z:((NSNumber *)rotation[2]).doubleValue
+                         Angle:((NSNumber *)rotation[3]).doubleValue]];
     }
 }
 

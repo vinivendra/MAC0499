@@ -56,6 +56,8 @@
 	
 	<optgroup label="Class Methods">
 		
+		<option value="//api/name/color:">+ color:</option>
+		
 		<option value="//api/name/colorWithArray:">+ colorWithArray:</option>
 		
 		<option value="//api/name/colorWithCArray:">+ colorWithCArray:</option>
@@ -92,6 +94,9 @@
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
+	<th>Conforms to</th>
+	<td>UIColorExport</td>
+</tr><tr>
 	<th>Declared in</th>
 	<td>UIColor+Extension.h<br />UIColor+Extension.m</td>
 </tr>
@@ -111,8 +116,8 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/colorWithObject:" title="colorWithObject:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/colorWithObject:">+&nbsp;colorWithObject:</a></code>
+	<a name="//api/name/color:" title="color:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/color:">+&nbsp;color:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -122,12 +127,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Initializes a UIColor based on the given object. The supported types are:</p>
+				<p>Initializes a UIColor object just like in <a href="#//api/name/colorWithObject:"><code>colorWithObject:</code></a>.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>+ (Color *)colorWithObject:(id)<em>object</em></code></div>
+			<div class="method-subsection method-declaration"><code>+ (instancetype)color:(id)<em>object</em></code></div>
 
 		    
 			
@@ -155,6 +160,65 @@ color.</p></td>
 			
 
 			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">UIColor+Extension.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/colorWithObject:" title="colorWithObject:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/colorWithObject:">+&nbsp;colorWithObject:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>  Initializes a UIColor based on the given object. The supported types are:</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (UIColor *)colorWithObject:(id)<em>object</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>object</code></th>
+						<td><p>The object from which to get the information for creating the
+  color.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An initialized UIColor.</p>
+			</div>
+			
+
+			
+
+			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
 				<ul>
@@ -164,7 +228,7 @@ color.</p></td>
 <li><p>NSNumber, which works a lot like -colorWithWhite.</p></li>
 </ul>
 <div class="warning"><p><strong>Warning:</strong> If the color isn&rsquo;t a subclass of any of the accepted classes, an @p
-assertion is triggered.</p></div>
+  assertion is triggered.</p></div>
 			</div>
 			
 
@@ -193,13 +257,14 @@ assertion is triggered.</p></div>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Creates a color with a given C array of floats. The array must have at least 4
-components which will be used as red, green, blue and alpha, in that order.</p>
+				<p>  Creates a color with a given C array of floats. The array must have at least
+  4
+  components which will be used as red, green, blue and alpha, in that order.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>+ (Color *)colorWithCArray:(CGFloat [ 4 ])<em>array</em></code></div>
+			<div class="method-subsection method-declaration"><code>+ (UIColor *)colorWithCArray:(CGFloat [ 4 ])<em>array</em></code></div>
 
 		    
 			
@@ -252,13 +317,13 @@ components which will be used as red, green, blue and alpha, in that order.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Creates a color with a given NSArray. The array must have from 1 to 4
-NSNumbers.</p>
+				<p>  Creates a color with a given NSArray. The array must have from 1 to 4
+  NSNumbers.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>+ (Color *)colorWithArray:(NSArray *)<em>array</em></code></div>
+			<div class="method-subsection method-declaration"><code>+ (UIColor *)colorWithArray:(NSArray *)<em>array</em></code></div>
 
 		    
 			
@@ -324,14 +389,15 @@ the second one as an alpha value.</p></li>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Creates a color based on a given name, such as &ldquo;orange&rdquo;, &ldquo;green&rdquo;, &ldquo;lightGray&rdquo;,
-etc. The accepted names are the same as the corresponding class methods of
-UIColor.</p>
+				<p>  Creates a color based on a given name, such as &ldquo;orange&rdquo;, &ldquo;green&rdquo;,
+  &ldquo;lightGray&rdquo;,
+  etc. The accepted names are the same as the corresponding class methods of
+  UIColor.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>+ (Color *)colorWithName:(NSString *)<em>name</em></code></div>
+			<div class="method-subsection method-declaration"><code>+ (UIColor *)colorWithName:(NSString *)<em>name</em></code></div>
 
 		    
 			
@@ -384,13 +450,14 @@ UIColor.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Multiplies the Red, Green and Blue components of the color by the given scalar
-number. The alpha value is left untouched.</p>
+				<p>  Multiplies the Red, Green and Blue components of the color by the given
+  scalar
+  number. The alpha value is left untouched.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (Color *)times:(CGFloat)<em>scalar</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (UIColor *)times:(CGFloat)<em>scalar</em></code></div>
 
 		    
 			
@@ -446,7 +513,7 @@ number. The alpha value is left untouched.</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2015 IME. All rights reserved. Updated: 2015-05-16</p>
+						<p class="copyright">Copyright &copy; 2015 IME. All rights reserved. Updated: 2015-06-09</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

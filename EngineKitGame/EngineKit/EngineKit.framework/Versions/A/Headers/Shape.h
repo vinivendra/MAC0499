@@ -1,4 +1,4 @@
-
+// TODO: Add size properties to the shapes
 
 #import "Item.h"
 
@@ -67,4 +67,9 @@
  original property.
  */
 @property (nonatomic, strong) id velocity;
+/*!
+ An alias for this Shape's node's material property. Used mainly for storing and
+ resetting the materials in JavaScript.
+ */
+@property (nonatomic, strong) id materials;
 @end

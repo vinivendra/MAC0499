@@ -54,6 +54,14 @@
 
 	
 	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/toDegrees">toDegrees</option>
+		
+		<option value="//api/name/toRadians">toRadians</option>
+		
+	</optgroup>
+	
 
 	
 	<optgroup label="Class Methods">
@@ -78,9 +86,7 @@
 		
 		<option value="//api/name/initWithRadians:">- initWithRadians:</option>
 		
-		<option value="//api/name/toDegrees">- toDegrees</option>
-		
-		<option value="//api/name/toRadians">- toRadians</option>
+		<option value="//api/name/isEqual:">- isEqual:</option>
 		
 	</optgroup>
 	
@@ -104,6 +110,9 @@
 						<tr>
 	<th>Inherits from</th>
 	<td>NSObject</td>
+</tr><tr>
+	<th>Conforms to</th>
+	<td>AngleExport</td>
 </tr><tr>
 	<th>Declared in</th>
 	<td>Angle.h<br />Angle.m</td>
@@ -320,7 +329,7 @@ unless used in a very tight loop.</p>
 			
 			<div class="method-subsection brief-description">
 				<p>Creates an Angle object with the given value in radians. Uses NSNumber&rsquo;s
-initWithObject method to obtain the value from the given object.</p>
+numberWithObject method to obtain the value from the given object.</p>
 			</div>
 			
 		    
@@ -495,7 +504,7 @@ initWithObject method to obtain the value from the given object.</p>
 			
 			<div class="method-subsection brief-description">
 				<p>Creates an Angle object with the given value in radians. Uses NSNumber&rsquo;s
-initWithObject method to obtain the value from the given object.</p>
+numberWithObject method to obtain the value from the given object.</p>
 			</div>
 			
 		    
@@ -543,7 +552,7 @@ initWithObject method to obtain the value from the given object.</p>
 	</div>
 </div><div class="section-method">
 	<a name="//api/name/toRadians" title="toRadians"></a>
-	<h3 class="method-title"><code><a href="#//api/name/toRadians">&ndash;&nbsp;toRadians</a></code>
+	<h3 class="method-title"><code><a href="#//api/name/toRadians">&nbsp;&nbsp;toRadians</a></code>
 </h3>
 
 	<div class="method-info">
@@ -558,7 +567,7 @@ initWithObject method to obtain the value from the given object.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (CGFloat)toRadians</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) CGFloat toRadians</code></div>
 
 		    
 			
@@ -589,7 +598,7 @@ initWithObject method to obtain the value from the given object.</p>
 	</div>
 </div><div class="section-method">
 	<a name="//api/name/toDegrees" title="toDegrees"></a>
-	<h3 class="method-title"><code><a href="#//api/name/toDegrees">&ndash;&nbsp;toDegrees</a></code>
+	<h3 class="method-title"><code><a href="#//api/name/toDegrees">&nbsp;&nbsp;toDegrees</a></code>
 </h3>
 
 	<div class="method-info">
@@ -604,7 +613,7 @@ initWithObject method to obtain the value from the given object.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (CGFloat)toDegrees</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) CGFloat toDegrees</code></div>
 
 		    
 			
@@ -613,6 +622,64 @@ initWithObject method to obtain the value from the given object.</p>
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
 				<p>The Angle&rsquo;s value, measured in degrees.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Angle.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/isEqual:" title="isEqual:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/isEqual:">&ndash;&nbsp;isEqual:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Tests the receiver and the given object for equality.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)isEqual:(id)<em>object</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>object</code></th>
+						<td><p>The object to test for equality with the receiver.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A boolean value indicating if the objects are equal.</p>
 			</div>
 			
 
@@ -648,7 +715,7 @@ initWithObject method to obtain the value from the given object.</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2015 IME. All rights reserved. Updated: 2015-05-16</p>
+						<p class="copyright">Copyright &copy; 2015 IME. All rights reserved. Updated: 2015-06-09</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

@@ -18,33 +18,13 @@
  conversion. More efficient when used exclusively with radians, but not slow
  unless used in a very tight loop.
  */
-@interface Angle : NSObject<AngleExport> 
-/*!
- Creates an Angle object with the given value in radians.
- @param radians An angle measured in radians.
- @return An initialized Angle object.
- */
-+ (instancetype)angleWithRadians:(CGFloat)radians;
-/*!
- Creates an Angle object with the given value in degrees.
- @param degrees An angle measured in degrees.
- @return An initialized Angle object.
- */
-+ (instancetype)angleWithDegrees:(CGFloat)degrees;
+@interface Angle : NSObject<AngleExport>
 /*!
  Creates an Angle object with the value of @p ratio*pi, measured in radians.
  @param ratio The value used to multiply by pi.
  @return An initialized Angle object.
  */
-+ (instancetype)angleWithPiTimes:(CGFloat)ratio;
-/*!
- Creates an Angle object with the given value in radians. Uses NSNumber's
- numberWithObject method to obtain the value from the given object.
- @param object An angle measured in degrees.
- @return An initialized Angle object.
- @see [NSNumber numberWithObject]
- */
-+ (instancetype)angleWithObject:(id)object;
+- (instancetype)initWithPiTimes:(CGFloat)ratio;
 /*!
  Creates an Angle object with the given value in radians.
  @param radians An angle measured in radians.

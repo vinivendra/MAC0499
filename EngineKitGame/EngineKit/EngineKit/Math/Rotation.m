@@ -21,50 +21,19 @@
 #pragma mark - Initializing Rotation objects
 //------------------------------------------------------------------------------
 
-+ (Rotation *)rotationWithX:(CGFloat)x
-                          Y:(CGFloat)y
-                          Z:(CGFloat)z
-                      Angle:(CGFloat)angle {
-    Axis *newAxis = [Axis axisWithX:x Y:y Z:z];
-    Angle *newAngle = [Angle angleWithRadians:angle];
-    return [[Rotation alloc] initWithAxis:newAxis angle:newAngle];
-}
-
-+ (instancetype)rotationWithSCNVector4:(SCNVector4)vector {
-    return [[Rotation alloc] initWithSCNVector4:vector];
-}
-
-+ (instancetype)rotationWithAxis:(Axis *)axis angle:(Angle *)angle {
-    return [[Rotation alloc] initWithAxis:axis angle:angle];
-}
-
-+ (instancetype)rotationWithString:(NSString *)string {
-    return [[Rotation alloc] initWithString:string];
-}
-
-+ (instancetype)rotationWithArray:(NSArray *)array {
-    return [[Rotation alloc] initWithArray:array];
-}
-
-+ (instancetype)rotationWithDictionary:(NSDictionary *)dictionary {
-    return [[Rotation alloc] initWithDictionary:dictionary];
-}
-
-+ (instancetype)rotationWithRotation:(Rotation *)rotation {
-    return rotation;
-}
-
-+ (instancetype)rotationWithObject:(id)object {
-    if ([object isKindOfClass:[Rotation class]])
-        return [Rotation rotationWithRotation:object];
-    else
-        return [[Rotation alloc] initWithObject:object];
-}
-
 - (instancetype)initWithSCNVector4:(SCNVector4)vector {
+    self = [self initWithAxis:[[Axis alloc] initWithSCNVector4:vector]
+                        angle:[[Angle alloc] initWithRadians:vector.w]];
+    return self;
+}
+
+- (instancetype)initWithX:(CGFloat)x
+                        Y:(CGFloat)y
+                        Z:(CGFloat)z
+                    Angle:(CGFloat)angle {
     if (self = [super init]) {
-        self.axis = [[Axis alloc] initWithSCNVector4:vector];
-        self.angle = [Angle angleWithRadians:vector.w];
+        self.axis = [[Axis alloc] initWithX:x Y:y Z:z];
+        self.angle = [[Angle alloc] initWithRadians:angle];
     }
     return self;
 }
@@ -106,18 +75,19 @@
 }
 
 - (instancetype)initWithArray:(NSArray *)array {
-    if (self = [super init]) {
-        if (array.count > 0) {
-            if (![array[0] isKindOfClass:[NSNumber class]]) {
-                self.axis = [[Axis alloc] initWithObject:array[0]];
-                self.angle = [Angle angleWithRadians:[array floatAtIndex:1]];
-                return self;
-            }
+    if (array.count > 0) {
+        if (![array[0] isKindOfClass:[NSNumber class]]) {
+            Axis *axis = [[Axis alloc] initWithObject:array[0]];
+            Angle *angle = [[Angle alloc] initWithRadians:[array floatAtIndex:1]];
+            self = [self initWithAxis:axis angle:angle];
+            return self;
         }
-
-        self.axis = [[Axis alloc] initWithArray:array];
-        self.angle = [Angle angleWithRadians:[array floatAtIndex:3]];
     }
+
+    Axis *axis = [[Axis alloc] initWithObject:array];
+    Angle *angle = [[Angle alloc] initWithRadians:[array floatAtIndex:3]];
+    self = [self initWithAxis:axis angle:angle];
+
     return self;
 }
 
@@ -129,17 +99,14 @@
     if (radians == 0.0)
         radians = [dictionary floatForStringKey:@"3"];
 
-    Angle *angle = [Angle angleWithRadians:radians];
+    Angle *angle = [[Angle alloc] initWithRadians:radians];
     Axis *axis = [[Axis alloc] initWithDictionary:dictionary];
     self = [self initWithAxis:axis angle:angle];
     return self;
 }
 
 - (instancetype)initWithRotation:(Rotation *)rotation {
-    if (self = [super init]) {
-        self.axis = rotation.axis;
-        self.angle = rotation.angle;
-    }
+    self = [self initWithAxis:rotation.axis angle:rotation.angle];
     return self;
 }
 
@@ -182,7 +149,7 @@
 }
 
 - (Vector *)rotate:(id)vector {
-    Vector *v = [Vector vectorWithObject:vector];
+    Vector *v = [[Vector alloc] initWithObject:vector];
     SCNQuaternion q = self.toSCNQuaternion;
 
     SCNQuaternion p = SCNVector4Make(q.w * v.x + q.y * v.z - q.z * v.y,
@@ -199,7 +166,7 @@
                          p.w * q.y - p.x * q.z + p.y * q.w + p.z * q.x,
                          p.w * q.z + p.x * q.y - p.y * q.x + p.z * q.w);
 
-    return [Vector vectorWithSCNVector3:result];
+    return [[Vector alloc] initWithSCNVector3:result];
 }
 
 - (SCNMatrix4)toSCNMatrix {

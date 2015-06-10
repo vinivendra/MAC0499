@@ -14,25 +14,6 @@ necessarily x, y or z. Used mainly for Rotations.</Abstract>
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/Axis/initWithString:</TokenIdentifier>
-			<Abstract type="html">Attempts to initialize an Axis by scanning the string for numbers. If at least
-three numbers are found, the first three are used. Otherwise, scans the string
-for the characters x, y or z, and returns the corresponding axis.</Abstract>
-			<DeclaredIn>Axis.h</DeclaredIn>
-			
-			<Declaration>- (instancetype)initWithString:(NSString *)string</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>string</Name>
-					<Abstract type="html">The NSString in which to search for the information.</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">The initialized Axis.</Abstract></ReturnValue>
-			<Anchor>//api/name/initWithString:</Anchor>
-            <NodeRef refid="2"/>
-		</Token>
-		
-		<Token>
 			<TokenIdentifier>//apple_ref/occ/clm/Axis/x</TokenIdentifier>
 			<Abstract type="html">The default x Axis, represented by (1 0 0).</Abstract>
 			<DeclaredIn>Axis.h</DeclaredIn>
@@ -65,6 +46,300 @@ for the characters x, y or z, and returns the corresponding axis.</Abstract>
 			
 			<ReturnValue><Abstract type="html">An initialized Axis.</Abstract></ReturnValue>
 			<Anchor>//api/name/z</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Axis/axisWithX:Y:Z:</TokenIdentifier>
+			<Abstract type="html">Creates a Axis whith the three given components, respectively.</Abstract>
+			<DeclaredIn>Axis.h</DeclaredIn>
+			
+			<Declaration>+ (Axis *)axisWithX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>x</Name>
+					<Abstract type="html">The value to assign to the Axis&apos;s x component.</Abstract>
+				</Parameter><Parameter>
+					<Name>y</Name>
+					<Abstract type="html">The value to assign to the Axis&apos;s y component.</Abstract>
+				</Parameter><Parameter>
+					<Name>z</Name>
+					<Abstract type="html">The value to assign to the Axis&apos;s z component.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized Axis object.</Abstract></ReturnValue>
+			<Anchor>//api/name/axisWithX:Y:Z:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Axis/axisWithUniformNumbers:</TokenIdentifier>
+			<Abstract type="html">Creates a Axis in which all components are set to s. Useful for
+creating Axiss that represent uniform scales.</Abstract>
+			<DeclaredIn>Axis.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/clm/Axis/axisWithObject:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>+ (Axis *)axisWithUniformNumbers:(CGFloat)s</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>s</Name>
+					<Abstract type="html">The value to set to all the Axis&apos;s components.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized Axis object.</Abstract></ReturnValue>
+			<Anchor>//api/name/axisWithUniformNumbers:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Axis/axisWithCIVector:</TokenIdentifier>
+			<Abstract type="html">Creates a Axis in which all components are set as just as the first 3
+components (x, y and z in the given CIVector.  This method trusts that
+the CIVector has been correctly initialized and has the  necessary components.</Abstract>
+			<DeclaredIn>Axis.h</DeclaredIn>
+			
+			<Declaration>+ (Axis *)axisWithCIVector:(CIVector *)newValue</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>newValue</Name>
+					<Abstract type="html">The CIValue whose x, y and z components should be used.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized Axis object.</Abstract></ReturnValue>
+			<Anchor>//api/name/axisWithCIVector:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Axis/axisWithSCNVector3:</TokenIdentifier>
+			<Abstract type="html">Creates a Axis in which all components are set as just as the given
+SCNVector3.</Abstract>
+			<DeclaredIn>Axis.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/clm/Axis/axisWithNSValue:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/clm/Axis/axisWithSCNVector4:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>+ (Axis *)axisWithSCNVector3:(SCNVector3)newValue</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>newValue</Name>
+					<Abstract type="html">The SCNVector3 that should be used as a model.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized Axis object.</Abstract></ReturnValue>
+			<Anchor>//api/name/axisWithSCNVector3:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Axis/axisWithSCNVector4:</TokenIdentifier>
+			<Abstract type="html">Creates a Axis in which all components are set as just as the first 3
+components in the given SCNVector4. If that Axis has format (x y z`
+w), the created Axis object will have format (x y z`.</Abstract>
+			<DeclaredIn>Axis.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/clm/Axis/axisWithSCNVector3:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>+ (Axis *)axisWithSCNVector4:(SCNVector4)newValue</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>newValue</Name>
+					<Abstract type="html">The SCNVector4 whose first three components should be used.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized Axis object.</Abstract></ReturnValue>
+			<Anchor>//api/name/axisWithSCNVector4:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Axis/axisWithNSValue:</TokenIdentifier>
+			<Abstract type="html">Creates a Axis based on the SCNVector3 contained in the given
+NSValue.</Abstract>
+			<DeclaredIn>Axis.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithSCNVector3:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/clm/Axis/axisWithObject:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>+ (Axis *)axisWithNSValue:(NSValue *)newValue</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>newValue</Name>
+					<Abstract type="html">An NSValue created with an SCNVector3, which will be
+obtained using SCNVector3Value.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/axisWithNSValue:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Axis/axisWithArray:</TokenIdentifier>
+			<Abstract type="html">Creates a Axis based on the first three elements on a given NSArray. If
+the array has less than 3 components or if any of the first three components is
+not an NSNumber, the corresponding value is set to zero.</Abstract>
+			<DeclaredIn>Axis.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/clm/Axis/axisWithObject:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>+ (Axis *)axisWithArray:(NSArray *)array</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>array</Name>
+					<Abstract type="html">The NSArray that should be used as a model.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized Axis object.</Abstract></ReturnValue>
+			<Anchor>//api/name/axisWithArray:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Axis/axisWithDictionary:</TokenIdentifier>
+			<Abstract type="html">Creates a Axis based on the elements on a given NSDictionary. If there
+are elements with the key &quot;x&quot;, &quot;y&quot; and &quot;z&quot; (case insensitive), those elements
+are used. If one of them is missing, the keys &quot;0&quot;, &quot;1&quot; or &quot;2&quot; are used to
+replace them as needed. If any elements are still missing, the corresponding
+value is set to 0.0.</Abstract>
+			<DeclaredIn>Axis.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/clm/Axis/axisWithObject:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>+ (Axis *)axisWithDictionary:(NSDictionary *)dictionary</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>dictionary</Name>
+					<Abstract type="html">The NSDictionary that should be used as a model.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized Axis object.</Abstract></ReturnValue>
+			<Anchor>//api/name/axisWithDictionary:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Axis/axisWithString:</TokenIdentifier>
+			<Abstract type="html">Creates an Axis by scanning the string for numbers. If at least three numbers
+are found, the first three are used. Otherwise, scans the string for the
+characters x, y or z, and returns the corresponding axis.</Abstract>
+			<DeclaredIn>Axis.h</DeclaredIn>
+			
+			<Declaration>+ (Axis *)axisWithString:(NSString *)string</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>string</Name>
+					<Abstract type="html">The NSString in which to search for the information.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The initialized Axis.</Abstract></ReturnValue>
+			<Anchor>//api/name/axisWithString:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Axis/axisWithVector:</TokenIdentifier>
+			<Abstract type="html">Returns the given Vector object, cast to a Axis. Used for completion
+and standardization by other methods.</Abstract>
+			<DeclaredIn>Axis.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/clm/Axis/axisWithObject:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>+ (Axis *)axisWithVector:(Vector *)vector</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>vector</Name>
+					<Abstract type="html">The Vector object that will be returned.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A Axis object.</Abstract></ReturnValue>
+			<Anchor>//api/name/axisWithVector:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Axis/axisWithAxis:</TokenIdentifier>
+			<Abstract type="html">Returns the given Axis object. Used for completion and standardization by
+other methods.</Abstract>
+			<DeclaredIn>Axis.h</DeclaredIn>
+			
+			<Declaration>+ (Axis *)axisWithAxis:(Axis *)axis</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>axis</Name>
+					<Abstract type="html">The Axis object that will be returned.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A Axis object.</Abstract></ReturnValue>
+			<Anchor>//api/name/axisWithAxis:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Axis/axisWithObject:</TokenIdentifier>
+			<Abstract type="html">Creates a Axis based on the given object.</Abstract>
+			<DeclaredIn>Axis.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithUniformNumbers:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithArray:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithSCNVector3:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithVector:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithDictionary:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instm/Axis/initWithString:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>+ (Axis *)axisWithObject:(id)object</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>object</Name>
+					<Abstract type="html">An object of any one of the classes mentioned above.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized Axis object.</Abstract></ReturnValue>
+			<Anchor>//api/name/axisWithObject:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Axis/initWithString:</TokenIdentifier>
+			<Abstract type="html">Attempts to initialize an Axis by scanning the string for numbers. If at least
+three numbers are found, the first three are used. Otherwise, scans the string
+for the characters x, y or z, and returns the corresponding axis.</Abstract>
+			<DeclaredIn>Axis.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithString:(NSString *)string</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>string</Name>
+					<Abstract type="html">The NSString in which to search for the information.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The initialized Axis.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithString:</Anchor>
             <NodeRef refid="2"/>
 		</Token>
 		

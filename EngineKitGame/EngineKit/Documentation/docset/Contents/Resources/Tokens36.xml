@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Categories/SCNScene+Extension.html">
+	<File path="Categories/SCNNode+Extension.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cat/SCNScene(Extension)</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/cat/SCNNode(Extension)</TokenIdentifier>
 			<Abstract type="html"></Abstract>
-			<DeclaredIn>SCNScene+Extension.h</DeclaredIn>
+			<DeclaredIn>SCNNode+Extension.h</DeclaredIn>
             
 			
 			<NodeRef refid="36"/>
@@ -13,33 +13,41 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/SCNScene/shared</TokenIdentifier>
-			<Abstract type="html">The singleton instance of a scene, meant to be used by the whole application.
-If multiple scenes are needed, one might consider changing this approach.</Abstract>
-			<DeclaredIn>SCNScene+Extension.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/SCNNode/setItem:</TokenIdentifier>
+			<Abstract type="html">A reference to the node&apos;s Item, enabling one to find the Item that encapsulates
+some node when given only the node, such as in SCNPhysics callbacks.</Abstract>
+			<DeclaredIn>SCNNode+Extension.h</DeclaredIn>
 			
-			<Declaration>+ (SCNScene *)shared</Declaration>
+			<Declaration>@property (nonatomic, strong) Item *item</Declaration>
 			
-			<ReturnValue><Abstract type="html">An initialized instance of SCNScene.</Abstract></ReturnValue>
-			<Anchor>//api/name/shared</Anchor>
+			
+			<Anchor>//api/name/item</Anchor>
             <NodeRef refid="36"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/SCNScene/addItem:</TokenIdentifier>
-			<Abstract type="html">Adds an @p Item to the scene, much like adding an SCNNode as a subnode to the
-scene&apos;s rootNode.</Abstract>
-			<DeclaredIn>SCNScene+Extension.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/SCNNode/item</TokenIdentifier>
+			<Abstract type="html">A reference to the node&apos;s Item, enabling one to find the Item that encapsulates
+some node when given only the node, such as in SCNPhysics callbacks.</Abstract>
+			<DeclaredIn>SCNNode+Extension.h</DeclaredIn>
 			
-			<Declaration>- (void)addItem:(Item *)item</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>item</Name>
-					<Abstract type="html">The Item to be added to the scene.</Abstract>
-				</Parameter>
-			</Parameters>
+			<Declaration>@property (nonatomic, strong) Item *item</Declaration>
 			
-			<Anchor>//api/name/addItem:</Anchor>
+			
+			<Anchor>//api/name/item</Anchor>
+            <NodeRef refid="36"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/SCNNode/item</TokenIdentifier>
+			<Abstract type="html">A reference to the node&apos;s Item, enabling one to find the Item that encapsulates
+some node when given only the node, such as in SCNPhysics callbacks.</Abstract>
+			<DeclaredIn>SCNNode+Extension.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) Item *item</Declaration>
+			
+			
+			<Anchor>//api/name/item</Anchor>
             <NodeRef refid="36"/>
 		</Token>
 		

@@ -1,7 +1,5 @@
 // TODO: Create a copy method for all exported classes.
-// TODO: Make isEqual accept the same objects as initWithObject does.
 // TODO: Test rotation for non normalized vectors
-
 
 #import <JavaScriptCore/JavaScriptCore.h>
 #import <SceneKit/SceneKit.h>
@@ -47,6 +45,9 @@
 - (Vector *)normalize;
 - (Vector *)translate:(Vector *)vector;
 - (Vector *)scale:(CGFloat)scale;
+- (Vector *)setNewX:(CGFloat)x;
+- (Vector *)setNewY:(CGFloat)y;
+- (Vector *)setNewZ:(CGFloat)z;
 @end
 
 
@@ -79,6 +80,51 @@
  @see y
  */
 @property (nonatomic, readonly) CGFloat z;
+/*!
+ A `Vector`'s components may be accessed by subscripts. Index `0` corresponds to
+ the `x` component, `1` to the `y` component and `2` to the `z` component. Any
+ other index returns `nil`.
+ @param index The index corresponding to one of the `Vector`'s components.
+ @return The value of the corresponding component.
+ */
+- (NSNumber *)objectAtIndexedSubscript:(NSUInteger)index;
+
+/*!
+ Creates an `SCNVector3` with the same components as the `Vector`.
+ @return An instance of `SCNVector3`.
+ */
+@property (nonatomic, readonly) SCNVector3 toSCNVector3;
+/*!
+ Creates an `SCNVector4` representing the receiver in homogeneous coordinates.
+
+ If we write the receiver as `(x, y, z)`, the resulting `SCNVector4` can be
+ written as `(x, y, z, 1)`.
+ @return An instance of `SCNVector4`.
+ */
+@property (nonatomic, readonly) SCNVector4 toSCNVector4;
+/*!
+ Creates an `NSValue` containing an `SCNVector3` with the same components as the
+ `Vector`.
+ @return An instance of `NSValue`.
+ */
+@property (nonatomic, readonly, copy) NSValue *toNSValue;
+/*!
+ Creates an NSArray containing the `Vector`'s three components as NSNumbers.
+ @return An instance of `NSArray`.
+ */
+@property (nonatomic, readonly, copy) NSArray *toArray;
+
+
+//------------------------------------------------------------------------------
+/// @name Getting the Vector's information
+//------------------------------------------------------------------------------
+#pragma mark - Getting the Vector's information
+/*!
+ Returns `NO` if all the `Vector`'s components are `0`; `YES` otherwise.
+ @return A boolean value indicating wether or not the receiver has zeroes in all
+ components.
+ */
+@property (nonatomic, readonly) BOOL notZero;
 
 
 ///-----------------------------------------------------------------------------
@@ -92,155 +138,11 @@
  */
 + (instancetype)origin;
 
+
 ///-----------------------------------------------------------------------------
 /// @name Creating Vector objects
 ///-----------------------------------------------------------------------------
 #pragma mark - Creating Vector objects
-
-/*!
- Creates an "empty" `Vector`, initialized to `(0 0 0)`.
- @return A `Vector` object.
- @see origin
- */
-+ (Vector *)vector;
-/*!
- Creates a `Vector` whith the three given components, respectively.
- @param x The value to assign to the `Vector`'s `x` component.
- @param y The value to assign to the `Vector`'s `y` component.
- @param z The value to assign to the `Vector`'s `z` component.
- @return An initialized `Vector` object.
- */
-+ (Vector *)vectorWithX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z;
-/*!
- Creates a `Vector` in which all components are set to `s`. Useful for creating
- `Vector`s that represent uniform scales.
- @param s The value to set to all the `Vector`'s components.
- @return An initialized `Vector` object.
- @see vectorWithObject:
- */
-+ (Vector *)vectorWithUniformWithNumber:(CGFloat)s;
-/*!
- Given a `CGPoint` of format `(x, y)`, creates a `Vector` object of format `(x,
- - y, 0)`. This is done to ease the translation from screen points to scene
- points.
- @param newValue The `CGPoint` that should be used as a model.
- @return An initialized `Vector` object.
- */
-+ (Vector *)vectorWithCGPoint:(CGPoint)newValue;
-/*!
- Creates a `Vector` in which all components are set as just as the first 3
- components (`x`, `y` and `z`) in the given `CIVector`.  This method trusts that
- the CIVector has been correctly initialized and has the  necessary components.
-
- Useful for obtaining a `Vector` through a `CIVector` initialization method.
-
- @param newValue The `CIValue` whose `x`, `y` and `z` components should be used.
- @return An initialized `Vector` object.
- */
-+ (Vector *)vectorWithCIVector:(CIVector *)newValue;
-/*!
- Creates a `Vector` in which all components are set as just as the given
- `SCNVector3`.
- @param newValue The `SCNVector3` that should be used as a model.
- @return An initialized `Vector` object.
- @see vectorWithNSValue:
- @see vectorWithSCNVector4:
- */
-+ (Vector *)vectorWithSCNVector3:(SCNVector3)newValue;
-/*!
- Creates a `Vector` in which all components are set as just as the first 3
- components in the given `SCNVector4`. If that `Vector` has format `(x y z w)`,
- the created `Vector` object will have format `(x y z)`.
-
- Useful for obtaining the axis of a rotation.
-
- @param newValue The `SCNVector4` whose first three components should be used.
- @return An initialized `Vector` object.
- @see vectorWithSCNVector3:
- */
-+ (Vector *)vectorWithSCNVector4:(SCNVector4)newValue;
-/*!
- Creates a `Vector` based on the `SCNVector3` contained in the given
- `NSValue`.
-
- @param newValue An `NSValue` created with an `SCNVector3`, which will be
- obtained using `SCNVector3Value`.
- @see initWithSCNVector3:
- @see vectorWithObject:
- */
-+ (Vector *)vectorWithNSValue:(NSValue *)newValue;
-/*!
- Creates a `Vector` based on the first three elements on a given `NSArray`. If
- the array has less than 3 components or if any of the first three components is
- not an `NSNumber`, the corresponding value is set to zero.
- @param array The `NSArray` that should be used as a model.
- @return An initialized `Vector` object.
- @see vectorWithObject:
- */
-+ (Vector *)vectorWithArray:(NSArray *)array;
-/*!
- Creates a `Vector` based on the elements on a given NSDictionary. If there are
- elements with the key "x", "y" and "z" (case insensitive), those elements are
- used. If one of them is missing, the keys "0", "1" or "2" are used to replace
- them as needed. If any elements are still missing, the corresponding value is
- set to 0.0.
- @param dictionary The `NSDictionary` that should be used as a model.
- @return An initialized `Vector` object.
- @see vectorWithObject:
- */
-+ (Vector *)vectorWithDictionary:(NSDictionary *)dictionary;
-/*!
- Attempts to create a `Vector` by scanning the string for numbers. Each number
- found is inserted into an `NSArray`, and then the `initWithArray:` method is
- used.
- @param string The `NSString` to use as a model.
- @return An initialized `Vector` object.
- @see initWithArray:
- @see vectorWithObject:
- */
-+ (Vector *)vectorWithString:(NSString *)string;
-/*!
- Returns the given `Vector` object. Used for completion and standardization by
- other methods.
- @param vector The `Vector` object that will be returned.
- @return A `Vector` object.
- @see vectorWithObject:
- */
-+ (Vector *)vectorWithVector:(Vector *)vector;
-/*!
- Creates a `Vector` based on the given object.
-
- The supported objects are:
-
- - `NSNumber`, which will be initialized just like `initUniformWithNumber:`.
- - `NSArray`, which will be initialized just like `initWithArray:`.
- - `NSValue` containing a `SCNVector3`, which will be initialized just like
- `initWithSCNVector3:`.
- - `Vector` (or any of its subclassses), which will be initialized just like
- `initWithVector:`.
- - `NSString`, which will be initialized just like `initWithString:`.
- - `NSDictionary`, which will be initialized just like `initWithDictionary:`.
-
- @warning In case the object isn't a subclass of any of the above classes, an
- `assert(false)` will be triggered.
-
- @param object An object of any one of the classes mentioned above.
- @return An initialized `Vector` object.
- @see initUniformWithNumber:
- @see initWithArray:
- @see initWithSCNVector3:
- @see initWithVector:
- @see initWithString:
- @see initWithDictionary:
- */
-+ (Vector *)vectorWithObject:(id)object;
-
-
-///-----------------------------------------------------------------------------
-/// @name Initializing Vector objects
-///-----------------------------------------------------------------------------
-#pragma mark - Initializing Vector objects
-
 /*!
  Initializes an "empty" `Vector` with `(0 0 0)`.
  @return An initialized `Vector` object.
@@ -254,7 +156,9 @@
  @param z The value to assign to the `Vector`'s `z` component.
  @return An initialized `Vector` object.
  */
-- (instancetype)initWithX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z;
+- (instancetype)initWithX:(CGFloat)x
+                        Y:(CGFloat)y
+                        Z:(CGFloat)z NS_DESIGNATED_INITIALIZER;
 /*!
  Initializes a `Vector` in which all components are set to `s`. Useful for
  creating `Vector`s that represent uniform scales.
@@ -262,7 +166,7 @@
  @return An initialized `Vector` object.
  @see initWithObject:
  */
-- (instancetype)initUniformWithNumber:(CGFloat)s;
+- (instancetype)initWithUniformNumbers:(CGFloat)s;
 /*!
  Given a `CGPoint` of format `(x, y)`, creates a `Vector` object of format `(x,
  - y, 0)`. This is done to ease the translation from screen points to scene
@@ -355,7 +259,7 @@
 
  The supported objects are:
 
- - `NSNumber`, which will be initialized just like `initUniformWithNumber:`.
+ - `NSNumber`, which will be initialized just like `initWithUniformNumbers:`.
  - `NSArray`, which will be initialized just like `initWithArray:`.
  - `NSValue` containing a `SCNVector3`, which will be initialized just like
  `initWithSCNVector3:`.
@@ -369,7 +273,7 @@
 
  @param object An object of any one of the classes mentioned above.
  @return An initialized `Vector` object.
- @see initUniformWithNumber:
+ @see initWithUniformNumbers:
  @see initWithArray:
  @see initWithSCNVector3:
  @see initWithVector:
@@ -377,25 +281,6 @@
  @see initWithDictionary:
  */
 - (instancetype)initWithObject:(id)object;
-
-
-///-----------------------------------------------------------------------------
-/// @name Extracting data
-///-----------------------------------------------------------------------------
-#pragma mark - Extracting data
-
-/*!
- Creates an `SCNVector3` with the same components as the `Vector`.
- @return An initialized `SCNVector3`.
- */
-- (SCNVector3)toSCNVector3;
-/*!
- Creates an `NSValue` containing an `SCNVector3` with the same components as the
- `Vector`.
- @return An instance of `NSValue`.
- */
-- (NSValue *)toNSValue;
-
 
 ///-----------------------------------------------------------------------------
 /// @name Comparing objects
@@ -406,7 +291,7 @@
  Compares the receiver with another `Vector` for equality by testing if all
  their components are equal.
  @param object An object used to initialize a `Vector` by calling
- `vectorWithObject:`. The resulting `Vector` will then be compared to the
+ `initWithObject:`. The resulting `Vector` will then be compared to the
  receiver.
  @return `YES` if both objects are considered equal; `NO` otherwise.
  */
@@ -450,7 +335,7 @@
  */
 - (Vector *)over:(CGFloat)a;
 /*!
- Creates a new `Vector` from the given `object` by calling `vectorWithObject:`.
+ Creates a new `Vector` from the given `object` by calling `initWithObject:`.
  Adds this new `Vector` to the receiver and returns the result.
 
  If we wrote the receiver as `(x, y, z)` and the `Vector` resulting from the
@@ -458,14 +343,14 @@
  x, b + y, c + z)`.
 
  @param object An object, used to initialize a new `Vector` using the
- `vectorWithObject:` method. The resulting `Vector` is then used in the
+ `initWithObject:` method. The resulting `Vector` is then used in the
  addition.
  @return A new instance of a `Vector` object.
  @see minus:
  */
 - (Vector *)plus:(id)object;
 /*!
- Creates a new `Vector` from the given `object` by calling `vectorWithObject:`.
+ Creates a new `Vector` from the given `object` by calling `initWithObject:`.
  Subtracts this new `Vector` from the receiver and returns the result.
 
  If we wrote the receiver as `(x, y, z)` and the `Vector` resulting from the
@@ -473,7 +358,7 @@
  x, b - y, c - z)`.
 
  @param object An object, used to initialize a new `Vector` using the
- `vectorWithObject:` method. The resulting `Vector` is then used in the
+ `initWithObject:` method. The resulting `Vector` is then used in the
  subtraction.
  @return A new instance of a `Vector` object.
  @see plus:
@@ -487,16 +372,16 @@
 
  @return A new instance of a `Vector` object.
  */
-- (Vector *)opposite;
+@property (nonatomic, readonly, strong) Vector *opposite;
 /*!
- Creates a new `Vector` from the given `object` by calling `vectorWithObject:`.
+ Creates a new `Vector` from the given `object` by calling `initWithObject:`.
  Calculates the dot product between that `Vector` and the receiver.
 
  If we wrote the receiver as `(x, y, z)` and the `Vector` resulting from the
  given object as `(a, b, c)`, the result would be written as `a*x + b*y + c*z`.
 
  @param object An object, used to initialize a new `Vector` using the
- `vectorWithObject:` method. The resulting `Vector` is then used in the dot
+ `initWithObject:` method. The resulting `Vector` is then used in the dot
  product.
  @return The value of the dot product between the two vectors.
  @see normSquared
@@ -513,10 +398,10 @@
  y*y + z*z`.
 
  @return The squared value of the `Vector`'s norm.
- @see dot
+ @see dot:
  @see norm
  */
-- (CGFloat)normSquared;
+@property (nonatomic, readonly) CGFloat normSquared;
 /*!
  Returns the norm of the receiver.
 
@@ -528,9 +413,9 @@
  possible.
  @return The value of the `Vector`'s norm.
  @see normSquared
- @see dot
+ @see dot:
  */
-- (CGFloat)norm;
+@property (nonatomic, readonly) CGFloat norm;
 /*!
  Creates a new `Vector` as a result of changing receiver's components uniformly,
  scaling them so that the resulting `Vector` object has a norm of 1.
@@ -544,22 +429,22 @@
  @see norm
  @see normSquared
  */
-- (Vector *)normalize;
+@property (nonatomic, readonly, strong) Vector *normalize;
 /*!
- Creates a new `Vector` from the given `object` by calling `vectorWithObject:`.
+ Creates a new `Vector` from the given `object` by calling `initWithObject:`.
  That `Vector` is then translated, using the receiver as a translation `Vector`.
 
  Mathematically equivalent to adding both `Vector`s using the `plus` method.
 
  @param object An object, used to initialize a new `Vector` using the
- `vectorWithObject:` method. The resulting `Vector` is then translated.
+ `initWithObject:` method. The resulting `Vector` is then translated.
  @return A new intance of a `Vector` object.
  @see plus:
  @see scale:
  */
 - (Vector *)translate:(id)object;
 /*!
- Creates a new `Vector` from the given `object` by calling `vectorWithObject:`.
+ Creates a new `Vector` from the given `object` by calling `initWithObject:`.
  That `Vector` is then scaled, using the receiver as a scale `Vector`.
 
  If an `NSNumber` is given, the result would be equivalent to simply scaling the
@@ -569,7 +454,7 @@
  the resulting `Vector` would be written as `(a*x, b*y, c*z)`
 
  @param object An object, used to initialize a new `Vector` using the
- `vectorWithObject:` method. The resulting `Vector` is then used as a scale.
+ `initWithObject:` method. The resulting `Vector` is then used as a scale.
  @return A new intance of a `Vector` object.
  @see translate:
  */

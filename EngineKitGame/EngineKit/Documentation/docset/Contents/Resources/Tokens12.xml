@@ -87,18 +87,66 @@ ready to be called.</Abstract>
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/JavaScript/setContactCallback:</TokenIdentifier>
+			<Abstract type="html">Returns the current callback function for contact handling in javascript. It
+should be a function called &quot;contact&quot; or a variable, with the same name, that
+contains the function to be called.</Abstract>
+			<DeclaredIn>JavaScript.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) JSValue *contactCallback</Declaration>
+			
+			<ReturnValue><Abstract type="html">An JSValue, hopefully containing the callback function to be called (if
+the JavaScript code is correct); if there is no such function or variable, the
+JSValue returned will be undefined.</Abstract></ReturnValue>
+			<Anchor>//api/name/contactCallback</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/JavaScript/contactCallback</TokenIdentifier>
 			<Abstract type="html">Returns the current callback function for contact handling in javascript. It
 should be a function called &quot;contact&quot; or a variable, with the same name, that
 contains the function to be called.</Abstract>
 			<DeclaredIn>JavaScript.h</DeclaredIn>
 			
-			<Declaration>- (JSValue *)contactCallback</Declaration>
+			<Declaration>@property (nonatomic, readonly, strong) JSValue *contactCallback</Declaration>
 			
 			<ReturnValue><Abstract type="html">An JSValue, hopefully containing the callback function to be called (if
 the JavaScript code is correct); if there is no such function or variable, the
 JSValue returned will be undefined.</Abstract></ReturnValue>
 			<Anchor>//api/name/contactCallback</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/JavaScript/contactCallback</TokenIdentifier>
+			<Abstract type="html">Returns the current callback function for contact handling in javascript. It
+should be a function called &quot;contact&quot; or a variable, with the same name, that
+contains the function to be called.</Abstract>
+			<DeclaredIn>JavaScript.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) JSValue *contactCallback</Declaration>
+			
+			<ReturnValue><Abstract type="html">An JSValue, hopefully containing the callback function to be called (if
+the JavaScript code is correct); if there is no such function or variable, the
+JSValue returned will be undefined.</Abstract></ReturnValue>
+			<Anchor>//api/name/contactCallback</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/JavaScript/setButtonCallback:</TokenIdentifier>
+			<Abstract type="html">Returns the current callback function for handling button presses in
+javascript. It should be a function called &quot;button&quot; or a variable, with the
+same name, that contains the function to be called.</Abstract>
+			<DeclaredIn>JavaScript.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) JSValue *buttonCallback</Declaration>
+			
+			<ReturnValue><Abstract type="html">An JSValue, hopefully containing the callback function to be called (if
+the JavaScript code is correct); if there is no such function or variable, the
+JSValue returned will be undefined.</Abstract></ReturnValue>
+			<Anchor>//api/name/buttonCallback</Anchor>
             <NodeRef refid="12"/>
 		</Token>
 		
@@ -109,12 +157,44 @@ javascript. It should be a function called &quot;button&quot; or a variable, wit
 same name, that contains the function to be called.</Abstract>
 			<DeclaredIn>JavaScript.h</DeclaredIn>
 			
-			<Declaration>- (JSValue *)buttonCallback</Declaration>
+			<Declaration>@property (nonatomic, readonly, strong) JSValue *buttonCallback</Declaration>
 			
 			<ReturnValue><Abstract type="html">An JSValue, hopefully containing the callback function to be called (if
 the JavaScript code is correct); if there is no such function or variable, the
 JSValue returned will be undefined.</Abstract></ReturnValue>
 			<Anchor>//api/name/buttonCallback</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/JavaScript/buttonCallback</TokenIdentifier>
+			<Abstract type="html">Returns the current callback function for handling button presses in
+javascript. It should be a function called &quot;button&quot; or a variable, with the
+same name, that contains the function to be called.</Abstract>
+			<DeclaredIn>JavaScript.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) JSValue *buttonCallback</Declaration>
+			
+			<ReturnValue><Abstract type="html">An JSValue, hopefully containing the callback function to be called (if
+the JavaScript code is correct); if there is no such function or variable, the
+JSValue returned will be undefined.</Abstract></ReturnValue>
+			<Anchor>//api/name/buttonCallback</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/JavaScript/setSliderCallback:</TokenIdentifier>
+			<Abstract type="html">Returns the current callback function for handling slider value changes in
+javascript. It should be a function called &quot;slider&quot; or a variable, with the
+same name, that contains the function to be called.</Abstract>
+			<DeclaredIn>JavaScript.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) JSValue *sliderCallback</Declaration>
+			
+			<ReturnValue><Abstract type="html">An JSValue, hopefully containing the callback function to be called (if
+the JavaScript code is correct); if there is no such function or variable, the
+JSValue returned will be undefined.</Abstract></ReturnValue>
+			<Anchor>//api/name/sliderCallback</Anchor>
             <NodeRef refid="12"/>
 		</Token>
 		
@@ -125,7 +205,7 @@ javascript. It should be a function called &quot;slider&quot; or a variable, wit
 same name, that contains the function to be called.</Abstract>
 			<DeclaredIn>JavaScript.h</DeclaredIn>
 			
-			<Declaration>- (JSValue *)sliderCallback</Declaration>
+			<Declaration>@property (nonatomic, readonly, strong) JSValue *sliderCallback</Declaration>
 			
 			<ReturnValue><Abstract type="html">An JSValue, hopefully containing the callback function to be called (if
 the JavaScript code is correct); if there is no such function or variable, the
@@ -135,98 +215,30 @@ JSValue returned will be undefined.</Abstract></ReturnValue>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/JavaScript/tapCallback</TokenIdentifier>
-			<Abstract type="html">Returns the current callback function for handling taps in javascript. It
-should be a function called &quot;tap&quot; or a variable, with the same name, that
-contains the function to be called.</Abstract>
+			<TokenIdentifier>//apple_ref/occ/instp/JavaScript/sliderCallback</TokenIdentifier>
+			<Abstract type="html">Returns the current callback function for handling slider value changes in
+javascript. It should be a function called &quot;slider&quot; or a variable, with the
+same name, that contains the function to be called.</Abstract>
 			<DeclaredIn>JavaScript.h</DeclaredIn>
 			
-			<Declaration>- (JSValue *)tapCallback</Declaration>
+			<Declaration>@property (nonatomic, readonly, strong) JSValue *sliderCallback</Declaration>
 			
 			<ReturnValue><Abstract type="html">An JSValue, hopefully containing the callback function to be called (if
 the JavaScript code is correct); if there is no such function or variable, the
 JSValue returned will be undefined.</Abstract></ReturnValue>
-			<Anchor>//api/name/tapCallback</Anchor>
+			<Anchor>//api/name/sliderCallback</Anchor>
             <NodeRef refid="12"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/JavaScript/swipeCallback</TokenIdentifier>
-			<Abstract type="html">Returns the current callback function for handling swipes in javascript. It
-should be a function called &quot;swipe&quot; or a variable, with the same name, that
-contains the function to be called.</Abstract>
+			<TokenIdentifier>//apple_ref/occ/instm/JavaScript/callGestureCallbackForGesture:state:withArguments:</TokenIdentifier>
+			<Abstract type="html">Calls the calback function for handling the given gesture in javascript.</Abstract>
 			<DeclaredIn>JavaScript.h</DeclaredIn>
 			
-			<Declaration>- (JSValue *)swipeCallback</Declaration>
+			<Declaration>- (void)callGestureCallbackForGesture:(UIGestures)gesture state:(UIGestureRecognizerState)state withArguments:(NSArray *)arguments</Declaration>
 			
-			<ReturnValue><Abstract type="html">An JSValue, hopefully containing the callback function to be called (if
-the JavaScript code is correct); if there is no such function or variable, the
-JSValue returned will be undefined.</Abstract></ReturnValue>
-			<Anchor>//api/name/swipeCallback</Anchor>
-            <NodeRef refid="12"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/JavaScript/panCallback</TokenIdentifier>
-			<Abstract type="html">Returns the current callback function for handling pans in javascript. It
-should be a function called &quot;pan&quot; or a variable, with the same name, that
-contains the function to be called.</Abstract>
-			<DeclaredIn>JavaScript.h</DeclaredIn>
 			
-			<Declaration>- (JSValue *)panCallback</Declaration>
-			
-			<ReturnValue><Abstract type="html">An JSValue, hopefully containing the callback function to be called (if
-the JavaScript code is correct); if there is no such function or variable, the
-JSValue returned will be undefined.</Abstract></ReturnValue>
-			<Anchor>//api/name/panCallback</Anchor>
-            <NodeRef refid="12"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/JavaScript/pinchCallback</TokenIdentifier>
-			<Abstract type="html">Returns the current callback function for handling pinches in javascript. It
-should be a function called &quot;pinches&quot; or a variable, with the same name, that
-contains the function to be called.</Abstract>
-			<DeclaredIn>JavaScript.h</DeclaredIn>
-			
-			<Declaration>- (JSValue *)pinchCallback</Declaration>
-			
-			<ReturnValue><Abstract type="html">An JSValue, hopefully containing the callback function to be called (if
-the JavaScript code is correct); if there is no such function or variable, the
-JSValue returned will be undefined.</Abstract></ReturnValue>
-			<Anchor>//api/name/pinchCallback</Anchor>
-            <NodeRef refid="12"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/JavaScript/rotationCallback</TokenIdentifier>
-			<Abstract type="html">Returns the current callback function for handling rotations in javascript. It
-should be a function called &quot;rotation&quot; or a variable, with the same name, that
-contains the function to be called.</Abstract>
-			<DeclaredIn>JavaScript.h</DeclaredIn>
-			
-			<Declaration>- (JSValue *)rotationCallback</Declaration>
-			
-			<ReturnValue><Abstract type="html">An JSValue, hopefully containing the callback function to be called (if
-the JavaScript code is correct); if there is no such function or variable, the
-JSValue returned will be undefined.</Abstract></ReturnValue>
-			<Anchor>//api/name/rotationCallback</Anchor>
-            <NodeRef refid="12"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/JavaScript/longPressCallback</TokenIdentifier>
-			<Abstract type="html">Returns the current callback function for handling long presses in javascript.
-It should be a function called &quot;longPress&quot; or a variable, with the same name,
-that contains the function to be called.</Abstract>
-			<DeclaredIn>JavaScript.h</DeclaredIn>
-			
-			<Declaration>- (JSValue *)longPressCallback</Declaration>
-			
-			<ReturnValue><Abstract type="html">An JSValue, hopefully containing the callback function to be called (if
-the JavaScript code is correct); if there is no such function or variable, the
-JSValue returned will be undefined.</Abstract></ReturnValue>
-			<Anchor>//api/name/longPressCallback</Anchor>
+			<Anchor>//api/name/callGestureCallbackForGesture:state:withArguments:</Anchor>
             <NodeRef refid="12"/>
 		</Token>
 		

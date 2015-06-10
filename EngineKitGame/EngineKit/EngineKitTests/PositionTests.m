@@ -36,10 +36,10 @@
 
     for (NSArray *position in self.standardArrays) {
         [self.standardPositions
-            push:[Position
-                     positionWithX:((NSNumber *)position[0]).doubleValue
-                                 Y:((NSNumber *)position[1]).doubleValue
-                                 Z:((NSNumber *)position[2]).doubleValue]];
+            push:[[Position alloc]
+                     initWithX:((NSNumber *)position[0]).doubleValue
+                             Y:((NSNumber *)position[1]).doubleValue
+                             Z:((NSNumber *)position[2]).doubleValue]];
     }
 }
 
@@ -54,20 +54,20 @@
         NSArray *nextPositionArray
             = self.standardArrays[(i + 1) % self.standardArrays.count];
 
-        Position *position1 =
-            [Position positionWithX:((NSNumber *)positionArray[0]).doubleValue
-                                  Y:((NSNumber *)positionArray[1]).doubleValue
-                                  Z:((NSNumber *)positionArray[2]).doubleValue];
+        Position *position1 = [[Position alloc]
+            initWithX:((NSNumber *)positionArray[0]).doubleValue
+                    Y:((NSNumber *)positionArray[1]).doubleValue
+                    Z:((NSNumber *)positionArray[2]).doubleValue];
 
-        Position *position2 =
-            [Position positionWithX:((NSNumber *)positionArray[0]).doubleValue
-                                  Y:((NSNumber *)positionArray[1]).doubleValue
-                                  Z:((NSNumber *)positionArray[2]).doubleValue];
+        Position *position2 = [[Position alloc]
+            initWithX:((NSNumber *)positionArray[0]).doubleValue
+                    Y:((NSNumber *)positionArray[1]).doubleValue
+                    Z:((NSNumber *)positionArray[2]).doubleValue];
 
-        Position *position3 = [Position
-            positionWithX:((NSNumber *)nextPositionArray[0]).doubleValue
-                        Y:((NSNumber *)nextPositionArray[1]).doubleValue
-                        Z:((NSNumber *)nextPositionArray[2]).doubleValue];
+        Position *position3 = [[Position alloc]
+            initWithX:((NSNumber *)nextPositionArray[0]).doubleValue
+                    Y:((NSNumber *)nextPositionArray[1]).doubleValue
+                    Z:((NSNumber *)nextPositionArray[2]).doubleValue];
 
         XCTAssert([position1 isEqual:position2]);
         XCTAssert([position1 isEqualToVector:position2.toSCNVector3]);
@@ -90,10 +90,10 @@
         NSArray *vectorArray = self.standardArrays[i];
 
         SCNVector4 standard
-        = SCNVector4Make(((NSNumber *)vectorArray[0]).doubleValue,
-                         ((NSNumber *)vectorArray[1]).doubleValue,
-                         ((NSNumber *)vectorArray[2]).doubleValue,
-                         0.0);
+            = SCNVector4Make(((NSNumber *)vectorArray[0]).doubleValue,
+                             ((NSNumber *)vectorArray[1]).doubleValue,
+                             ((NSNumber *)vectorArray[2]).doubleValue,
+                             0.0);
 
         // Actual result
         SCNVector4 result = ((Vector *)self.standardPositions[i]).toSCNVector4;
@@ -108,14 +108,10 @@
 #pragma mark - Creation
 //------------------------------------------------------------------------------
 
-- (void)testPosition {
-    XCTAssertNotNil([Position position]);
-}
-
 - (void)testOrigin {
 
     // Gold standard
-    Position *standard = [Position positionWithX:0 Y:0 Z:0];
+    Position *standard = [[Position alloc] initWithX:0 Y:0 Z:0];
 
     // Actual result
     Position *result = [Position origin];
@@ -129,11 +125,11 @@
         for (NSNumber *number1 in array) {
             // Gold standard
             CGFloat u = number1.doubleValue;
-            Position *standard = [Position positionWithX:u Y:u Z:u];
+            Position *standard = [[Position alloc] initWithX:u Y:u Z:u];
 
             // Acutal result
             Position *result =
-            [Position positionWithUniformNumbers:number1.doubleValue];
+                [[Position alloc] initWithUniformNumbers:number1.doubleValue];
 
             // Comparison
             XCTAssertEqualObjects(standard, result);
@@ -147,10 +143,11 @@
         CGPoint point = CGPointMake(((NSNumber *)array[0]).doubleValue,
                                     ((NSNumber *)array[1]).doubleValue);
 
-        Position *standard = [Position positionWithX:point.x Y:-point.y Z:0];
+        Position *standard =
+            [[Position alloc] initWithX:point.x Y:-point.y Z:0];
 
         // Actual result
-        Position *result = [Position positionWithCGPoint:point];
+        Position *result = [[Position alloc] initWithCGPoint:point];
 
         // Comparison
         XCTAssertEqualObjects(standard, result);
@@ -165,10 +162,10 @@
         // Actual result
         NSArray *positionArray = self.standardArrays[i];
         CIVector *ciposition =
-        [CIVector vectorWithX:((NSNumber *)positionArray[0]).doubleValue
-                            Y:((NSNumber *)positionArray[1]).doubleValue
-                            Z:((NSNumber *)positionArray[2]).doubleValue];
-        Position *result = [Position positionWithCIVector:ciposition];
+            [CIVector vectorWithX:((NSNumber *)positionArray[0]).doubleValue
+                                Y:((NSNumber *)positionArray[1]).doubleValue
+                                Z:((NSNumber *)positionArray[2]).doubleValue];
+        Position *result = [[Position alloc] initWithCIVector:ciposition];
 
         // Comparison
         XCTAssertEqualObjects(result, standard);
@@ -182,7 +179,7 @@
 
         // Actual result
         SCNVector3 position3 = standard.toSCNVector3;
-        Position *result = [Position positionWithSCNVector3:position3];
+        Position *result = [[Position alloc] initWithSCNVector3:position3];
 
         // Comparison
         XCTAssertEqualObjects(result, standard);
@@ -196,24 +193,8 @@
 
         // Actual result
         SCNVector4 position4
-        = SCNVector4Make(standard.x, standard.y, standard.z, arc4random());
-        Position *result = [Position positionWithSCNVector4:position4];
-
-        // Comparison
-        XCTAssertEqualObjects(result, standard);
-    }
-}
-
-
-- (void)testPositionWithNSValue {
-    for (int i = 0; i < self.standardPositions.count; i++) {
-        // Gold standard
-        Position *standard = self.standardPositions[i];
-
-        // Actual result
-        SCNVector3 position3 = standard.toSCNVector3;
-        NSValue *value = [NSValue valueWithSCNVector3:position3];
-        Position *result = [Position positionWithNSValue:value];
+            = SCNVector4Make(standard.x, standard.y, standard.z, arc4random());
+        Position *result = [[Position alloc] initWithSCNVector4:position4];
 
         // Comparison
         XCTAssertEqualObjects(result, standard);
@@ -227,7 +208,7 @@
 
         // Actual result
         NSArray *array = standard.toArray;
-        Position *result = [Position positionWithArray:array];
+        Position *result = [[Position alloc] initWithArray:array];
 
         // Comparison
         XCTAssertEqualObjects(result, standard);
@@ -241,11 +222,11 @@
 
         // Actual result
         NSDictionary *dictionary = @{
-                                     @"x" : @(standard.x),
-                                     @"y" : @(standard.y),
-                                     @"z" : @(standard.z)
-                                     };
-        Position *result = [Position positionWithDictionary:dictionary];
+            @"x" : @(standard.x),
+            @"y" : @(standard.y),
+            @"z" : @(standard.z)
+        };
+        Position *result = [[Position alloc] initWithDictionary:dictionary];
 
         // Comparison
         XCTAssertEqualObjects(result, standard);
@@ -259,24 +240,24 @@
 
         // Actual result
         NSArray *formats =
-        @[ @"[%lf, %lf, %lf]", @"vn %lf %lf %lf", @"(%lf %lf %lf)" ];
+            @[ @"[%lf, %lf, %lf]", @"vn %lf %lf %lf", @"(%lf %lf %lf)" ];
 
         NSString *string = [NSString stringWithFormat:formats[i % 3],
-                            standard.x,
-                            standard.y,
-                            standard.z];
-        Position *result = [Position positionWithString:string];
+                                                      standard.x,
+                                                      standard.y,
+                                                      standard.z];
+        Position *result = [[Position alloc] initWithString:string];
 
         // Comparison
         XCTAssertEqualWithAccuracy(result.x,
                                    standard.x,
-                                   fabs(standard.x / 100));
+                                   fabs(standard.x / 100) + 0.00001);
         XCTAssertEqualWithAccuracy(result.y,
                                    standard.y,
-                                   fabs(standard.y / 100));
+                                   fabs(standard.y / 100) + 0.00001);
         XCTAssertEqualWithAccuracy(result.z,
                                    standard.z,
-                                   fabs(standard.z / 100));
+                                   fabs(standard.z / 100) + 0.00001);
     }
 }
 
@@ -286,10 +267,10 @@
         Position *standard = self.standardPositions[i];
 
         // Actual result
-        Vector *vector = [Vector vectorWithVector:standard];
-        Position *result1 = [Position positionWithVector:vector];
-        Position *result2 = [Position positionWithVector:standard];
-        
+        Vector *vector = [[Vector alloc] initWithVector:standard];
+        Position *result1 = [[Position alloc] initWithVector:vector];
+        Position *result2 = [[Position alloc] initWithVector:standard];
+
         // Comparison
         XCTAssertEqualObjects(result1, standard);
         XCTAssertEqualObjects(result2, standard);
@@ -302,7 +283,7 @@
         Position *standard = self.standardPositions[i];
 
         // Actual result
-        Position *result = [Position positionWithPosition:standard];
+        Position *result = [[Position alloc] initWithVector:standard];
 
         // Comparison
         XCTAssertEqualObjects(result, standard);
@@ -319,44 +300,39 @@
         Position *result;
 
         NSDictionary *dictionary = @{
-                                     @"x" : @(standard.x),
-                                     @"y" : @(standard.y),
-                                     @"z" : @(standard.z)
-                                     };
-        result = [Position positionWithObject:dictionary];
+            @"x" : @(standard.x),
+            @"y" : @(standard.y),
+            @"z" : @(standard.z)
+        };
+        result = [[Position alloc] initWithObject:dictionary];
         XCTAssertEqualObjects(result, standard);
 
         NSString *string = [NSString stringWithFormat:@"%lf %lf %lf",
-                            standard.x,
-                            standard.y,
-                            standard.z];
-        result = [Position positionWithObject:string];
+                                                      standard.x,
+                                                      standard.y,
+                                                      standard.z];
+        result = [[Position alloc] initWithObject:string];
         XCTAssertEqualWithAccuracy(result.x,
                                    standard.x,
-                                   fabs(standard.x / 100));
+                                   fabs(standard.x / 100) + 0.00001);
         XCTAssertEqualWithAccuracy(result.y,
                                    standard.y,
-                                   fabs(standard.y / 100));
+                                   fabs(standard.y / 100) + 0.00001);
         XCTAssertEqualWithAccuracy(result.z,
                                    standard.z,
-                                   fabs(standard.z / 100));
+                                   fabs(standard.z / 100) + 0.00001);
 
-        result = [Position positionWithObject:standard];
+        result = [[Position alloc] initWithObject:standard];
         XCTAssertEqualObjects(result, standard);
 
-        NSValue *value = [NSValue valueWithSCNVector3:standard.toSCNVector3];
-        result = [Position positionWithObject:value];
+        result = [[Position alloc] initWithObject:standard.toArray];
         XCTAssertEqualObjects(result, standard);
 
-        result = [Position positionWithObject:standard.toArray];
-        XCTAssertEqualObjects(result, standard);
-
-        result = [Position positionWithObject:@(standard.x)];
-        standard = [Position positionWithUniformNumbers:standard.x];
+        result = [[Position alloc] initWithObject:@(standard.x)];
+        standard = [[Position alloc] initWithUniformNumbers:standard.x];
         XCTAssertEqualObjects(result, standard);
     }
 }
-
 
 
 @end

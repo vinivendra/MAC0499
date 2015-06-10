@@ -25,12 +25,38 @@
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NSMutableArray/setPop:</TokenIdentifier>
+			<Abstract type="html">Removes the last item of the array, and returns that item
+Note: This method changes the length of the array!</Abstract>
+			<DeclaredIn>NSMutableArray+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) id pop</Declaration>
+			
+			<ReturnValue><Abstract type="html">First array item or nil.</Abstract></ReturnValue>
+			<Anchor>//api/name/pop</Anchor>
+            <NodeRef refid="29"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/NSMutableArray/pop</TokenIdentifier>
 			<Abstract type="html">Removes the last item of the array, and returns that item
 Note: This method changes the length of the array!</Abstract>
 			<DeclaredIn>NSMutableArray+ObjectiveSugar.h</DeclaredIn>
 			
-			<Declaration>- (id)pop</Declaration>
+			<Declaration>@property (nonatomic, readonly, strong) id pop</Declaration>
+			
+			<ReturnValue><Abstract type="html">First array item or nil.</Abstract></ReturnValue>
+			<Anchor>//api/name/pop</Anchor>
+            <NodeRef refid="29"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/NSMutableArray/pop</TokenIdentifier>
+			<Abstract type="html">Removes the last item of the array, and returns that item
+Note: This method changes the length of the array!</Abstract>
+			<DeclaredIn>NSMutableArray+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) id pop</Declaration>
 			
 			<ReturnValue><Abstract type="html">First array item or nil.</Abstract></ReturnValue>
 			<Anchor>//api/name/pop</Anchor>
@@ -51,12 +77,38 @@ Note: This method changes the length of the array!</Abstract>
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NSMutableArray/setShift:</TokenIdentifier>
+			<Abstract type="html">Removes the first item of the array, and returns that item
+Note: This method changes the length of the array!</Abstract>
+			<DeclaredIn>NSMutableArray+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) id shift</Declaration>
+			
+			<ReturnValue><Abstract type="html">First array item or nil.</Abstract></ReturnValue>
+			<Anchor>//api/name/shift</Anchor>
+            <NodeRef refid="29"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/NSMutableArray/shift</TokenIdentifier>
 			<Abstract type="html">Removes the first item of the array, and returns that item
 Note: This method changes the length of the array!</Abstract>
 			<DeclaredIn>NSMutableArray+ObjectiveSugar.h</DeclaredIn>
 			
-			<Declaration>- (id)shift</Declaration>
+			<Declaration>@property (nonatomic, readonly, strong) id shift</Declaration>
+			
+			<ReturnValue><Abstract type="html">First array item or nil.</Abstract></ReturnValue>
+			<Anchor>//api/name/shift</Anchor>
+            <NodeRef refid="29"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/NSMutableArray/shift</TokenIdentifier>
+			<Abstract type="html">Removes the first item of the array, and returns that item
+Note: This method changes the length of the array!</Abstract>
+			<DeclaredIn>NSMutableArray+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) id shift</Declaration>
 			
 			<ReturnValue><Abstract type="html">First array item or nil.</Abstract></ReturnValue>
 			<Anchor>//api/name/shift</Anchor>

@@ -33,10 +33,10 @@
 
  @return  A random element in the array, or nil.
  */
-- (id)sample;
+@property (nonatomic, readonly, strong) id sample;
 
 /// Alias for -sample
-- (id)anyObject;
+@property (nonatomic, readonly, strong) id anyObject;
 
 
 /**
@@ -161,21 +161,21 @@
 
  @return An array of all held arrays merged
  */
-- (NSArray *)flatten;
+@property (nonatomic, readonly, copy) NSArray *flatten;
 
 /**
  Remove all the nulls from array
 
  @return A copy of the given array without NSNulls
  */
-- (NSArray *)compact;
+@property (nonatomic, readonly, copy) NSArray *compact;
 
 /**
  Alias for `componentsJoinedByString` with a default of no seperator
 
  @return A string of all objects joined with an empty string
  */
-- (NSString *)join;
+@property (nonatomic, readonly, copy) NSString *join;
 
 /**
  Alias for `componentsJoinedByString`
@@ -189,7 +189,7 @@
 
  @return A sorted copy of the array
  */
-- (NSArray *)sort;
+@property (nonatomic, readonly, copy) NSArray *sort;
 
 /**
  Sorts the array using the the default comparator on the given key
@@ -203,7 +203,7 @@
 
  Returns a reversed array
  */
-- (NSArray *)reverse;
+@property (nonatomic, readonly, copy) NSArray *reverse;
 
 /**
  Return all the objects that are in both self and `array`.
@@ -256,7 +256,7 @@
  
  @return a new array with all unique elements
  **/
-- (NSArray *)unique;
+@property (nonatomic, readonly, copy) NSArray *unique;
 
 @end
 

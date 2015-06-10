@@ -13,13 +13,39 @@
 		
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Rotation/rotationWithX:Y:Z:Angle:</TokenIdentifier>
+			<Abstract type="html">Creates a Rotation whith the four given components, respectively.</Abstract>
+			<DeclaredIn>Rotation.h</DeclaredIn>
+			
+			<Declaration>+ (Rotation *)rotationWithX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z Angle:(CGFloat)angle</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>x</Name>
+					<Abstract type="html">The value to assign to the Rotation&apos;s Axis&apos;s x component.</Abstract>
+				</Parameter><Parameter>
+					<Name>y</Name>
+					<Abstract type="html">The value to assign to the Rotation&apos;s Axis&apos;s y component.</Abstract>
+				</Parameter><Parameter>
+					<Name>z</Name>
+					<Abstract type="html">The value to assign to the Rotation&apos;s Axis&apos;s z component.</Abstract>
+				</Parameter><Parameter>
+					<Name>angle</Name>
+					<Abstract type="html">The value to assign to the Rotation&apos;s Angle component.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized Rotation object.</Abstract></ReturnValue>
+			<Anchor>//api/name/rotationWithX:Y:Z:Angle:</Anchor>
+            <NodeRef refid="18"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/clm/Rotation/rotationWithSCNVector4:</TokenIdentifier>
 			<Abstract type="html">Creates a Rotation in which all components are set as just as the given
 SCNVector4. This initialization is a lot like @p -initWithArray.</Abstract>
 			<DeclaredIn>Rotation.h</DeclaredIn>
 			
 	<RelatedTokens>
-		<TokenIdentifier>//apple_ref/occ/instm/Rotation/y</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instp/Rotation/y</TokenIdentifier>
 		
 	</RelatedTokens>
 	
@@ -142,7 +168,7 @@ other methods.</Abstract>
 			<DeclaredIn>Rotation.h</DeclaredIn>
 			
 	<RelatedTokens>
-		<TokenIdentifier>//apple_ref/occ/instm/Rotation/y</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instp/Rotation/y</TokenIdentifier>
 		
 	</RelatedTokens>
 	
@@ -165,7 +191,7 @@ SCNVector4. This initialization is a lot like @p -initWithArray.</Abstract>
 			<DeclaredIn>Rotation.h</DeclaredIn>
 			
 	<RelatedTokens>
-		<TokenIdentifier>//apple_ref/occ/instm/Rotation/y</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instp/Rotation/y</TokenIdentifier>
 		
 	</RelatedTokens>
 	
@@ -285,7 +311,7 @@ values for its axis and angle.</Abstract>
 			<DeclaredIn>Rotation.h</DeclaredIn>
 			
 	<RelatedTokens>
-		<TokenIdentifier>//apple_ref/occ/instm/Rotation/y</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instp/Rotation/y</TokenIdentifier>
 		
 	</RelatedTokens>
 	
@@ -321,6 +347,39 @@ original matrix.</Abstract></ReturnValue>
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Rotation/rotate:</TokenIdentifier>
+			<Abstract type="html">Creates a new Vector from the given object by calling [Vector initWithObject:].
+That Vector is then rotated by the rotation that the receiver represents.</Abstract>
+			<DeclaredIn>Rotation.h</DeclaredIn>
+			
+			<Declaration>- (Vector *)rotate:(id)vector</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>object</Name>
+					<Abstract type="html">An object, used to initialize a new Vector to be rotated.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A new intance of a Vector object.</Abstract></ReturnValue>
+			<Anchor>//api/name/rotate:</Anchor>
+            <NodeRef refid="18"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Rotation/setToSCNVector:</TokenIdentifier>
+			<Abstract type="html">Returns a representation of the Rotation as an SCNVector4. The Rotation&apos;s Axis
+will be represented in the first three components (x y z, while the angle will
+be in the last component (w). This is the most common representation, ready to
+be used with SceneKit.</Abstract>
+			<DeclaredIn>Rotation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) SCNVector4 toSCNVector</Declaration>
+			
+			<ReturnValue><Abstract type="html">An initialized SCNVector4.</Abstract></ReturnValue>
+			<Anchor>//api/name/toSCNVector</Anchor>
+            <NodeRef refid="18"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/Rotation/toSCNVector</TokenIdentifier>
 			<Abstract type="html">Returns a representation of the Rotation as an SCNVector4. The Rotation&apos;s Axis
 will be represented in the first three components (x y z, while the angle will
@@ -328,10 +387,37 @@ be in the last component (w). This is the most common representation, ready to
 be used with SceneKit.</Abstract>
 			<DeclaredIn>Rotation.h</DeclaredIn>
 			
-			<Declaration>- (SCNVector4)toSCNVector</Declaration>
+			<Declaration>@property (nonatomic, readonly) SCNVector4 toSCNVector</Declaration>
 			
 			<ReturnValue><Abstract type="html">An initialized SCNVector4.</Abstract></ReturnValue>
 			<Anchor>//api/name/toSCNVector</Anchor>
+            <NodeRef refid="18"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Rotation/toSCNVector</TokenIdentifier>
+			<Abstract type="html">Returns a representation of the Rotation as an SCNVector4. The Rotation&apos;s Axis
+will be represented in the first three components (x y z, while the angle will
+be in the last component (w). This is the most common representation, ready to
+be used with SceneKit.</Abstract>
+			<DeclaredIn>Rotation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) SCNVector4 toSCNVector</Declaration>
+			
+			<ReturnValue><Abstract type="html">An initialized SCNVector4.</Abstract></ReturnValue>
+			<Anchor>//api/name/toSCNVector</Anchor>
+            <NodeRef refid="18"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Rotation/setToSCNMatrix:</TokenIdentifier>
+			<Abstract type="html">Returns an SCNMatrix4 representing the same rotation as the receiver.</Abstract>
+			<DeclaredIn>Rotation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) SCNMatrix4 toSCNMatrix</Declaration>
+			
+			<ReturnValue><Abstract type="html">An initialized SCNMatrix4.</Abstract></ReturnValue>
+			<Anchor>//api/name/toSCNMatrix</Anchor>
             <NodeRef refid="18"/>
 		</Token>
 		
@@ -340,10 +426,34 @@ be used with SceneKit.</Abstract>
 			<Abstract type="html">Returns an SCNMatrix4 representing the same rotation as the receiver.</Abstract>
 			<DeclaredIn>Rotation.h</DeclaredIn>
 			
-			<Declaration>- (SCNMatrix4)toSCNMatrix</Declaration>
+			<Declaration>@property (nonatomic, readonly) SCNMatrix4 toSCNMatrix</Declaration>
 			
 			<ReturnValue><Abstract type="html">An initialized SCNMatrix4.</Abstract></ReturnValue>
 			<Anchor>//api/name/toSCNMatrix</Anchor>
+            <NodeRef refid="18"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Rotation/toSCNMatrix</TokenIdentifier>
+			<Abstract type="html">Returns an SCNMatrix4 representing the same rotation as the receiver.</Abstract>
+			<DeclaredIn>Rotation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) SCNMatrix4 toSCNMatrix</Declaration>
+			
+			<ReturnValue><Abstract type="html">An initialized SCNMatrix4.</Abstract></ReturnValue>
+			<Anchor>//api/name/toSCNMatrix</Anchor>
+            <NodeRef refid="18"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Rotation/setX:</TokenIdentifier>
+			<Abstract type="html">The x component of the axis around which the rotation is being done.</Abstract>
+			<DeclaredIn>Rotation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) CGFloat x</Declaration>
+			
+			
+			<Anchor>//api/name/x</Anchor>
             <NodeRef refid="18"/>
 		</Token>
 		
@@ -352,10 +462,34 @@ be used with SceneKit.</Abstract>
 			<Abstract type="html">The x component of the axis around which the rotation is being done.</Abstract>
 			<DeclaredIn>Rotation.h</DeclaredIn>
 			
-			<Declaration>- (CGFloat)x</Declaration>
+			<Declaration>@property (nonatomic, readonly) CGFloat x</Declaration>
 			
 			
 			<Anchor>//api/name/x</Anchor>
+            <NodeRef refid="18"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Rotation/x</TokenIdentifier>
+			<Abstract type="html">The x component of the axis around which the rotation is being done.</Abstract>
+			<DeclaredIn>Rotation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) CGFloat x</Declaration>
+			
+			
+			<Anchor>//api/name/x</Anchor>
+            <NodeRef refid="18"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Rotation/setY:</TokenIdentifier>
+			<Abstract type="html">The y component of the axis around which the rotation is being done.</Abstract>
+			<DeclaredIn>Rotation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) CGFloat y</Declaration>
+			
+			
+			<Anchor>//api/name/y</Anchor>
             <NodeRef refid="18"/>
 		</Token>
 		
@@ -364,10 +498,34 @@ be used with SceneKit.</Abstract>
 			<Abstract type="html">The y component of the axis around which the rotation is being done.</Abstract>
 			<DeclaredIn>Rotation.h</DeclaredIn>
 			
-			<Declaration>- (CGFloat)y</Declaration>
+			<Declaration>@property (nonatomic, readonly) CGFloat y</Declaration>
 			
 			
 			<Anchor>//api/name/y</Anchor>
+            <NodeRef refid="18"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Rotation/y</TokenIdentifier>
+			<Abstract type="html">The y component of the axis around which the rotation is being done.</Abstract>
+			<DeclaredIn>Rotation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) CGFloat y</Declaration>
+			
+			
+			<Anchor>//api/name/y</Anchor>
+            <NodeRef refid="18"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Rotation/setZ:</TokenIdentifier>
+			<Abstract type="html">The z component of the axis around which the rotation is being done.</Abstract>
+			<DeclaredIn>Rotation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) CGFloat z</Declaration>
+			
+			
+			<Anchor>//api/name/z</Anchor>
             <NodeRef refid="18"/>
 		</Token>
 		
@@ -376,10 +534,34 @@ be used with SceneKit.</Abstract>
 			<Abstract type="html">The z component of the axis around which the rotation is being done.</Abstract>
 			<DeclaredIn>Rotation.h</DeclaredIn>
 			
-			<Declaration>- (CGFloat)z</Declaration>
+			<Declaration>@property (nonatomic, readonly) CGFloat z</Declaration>
 			
 			
 			<Anchor>//api/name/z</Anchor>
+            <NodeRef refid="18"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Rotation/z</TokenIdentifier>
+			<Abstract type="html">The z component of the axis around which the rotation is being done.</Abstract>
+			<DeclaredIn>Rotation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) CGFloat z</Declaration>
+			
+			
+			<Anchor>//api/name/z</Anchor>
+            <NodeRef refid="18"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Rotation/setA:</TokenIdentifier>
+			<Abstract type="html">The value of the angle by which the rotation is being done, in radians.</Abstract>
+			<DeclaredIn>Rotation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) CGFloat a</Declaration>
+			
+			
+			<Anchor>//api/name/a</Anchor>
             <NodeRef refid="18"/>
 		</Token>
 		
@@ -388,10 +570,34 @@ be used with SceneKit.</Abstract>
 			<Abstract type="html">The value of the angle by which the rotation is being done, in radians.</Abstract>
 			<DeclaredIn>Rotation.h</DeclaredIn>
 			
-			<Declaration>- (CGFloat)a</Declaration>
+			<Declaration>@property (nonatomic, readonly) CGFloat a</Declaration>
 			
 			
 			<Anchor>//api/name/a</Anchor>
+            <NodeRef refid="18"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Rotation/a</TokenIdentifier>
+			<Abstract type="html">The value of the angle by which the rotation is being done, in radians.</Abstract>
+			<DeclaredIn>Rotation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) CGFloat a</Declaration>
+			
+			
+			<Anchor>//api/name/a</Anchor>
+            <NodeRef refid="18"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Rotation/setAxis:</TokenIdentifier>
+			<Abstract type="html">The axis around which the rotation is being done.</Abstract>
+			<DeclaredIn>Rotation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) Axis *axis</Declaration>
+			
+			
+			<Anchor>//api/name/axis</Anchor>
             <NodeRef refid="18"/>
 		</Token>
 		
@@ -400,10 +606,34 @@ be used with SceneKit.</Abstract>
 			<Abstract type="html">The axis around which the rotation is being done.</Abstract>
 			<DeclaredIn>Rotation.h</DeclaredIn>
 			
-			<Declaration>- (Axis *)axis</Declaration>
+			<Declaration>@property (nonatomic, readonly, strong) Axis *axis</Declaration>
 			
 			
 			<Anchor>//api/name/axis</Anchor>
+            <NodeRef refid="18"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Rotation/axis</TokenIdentifier>
+			<Abstract type="html">The axis around which the rotation is being done.</Abstract>
+			<DeclaredIn>Rotation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) Axis *axis</Declaration>
+			
+			
+			<Anchor>//api/name/axis</Anchor>
+            <NodeRef refid="18"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Rotation/setAngle:</TokenIdentifier>
+			<Abstract type="html">The angle by which the rotation is being done.</Abstract>
+			<DeclaredIn>Rotation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) Angle *angle</Declaration>
+			
+			
+			<Anchor>//api/name/angle</Anchor>
             <NodeRef refid="18"/>
 		</Token>
 		
@@ -412,7 +642,19 @@ be used with SceneKit.</Abstract>
 			<Abstract type="html">The angle by which the rotation is being done.</Abstract>
 			<DeclaredIn>Rotation.h</DeclaredIn>
 			
-			<Declaration>- (Angle *)angle</Declaration>
+			<Declaration>@property (nonatomic, readonly, strong) Angle *angle</Declaration>
+			
+			
+			<Anchor>//api/name/angle</Anchor>
+            <NodeRef refid="18"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Rotation/angle</TokenIdentifier>
+			<Abstract type="html">The angle by which the rotation is being done.</Abstract>
+			<DeclaredIn>Rotation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) Angle *angle</Declaration>
 			
 			
 			<Anchor>//api/name/angle</Anchor>

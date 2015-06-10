@@ -56,6 +56,24 @@
 	
 	<optgroup label="Properties">
 		
+		<option value="//api/name/norm">norm</option>
+		
+		<option value="//api/name/normSquared">normSquared</option>
+		
+		<option value="//api/name/normalize">normalize</option>
+		
+		<option value="//api/name/notZero">notZero</option>
+		
+		<option value="//api/name/opposite">opposite</option>
+		
+		<option value="//api/name/toArray">toArray</option>
+		
+		<option value="//api/name/toNSValue">toNSValue</option>
+		
+		<option value="//api/name/toSCNVector3">toSCNVector3</option>
+		
+		<option value="//api/name/toSCNVector4">toSCNVector4</option>
+		
 		<option value="//api/name/x">x</option>
 		
 		<option value="//api/name/y">y</option>
@@ -70,32 +88,6 @@
 		
 		<option value="//api/name/origin">+ origin</option>
 		
-		<option value="//api/name/vector">+ vector</option>
-		
-		<option value="//api/name/vectorWithArray:">+ vectorWithArray:</option>
-		
-		<option value="//api/name/vectorWithCGPoint:">+ vectorWithCGPoint:</option>
-		
-		<option value="//api/name/vectorWithCIVector:">+ vectorWithCIVector:</option>
-		
-		<option value="//api/name/vectorWithDictionary:">+ vectorWithDictionary:</option>
-		
-		<option value="//api/name/vectorWithNSValue:">+ vectorWithNSValue:</option>
-		
-		<option value="//api/name/vectorWithObject:">+ vectorWithObject:</option>
-		
-		<option value="//api/name/vectorWithSCNVector3:">+ vectorWithSCNVector3:</option>
-		
-		<option value="//api/name/vectorWithSCNVector4:">+ vectorWithSCNVector4:</option>
-		
-		<option value="//api/name/vectorWithString:">+ vectorWithString:</option>
-		
-		<option value="//api/name/vectorWithUniformWithNumber:">+ vectorWithUniformWithNumber:</option>
-		
-		<option value="//api/name/vectorWithVector:">+ vectorWithVector:</option>
-		
-		<option value="//api/name/vectorWithX:Y:Z:">+ vectorWithX:Y:Z:</option>
-		
 	</optgroup>
 	
 
@@ -105,8 +97,6 @@
 		<option value="//api/name/dot:">- dot:</option>
 		
 		<option value="//api/name/init">- init</option>
-		
-		<option value="//api/name/initUniformWithNumber:">- initUniformWithNumber:</option>
 		
 		<option value="//api/name/initWithArray:">- initWithArray:</option>
 		
@@ -126,6 +116,8 @@
 		
 		<option value="//api/name/initWithString:">- initWithString:</option>
 		
+		<option value="//api/name/initWithUniformNumbers:">- initWithUniformNumbers:</option>
+		
 		<option value="//api/name/initWithVector:">- initWithVector:</option>
 		
 		<option value="//api/name/initWithX:Y:Z:">- initWithX:Y:Z:</option>
@@ -136,13 +128,7 @@
 		
 		<option value="//api/name/minus:">- minus:</option>
 		
-		<option value="//api/name/norm">- norm</option>
-		
-		<option value="//api/name/normSquared">- normSquared</option>
-		
-		<option value="//api/name/normalize">- normalize</option>
-		
-		<option value="//api/name/opposite">- opposite</option>
+		<option value="//api/name/objectAtIndexedSubscript:">- objectAtIndexedSubscript:</option>
 		
 		<option value="//api/name/over:">- over:</option>
 		
@@ -159,10 +145,6 @@
 		<option value="//api/name/setNewZ:">- setNewZ:</option>
 		
 		<option value="//api/name/times:">- times:</option>
-		
-		<option value="//api/name/toNSValue">- toNSValue</option>
-		
-		<option value="//api/name/toSCNVector3">- toSCNVector3</option>
 		
 		<option value="//api/name/translate:">- translate:</option>
 		
@@ -377,6 +359,304 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/objectAtIndexedSubscript:" title="objectAtIndexedSubscript:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/objectAtIndexedSubscript:">&ndash;&nbsp;objectAtIndexedSubscript:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>A <code>Vector</code>&rsquo;s components ma<a href="#//api/name/y">y</a> be accessed b<a href="#//api/name/y">y</a> subscripts. Inde<a href="#//api/name/x">x</a> <code>0</code> corresponds to
+the <a href="#//api/name/x"><code>x</code></a> component, <code>1</code> to the <a href="#//api/name/y"><code>y</code></a> component and <code>2</code> to the <a href="#//api/name/z"><code>z</code></a> component. An<a href="#//api/name/y">y</a>
+other inde<a href="#//api/name/x">x</a> returns <code>nil</code>.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSNumber *)objectAtIndexedSubscript:(NSUInteger)<em>index</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>index</code></th>
+						<td><p>The inde<a href="#//api/name/x">x</a> corresponding to one of the <code>Vector</code>&rsquo;s components.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The value of the corresponding component.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Vector.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/toSCNVector3" title="toSCNVector3"></a>
+	<h3 class="method-title"><code><a href="#//api/name/toSCNVector3">&nbsp;&nbsp;toSCNVector3</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates an <code>SCNVector3</code> with the same components as the <code>Vector</code>.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) SCNVector3 toSCNVector3</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>SCNVector3</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Vector.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/toSCNVector4" title="toSCNVector4"></a>
+	<h3 class="method-title"><code><a href="#//api/name/toSCNVector4">&nbsp;&nbsp;toSCNVector4</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates an <code>SCNVector4</code> representing the receiver in homogeneous coordinates.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) SCNVector4 toSCNVector4</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>SCNVector4</code>.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>If we write the receiver as <code>(</code>x<code>, </code>y<code>, </code>z<code>)</code>, the resulting <code>SCNVector4</code> can be
+written as <code>(</code>x<code>, </code>y<code>, </code>z<code>, 1)</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Vector.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/toNSValue" title="toNSValue"></a>
+	<h3 class="method-title"><code><a href="#//api/name/toNSValue">&nbsp;&nbsp;toNSValue</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates an <code>NSValue</code> containing an <code>SCNVector3</code> with the same components as the
+<code>Vector</code>.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, copy) NSValue *toNSValue</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>NSValue</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Vector.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/toArray" title="toArray"></a>
+	<h3 class="method-title"><code><a href="#//api/name/toArray">&nbsp;&nbsp;toArray</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates an NSArra<a href="#//api/name/y">y</a> containing the <code>Vector</code>&rsquo;s three components as NSNumbers.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, copy) NSArray *toArray</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>NSArra</code>y<code></code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Vector.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/notZero" title="notZero"></a>
+	<h3 class="method-title"><code><a href="#//api/name/notZero">&nbsp;&nbsp;notZero</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns <code>NO</code> if all the <code>Vector</code>&rsquo;s components are <code>0</code>; <code>YES</code> otherwise.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) BOOL notZero</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A boolean value indicating wether or not the receiver has zeroes in all
+components.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Vector.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/origin" title="origin"></a>
 	<h3 class="method-title"><code><a href="#//api/name/origin">+&nbsp;origin</a></code>
 </h3>
@@ -411,906 +691,6 @@
 
 			
 
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">Vector.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/vector" title="vector"></a>
-	<h3 class="method-title"><code><a href="#//api/name/vector">+&nbsp;vector</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Creates an &ldquo;empty&rdquo; <code>Vector</code>, initialized to <code>(0 0 0)</code>.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>+ (Vector *)vector</code></div>
-
-		    
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>A <code>Vector</code> object.</p>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection see-also-section">
-				<h4 class="method-subtitle">See Also</h4>
-				<ul>
-					
-					<li><code><p><a href="#//api/name/origin">+ origin</a></p></code></li>
-					
-				</ul>
-			</div>
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">Vector.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/vectorWithX:Y:Z:" title="vectorWithX:Y:Z:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/vectorWithX:Y:Z:">+&nbsp;vectorWithX:Y:Z:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Creates a <code>Vector</code> whith the three given components, respectivel<a href="#//api/name/y">y</a>.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>+ (Vector *)vectorWithX:(CGFloat)<em>x</em> Y:(CGFloat)<em>y</em> Z:(CGFloat)<em>z</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>x</code></th>
-						<td><p>The value to assign to the <code>Vector</code>&rsquo;s <a href="#//api/name/x"><code>x</code></a> component.</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>y</code></th>
-						<td><p>The value to assign to the <code>Vector</code>&rsquo;s <a href="#//api/name/y"><code>y</code></a> component.</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>z</code></th>
-						<td><p>The value to assign to the <code>Vector</code>&rsquo;s <a href="#//api/name/z"><code>z</code></a> component.</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An initialized <code>Vector</code> object.</p>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">Vector.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/vectorWithUniformWithNumber:" title="vectorWithUniformWithNumber:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/vectorWithUniformWithNumber:">+&nbsp;vectorWithUniformWithNumber:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Creates a <code>Vector</code> in which all components are set to <code>s</code>. Useful for creating
-<code>Vector</code>s that represent uniform scales.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>+ (Vector *)vectorWithUniformWithNumber:(CGFloat)<em>s</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>s</code></th>
-						<td><p>The value to set to all the <code>Vector</code>&rsquo;s components.</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An initialized <code>Vector</code> object.</p>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection see-also-section">
-				<h4 class="method-subtitle">See Also</h4>
-				<ul>
-					
-					<li><code><p><a href="#//api/name/vectorWithObject:">+ vectorWithObject:</a></p></code></li>
-					
-				</ul>
-			</div>
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">Vector.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/vectorWithCGPoint:" title="vectorWithCGPoint:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/vectorWithCGPoint:">+&nbsp;vectorWithCGPoint:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Given a <code>CGPoint</code> of format <code>(</code>x<code>, </code>y<code>)</code>, creates a <code>Vector</code> object of format <code>(</code>x<code>,
-- </code>y<code>, 0)</code>. This is done to ease the translation from screen points to scene
-points.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>+ (Vector *)vectorWithCGPoint:(CGPoint)<em>newValue</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>newValue</code></th>
-						<td><p>The <code>CGPoint</code> that should be used as a model.</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An initialized <code>Vector</code> object.</p>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">Vector.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/vectorWithCIVector:" title="vectorWithCIVector:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/vectorWithCIVector:">+&nbsp;vectorWithCIVector:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Creates a <code>Vector</code> in which all components are set as just as the first 3
-components (<a href="#//api/name/x"><code>x</code></a>, <a href="#//api/name/y"><code>y</code></a> and <a href="#//api/name/z"><code>z</code></a>) in the given <code>CIVector</code>.  This method trusts that
-the CIVector has been correctl<a href="#//api/name/y">y</a> initialized and has the  necessar<a href="#//api/name/y">y</a> components.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>+ (Vector *)vectorWithCIVector:(CIVector *)<em>newValue</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>newValue</code></th>
-						<td><p>The <code>CIValue</code> whose <a href="#//api/name/x"><code>x</code></a>, <a href="#//api/name/y"><code>y</code></a> and <a href="#//api/name/z"><code>z</code></a> components should be used.</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An initialized <code>Vector</code> object.</p>
-			</div>
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<p>Useful for obtaining a <code>Vector</code> through a <code>CIVector</code> initialization method.</p>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">Vector.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/vectorWithSCNVector3:" title="vectorWithSCNVector3:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/vectorWithSCNVector3:">+&nbsp;vectorWithSCNVector3:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Creates a <code>Vector</code> in which all components are set as just as the given
-<code>SCNVector3</code>.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>+ (Vector *)vectorWithSCNVector3:(SCNVector3)<em>newValue</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>newValue</code></th>
-						<td><p>The <code>SCNVector3</code> that should be used as a model.</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An initialized <code>Vector</code> object.</p>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection see-also-section">
-				<h4 class="method-subtitle">See Also</h4>
-				<ul>
-					
-					<li><code><p><a href="#//api/name/vectorWithNSValue:">+ vectorWithNSValue:</a></p></code></li>
-					
-					<li><code><p><a href="#//api/name/vectorWithSCNVector4:">+ vectorWithSCNVector4:</a></p></code></li>
-					
-				</ul>
-			</div>
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">Vector.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/vectorWithSCNVector4:" title="vectorWithSCNVector4:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/vectorWithSCNVector4:">+&nbsp;vectorWithSCNVector4:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Creates a <code>Vector</code> in which all components are set as just as the first 3
-components in the given <code>SCNVector4</code>. If that <code>Vector</code> has format <code>(</code>x<code> </code>y<code> </code>z<code> w)</code>,
-the created <code>Vector</code> object will have format <code>(</code>x<code> </code>y<code> </code>z<code>)</code>.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>+ (Vector *)vectorWithSCNVector4:(SCNVector4)<em>newValue</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>newValue</code></th>
-						<td><p>The <code>SCNVector4</code> whose first three components should be used.</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An initialized <code>Vector</code> object.</p>
-			</div>
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<p>Useful for obtaining the axis of a rotation.</p>
-			</div>
-			
-
-			
-
-			
-			<div class="method-subsection see-also-section">
-				<h4 class="method-subtitle">See Also</h4>
-				<ul>
-					
-					<li><code><p><a href="#//api/name/vectorWithSCNVector3:">+ vectorWithSCNVector3:</a></p></code></li>
-					
-				</ul>
-			</div>
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">Vector.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/vectorWithNSValue:" title="vectorWithNSValue:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/vectorWithNSValue:">+&nbsp;vectorWithNSValue:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Creates a <code>Vector</code> based on the <code>SCNVector3</code> contained in the given
-<code>NSValue</code>.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>+ (Vector *)vectorWithNSValue:(NSValue *)<em>newValue</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>newValue</code></th>
-						<td><p>An <code>NSValue</code> created with an <code>SCNVector3</code>, which will be
-obtained using <code>SCNVector3Value</code>.</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection see-also-section">
-				<h4 class="method-subtitle">See Also</h4>
-				<ul>
-					
-					<li><code><p><a href="#//api/name/initWithSCNVector3:">- initWithSCNVector3:</a></p></code></li>
-					
-					<li><code><p><a href="#//api/name/vectorWithObject:">+ vectorWithObject:</a></p></code></li>
-					
-				</ul>
-			</div>
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">Vector.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/vectorWithArray:" title="vectorWithArray:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/vectorWithArray:">+&nbsp;vectorWithArray:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Creates a <code>Vector</code> based on the first three elements on a given <code>NSArra</code>y<code></code>. If
-the arra<a href="#//api/name/y">y</a> has less than 3 components or if an<a href="#//api/name/y">y</a> of the first three components is
-not an <code>NSNumber</code>, the corresponding value is set to zero.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>+ (Vector *)vectorWithArray:(NSArray *)<em>array</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>array</code></th>
-						<td><p>The <code>NSArra</code>y<code></code> that should be used as a model.</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An initialized <code>Vector</code> object.</p>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection see-also-section">
-				<h4 class="method-subtitle">See Also</h4>
-				<ul>
-					
-					<li><code><p><a href="#//api/name/vectorWithObject:">+ vectorWithObject:</a></p></code></li>
-					
-				</ul>
-			</div>
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">Vector.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/vectorWithDictionary:" title="vectorWithDictionary:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/vectorWithDictionary:">+&nbsp;vectorWithDictionary:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Creates a <code>Vector</code> based on the elements on a given NSDictionar<a href="#//api/name/y">y</a>. If there are
-elements with the ke<a href="#//api/name/y">y</a> &ldquo;x&rdquo;, &ldquo;y&rdquo; and &ldquo;z&rdquo; (case insensitive), those elements are
-used. If one of them is missing, the keys &ldquo;0&rdquo;, &ldquo;1&rdquo; or &ldquo;2&rdquo; are used to replace
-them as needed. If an<a href="#//api/name/y">y</a> elements are still missing, the corresponding value is
-set to 0.0.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>+ (Vector *)vectorWithDictionary:(NSDictionary *)<em>dictionary</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>dictionary</code></th>
-						<td><p>The <code>NSDictionar</code>y<code></code> that should be used as a model.</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An initialized <code>Vector</code> object.</p>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection see-also-section">
-				<h4 class="method-subtitle">See Also</h4>
-				<ul>
-					
-					<li><code><p><a href="#//api/name/vectorWithObject:">+ vectorWithObject:</a></p></code></li>
-					
-				</ul>
-			</div>
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">Vector.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/vectorWithString:" title="vectorWithString:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/vectorWithString:">+&nbsp;vectorWithString:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Attempts to create a <code>Vector</code> b<a href="#//api/name/y">y</a> scanning the string for numbers. Each number
-found is inserted into an <code>NSArra</code>y<code></code>, and then the <a href="#//api/name/initWithArray:"><code>initWithArray:</code></a> method is
-used.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>+ (Vector *)vectorWithString:(NSString *)<em>string</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>string</code></th>
-						<td><p>The <code>NSString</code> to use as a model.</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An initialized <code>Vector</code> object.</p>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection see-also-section">
-				<h4 class="method-subtitle">See Also</h4>
-				<ul>
-					
-					<li><code><p><a href="#//api/name/initWithArray:">- initWithArray:</a></p></code></li>
-					
-					<li><code><p><a href="#//api/name/vectorWithObject:">+ vectorWithObject:</a></p></code></li>
-					
-				</ul>
-			</div>
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">Vector.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/vectorWithVector:" title="vectorWithVector:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/vectorWithVector:">+&nbsp;vectorWithVector:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Returns the given <code>Vector</code> object. Used for completion and standardization b<a href="#//api/name/y">y</a>
-other methods.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>+ (Vector *)vectorWithVector:(Vector *)<em>vector</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>vector</code></th>
-						<td><p>The <code>Vector</code> object that will be returned.</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>A <code>Vector</code> object.</p>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection see-also-section">
-				<h4 class="method-subtitle">See Also</h4>
-				<ul>
-					
-					<li><code><p><a href="#//api/name/vectorWithObject:">+ vectorWithObject:</a></p></code></li>
-					
-				</ul>
-			</div>
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">Vector.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/vectorWithObject:" title="vectorWithObject:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/vectorWithObject:">+&nbsp;vectorWithObject:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Creates a <code>Vector</code> based on the given object.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>+ (Vector *)vectorWithObject:(id)<em>object</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>object</code></th>
-						<td><p>An object of an<a href="#//api/name/y">y</a> one of the classes mentioned above.</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An initialized <code>Vector</code> object.</p>
-			</div>
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<p>The supported objects are:</p>
-
-<ul>
-<li><code>NSNumber</code>, which will be initialized just like <a href="#//api/name/initUniformWithNumber:"><code>initUniformWithNumber:</code></a>.</li>
-<li><code>NSArra</code>y<code></code>, which will be initialized just like <a href="#//api/name/initWithArray:"><code>initWithArray:</code></a>.</li>
-<li><code>NSValue</code> containing a <code>SCNVector3</code>, which will be initialized just like
-<a href="#//api/name/initWithSCNVector3:"><code>initWithSCNVector3:</code></a>.</li>
-<li><code>Vector</code> (or an<a href="#//api/name/y">y</a> of its subclassses), which will be initialized just like
-<a href="#//api/name/initWithVector:"><code>initWithVector:</code></a>.</li>
-<li><code>NSString</code>, which will be initialized just like <a href="#//api/name/initWithString:"><code>initWithString:</code></a>.</li>
-<li><code>NSDictionar</code>y<code></code>, which will be initialized just like <a href="#//api/name/initWithDictionary:"><code>initWithDictionary:</code></a>.</li>
-</ul>
-<div class="warning"><p><strong>Warning:</strong> In case the object isn&rsquo;t a subclass of an<a href="#//api/name/y">y</a> of the above classes, an
-<code>assert(false)</code> will be triggered.</p></div>
-			</div>
-			
-
-			
-
-			
-			<div class="method-subsection see-also-section">
-				<h4 class="method-subtitle">See Also</h4>
-				<ul>
-					
-					<li><code><p><a href="#//api/name/initUniformWithNumber:">- initUniformWithNumber:</a></p></code></li>
-					
-					<li><code><p><a href="#//api/name/initWithArray:">- initWithArray:</a></p></code></li>
-					
-					<li><code><p><a href="#//api/name/initWithSCNVector3:">- initWithSCNVector3:</a></p></code></li>
-					
-					<li><code><p><a href="#//api/name/initWithVector:">- initWithVector:</a></p></code></li>
-					
-					<li><code><p><a href="#//api/name/initWithString:">- initWithString:</a></p></code></li>
-					
-					<li><code><p><a href="#//api/name/initWithDictionary:">- initWithDictionary:</a></p></code></li>
-					
-				</ul>
-			</div>
 			
 
 			
@@ -1446,8 +826,8 @@ other methods.</p>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/initUniformWithNumber:" title="initUniformWithNumber:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/initUniformWithNumber:">&ndash;&nbsp;initUniformWithNumber:</a></code>
+	<a name="//api/name/initWithUniformNumbers:" title="initWithUniformNumbers:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithUniformNumbers:">&ndash;&nbsp;initWithUniformNumbers:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -1463,7 +843,7 @@ creating <code>Vector</code>s that represent uniform scales.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (instancetype)initUniformWithNumber:(CGFloat)<em>s</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithUniformNumbers:(CGFloat)<em>s</em></code></div>
 
 		    
 			
@@ -2071,7 +1451,7 @@ method is used.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Returns the given <code>Vector</code> object. Used for completion and standardization b<a href="#//api/name/y">y</a>
+				<p>Returns the given <code>Vector</code> object. Used for completion and standardization b<a href="../Classes/Vector.html#//api/name/y">y</a>
 other methods.</p>
 			</div>
 			
@@ -2167,7 +1547,7 @@ other methods.</p>
 				<p>The supported objects are:</p>
 
 <ul>
-<li><code>NSNumber</code>, which will be initialized just like <a href="#//api/name/initUniformWithNumber:"><code>initUniformWithNumber:</code></a>.</li>
+<li><code>NSNumber</code>, which will be initialized just like <a href="#//api/name/initWithUniformNumbers:"><code>initWithUniformNumbers:</code></a>.</li>
 <li><code>NSArra</code>y<code></code>, which will be initialized just like <a href="#//api/name/initWithArray:"><code>initWithArray:</code></a>.</li>
 <li><code>NSValue</code> containing a <code>SCNVector3</code>, which will be initialized just like
 <a href="#//api/name/initWithSCNVector3:"><code>initWithSCNVector3:</code></a>.</li>
@@ -2188,7 +1568,7 @@ other methods.</p>
 				<h4 class="method-subtitle">See Also</h4>
 				<ul>
 					
-					<li><code><p><a href="#//api/name/initUniformWithNumber:">- initUniformWithNumber:</a></p></code></li>
+					<li><code><p><a href="#//api/name/initWithUniformNumbers:">- initWithUniformNumbers:</a></p></code></li>
 					
 					<li><code><p><a href="#//api/name/initWithArray:">- initWithArray:</a></p></code></li>
 					
@@ -2202,99 +1582,6 @@ other methods.</p>
 					
 				</ul>
 			</div>
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">Vector.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/toSCNVector3" title="toSCNVector3"></a>
-	<h3 class="method-title"><code><a href="#//api/name/toSCNVector3">&ndash;&nbsp;toSCNVector3</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Creates an <code>SCNVector3</code> with the same components as the <code>Vector</code>.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (SCNVector3)toSCNVector3</code></div>
-
-		    
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An initialized <code>SCNVector3</code>.</p>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">Vector.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/toNSValue" title="toNSValue"></a>
-	<h3 class="method-title"><code><a href="#//api/name/toNSValue">&ndash;&nbsp;toNSValue</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Creates an <code>NSValue</code> containing an <code>SCNVector3</code> with the same components as the
-<code>Vector</code>.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (NSValue *)toNSValue</code></div>
-
-		    
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An instance of <code>NSValue</code>.</p>
-			</div>
-			
-
-			
-
-			
-
-			
-
 			
 
 			
@@ -2335,7 +1622,7 @@ their components are equal.</p>
 					<tr>
 						<th scope="row" class="argument-name"><code>object</code></th>
 						<td><p>An object used to initialize a <code>Vector</code> b<a href="#//api/name/y">y</a> calling
-<a href="#//api/name/vectorWithObject:"><code>vectorWithObject:</code></a>. The resulting <code>Vector</code> will then be compared to the
+<a href="#//api/name/initWithObject:"><code>initWithObject:</code></a>. The resulting <code>Vector</code> will then be compared to the
 receiver.</p></td>
 					</tr>
 				
@@ -2587,7 +1874,7 @@ written as <code>(x/a, y/a, z/a)</code>.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Creates a new <code>Vector</code> from the given <code>object</code> b<a href="#//api/name/y">y</a> calling <a href="#//api/name/vectorWithObject:"><code>vectorWithObject:</code></a>.
+				<p>Creates a new <code>Vector</code> from the given <code>object</code> b<a href="#//api/name/y">y</a> calling <a href="#//api/name/initWithObject:"><code>initWithObject:</code></a>.
 Adds this new <code>Vector</code> to the receiver and returns the result.</p>
 			</div>
 			
@@ -2604,7 +1891,7 @@ Adds this new <code>Vector</code> to the receiver and returns the result.</p>
 					<tr>
 						<th scope="row" class="argument-name"><code>object</code></th>
 						<td><p>An object, used to initialize a new <code>Vector</code> using the
-<a href="#//api/name/vectorWithObject:"><code>vectorWithObject:</code></a> method. The resulting <code>Vector</code> is then used in the
+<a href="#//api/name/initWithObject:"><code>initWithObject:</code></a> method. The resulting <code>Vector</code> is then used in the
 addition.</p></td>
 					</tr>
 				
@@ -2664,7 +1951,7 @@ given object as <code>(a, b, c)</code>, the resulting <code>Vector</code> would 
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Creates a new <code>Vector</code> from the given <code>object</code> b<a href="#//api/name/y">y</a> calling <a href="#//api/name/vectorWithObject:"><code>vectorWithObject:</code></a>.
+				<p>Creates a new <code>Vector</code> from the given <code>object</code> b<a href="#//api/name/y">y</a> calling <a href="#//api/name/initWithObject:"><code>initWithObject:</code></a>.
 Subtracts this new <code>Vector</code> from the receiver and returns the result.</p>
 			</div>
 			
@@ -2681,7 +1968,7 @@ Subtracts this new <code>Vector</code> from the receiver and returns the result.
 					<tr>
 						<th scope="row" class="argument-name"><code>object</code></th>
 						<td><p>An object, used to initialize a new <code>Vector</code> using the
-<a href="#//api/name/vectorWithObject:"><code>vectorWithObject:</code></a> method. The resulting <code>Vector</code> is then used in the
+<a href="#//api/name/initWithObject:"><code>initWithObject:</code></a> method. The resulting <code>Vector</code> is then used in the
 subtraction.</p></td>
 					</tr>
 				
@@ -2731,7 +2018,7 @@ given object as <code>(a, b, c)</code>, the resulting <code>Vector</code> would 
 	</div>
 </div><div class="section-method">
 	<a name="//api/name/opposite" title="opposite"></a>
-	<h3 class="method-title"><code><a href="#//api/name/opposite">&ndash;&nbsp;opposite</a></code>
+	<h3 class="method-title"><code><a href="#//api/name/opposite">&nbsp;&nbsp;opposite</a></code>
 </h3>
 
 	<div class="method-info">
@@ -2746,7 +2033,7 @@ given object as <code>(a, b, c)</code>, the resulting <code>Vector</code> would 
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (Vector *)opposite</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, strong) Vector *opposite</code></div>
 
 		    
 			
@@ -2793,7 +2080,7 @@ written as <code>(- </code>x<code>, - </code>y<code>, - </code>z<code>)</code>.<
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Creates a new <code>Vector</code> from the given <code>object</code> b<a href="#//api/name/y">y</a> calling <a href="#//api/name/vectorWithObject:"><code>vectorWithObject:</code></a>.
+				<p>Creates a new <code>Vector</code> from the given <code>object</code> b<a href="#//api/name/y">y</a> calling <a href="#//api/name/initWithObject:"><code>initWithObject:</code></a>.
 Calculates the dot product between that <code>Vector</code> and the receiver.</p>
 			</div>
 			
@@ -2810,7 +2097,7 @@ Calculates the dot product between that <code>Vector</code> and the receiver.</p
 					<tr>
 						<th scope="row" class="argument-name"><code>object</code></th>
 						<td><p>An object, used to initialize a new <code>Vector</code> using the
-<a href="#//api/name/vectorWithObject:"><code>vectorWithObject:</code></a> method. The resulting <code>Vector</code> is then used in the dot
+<a href="#//api/name/initWithObject:"><code>initWithObject:</code></a> method. The resulting <code>Vector</code> is then used in the dot
 product.</p></td>
 					</tr>
 				
@@ -2842,9 +2129,9 @@ given object as <code>(a, b, c)</code>, the result would be written as <code>a*<
 				<h4 class="method-subtitle">See Also</h4>
 				<ul>
 					
-					<li><code><p><a href="#//api/name/normSquared">- normSquared</a></p></code></li>
+					<li><code><p><a href="#//api/name/normSquared">@property normSquared</a></p></code></li>
 					
-					<li><code><p><a href="#//api/name/norm">- norm</a></p></code></li>
+					<li><code><p><a href="#//api/name/norm">@property norm</a></p></code></li>
 					
 				</ul>
 			</div>
@@ -2861,7 +2148,7 @@ given object as <code>(a, b, c)</code>, the result would be written as <code>a*<
 	</div>
 </div><div class="section-method">
 	<a name="//api/name/normSquared" title="normSquared"></a>
-	<h3 class="method-title"><code><a href="#//api/name/normSquared">&ndash;&nbsp;normSquared</a></code>
+	<h3 class="method-title"><code><a href="#//api/name/normSquared">&nbsp;&nbsp;normSquared</a></code>
 </h3>
 
 	<div class="method-info">
@@ -2876,7 +2163,7 @@ given object as <code>(a, b, c)</code>, the result would be written as <code>a*<
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (CGFloat)normSquared</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) CGFloat normSquared</code></div>
 
 		    
 			
@@ -2908,7 +2195,9 @@ y*</code>y<code> + z*</code>z<code></code>.</p>
 				<h4 class="method-subtitle">See Also</h4>
 				<ul>
 					
-					<li><code><p><a href="#//api/name/norm">- norm</a></p></code></li>
+					<li><code><p><a href="#//api/name/dot:">- dot:</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/norm">@property norm</a></p></code></li>
 					
 				</ul>
 			</div>
@@ -2925,7 +2214,7 @@ y*</code>y<code> + z*</code>z<code></code>.</p>
 	</div>
 </div><div class="section-method">
 	<a name="//api/name/norm" title="norm"></a>
-	<h3 class="method-title"><code><a href="#//api/name/norm">&ndash;&nbsp;norm</a></code>
+	<h3 class="method-title"><code><a href="#//api/name/norm">&nbsp;&nbsp;norm</a></code>
 </h3>
 
 	<div class="method-info">
@@ -2940,7 +2229,7 @@ y*</code>y<code> + z*</code>z<code></code>.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (CGFloat)norm</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) CGFloat norm</code></div>
 
 		    
 			
@@ -2971,7 +2260,9 @@ possible.</p></div>
 				<h4 class="method-subtitle">See Also</h4>
 				<ul>
 					
-					<li><code><p><a href="#//api/name/normSquared">- normSquared</a></p></code></li>
+					<li><code><p><a href="#//api/name/normSquared">@property normSquared</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/dot:">- dot:</a></p></code></li>
 					
 				</ul>
 			</div>
@@ -2988,7 +2279,7 @@ possible.</p></div>
 	</div>
 </div><div class="section-method">
 	<a name="//api/name/normalize" title="normalize"></a>
-	<h3 class="method-title"><code><a href="#//api/name/normalize">&ndash;&nbsp;normalize</a></code>
+	<h3 class="method-title"><code><a href="#//api/name/normalize">&nbsp;&nbsp;normalize</a></code>
 </h3>
 
 	<div class="method-info">
@@ -3004,7 +2295,7 @@ scaling them so that the resulting <code>Vector</code> object has a <a href="#//
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (Vector *)normalize</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, strong) Vector *normalize</code></div>
 
 		    
 			
@@ -3034,9 +2325,9 @@ root if used in a tight loop; use onl<a href="#//api/name/y">y</a> when necessar
 				<h4 class="method-subtitle">See Also</h4>
 				<ul>
 					
-					<li><code><p><a href="#//api/name/norm">- norm</a></p></code></li>
+					<li><code><p><a href="#//api/name/norm">@property norm</a></p></code></li>
 					
-					<li><code><p><a href="#//api/name/normSquared">- normSquared</a></p></code></li>
+					<li><code><p><a href="#//api/name/normSquared">@property normSquared</a></p></code></li>
 					
 				</ul>
 			</div>
@@ -3063,7 +2354,7 @@ root if used in a tight loop; use onl<a href="#//api/name/y">y</a> when necessar
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Creates a new <code>Vector</code> from the given <code>object</code> b<a href="#//api/name/y">y</a> calling <a href="#//api/name/vectorWithObject:"><code>vectorWithObject:</code></a>.
+				<p>Creates a new <code>Vector</code> from the given <code>object</code> b<a href="#//api/name/y">y</a> calling <a href="#//api/name/initWithObject:"><code>initWithObject:</code></a>.
 That <code>Vector</code> is then translated, using the receiver as a translation <code>Vector</code>.</p>
 			</div>
 			
@@ -3080,7 +2371,7 @@ That <code>Vector</code> is then translated, using the receiver as a translation
 					<tr>
 						<th scope="row" class="argument-name"><code>object</code></th>
 						<td><p>An object, used to initialize a new <code>Vector</code> using the
-<a href="#//api/name/vectorWithObject:"><code>vectorWithObject:</code></a> method. The resulting <code>Vector</code> is then translated.</p></td>
+<a href="#//api/name/initWithObject:"><code>initWithObject:</code></a> method. The resulting <code>Vector</code> is then translated.</p></td>
 					</tr>
 				
 				</table>
@@ -3139,7 +2430,7 @@ That <code>Vector</code> is then translated, using the receiver as a translation
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Creates a new <code>Vector</code> from the given <code>object</code> b<a href="#//api/name/y">y</a> calling <a href="#//api/name/vectorWithObject:"><code>vectorWithObject:</code></a>.
+				<p>Creates a new <code>Vector</code> from the given <code>object</code> b<a href="#//api/name/y">y</a> calling <a href="#//api/name/initWithObject:"><code>initWithObject:</code></a>.
 That <code>Vector</code> is then scaled, using the receiver as a scale <code>Vector</code>.</p>
 			</div>
 			
@@ -3156,7 +2447,7 @@ That <code>Vector</code> is then scaled, using the receiver as a scale <code>Vec
 					<tr>
 						<th scope="row" class="argument-name"><code>object</code></th>
 						<td><p>An object, used to initialize a new <code>Vector</code> using the
-<a href="#//api/name/vectorWithObject:"><code>vectorWithObject:</code></a> method. The resulting <code>Vector</code> is then used as a scale.</p></td>
+<a href="#//api/name/initWithObject:"><code>initWithObject:</code></a> method. The resulting <code>Vector</code> is then used as a scale.</p></td>
 					</tr>
 				
 				</table>
@@ -3593,7 +2884,7 @@ b, </code>z<code>)</code>.</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2015 IME. All rights reserved. Updated: 2015-05-16</p>
+						<p class="copyright">Copyright &copy; 2015 IME. All rights reserved. Updated: 2015-06-09</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

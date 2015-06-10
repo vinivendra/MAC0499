@@ -57,7 +57,7 @@ unsigned long mutationsCounter;
 }
 
 - (NSArray *)toArray {
-    return @[@(self.x), @(self.y), @(self.z)];
+    return @[ @(self.x), @(self.y), @(self.z) ];
 }
 
 
@@ -77,7 +77,7 @@ unsigned long mutationsCounter;
     static Vector *origin;
 
     if (!origin)
-        origin = [Vector vectorWithX:0 Y:0 Z:0];
+        origin = [[Vector alloc] initWithX:0 Y:0 Z:0];
 
     return origin;
 }
@@ -86,61 +86,6 @@ unsigned long mutationsCounter;
 //------------------------------------------------------------------------------
 #pragma mark - Creating Vector objects
 //------------------------------------------------------------------------------
-
-+ (Vector *)vector {
-    return [Vector origin];
-}
-
-+ (Vector *)vectorWithX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z {
-    return [[Vector alloc] initWithX:x Y:y Z:z];
-}
-
-+ (Vector *)vectorWithUniformNumbers:(CGFloat)x {
-    return [[Vector alloc] initWithUniformNumbers:x];
-}
-
-+ (Vector *)vectorWithCGPoint:(CGPoint)newValue {
-    return [[Vector alloc] initWithCGPoint:newValue];
-}
-
-+ (Vector *)vectorWithCIVector:(CIVector *)newValue {
-    return [[Vector alloc] initWithCIVector:newValue];
-}
-
-+ (Vector *)vectorWithSCNVector3:(SCNVector3)newValue {
-    return [[Vector alloc] initWithSCNVector3:newValue];
-}
-
-+ (Vector *)vectorWithSCNVector4:(SCNVector4)newValue {
-    return [[Vector alloc] initWithSCNVector4:newValue];
-}
-
-+ (Vector *)vectorWithNSValue:(NSValue *)newValue {
-    return [[Vector alloc] initWithNSValue:newValue];
-}
-
-+ (Vector *)vectorWithArray:(NSArray *)array {
-    return [[Vector alloc] initWithArray:array];
-}
-
-+ (Vector *)vectorWithDictionary:(NSDictionary *)dictionary {
-    return [[Vector alloc] initWithDictionary:dictionary];
-}
-
-+ (Vector *)vectorWithString:(NSString *)string {
-    return [[Vector alloc] initWithString:string];
-}
-
-+ (Vector *)vectorWithVector:(Vector *)vector {
-    return vector;
-}
-
-+ (Vector *)vectorWithObject:(id)object {
-    if ([object isKindOfClass:[Vector class]])
-        return [Vector vectorWithVector:object];
-    else
-        return [[Vector alloc] initWithObject:object];
-}
 
 - (instancetype)init {
     self = [self initWithX:0 Y:0 Z:0];
@@ -165,30 +110,18 @@ unsigned long mutationsCounter;
 }
 
 - (instancetype)initWithCIVector:(CIVector *)newValue {
-    if (self = [super init]) {
-        self.vector = SCNVector3Make(newValue.X, newValue.Y, newValue.Z);
-    }
+    self = [self initWithX:newValue.X Y:newValue.Y Z:newValue.Z];
     return self;
 }
 
 - (instancetype)initWithSCNVector3:(SCNVector3)newValue {
-    if (self = [super init]) {
-        self.vector = newValue;
-    }
+    self = [self initWithX:newValue.x Y:newValue.y Z:newValue.z];
     return self;
 }
 
 - (instancetype)initWithSCNVector4:(SCNVector4)newValue {
-    if (self = [super init]) {
-        self.vector = SCNVector3Make(newValue.x, newValue.y, newValue.z);
-    }
-    return self;
-}
+    self = [self initWithX:newValue.x Y:newValue.y Z:newValue.z];
 
-- (instancetype)initWithNSValue:(NSValue *)newValue {
-    if (self = [super init]) {
-        self.vector = newValue.SCNVector3Value;
-    }
     return self;
 }
 
@@ -200,9 +133,8 @@ unsigned long mutationsCounter;
     vector.y = [array floatAtIndex:1];
     vector.z = [array floatAtIndex:2];
 
-    if (self = [super init]) {
-        self.vector = vector;
-    }
+    self = [self initWithSCNVector3:vector];
+
     return self;
 }
 
@@ -221,9 +153,8 @@ unsigned long mutationsCounter;
     if (vector.z == 0.0)
         vector.z = [dictionary floatForStringKey:@"2"];
 
-    if (self = [super init]) {
-        self.vector = vector;
-    }
+    self = [self initWithSCNVector3:vector];
+
     return self;
 }
 
@@ -257,9 +188,8 @@ unsigned long mutationsCounter;
 
 
 - (instancetype)initWithVector:(Vector *)vector {
-    if (self = [super init]) {
-        self.vector = [vector toSCNVector3];
-    }
+    self = [self initWithSCNVector3:[vector toSCNVector3]];
+
     return self;
 }
 
@@ -268,8 +198,6 @@ unsigned long mutationsCounter;
         self = [self initWithUniformNumbers:((NSNumber *)object).doubleValue];
     } else if ([object isKindOfClass:[NSArray class]]) {
         self = [self initWithArray:object];
-    } else if ([object isKindOfClass:[NSValue class]]) {
-        self = [self initWithSCNVector3:((NSValue *)object).SCNVector3Value];
     } else if ([object isKindOfClass:[NSString class]]) {
         self = [self initWithString:(NSString *)object];
     } else if ([object isKindOfClass:[NSDictionary class]]) {
@@ -289,7 +217,7 @@ unsigned long mutationsCounter;
 //------------------------------------------------------------------------------
 
 - (BOOL)isEqual:(id)object {
-    return [self isEqualToVector:[Vector vectorWithObject:object].vector];
+    return [self isEqualToVector:[[Vector alloc] initWithObject:object].vector];
 }
 
 - (BOOL)isEqualToVector:(SCNVector3)vector {
@@ -303,38 +231,38 @@ unsigned long mutationsCounter;
 
 - (Vector *)times:(CGFloat)scalar {
 
-    return [Vector vectorWithX:self.x * scalar
-                             Y:self.y * scalar
-                             Z:self.z * scalar];
+    return [[Vector alloc] initWithX:self.x * scalar
+                                   Y:self.y * scalar
+                                   Z:self.z * scalar];
 }
 
 - (Vector *)over:(CGFloat)scalar {
     scalar = scalar ?: 1;
-    return [Vector vectorWithX:self.x / scalar
-                             Y:self.y / scalar
-                             Z:self.z / scalar];
+    return [[Vector alloc] initWithX:self.x / scalar
+                                   Y:self.y / scalar
+                                   Z:self.z / scalar];
 }
 
 - (Vector *)plus:(id)object {
-    Vector *vector = [Vector vectorWithObject:object];
-    return [Vector vectorWithX:self.x + vector.x
-                             Y:self.y + vector.y
-                             Z:self.z + vector.z];
+    Vector *vector = [[Vector alloc] initWithObject:object];
+    return [[Vector alloc] initWithX:self.x + vector.x
+                                   Y:self.y + vector.y
+                                   Z:self.z + vector.z];
 }
 
 - (Vector *)minus:(id)object {
-    Vector *vector = [Vector vectorWithObject:object];
-    return [Vector vectorWithX:self.x - vector.x
-                             Y:self.y - vector.y
-                             Z:self.z - vector.z];
+    Vector *vector = [[Vector alloc] initWithObject:object];
+    return [[Vector alloc] initWithX:self.x - vector.x
+                                   Y:self.y - vector.y
+                                   Z:self.z - vector.z];
 }
 
 - (Vector *)opposite {
-    return [Vector vectorWithX:-self.x Y:-self.y Z:-self.z];
+    return [[Vector alloc] initWithX:-self.x Y:-self.y Z:-self.z];
 }
 
 - (CGFloat)dot:(id)object {
-    Vector *vector = [Vector vectorWithObject:object];
+    Vector *vector = [[Vector alloc] initWithObject:object];
     return self.x * vector.x + self.y * vector.y + self.z * vector.z;
 }
 
@@ -351,15 +279,15 @@ unsigned long mutationsCounter;
 }
 
 - (Vector *)translate:(id)object {
-    Vector *vector = [Vector vectorWithObject:object];
+    Vector *vector = [[Vector alloc] initWithObject:object];
     return [vector plus:self];
 }
 
 - (Vector *)scale:(id)object {
-    Vector *vector = [Vector vectorWithObject:object];
-    return [Vector vectorWithX:self.x * vector.x
-                             Y:self.y * vector.y
-                             Z:self.z * vector.z];
+    Vector *vector = [[Vector alloc] initWithObject:object];
+    return [[Vector alloc] initWithX:self.x * vector.x
+                                   Y:self.y * vector.y
+                                   Z:self.z * vector.z];
 }
 
 - (SCNMatrix4)translateMatrix:(SCNMatrix4)matrix {
@@ -382,7 +310,7 @@ unsigned long mutationsCounter;
 }
 
 - (Vector *)setNewX:(CGFloat)x {
-    return [Vector vectorWithX:x Y:self.vector.y Z:self.vector.z];
+    return [[Vector alloc] initWithX:x Y:self.vector.y Z:self.vector.z];
 }
 
 - (CGFloat)x {
@@ -390,7 +318,7 @@ unsigned long mutationsCounter;
 }
 
 - (Vector *)setNewY:(CGFloat)y {
-    return [Vector vectorWithX:self.vector.x Y:y Z:self.vector.z];
+    return [[Vector alloc] initWithX:self.vector.x Y:y Z:self.vector.z];
 }
 
 - (CGFloat)y {
@@ -398,7 +326,7 @@ unsigned long mutationsCounter;
 }
 
 - (Vector *)setNewZ:(CGFloat)z {
-    return [Vector vectorWithX:self.vector.x Y:self.vector.y Z:z];
+    return [[Vector alloc] initWithX:self.vector.x Y:self.vector.y Z:z];
 }
 
 - (CGFloat)z {

@@ -37,7 +37,7 @@
 
     for (NSArray *vector in self.standardArrays) {
         [self.standardVectors
-            push:[Vector vectorWithX:((NSNumber *)vector[0]).doubleValue
+            push:[[Vector alloc] initWithX:((NSNumber *)vector[0]).doubleValue
                                    Y:((NSNumber *)vector[1]).doubleValue
                                    Z:((NSNumber *)vector[2]).doubleValue]];
     }
@@ -47,7 +47,7 @@
 #pragma mark - Basis
 //------------------------------------------------------------------------------
 
-- (void)testVectorWithXYZAndEquals {
+- (void)testInitWithXYZAndEquals {
     for (int i = 0; i < self.standardArrays.count; i++) {
         // Bijection
         NSArray *vectorArray = self.standardArrays[i];
@@ -55,17 +55,17 @@
             = self.standardArrays[(i + 1) % self.standardArrays.count];
 
         Vector *vector1 =
-            [Vector vectorWithX:((NSNumber *)vectorArray[0]).doubleValue
+            [[Vector alloc] initWithX:((NSNumber *)vectorArray[0]).doubleValue
                               Y:((NSNumber *)vectorArray[1]).doubleValue
                               Z:((NSNumber *)vectorArray[2]).doubleValue];
 
         Vector *vector2 =
-            [Vector vectorWithX:((NSNumber *)vectorArray[0]).doubleValue
+            [[Vector alloc] initWithX:((NSNumber *)vectorArray[0]).doubleValue
                               Y:((NSNumber *)vectorArray[1]).doubleValue
                               Z:((NSNumber *)vectorArray[2]).doubleValue];
 
         Vector *vector3 =
-            [Vector vectorWithX:((NSNumber *)nextVectorArray[0]).doubleValue
+            [[Vector alloc] initWithX:((NSNumber *)nextVectorArray[0]).doubleValue
                               Y:((NSNumber *)nextVectorArray[1]).doubleValue
                               Z:((NSNumber *)nextVectorArray[2]).doubleValue];
 
@@ -102,15 +102,11 @@
         result = [[Vector alloc] initWithObject:string];
         XCTAssertEqualObjects(result, string);
 
-        NSValue *value = [NSValue valueWithSCNVector3:standard.toSCNVector3];
-        result = [[Vector alloc] initWithObject:value];
-        XCTAssertEqualObjects(result, value);
-
         result = [[Vector alloc] initWithObject:standard.toArray];
         XCTAssertEqualObjects(result, standard.toArray);
 
         result = [[Vector alloc] initWithObject:@(standard.x)];
-        standard = [Vector vectorWithUniformNumbers:standard.x];
+        standard = [[Vector alloc] initWithUniformNumbers:standard.x];
         XCTAssertEqualObjects(result, @(standard.x));
     }
 }
@@ -121,14 +117,14 @@
 //------------------------------------------------------------------------------
 
 - (void)testNotZero {
-    XCTAssertFalse([Vector vectorWithX:0 Y:0 Z:0].notZero);
-    XCTAssert([Vector vectorWithX:1 Y:0 Z:0].notZero);
-    XCTAssert([Vector vectorWithX:2 Y:0 Z:3].notZero);
-    XCTAssert([Vector vectorWithX:-4 Y:5 Z:0].notZero);
-    XCTAssert([Vector vectorWithX:1 Y:-6 Z:7].notZero);
-    XCTAssert([Vector vectorWithX:0 Y:9 Z:0].notZero);
-    XCTAssert([Vector vectorWithX:0 Y:-2 Z:4000].notZero);
-    XCTAssert([Vector vectorWithX:0 Y:0 Z:-1000].notZero);
+    XCTAssertFalse([[Vector alloc] initWithX:0 Y:0 Z:0].notZero);
+    XCTAssert([[Vector alloc] initWithX:1 Y:0 Z:0].notZero);
+    XCTAssert([[Vector alloc] initWithX:2 Y:0 Z:3].notZero);
+    XCTAssert([[Vector alloc] initWithX:-4 Y:5 Z:0].notZero);
+    XCTAssert([[Vector alloc] initWithX:1 Y:-6 Z:7].notZero);
+    XCTAssert([[Vector alloc] initWithX:0 Y:9 Z:0].notZero);
+    XCTAssert([[Vector alloc] initWithX:0 Y:-2 Z:4000].notZero);
+    XCTAssert([[Vector alloc] initWithX:0 Y:0 Z:-1000].notZero);
 }
 
 //------------------------------------------------------------------------------
@@ -208,26 +204,6 @@
     }
 }
 
-- (void)testToNSValue {
-    for (int i = 0; i < self.standardArrays.count; i++) {
-        // Gold standard
-        NSArray *vectorArray = self.standardArrays[i];
-
-        SCNVector3 standard
-            = SCNVector3Make(((NSNumber *)vectorArray[0]).doubleValue,
-                             ((NSNumber *)vectorArray[1]).doubleValue,
-                             ((NSNumber *)vectorArray[2]).doubleValue);
-
-        // Actual result
-        NSValue *value = ((Vector *)self.standardVectors[i]).toNSValue;
-        SCNVector3 result = value.SCNVector3Value;
-
-
-        // Comparison
-        XCTAssert(SCNVector3EqualToVector3(standard, result));
-    }
-}
-
 - (void)testObjectAtIndexedSubscript {
     for (Vector *vector in self.standardVectors) {
         XCTAssertEqual(vector.x, vector[0].doubleValue);
@@ -245,7 +221,7 @@
 - (void)testOrigin {
 
     // Gold standard
-    Vector *standard = [Vector vectorWithX:0 Y:0 Z:0];
+    Vector *standard = [[Vector alloc] initWithX:0 Y:0 Z:0];
 
     // Actual result
     Vector *result = [Vector origin];
@@ -254,249 +230,13 @@
     XCTAssertEqualObjects(standard, result);
 }
 
-- (void)testVector {
-    XCTAssertNotNil([Vector vector]);
-}
-
-- (void)testVectorWithCGPoint {
-    for (NSArray *array in self.standardArrays) {
-        // Gold standard
-        CGPoint point = CGPointMake(((NSNumber *)array[0]).doubleValue,
-                                    ((NSNumber *)array[1]).doubleValue);
-
-        Vector *standard = [Vector vectorWithX:point.x Y:-point.y Z:0];
-
-        // Actual result
-        Vector *result = [Vector vectorWithCGPoint:point];
-
-        // Comparison
-        XCTAssertEqualObjects(standard, result);
-    }
-}
-
-- (void)testVectorWithUniformNumbers {
-    for (NSArray *array in self.standardArrays) {
-        for (NSNumber *number1 in array) {
-            // Gold standard
-            CGFloat u = number1.doubleValue;
-            Vector *standard = [Vector vectorWithX:u Y:u Z:u];
-
-            // Acutal result
-            Vector *result =
-                [Vector vectorWithUniformNumbers:number1.doubleValue];
-
-            // Comparison
-            XCTAssertEqualObjects(standard, result);
-        }
-    }
-}
-
-- (void)testVectorWithCIVector {
-    for (int i = 0; i < self.standardArrays.count; i++) {
-        // Gold standard
-        Vector *standard = self.standardVectors[i];
-
-        // Actual result
-        NSArray *vectorArray = self.standardArrays[i];
-        CIVector *civector =
-            [CIVector vectorWithX:((NSNumber *)vectorArray[0]).doubleValue
-                                Y:((NSNumber *)vectorArray[1]).doubleValue
-                                Z:((NSNumber *)vectorArray[2]).doubleValue];
-        Vector *result = [Vector vectorWithCIVector:civector];
-
-        // Comparison
-        XCTAssertEqualObjects(result, standard);
-    }
-}
-
-- (void)testVectorWithSCNVector3 {
-    for (int i = 0; i < self.standardVectors.count; i++) {
-        // Gold standard
-        Vector *standard = self.standardVectors[i];
-
-        // Actual result
-        SCNVector3 vector3 = standard.toSCNVector3;
-        Vector *result = [Vector vectorWithSCNVector3:vector3];
-
-        // Comparison
-        XCTAssertEqualObjects(result, standard);
-    }
-}
-
-- (void)testVectorWithSCNVector4 {
-    for (int i = 0; i < self.standardVectors.count; i++) {
-        // Gold standard
-        Vector *standard = self.standardVectors[i];
-
-        // Actual result
-        SCNVector4 vector4
-            = SCNVector4Make(standard.x, standard.y, standard.z, arc4random());
-        Vector *result = [Vector vectorWithSCNVector4:vector4];
-
-        // Comparison
-        XCTAssertEqualObjects(result, standard);
-    }
-}
-
-- (void)testVectorWithNSValue {
-    for (int i = 0; i < self.standardVectors.count; i++) {
-        // Gold standard
-        Vector *standard = self.standardVectors[i];
-
-        // Actual result
-        SCNVector3 vector3 = standard.toSCNVector3;
-        NSValue *value = [NSValue valueWithSCNVector3:vector3];
-        Vector *result = [Vector vectorWithNSValue:value];
-
-        // Comparison
-        XCTAssertEqualObjects(result, standard);
-    }
-}
-
-- (void)testVectorWithArray {
-    for (int i = 0; i < self.standardVectors.count; i++) {
-        // Gold standard
-        Vector *standard = self.standardVectors[i];
-
-        // Actual result
-        NSArray *array = standard.toArray;
-        Vector *result = [Vector vectorWithArray:array];
-
-        // Comparison
-        XCTAssertEqualObjects(result, standard);
-    }
-}
-
-- (void)testVectorWithDictionary {
-    for (int i = 0; i < self.standardVectors.count; i++) {
-        // Gold standard
-        Vector *standard = self.standardVectors[i];
-
-        // Actual result
-        NSDictionary *dictionary = @{
-            @"x" : @(standard.x),
-            @"y" : @(standard.y),
-            @"z" : @(standard.z)
-        };
-        Vector *result = [Vector vectorWithDictionary:dictionary];
-
-        // Comparison
-        XCTAssertEqualObjects(result, standard);
-    }
-}
-
-- (void)testVectorWithString {
-    for (int i = 0; i < self.standardVectors.count; i++) {
-        // Gold standard
-        Vector *standard = self.standardVectors[i];
-
-        // Actual result
-        NSArray *formats =
-            @[ @"[%lf, %lf, %lf]", @"vn %lf %lf %lf", @"(%lf %lf %lf)" ];
-
-        NSString *string = [NSString stringWithFormat:formats[i % 3],
-                                                      standard.x,
-                                                      standard.y,
-                                                      standard.z];
-        Vector *result = [Vector vectorWithString:string];
-
-        // Comparison
-        XCTAssertEqualWithAccuracy(result.x,
-                                   standard.x,
-                                   fabs(standard.x / 1000) + 0.00001);
-        XCTAssertEqualWithAccuracy(result.y,
-                                   standard.y,
-                                   fabs(standard.y / 1000) + 0.00001);
-        XCTAssertEqualWithAccuracy(result.z,
-                                   standard.z,
-                                   fabs(standard.z / 1000) + 0.00001);
-    }
-}
-
-- (void)testVectorWithVector {
-    for (int i = 0; i < self.standardVectors.count; i++) {
-        // Gold standard
-        Vector *standard = self.standardVectors[i];
-
-        // Actual result
-        Vector *result = [Vector vectorWithVector:standard];
-
-        // Comparison
-        XCTAssertEqualObjects(result, standard);
-    }
-}
-
-- (void)testVectorWithObject {
-    for (int i = 0; i < self.standardVectors.count; i++) {
-        // Gold standard
-        Vector *standard = self.standardVectors[i];
-
-        // Results and comparisons
-        Vector *result;
-
-        NSDictionary *dictionary = @{
-            @"x" : @(standard.x),
-            @"y" : @(standard.y),
-            @"z" : @(standard.z)
-        };
-        result = [Vector vectorWithObject:dictionary];
-        XCTAssertEqualObjects(result, standard);
-
-        NSString *string = [NSString stringWithFormat:@"%lf %lf %lf",
-                                                      standard.x,
-                                                      standard.y,
-                                                      standard.z];
-        result = [Vector vectorWithObject:string];
-        XCTAssertEqualWithAccuracy(result.x,
-                                   standard.x,
-                                   fabs(standard.x / 1000) + 0.00001);
-        XCTAssertEqualWithAccuracy(result.y,
-                                   standard.y,
-                                   fabs(standard.y / 1000) + 0.00001);
-        XCTAssertEqualWithAccuracy(result.z,
-                                   standard.z,
-                                   fabs(standard.z / 1000) + 0.00001);
-
-        result = [Vector vectorWithObject:standard];
-        XCTAssertEqualObjects(result, standard);
-
-        NSValue *value = [NSValue valueWithSCNVector3:standard.toSCNVector3];
-        result = [Vector vectorWithObject:value];
-        XCTAssertEqualObjects(result, standard);
-
-        result = [Vector vectorWithObject:standard.toArray];
-        XCTAssertEqualObjects(result, standard);
-
-        result = [Vector vectorWithObject:@(standard.x)];
-        standard = [Vector vectorWithUniformNumbers:standard.x];
-        XCTAssertEqualObjects(result, standard);
-    }
-}
-
-- (void)testInitWithXYZ {
-    // Gold Standard
-    for (Vector *standard in self.standardVectors) {
-
-        // Actual result
-        Vector *result =
-            [[Vector alloc] initWithX:standard.x Y:standard.y Z:standard.z];
-
-        // Comparison
-        XCTAssertEqualObjects(standard, result);
-    }
-}
-
-- (void)testInit {
-    XCTAssertNotNil([[Vector alloc] init]);
-}
-
 - (void)testInitWithCGPoint {
     for (NSArray *array in self.standardArrays) {
         // Gold standard
         CGPoint point = CGPointMake(((NSNumber *)array[0]).doubleValue,
                                     ((NSNumber *)array[1]).doubleValue);
 
-        Vector *standard = [Vector vectorWithX:point.x Y:-point.y Z:0];
+        Vector *standard = [[Vector alloc] initWithX:point.x Y:-point.y Z:0];
 
         // Actual result
         Vector *result = [[Vector alloc] initWithCGPoint:point];
@@ -511,7 +251,7 @@
         for (NSNumber *number1 in array) {
             // Gold standard
             CGFloat u = number1.doubleValue;
-            Vector *standard = [Vector vectorWithX:u Y:u Z:u];
+            Vector *standard = [[Vector alloc] initWithX:u Y:u Z:u];
 
             // Acutal result
             Vector *result =
@@ -534,6 +274,7 @@
             [CIVector vectorWithX:((NSNumber *)vectorArray[0]).doubleValue
                                 Y:((NSNumber *)vectorArray[1]).doubleValue
                                 Z:((NSNumber *)vectorArray[2]).doubleValue];
+
         Vector *result = [[Vector alloc] initWithCIVector:civector];
 
         // Comparison
@@ -564,21 +305,6 @@
         SCNVector4 vector4
             = SCNVector4Make(standard.x, standard.y, standard.z, arc4random());
         Vector *result = [[Vector alloc] initWithSCNVector4:vector4];
-
-        // Comparison
-        XCTAssertEqualObjects(result, standard);
-    }
-}
-
-- (void)testInitWithNSValue {
-    for (int i = 0; i < self.standardVectors.count; i++) {
-        // Gold standard
-        Vector *standard = self.standardVectors[i];
-
-        // Actual result
-        SCNVector3 vector3 = standard.toSCNVector3;
-        NSValue *value = [NSValue valueWithSCNVector3:vector3];
-        Vector *result = [[Vector alloc] initWithNSValue:value];
 
         // Comparison
         XCTAssertEqualObjects(result, standard);
@@ -692,17 +418,30 @@
         result = [[Vector alloc] initWithObject:standard];
         XCTAssertEqualObjects(result, standard);
 
-        NSValue *value = [NSValue valueWithSCNVector3:standard.toSCNVector3];
-        result = [[Vector alloc] initWithObject:value];
-        XCTAssertEqualObjects(result, standard);
-
         result = [[Vector alloc] initWithObject:standard.toArray];
         XCTAssertEqualObjects(result, standard);
 
         result = [[Vector alloc] initWithObject:@(standard.x)];
-        standard = [Vector vectorWithUniformNumbers:standard.x];
+        standard = [[Vector alloc] initWithUniformNumbers:standard.x];
         XCTAssertEqualObjects(result, standard);
     }
+}
+
+- (void)testInitWithXYZ {
+    // Gold Standard
+    for (Vector *standard in self.standardVectors) {
+
+        // Actual result
+        Vector *result =
+            [[Vector alloc] initWithX:standard.x Y:standard.y Z:standard.z];
+
+        // Comparison
+        XCTAssertEqualObjects(standard, result);
+    }
+}
+
+- (void)testInit {
+    XCTAssertNotNil([[Vector alloc] init]);
 }
 
 - (void)testTimes {
@@ -715,7 +454,7 @@
                                              vector3.z * scalar);
 
         // Actual results
-        Vector *result = [[Vector vectorWithSCNVector3:vector3] times:scalar];
+        Vector *result = [[[Vector alloc] initWithSCNVector3:vector3] times:scalar];
 
         // Comparison
         XCTAssert([result isEqualToVector:standard]);
@@ -732,7 +471,7 @@
                                              vector3.z / scalar);
 
         // Actual results
-        Vector *result = [[Vector vectorWithSCNVector3:vector3] over:scalar];
+        Vector *result = [[[Vector alloc] initWithSCNVector3:vector3] over:scalar];
 
         // Comparison
         XCTAssert([result isEqualToVector:standard]);
@@ -745,10 +484,10 @@
         Vector *vector1 = self.standardVectors[i];
         SCNVector3 scnvector1 = vector1.toSCNVector3;
         Vector *vector2 =
-            [Vector vectorWithX:randomFloat() Y:randomFloat() Z:randomFloat()];
+            [[Vector alloc] initWithX:randomFloat() Y:randomFloat() Z:randomFloat()];
         SCNVector3 scnvector2 = vector2.toSCNVector3;
 
-        Vector *standard = [Vector vectorWithX:scnvector1.x + scnvector2.x
+        Vector *standard = [[Vector alloc] initWithX:scnvector1.x + scnvector2.x
                                              Y:scnvector1.y + scnvector2.y
                                              Z:scnvector1.z + scnvector2.z];
 
@@ -759,12 +498,12 @@
             @{ @"x" : @(vector2.x),
                @"y" : @(vector2.y),
                @"z" : @(vector2.z) };
-        result = [[Vector vectorWithSCNVector3:scnvector1] plus:dictionary];
+        result = [[[Vector alloc] initWithSCNVector3:scnvector1] plus:dictionary];
         XCTAssertEqualObjects(result, standard);
 
         NSString *string = [NSString
             stringWithFormat:@"%lf %lf %lf", vector2.x, vector2.y, vector2.z];
-        result = [[Vector vectorWithSCNVector3:scnvector1] plus:string];
+        result = [[[Vector alloc] initWithSCNVector3:scnvector1] plus:string];
         XCTAssertEqualWithAccuracy(result.x,
                                    standard.x,
                                    fabs(standard.x / 1000) + 0.00001);
@@ -775,19 +514,15 @@
                                    standard.z,
                                    fabs(standard.z / 1000) + 0.00001);
 
-        result = [[Vector vectorWithSCNVector3:scnvector1] plus:vector2];
-        XCTAssertEqualObjects(result, standard);
-
-        NSValue *value = [NSValue valueWithSCNVector3:vector2.toSCNVector3];
-        result = [[Vector vectorWithSCNVector3:scnvector1] plus:value];
+        result = [[[Vector alloc] initWithSCNVector3:scnvector1] plus:vector2];
         XCTAssertEqualObjects(result, standard);
 
         result =
-            [[Vector vectorWithSCNVector3:scnvector1] plus:vector2.toArray];
+            [[[Vector alloc] initWithSCNVector3:scnvector1] plus:vector2.toArray];
         XCTAssertEqualObjects(result, standard);
 
-        result = [[Vector vectorWithSCNVector3:scnvector1] plus:@(vector2.x)];
-        standard = [Vector vectorWithX:scnvector1.x + scnvector2.x
+        result = [[[Vector alloc] initWithSCNVector3:scnvector1] plus:@(vector2.x)];
+        standard = [[Vector alloc] initWithX:scnvector1.x + scnvector2.x
                                      Y:scnvector1.y + scnvector2.x
                                      Z:scnvector1.z + scnvector2.x];
         XCTAssertEqualObjects(result, standard);
@@ -800,10 +535,10 @@
         Vector *vector1 = self.standardVectors[i];
         SCNVector3 scnvector1 = vector1.toSCNVector3;
         Vector *vector2 =
-            [Vector vectorWithX:randomFloat() Y:randomFloat() Z:randomFloat()];
+            [[Vector alloc] initWithX:randomFloat() Y:randomFloat() Z:randomFloat()];
         SCNVector3 scnvector2 = vector2.toSCNVector3;
 
-        Vector *standard = [Vector vectorWithX:scnvector1.x - scnvector2.x
+        Vector *standard = [[Vector alloc] initWithX:scnvector1.x - scnvector2.x
                                              Y:scnvector1.y - scnvector2.y
                                              Z:scnvector1.z - scnvector2.z];
 
@@ -814,12 +549,12 @@
             @{ @"x" : @(vector2.x),
                @"y" : @(vector2.y),
                @"z" : @(vector2.z) };
-        result = [[Vector vectorWithSCNVector3:scnvector1] minus:dictionary];
+        result = [[[Vector alloc] initWithSCNVector3:scnvector1] minus:dictionary];
         XCTAssertEqualObjects(result, standard);
 
         NSString *string = [NSString
             stringWithFormat:@"%lf %lf %lf", vector2.x, vector2.y, vector2.z];
-        result = [[Vector vectorWithSCNVector3:scnvector1] minus:string];
+        result = [[[Vector alloc] initWithSCNVector3:scnvector1] minus:string];
         XCTAssertEqualWithAccuracy(result.x,
                                    standard.x,
                                    fabs(standard.x / 1000) + 0.00001);
@@ -830,19 +565,15 @@
                                    standard.z,
                                    fabs(standard.z / 1000) + 0.00001);
 
-        result = [[Vector vectorWithSCNVector3:scnvector1] minus:vector2];
-        XCTAssertEqualObjects(result, standard);
-
-        NSValue *value = [NSValue valueWithSCNVector3:vector2.toSCNVector3];
-        result = [[Vector vectorWithSCNVector3:scnvector1] minus:value];
+        result = [[[Vector alloc] initWithSCNVector3:scnvector1] minus:vector2];
         XCTAssertEqualObjects(result, standard);
 
         result =
-            [[Vector vectorWithSCNVector3:scnvector1] minus:vector2.toArray];
+            [[[Vector alloc] initWithSCNVector3:scnvector1] minus:vector2.toArray];
         XCTAssertEqualObjects(result, standard);
 
-        result = [[Vector vectorWithSCNVector3:scnvector1] minus:@(vector2.x)];
-        standard = [Vector vectorWithX:scnvector1.x - scnvector2.x
+        result = [[[Vector alloc] initWithSCNVector3:scnvector1] minus:@(vector2.x)];
+        standard = [[Vector alloc] initWithX:scnvector1.x - scnvector2.x
                                      Y:scnvector1.y - scnvector2.x
                                      Z:scnvector1.z - scnvector2.x];
         XCTAssertEqualObjects(result, standard);
@@ -858,7 +589,7 @@
             = SCNVector3Make(-vector3.x, -vector3.y, -vector3.z);
 
         // Actual results
-        Vector *result = [Vector vectorWithSCNVector3:vector3].opposite;
+        Vector *result = [[Vector alloc] initWithSCNVector3:vector3].opposite;
 
         // Comparison
         XCTAssert([result isEqualToVector:standard]);
@@ -898,12 +629,6 @@
                                    fabs(standard / 1000) + 0.00001);
 
         result = [vector1 dot:vector2];
-        XCTAssertEqualWithAccuracy(standard,
-                                   result,
-                                   fabs(standard / 1000) + 0.00001);
-
-        NSValue *value = [NSValue valueWithSCNVector3:vector2.toSCNVector3];
-        result = [vector1 dot:value];
         XCTAssertEqualWithAccuracy(standard,
                                    result,
                                    fabs(standard / 1000) + 0.00001);
@@ -992,10 +717,10 @@
         Vector *vector1 = self.standardVectors[i];
         SCNVector3 scnvector1 = vector1.toSCNVector3;
         Vector *vector2 =
-            [Vector vectorWithX:randomFloat() Y:randomFloat() Z:randomFloat()];
+            [[Vector alloc] initWithX:randomFloat() Y:randomFloat() Z:randomFloat()];
         SCNVector3 scnvector2 = vector2.toSCNVector3;
 
-        Vector *standard = [Vector vectorWithX:scnvector1.x + scnvector2.x
+        Vector *standard = [[Vector alloc] initWithX:scnvector1.x + scnvector2.x
                                              Y:scnvector1.y + scnvector2.y
                                              Z:scnvector1.z + scnvector2.z];
 
@@ -1007,12 +732,12 @@
                @"y" : @(vector2.y),
                @"z" : @(vector2.z) };
         result =
-            [[Vector vectorWithSCNVector3:scnvector1] translate:dictionary];
+            [[[Vector alloc] initWithSCNVector3:scnvector1] translate:dictionary];
         XCTAssertEqualObjects(result, standard);
 
         NSString *string = [NSString
             stringWithFormat:@"%lf %lf %lf", vector2.x, vector2.y, vector2.z];
-        result = [[Vector vectorWithSCNVector3:scnvector1] translate:string];
+        result = [[[Vector alloc] initWithSCNVector3:scnvector1] translate:string];
         XCTAssertEqualWithAccuracy(result.x,
                                    standard.x,
                                    fabs(standard.x / 1000) + 0.00001);
@@ -1023,20 +748,16 @@
                                    standard.z,
                                    fabs(standard.z / 1000) + 0.00001);
 
-        result = [[Vector vectorWithSCNVector3:scnvector1] translate:vector2];
+        result = [[[Vector alloc] initWithSCNVector3:scnvector1] translate:vector2];
         XCTAssertEqualObjects(result, standard);
 
-        NSValue *value = [NSValue valueWithSCNVector3:vector2.toSCNVector3];
-        result = [[Vector vectorWithSCNVector3:scnvector1] translate:value];
-        XCTAssertEqualObjects(result, standard);
-
-        result = [[Vector vectorWithSCNVector3:scnvector1]
+        result = [[[Vector alloc] initWithSCNVector3:scnvector1]
             translate:vector2.toArray];
         XCTAssertEqualObjects(result, standard);
 
         result =
-            [[Vector vectorWithSCNVector3:scnvector1] translate:@(vector2.x)];
-        standard = [Vector vectorWithX:scnvector1.x + scnvector2.x
+            [[[Vector alloc] initWithSCNVector3:scnvector1] translate:@(vector2.x)];
+        standard = [[Vector alloc] initWithX:scnvector1.x + scnvector2.x
                                      Y:scnvector1.y + scnvector2.x
                                      Z:scnvector1.z + scnvector2.x];
         XCTAssertEqualObjects(result, standard);
@@ -1049,10 +770,10 @@
         Vector *vector1 = self.standardVectors[i];
         SCNVector3 scnvector1 = vector1.toSCNVector3;
         Vector *vector2 =
-            [Vector vectorWithX:randomFloat() Y:randomFloat() Z:randomFloat()];
+            [[Vector alloc] initWithX:randomFloat() Y:randomFloat() Z:randomFloat()];
         SCNVector3 scnvector2 = vector2.toSCNVector3;
 
-        Vector *standard = [Vector vectorWithX:scnvector1.x * scnvector2.x
+        Vector *standard = [[Vector alloc] initWithX:scnvector1.x * scnvector2.x
                                              Y:scnvector1.y * scnvector2.y
                                              Z:scnvector1.z * scnvector2.z];
 
@@ -1063,12 +784,12 @@
             @{ @"x" : @(vector2.x),
                @"y" : @(vector2.y),
                @"z" : @(vector2.z) };
-        result = [[Vector vectorWithSCNVector3:scnvector1] scale:dictionary];
+        result = [[[Vector alloc] initWithSCNVector3:scnvector1] scale:dictionary];
         XCTAssertEqualObjects(result, standard);
 
         NSString *string = [NSString
             stringWithFormat:@"%lf %lf %lf", vector2.x, vector2.y, vector2.z];
-        result = [[Vector vectorWithSCNVector3:scnvector1] scale:string];
+        result = [[[Vector alloc] initWithSCNVector3:scnvector1] scale:string];
         XCTAssertEqualWithAccuracy(result.x,
                                    standard.x,
                                    fabs(standard.x / 1000) + 0.00001);
@@ -1079,19 +800,15 @@
                                    standard.z,
                                    fabs(standard.z / 1000) + 0.00001);
 
-        result = [[Vector vectorWithSCNVector3:scnvector1] scale:vector2];
-        XCTAssertEqualObjects(result, standard);
-
-        NSValue *value = [NSValue valueWithSCNVector3:vector2.toSCNVector3];
-        result = [[Vector vectorWithSCNVector3:scnvector1] scale:value];
+        result = [[[Vector alloc] initWithSCNVector3:scnvector1] scale:vector2];
         XCTAssertEqualObjects(result, standard);
 
         result =
-            [[Vector vectorWithSCNVector3:scnvector1] scale:vector2.toArray];
+            [[[Vector alloc] initWithSCNVector3:scnvector1] scale:vector2.toArray];
         XCTAssertEqualObjects(result, standard);
 
-        result = [[Vector vectorWithSCNVector3:scnvector1] scale:@(vector2.x)];
-        standard = [Vector vectorWithX:scnvector1.x * scnvector2.x
+        result = [[[Vector alloc] initWithSCNVector3:scnvector1] scale:@(vector2.x)];
+        standard = [[Vector alloc] initWithX:scnvector1.x * scnvector2.x
                                      Y:scnvector1.y * scnvector2.x
                                      Z:scnvector1.z * scnvector2.x];
         XCTAssertEqualObjects(result, standard);

@@ -37,7 +37,7 @@
  */
 - (instancetype)initWithFirstItem:(Item *)firstItem
                        secondItem:(Item *)secondItem
-                           action:(JSValue *)action;
+                           action:(JSValue *)action NS_DESIGNATED_INITIALIZER;
 /*!
  Creates a Contact based on the given array. The array should have the firstItem
  in its first position, the secondItem in its second position and the action in

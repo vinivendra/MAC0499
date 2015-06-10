@@ -13,11 +13,35 @@
 		
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NSArray/setValid:</TokenIdentifier>
+			<Abstract type="html">Checks if the array is valid, which means that it exists and is not empty.</Abstract>
+			<DeclaredIn>NSArray+Extension.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) BOOL valid</Declaration>
+			
+			<ReturnValue><Abstract type="html">@p YES if the array is valid, @p NO otherwise.</Abstract></ReturnValue>
+			<Anchor>//api/name/valid</Anchor>
+            <NodeRef refid="26"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/NSArray/valid</TokenIdentifier>
 			<Abstract type="html">Checks if the array is valid, which means that it exists and is not empty.</Abstract>
 			<DeclaredIn>NSArray+Extension.h</DeclaredIn>
 			
-			<Declaration>- (BOOL)valid</Declaration>
+			<Declaration>@property (nonatomic, readonly) BOOL valid</Declaration>
+			
+			<ReturnValue><Abstract type="html">@p YES if the array is valid, @p NO otherwise.</Abstract></ReturnValue>
+			<Anchor>//api/name/valid</Anchor>
+            <NodeRef refid="26"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/NSArray/valid</TokenIdentifier>
+			<Abstract type="html">Checks if the array is valid, which means that it exists and is not empty.</Abstract>
+			<DeclaredIn>NSArray+Extension.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) BOOL valid</Declaration>
 			
 			<ReturnValue><Abstract type="html">@p YES if the array is valid, @p NO otherwise.</Abstract></ReturnValue>
 			<Anchor>//api/name/valid</Anchor>

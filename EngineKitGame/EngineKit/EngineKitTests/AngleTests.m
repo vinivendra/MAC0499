@@ -49,7 +49,7 @@
     self.standardAngles = [NSMutableArray array];
 
     for (NSNumber *number in self.standardNumbers) {
-        [self.standardAngles push:[Angle angleWithRadians:number.doubleValue]];
+        [self.standardAngles push:[[Angle alloc] initWithRadians:number.doubleValue]];
     }
 }
 
@@ -64,11 +64,11 @@
         NSNumber *nextNumber = [self.standardNumbers
             numberAtIndex:(i + 1) % self.standardNumbers.count];
 
-        Angle *angle1 = [Angle angleWithRadians:number.doubleValue];
+        Angle *angle1 = [[Angle alloc] initWithRadians:number.doubleValue];
 
-        Angle *angle2 = [Angle angleWithRadians:number.doubleValue];
+        Angle *angle2 = [[Angle alloc] initWithRadians:number.doubleValue];
 
-        Angle *angle3 = [Angle angleWithRadians:nextNumber.doubleValue];
+        Angle *angle3 = [[Angle alloc] initWithRadians:nextNumber.doubleValue];
 
         XCTAssert([angle1 isEqual:angle2]);
         XCTAssertEqualObjects(angle1, angle2);
@@ -120,7 +120,7 @@
 
         // Actual result
         CGFloat result =
-            [Angle angleWithDegrees:[self.standardNumbers floatAtIndex:i] / M_PI
+            [[Angle alloc] initWithDegrees:[self.standardNumbers floatAtIndex:i] / M_PI
                                     * 180]
                 .toRadians;
 
@@ -138,8 +138,7 @@
 
         // Actual result
         CGFloat result =
-            [Angle
-                angleWithPiTimes:[self.standardNumbers floatAtIndex:i] / M_PI]
+            [[Angle alloc] initWithPiTimes:[self.standardNumbers floatAtIndex:i] / M_PI]
                 .toRadians;
 
         // Comparison
@@ -157,9 +156,9 @@
         // Actual result
         NSString *string = [NSString
             stringWithFormat:@"%lf", [self.standardNumbers floatAtIndex:i]];
-        CGFloat result1 = [Angle angleWithObject:string].toRadians;
+        CGFloat result1 = [[Angle alloc] initWithObject:string].toRadians;
         CGFloat result2 =
-            [Angle angleWithObject:[self.standardNumbers numberAtIndex:i]]
+            [[Angle alloc] initWithObject:[self.standardNumbers numberAtIndex:i]]
                 .toRadians;
 
         // Comparison

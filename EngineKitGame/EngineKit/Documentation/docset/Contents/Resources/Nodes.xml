@@ -57,6 +57,7 @@
 						<NodeRef refid="35"/>
 						<NodeRef refid="36"/>
 						<NodeRef refid="37"/>
+						<NodeRef refid="38"/>
 						
 					</Subnodes>
 				</Node>
@@ -67,8 +68,9 @@
 					<Name>Constants</Name>
 					<Path>index.html</Path>
 					<Subnodes>
-						<NodeRef refid="38"/>
 						<NodeRef refid="39"/>
+						<NodeRef refid="40"/>
+						<NodeRef refid="41"/>
 						
 					</Subnodes>
 				</Node>
@@ -93,6 +95,12 @@
                     <Path>Classes/Angle.html</Path>
                     <Name>Tasks</Name>
                     <Anchor>tasks</Anchor>
+                </Node>
+                
+                <Node type="section">
+                    <Path>Classes/Angle.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
                 </Node>
                 
                 
@@ -494,6 +502,12 @@
                     <Anchor>tasks</Anchor>
                 </Node>
                 
+                <Node type="section">
+                    <Path>Classes/JavaScript.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
+                </Node>
+                
                 
                 <Node type="section">
                     <Path>Classes/JavaScript.html</Path>
@@ -574,12 +588,6 @@
                 </Node>
                 
                 
-                <Node type="section">
-                    <Path>Classes/Physics.html</Path>
-                    <Name>Instance Methods</Name>
-                    <Anchor>instance_methods</Anchor>
-                </Node>
-                
             </Subnodes>
             
         </Node>
@@ -636,6 +644,12 @@
                     <Path>Classes/Position.html</Path>
                     <Name>Tasks</Name>
                     <Anchor>tasks</Anchor>
+                </Node>
+                
+                <Node type="section">
+                    <Path>Classes/Position.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
                 </Node>
                 
                 
@@ -708,6 +722,12 @@
                     <Path>Classes/Rotation.html</Path>
                     <Name>Tasks</Name>
                     <Anchor>tasks</Anchor>
+                </Node>
+                
+                <Node type="section">
+                    <Path>Classes/Rotation.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
                 </Node>
                 
                 
@@ -999,6 +1019,12 @@
                     <Anchor>tasks</Anchor>
                 </Node>
                 
+                <Node type="section">
+                    <Path>Categories/NSArray+Extension.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
+                </Node>
+                
                 
                 
                 <Node type="section">
@@ -1024,6 +1050,12 @@
                     <Path>Categories/NSArray+ObjectiveSugar.html</Path>
                     <Name>Tasks</Name>
                     <Anchor>tasks</Anchor>
+                </Node>
+                
+                <Node type="section">
+                    <Path>Categories/NSArray+ObjectiveSugar.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
                 </Node>
                 
                 
@@ -1078,6 +1110,12 @@
                     <Path>Categories/NSMutableArray+ObjectiveSugar.html</Path>
                     <Name>Tasks</Name>
                     <Anchor>tasks</Anchor>
+                </Node>
+                
+                <Node type="section">
+                    <Path>Categories/NSMutableArray+ObjectiveSugar.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
                 </Node>
                 
                 
@@ -1175,12 +1213,6 @@
                 
                 
                 
-                <Node type="section">
-                    <Path>Categories/NSString+Extension.html</Path>
-                    <Name>Instance Methods</Name>
-                    <Anchor>instance_methods</Anchor>
-                </Node>
-                
             </Subnodes>
             
         </Node>
@@ -1200,6 +1232,12 @@
                     <Anchor>tasks</Anchor>
                 </Node>
                 
+                <Node type="section">
+                    <Path>Categories/NSString+ObjectiveSugar.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
+                </Node>
+                
                 
                 
                 <Node type="section">
@@ -1212,6 +1250,33 @@
             
         </Node>
 		<Node id="34" type="file" documentType="reference">
+            <Name>SCNCamera(Extension)</Name>
+            <Path>Categories/SCNCamera+Extension.html</Path>
+            
+                <Subnodes>
+                <Node type="section">
+                    <Path>Categories/SCNCamera+Extension.html</Path>
+                    <Name>Overview</Name>
+                    <Anchor>overview</Anchor>
+                </Node>
+                <Node type="section">
+                    <Path>Categories/SCNCamera+Extension.html</Path>
+                    <Name>Tasks</Name>
+                    <Anchor>tasks</Anchor>
+                </Node>
+                
+                
+                <Node type="section">
+                    <Path>Categories/SCNCamera+Extension.html</Path>
+                    <Name>Class Methods</Name>
+                    <Anchor>class_methods</Anchor>
+                </Node>
+                
+                
+            </Subnodes>
+            
+        </Node>
+		<Node id="35" type="file" documentType="reference">
             <Name>SCNHitTestResult(Export)</Name>
             <Path>Categories/SCNHitTestResult+Export.html</Path>
             
@@ -1238,7 +1303,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="35" type="file" documentType="reference">
+		<Node id="36" type="file" documentType="reference">
             <Name>SCNNode(Extension)</Name>
             <Path>Categories/SCNNode+Extension.html</Path>
             
@@ -1265,7 +1330,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="36" type="file" documentType="reference">
+		<Node id="37" type="file" documentType="reference">
             <Name>SCNScene(Extension)</Name>
             <Path>Categories/SCNScene+Extension.html</Path>
             
@@ -1298,7 +1363,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="37" type="file" documentType="reference">
+		<Node id="38" type="file" documentType="reference">
             <Name>UIColor(Extension)</Name>
             <Path>Categories/UIColor+Extension.html</Path>
             
@@ -1333,14 +1398,19 @@
         </Node>
 		
         
-        <Node id="38" type="file" documentType="reference">
+        <Node id="39" type="file" documentType="reference">
             <Name>GestureRecognizers</Name>
             <Path>Constants/GestureRecognizers.html</Path>
             
         </Node>
-		<Node id="39" type="file" documentType="reference">
+		<Node id="40" type="file" documentType="reference">
             <Name>State</Name>
             <Path>Constants/State.html</Path>
+            
+        </Node>
+		<Node id="41" type="file" documentType="reference">
+            <Name>UIGestures</Name>
+            <Path>Constants/UIGestures.html</Path>
             
         </Node>
 		

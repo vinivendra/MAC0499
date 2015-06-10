@@ -13,12 +13,40 @@
 		
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NSString/setSplit:</TokenIdentifier>
+			<Abstract type="html">Returns an array containing substrings from the receiver that have been divided
+by a whitespace delimiter</Abstract>
+			<DeclaredIn>NSString+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, copy) NSArray *split</Declaration>
+			
+			<ReturnValue><Abstract type="html">An array containing substrings that have been divided by a whitespace
+delimiter</Abstract></ReturnValue>
+			<Anchor>//api/name/split</Anchor>
+            <NodeRef refid="33"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/NSString/split</TokenIdentifier>
 			<Abstract type="html">Returns an array containing substrings from the receiver that have been divided
 by a whitespace delimiter</Abstract>
 			<DeclaredIn>NSString+ObjectiveSugar.h</DeclaredIn>
 			
-			<Declaration>- (NSArray *)split</Declaration>
+			<Declaration>@property (nonatomic, readonly, copy) NSArray *split</Declaration>
+			
+			<ReturnValue><Abstract type="html">An array containing substrings that have been divided by a whitespace
+delimiter</Abstract></ReturnValue>
+			<Anchor>//api/name/split</Anchor>
+            <NodeRef refid="33"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/NSString/split</TokenIdentifier>
+			<Abstract type="html">Returns an array containing substrings from the receiver that have been divided
+by a whitespace delimiter</Abstract>
+			<DeclaredIn>NSString+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, copy) NSArray *split</Declaration>
 			
 			<ReturnValue><Abstract type="html">An array containing substrings that have been divided by a whitespace
 delimiter</Abstract></ReturnValue>
@@ -45,14 +73,51 @@ by a given delimiter</Abstract>
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NSString/setCamelCase:</TokenIdentifier>
+			<Abstract type="html">Returns a new string made by converting a snakecasestring to CamelCaseString</Abstract>
+			<DeclaredIn>NSString+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, copy) NSString *camelCase</Declaration>
+			
+			<ReturnValue><Abstract type="html">A string made by converting a snakecasestring to CamelCaseString</Abstract></ReturnValue>
+			<Anchor>//api/name/camelCase</Anchor>
+            <NodeRef refid="33"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/NSString/camelCase</TokenIdentifier>
 			<Abstract type="html">Returns a new string made by converting a snakecasestring to CamelCaseString</Abstract>
 			<DeclaredIn>NSString+ObjectiveSugar.h</DeclaredIn>
 			
-			<Declaration>- (NSString *)camelCase</Declaration>
+			<Declaration>@property (nonatomic, readonly, copy) NSString *camelCase</Declaration>
 			
 			<ReturnValue><Abstract type="html">A string made by converting a snakecasestring to CamelCaseString</Abstract></ReturnValue>
 			<Anchor>//api/name/camelCase</Anchor>
+            <NodeRef refid="33"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/NSString/camelCase</TokenIdentifier>
+			<Abstract type="html">Returns a new string made by converting a snakecasestring to CamelCaseString</Abstract>
+			<DeclaredIn>NSString+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, copy) NSString *camelCase</Declaration>
+			
+			<ReturnValue><Abstract type="html">A string made by converting a snakecasestring to CamelCaseString</Abstract></ReturnValue>
+			<Anchor>//api/name/camelCase</Anchor>
+            <NodeRef refid="33"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NSString/setLowerCamelCase:</TokenIdentifier>
+			<Abstract type="html">Returns a new string made by converting a snakecasestring to
+lowerCamelCaseString</Abstract>
+			<DeclaredIn>NSString+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, copy) NSString *lowerCamelCase</Declaration>
+			
+			<ReturnValue><Abstract type="html">A string made by converting a snakecasestring to CamelCaseString</Abstract></ReturnValue>
+			<Anchor>//api/name/lowerCamelCase</Anchor>
             <NodeRef refid="33"/>
 		</Token>
 		
@@ -62,7 +127,20 @@ by a given delimiter</Abstract>
 lowerCamelCaseString</Abstract>
 			<DeclaredIn>NSString+ObjectiveSugar.h</DeclaredIn>
 			
-			<Declaration>- (NSString *)lowerCamelCase</Declaration>
+			<Declaration>@property (nonatomic, readonly, copy) NSString *lowerCamelCase</Declaration>
+			
+			<ReturnValue><Abstract type="html">A string made by converting a snakecasestring to CamelCaseString</Abstract></ReturnValue>
+			<Anchor>//api/name/lowerCamelCase</Anchor>
+            <NodeRef refid="33"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/NSString/lowerCamelCase</TokenIdentifier>
+			<Abstract type="html">Returns a new string made by converting a snakecasestring to
+lowerCamelCaseString</Abstract>
+			<DeclaredIn>NSString+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, copy) NSString *lowerCamelCase</Declaration>
 			
 			<ReturnValue><Abstract type="html">A string made by converting a snakecasestring to CamelCaseString</Abstract></ReturnValue>
 			<Anchor>//api/name/lowerCamelCase</Anchor>
@@ -83,12 +161,38 @@ the receiver</Abstract>
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NSString/setStrip:</TokenIdentifier>
+			<Abstract type="html">Returns a new string made by removing whitespaces and newlines from both ends
+of the receiver</Abstract>
+			<DeclaredIn>NSString+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, copy) NSString *strip</Declaration>
+			
+			<ReturnValue><Abstract type="html">A string without trailing or leading whitespaces and newlines</Abstract></ReturnValue>
+			<Anchor>//api/name/strip</Anchor>
+            <NodeRef refid="33"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/NSString/strip</TokenIdentifier>
 			<Abstract type="html">Returns a new string made by removing whitespaces and newlines from both ends
 of the receiver</Abstract>
 			<DeclaredIn>NSString+ObjectiveSugar.h</DeclaredIn>
 			
-			<Declaration>- (NSString *)strip</Declaration>
+			<Declaration>@property (nonatomic, readonly, copy) NSString *strip</Declaration>
+			
+			<ReturnValue><Abstract type="html">A string without trailing or leading whitespaces and newlines</Abstract></ReturnValue>
+			<Anchor>//api/name/strip</Anchor>
+            <NodeRef refid="33"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/NSString/strip</TokenIdentifier>
+			<Abstract type="html">Returns a new string made by removing whitespaces and newlines from both ends
+of the receiver</Abstract>
+			<DeclaredIn>NSString+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, copy) NSString *strip</Declaration>
 			
 			<ReturnValue><Abstract type="html">A string without trailing or leading whitespaces and newlines</Abstract></ReturnValue>
 			<Anchor>//api/name/strip</Anchor>

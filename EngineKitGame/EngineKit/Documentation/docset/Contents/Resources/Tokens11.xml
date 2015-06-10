@@ -15,15 +15,27 @@ Basically, it&apos;s a wrapper for @p SCNNode.</Abstract>
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/Item/create</TokenIdentifier>
-			<Abstract type="html">Used as a constructor for JavaScript. Creates an empty Item, with an empty
-node, and adds the node to the scene.</Abstract>
+			<TokenIdentifier>//apple_ref/occ/instm/Item/initAndAddToScene</TokenIdentifier>
+			<Abstract type="html">Initializes the Item and adds it to the scene. Meant to be used by any
+subclasses&apos; initializers that are exported to JavaScript.</Abstract>
 			<DeclaredIn>Item.h</DeclaredIn>
 			
-			<Declaration>+ (instancetype)create</Declaration>
+			<Declaration>- (instancetype)initAndAddToScene</Declaration>
 			
-			<ReturnValue><Abstract type="html">An empty Item.</Abstract></ReturnValue>
-			<Anchor>//api/name/create</Anchor>
+			<ReturnValue><Abstract type="html">An initialized Item.</Abstract></ReturnValue>
+			<Anchor>//api/name/initAndAddToScene</Anchor>
+            <NodeRef refid="11"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Item/init</TokenIdentifier>
+			<Abstract type="html">Initializes the Item but does not add it to the scene.</Abstract>
+			<DeclaredIn>Item.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)init</Declaration>
+			
+			<ReturnValue><Abstract type="html">An initialized Item.</Abstract></ReturnValue>
+			<Anchor>//api/name/init</Anchor>
             <NodeRef refid="11"/>
 		</Token>
 		
@@ -82,11 +94,35 @@ and readies the Item for destruction.</Abstract>
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Item/setDeepCopy:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>Item.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) Item *deepCopy</Declaration>
+			
+			
+			<Anchor>//api/name/deepCopy</Anchor>
+            <NodeRef refid="11"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/Item/deepCopy</TokenIdentifier>
 			<Abstract type="html"></Abstract>
 			<DeclaredIn>Item.h</DeclaredIn>
 			
-			<Declaration>- (Item *)deepCopy</Declaration>
+			<Declaration>@property (nonatomic, readonly, strong) Item *deepCopy</Declaration>
+			
+			
+			<Anchor>//api/name/deepCopy</Anchor>
+            <NodeRef refid="11"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Item/deepCopy</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>Item.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) Item *deepCopy</Declaration>
 			
 			
 			<Anchor>//api/name/deepCopy</Anchor>
@@ -138,10 +174,15 @@ and readies the Item for destruction.</Abstract>
 			<TokenIdentifier>//apple_ref/occ/instm/Item/rotate:</TokenIdentifier>
 			<Abstract type="html">Creates a Rotation object from the given id object, then applies the resulting
 rotation to the receiver. The rotation is applied on top of the receiver&apos;s
-existing transform, so that it is concatenated on top of any existing rotation
+existing transform, so that it is concatenated on top of any existing rotations
 the receiver may have.</Abstract>
 			<DeclaredIn>Item.h</DeclaredIn>
 			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/Item/rotate:around:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
 			<Declaration>- (void)rotate:(id)rotation</Declaration>
 			<Parameters>
 				<Parameter>
@@ -152,6 +193,34 @@ applied to the receiver.</Abstract>
 			</Parameters>
 			
 			<Anchor>//api/name/rotate:</Anchor>
+            <NodeRef refid="11"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Item/rotate:around:</TokenIdentifier>
+			<Abstract type="html">Creates a Rotation object from the given id object, then applies the resulting
+rotation to the receiver. The rotation is applied on top of the receiver&apos;s
+existing transform, so that it is concatenated on top of any existing rotations
+the receiver may have. Moreover, the rotation is calculated around the given
+anchor point, as opposed to the rotate: method, which always rotates around
+the Item&apos;s center.</Abstract>
+			<DeclaredIn>Item.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/Item/rotate:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)rotate:(id)rotation around:(id)anchor</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>rotation</Name>
+					<Abstract type="html">A Rotation object, representing the change that should be
+applied to the receiver.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/rotate:around:</Anchor>
             <NodeRef refid="11"/>
 		</Token>
 		
@@ -451,7 +520,7 @@ not be handled manually; use @p addItem and @p removeFromParent instead.</Abstra
 			<Abstract type="html">The item&apos;s parent item, equivalent to a node&apos;s parent node.</Abstract>
 			<DeclaredIn>Item.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, weak, readonly) Item *parent</Declaration>
+			<Declaration>@property (nonatomic, weak) Item *parent</Declaration>
 			
 			
 			<Anchor>//api/name/parent</Anchor>
@@ -463,7 +532,7 @@ not be handled manually; use @p addItem and @p removeFromParent instead.</Abstra
 			<Abstract type="html">The item&apos;s parent item, equivalent to a node&apos;s parent node.</Abstract>
 			<DeclaredIn>Item.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, weak, readonly) Item *parent</Declaration>
+			<Declaration>@property (nonatomic, weak) Item *parent</Declaration>
 			
 			
 			<Anchor>//api/name/parent</Anchor>
@@ -475,10 +544,46 @@ not be handled manually; use @p addItem and @p removeFromParent instead.</Abstra
 			<Abstract type="html">The item&apos;s parent item, equivalent to a node&apos;s parent node.</Abstract>
 			<DeclaredIn>Item.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, weak, readonly) Item *parent</Declaration>
+			<Declaration>@property (nonatomic, weak) Item *parent</Declaration>
 			
 			
 			<Anchor>//api/name/parent</Anchor>
+            <NodeRef refid="11"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Item/setName:</TokenIdentifier>
+			<Abstract type="html">A string to be used at will in order to easily reference Item objects.</Abstract>
+			<DeclaredIn>Item.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="11"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Item/name</TokenIdentifier>
+			<Abstract type="html">A string to be used at will in order to easily reference Item objects.</Abstract>
+			<DeclaredIn>Item.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="11"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Item/name</TokenIdentifier>
+			<Abstract type="html">A string to be used at will in order to easily reference Item objects.</Abstract>
+			<DeclaredIn>Item.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
             <NodeRef refid="11"/>
 		</Token>
 		

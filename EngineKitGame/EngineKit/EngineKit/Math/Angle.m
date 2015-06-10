@@ -21,20 +21,9 @@ CGFloat toDegrees(CGFloat radians) {
 
 @implementation Angle
 
-+ (instancetype)angleWithRadians:(CGFloat)radians {
-    return [[Angle alloc] initWithRadians:radians];
-}
-
-+ (instancetype)angleWithDegrees:(CGFloat)degrees {
-    return [[Angle alloc] initWithDegrees:degrees];
-}
-
-+ (instancetype)angleWithPiTimes:(CGFloat)ratio {
-    return [[Angle alloc] initWithRadians:ratio * M_PI];
-}
-
-+ (instancetype)angleWithObject:(id)object {
-    return [[Angle alloc] initWithObject:object];
+- (instancetype)initWithPiTimes:(CGFloat)ratio {
+    self = [self initWithRadians:ratio * M_PI];
+    return self;
 }
 
 - (instancetype)initWithRadians:(CGFloat)radians {

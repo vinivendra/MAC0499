@@ -54,6 +54,26 @@
 
 	
 	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/a">a</option>
+		
+		<option value="//api/name/angle">angle</option>
+		
+		<option value="//api/name/axis">axis</option>
+		
+		<option value="//api/name/toSCNMatrix">toSCNMatrix</option>
+		
+		<option value="//api/name/toSCNVector">toSCNVector</option>
+		
+		<option value="//api/name/x">x</option>
+		
+		<option value="//api/name/y">y</option>
+		
+		<option value="//api/name/z">z</option>
+		
+	</optgroup>
+	
 
 	
 	<optgroup label="Class Methods">
@@ -72,17 +92,13 @@
 		
 		<option value="//api/name/rotationWithString:">+ rotationWithString:</option>
 		
+		<option value="//api/name/rotationWithX:Y:Z:Angle:">+ rotationWithX:Y:Z:Angle:</option>
+		
 	</optgroup>
 	
 
 	
 	<optgroup label="Instance Methods">
-		
-		<option value="//api/name/a">- a</option>
-		
-		<option value="//api/name/angle">- angle</option>
-		
-		<option value="//api/name/axis">- axis</option>
 		
 		<option value="//api/name/initWithArray:">- initWithArray:</option>
 		
@@ -98,17 +114,9 @@
 		
 		<option value="//api/name/initWithString:">- initWithString:</option>
 		
+		<option value="//api/name/rotate:">- rotate:</option>
+		
 		<option value="//api/name/rotateMatrix:">- rotateMatrix:</option>
-		
-		<option value="//api/name/toSCNMatrix">- toSCNMatrix</option>
-		
-		<option value="//api/name/toSCNVector">- toSCNVector</option>
-		
-		<option value="//api/name/x">- x</option>
-		
-		<option value="//api/name/y">- y</option>
-		
-		<option value="//api/name/z">- z</option>
 		
 	</optgroup>
 	
@@ -147,7 +155,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>Represents <a href="#//api/name/a">a</a> rotation b<a href="#//api/name/y">y</a> <a href="#//api/name/a">a</a> determined angle around <a href="#//api/name/a">a</a> determined axis.</p>
+						<p>Represents <a href="#//api/name/a">a</a> rotation b<a href="#//api/name/y">y</a> <a href="#//api/name/a">a</a> determined <a href="#//api/name/angle">angle</a> around <a href="#//api/name/a">a</a> determined <a href="#//api/name/axis">axis</a>.</p>
 					</div>
 					
 					
@@ -163,6 +171,79 @@
 
 						<div class="task-list">
 							<div class="section-method">
+	<a name="//api/name/rotationWithX:Y:Z:Angle:" title="rotationWithX:Y:Z:Angle:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/rotationWithX:Y:Z:Angle:">+&nbsp;rotationWithX:Y:Z:Angle:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates <a href="#//api/name/a">a</a> <code>Rotation</code> whith the four given components, respectivel<a href="#//api/name/y">y</a>.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (Rotation *)rotationWithX:(CGFloat)<em>x</em> Y:(CGFloat)<em>y</em> Z:(CGFloat)<em>z</em> Angle:(CGFloat)<em>angle</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>x</code></th>
+						<td><p>The value to assign to the <code>Rotation</code>&rsquo;s <a href="../Classes/Axis.html"><code>Axis</code></a>&rsquo;s <a href="#//api/name/x"><code>x</code></a> component.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>y</code></th>
+						<td><p>The value to assign to the <code>Rotation</code>&rsquo;s <a href="../Classes/Axis.html"><code>Axis</code></a>&rsquo;s <a href="#//api/name/y"><code>y</code></a> component.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>z</code></th>
+						<td><p>The value to assign to the <code>Rotation</code>&rsquo;s <a href="../Classes/Axis.html"><code>Axis</code></a>&rsquo;s <a href="#//api/name/z"><code>z</code></a> component.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>angle</code></th>
+						<td><p>The value to assign to the <code>Rotation</code>&rsquo;s <a href="../Classes/Angle.html"><code>Angle</code></a> component.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An initialized <code>Rotation</code> object.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Rotation.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/rotationWithSCNVector4:" title="rotationWithSCNVector4:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/rotationWithSCNVector4:">+&nbsp;rotationWithSCNVector4:</a></code>
 </h3>
@@ -215,7 +296,7 @@ SCNVector4. This initialization is <a href="#//api/name/a">a</a> lot like @p -in
 				<h4 class="method-subtitle">See Also</h4>
 				<ul>
 					
-					<li><code><p>-initWithArra<a href="#//api/name/y">- y</a></p></code></li>
+					<li><code><p>-initWithArra<a href="#//api/name/y">@property y</a></p></code></li>
 					
 				</ul>
 			</div>
@@ -603,7 +684,7 @@ assert(false) will be triggered.</p></div>
 				<h4 class="method-subtitle">See Also</h4>
 				<ul>
 					
-					<li><code><p>-initWithArra<a href="#//api/name/y">- y</a></p></code></li>
+					<li><code><p>-initWithArra<a href="#//api/name/y">@property y</a></p></code></li>
 					
 				</ul>
 			</div>
@@ -671,7 +752,7 @@ SCNVector4. This initialization is <a href="#//api/name/a">a</a> lot like @p -in
 				<h4 class="method-subtitle">See Also</h4>
 				<ul>
 					
-					<li><code><p>-initWithArra<a href="#//api/name/y">- y</a></p></code></li>
+					<li><code><p>-initWithArra<a href="#//api/name/y">@property y</a></p></code></li>
 					
 				</ul>
 			</div>
@@ -1062,7 +1143,7 @@ assert(false) will be triggered.</p></div>
 				<h4 class="method-subtitle">See Also</h4>
 				<ul>
 					
-					<li><code><p>-initWithArra<a href="#//api/name/y">- y</a></p></code></li>
+					<li><code><p>-initWithArra<a href="#//api/name/y">@property y</a></p></code></li>
 					
 				</ul>
 			</div>
@@ -1138,8 +1219,67 @@ original matri<a href="#//api/name/x">x</a>.</p>
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/rotate:" title="rotate:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/rotate:">&ndash;&nbsp;rotate:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates <a href="#//api/name/a">a</a> new <a href="../Classes/Vector.html"><code>Vector</code></a> from the given <code>object</code> b<a href="#//api/name/y">y</a> calling <a href="../Classes/Vector.html#//api/name/initWithObject:"><code>[Vector initWithObject:]</code></a>.
+That <a href="../Classes/Vector.html"><code>Vector</code></a> is then rotated b<a href="#//api/name/y">y</a> the rotation that the receiver represents.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (Vector *)rotate:(id)<em>vector</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>object</code></th>
+						<td><p>An object, used to initialize <a href="#//api/name/a">a</a> new <a href="../Classes/Vector.html"><code>Vector</code></a> to be rotated.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A new intance of <a href="#//api/name/a">a</a> <a href="../Classes/Vector.html"><code>Vector</code></a> object.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Rotation.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/toSCNVector" title="toSCNVector"></a>
-	<h3 class="method-title"><code><a href="#//api/name/toSCNVector">&ndash;&nbsp;toSCNVector</a></code>
+	<h3 class="method-title"><code><a href="#//api/name/toSCNVector">&nbsp;&nbsp;toSCNVector</a></code>
 </h3>
 
 	<div class="method-info">
@@ -1157,7 +1297,7 @@ be used with SceneKit.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (SCNVector4)toSCNVector</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) SCNVector4 toSCNVector</code></div>
 
 		    
 			
@@ -1188,7 +1328,7 @@ be used with SceneKit.</p>
 	</div>
 </div><div class="section-method">
 	<a name="//api/name/toSCNMatrix" title="toSCNMatrix"></a>
-	<h3 class="method-title"><code><a href="#//api/name/toSCNMatrix">&ndash;&nbsp;toSCNMatrix</a></code>
+	<h3 class="method-title"><code><a href="#//api/name/toSCNMatrix">&nbsp;&nbsp;toSCNMatrix</a></code>
 </h3>
 
 	<div class="method-info">
@@ -1203,7 +1343,7 @@ be used with SceneKit.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (SCNMatrix4)toSCNMatrix</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) SCNMatrix4 toSCNMatrix</code></div>
 
 		    
 			
@@ -1234,7 +1374,7 @@ be used with SceneKit.</p>
 	</div>
 </div><div class="section-method">
 	<a name="//api/name/x" title="x"></a>
-	<h3 class="method-title"><code><a href="#//api/name/x">&ndash;&nbsp;x</a></code>
+	<h3 class="method-title"><code><a href="#//api/name/x">&nbsp;&nbsp;x</a></code>
 </h3>
 
 	<div class="method-info">
@@ -1249,7 +1389,7 @@ be used with SceneKit.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (CGFloat)x</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) CGFloat x</code></div>
 
 		    
 			
@@ -1275,7 +1415,7 @@ be used with SceneKit.</p>
 	</div>
 </div><div class="section-method">
 	<a name="//api/name/y" title="y"></a>
-	<h3 class="method-title"><code><a href="#//api/name/y">&ndash;&nbsp;y</a></code>
+	<h3 class="method-title"><code><a href="#//api/name/y">&nbsp;&nbsp;y</a></code>
 </h3>
 
 	<div class="method-info">
@@ -1290,7 +1430,7 @@ be used with SceneKit.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (CGFloat)y</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) CGFloat y</code></div>
 
 		    
 			
@@ -1316,7 +1456,7 @@ be used with SceneKit.</p>
 	</div>
 </div><div class="section-method">
 	<a name="//api/name/z" title="z"></a>
-	<h3 class="method-title"><code><a href="#//api/name/z">&ndash;&nbsp;z</a></code>
+	<h3 class="method-title"><code><a href="#//api/name/z">&nbsp;&nbsp;z</a></code>
 </h3>
 
 	<div class="method-info">
@@ -1331,7 +1471,7 @@ be used with SceneKit.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (CGFloat)z</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) CGFloat z</code></div>
 
 		    
 			
@@ -1357,7 +1497,7 @@ be used with SceneKit.</p>
 	</div>
 </div><div class="section-method">
 	<a name="//api/name/a" title="a"></a>
-	<h3 class="method-title"><code><a href="#//api/name/a">&ndash;&nbsp;a</a></code>
+	<h3 class="method-title"><code><a href="#//api/name/a">&nbsp;&nbsp;a</a></code>
 </h3>
 
 	<div class="method-info">
@@ -1372,7 +1512,7 @@ be used with SceneKit.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (CGFloat)a</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) CGFloat a</code></div>
 
 		    
 			
@@ -1398,7 +1538,7 @@ be used with SceneKit.</p>
 	</div>
 </div><div class="section-method">
 	<a name="//api/name/axis" title="axis"></a>
-	<h3 class="method-title"><code><a href="#//api/name/axis">&ndash;&nbsp;axis</a></code>
+	<h3 class="method-title"><code><a href="#//api/name/axis">&nbsp;&nbsp;axis</a></code>
 </h3>
 
 	<div class="method-info">
@@ -1413,7 +1553,7 @@ be used with SceneKit.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (Axis *)axis</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, strong) Axis *axis</code></div>
 
 		    
 			
@@ -1439,7 +1579,7 @@ be used with SceneKit.</p>
 	</div>
 </div><div class="section-method">
 	<a name="//api/name/angle" title="angle"></a>
-	<h3 class="method-title"><code><a href="#//api/name/angle">&ndash;&nbsp;angle</a></code>
+	<h3 class="method-title"><code><a href="#//api/name/angle">&nbsp;&nbsp;angle</a></code>
 </h3>
 
 	<div class="method-info">
@@ -1454,7 +1594,7 @@ be used with SceneKit.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (Angle *)angle</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, strong) Angle *angle</code></div>
 
 		    
 			
@@ -1493,7 +1633,7 @@ be used with SceneKit.</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2015 IME. All rights reserved. Updated: 2015-05-16</p>
+						<p class="copyright">Copyright &copy; 2015 IME. All rights reserved. Updated: 2015-06-09</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

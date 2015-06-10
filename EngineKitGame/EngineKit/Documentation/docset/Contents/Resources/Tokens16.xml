@@ -14,6 +14,42 @@ used as a point instead of a vector.</Abstract>
 		
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Position/setToSCNVector4:</TokenIdentifier>
+			<Abstract type="html">Creates an SCNVector4 representing the receiver in homogeneous coordinates.</Abstract>
+			<DeclaredIn>Position.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) SCNVector4 toSCNVector4</Declaration>
+			
+			<ReturnValue><Abstract type="html">An instance of SCNVector4.</Abstract></ReturnValue>
+			<Anchor>//api/name/toSCNVector4</Anchor>
+            <NodeRef refid="16"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Position/toSCNVector4</TokenIdentifier>
+			<Abstract type="html">Creates an SCNVector4 representing the receiver in homogeneous coordinates.</Abstract>
+			<DeclaredIn>Position.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) SCNVector4 toSCNVector4</Declaration>
+			
+			<ReturnValue><Abstract type="html">An instance of SCNVector4.</Abstract></ReturnValue>
+			<Anchor>//api/name/toSCNVector4</Anchor>
+            <NodeRef refid="16"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Position/toSCNVector4</TokenIdentifier>
+			<Abstract type="html">Creates an SCNVector4 representing the receiver in homogeneous coordinates.</Abstract>
+			<DeclaredIn>Position.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) SCNVector4 toSCNVector4</Declaration>
+			
+			<ReturnValue><Abstract type="html">An instance of SCNVector4.</Abstract></ReturnValue>
+			<Anchor>//api/name/toSCNVector4</Anchor>
+            <NodeRef refid="16"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/clm/Position/origin</TokenIdentifier>
 			<Abstract type="html">Represents a commonly used Position, (0 0 0).</Abstract>
 			<DeclaredIn>Position.h</DeclaredIn>
@@ -22,323 +58,6 @@ used as a point instead of a vector.</Abstract>
 			
 			<ReturnValue><Abstract type="html">A Position object.</Abstract></ReturnValue>
 			<Anchor>//api/name/origin</Anchor>
-            <NodeRef refid="16"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/Position/position</TokenIdentifier>
-			<Abstract type="html">Creates an &quot;empty&quot; Position, initialized to (0 0 0).</Abstract>
-			<DeclaredIn>Position.h</DeclaredIn>
-			
-	<RelatedTokens>
-		<TokenIdentifier>//apple_ref/occ/clm/Position/origin</TokenIdentifier>
-		
-	</RelatedTokens>
-	
-			<Declaration>+ (Position *)position</Declaration>
-			
-			<ReturnValue><Abstract type="html">A Position object.</Abstract></ReturnValue>
-			<Anchor>//api/name/position</Anchor>
-            <NodeRef refid="16"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/Position/positionWithX:Y:Z:</TokenIdentifier>
-			<Abstract type="html">Creates a Position whith the three given components, respectively.</Abstract>
-			<DeclaredIn>Position.h</DeclaredIn>
-			
-			<Declaration>+ (Position *)positionWithX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>x</Name>
-					<Abstract type="html">The value to assign to the Position&apos;s x component.</Abstract>
-				</Parameter><Parameter>
-					<Name>y</Name>
-					<Abstract type="html">The value to assign to the Position&apos;s y component.</Abstract>
-				</Parameter><Parameter>
-					<Name>z</Name>
-					<Abstract type="html">The value to assign to the Position&apos;s z component.</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">An initialized Position object.</Abstract></ReturnValue>
-			<Anchor>//api/name/positionWithX:Y:Z:</Anchor>
-            <NodeRef refid="16"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/Position/positionWithUniformWithNumber:</TokenIdentifier>
-			<Abstract type="html">Creates a Position in which all components are set to s. Useful for
-creating Positions that represent uniform scales.</Abstract>
-			<DeclaredIn>Position.h</DeclaredIn>
-			
-	<RelatedTokens>
-		<TokenIdentifier>//apple_ref/occ/clm/Position/positionWithObject:</TokenIdentifier>
-		
-	</RelatedTokens>
-	
-			<Declaration>+ (Position *)positionWithUniformWithNumber:(CGFloat)s</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>s</Name>
-					<Abstract type="html">The value to set to all the Position&apos;s components.</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">An initialized Position object.</Abstract></ReturnValue>
-			<Anchor>//api/name/positionWithUniformWithNumber:</Anchor>
-            <NodeRef refid="16"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/Position/positionWithCGPoint:</TokenIdentifier>
-			<Abstract type="html">Given a CGPoint of format (x, y), creates a Position object of format
-(x, - y, 0). This is done to ease the translation from screen points to scene
-points.</Abstract>
-			<DeclaredIn>Position.h</DeclaredIn>
-			
-			<Declaration>+ (Position *)positionWithCGPoint:(CGPoint)newValue</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>newValue</Name>
-					<Abstract type="html">The CGPoint that should be used as a model.</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">An initialized Position object.</Abstract></ReturnValue>
-			<Anchor>//api/name/positionWithCGPoint:</Anchor>
-            <NodeRef refid="16"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/Position/positionWithCIVector:</TokenIdentifier>
-			<Abstract type="html">Creates a Position in which all components are set as just as the first 3
-components (x, y and z) in the given CIVector.  This method trusts that
-the CIVector has been correctly initialized and has the  necessary components.</Abstract>
-			<DeclaredIn>Position.h</DeclaredIn>
-			
-			<Declaration>+ (Position *)positionWithCIVector:(CIVector *)newValue</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>newValue</Name>
-					<Abstract type="html">The CIValue whose x, y and z components should be used.</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">An initialized Position object.</Abstract></ReturnValue>
-			<Anchor>//api/name/positionWithCIVector:</Anchor>
-            <NodeRef refid="16"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/Position/positionWithSCNVector3:</TokenIdentifier>
-			<Abstract type="html">Creates a Position in which all components are set as just as the given
-SCNVector3.</Abstract>
-			<DeclaredIn>Position.h</DeclaredIn>
-			
-	<RelatedTokens>
-		<TokenIdentifier>//apple_ref/occ/clm/Position/positionWithNSValue:</TokenIdentifier>
-		<TokenIdentifier>//apple_ref/occ/clm/Position/positionWithSCNVector4:</TokenIdentifier>
-		
-	</RelatedTokens>
-	
-			<Declaration>+ (Position *)positionWithSCNVector3:(SCNVector3)newValue</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>newValue</Name>
-					<Abstract type="html">The SCNVector3 that should be used as a model.</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">An initialized Position object.</Abstract></ReturnValue>
-			<Anchor>//api/name/positionWithSCNVector3:</Anchor>
-            <NodeRef refid="16"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/Position/positionWithSCNVector4:</TokenIdentifier>
-			<Abstract type="html">Creates a Position in which all components are set as just as the first 3
-components in the given SCNVector4. If that Position has format `(x y z
-w), the created Position object will have format (x y z)`.</Abstract>
-			<DeclaredIn>Position.h</DeclaredIn>
-			
-	<RelatedTokens>
-		<TokenIdentifier>//apple_ref/occ/clm/Position/positionWithSCNVector3:</TokenIdentifier>
-		
-	</RelatedTokens>
-	
-			<Declaration>+ (Position *)positionWithSCNVector4:(SCNVector4)newValue</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>newValue</Name>
-					<Abstract type="html">The SCNVector4 whose first three components should be used.</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">An initialized Position object.</Abstract></ReturnValue>
-			<Anchor>//api/name/positionWithSCNVector4:</Anchor>
-            <NodeRef refid="16"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/Position/positionWithNSValue:</TokenIdentifier>
-			<Abstract type="html">Creates a Position based on the SCNVector3 contained in the given
-NSValue.</Abstract>
-			<DeclaredIn>Position.h</DeclaredIn>
-			
-	<RelatedTokens>
-		<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithSCNVector3:</TokenIdentifier>
-		<TokenIdentifier>//apple_ref/occ/clm/Position/positionWithObject:</TokenIdentifier>
-		
-	</RelatedTokens>
-	
-			<Declaration>+ (Position *)positionWithNSValue:(NSValue *)newValue</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>newValue</Name>
-					<Abstract type="html">An NSValue created with an SCNVector3, which will be
-obtained using SCNVector3Value.</Abstract>
-				</Parameter>
-			</Parameters>
-			
-			<Anchor>//api/name/positionWithNSValue:</Anchor>
-            <NodeRef refid="16"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/Position/positionWithArray:</TokenIdentifier>
-			<Abstract type="html">Creates a Position based on the first three elements on a given NSArray. If
-the array has less than 3 components or if any of the first three components is
-not an NSNumber, the corresponding value is set to zero.</Abstract>
-			<DeclaredIn>Position.h</DeclaredIn>
-			
-	<RelatedTokens>
-		<TokenIdentifier>//apple_ref/occ/clm/Position/positionWithObject:</TokenIdentifier>
-		
-	</RelatedTokens>
-	
-			<Declaration>+ (Position *)positionWithArray:(NSArray *)array</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>array</Name>
-					<Abstract type="html">The NSArray that should be used as a model.</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">An initialized Position object.</Abstract></ReturnValue>
-			<Anchor>//api/name/positionWithArray:</Anchor>
-            <NodeRef refid="16"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/Position/positionWithDictionary:</TokenIdentifier>
-			<Abstract type="html">Creates a Position based on the elements on a given NSDictionary. If there
-are elements with the key &quot;x&quot;, &quot;y&quot; and &quot;z&quot; (case insensitive), those elements
-are used. If one of them is missing, the keys &quot;0&quot;, &quot;1&quot; or &quot;2&quot; are used to
-replace them as needed. If any elements are still missing, the corresponding
-value is set to 0.0.</Abstract>
-			<DeclaredIn>Position.h</DeclaredIn>
-			
-	<RelatedTokens>
-		<TokenIdentifier>//apple_ref/occ/clm/Position/positionWithObject:</TokenIdentifier>
-		
-	</RelatedTokens>
-	
-			<Declaration>+ (Position *)positionWithDictionary:(NSDictionary *)dictionary</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>dictionary</Name>
-					<Abstract type="html">The NSDictionary that should be used as a model.</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">An initialized Position object.</Abstract></ReturnValue>
-			<Anchor>//api/name/positionWithDictionary:</Anchor>
-            <NodeRef refid="16"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/Position/positionWithString:</TokenIdentifier>
-			<Abstract type="html">Attempts to create a Position by scanning the string for numbers. Each number
-found is inserted into an NSArray, and then the initWithArray: method is
-used.</Abstract>
-			<DeclaredIn>Position.h</DeclaredIn>
-			
-	<RelatedTokens>
-		<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithArray:</TokenIdentifier>
-		<TokenIdentifier>//apple_ref/occ/clm/Position/positionWithObject:</TokenIdentifier>
-		
-	</RelatedTokens>
-	
-			<Declaration>+ (Position *)positionWithString:(NSString *)string</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>string</Name>
-					<Abstract type="html">The NSString to use as a model.</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">An initialized Position object.</Abstract></ReturnValue>
-			<Anchor>//api/name/positionWithString:</Anchor>
-            <NodeRef refid="16"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/Position/positionWithVector:</TokenIdentifier>
-			<Abstract type="html">Returns the given Vector object, cast to a Position. Used for completion
-and standardization by other methods.</Abstract>
-			<DeclaredIn>Position.h</DeclaredIn>
-			
-	<RelatedTokens>
-		<TokenIdentifier>//apple_ref/occ/clm/Position/positionWithObject:</TokenIdentifier>
-		
-	</RelatedTokens>
-	
-			<Declaration>+ (Position *)positionWithVector:(Vector *)vector</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>vector</Name>
-					<Abstract type="html">The Vector object that will be returned.</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">A Position object.</Abstract></ReturnValue>
-			<Anchor>//api/name/positionWithVector:</Anchor>
-            <NodeRef refid="16"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/Position/positionWithPosition:</TokenIdentifier>
-			<Abstract type="html">Returns the given Position object. Used for completion and standardization by
-other methods.</Abstract>
-			<DeclaredIn>Position.h</DeclaredIn>
-			
-			<Declaration>+ (Position *)positionWithPosition:(Position *)position</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>position</Name>
-					<Abstract type="html">The Position object that will be returned.</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">A Position object.</Abstract></ReturnValue>
-			<Anchor>//api/name/positionWithPosition:</Anchor>
-            <NodeRef refid="16"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/Position/positionWithObject:</TokenIdentifier>
-			<Abstract type="html">Creates a Position based on the given object.</Abstract>
-			<DeclaredIn>Position.h</DeclaredIn>
-			
-	<RelatedTokens>
-		<TokenIdentifier>//apple_ref/occ/instm/Vector/initUniformWithNumber:</TokenIdentifier>
-		<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithArray:</TokenIdentifier>
-		<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithSCNVector3:</TokenIdentifier>
-		<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithVector:</TokenIdentifier>
-		<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithString:</TokenIdentifier>
-		<TokenIdentifier>//apple_ref/occ/instm/Vector/initWithDictionary:</TokenIdentifier>
-		
-	</RelatedTokens>
-	
-			<Declaration>+ (Position *)positionWithObject:(id)object</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>object</Name>
-					<Abstract type="html">An object of any one of the classes mentioned above.</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">An initialized Position object.</Abstract></ReturnValue>
-			<Anchor>//api/name/positionWithObject:</Anchor>
             <NodeRef refid="16"/>
 		</Token>
 		

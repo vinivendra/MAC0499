@@ -33,7 +33,7 @@
 }
 
 - (void)lookAt:(id)object {
-    self.lookAtNode.position = [Vector vectorWithObject:object].toSCNVector3;
+    self.lookAtNode.position = [[Vector alloc] initWithObject:object].toSCNVector3;
 }
 
 @end

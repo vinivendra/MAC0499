@@ -52,14 +52,52 @@ doubleValue property, so it follows basically the same rules.</Abstract>
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NSString/setValid:</TokenIdentifier>
+			<Abstract type="html">Checks if the string is empty or contains only whitespace.</Abstract>
+			<DeclaredIn>NSString+Extension.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) BOOL valid</Declaration>
+			
+			<ReturnValue><Abstract type="html">@p YES if the string is valid, @p NO otherwise.</Abstract></ReturnValue>
+			<Anchor>//api/name/valid</Anchor>
+            <NodeRef refid="32"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/NSString/valid</TokenIdentifier>
 			<Abstract type="html">Checks if the string is empty or contains only whitespace.</Abstract>
 			<DeclaredIn>NSString+Extension.h</DeclaredIn>
 			
-			<Declaration>- (BOOL)valid</Declaration>
+			<Declaration>@property (nonatomic, readonly) BOOL valid</Declaration>
 			
 			<ReturnValue><Abstract type="html">@p YES if the string is valid, @p NO otherwise.</Abstract></ReturnValue>
 			<Anchor>//api/name/valid</Anchor>
+            <NodeRef refid="32"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/NSString/valid</TokenIdentifier>
+			<Abstract type="html">Checks if the string is empty or contains only whitespace.</Abstract>
+			<DeclaredIn>NSString+Extension.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) BOOL valid</Declaration>
+			
+			<ReturnValue><Abstract type="html">@p YES if the string is valid, @p NO otherwise.</Abstract></ReturnValue>
+			<Anchor>//api/name/valid</Anchor>
+            <NodeRef refid="32"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NSString/setIndentation:</TokenIdentifier>
+			<Abstract type="html">Returns the number of whitespace characters preceding a non-whitespace
+character in a line of text. Tabs, spaces and newlines are all counted as one
+character.</Abstract>
+			<DeclaredIn>NSString+Extension.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSUInteger indentation</Declaration>
+			
+			<ReturnValue><Abstract type="html">A number representing the string&apos;s indentation level.</Abstract></ReturnValue>
+			<Anchor>//api/name/indentation</Anchor>
             <NodeRef refid="32"/>
 		</Token>
 		
@@ -70,7 +108,21 @@ character in a line of text. Tabs, spaces and newlines are all counted as one
 character.</Abstract>
 			<DeclaredIn>NSString+Extension.h</DeclaredIn>
 			
-			<Declaration>- (NSUInteger)indentation</Declaration>
+			<Declaration>@property (nonatomic, readonly) NSUInteger indentation</Declaration>
+			
+			<ReturnValue><Abstract type="html">A number representing the string&apos;s indentation level.</Abstract></ReturnValue>
+			<Anchor>//api/name/indentation</Anchor>
+            <NodeRef refid="32"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/NSString/indentation</TokenIdentifier>
+			<Abstract type="html">Returns the number of whitespace characters preceding a non-whitespace
+character in a line of text. Tabs, spaces and newlines are all counted as one
+character.</Abstract>
+			<DeclaredIn>NSString+Extension.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSUInteger indentation</Declaration>
 			
 			<ReturnValue><Abstract type="html">A number representing the string&apos;s indentation level.</Abstract></ReturnValue>
 			<Anchor>//api/name/indentation</Anchor>

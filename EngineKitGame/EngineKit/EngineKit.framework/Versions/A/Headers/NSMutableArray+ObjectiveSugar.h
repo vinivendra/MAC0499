@@ -19,7 +19,7 @@
 
  @return First array item or nil.
  */
-- (id)pop;
+@property (nonatomic, readonly, strong) id pop;
 
 
 /**
@@ -38,7 +38,7 @@
 
  @return First array item or nil.
  */
-- (id)shift;
+@property (nonatomic, readonly, strong) id shift;
 
 
 /**

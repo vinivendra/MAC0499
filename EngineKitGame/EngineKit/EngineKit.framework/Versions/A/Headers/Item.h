@@ -1,18 +1,48 @@
+
+
 #import "Rotation.h"
+
+#import "Position.h"
+
+
+@class Item;
+
+
+@protocol ItemExport <JSExport>
++ (instancetype)create;
+- (instancetype)initAndAddToScene;
+- (instancetype)create;
++ (instancetype) template;
+- (void)addItem:(Item *)newItem;
+- (void)rotate:(id)rotation;
+- (void)rotate:(id)rotation around:(id)anchor;
+- (void)destroy;
+@property (nonatomic, weak, readonly) Item *parent;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) id position;
+@property (nonatomic, strong) id rotation;
+@property (nonatomic, strong) id scale;
+@end
+
 
 /*!
  An "abstract" superclass for all graphic items. This includes anything that
  could be in the game world - from objects and meshes to lights, cameras, etc.
  Basically, it's a wrapper for @p SCNNode.
  */
-@interface Item : NSObject
+@interface Item : NSObject <ItemExport>
 
 /*!
- Used as a constructor for JavaScript. Creates an empty Item, with an empty
- node, and adds the node to the scene.
- @return An empty Item.
+ Initializes the `Item` and adds it to the scene. Meant to be used by any
+ subclasses' initializers that are exported to JavaScript.
+ @return An initialized `Item`.
  */
-+ (instancetype)create;
+- (instancetype)initAndAddToScene NS_DESIGNATED_INITIALIZER;
+/*!
+ Initializes the `Item` but does not add it to the scene.
+ @return An initialized `Item`.
+ */
+- (instancetype)init NS_DESIGNATED_INITIALIZER;
 /*!
  Used to create instances of templates, which are added to the scene.
  @return A deep copy of the item, which is basically an instance of the
@@ -42,7 +72,7 @@
  Creates a deep copy of the receiver, including in it any relevant information.
  @return A new instance of Item, representing a copy of the receiver.
  */
-- (Item *)deepCopy;
+@property (nonatomic, readonly, strong) Item *deepCopy;
 /*!
  Copies relevant information from the receiver to the given item. Used by
  deepCopy to copy the actual information over.
@@ -62,12 +92,25 @@
 /*!
  Creates a Rotation object from the given id object, then applies the resulting
  rotation to the receiver. The rotation is applied on top of the receiver's
- existing transform, so that it is concatenated on top of any existing rotation
+ existing transform, so that it is concatenated on top of any existing rotations
  the receiver may have.
  @param rotation A Rotation object, representing the change that should be
  applied to the receiver.
+ @see rotate:around:
  */
 - (void)rotate:(id)rotation;
+/*!
+ Creates a Rotation object from the given id object, then applies the resulting
+ rotation to the receiver. The rotation is applied on top of the receiver's
+ existing transform, so that it is concatenated on top of any existing rotations
+ the receiver may have. Moreover, the rotation is calculated around the given
+ `anchor` point, as opposed to the `rotate:` method, which always rotates around
+ the `Item`'s center.
+ @param rotation A Rotation object, representing the change that should be
+ applied to the receiver.
+ @see rotate:
+ */
+- (void)rotate:(id)rotation around:(id)anchor;
 /*!
  An integer used to uniquely identify an Item.
  */
@@ -110,5 +153,9 @@
 /*!
  The item's parent item, equivalent to a node's parent node.
  */
-@property (nonatomic, weak, readonly) Item *parent;
+@property (nonatomic, weak) Item *parent;
+/*!
+ A string to be used at will in order to easily reference `Item` objects.
+ */
+@property (nonatomic, strong) NSString *name;
 @end

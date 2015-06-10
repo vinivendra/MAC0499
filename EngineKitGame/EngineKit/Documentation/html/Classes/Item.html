@@ -60,7 +60,11 @@
 		
 		<option value="//api/name/children">children</option>
 		
+		<option value="//api/name/deepCopy">deepCopy</option>
+		
 		<option value="//api/name/geometry">geometry</option>
+		
+		<option value="//api/name/name">name</option>
 		
 		<option value="//api/name/node">node</option>
 		
@@ -78,8 +82,6 @@
 	
 	<optgroup label="Class Methods">
 		
-		<option value="//api/name/create">+ create</option>
-		
 		<option value="//api/name/newID">+ newID</option>
 		
 		<option value="//api/name/template">+ template</option>
@@ -96,13 +98,17 @@
 		
 		<option value="//api/name/create">- create</option>
 		
-		<option value="//api/name/deepCopy">- deepCopy</option>
-		
 		<option value="//api/name/destroy">- destroy</option>
+		
+		<option value="//api/name/init">- init</option>
+		
+		<option value="//api/name/initAndAddToScene">- initAndAddToScene</option>
 		
 		<option value="//api/name/removeFromParent">- removeFromParent</option>
 		
 		<option value="//api/name/rotate:">- rotate:</option>
+		
+		<option value="//api/name/rotate:around:">- rotate:around:</option>
 		
 	</optgroup>
 	
@@ -126,6 +132,9 @@
 						<tr>
 	<th>Inherits from</th>
 	<td>NSObject</td>
+</tr><tr>
+	<th>Conforms to</th>
+	<td>ItemExport</td>
 </tr><tr>
 	<th>Declared in</th>
 	<td>Item.h<br />Item.m</td>
@@ -156,8 +165,8 @@ Basically, it&rsquo;s a wrapper for @p SCNNode.</p>
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/create" title="create"></a>
-	<h3 class="method-title"><code><a href="#//api/name/create">+&nbsp;create</a></code>
+	<a name="//api/name/initAndAddToScene" title="initAndAddToScene"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initAndAddToScene">&ndash;&nbsp;initAndAddToScene</a></code>
 </h3>
 
 	<div class="method-info">
@@ -167,13 +176,13 @@ Basically, it&rsquo;s a wrapper for @p SCNNode.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Used as a constructor for <a href="../Classes/JavaScript.html">JavaScript</a>. Creates an empty Item, with an empty
-<a href="#//api/name/node">node</a>, and adds the <a href="#//api/name/node">node</a> to the scene.</p>
+				<p>Initializes the <code>Item</code> and adds it to the scene. Meant to be used by any
+subclasses' initializers that are exported to <a href="../Classes/JavaScript.html">JavaScript</a>.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>+ (instancetype)create</code></div>
+			<div class="method-subsection method-declaration"><code>- (instancetype)initAndAddToScene</code></div>
 
 		    
 			
@@ -181,7 +190,53 @@ Basically, it&rsquo;s a wrapper for @p SCNNode.</p>
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An empty Item.</p>
+				<p>An initialized <code>Item</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Item.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/init" title="init"></a>
+	<h3 class="method-title"><code><a href="#//api/name/init">&ndash;&nbsp;init</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Initializes the <code>Item</code> but does not add it to the scene.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)init</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An initialized <code>Item</code>.</p>
 			</div>
 			
 
@@ -398,7 +453,7 @@ and readies the Item for destruction.</p></div>
 	</div>
 </div><div class="section-method">
 	<a name="//api/name/deepCopy" title="deepCopy"></a>
-	<h3 class="method-title"><code><a href="#//api/name/deepCopy">&ndash;&nbsp;deepCopy</a></code>
+	<h3 class="method-title"><code><a href="#//api/name/deepCopy">&nbsp;&nbsp;deepCopy</a></code>
 </h3>
 
 	<div class="method-info">
@@ -409,7 +464,7 @@ and readies the Item for destruction.</p></div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (Item *)deepCopy</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, strong) Item *deepCopy</code></div>
 
 		    
 			
@@ -578,7 +633,7 @@ and readies the Item for destruction.</p></div>
 			<div class="method-subsection brief-description">
 				<p>Creates a <a href="../Classes/Rotation.html">Rotation</a> object from the given id object, then applies the resulting
 <a href="#//api/name/rotation">rotation</a> to the receiver. The <a href="#//api/name/rotation">rotation</a> is applied on top of the receiver&rsquo;s
-existing transform, so that it is concatenated on top of any existing <a href="#//api/name/rotation">rotation</a>
+existing transform, so that it is concatenated on top of any existing rotations
 the receiver may have.</p>
 			</div>
 			
@@ -610,6 +665,83 @@ applied to the receiver.</p></td>
 
 			
 
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/rotate:around:">- rotate:around:</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Item.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/rotate:around:" title="rotate:around:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/rotate:around:">&ndash;&nbsp;rotate:around:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a <a href="../Classes/Rotation.html">Rotation</a> object from the given id object, then applies the resulting
+<a href="#//api/name/rotation">rotation</a> to the receiver. The <a href="#//api/name/rotation">rotation</a> is applied on top of the receiver&rsquo;s
+existing transform, so that it is concatenated on top of any existing rotations
+the receiver may have. Moreover, the <a href="#//api/name/rotation">rotation</a> is calculated around the given
+<code>anchor</code> point, as opposed to the <a href="#//api/name/rotate:"><code>rotate:</code></a> method, which always rotates around
+the <code>Item</code>&rsquo;s center.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)rotate:(id)<em>rotation</em> around:(id)<em>anchor</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>rotation</code></th>
+						<td><p>A <a href="../Classes/Rotation.html">Rotation</a> object, representing the change that should be
+applied to the receiver.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/rotate:">- rotate:</a></p></code></li>
+					
+				</ul>
+			</div>
 			
 
 			
@@ -938,7 +1070,48 @@ not be handled manually; use @p addItem and @p <a href="#//api/name/removeFromPa
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, weak, readonly) Item *parent</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, weak) Item *parent</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">Item.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/name" title="name"></a>
+	<h3 class="method-title"><code><a href="#//api/name/name">&nbsp;&nbsp;name</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>A string to be used at will in order to easily reference <code>Item</code> objects.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *name</code></div>
 
 		    
 			
@@ -977,7 +1150,7 @@ not be handled manually; use @p addItem and @p <a href="#//api/name/removeFromPa
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2015 IME. All rights reserved. Updated: 2015-05-16</p>
+						<p class="copyright">Copyright &copy; 2015 IME. All rights reserved. Updated: 2015-06-09</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

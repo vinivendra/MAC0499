@@ -37,14 +37,50 @@
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NSArray/setSample:</TokenIdentifier>
+			<Abstract type="html">A random element in the array, or nil.</Abstract>
+			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) id sample</Declaration>
+			
+			<ReturnValue><Abstract type="html">A random element in the array, or nil.</Abstract></ReturnValue>
+			<Anchor>//api/name/sample</Anchor>
+            <NodeRef refid="27"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/NSArray/sample</TokenIdentifier>
 			<Abstract type="html">A random element in the array, or nil.</Abstract>
 			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>
 			
-			<Declaration>- (id)sample</Declaration>
+			<Declaration>@property (nonatomic, readonly, strong) id sample</Declaration>
 			
 			<ReturnValue><Abstract type="html">A random element in the array, or nil.</Abstract></ReturnValue>
 			<Anchor>//api/name/sample</Anchor>
+            <NodeRef refid="27"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/NSArray/sample</TokenIdentifier>
+			<Abstract type="html">A random element in the array, or nil.</Abstract>
+			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) id sample</Declaration>
+			
+			<ReturnValue><Abstract type="html">A random element in the array, or nil.</Abstract></ReturnValue>
+			<Anchor>//api/name/sample</Anchor>
+            <NodeRef refid="27"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NSArray/setAnyObject:</TokenIdentifier>
+			<Abstract type="html">Alias for sample</Abstract>
+			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) id anyObject</Declaration>
+			
+			
+			<Anchor>//api/name/anyObject</Anchor>
             <NodeRef refid="27"/>
 		</Token>
 		
@@ -53,7 +89,19 @@
 			<Abstract type="html">Alias for sample</Abstract>
 			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>
 			
-			<Declaration>- (id)anyObject</Declaration>
+			<Declaration>@property (nonatomic, readonly, strong) id anyObject</Declaration>
+			
+			
+			<Anchor>//api/name/anyObject</Anchor>
+            <NodeRef refid="27"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/NSArray/anyObject</TokenIdentifier>
+			<Abstract type="html">Alias for sample</Abstract>
+			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, strong) id anyObject</Declaration>
 			
 			
 			<Anchor>//api/name/anyObject</Anchor>
@@ -297,14 +345,50 @@ meeting a criteria.</Abstract>
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NSArray/setFlatten:</TokenIdentifier>
+			<Abstract type="html">Recurse through self checking for NSArrays and extract all elements into one single array</Abstract>
+			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, copy) NSArray *flatten</Declaration>
+			
+			<ReturnValue><Abstract type="html">An array of all held arrays merged</Abstract></ReturnValue>
+			<Anchor>//api/name/flatten</Anchor>
+            <NodeRef refid="27"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/NSArray/flatten</TokenIdentifier>
 			<Abstract type="html">Recurse through self checking for NSArrays and extract all elements into one single array</Abstract>
 			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>
 			
-			<Declaration>- (NSArray *)flatten</Declaration>
+			<Declaration>@property (nonatomic, readonly, copy) NSArray *flatten</Declaration>
 			
 			<ReturnValue><Abstract type="html">An array of all held arrays merged</Abstract></ReturnValue>
 			<Anchor>//api/name/flatten</Anchor>
+            <NodeRef refid="27"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/NSArray/flatten</TokenIdentifier>
+			<Abstract type="html">Recurse through self checking for NSArrays and extract all elements into one single array</Abstract>
+			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, copy) NSArray *flatten</Declaration>
+			
+			<ReturnValue><Abstract type="html">An array of all held arrays merged</Abstract></ReturnValue>
+			<Anchor>//api/name/flatten</Anchor>
+            <NodeRef refid="27"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NSArray/setCompact:</TokenIdentifier>
+			<Abstract type="html">Remove all the nulls from array</Abstract>
+			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, copy) NSArray *compact</Declaration>
+			
+			<ReturnValue><Abstract type="html">A copy of the given array without NSNulls</Abstract></ReturnValue>
+			<Anchor>//api/name/compact</Anchor>
             <NodeRef refid="27"/>
 		</Token>
 		
@@ -313,10 +397,34 @@ meeting a criteria.</Abstract>
 			<Abstract type="html">Remove all the nulls from array</Abstract>
 			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>
 			
-			<Declaration>- (NSArray *)compact</Declaration>
+			<Declaration>@property (nonatomic, readonly, copy) NSArray *compact</Declaration>
 			
 			<ReturnValue><Abstract type="html">A copy of the given array without NSNulls</Abstract></ReturnValue>
 			<Anchor>//api/name/compact</Anchor>
+            <NodeRef refid="27"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/NSArray/compact</TokenIdentifier>
+			<Abstract type="html">Remove all the nulls from array</Abstract>
+			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, copy) NSArray *compact</Declaration>
+			
+			<ReturnValue><Abstract type="html">A copy of the given array without NSNulls</Abstract></ReturnValue>
+			<Anchor>//api/name/compact</Anchor>
+            <NodeRef refid="27"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NSArray/setJoin:</TokenIdentifier>
+			<Abstract type="html">Alias for componentsJoinedByString with a default of no seperator</Abstract>
+			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, copy) NSString *join</Declaration>
+			
+			<ReturnValue><Abstract type="html">A string of all objects joined with an empty string</Abstract></ReturnValue>
+			<Anchor>//api/name/join</Anchor>
             <NodeRef refid="27"/>
 		</Token>
 		
@@ -325,7 +433,19 @@ meeting a criteria.</Abstract>
 			<Abstract type="html">Alias for componentsJoinedByString with a default of no seperator</Abstract>
 			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>
 			
-			<Declaration>- (NSString *)join</Declaration>
+			<Declaration>@property (nonatomic, readonly, copy) NSString *join</Declaration>
+			
+			<ReturnValue><Abstract type="html">A string of all objects joined with an empty string</Abstract></ReturnValue>
+			<Anchor>//api/name/join</Anchor>
+            <NodeRef refid="27"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/NSArray/join</TokenIdentifier>
+			<Abstract type="html">Alias for componentsJoinedByString with a default of no seperator</Abstract>
+			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, copy) NSString *join</Declaration>
 			
 			<ReturnValue><Abstract type="html">A string of all objects joined with an empty string</Abstract></ReturnValue>
 			<Anchor>//api/name/join</Anchor>
@@ -345,11 +465,35 @@ meeting a criteria.</Abstract>
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NSArray/setSort:</TokenIdentifier>
+			<Abstract type="html">Run the default comparator on each object in the array</Abstract>
+			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, copy) NSArray *sort</Declaration>
+			
+			<ReturnValue><Abstract type="html">A sorted copy of the array</Abstract></ReturnValue>
+			<Anchor>//api/name/sort</Anchor>
+            <NodeRef refid="27"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/NSArray/sort</TokenIdentifier>
 			<Abstract type="html">Run the default comparator on each object in the array</Abstract>
 			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>
 			
-			<Declaration>- (NSArray *)sort</Declaration>
+			<Declaration>@property (nonatomic, readonly, copy) NSArray *sort</Declaration>
+			
+			<ReturnValue><Abstract type="html">A sorted copy of the array</Abstract></ReturnValue>
+			<Anchor>//api/name/sort</Anchor>
+            <NodeRef refid="27"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/NSArray/sort</TokenIdentifier>
+			<Abstract type="html">Run the default comparator on each object in the array</Abstract>
+			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, copy) NSArray *sort</Declaration>
 			
 			<ReturnValue><Abstract type="html">A sorted copy of the array</Abstract></ReturnValue>
 			<Anchor>//api/name/sort</Anchor>
@@ -369,11 +513,35 @@ meeting a criteria.</Abstract>
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NSArray/setReverse:</TokenIdentifier>
+			<Abstract type="html">Alias for reverseObjectEnumerator.allObjects</Abstract>
+			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, copy) NSArray *reverse</Declaration>
+			
+			
+			<Anchor>//api/name/reverse</Anchor>
+            <NodeRef refid="27"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/NSArray/reverse</TokenIdentifier>
 			<Abstract type="html">Alias for reverseObjectEnumerator.allObjects</Abstract>
 			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>
 			
-			<Declaration>- (NSArray *)reverse</Declaration>
+			<Declaration>@property (nonatomic, readonly, copy) NSArray *reverse</Declaration>
+			
+			
+			<Anchor>//api/name/reverse</Anchor>
+            <NodeRef refid="27"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/NSArray/reverse</TokenIdentifier>
+			<Abstract type="html">Alias for reverseObjectEnumerator.allObjects</Abstract>
+			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, copy) NSArray *reverse</Declaration>
 			
 			
 			<Anchor>//api/name/reverse</Anchor>
@@ -459,11 +627,37 @@ Alias for Ruby&apos;s ^ operator. Equivalent of a - b | b - a</Abstract>
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NSArray/setUnique:</TokenIdentifier>
+			<Abstract type="html">Produces a duplicate-free version of the array</Abstract>
+			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, copy) NSArray *unique</Declaration>
+			
+			<ReturnValue><Abstract type="html">a new array with all unique elements
+*</Abstract></ReturnValue>
+			<Anchor>//api/name/unique</Anchor>
+            <NodeRef refid="27"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/NSArray/unique</TokenIdentifier>
 			<Abstract type="html">Produces a duplicate-free version of the array</Abstract>
 			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>
 			
-			<Declaration>- (NSArray *)unique</Declaration>
+			<Declaration>@property (nonatomic, readonly, copy) NSArray *unique</Declaration>
+			
+			<ReturnValue><Abstract type="html">a new array with all unique elements
+*</Abstract></ReturnValue>
+			<Anchor>//api/name/unique</Anchor>
+            <NodeRef refid="27"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/NSArray/unique</TokenIdentifier>
+			<Abstract type="html">Produces a duplicate-free version of the array</Abstract>
+			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, copy) NSArray *unique</Declaration>
 			
 			<ReturnValue><Abstract type="html">a new array with all unique elements
 *</Abstract></ReturnValue>

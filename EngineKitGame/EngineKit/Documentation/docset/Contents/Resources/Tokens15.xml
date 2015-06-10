@@ -104,6 +104,31 @@ the Plane, which represents its @p y axis extent.</Abstract>
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Plane/init</TokenIdentifier>
+			<Abstract type="html">Initializes the Item but does not add it to the scene.</Abstract>
+			<DeclaredIn>Plane.m</DeclaredIn>
+			
+			<Declaration>- (instancetype)init</Declaration>
+			
+			<ReturnValue><Abstract type="html">An initialized Item.</Abstract></ReturnValue>
+			<Anchor>//api/name/init</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Plane/initAndAddToScene</TokenIdentifier>
+			<Abstract type="html">Initializes the Item and adds it to the scene. Meant to be used by any
+subclasses&apos; initializers that are exported to JavaScript.</Abstract>
+			<DeclaredIn>Plane.m</DeclaredIn>
+			
+			<Declaration>- (instancetype)initAndAddToScene</Declaration>
+			
+			<ReturnValue><Abstract type="html">An initialized Item.</Abstract></ReturnValue>
+			<Anchor>//api/name/initAndAddToScene</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/Plane/deepCopy</TokenIdentifier>
 			<Abstract type="html"></Abstract>
 			<DeclaredIn>Plane.m</DeclaredIn>

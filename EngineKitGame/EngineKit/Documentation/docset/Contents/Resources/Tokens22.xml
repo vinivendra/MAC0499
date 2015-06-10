@@ -105,6 +105,31 @@ the Torus&apos;s pipe will have, or the donut&apos;s thickness.</Abstract>
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Torus/init</TokenIdentifier>
+			<Abstract type="html">Initializes the Item but does not add it to the scene.</Abstract>
+			<DeclaredIn>Torus.m</DeclaredIn>
+			
+			<Declaration>- (instancetype)init</Declaration>
+			
+			<ReturnValue><Abstract type="html">An initialized Item.</Abstract></ReturnValue>
+			<Anchor>//api/name/init</Anchor>
+            <NodeRef refid="22"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Torus/initAndAddToScene</TokenIdentifier>
+			<Abstract type="html">Initializes the Item and adds it to the scene. Meant to be used by any
+subclasses&apos; initializers that are exported to JavaScript.</Abstract>
+			<DeclaredIn>Torus.m</DeclaredIn>
+			
+			<Declaration>- (instancetype)initAndAddToScene</Declaration>
+			
+			<ReturnValue><Abstract type="html">An initialized Item.</Abstract></ReturnValue>
+			<Anchor>//api/name/initAndAddToScene</Anchor>
+            <NodeRef refid="22"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/Torus/deepCopy</TokenIdentifier>
 			<Abstract type="html"></Abstract>
 			<DeclaredIn>Torus.m</DeclaredIn>

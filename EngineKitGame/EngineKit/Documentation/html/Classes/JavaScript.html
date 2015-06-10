@@ -54,6 +54,16 @@
 
 	
 	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/buttonCallback">buttonCallback</option>
+		
+		<option value="//api/name/contactCallback">contactCallback</option>
+		
+		<option value="//api/name/sliderCallback">sliderCallback</option>
+		
+	</optgroup>
+	
 
 	
 	<optgroup label="Class Methods">
@@ -66,29 +76,13 @@
 	
 	<optgroup label="Instance Methods">
 		
-		<option value="//api/name/buttonCallback">- buttonCallback</option>
-		
-		<option value="//api/name/contactCallback">- contactCallback</option>
+		<option value="//api/name/callGestureCallbackForGesture:state:withArguments:">- callGestureCallbackForGesture:state:withArguments:</option>
 		
 		<option value="//api/name/initWithFile:">- initWithFile:</option>
 		
 		<option value="//api/name/load">- load</option>
 		
-		<option value="//api/name/longPressCallback">- longPressCallback</option>
-		
-		<option value="//api/name/panCallback">- panCallback</option>
-		
-		<option value="//api/name/pinchCallback">- pinchCallback</option>
-		
-		<option value="//api/name/rotationCallback">- rotationCallback</option>
-		
 		<option value="//api/name/setup">- setup</option>
-		
-		<option value="//api/name/sliderCallback">- sliderCallback</option>
-		
-		<option value="//api/name/swipeCallback">- swipeCallback</option>
-		
-		<option value="//api/name/tapCallback">- tapCallback</option>
 		
 		<option value="//api/name/update">- update</option>
 		
@@ -385,7 +379,7 @@ so there should be no need to call it manually.</p></div>
 	</div>
 </div><div class="section-method">
 	<a name="//api/name/contactCallback" title="contactCallback"></a>
-	<h3 class="method-title"><code><a href="#//api/name/contactCallback">&ndash;&nbsp;contactCallback</a></code>
+	<h3 class="method-title"><code><a href="#//api/name/contactCallback">&nbsp;&nbsp;contactCallback</a></code>
 </h3>
 
 	<div class="method-info">
@@ -402,7 +396,7 @@ contains the function to be called.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (JSValue *)contactCallback</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, strong) JSValue *contactCallback</code></div>
 
 		    
 			
@@ -435,7 +429,7 @@ JSValue returned will be undefined.</p>
 	</div>
 </div><div class="section-method">
 	<a name="//api/name/buttonCallback" title="buttonCallback"></a>
-	<h3 class="method-title"><code><a href="#//api/name/buttonCallback">&ndash;&nbsp;buttonCallback</a></code>
+	<h3 class="method-title"><code><a href="#//api/name/buttonCallback">&nbsp;&nbsp;buttonCallback</a></code>
 </h3>
 
 	<div class="method-info">
@@ -452,7 +446,7 @@ same name, that contains the function to be called.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (JSValue *)buttonCallback</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, strong) JSValue *buttonCallback</code></div>
 
 		    
 			
@@ -485,7 +479,7 @@ JSValue returned will be undefined.</p>
 	</div>
 </div><div class="section-method">
 	<a name="//api/name/sliderCallback" title="sliderCallback"></a>
-	<h3 class="method-title"><code><a href="#//api/name/sliderCallback">&ndash;&nbsp;sliderCallback</a></code>
+	<h3 class="method-title"><code><a href="#//api/name/sliderCallback">&nbsp;&nbsp;sliderCallback</a></code>
 </h3>
 
 	<div class="method-info">
@@ -502,7 +496,7 @@ same name, that contains the function to be called.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (JSValue *)sliderCallback</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, strong) JSValue *sliderCallback</code></div>
 
 		    
 			
@@ -534,8 +528,8 @@ JSValue returned will be undefined.</p>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/tapCallback" title="tapCallback"></a>
-	<h3 class="method-title"><code><a href="#//api/name/tapCallback">&ndash;&nbsp;tapCallback</a></code>
+	<a name="//api/name/callGestureCallbackForGesture:state:withArguments:" title="callGestureCallbackForGesture:state:withArguments:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/callGestureCallbackForGesture:state:withArguments:">&ndash;&nbsp;callGestureCallbackForGesture:state:withArguments:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -545,279 +539,71 @@ JSValue returned will be undefined.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Returns the current callback function for handling taps in javascript. It
-should be a function called &ldquo;tap&rdquo; or a variable, with the same name, that
-contains the function to be called.</p>
+				<p>Calls the calback function for handling the given <code>gesture</code> in javascript.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (JSValue *)tapCallback</code></div>
+			<div class="method-subsection method-declaration"><code>- (void)callGestureCallbackForGesture:(UIGestures)<em>gesture</em> state:(UIGestureRecognizerState)<em>state</em> withArguments:(NSArray *)<em>arguments</em></code></div>
 
 		    
 			
 
 			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An JSValue, hopefully containing the callback function to be called (if
-the JavaScript code is correct); if there is no such function or variable, the
-JSValue returned will be undefined.</p>
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>The function name is built based on the name of the gesture. Some gestures have
+longer durations (i.e. pans, that can last several seconds, as opposed to taps,
+which only last an instant). In those cases, three funtions may be createdto
+reflect the change in state.</p>
+
+<ul>
+<li><p><code>tap()</code></p></li>
+<li><p><code>swipe(direction)</code></p></li>
+<li><p><code>panBegan(translation)</code></p></li>
+<li><p><code>pan(translation)</code></p></li>
+<li><p><code>panEnded(translation)</code></p></li>
+<li><p><code>pinchBegan(scale)</code></p></li>
+<li><p><code>pinch(scale)</code></p></li>
+<li><p><code>pinchEnded(scale)</code></p></li>
+<li><p><code>rotateBegan(angle)</code></p></li>
+<li><p><code>rotate(angle)</code></p></li>
+<li><p><code>rotateEnded(angle)</code></p></li>
+<li><p><code>longPressBegan(translation)</code></p></li>
+<li><p><code>longPress(translation)</code></p></li>
+<li><p><code>longPressEnded(translation)</code></p></li>
+</ul>
+
+
+<p>The <code>direction</code> parameter is an integer and may be one of either <code>up</code>, <code>down</code>,
+<code>left</code> or <code>right</code>. The <code>translation</code> parameter is a <a href="../Classes/Vector.html">Vector</a> and measures how
+many screen points the finger has moved since the last call to that function.
+The <code>scale</code> parameter is a floating point number and measures the ratio of the
+distance between the fingers now and at the moment of the last call to that
+function. The <code>angle</code> parameter is a floating point number and measures, in
+radians, how much the fingers have rotated since the last call to that
+function.</p>
+
+<p>The above functions may also add other parameters after the ones mentioned
+above, as follows in the example:</p>
+
+<ul>
+<li><code>swipe(direction, items, numberOfTouches, hits)</code></li>
+</ul>
+
+
+<p>Not all paramaters need to be added, but a parameter can&rsquo;t be added without the
+ones before it being added as well. The <code>items</code> parameter is an array of <a href="../Classes/Item.html"><code>Item</code></a>
+objects representing the <a href="../Classes/Item.html"><code>Item</code></a>s that are in the center of the gesture. The
+numberOfTouches parameter is an integer representing how many fingers are on
+the screen. The <code>hits</code> parameter is an array of <code>SCNHitTestResult</code> objects,
+which may give more information on where and how the <a href="../Classes/Item.html"><code>Item</code></a>s were hit by the
+gesture.</p>
 			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">JavaScript.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/swipeCallback" title="swipeCallback"></a>
-	<h3 class="method-title"><code><a href="#//api/name/swipeCallback">&ndash;&nbsp;swipeCallback</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Returns the current callback function for handling swipes in javascript. It
-should be a function called &ldquo;swipe&rdquo; or a variable, with the same name, that
-contains the function to be called.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (JSValue *)swipeCallback</code></div>
-
-		    
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An JSValue, hopefully containing the callback function to be called (if
-the JavaScript code is correct); if there is no such function or variable, the
-JSValue returned will be undefined.</p>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">JavaScript.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/panCallback" title="panCallback"></a>
-	<h3 class="method-title"><code><a href="#//api/name/panCallback">&ndash;&nbsp;panCallback</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Returns the current callback function for handling pans in javascript. It
-should be a function called &ldquo;pan&rdquo; or a variable, with the same name, that
-contains the function to be called.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (JSValue *)panCallback</code></div>
-
-		    
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An JSValue, hopefully containing the callback function to be called (if
-the JavaScript code is correct); if there is no such function or variable, the
-JSValue returned will be undefined.</p>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">JavaScript.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/pinchCallback" title="pinchCallback"></a>
-	<h3 class="method-title"><code><a href="#//api/name/pinchCallback">&ndash;&nbsp;pinchCallback</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Returns the current callback function for handling pinches in javascript. It
-should be a function called &ldquo;pinches&rdquo; or a variable, with the same name, that
-contains the function to be called.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (JSValue *)pinchCallback</code></div>
-
-		    
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An JSValue, hopefully containing the callback function to be called (if
-the JavaScript code is correct); if there is no such function or variable, the
-JSValue returned will be undefined.</p>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">JavaScript.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/rotationCallback" title="rotationCallback"></a>
-	<h3 class="method-title"><code><a href="#//api/name/rotationCallback">&ndash;&nbsp;rotationCallback</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Returns the current callback function for handling rotations in javascript. It
-should be a function called &ldquo;rotation&rdquo; or a variable, with the same name, that
-contains the function to be called.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (JSValue *)rotationCallback</code></div>
-
-		    
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An JSValue, hopefully containing the callback function to be called (if
-the JavaScript code is correct); if there is no such function or variable, the
-JSValue returned will be undefined.</p>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">JavaScript.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/longPressCallback" title="longPressCallback"></a>
-	<h3 class="method-title"><code><a href="#//api/name/longPressCallback">&ndash;&nbsp;longPressCallback</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Returns the current callback function for handling long presses in javascript.
-It should be a function called &ldquo;longPress&rdquo; or a variable, with the same name,
-that contains the function to be called.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (JSValue *)longPressCallback</code></div>
-
-		    
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An JSValue, hopefully containing the callback function to be called (if
-the JavaScript code is correct); if there is no such function or variable, the
-JSValue returned will be undefined.</p>
-			</div>
-			
-
-			
-
 			
 
 			
@@ -848,7 +634,7 @@ JSValue returned will be undefined.</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2015 IME. All rights reserved. Updated: 2015-05-16</p>
+						<p class="copyright">Copyright &copy; 2015 IME. All rights reserved. Updated: 2015-06-09</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
