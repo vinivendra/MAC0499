@@ -189,13 +189,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		24DF78701AF7F6E100319C49 /* CopyFiles */ = {
+		24DF78701AF7F6E100319C49 /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
 			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -621,7 +622,7 @@
 			buildPhases = (
 				24DF786E1AF7F6E100319C49 /* Sources */,
 				24DF786F1AF7F6E100319C49 /* Frameworks */,
-				24DF78701AF7F6E100319C49 /* CopyFiles */,
+				24DF78701AF7F6E100319C49 /* Copy Files */,
 				24DF78931AF7F70500319C49 /* Headers */,
 				24DF79B31AF7FDF700319C49 /* Build Framework */,
 			);
@@ -953,22 +954,29 @@
 		24DF78871AF7F6E100319C49 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEAD_CODE_STRIPPING = NO;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRIP_STYLE = "non-global";
+				SWIFT_OBJC_BRIDGING_HEADER = "EngineKit/Helpers/UI/EngineKit-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		24DF78881AF7F6E100319C49 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEAD_CODE_STRIPPING = NO;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRIP_STYLE = "non-global";
+				SWIFT_OBJC_BRIDGING_HEADER = "EngineKit/Helpers/UI/EngineKit-Bridging-Header.h";
 			};
 			name = Release;
 		};

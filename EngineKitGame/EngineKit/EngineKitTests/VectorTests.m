@@ -79,39 +79,6 @@
     }
 }
 
-- (void)testEqualsToObject {
-    for (int i = 0; i < self.standardVectors.count; i++) {
-        // Gold standard
-        Vector *standard = self.standardVectors[i];
-
-        // Results and comparisons
-        Vector *result;
-
-        NSDictionary *dictionary = @{
-            @"x" : @(standard.x),
-            @"y" : @(standard.y),
-            @"z" : @(standard.z)
-        };
-        result = [[Vector alloc] initWithObject:dictionary];
-        XCTAssertEqualObjects(result, dictionary);
-
-        NSString *string = [NSString stringWithFormat:@"%lf %lf %lf",
-                                                      standard.x,
-                                                      standard.y,
-                                                      standard.z];
-        result = [[Vector alloc] initWithObject:string];
-        XCTAssertEqualObjects(result, string);
-
-        result = [[Vector alloc] initWithObject:standard.toArray];
-        XCTAssertEqualObjects(result, standard.toArray);
-
-        result = [[Vector alloc] initWithObject:@(standard.x)];
-        standard = [[Vector alloc] initWithUniformNumbers:standard.x];
-        XCTAssertEqualObjects(result, @(standard.x));
-    }
-}
-
-
 //------------------------------------------------------------------------------
 #pragma mark - Getting the Vector's information
 //------------------------------------------------------------------------------
@@ -126,10 +93,6 @@
     XCTAssert([[Vector alloc] initWithX:0 Y:-2 Z:4000].notZero);
     XCTAssert([[Vector alloc] initWithX:0 Y:0 Z:-1000].notZero);
 }
-
-//------------------------------------------------------------------------------
-#pragma mark - Extracting data
-//------------------------------------------------------------------------------
 
 - (void)testXYZ {
     for (int i = 0; i < self.standardArrays.count; i++) {
@@ -1012,6 +975,38 @@
 
         // Comparison
         XCTAssert(SCNVector3EqualToVector3(result, standard));
+    }
+}
+
+- (void)testEqualsToObject {
+    for (int i = 0; i < self.standardVectors.count; i++) {
+        // Gold standard
+        Vector *standard = self.standardVectors[i];
+
+        // Results and comparisons
+        Vector *result;
+
+        NSDictionary *dictionary = @{
+                                     @"x" : @(standard.x),
+                                     @"y" : @(standard.y),
+                                     @"z" : @(standard.z)
+                                     };
+        result = [[Vector alloc] initWithObject:dictionary];
+        XCTAssertEqualObjects(result, dictionary);
+
+        NSString *string = [NSString stringWithFormat:@"%lf %lf %lf",
+                            standard.x,
+                            standard.y,
+                            standard.z];
+        result = [[Vector alloc] initWithObject:string];
+        XCTAssertEqualObjects(result, string);
+
+        result = [[Vector alloc] initWithObject:standard.toArray];
+        XCTAssertEqualObjects(result, standard.toArray);
+
+        result = [[Vector alloc] initWithObject:@(standard.x)];
+        standard = [[Vector alloc] initWithUniformNumbers:standard.x];
+        XCTAssertEqualObjects(result, @(standard.x));
     }
 }
 

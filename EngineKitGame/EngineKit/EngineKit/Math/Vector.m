@@ -25,6 +25,7 @@ unsigned long mutationsCounter;
 #pragma mark Getting the Vector's information
 //------------------------------------------------------------------------------
 
+// unavailable
 - (NSNumber *)objectAtIndexedSubscript:(NSUInteger)index {
     switch (index) {
     case 0:
@@ -59,11 +60,6 @@ unsigned long mutationsCounter;
 - (NSArray *)toArray {
     return @[ @(self.x), @(self.y), @(self.z) ];
 }
-
-
-//------------------------------------------------------------------------------
-#pragma mark Getting the Vector's information
-//------------------------------------------------------------------------------
 
 - (BOOL)notZero {
     return !(self.x == 0 && self.y == 0 && self.z == 0);

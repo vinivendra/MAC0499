@@ -7,6 +7,11 @@ function load() {
     var earth = sphere.template();
     earth.color = "blue";
     earth.position = [0, 0, -2];
+    print(position[0]);
+    print(position[1]);
+    print(position[2]);
+    position[0] = 2;
+    print(position[0]);
     earth.radius = 1;
 
     var moon = earth.create();

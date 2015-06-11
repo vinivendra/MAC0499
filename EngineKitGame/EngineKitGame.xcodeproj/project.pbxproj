@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		24A302071AF90AC30098F809 /* libEngineKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24A302021AF90A9E0098F809 /* libEngineKit.a */; };
+		24BCE4431B28E7A2009225C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BCE4421B28E7A2009225C1 /* ViewController.swift */; };
+		24BCE4801B28F495009225C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24BCE47E1B28F495009225C1 /* Main.storyboard */; };
 		24DF79821AF7F79A00319C49 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DF79811AF7F79A00319C49 /* main.m */; };
 		24DF79851AF7F79A00319C49 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DF79841AF7F79A00319C49 /* AppDelegate.m */; };
-		24DF79881AF7F79A00319C49 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DF79871AF7F79A00319C49 /* ViewController.m */; };
-		24DF798B1AF7F79A00319C49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24DF79891AF7F79A00319C49 /* Main.storyboard */; };
 		24DF798D1AF7F79A00319C49 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24DF798C1AF7F79A00319C49 /* Images.xcassets */; };
 		24DF79901AF7F79A00319C49 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24DF798E1AF7F79A00319C49 /* LaunchScreen.xib */; };
 		24DF799C1AF7F79A00319C49 /* EngineKitGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DF799B1AF7F79A00319C49 /* EngineKitGameTests.m */; };
@@ -54,14 +54,14 @@
 
 /* Begin PBXFileReference section */
 		24A301FB1AF90A9E0098F809 /* EngineKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = EngineKit.xcodeproj; path = EngineKit/EngineKit.xcodeproj; sourceTree = "<group>"; };
+		24BCE4411B28E7A1009225C1 /* EngineKitGame-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EngineKitGame-Bridging-Header.h"; sourceTree = "<group>"; };
+		24BCE4421B28E7A2009225C1 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		24BCE47F1B28F495009225C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		24DF797C1AF7F79A00319C49 /* EngineKitGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EngineKitGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24DF79801AF7F79A00319C49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24DF79811AF7F79A00319C49 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		24DF79831AF7F79A00319C49 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		24DF79841AF7F79A00319C49 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		24DF79861AF7F79A00319C49 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		24DF79871AF7F79A00319C49 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		24DF798A1AF7F79A00319C49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		24DF798C1AF7F79A00319C49 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		24DF798F1AF7F79A00319C49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		24DF79951AF7F79A00319C49 /* EngineKitGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EngineKitGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,14 +123,14 @@
 			children = (
 				24DF79831AF7F79A00319C49 /* AppDelegate.h */,
 				24DF79841AF7F79A00319C49 /* AppDelegate.m */,
-				24DF79861AF7F79A00319C49 /* ViewController.h */,
-				24DF79871AF7F79A00319C49 /* ViewController.m */,
+				24BCE4421B28E7A2009225C1 /* ViewController.swift */,
+				24BCE47E1B28F495009225C1 /* Main.storyboard */,
 				24DF79BB1AF800F000319C49 /* main.js */,
 				24DF79BC1AF800F000319C49 /* scene.fmt */,
-				24DF79891AF7F79A00319C49 /* Main.storyboard */,
 				24DF798C1AF7F79A00319C49 /* Images.xcassets */,
 				24DF798E1AF7F79A00319C49 /* LaunchScreen.xib */,
 				24DF797F1AF7F79A00319C49 /* Supporting Files */,
+				24BCE4411B28E7A1009225C1 /* EngineKitGame-Bridging-Header.h */,
 			);
 			path = EngineKitGame;
 			sourceTree = "<group>";
@@ -266,7 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24DF79BF1AF800F000319C49 /* scene.fmt in Resources */,
-				24DF798B1AF7F79A00319C49 /* Main.storyboard in Resources */,
+				24BCE4801B28F495009225C1 /* Main.storyboard in Resources */,
 				24DF79901AF7F79A00319C49 /* LaunchScreen.xib in Resources */,
 				24DF798D1AF7F79A00319C49 /* Images.xcassets in Resources */,
 				24DF79BD1AF800F000319C49 /* main.js in Resources */,
@@ -289,7 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24DF79881AF7F79A00319C49 /* ViewController.m in Sources */,
+				24BCE4431B28E7A2009225C1 /* ViewController.swift in Sources */,
 				24DF79851AF7F79A00319C49 /* AppDelegate.m in Sources */,
 				24DF79821AF7F79A00319C49 /* main.m in Sources */,
 			);
@@ -319,10 +319,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		24DF79891AF7F79A00319C49 /* Main.storyboard */ = {
+		24BCE47E1B28F495009225C1 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				24DF798A1AF7F79A00319C49 /* Base */,
+				24BCE47F1B28F495009225C1 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -424,6 +424,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = EngineKitGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -431,6 +432,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "EngineKitGame/EngineKitGame-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -438,6 +441,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = EngineKitGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -445,6 +449,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "EngineKitGame/EngineKitGame-Bridging-Header.h";
 			};
 			name = Release;
 		};
