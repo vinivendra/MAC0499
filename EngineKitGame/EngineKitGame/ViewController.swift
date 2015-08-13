@@ -6,6 +6,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet var sceneView: SCNView?
+    @IBOutlet weak var objectsButton: UIButton!
     @IBOutlet var controlView: UIView?
     
     override func viewDidLoad() {
