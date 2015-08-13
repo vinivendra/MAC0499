@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/UIGestures.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/UIGestures</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>Gestures.h</DeclaredIn>
+            
+			
+			<NodeRef refid="41"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/SwipeGesture</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>SwipeGesture</Declaration>
+            
+            <DeclaredIn>Gestures.h</DeclaredIn>
+            
+            <NodeRef refid="41"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/TapGesture</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>TapGesture</Declaration>
+            
+            <DeclaredIn>Gestures.h</DeclaredIn>
+            
+            <NodeRef refid="41"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/PanGesture</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>PanGesture</Declaration>
+            
+            <DeclaredIn>Gestures.h</DeclaredIn>
+            
+            <NodeRef refid="41"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/PinchGesture</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>PinchGesture</Declaration>
+            
+            <DeclaredIn>Gestures.h</DeclaredIn>
+            
+            <NodeRef refid="41"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/RotateGesture</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>RotateGesture</Declaration>
+            
+            <DeclaredIn>Gestures.h</DeclaredIn>
+            
+            <NodeRef refid="41"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/LongPressGesture</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>LongPressGesture</Declaration>
+            
+            <DeclaredIn>Gestures.h</DeclaredIn>
+            
+            <NodeRef refid="41"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/UIGesturesCount</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>UIGesturesCount</Declaration>
+            
+            <DeclaredIn>Gestures.h</DeclaredIn>
+            
+            <NodeRef refid="41"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>
