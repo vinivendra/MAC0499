@@ -46,7 +46,7 @@ class MenuView: UIView {
 
         self.init(frame: CGRectMake(originX, originY, availableX, availableY))
 
-        self.backgroundColor = UIColor.orangeColor()
+        self.backgroundColor = UIColor.whiteColor()
     }
 
 }
