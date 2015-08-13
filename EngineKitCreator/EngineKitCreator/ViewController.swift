@@ -11,13 +11,16 @@ enum ViewControllerStates {
 
 class ViewController: UIViewController {
 
-    var menuView: MenuView?
     @IBOutlet weak var objectsButton: UIButton!
+
+    var menuView: MenuView?
+    var menuController: MenuController?
 
     var state: ViewControllerStates? {
         willSet {
             if (state == .Neutral) {
                 if (newValue == .ChoosingObject) {
+                    menuController = ObjectsMenuController()
                     showMenuForButton(objectsButton)
                 }
             }
@@ -53,6 +56,9 @@ class ViewController: UIViewController {
 
         menuView = MenuView(fromView: button, inView: view)
         menuView?.backgroundColor = UIColor.orangeColor()
+
+        menuController!.setupMenuView(menuView!)
+
         view.addSubview(menuView!)
     }
 

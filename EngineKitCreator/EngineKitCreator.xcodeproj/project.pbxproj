@@ -16,6 +16,8 @@
 		24FEDF681B7D154400FF534B /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FEDF671B7D154400FF534B /* MenuView.swift */; };
 		24FEDF691B7D154400FF534B /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FEDF671B7D154400FF534B /* MenuView.swift */; };
 		24FEDF6B1B7D1A4C00FF534B /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24FEDF6A1B7D1A4C00FF534B /* SceneKit.framework */; };
+		24FEDF6D1B7D23C200FF534B /* ObjectsMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FEDF6C1B7D23C200FF534B /* ObjectsMenuController.swift */; };
+		24FEDF6E1B7D23C200FF534B /* ObjectsMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FEDF6C1B7D23C200FF534B /* ObjectsMenuController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +43,7 @@
 		24FEDF541B7D10D800FF534B /* EngineKitCreatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngineKitCreatorTests.swift; sourceTree = "<group>"; };
 		24FEDF671B7D154400FF534B /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		24FEDF6A1B7D1A4C00FF534B /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
+		24FEDF6C1B7D23C200FF534B /* ObjectsMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectsMenuController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +91,7 @@
 				24FEDF401B7D10D800FF534B /* ViewController.swift */,
 				24FEDF421B7D10D800FF534B /* Main.storyboard */,
 				24FEDF671B7D154400FF534B /* MenuView.swift */,
+				24FEDF6C1B7D23C200FF534B /* ObjectsMenuController.swift */,
 				24FEDF451B7D10D800FF534B /* Images.xcassets */,
 				24FEDF471B7D10D800FF534B /* LaunchScreen.xib */,
 				24FEDF3C1B7D10D800FF534B /* Supporting Files */,
@@ -221,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24FEDF411B7D10D800FF534B /* ViewController.swift in Sources */,
+				24FEDF6D1B7D23C200FF534B /* ObjectsMenuController.swift in Sources */,
 				24FEDF681B7D154400FF534B /* MenuView.swift in Sources */,
 				24FEDF3F1B7D10D800FF534B /* AppDelegate.swift in Sources */,
 			);
@@ -231,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24FEDF551B7D10D800FF534B /* EngineKitCreatorTests.swift in Sources */,
+				24FEDF6E1B7D23C200FF534B /* ObjectsMenuController.swift in Sources */,
 				24FEDF691B7D154400FF534B /* MenuView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
