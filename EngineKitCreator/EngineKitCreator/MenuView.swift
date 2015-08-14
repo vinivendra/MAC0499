@@ -2,9 +2,20 @@
 import UIKit
 
 
+enum Orientation {
+    case Horizontal
+    case Vertical
+}
+
+
+let fromViewMargin: CGFloat = 10
+let edgesMargin: CGFloat = 2 * fromViewMargin
+let totalMargin = fromViewMargin + edgesMargin
+
+
 class MenuView: UIView {
 
-    convenience init(fromView: UIView, inView:UIView) {
+    convenience init(fromView: UIView, inView: UIView) {
 
         let availableWidth = inView.frame.size.width
         let availableHeight = inView.frame.size.height
@@ -23,10 +34,6 @@ class MenuView: UIView {
         let originY: CGFloat
         let availableX: CGFloat
         let availableY: CGFloat
-
-        let fromViewMargin: CGFloat = 10
-        let edgesMargin: CGFloat = 2 * fromViewMargin
-        let totalMargin = fromViewMargin + edgesMargin
 
         if (availableLeft > availableRight) {
             originX = edgesMargin
@@ -47,6 +54,34 @@ class MenuView: UIView {
         self.init(frame: CGRectMake(originX, originY, availableX, availableY))
 
         self.backgroundColor = UIColor.whiteColor()
+    }
+
+    convenience init(fromView: UIView, inView: UIView, orientation: Orientation) {
+
+        self.init(fromView: fromView, inView: inView)
+
+        let availableWidth = inView.frame.size.width
+        let availableHeight = inView.frame.size.height
+
+        let originX: CGFloat
+        let originY: CGFloat
+        let availableX: CGFloat
+        let availableY: CGFloat
+
+        if (orientation == .Horizontal) {
+            originY = edgesMargin
+            availableY = availableHeight - totalMargin
+            originX = self.frame.origin.x
+            availableX = self.frame.size.width
+        }
+        else {
+            originX = edgesMargin
+            availableX = availableWidth - totalMargin
+            originY = self.frame.origin.y
+            availableY = self.frame.size.height
+        }
+
+        self.frame = CGRectMake(originX, originY, availableX, availableY)
     }
 
 }

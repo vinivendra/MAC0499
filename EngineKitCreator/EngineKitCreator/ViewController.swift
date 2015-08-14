@@ -54,7 +54,7 @@ class ViewController: UIViewController {
     func showMenuForButton(button:UIButton) {
         hideMenu()
 
-        menuView = MenuView(fromView: button, inView: view)
+        menuView = MenuView(fromView: button, inView: view, orientation: .Vertical)
         menuView?.backgroundColor = UIColor.orangeColor()
 
         menuController!.setupMenuView(menuView!)
