@@ -1,6 +1,7 @@
 
 
 import UIKit
+import EngineKit
 
 
 enum ViewControllerStates {
@@ -12,6 +13,7 @@ enum ViewControllerStates {
 class ViewController: UIViewController {
 
     @IBOutlet weak var objectsButton: UIButton!
+    @IBOutlet weak var engineKitView: EngineKitView!
 
     var menuView: MenuView?
     var menuController: MenuController?
@@ -42,7 +44,6 @@ class ViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-
     }
 
 // MARK: - Actions
