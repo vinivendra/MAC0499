@@ -168,6 +168,7 @@
 		24FEDF311B7D10D800FF534B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Vinicius Vendramini";
 				TargetAttributes = {
@@ -427,6 +428,7 @@
 				24FEDF5A1B7D10D800FF534B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		24FEDF5B1B7D10D800FF534B /* Build configuration list for PBXNativeTarget "EngineKitCreatorTests" */ = {
 			isa = XCConfigurationList;
@@ -435,6 +437,7 @@
 				24FEDF5D1B7D10D800FF534B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

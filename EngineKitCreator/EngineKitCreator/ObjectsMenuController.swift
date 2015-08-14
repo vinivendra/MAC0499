@@ -33,7 +33,6 @@ MenuController {
         let cell: UICollectionViewCell
         cell = collectionView.dequeueReusableCellWithReuseIdentifier(id,
             forIndexPath: indexPath)
-            as! UICollectionViewCell
 
         cell.backgroundColor = UIColor.redColor()
 
