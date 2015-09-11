@@ -5,16 +5,30 @@ import SceneKit
 import EngineKit
 
 
-class SceneManager: NSObject {
+class SceneManager {
 
     static let shared = SceneManager()
 
+    let selectedItem: Item
+
     let scene = SCNScene.shared()
 
-    func addItem(template: Item) {
+    init() {
+        let box = Box()
+        selectedItem = box
+        box.color = UIColor.blueColor()
+
+        addItem(box)
+    }
+
+    func addItemFromTemplate(template: Item) {
 
         let instance = template.create()
 
+        addItem(instance)
+    }
+
+    func addItem(item: Item) {
         let camera = Camera.shared()
         let position = camera.position
         let rotation = Rotation(SCNVector4: camera.node.rotation)
@@ -25,10 +39,9 @@ class SceneManager: NSObject {
 
         let newPosition = position.plus(space)
 
-        instance.position = newPosition
+        item.position = newPosition
 
-        scene.addItem(instance);
-
+        scene.addItem(item);
     }
 
 }

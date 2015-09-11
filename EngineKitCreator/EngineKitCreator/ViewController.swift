@@ -7,11 +7,13 @@ import EngineKit
 enum ViewControllerStates {
     case Neutral
     case ChoosingObject
+    case ChangingProperties
 }
 
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var propertiesButton: UIButton!
     @IBOutlet weak var objectsButton: UIButton!
     @IBOutlet weak var engineKitView: SCNView!
 
@@ -20,16 +22,35 @@ class ViewController: UIViewController {
 
     var state: ViewControllerStates? {
         willSet {
-            if (state == .Neutral) {
-                if (newValue == .ChoosingObject) {
-                    menuController = ObjectsMenuController()
-                    showMenuForButton(objectsButton)
-                }
+            setState(newValue)
+        }
+    }
+
+    func setState(newValue: ViewControllerStates?) {
+        if (state == .Neutral) {
+            if (newValue == .ChoosingObject) {
+                menuController = ObjectsMenuController()
+                showMenuForButton(objectsButton)
+            } else if (newValue == .ChangingProperties) {
+                menuController = PropertiesMenuViewController(item: SceneManager.shared.selectedItem)
+                showMenuForButton(propertiesButton)
             }
-            else if (state == .ChoosingObject) {
-                if (newValue == .Neutral) {
-                    hideMenu()
-                }
+        }
+        else if (state == .ChoosingObject) {
+            if (newValue == .Neutral) {
+                hideMenu()
+            } else if (newValue == .ChangingProperties) {
+                state = .Neutral
+                state = .ChangingProperties
+            }
+        }
+        else if (state == .ChangingProperties) {
+            if (newValue == .Neutral) {
+                hideMenu()
+            } else if (newValue == .ChoosingObject) {
+                hideMenu()
+                state = .Neutral
+                state = .ChoosingObject
             }
         }
     }
@@ -95,6 +116,15 @@ class ViewController: UIViewController {
     }
 
     // MARK: - IBActions
+
+    @IBAction func propertiesButtonTap(sender: AnyObject) {
+        if (state == .ChangingProperties) {
+            state = .Neutral
+        }
+        else {
+            state = .ChangingProperties
+        }
+    }
 
     @IBAction func objectsButtonTap(sender: UIView) {
         if (state == .ChoosingObject) {

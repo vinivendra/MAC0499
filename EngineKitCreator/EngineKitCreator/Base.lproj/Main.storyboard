@@ -22,10 +22,17 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </sceneKitView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kpq-wj-0cB">
-                                <rect key="frame" x="277" y="20" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="105" y="28" width="54" height="30"/>
+                                <state key="normal" title="Objects"/>
                                 <connections>
                                     <action selector="objectsButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="82t-Qj-qYv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FV0-bx-iOg">
+                                <rect key="frame" x="167" y="28" width="71" height="30"/>
+                                <state key="normal" title="Properties"/>
+                                <connections>
+                                    <action selector="propertiesButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kk1-Cj-tDb"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -40,6 +47,7 @@
                     <connections>
                         <outlet property="engineKitView" destination="IPS-ES-w43" id="hxp-Sb-Cc4"/>
                         <outlet property="objectsButton" destination="Kpq-wj-0cB" id="XDe-EC-ecf"/>
+                        <outlet property="propertiesButton" destination="FV0-bx-iOg" id="Xuc-Ye-Yzg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
