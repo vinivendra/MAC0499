@@ -4,6 +4,15 @@ import UIKit
 import EngineKit
 
 
+func toRadians(degrees: CGFloat) -> Float {
+    return Float(degrees) / 180.0 * Float(M_PI);
+}
+
+func toDegrees(radians: Float) -> Float {
+    return radians / Float(M_PI) * 180.0;
+}
+
+
 func setItemPositionX(item: Item, newValue: CGFloat) {
     item.position = Position(x: newValue, y: item.position.y, z: item.position.z)
 }
@@ -24,6 +33,22 @@ func setItemScaleZ(item: Item, newValue: CGFloat) {
     item.scale = Vector(x: item.scale.x, y: item.scale.y, z: newValue)
 }
 
+func setItemRotationX(item: Item, newValue: CGFloat) {
+    let angles = item.node.eulerAngles
+    let value = toRadians(newValue)
+    item.node.eulerAngles = SCNVector3Make(value, angles.y, angles.z)
+}
+func setItemRotationY(item: Item, newValue: CGFloat) {
+    let angles = item.node.eulerAngles
+    let value = toRadians(newValue)
+    item.node.eulerAngles = SCNVector3Make(angles.x, value, angles.z)
+}
+func setItemRotationZ(item: Item, newValue: CGFloat) {
+    let angles = item.node.eulerAngles
+    let value = toRadians(newValue)
+    item.node.eulerAngles = SCNVector3Make(angles.x, angles.y, value)
+}
+
 class PropertiesMenuViewController: UIViewController, MenuController, UITextFieldDelegate {
 
     var propertyActions: [UITextField: ((Item, CGFloat) -> Void)]?
@@ -37,6 +62,10 @@ class PropertiesMenuViewController: UIViewController, MenuController, UITextFiel
     @IBOutlet weak var scaleXTextField: UITextField!
     @IBOutlet weak var scaleYTextField: UITextField!
     @IBOutlet weak var scaleZTextField: UITextField!
+
+    @IBOutlet weak var rotationXTextField: UITextField!
+    @IBOutlet weak var rotationYTextField: UITextField!
+    @IBOutlet weak var rotationZTextField: UITextField!
 
     init(item: Item) {
         self.item = item
@@ -57,7 +86,10 @@ class PropertiesMenuViewController: UIViewController, MenuController, UITextFiel
             positionZTextField : setItemPositionZ,
             scaleXTextField : setItemScaleX,
             scaleYTextField : setItemScaleY,
-            scaleZTextField : setItemScaleZ]
+            scaleZTextField : setItemScaleZ,
+            rotationXTextField : setItemRotationX,
+            rotationYTextField : setItemRotationY,
+            rotationZTextField : setItemRotationZ]
 
         updateTextFieldTexts()
     }
@@ -72,6 +104,11 @@ class PropertiesMenuViewController: UIViewController, MenuController, UITextFiel
         scaleXTextField.text = String(scale.x)
         scaleYTextField.text = String(scale.y)
         scaleZTextField.text = String(scale.z)
+
+        let rotation = item.node.eulerAngles
+        rotationXTextField.text = String(toDegrees(rotation.x))
+        rotationYTextField.text = String(toDegrees(rotation.y))
+        rotationZTextField.text = String(toDegrees(rotation.z))
     }
 
     func textFieldShouldReturn(textField: UITextField) -> Bool {
