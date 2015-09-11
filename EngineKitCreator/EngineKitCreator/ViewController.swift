@@ -13,7 +13,7 @@ enum ViewControllerStates {
 class ViewController: UIViewController {
 
     @IBOutlet weak var objectsButton: UIButton!
-    @IBOutlet weak var engineKitView: EngineKitView!
+    @IBOutlet weak var engineKitView: SCNView!
 
     var menuView: MenuView?
     var menuController: MenuController?
@@ -34,7 +34,7 @@ class ViewController: UIViewController {
         }
     }
 
-// MARK: - Overrides
+    // MARK: - Overrides
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +46,7 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
-// MARK: - Actions
+    // MARK: - Actions
 
     func hideMenu() {
         menuView?.removeFromSuperview()
@@ -55,7 +55,7 @@ class ViewController: UIViewController {
     func showMenuForButton(button:UIButton) {
         hideMenu()
 
-        menuView = MenuView(fromView: button, inView: view, orientation: .Vertical)
+        menuView = MenuView(fromView: button, inView: view, orientation: .Vertical, sizeRatio: 0.3)
         menuView?.backgroundColor = UIColor.orangeColor()
 
         menuController!.setupMenuView(menuView!)
@@ -63,7 +63,7 @@ class ViewController: UIViewController {
         view.addSubview(menuView!)
     }
 
-// MARK: - IBActions
+    // MARK: - IBActions
 
     @IBAction func objectsButtonTap(sender: UIView) {
         if (state == .ChoosingObject) {
@@ -73,6 +73,6 @@ class ViewController: UIViewController {
             state = .ChoosingObject
         }
     }
-
+    
 }
 

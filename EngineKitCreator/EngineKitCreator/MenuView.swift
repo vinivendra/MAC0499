@@ -53,7 +53,7 @@ class MenuView: UIView {
 
         self.init(frame: CGRectMake(originX, originY, availableX, availableY))
 
-        self.backgroundColor = UIColor.whiteColor()
+        self.backgroundColor = UIColor.greenColor()
     }
 
     convenience init(fromView: UIView, inView: UIView, orientation: Orientation) {
@@ -82,6 +82,55 @@ class MenuView: UIView {
         }
 
         self.frame = CGRectMake(originX, originY, availableX, availableY)
+    }
+
+    convenience init(fromView: UIView, inView: UIView, orientation: Orientation, sizeRatio: CGFloat) {
+        self.init(fromView: fromView, inView: inView, orientation: orientation)
+
+        var start: CGFloat
+        var finish: CGFloat
+        let center: CGFloat
+        let newSize: CGFloat
+
+        if (orientation == .Horizontal) {
+            start = self.frame.origin.y
+            finish = start + self.frame.size.height
+
+            center = (start + finish) / 2
+
+            newSize = self.frame.size.height * sizeRatio
+
+            start = center - newSize/2
+            finish = center + newSize/2
+
+            self.frame = CGRectMake(self.frame.origin.x, start, self.frame.size.width, finish - start)
+        }
+        else {
+            start = self.frame.origin.x
+            finish = start + self.frame.size.width
+
+            center = (start + finish) / 2
+
+            newSize = self.frame.size.width * sizeRatio
+
+            start = center - newSize/2
+            finish = center + newSize/2
+
+            let fromViewFrame = inView.convertRect(fromView.frame,
+                fromView: fromView.superview)
+            let fromViewStart = fromViewFrame.origin.x
+            let fromViewFinish = fromViewFrame.origin.x + fromViewFrame.size.width
+
+            if (start > fromViewStart) {
+                start = fromViewStart
+            }
+            else if (finish < fromViewFinish) {
+                finish = fromViewFinish
+            }
+
+            self.frame = CGRectMake(start, self.frame.origin.y, finish - start, self.frame.size.width)
+        }
+
     }
 
 }

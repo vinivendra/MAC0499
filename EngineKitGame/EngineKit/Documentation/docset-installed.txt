@@ -1,4 +1,0 @@
-Documentation set was installed to Xcode!
-
-Path: /Users/vini/Library/Developer/Shared/Documentation/DocSets/com.IME.EngineKit.docset
-Time: 2015-06-10 1:25:40 AM +0000

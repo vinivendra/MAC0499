@@ -7,31 +7,30 @@ function load() {
     var earth = sphere.template();
     earth.color = "blue";
     earth.position = [0, 0, -2];
-    print(position[0]);
-    print(position[1]);
-    print(position[2]);
-    position[0] = 2;
-    print(position[0]);
     earth.radius = 1;
 
-    var moon = earth.create();
+    var moon = sphere.template();
     moon.color = "dark gray";
     moon.radius = 0.4;
     moon.position = [0, 2, 0];
 
-    var satelite = new box();
+    var satelite = box.template();
     satelite.color = "light gray";
     satelite.scale = 0.2;
     satelite.position = [0.7, 0, 0];
 
-    var spaaace = new box();
+    var spaaace = box.template();
     spaaace.color = [0.6, 0.6, 1];
     spaaace.scale = 0.3;
     spaaace.position = [0, 1, 0];
 
-    earth.addItem(moon);
-    moon.addItem(satelite);
-    satelite.addItem(spaaace);
+    var sateliteInstance = satelite.create();
+    var spaceInstance = spaaace.create();
+    var moonInstance = moon.create();
+
+    sateliteInstance.addItem(spaceInstance);
+    moonInstance.addItem(sateliteInstance);
+    earth.addItem(moonInstance);
 
     var instance1 = earth.create();
     instance1.position = [-1, 0, 0];
@@ -110,7 +109,7 @@ function pan(translation, items, numberOfTouches) {
             var axis = cameraX.times(resized.y)
                  .plus(cameraY.times(-resized.x));
 
-            var rot = new rotation([axis, resized.normSquared()]);
+            var rot = rotation.create([axis, resized.normSquared()]);
             camera.rotateAround(rot, [0, 0, 0]);
         }
     }
@@ -142,7 +141,7 @@ function rotate(angle, items, numberOfTouches) {
     }
     else {
         cameraZ = camera.rotation.rotate(z);
-        var rotZ = new rotation([cameraZ, -angle]);
+        var rotZ = rotation.create([cameraZ, -angle]);
         camera.rotateAround(rotZ, [0, 0, 0]);
     }
 }

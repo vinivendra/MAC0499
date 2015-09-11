@@ -4,4 +4,10 @@
    <FileRef
       location = "group:EngineKitCreator/EngineKitCreator.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:EngineKit/EngineKit/../../EngineKitGame/EngineKitGame.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:EngineKit/EngineKit.xcodeproj">
+   </FileRef>
 </Workspace>

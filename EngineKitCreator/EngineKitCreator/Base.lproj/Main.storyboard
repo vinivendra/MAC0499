@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8173.3" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8173.3" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8142"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,31 +17,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PiA-0c-z5I" userLabel="engineKitView" customClass="EngineKitView" customModule="EngineKit">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IPS-ES-w43">
+                                <rect key="frame" x="20" y="20" width="560" height="560"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </sceneKitView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YO1-RX-Qzi" userLabel="objectsButton">
-                                <rect key="frame" x="16" y="28" width="54" height="30"/>
-                                <state key="normal" title="Objects">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kpq-wj-0cB">
+                                <rect key="frame" x="277" y="20" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="objectsButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YVp-yC-J2D"/>
+                                    <action selector="objectsButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="82t-Qj-qYv"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="PiA-0c-z5I" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="141-eF-ZRr"/>
-                            <constraint firstAttribute="trailing" secondItem="PiA-0c-z5I" secondAttribute="trailing" id="JiK-mg-q7e"/>
-                            <constraint firstItem="PiA-0c-z5I" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="top" id="LGL-I2-DQ2"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="PiA-0c-z5I" secondAttribute="bottom" id="Mq9-6t-4aZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IPS-ES-w43" secondAttribute="trailing" id="C61-aa-TMs"/>
+                            <constraint firstItem="IPS-ES-w43" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="SDq-3u-0mx"/>
+                            <constraint firstItem="IPS-ES-w43" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dx2-SY-EHK"/>
+                            <constraint firstItem="IPS-ES-w43" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="rai-k1-ncd"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="engineKitView" destination="PiA-0c-z5I" id="hC0-tq-okZ"/>
-                        <outlet property="objectsButton" destination="YO1-RX-Qzi" id="CZs-Q0-r7v"/>
+                        <outlet property="engineKitView" destination="IPS-ES-w43" id="hxp-Sb-Cc4"/>
+                        <outlet property="objectsButton" destination="Kpq-wj-0cB" id="XDe-EC-ecf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
