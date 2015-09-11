@@ -84,6 +84,16 @@ class MenuView: UIView {
         self.frame = CGRectMake(originX, originY, availableX, availableY)
     }
 
+    /**
+    * Initializes the MenuView to be anchored to the @p fromView, to fit inside 
+    * the @p inView, to have a certain @p Orientation (ie to be @b below or 
+    * @b beside the @p fromView) and to have a certain @p sizeRatio between its
+    * own size and the @p inView's size.
+    * The @p fromView is typically the button that caused the menuView to 
+    * appear; the @p inView, the @p menuView's container; and the @p sizeRatio 
+    * can be about 0.3, so that the @p menuView doesn't cover the whole
+    * @p inView.
+    */
     convenience init(fromView: UIView, inView: UIView, orientation: Orientation, sizeRatio: CGFloat) {
         self.init(fromView: fromView, inView: inView, orientation: orientation)
 
@@ -102,6 +112,18 @@ class MenuView: UIView {
 
             start = center - newSize/2
             finish = center + newSize/2
+
+            let fromViewFrame = inView.convertRect(fromView.frame,
+                fromView: fromView.superview)
+            let fromViewStart = fromViewFrame.origin.y
+            let fromViewFinish = fromViewFrame.origin.y + fromViewFrame.size.height
+
+            if (start > fromViewStart) {
+                start = fromViewStart
+            }
+            else if (finish < fromViewFinish) {
+                finish = fromViewFinish
+            }
 
             self.frame = CGRectMake(self.frame.origin.x, start, self.frame.size.width, finish - start)
         }

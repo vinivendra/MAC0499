@@ -12,22 +12,17 @@ protocol MenuController {
 }
 
 
-func classFromType<T:NSObject>(type: T.Type) -> AnyObject! {
-    return T.valueForKey("self")
-}
-
-
-var itemClasses : [AnyObject!] = [classFromType(Box.self),
-    classFromType(Capsule.self),
-    classFromType(Cone.self),
-    classFromType(Cylinder.self),
-    classFromType(Floor.self),
-    classFromType(Plane.self),
-    classFromType(Pyramid.self),
-    classFromType(Sphere.self),
-    classFromType(Text.self),
-    classFromType(Torus.self),
-    classFromType(Tube.self)]
+var itemClasses : [Item] = [Box.template(),
+    Capsule.template(),
+    Cone.template(),
+    Cylinder.template(),
+    Floor.template(),
+    Plane.template(),
+    Pyramid.template(),
+    Sphere.template(),
+    Text.template(),
+    Torus.template(),
+    Tube.template()]
 
 
 class ObjectsMenuController: NSObject,
@@ -55,8 +50,8 @@ MenuController {
 
         cell.backgroundColor = UIColor.redColor()
 
-        let subclass = itemClasses[indexPath.row] as! Item.Type
-        let string = NSStringFromClass(subclass)
+        let template = itemClasses[indexPath.row]
+        let string = template.name
         cell.label.text = string
 
         return cell
@@ -66,6 +61,15 @@ MenuController {
 
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return CGSizeMake(100, 100)
+    }
+
+    // MARK: - UICollectionViewDelegate
+
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let template = itemClasses[indexPath.row]
+
+        let sceneManager = SceneManager.shared
+        sceneManager.addItem(template)
     }
 
     // MARK: - MenuController
@@ -86,13 +90,9 @@ MenuController {
         collectionView?.delegate = self
         collectionView?.backgroundColor = UIColor.greenColor()
 
-//        collectionView?.registerClass(UICollectionViewCell.self,
-//            forCellWithReuseIdentifier: id)
         collectionView?.registerNib(UINib(nibName: "ObjectsCell", bundle: nil), forCellWithReuseIdentifier: id)
 
         menuView.addSubview(collectionView!)
-
-        print("it works!")
     }
 
 }

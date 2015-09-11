@@ -39,6 +39,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.engineKitView.scene = SCNScene.shared()
+
+        sceneSetup()
+
         state = .Neutral
     }
 
@@ -61,6 +65,33 @@ class ViewController: UIViewController {
         menuController!.setupMenuView(menuView!)
 
         view.addSubview(menuView!)
+    }
+
+    func sceneSetup() {
+        let scene = SCNScene.shared()
+
+        var node = SCNNode()
+        var light = SCNLight()
+
+        light.color = UIColor(white: 1.0, alpha: 1.0)
+        node.light = light
+        node.position = SCNVector3Make(3, 3, 3)
+        scene.rootNode.addChildNode(node)
+
+        light = SCNLight()
+        node = SCNNode()
+        light.color = UIColor(white: 0.7, alpha: 1.0)
+        node.light = light
+        node.position = SCNVector3Make(-3, -3, -3)
+        scene.rootNode.addChildNode(node)
+
+        light = SCNLight()
+        node = SCNNode()
+        light.color = UIColor(white: 0.4, alpha: 1.0)
+        light.type = SCNLightTypeAmbient
+        node.light = light
+        node.position = SCNVector3Make(-3, -3, -3)
+        scene.rootNode.addChildNode(node)
     }
 
     // MARK: - IBActions
