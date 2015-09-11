@@ -58,6 +58,20 @@ class PropertiesMenuViewController: UIViewController, MenuController, UITextFiel
             scaleXTextField : setItemScaleX,
             scaleYTextField : setItemScaleY,
             scaleZTextField : setItemScaleZ]
+
+        updateTextFieldTexts()
+    }
+
+    func updateTextFieldTexts() {
+        let position = item.position as! Position
+        positionXTextField.text = String(position.x)
+        positionYTextField.text = String(position.y)
+        positionZTextField.text = String(position.z)
+
+        let scale = item.scale as! Vector
+        scaleXTextField.text = String(scale.x)
+        scaleYTextField.text = String(scale.y)
+        scaleZTextField.text = String(scale.z)
     }
 
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -70,10 +84,10 @@ class PropertiesMenuViewController: UIViewController, MenuController, UITextFiel
 
         let number = NSNumber(string: string)
 
-        textField.text = number.stringValue
-
         let setProperty = propertyActions?[textField]
         setProperty!(item, CGFloat(number.doubleValue))
+
+        updateTextFieldTexts()
     }
 
     func setupMenuView(menuView: MenuView) {
