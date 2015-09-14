@@ -77,8 +77,8 @@ class ViewController: UIViewController, GestureDelegate {
     // MARK: Gestures
 
     func handlePan(arguments: [AnyObject]!) {
-        if let numberOfTouches = arguments[2] as? Int {
-            if let translation = arguments[0] as? Vector {
+        if let numberOfTouches = arguments[2] as? Int,
+            translation = arguments[0] as? Vector {
 
                 if (numberOfTouches == 1) {
                     let camera = Camera.shared()
@@ -91,26 +91,24 @@ class ViewController: UIViewController, GestureDelegate {
                     let axis: Vector = (cameraX?.times(resized.y).plus(cameraY?.times(-resized.x)))!
 
                     let rot = Rotation.create([axis, resized.normSquared])
-
+                    
                     camera.rotate(rot, around: Position.origin())
                 }
-            }
         }
     }
 
     func handleTap(arguments: [AnyObject]!) {
-        if let items = arguments[0] as? [Item] {
-            if items.count > 0 {
+        if let items = arguments[0] as? [Item]
+            where items.count > 0 {
                 if let item = items[0] as? Shape {
                     SceneManager.shared.selectedItem = item
                     previousMaterials = item.materials
                     item.color = "red"
                 }
-            }
-            else {
-                if let shape = SceneManager.shared.selectedItem {
-                    shape.materials = previousMaterials
-                }
+        }
+        else {
+            if let shape = SceneManager.shared.selectedItem {
+                shape.materials = previousMaterials
             }
         }
     }
