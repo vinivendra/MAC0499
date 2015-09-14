@@ -11,7 +11,7 @@ enum ViewControllerStates {
 }
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, GestureDelegate {
 
     @IBOutlet weak var propertiesButton: UIButton!
     @IBOutlet weak var objectsButton: UIButton!
@@ -19,6 +19,10 @@ class ViewController: UIViewController {
 
     var menuView: MenuView?
     var menuController: MenuController?
+
+    var cameraX: Vector?
+    var cameraY: Vector?
+    var cameraZ: Vector?
 
     var state: ViewControllerStates? {
         willSet {
@@ -51,6 +55,41 @@ class ViewController: UIViewController {
                 hideMenu()
                 state = .Neutral
                 state = .ChoosingObject
+            }
+        }
+    }
+
+    // Mark: - GestureDelegate
+
+    func callGestureCallbackForGesture(gesture: UIGestures, state: UIGestureRecognizerState, withArguments arguments: [AnyObject]!) {
+        if (gesture == UIGestures.PanGesture && state == UIGestureRecognizerState.Changed) {
+            handlePan(arguments)
+        }
+    }
+
+    // MARK: Gestures
+
+    func handlePan(arguments: [AnyObject]!) {
+        if let numberOfTouches = arguments[2] as? Int {
+            if let items = arguments[1] as? [Item] {
+                if let translation = arguments[0] as? Vector {
+
+                    if (numberOfTouches == 1) {
+                        let camera = Camera.shared()
+
+                        cameraX = camera.rotation.rotate(Axis.x())
+                        cameraY = camera.rotation.rotate(Axis.y())
+
+                        let resized = translation.times(0.02)
+
+                        let axis: Vector = (cameraX?.times(resized.y).plus(cameraY?.times(-resized.x)))!
+
+                        let rot = Rotation.create([axis, resized.normSquared])
+
+                        camera.rotate(rot, around: Position.origin())
+                    }
+                    
+                }
             }
         }
     }
@@ -122,8 +161,18 @@ class ViewController: UIViewController {
 
         let pan = NSNumber(unsignedLong: GestureRecognizers.PanRecognizer.rawValue)
         options[pan] = NSNumber(bool: true)
+        let tap = NSNumber(unsignedLong: GestureRecognizers.TapRecognizer.rawValue)
+        options[tap] = NSNumber(bool: true)
 
         gestures.setupGestures()
+
+        gestures.delegate = self
+
+
+        let camera = Camera.shared()
+        cameraX = camera.rotation.rotate(Axis.x())
+        cameraY = camera.rotation.rotate(Axis.y())
+        cameraZ = camera.rotation.rotate(Axis.z())
     }
 
     // MARK: - IBActions
