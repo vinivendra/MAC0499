@@ -49,6 +49,31 @@ func setItemRotationZ(item: Item, newValue: CGFloat) {
     item.node.eulerAngles = SCNVector3Make(angles.x, angles.y, value)
 }
 
+func setItemColorR(item: Item, newValue: CGFloat) {
+    if let shape = item as? Shape,
+        color = shape.color as? UIColor {
+            var components = [CGFloat](count: 4, repeatedValue: 0.0)
+            color.getRed(&components[0], green:&components[1], blue:&components[2], alpha:&components[3])
+            shape.color = UIColor(red: newValue, green: components[1], blue: components[2], alpha: components[3]);
+    }
+}
+func setItemColorG(item: Item, newValue: CGFloat) {
+    if let shape = item as? Shape,
+        color = shape.color as? UIColor {
+            var components = [CGFloat](count: 4, repeatedValue: 0.0)
+            color.getRed(&components[0], green:&components[1], blue:&components[2], alpha:&components[3])
+            shape.color = UIColor(red: components[0], green: newValue, blue: components[2], alpha: components[3]);
+    }
+}
+func setItemColorB(item: Item, newValue: CGFloat) {
+    if let shape = item as? Shape,
+        color = shape.color as? UIColor {
+            var components = [CGFloat](count: 4, repeatedValue: 0.0)
+            color.getRed(&components[0], green:&components[1], blue:&components[2], alpha:&components[3])
+            shape.color = UIColor(red: components[0], green: components[1], blue: newValue, alpha: components[3]);
+    }
+}
+
 class PropertiesMenuViewController: UIViewController, MenuController, UITextFieldDelegate {
 
     var propertyActions: [UITextField: ((Item, CGFloat) -> Void)]?
@@ -58,6 +83,10 @@ class PropertiesMenuViewController: UIViewController, MenuController, UITextFiel
     @IBOutlet weak var nameTextField: UITextField!
 
     @IBOutlet weak var colorNameTextField: UITextField!
+
+    @IBOutlet weak var colorRTextField: UITextField!
+    @IBOutlet weak var colorGTextField: UITextField!
+    @IBOutlet weak var colorBTextField: UITextField!
 
     @IBOutlet weak var positionXTextField: UITextField!
     @IBOutlet weak var positionYTextField: UITextField!
@@ -93,7 +122,10 @@ class PropertiesMenuViewController: UIViewController, MenuController, UITextFiel
             scaleZTextField : setItemScaleZ,
             rotationXTextField : setItemRotationX,
             rotationYTextField : setItemRotationY,
-            rotationZTextField : setItemRotationZ]
+            rotationZTextField : setItemRotationZ,
+            colorRTextField : setItemColorR,
+            colorGTextField : setItemColorG,
+            colorBTextField : setItemColorB]
 
         updateTextFieldTexts()
     }
@@ -124,6 +156,15 @@ class PropertiesMenuViewController: UIViewController, MenuController, UITextFiel
         rotationXTextField.text = String(toDegrees(rotation.x))
         rotationYTextField.text = String(toDegrees(rotation.y))
         rotationZTextField.text = String(toDegrees(rotation.z))
+
+        if let shape = item as? Shape,
+            color = shape.color as? UIColor {
+                var components = [CGFloat](count: 4, repeatedValue: 0.0)
+                color.getRed(&components[0], green:&components[1], blue:&components[2], alpha:&components[3])
+                colorRTextField.text = String(components[0])
+                colorGTextField.text = String(components[1])
+                colorBTextField.text = String(components[2])
+        }
     }
 
     func textFieldShouldReturn(textField: UITextField) -> Bool {
