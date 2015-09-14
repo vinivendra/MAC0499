@@ -113,6 +113,17 @@ class ViewController: UIViewController {
         node.light = light
         node.position = SCNVector3Make(-3, -3, -3)
         scene.rootNode.addChildNode(node)
+
+        let gestures = Gestures.shared()
+        let options = gestures.options
+
+        gestures.sceneView = engineKitView
+        gestures.gesturesView = engineKitView
+
+        let pan = NSNumber(unsignedLong: GestureRecognizers.PanRecognizer.rawValue)
+        options[pan] = NSNumber(bool: true)
+
+        gestures.setupGestures()
     }
 
     // MARK: - IBActions
