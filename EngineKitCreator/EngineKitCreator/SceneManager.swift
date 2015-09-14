@@ -13,14 +13,6 @@ class SceneManager {
 
     let scene = SCNScene.shared()
 
-    init() {
-        let box = Box()
-        selectedItem = box
-        box.color = UIColor.blueColor()
-
-        addItem(box)
-    }
-
     func addItemFromTemplate(template: Item) {
 
         let instance = template.create()

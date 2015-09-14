@@ -173,26 +173,25 @@ class PropertiesMenuViewController: UIViewController, MenuController, UITextFiel
     }
 
     func textFieldDidEndEditing(textField: UITextField) {
-        let string = textField.text
+        if let string = textField.text
+            where string.valid {
 
-        if (textField == nameTextField) {
-            if (string != nil && string!.valid) {
+            if (textField == nameTextField) {
                 item.name = string
             }
-        }
-        else if (textField == colorNameTextField) {
-            if (string != nil && string!.valid) {
+            else if (textField == colorNameTextField) {
                 if let shape = item as? Shape {
                     shape.color = string
                 }
             }
-        }
-        else {
-            let number = NSNumber(string: string)
+            else {
+                let number = NSNumber(string: string)
 
-            let setProperty = propertyActions?[textField]
-            setProperty!(item, CGFloat(number.doubleValue))
+                let setProperty = propertyActions?[textField]
+                setProperty!(item, CGFloat(number.doubleValue))
+            }
         }
+
         updateTextFieldTexts()
     }
 

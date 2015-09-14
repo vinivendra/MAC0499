@@ -24,7 +24,21 @@ class ViewController: UIViewController, GestureDelegate {
     var cameraY: Vector?
     var cameraZ: Vector?
 
-    var selectedItem: Shape?
+    var selectedItem: Shape? {
+        get {
+            return SceneManager.shared.selectedItem
+        }
+        set {
+            SceneManager.shared.selectedItem = newValue
+
+            if (newValue != nil) {
+                propertiesButton.enabled = true
+            }
+            else {
+                propertiesButton.enabled = false
+            }
+        }
+    }
 
     var state: ViewControllerStates? {
         willSet {
@@ -38,7 +52,7 @@ class ViewController: UIViewController, GestureDelegate {
                 menuController = ObjectsMenuController()
                 showMenuForButton(objectsButton)
             } else if (newValue == .ChangingProperties) {
-                if let selectedItem = SceneManager.shared.selectedItem {
+                if let selectedItem = selectedItem {
                     menuController = PropertiesMenuViewController(item: selectedItem)
                     showMenuForButton(propertiesButton)
                 }
@@ -113,7 +127,7 @@ class ViewController: UIViewController, GestureDelegate {
                 }
         }
         else {
-            if let item = SceneManager.shared.selectedItem {
+            if let item = selectedItem {
                 deselectItem(item)
             }
         }
@@ -125,6 +139,9 @@ class ViewController: UIViewController, GestureDelegate {
         super.viewDidLoad()
 
         self.engineKitView.scene = SCNScene.shared()
+
+        self.propertiesButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Disabled)
+        self.selectedItem = nil
 
         sceneSetup()
 
@@ -158,7 +175,6 @@ class ViewController: UIViewController, GestureDelegate {
 
     func selectItem(item: Shape) {
         selectedItem = item
-        SceneManager.shared.selectedItem = item
         item.selected = true
     }
 
@@ -238,6 +254,8 @@ class ViewController: UIViewController, GestureDelegate {
         cameraX = camera.rotation.rotate(Axis.x())
         cameraY = camera.rotation.rotate(Axis.y())
         cameraZ = camera.rotation.rotate(Axis.z())
+
+        Parser.shared().parseFile("scene.fmt")
     }
 
     // MARK: - IBActions
