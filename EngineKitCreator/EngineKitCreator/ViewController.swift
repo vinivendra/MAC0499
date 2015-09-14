@@ -24,6 +24,7 @@ class ViewController: UIViewController, GestureDelegate {
     var cameraY: Vector?
     var cameraZ: Vector?
 
+    var redItem: Shape?
     var previousMaterials: AnyObject?
 
     var state: ViewControllerStates? {
@@ -78,21 +79,33 @@ class ViewController: UIViewController, GestureDelegate {
 
     func handlePan(arguments: [AnyObject]!) {
         if let numberOfTouches = arguments[2] as? Int,
+            items = arguments[1] as? [Item],
             translation = arguments[0] as? Vector {
 
                 if (numberOfTouches == 1) {
-                    let camera = Camera.shared()
+                    if (items.count > 0 && items[0] == redItem) {
+                        let resized = translation.times(0.01)
 
-                    cameraX = camera.rotation.rotate(Axis.x())
-                    cameraY = camera.rotation.rotate(Axis.y())
+                        let translation = cameraX?.times(resized.x)
+                            .plus(cameraY?.times(resized.y));
 
-                    let resized = translation.times(0.02)
+                        let position = redItem?.position as? Position
+                        redItem?.position = position!.plus(translation!)
+                    }
+                    else {
+                        let camera = Camera.shared()
 
-                    let axis: Vector = (cameraX?.times(resized.y).plus(cameraY?.times(-resized.x)))!
+                        cameraX = camera.rotation.rotate(Axis.x())
+                        cameraY = camera.rotation.rotate(Axis.y())
 
-                    let rot = Rotation.create([axis, resized.normSquared])
+                        let resized = translation.times(0.02)
 
-                    camera.rotate(rot, around: Position.origin())
+                        let axis: Vector = (cameraX?.times(resized.y).plus(cameraY?.times(-resized.x)))!
+
+                        let rot = Rotation.create([axis, resized.normSquared])
+
+                        camera.rotate(rot, around: Position.origin())
+                    }
                 }
         }
     }
@@ -101,6 +114,7 @@ class ViewController: UIViewController, GestureDelegate {
         if let items = arguments[0] as? [Item]
             where items.count > 0 {
                 if let item = items[0] as? Shape {
+                    redItem = item
                     SceneManager.shared.selectedItem = item
                     previousMaterials = item.materials
                     item.color = "red"
@@ -109,6 +123,7 @@ class ViewController: UIViewController, GestureDelegate {
         else {
             if let shape = SceneManager.shared.selectedItem {
                 shape.materials = previousMaterials
+                redItem = nil
             }
         }
     }
