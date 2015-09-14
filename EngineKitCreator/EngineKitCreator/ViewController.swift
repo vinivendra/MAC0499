@@ -24,6 +24,8 @@ class ViewController: UIViewController, GestureDelegate {
     var cameraY: Vector?
     var cameraZ: Vector?
 
+    var previousMaterials: AnyObject?
+
     var state: ViewControllerStates? {
         willSet {
             setState(newValue)
@@ -36,8 +38,10 @@ class ViewController: UIViewController, GestureDelegate {
                 menuController = ObjectsMenuController()
                 showMenuForButton(objectsButton)
             } else if (newValue == .ChangingProperties) {
-                menuController = PropertiesMenuViewController(item: SceneManager.shared.selectedItem)
-                showMenuForButton(propertiesButton)
+                if let selectedItem = SceneManager.shared.selectedItem {
+                    menuController = PropertiesMenuViewController(item: selectedItem)
+                    showMenuForButton(propertiesButton)
+                }
             }
         }
         else if (state == .ChoosingObject) {
@@ -65,30 +69,47 @@ class ViewController: UIViewController, GestureDelegate {
         if (gesture == UIGestures.PanGesture && state == UIGestureRecognizerState.Changed) {
             handlePan(arguments)
         }
+        if (gesture == UIGestures.TapGesture) {
+            handleTap(arguments)
+        }
     }
 
     // MARK: Gestures
 
     func handlePan(arguments: [AnyObject]!) {
         if let numberOfTouches = arguments[2] as? Int {
-            if let items = arguments[1] as? [Item] {
-                if let translation = arguments[0] as? Vector {
+            if let translation = arguments[0] as? Vector {
 
-                    if (numberOfTouches == 1) {
-                        let camera = Camera.shared()
+                if (numberOfTouches == 1) {
+                    let camera = Camera.shared()
 
-                        cameraX = camera.rotation.rotate(Axis.x())
-                        cameraY = camera.rotation.rotate(Axis.y())
+                    cameraX = camera.rotation.rotate(Axis.x())
+                    cameraY = camera.rotation.rotate(Axis.y())
 
-                        let resized = translation.times(0.02)
+                    let resized = translation.times(0.02)
 
-                        let axis: Vector = (cameraX?.times(resized.y).plus(cameraY?.times(-resized.x)))!
+                    let axis: Vector = (cameraX?.times(resized.y).plus(cameraY?.times(-resized.x)))!
 
-                        let rot = Rotation.create([axis, resized.normSquared])
+                    let rot = Rotation.create([axis, resized.normSquared])
 
-                        camera.rotate(rot, around: Position.origin())
-                    }
-                    
+                    camera.rotate(rot, around: Position.origin())
+                }
+            }
+        }
+    }
+
+    func handleTap(arguments: [AnyObject]!) {
+        if let items = arguments[0] as? [Item] {
+            if items.count > 0 {
+                if let item = items[0] as? Shape {
+                    SceneManager.shared.selectedItem = item
+                    previousMaterials = item.materials
+                    item.color = "red"
+                }
+            }
+            else {
+                if let shape = SceneManager.shared.selectedItem {
+                    shape.materials = previousMaterials
                 }
             }
         }
@@ -185,7 +206,7 @@ class ViewController: UIViewController, GestureDelegate {
             state = .ChangingProperties
         }
     }
-
+    
     @IBAction func objectsButtonTap(sender: UIView) {
         if (state == .ChoosingObject) {
             state = .Neutral

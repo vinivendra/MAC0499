@@ -9,7 +9,7 @@ class SceneManager {
 
     static let shared = SceneManager()
 
-    let selectedItem: Item
+    var selectedItem: Shape?
 
     let scene = SCNScene.shared()
 
