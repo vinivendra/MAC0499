@@ -91,7 +91,7 @@ class ViewController: UIViewController, GestureDelegate {
                     let axis: Vector = (cameraX?.times(resized.y).plus(cameraY?.times(-resized.x)))!
 
                     let rot = Rotation.create([axis, resized.normSquared])
-                    
+
                     camera.rotate(rot, around: Position.origin())
                 }
         }

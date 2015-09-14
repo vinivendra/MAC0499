@@ -55,6 +55,8 @@ class PropertiesMenuViewController: UIViewController, MenuController, UITextFiel
 
     var item: Item
 
+    @IBOutlet weak var nameTextField: UITextField!
+
     @IBOutlet weak var positionXTextField: UITextField!
     @IBOutlet weak var positionYTextField: UITextField!
     @IBOutlet weak var positionZTextField: UITextField!
@@ -95,6 +97,8 @@ class PropertiesMenuViewController: UIViewController, MenuController, UITextFiel
     }
 
     func updateTextFieldTexts() {
+        nameTextField.text = item.name
+
         let position = item.position as! Position
         positionXTextField.text = String(position.x)
         positionYTextField.text = String(position.y)
@@ -119,11 +123,17 @@ class PropertiesMenuViewController: UIViewController, MenuController, UITextFiel
     func textFieldDidEndEditing(textField: UITextField) {
         let string = textField.text
 
-        let number = NSNumber(string: string)
+        if (textField == nameTextField) {
+            if (string != nil && string!.valid) {
+                item.name = string
+            }
+        }
+        else {
+            let number = NSNumber(string: string)
 
-        let setProperty = propertyActions?[textField]
-        setProperty!(item, CGFloat(number.doubleValue))
-
+            let setProperty = propertyActions?[textField]
+            setProperty!(item, CGFloat(number.doubleValue))
+        }
         updateTextFieldTexts()
     }
 
