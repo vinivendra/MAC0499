@@ -84,46 +84,33 @@ class ViewController: UIViewController, GestureDelegate {
 
                 if (numberOfTouches == 1) {
                     if (items.count > 0 && items[0] == redItem) {
-                        let resized = translation.times(0.01)
-
-                        let translation = cameraX?.times(resized.x)
-                            .plus(cameraY?.times(resized.y));
-
-                        let position = redItem?.position as? Position
-                        redItem?.position = position!.plus(translation!)
+                        moveItem(translation)
                     }
                     else {
-                        let camera = Camera.shared()
-
-                        cameraX = camera.rotation.rotate(Axis.x())
-                        cameraY = camera.rotation.rotate(Axis.y())
-
-                        let resized = translation.times(0.02)
-
-                        let axis: Vector = (cameraX?.times(resized.y).plus(cameraY?.times(-resized.x)))!
-
-                        let rot = Rotation.create([axis, resized.normSquared])
-
-                        camera.rotate(rot, around: Position.origin())
+                        rotateCamera(translation)
                     }
                 }
         }
     }
 
     func handleTap(arguments: [AnyObject]!) {
+        guard (state == .Neutral) else {
+            state = .Neutral
+            return
+        }
+
         if let items = arguments[0] as? [Item]
             where items.count > 0 {
                 if let item = items[0] as? Shape {
-                    redItem = item
-                    SceneManager.shared.selectedItem = item
-                    previousMaterials = item.materials
-                    item.color = "red"
+                    if (redItem != nil) {
+                        deselectItem(redItem!)
+                    }
+                    selectItem(item)
                 }
         }
         else {
-            if let shape = SceneManager.shared.selectedItem {
-                shape.materials = previousMaterials
-                redItem = nil
+            if let item = SceneManager.shared.selectedItem {
+                deselectItem(item)
             }
         }
     }
@@ -146,6 +133,8 @@ class ViewController: UIViewController, GestureDelegate {
 
     // MARK: - Actions
 
+    // MARK: UI Actions
+
     func hideMenu() {
         menuView?.removeFromSuperview()
     }
@@ -159,6 +148,45 @@ class ViewController: UIViewController, GestureDelegate {
         menuController!.setupMenuView(menuView!)
 
         view.addSubview(menuView!)
+    }
+
+    // MARK: Scene Actions
+
+    func selectItem(item: Shape) {
+        redItem = item
+        SceneManager.shared.selectedItem = item
+        previousMaterials = item.materials
+        item.color = "red"
+    }
+
+    func deselectItem(item: Shape) {
+        item.materials = previousMaterials
+        redItem = nil
+    }
+
+    func moveItem(translation: Vector) {
+        let resized = translation.times(0.01)
+
+        let translation = cameraX?.times(resized.x)
+            .plus(cameraY?.times(resized.y));
+
+        let position = redItem?.position as? Position
+        redItem?.position = position!.plus(translation!)
+    }
+
+    func rotateCamera(translation: Vector) {
+        let camera = Camera.shared()
+
+        cameraX = camera.rotation.rotate(Axis.x())
+        cameraY = camera.rotation.rotate(Axis.y())
+
+        let resized = translation.times(0.02)
+
+        let axis: Vector = (cameraX?.times(resized.y).plus(cameraY?.times(-resized.x)))!
+
+        let rot = Rotation.create([axis, resized.normSquared])
+
+        camera.rotate(rot, around: Position.origin())
     }
 
     func sceneSetup() {
