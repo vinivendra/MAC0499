@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PropertiesMenuViewController" customModule="EngineKitCreator" customModuleProvider="target">
             <connections>
+                <outlet property="colorNameTextField" destination="yd8-Lr-IDS" id="ilY-RD-gua"/>
                 <outlet property="nameTextField" destination="pN6-ZH-APe" id="47y-6f-QiL"/>
                 <outlet property="positionXTextField" destination="Ao5-KN-Dfk" id="ix6-r9-lKL"/>
                 <outlet property="positionYTextField" destination="YSy-yp-okP" id="etJ-MH-lug"/>
@@ -293,6 +294,20 @@
                                 <constraint firstItem="lbM-br-BiG" firstAttribute="leading" secondItem="L79-F7-fvx" secondAttribute="leading" id="vai-Tl-pGQ"/>
                             </constraints>
                         </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P9p-AC-Goc">
+                            <rect key="frame" x="248" y="46" width="240" height="151"/>
+                            <subviews>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Color name" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yd8-Lr-IDS">
+                                    <rect key="frame" x="8" y="8" width="224" height="30"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="G0A-r4-xUE"/>
+                                    </connections>
+                                </textField>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.089999999999999997" colorSpace="calibratedWhite"/>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -302,11 +317,15 @@
                         <constraint firstAttribute="bottom" secondItem="Umy-ae-yc3" secondAttribute="bottom" constant="383" id="7of-us-A8g"/>
                         <constraint firstAttribute="trailing" secondItem="Umy-ae-yc3" secondAttribute="trailing" constant="352" id="9dd-rx-Y4c"/>
                         <constraint firstItem="Umy-ae-yc3" firstAttribute="leading" secondItem="fVG-Ts-fqC" secondAttribute="leading" id="Ajp-hi-Cgc"/>
+                        <constraint firstItem="P9p-AC-Goc" firstAttribute="leading" secondItem="Umy-ae-yc3" secondAttribute="trailing" constant="8" id="Ibm-bo-ttA"/>
+                        <constraint firstItem="P9p-AC-Goc" firstAttribute="top" secondItem="Umy-ae-yc3" secondAttribute="top" id="Ktn-JZ-8Jp"/>
                         <constraint firstItem="UNM-2V-YL8" firstAttribute="leading" secondItem="Umy-ae-yc3" secondAttribute="leading" id="NFr-cI-EiC"/>
                         <constraint firstItem="pN6-ZH-APe" firstAttribute="top" secondItem="fVG-Ts-fqC" secondAttribute="top" constant="8" id="UBg-yp-Jsd"/>
+                        <constraint firstItem="P9p-AC-Goc" firstAttribute="width" secondItem="Umy-ae-yc3" secondAttribute="width" id="a8I-yl-4mK"/>
                         <constraint firstItem="yK9-0I-uv6" firstAttribute="top" secondItem="UNM-2V-YL8" secondAttribute="bottom" constant="8" id="daQ-K6-qCr"/>
                         <constraint firstItem="pN6-ZH-APe" firstAttribute="leading" secondItem="fVG-Ts-fqC" secondAttribute="leading" constant="8" id="dhj-ge-9cf"/>
                         <constraint firstItem="UNM-2V-YL8" firstAttribute="top" secondItem="Umy-ae-yc3" secondAttribute="bottom" constant="8" id="gbr-jA-vCg"/>
+                        <constraint firstItem="P9p-AC-Goc" firstAttribute="height" secondItem="Umy-ae-yc3" secondAttribute="height" id="kqb-fH-kYp"/>
                         <constraint firstItem="UNM-2V-YL8" firstAttribute="width" secondItem="Umy-ae-yc3" secondAttribute="width" id="mb7-7D-hW8"/>
                         <constraint firstItem="Umy-ae-yc3" firstAttribute="top" secondItem="pN6-ZH-APe" secondAttribute="bottom" constant="8" id="xi8-0f-q4t"/>
                     </constraints>
@@ -322,7 +341,7 @@
                 <constraint firstItem="fVG-Ts-fqC" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Wsk-V0-Qfp"/>
                 <constraint firstItem="fVG-Ts-fqC" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Y4w-YX-Ocf"/>
             </constraints>
-            <point key="canvasLocation" x="29" y="343"/>
+            <point key="canvasLocation" x="-542" y="486"/>
         </view>
     </objects>
 </document>

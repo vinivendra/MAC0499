@@ -24,8 +24,7 @@ class ViewController: UIViewController, GestureDelegate {
     var cameraY: Vector?
     var cameraZ: Vector?
 
-    var redItem: Shape?
-    var previousMaterials: AnyObject?
+    var selectedItem: Shape?
 
     var state: ViewControllerStates? {
         willSet {
@@ -83,7 +82,7 @@ class ViewController: UIViewController, GestureDelegate {
             translation = arguments[0] as? Vector {
 
                 if (numberOfTouches == 1) {
-                    if (items.count > 0 && items[0] == redItem) {
+                    if (items.count > 0 && items[0] == selectedItem) {
                         moveItem(translation)
                     }
                     else {
@@ -102,10 +101,15 @@ class ViewController: UIViewController, GestureDelegate {
         if let items = arguments[0] as? [Item]
             where items.count > 0 {
                 if let item = items[0] as? Shape {
-                    if (redItem != nil) {
-                        deselectItem(redItem!)
+                    if (item == selectedItem) {
+                        deselectItem(selectedItem!)
                     }
-                    selectItem(item)
+                    else {
+                        if (selectedItem != nil) {
+                            deselectItem(selectedItem!)
+                        }
+                        selectItem(item)
+                    }
                 }
         }
         else {
@@ -153,15 +157,14 @@ class ViewController: UIViewController, GestureDelegate {
     // MARK: Scene Actions
 
     func selectItem(item: Shape) {
-        redItem = item
+        selectedItem = item
         SceneManager.shared.selectedItem = item
-        previousMaterials = item.materials
-        item.color = "red"
+        item.selected = true
     }
 
     func deselectItem(item: Shape) {
-        item.materials = previousMaterials
-        redItem = nil
+        item.selected = false
+        selectedItem = nil
     }
 
     func moveItem(translation: Vector) {
@@ -170,8 +173,8 @@ class ViewController: UIViewController, GestureDelegate {
         let translation = cameraX?.times(resized.x)
             .plus(cameraY?.times(resized.y));
 
-        let position = redItem?.position as? Position
-        redItem?.position = position!.plus(translation!)
+        let position = selectedItem?.position as? Position
+        selectedItem?.position = position!.plus(translation!)
     }
 
     func rotateCamera(translation: Vector) {

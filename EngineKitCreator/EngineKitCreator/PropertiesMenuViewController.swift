@@ -1,4 +1,4 @@
-
+// TODO: Make the color of the object not be red when it's selected.
 
 import UIKit
 import EngineKit
@@ -57,6 +57,8 @@ class PropertiesMenuViewController: UIViewController, MenuController, UITextFiel
 
     @IBOutlet weak var nameTextField: UITextField!
 
+    @IBOutlet weak var colorNameTextField: UITextField!
+
     @IBOutlet weak var positionXTextField: UITextField!
     @IBOutlet weak var positionYTextField: UITextField!
     @IBOutlet weak var positionZTextField: UITextField!
@@ -99,6 +101,15 @@ class PropertiesMenuViewController: UIViewController, MenuController, UITextFiel
     func updateTextFieldTexts() {
         nameTextField.text = item.name
 
+        if let shape = item as? Shape,
+            color = shape.color as? UIColor
+            where color.name != nil {
+                colorNameTextField.text = color.name!.capitalizedString
+        }
+        else {
+            colorNameTextField.text = "Custom color"
+        }
+
         let position = item.position as! Position
         positionXTextField.text = String(position.x)
         positionYTextField.text = String(position.y)
@@ -126,6 +137,13 @@ class PropertiesMenuViewController: UIViewController, MenuController, UITextFiel
         if (textField == nameTextField) {
             if (string != nil && string!.valid) {
                 item.name = string
+            }
+        }
+        else if (textField == colorNameTextField) {
+            if (string != nil && string!.valid) {
+                if let shape = item as? Shape {
+                    shape.color = string
+                }
             }
         }
         else {

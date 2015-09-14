@@ -1,6 +1,5 @@
 
 var selectedItem;
-var previousMaterials;
 
 function load() {
 
@@ -48,14 +47,13 @@ function update() {
 function tap(items, numberOfTouches, hits) {
     if (typeof items[0] != 'undefined' && selectedItem != items[0]) {
         if (typeof selectedItem != 'undefined') {
-            selectedItem.materials = previousMaterials;
+            selectedItem.selected = false;
         }
         selectedItem = items[0];
-        previousMaterials = selectedItem.materials;
-        selectedItem.color = "red";
+        selectedItem.selected = true;
     }
     else {
-        selectedItem.materials = previousMaterials;
+        selectedItem.selected = false;
         selectedItem = undefined;
     }
 }
@@ -81,13 +79,13 @@ function swipe(direction, items, numberOfTouches, hits) {
     }
 }
 
-var cameraX;
-var cameraY;
-var cameraZ;
-
 var x = [1, 0, 0];
 var y = [0, 1, 0];
 var z = [0, 0, 1];
+
+var cameraX = camera.rotation.rotate(x);
+var cameraY = camera.rotation.rotate(y);
+var cameraZ = camera.rotation.rotate(z);
 
 function pan(translation, items, numberOfTouches) {
 
