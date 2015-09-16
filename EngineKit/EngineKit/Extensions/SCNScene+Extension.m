@@ -7,18 +7,15 @@
 #import "Camera.h"
 
 
+static SCNScene *currentScene;
+
 @implementation SCNScene (Extension)
-+ (SCNScene *)shared {
-    static SCNScene *singleton;
++ (SCNScene *)currentScene {
+    return currentScene;
+}
 
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken,
-                  ^{
-                      singleton = [self new];
-                      [singleton addItem:[Camera shared]];
-                  });
-
-    return singleton;
+- (void)makeCurrentScene {
+    currentScene = self;
 }
 
 - (void)addItem:(Item *)item {

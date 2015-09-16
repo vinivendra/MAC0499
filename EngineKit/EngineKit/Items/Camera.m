@@ -11,25 +11,23 @@
 
 @implementation Camera
 
-+ (Camera *)shared {
-    static Camera *singleton;
+- (instancetype)init {
+    if (self = [super init]) {
+        [self addSCNCamera];
+    }
+    return self;
+}
 
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken,
-                  ^{
-                      singleton = [self new];
+- (instancetype)initAndAddToScene {
+    if (self = [super initAndAddToScene]) {
+        [self addSCNCamera];
+    }
+    return self;
+}
 
-                      singleton.node.camera = [SCNCamera new];
-                      singleton.position = @[@0, @0, @10];
-
-//                      singleton.lookAtNode = [SCNNode node];
-//                      singleton.lookAtConstraint = [SCNLookAtConstraint
-//                          lookAtConstraintWithTarget:singleton.lookAtNode];
-//                      singleton.node.constraints =
-//                          @[ singleton.lookAtConstraint ];
-                  });
-
-    return singleton;
+- (void)addSCNCamera {
+    self.node.camera = [SCNCamera new];
+    self.position = [[Position alloc] initWithX:0 Y:0 Z:10];
 }
 
 - (void)lookAt:(id)object {

@@ -5,6 +5,8 @@
 
 #import "SCNScene+Extension.h"
 
+#import "EngineKit.h"
+
 
 @implementation Physics
 
@@ -22,8 +24,9 @@
     return singleton;
 }
 
-- (instancetype)init {
+- (instancetype)initWithScene:(SCNScene *)scene {
     if (self = [super init]) {
+        _scene = scene;
         self.scene.physicsWorld.contactDelegate = self;
     }
     return self;
@@ -45,10 +48,6 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Property Overriding
-
-- (SCNScene *)scene {
-    return [SCNScene shared];
-}
 
 - (void)setGravity:(id)gravity {
     Vector *vector;

@@ -17,6 +17,8 @@ class ViewController: UIViewController, GestureDelegate {
     @IBOutlet weak var objectsButton: UIButton!
     @IBOutlet weak var engineKitView: SCNView!
 
+    var editorSceneManager: SceneManager?
+
     var menuView: MenuView?
     var menuController: MenuController?
 
@@ -26,10 +28,10 @@ class ViewController: UIViewController, GestureDelegate {
 
     var selectedItem: Shape? {
         get {
-            return SceneManager.shared.selectedItem
+            return editorSceneManager?.selectedItem
         }
         set {
-            SceneManager.shared.selectedItem = newValue
+            editorSceneManager?.selectedItem = newValue
 
             if (newValue != nil) {
                 propertiesButton.enabled = true
@@ -138,7 +140,10 @@ class ViewController: UIViewController, GestureDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.engineKitView.scene = SCNScene.shared()
+        editorSceneManager = SceneManager()
+        editorSceneManager?.makeCurrentSceneManager()
+
+        self.engineKitView.scene = SCNScene.currentScene()
 
         self.propertiesButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Disabled)
         self.selectedItem = nil
@@ -194,10 +199,10 @@ class ViewController: UIViewController, GestureDelegate {
     }
 
     func rotateCamera(translation: Vector) {
-        let camera = Camera.shared()
+        let camera = self.editorSceneManager?.camera
 
-        cameraX = camera.rotation.rotate(Axis.x())
-        cameraY = camera.rotation.rotate(Axis.y())
+        cameraX = camera!.rotation.rotate(Axis.x())
+        cameraY = camera!.rotation.rotate(Axis.y())
 
         let resized = translation.times(0.02)
 
@@ -205,11 +210,11 @@ class ViewController: UIViewController, GestureDelegate {
 
         let rot = Rotation.create([axis, resized.normSquared])
 
-        camera.rotate(rot, around: Position.origin())
+        camera!.rotate(rot, around: Position.origin())
     }
 
     func sceneSetup() {
-        let scene = SCNScene.shared()
+        let scene = self.editorSceneManager?.scene
 
         var node = SCNNode()
         var light = SCNLight()
@@ -217,14 +222,14 @@ class ViewController: UIViewController, GestureDelegate {
         light.color = UIColor(white: 1.0, alpha: 1.0)
         node.light = light
         node.position = SCNVector3Make(3, 3, 3)
-        scene.rootNode.addChildNode(node)
+        scene!.rootNode.addChildNode(node)
 
         light = SCNLight()
         node = SCNNode()
         light.color = UIColor(white: 0.7, alpha: 1.0)
         node.light = light
         node.position = SCNVector3Make(-3, -3, -3)
-        scene.rootNode.addChildNode(node)
+        scene!.rootNode.addChildNode(node)
 
         light = SCNLight()
         node = SCNNode()
@@ -232,7 +237,7 @@ class ViewController: UIViewController, GestureDelegate {
         light.type = SCNLightTypeAmbient
         node.light = light
         node.position = SCNVector3Make(-3, -3, -3)
-        scene.rootNode.addChildNode(node)
+        scene!.rootNode.addChildNode(node)
 
         let gestures = Gestures.shared()
         let options = gestures.options
@@ -250,10 +255,12 @@ class ViewController: UIViewController, GestureDelegate {
         gestures.delegate = self
 
 
-        let camera = Camera.shared()
-        cameraX = camera.rotation.rotate(Axis.x())
-        cameraY = camera.rotation.rotate(Axis.y())
-        cameraZ = camera.rotation.rotate(Axis.z())
+        let camera = self.editorSceneManager?.camera
+        cameraX = camera!.rotation.rotate(Axis.x())
+        cameraY = camera!.rotation.rotate(Axis.y())
+        cameraZ = camera!.rotation.rotate(Axis.z())
+
+
 
         Parser.shared().parseFile("scene.fmt")
     }

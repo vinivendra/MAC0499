@@ -68,7 +68,7 @@ MenuController {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let template = itemClasses[indexPath.row]
 
-        let sceneManager = SceneManager.shared
+        let sceneManager = SceneManager.currentSceneManager()
         sceneManager.addItem(template)
     }
 

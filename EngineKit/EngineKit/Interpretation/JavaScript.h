@@ -4,20 +4,16 @@
 #import <JavaScriptCore/JavaScriptCore.h>
 
 #import "Gestures.h"
+#import "UI.h"
+#import "Camera.h"
 
 
 /*!
  A JavaScript manager class, used to handle the interaction between the
  Objective-C game architecture and the JavaScript code.
  */
-@interface JavaScript : NSObject <GestureDelegate>
-/*!
- The singleton instance of the JavaScript class. The class is meant to be used
- as a singleton and deals with other singleton instances, such as the SCNScene
- and the JSContext singletons.
- @return A singleton instance of the JavaScript class.
- */
-+ (JavaScript *)shared;
+@interface JavaScript : NSObject <GestureDelegate, UICallbackHandler>
+// TODO: doc
 /*!
  Initializes all needed JavaScript data and runs the file determined by the
  given @p filename, executing the code in its global scope and setting up
@@ -27,8 +23,8 @@
  name.
  @return An initialized JavaScript object set up to handle the given file.
  */
-- (instancetype)initWithFile:(NSString *)filename NS_DESIGNATED_INITIALIZER;
-
+- (instancetype)initWithFile:(NSString *)filename camera:(Camera *)camera UI:(UI *)ui;
+@property (nonatomic, weak) UI *ui;
 /*!
  Sets up the framework for use in the Javascript code, runs the global code and
  loads the necessary functions (such as @p load and @p update) so that they are

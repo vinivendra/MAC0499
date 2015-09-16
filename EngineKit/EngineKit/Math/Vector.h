@@ -6,13 +6,6 @@
 #import <JavaScriptCore/JavaScriptCore.h>
 #import <SceneKit/SceneKit.h>
 
-// Checklist
-// - constants
-// - vector withs
-// - inits
-// - to's
-// - isEqual's
-// - operations
 
 @class Vector;
 

@@ -3,6 +3,8 @@
 #import "Contact.h"
 #import "JavaScript.h"
 
+#import "SceneManager.h"
+
 #import "SCNNode+Extension.h"
 
 #import "NSArray+Extension.h"
@@ -83,7 +85,7 @@
 }
 
 - (instancetype)initWithArray:(NSArray *)array {
-    JSValue *action = [JavaScript shared].contactCallback;
+    JSValue *action = [SceneManager currentSceneManager].javaScript.contactCallback;
     self = [self initWithFirstItem:[array at:0]
                         secondItem:[array at:1]
                             action:action];
@@ -91,7 +93,7 @@
 }
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
-    JSValue *action = [JavaScript shared].contactCallback;
+    JSValue *action = [SceneManager currentSceneManager].javaScript.contactCallback;
     self = [self initWithFirstItem:dictionary[@"between"]
                         secondItem:dictionary[@"and"]
                             action:action];

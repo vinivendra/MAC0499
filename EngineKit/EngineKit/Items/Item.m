@@ -33,20 +33,20 @@ static NSUInteger globalID = 0;
 
 + (instancetype)create {
     Item *newItem = [self new];
-    [[SCNScene shared] addItem:newItem];
+    [[SCNScene currentScene] addItem:newItem];
     return newItem;
 }
 
 - (instancetype)create {
     Item *newItem = [self deepCopy];
-    [[SCNScene shared] addItem:newItem];
+    [[SCNScene currentScene] addItem:newItem];
     return newItem;
 }
 
 - (instancetype)initAndAddToScene {
     if (self = [super init]) {
         [self commonInit];
-        [[SCNScene shared] addItem:self];
+        [[SCNScene currentScene] addItem:self];
     }
     return self;
 }

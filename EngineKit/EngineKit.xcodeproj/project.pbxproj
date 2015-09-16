@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		249A03351BA9FC9C006EF4B0 /* SceneManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 249A03331BA9FC9C006EF4B0 /* SceneManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		249A03361BA9FC9C006EF4B0 /* SceneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 249A03341BA9FC9C006EF4B0 /* SceneManager.m */; settings = {ASSET_TAGS = (); }; };
+		249A03371BA9FC9C006EF4B0 /* SceneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 249A03341BA9FC9C006EF4B0 /* SceneManager.m */; settings = {ASSET_TAGS = (); }; };
 		24B810541BA073CA00EAA152 /* EngineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24B810491BA073CA00EAA152 /* EngineKit.framework */; };
 		24B810591BA073CA00EAA152 /* EngineKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B810581BA073CA00EAA152 /* EngineKitTests.m */; };
 		24B810641BA073FC00EAA152 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24B810631BA073FC00EAA152 /* JavaScriptCore.framework */; };
@@ -129,6 +132,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		249A03331BA9FC9C006EF4B0 /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneManager.h; sourceTree = "<group>"; };
+		249A03341BA9FC9C006EF4B0 /* SceneManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneManager.m; sourceTree = "<group>"; };
 		24B810491BA073CA00EAA152 /* EngineKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EngineKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		24B8104E1BA073CA00EAA152 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24B810531BA073CA00EAA152 /* EngineKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EngineKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -289,6 +294,8 @@
 			isa = PBXGroup;
 			children = (
 				24B811971BA0789800EAA152 /* EngineKit.h */,
+				249A03331BA9FC9C006EF4B0 /* SceneManager.h */,
+				249A03341BA9FC9C006EF4B0 /* SceneManager.m */,
 				24B811C21BA079D700EAA152 /* Includes */,
 				24B811D21BA079D700EAA152 /* ObjectiveSugar */,
 				24B811A71BA079D700EAA152 /* Extensions */,
@@ -525,6 +532,7 @@
 				24B812171BA07B1C00EAA152 /* EngineKitJSExtensions.h in Headers */,
 				24B811F81BA079D700EAA152 /* UIColor+Extension.h in Headers */,
 				24B812371BA07B5300EAA152 /* Camera.h in Headers */,
+				249A03351BA9FC9C006EF4B0 /* SceneManager.h in Headers */,
 				24B8124C1BA07B5300EAA152 /* Text.h in Headers */,
 				24B812691BA07BB100EAA152 /* Parser.h in Headers */,
 				24B812481BA07B5300EAA152 /* Pyramid.h in Headers */,
@@ -687,6 +695,7 @@
 				24B811EF1BA079D700EAA152 /* SCNGeometry+Extension.m in Sources */,
 				24B811E71BA079D700EAA152 /* NSNumber+Extension.m in Sources */,
 				24B811FE1BA079D700EAA152 /* Angle.m in Sources */,
+				249A03361BA9FC9C006EF4B0 /* SceneManager.m in Sources */,
 				24B811F91BA079D700EAA152 /* UIColor+Extension.m in Sources */,
 				24B811E11BA079D700EAA152 /* JSContext+Extension.m in Sources */,
 				24B8124B1BA07B5300EAA152 /* Sphere.m in Sources */,
@@ -723,6 +732,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				249A03371BA9FC9C006EF4B0 /* SceneManager.m in Sources */,
 				24B810591BA073CA00EAA152 /* EngineKitTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

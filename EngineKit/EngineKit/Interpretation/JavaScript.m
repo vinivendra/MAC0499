@@ -59,31 +59,25 @@ static NSString *_defaultFilename = @"main.js";
 @property (nonatomic, strong) JSValue *sliderCallback;
 
 @property (nonatomic, strong) NSArray *gestureCallbacks;
+
+@property (nonatomic, strong) Camera *camera;
 @end
 
 
 @implementation JavaScript
 
-+ (JavaScript *)shared {
-    static JavaScript *singleton;
-
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken,
-                  ^{
-                      singleton = [JavaScript new];
-                  });
-
-    return singleton;
-}
-
-- (instancetype)init {
-    self = [self initWithFile:_defaultFilename];
+- (instancetype)initWithCamera:(Camera *)camera UI:(UI *)ui {
+    self = [self initWithFile:_defaultFilename camera:camera UI:ui];
     return self;
 }
 
-- (instancetype)initWithFile:(NSString *)filename {
+- (instancetype)initWithFile:(NSString *)filename camera:(Camera *)camera UI:(UI *)ui {
     if (self = [super init]) {
-        assert([filename valid]);
+        self.camera = camera;
+        self.ui = ui;
+        if (!filename.valid) {
+            filename = _defaultFilename;
+        }
         self.filename = filename;
         self.context = [JSContext shared];
         [self setup];
@@ -145,7 +139,7 @@ static NSString *_defaultFilename = @"main.js";
     self.context[@"rotation"] = [Rotation class];
     self.context[@"angle"] = [Angle class];
 
-    self.context[@"camera"] = [Camera shared];
+    self.context[@"camera"] = self.camera;
 
     self.context[@"sphere"] = [Sphere class];
     self.context[@"box"] = [Box class];
@@ -166,7 +160,7 @@ static NSString *_defaultFilename = @"main.js";
     self.context[@"UIButton"] = [UIButton class];
     self.context[@"UISlider"] = [UISlider class];
     self.context[@"UILabel"] = [UILabel class];
-    self.context[@"UI"] = [UI shared];
+    self.context[@"UI"] = self.ui;
 
     self.context[@"alignmentRight"] = @(NSTextAlignmentRight);
     self.context[@"alignmentLeft"] = @(NSTextAlignmentLeft);

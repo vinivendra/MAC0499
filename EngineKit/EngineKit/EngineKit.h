@@ -19,5 +19,6 @@ FOUNDATION_EXPORT const unsigned char EngineKitVersionString[];
 #import <EngineKit/EngineKitMath.h>
 #import <EngineKit/EngineKitPhysics.h>
 #import <EngineKit/EngineKitUI.h>
+#import <EngineKit/SceneManager.h>
 
 #import <EngineKit/ObjectiveSugar.h>

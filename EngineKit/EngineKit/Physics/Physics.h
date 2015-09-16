@@ -20,13 +20,8 @@
  Meant as a replacement for the scene's physicsWorld property.
  */
 @interface Physics : NSObject <PhysicsExport, SCNPhysicsContactDelegate>
-/*!
- The singleton instance of the Physics class. The class is meant to be used as a
- singleton and manages only other singleton instances, such as the SCNScene
- singleton.
- @return A singleton instance of the Physics class.
- */
-+ (Physics *)shared;
+// TODO: doc
+- (instancetype)initWithScene:(SCNScene *)scene;
 /*!
  An easy way to access the shared SCNScene instance.
  @return The SCNScene singleton.

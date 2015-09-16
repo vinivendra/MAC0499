@@ -2,9 +2,13 @@
 
 #import "UI+Exports.h"
 
+#import "UI.h"
+
+#import "SceneManager.h"
+
 #import "Position.h"
 
-#import "UI.h"
+
 
 
 @implementation UIView (Export)
@@ -35,8 +39,8 @@
     [button setTitle:@"BOTAUM" forState:UIControlStateNormal];
     button.frame = CGRectMake(100, 100, 100, 50);
 
-    [[UI shared].view addSubview:button];
-    [UI shared].addButton = button;
+    [[SceneManager currentSceneManager].ui.view addSubview:button];
+    [SceneManager currentSceneManager].ui.addButton = button;
 
     return button;
 }
@@ -59,8 +63,8 @@
 
     slider.frame = CGRectMake(100, 100, 100, 50);
 
-    [[UI shared].view addSubview:slider];
-    [UI shared].addSlider = slider;
+    [[SceneManager currentSceneManager].ui.view addSubview:slider];
+    [SceneManager currentSceneManager].ui.addSlider = slider;
 
     return slider;
 }
@@ -75,7 +79,7 @@
 
 //    label.frame = CGRectMake(100, 100, 100, 50);
 
-    [[UI shared].view addSubview:label];
+    [[SceneManager currentSceneManager].ui.view addSubview:label];
 
     return label;
 }

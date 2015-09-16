@@ -1,7 +1,8 @@
 
 
-#import <EngineKit/EngineKit.h>
+#import <JavaScriptCore/JavaScriptCore.h>
 
+#import "Item.h"
 
 @class Camera;
 
@@ -19,6 +20,5 @@
 
 
 @interface Camera : Item <CameraExport>
-+ (Camera *)shared;
 - (void)lookAt:(id)object;
 @end
