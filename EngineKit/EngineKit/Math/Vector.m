@@ -239,15 +239,13 @@ unsigned long mutationsCounter;
                                    Z:self.z / scalar];
 }
 
-- (Vector *)plus:(id)object {
-    Vector *vector = [[[self class] alloc] initWithObject:object];
+- (Vector *)plus:(Vector *)vector {
     return [[[self class] alloc] initWithX:self.x + vector.x
                                    Y:self.y + vector.y
                                    Z:self.z + vector.z];
 }
 
-- (Vector *)minus:(id)object {
-    Vector *vector = [[[self class] alloc] initWithObject:object];
+- (Vector *)minus:(Vector *)vector {
     return [[[self class] alloc] initWithX:self.x - vector.x
                                    Y:self.y - vector.y
                                    Z:self.z - vector.z];
@@ -257,8 +255,7 @@ unsigned long mutationsCounter;
     return [[[self class] alloc] initWithX:-self.x Y:-self.y Z:-self.z];
 }
 
-- (CGFloat)dot:(id)object {
-    Vector *vector = [[[self class] alloc] initWithObject:object];
+- (CGFloat)dot:(Vector *)vector {
     return self.x * vector.x + self.y * vector.y + self.z * vector.z;
 }
 
@@ -279,8 +276,7 @@ unsigned long mutationsCounter;
     return [vector plus:self];
 }
 
-- (Vector *)scale:(id)object {
-    Vector *vector = [[[self class] alloc] initWithObject:object];
+- (Vector *)scale:(Vector *)vector {
     return [[[self class] alloc] initWithX:self.x * vector.x
                                    Y:self.y * vector.y
                                    Z:self.z * vector.z];

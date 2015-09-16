@@ -1,6 +1,8 @@
 // TODO: Create a copy method for all exported classes.
 // TODO: Test rotation for non normalized vectors
 
+// TODO: Fix the documentations for the arithmetic operations (they say "object" but should say "vector")
+
 #import <JavaScriptCore/JavaScriptCore.h>
 #import <SceneKit/SceneKit.h>
 
@@ -336,7 +338,7 @@
  @return A new instance of a `Vector` object.
  @see minus:
  */
-- (Vector *)plus:(id)object;
+- (Vector *)plus:(Vector *)vector;
 /*!
  Creates a new `Vector` from the given `object` by calling `initWithObject:`.
  Subtracts this new `Vector` from the receiver and returns the result.
@@ -351,7 +353,7 @@
  @return A new instance of a `Vector` object.
  @see plus:
  */
-- (Vector *)minus:(id)object;
+- (Vector *)minus:(Vector *)vector;
 /*!
  Creates a new `Vector`, representing the opposite from the given `Vector`.
 
@@ -375,7 +377,7 @@
  @see normSquared
  @see norm
  */
-- (CGFloat)dot:(id)object;
+- (CGFloat)dot:(Vector *)vector;
 /*!
  Returns the squared norm of the receiver.
 
@@ -430,7 +432,7 @@
  @see plus:
  @see scale:
  */
-- (Vector *)translate:(id)object;
+- (Vector *)translate:(Vector *)vector;
 /*!
  Creates a new `Vector` from the given `object` by calling `initWithObject:`.
  That `Vector` is then scaled, using the receiver as a scale `Vector`.
@@ -446,7 +448,7 @@
  @return A new intance of a `Vector` object.
  @see translate:
  */
-- (Vector *)scale:(id)object;
+- (Vector *)scale:(Vector *)vector;
 /*!
  Applies the translation the receiver represents to the given `SCNMatrix4`.
  @param matrix The matrix to translate.
