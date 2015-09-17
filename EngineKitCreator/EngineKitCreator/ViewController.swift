@@ -43,13 +43,7 @@ class ViewController: UIViewController, GestureDelegate, MenuManager {
         }
         set {
             editorSceneManager?.selectedItem = newValue
-
-            if (newValue != nil) {
-                propertiesButton.enabled = true
-            }
-            else {
-                propertiesButton.enabled = false
-            }
+            updatePropertiesButtonForSelectedItem(newValue)
         }
     }
 
@@ -104,6 +98,7 @@ class ViewController: UIViewController, GestureDelegate, MenuManager {
         }
         else {
             hideMenu()
+            updatePropertiesButtonForSelectedItem(selectedItem)
         }
     }
 
@@ -191,6 +186,15 @@ class ViewController: UIViewController, GestureDelegate, MenuManager {
     // MARK: - Actions
 
     // MARK: UI Actions
+
+    func updatePropertiesButtonForSelectedItem(selectedItem: Item?) {
+        if (selectedItem != nil) {
+            propertiesButton.enabled = true
+        }
+        else {
+            propertiesButton.enabled = false
+        }
+    }
 
     func hideUI() {
         hideMenu()
