@@ -15,6 +15,8 @@
  @param item The Item to be added to the scene.
  */
 - (void)addItem:(Item *)item;
+// TODO: doc
+- (void)deepCopyToScene:(SCNScene *)scene;
 @end
 
 

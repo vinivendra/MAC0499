@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		245991711BAB009B008E8F60 /* Light.h in Headers */ = {isa = PBXBuildFile; fileRef = 2459916F1BAB009B008E8F60 /* Light.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		245991721BAB009B008E8F60 /* Light.m in Sources */ = {isa = PBXBuildFile; fileRef = 245991701BAB009B008E8F60 /* Light.m */; settings = {ASSET_TAGS = (); }; };
 		249A03351BA9FC9C006EF4B0 /* SceneManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 249A03331BA9FC9C006EF4B0 /* SceneManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		249A03361BA9FC9C006EF4B0 /* SceneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 249A03341BA9FC9C006EF4B0 /* SceneManager.m */; settings = {ASSET_TAGS = (); }; };
 		249A03371BA9FC9C006EF4B0 /* SceneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 249A03341BA9FC9C006EF4B0 /* SceneManager.m */; settings = {ASSET_TAGS = (); }; };
@@ -132,6 +134,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2459916F1BAB009B008E8F60 /* Light.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Light.h; sourceTree = "<group>"; };
+		245991701BAB009B008E8F60 /* Light.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Light.m; sourceTree = "<group>"; };
 		249A03331BA9FC9C006EF4B0 /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneManager.h; sourceTree = "<group>"; };
 		249A03341BA9FC9C006EF4B0 /* SceneManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneManager.m; sourceTree = "<group>"; };
 		24B810491BA073CA00EAA152 /* EngineKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EngineKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -429,6 +433,8 @@
 		24B812181BA07B5300EAA152 /* Items */ = {
 			isa = PBXGroup;
 			children = (
+				2459916F1BAB009B008E8F60 /* Light.h */,
+				245991701BAB009B008E8F60 /* Light.m */,
 				24B812191BA07B5300EAA152 /* Camera.h */,
 				24B8121A1BA07B5300EAA152 /* Camera.m */,
 				24B8121B1BA07B5300EAA152 /* Item.h */,
@@ -539,6 +545,7 @@
 				24B811F01BA079D700EAA152 /* SCNNode+Extension.h in Headers */,
 				24B811E81BA079D700EAA152 /* NSString+Extension.h in Headers */,
 				24B812051BA079D700EAA152 /* Vector.h in Headers */,
+				245991711BAB009B008E8F60 /* Light.h in Headers */,
 				24B812151BA07ACE00EAA152 /* EngineKitUIExtensions.h in Headers */,
 				24B811EA1BA079D700EAA152 /* SCN+Exports.h in Headers */,
 				24B811E21BA079D700EAA152 /* NSArray+Extension.h in Headers */,
@@ -713,6 +720,7 @@
 				24B812001BA079D700EAA152 /* Axis.m in Sources */,
 				24B8126A1BA07BB100EAA152 /* Parser.m in Sources */,
 				24B812681BA07BB100EAA152 /* JavaScript.m in Sources */,
+				245991721BAB009B008E8F60 /* Light.m in Sources */,
 				24B812381BA07B5300EAA152 /* Camera.m in Sources */,
 				24B812041BA079D700EAA152 /* Rotation.m in Sources */,
 				24B812531BA07B5300EAA152 /* Shape.m in Sources */,

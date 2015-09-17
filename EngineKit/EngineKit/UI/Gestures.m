@@ -29,18 +29,6 @@
 
 @implementation Gestures
 
-+ (Gestures *)shared {
-    static Gestures *singleton;
-
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken,
-                  ^{
-                      singleton = [self new];
-                  });
-
-    return singleton;
-}
-
 - (instancetype)init {
     if (self = [super init]) {
         self.options =

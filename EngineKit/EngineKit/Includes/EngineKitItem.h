@@ -3,6 +3,7 @@
 
 #import "Item.h"
 
+#import "Light.h"
 #import "Camera.h"
 #import "Shape.h"
 

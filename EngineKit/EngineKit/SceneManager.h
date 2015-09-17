@@ -24,8 +24,7 @@
 @property (nonatomic, strong, readonly) Camera *camera;
 @property (nonatomic, strong, readonly) JavaScript *javaScript;
 @property (nonatomic, strong, readonly) UI *ui;
-
-@property (nonatomic, strong) Shape *selectedItem;
+@property (nonatomic, strong, readonly) Gestures *gestures;
 
 - (void)addItemFromTemplate:(Item *)template;
 - (void)addItem:(Item *)item;

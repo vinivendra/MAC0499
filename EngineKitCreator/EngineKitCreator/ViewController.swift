@@ -1,4 +1,5 @@
-
+// TODO: Create light items and substitute the light nodes for them
+// TODO: Allow loading fmt files from javascript, stop loading them from code.
 
 import UIKit
 import EngineKit
@@ -8,6 +9,7 @@ enum ViewControllerStates {
     case Neutral
     case ChoosingObject
     case ChangingProperties
+    case Playing
 }
 
 
@@ -16,8 +18,10 @@ class ViewController: UIViewController, GestureDelegate {
     @IBOutlet weak var propertiesButton: UIButton!
     @IBOutlet weak var objectsButton: UIButton!
     @IBOutlet weak var engineKitView: SCNView!
+    @IBOutlet weak var playButton: UIButton!
 
-    var editorSceneManager: SceneManager?
+    var editorSceneManager: EditorSceneManager?
+    var playerSceneManager: PlayerSceneManager?
 
     var menuView: MenuView?
     var menuController: MenuController?
@@ -44,38 +48,52 @@ class ViewController: UIViewController, GestureDelegate {
 
     var state: ViewControllerStates? {
         willSet {
-            setState(newValue)
+            if (state != newValue) {
+                if (state == .Neutral) {            // From neutral
+                    if (newValue != .Neutral) {     // To something
+                        changeState(state, toState: newValue)
+                    }
+                }
+                else {                              // From something
+                    if (newValue == .Neutral) {     // To neutral
+                        changeState(state, toState: newValue)
+                    }
+                    else {                          // To something else
+                        changeState(state, toState: .Neutral)
+                        changeState(.Neutral, toState: newValue)
+                    }
+                }
+            }
         }
     }
 
-    func setState(newValue: ViewControllerStates?) {
-        if (state == .Neutral) {
-            if (newValue == .ChoosingObject) {
+    func changeState(fromState: ViewControllerStates?, toState: ViewControllerStates?) {
+        if (fromState == .Neutral) {
+            if (toState == .ChoosingObject) {
                 menuController = ObjectsMenuController()
                 showMenuForButton(objectsButton)
-            } else if (newValue == .ChangingProperties) {
+            }
+            else if (toState == .ChangingProperties) {
                 if let selectedItem = selectedItem {
                     menuController = PropertiesMenuViewController(item: selectedItem)
                     showMenuForButton(propertiesButton)
                 }
             }
-        }
-        else if (state == .ChoosingObject) {
-            if (newValue == .Neutral) {
-                hideMenu()
-            } else if (newValue == .ChangingProperties) {
-                state = .Neutral
-                state = .ChangingProperties
+            else if (toState == .Playing) {
+                hideUI()
+                createPlayScene()
+                switchToSceneManager(playerSceneManager)
             }
         }
-        else if (state == .ChangingProperties) {
-            if (newValue == .Neutral) {
-                hideMenu()
-            } else if (newValue == .ChoosingObject) {
-                hideMenu()
-                state = .Neutral
-                state = .ChoosingObject
-            }
+        else if (fromState == .ChoosingObject) {
+            hideMenu()
+        }
+        else if (fromState == .ChangingProperties) {
+            hideMenu()
+        }
+        else if (fromState == .Playing) {
+            showUI()
+            switchToSceneManager(editorSceneManager)
         }
     }
 
@@ -140,15 +158,12 @@ class ViewController: UIViewController, GestureDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        editorSceneManager = SceneManager()
-        editorSceneManager?.makeCurrentSceneManager()
-
-        self.engineKitView.scene = SCNScene.currentScene()
+        editorSceneManager = EditorSceneManager()
+        switchToSceneManager(editorSceneManager)
+        setupCurrentScene(editorSceneManager!)
 
         self.propertiesButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Disabled)
         self.selectedItem = nil
-
-        sceneSetup()
 
         state = .Neutral
     }
@@ -160,6 +175,27 @@ class ViewController: UIViewController, GestureDelegate {
     // MARK: - Actions
 
     // MARK: UI Actions
+
+    func hideUI() {
+        hideMenu()
+        hideButtons()
+        playButton.setTitle("Edit", forState: UIControlState.Normal)
+    }
+
+    func showUI() {
+        showButtons()
+        playButton.setTitle("Play", forState: UIControlState.Normal)
+    }
+
+    func hideButtons() {
+        objectsButton.hidden = true
+        propertiesButton.hidden = true
+    }
+
+    func showButtons() {
+        objectsButton.hidden = false
+        propertiesButton.hidden = false
+    }
 
     func hideMenu() {
         menuView?.removeFromSuperview()
@@ -177,6 +213,22 @@ class ViewController: UIViewController, GestureDelegate {
     }
 
     // MARK: Scene Actions
+
+    func createPlayScene() {
+        playerSceneManager = PlayerSceneManager()
+        editorSceneManager?.scene.deepCopyToScene(playerSceneManager?.scene)
+    }
+
+    func switchToSceneManager(sceneManager: SceneManager?) {
+        engineKitView.scene = sceneManager?.scene
+        sceneManager?.makeCurrentSceneManager()
+
+        if let camera = sceneManager?.camera {
+            cameraX = camera.rotation.rotate(Axis.x())
+            cameraY = camera.rotation.rotate(Axis.y())
+            cameraZ = camera.rotation.rotate(Axis.z())
+        }
+    }
 
     func selectItem(item: Shape) {
         selectedItem = item
@@ -199,7 +251,7 @@ class ViewController: UIViewController, GestureDelegate {
     }
 
     func rotateCamera(translation: Vector) {
-        let camera = self.editorSceneManager?.camera
+        let camera = SceneManager.currentSceneManager().camera
 
         cameraX = camera!.rotation.rotate(Axis.x())
         cameraY = camera!.rotation.rotate(Axis.y())
@@ -213,33 +265,26 @@ class ViewController: UIViewController, GestureDelegate {
         camera!.rotate(rot, around: Position.origin())
     }
 
-    func sceneSetup() {
-        let scene = self.editorSceneManager?.scene
+    func setupCurrentScene(sceneManager: SceneManager) {
+        let scene = sceneManager.scene
 
-        var node = SCNNode()
-        var light = SCNLight()
-
+        var light = Light()
         light.color = UIColor(white: 1.0, alpha: 1.0)
-        node.light = light
-        node.position = SCNVector3Make(3, 3, 3)
-        scene!.rootNode.addChildNode(node)
+        light.position = Position(x:3, y:3, z:3)
+        scene!.addItem(light)
 
-        light = SCNLight()
-        node = SCNNode()
+        light = Light()
         light.color = UIColor(white: 0.7, alpha: 1.0)
-        node.light = light
-        node.position = SCNVector3Make(-3, -3, -3)
-        scene!.rootNode.addChildNode(node)
+        light.position = Position(x:-3, y:-3, z:-3)
+        scene!.addItem(light)
 
-        light = SCNLight()
-        node = SCNNode()
-        light.color = UIColor(white: 0.4, alpha: 1.0)
+        light = Light()
         light.type = SCNLightTypeAmbient
-        node.light = light
-        node.position = SCNVector3Make(-3, -3, -3)
-        scene!.rootNode.addChildNode(node)
+        light.color = UIColor(white: 0.4, alpha: 1.0)
+        light.position = Position(x:-3, y:-3, z:-3)
+        scene!.addItem(light)
 
-        let gestures = Gestures.shared()
+        let gestures = sceneManager.gestures
         let options = gestures.options
 
         gestures.sceneView = engineKitView
@@ -254,18 +299,19 @@ class ViewController: UIViewController, GestureDelegate {
 
         gestures.delegate = self
 
-
-        let camera = self.editorSceneManager?.camera
-        cameraX = camera!.rotation.rotate(Axis.x())
-        cameraY = camera!.rotation.rotate(Axis.y())
-        cameraZ = camera!.rotation.rotate(Axis.z())
-
-
-
         Parser.shared().parseFile("scene.fmt")
     }
 
     // MARK: - IBActions
+
+    @IBAction func playButtonPressed(sender: AnyObject) {
+        if (state == .Neutral) {
+            state = .Playing
+        }
+        else {
+            state = .Neutral
+        }
+    }
 
     @IBAction func propertiesButtonTap(sender: AnyObject) {
         if (state == .ChangingProperties) {

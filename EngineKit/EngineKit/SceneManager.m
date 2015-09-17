@@ -18,6 +18,7 @@ static SceneManager *currentSceneManager;
 @property (nonatomic, strong) Camera *camera;
 @property (nonatomic, strong) JavaScript *javaScript;
 @property (nonatomic, strong) UI *ui;
+@property (nonatomic, strong) Gestures *gestures;
 @end
 
 
@@ -37,6 +38,7 @@ static SceneManager *currentSceneManager;
         self.scene = [SCNScene new];
         self.physics = [[Physics alloc] initWithScene:self.scene];
         self.camera = [[Camera alloc] init];
+        self.gestures = [[Gestures alloc] init];
         self.ui = [[UI alloc] init];
         self.javaScript = [[JavaScript alloc] initWithFile:nil
                                                     camera:self.camera
@@ -69,7 +71,6 @@ static SceneManager *currentSceneManager;
 
     [self.scene addItem:item];
 }
-
 
 @end
 

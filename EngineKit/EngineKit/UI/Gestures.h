@@ -40,12 +40,6 @@ typedef NS_ENUM(NSUInteger, GestureRecognizers) {
 
 @interface Gestures : NSObject
 /*!
- The singleton instance of the Gestures class. The class is meant to be used as
- a singleton may deal with other singleton instances.
- @return A singleton instance of the Gestures class.
- */
-+ (Gestures *)shared;
-/*!
  The view to which the Gestures object should add the Gesture Recognizers.
  Ideally, this should be either the sceneView itself or a view in front of the 
  scene view, one that has no views in front of it to intercept touch events.
