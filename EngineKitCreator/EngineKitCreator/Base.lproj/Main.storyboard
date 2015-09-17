@@ -42,6 +42,13 @@
                                     <action selector="playButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ibL-mN-4AY"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B3R-1c-gVA">
+                                <rect key="frame" x="246" y="28" width="42" height="30"/>
+                                <state key="normal" title="Items'"/>
+                                <connections>
+                                    <action selector="itemsButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E4V-u4-mCD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -53,6 +60,7 @@
                     </view>
                     <connections>
                         <outlet property="engineKitView" destination="IPS-ES-w43" id="hxp-Sb-Cc4"/>
+                        <outlet property="itemsButton" destination="B3R-1c-gVA" id="LCw-1T-zV1"/>
                         <outlet property="objectsButton" destination="Kpq-wj-0cB" id="XDe-EC-ecf"/>
                         <outlet property="playButton" destination="lOE-F0-L8c" id="wzy-ha-QG9"/>
                         <outlet property="propertiesButton" destination="FV0-bx-iOg" id="Xuc-Ye-Yzg"/>

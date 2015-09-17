@@ -13,6 +13,8 @@
 		240C86E81BA3771B004F6794 /* PropertiesMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 240C86E61BA3771B004F6794 /* PropertiesMenuViewController.xib */; };
 		2459916A1BAAF27E008E8F60 /* EditorSceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245991691BAAF27E008E8F60 /* EditorSceneManager.swift */; settings = {ASSET_TAGS = (); }; };
 		2459916E1BAAF362008E8F60 /* PlayerSceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2459916D1BAAF362008E8F60 /* PlayerSceneManager.swift */; settings = {ASSET_TAGS = (); }; };
+		245991781BAB3E14008E8F60 /* ItemsMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245991771BAB3E14008E8F60 /* ItemsMenuViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		2459917A1BAB3E43008E8F60 /* ItemsMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 245991791BAB3E43008E8F60 /* ItemsMenuViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		24B813281BA0A67C00EAA152 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B813271BA0A67C00EAA152 /* AppDelegate.swift */; };
 		24B8132A1BA0A67C00EAA152 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B813291BA0A67C00EAA152 /* ViewController.swift */; };
 		24B8132D1BA0A67C00EAA152 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24B8132B1BA0A67C00EAA152 /* Main.storyboard */; };
@@ -65,6 +67,8 @@
 		240C86E61BA3771B004F6794 /* PropertiesMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PropertiesMenuViewController.xib; sourceTree = "<group>"; };
 		245991691BAAF27E008E8F60 /* EditorSceneManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorSceneManager.swift; sourceTree = "<group>"; };
 		2459916D1BAAF362008E8F60 /* PlayerSceneManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerSceneManager.swift; path = EngineKitCreator/PlayerSceneManager.swift; sourceTree = "<group>"; };
+		245991771BAB3E14008E8F60 /* ItemsMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsMenuViewController.swift; sourceTree = "<group>"; };
+		245991791BAB3E43008E8F60 /* ItemsMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemsMenuViewController.xib; sourceTree = "<group>"; };
 		24B813241BA0A67C00EAA152 /* EngineKitCreator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EngineKitCreator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24B813271BA0A67C00EAA152 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24B813291BA0A67C00EAA152 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -141,9 +145,11 @@
 				24B8135F1BA0A6D200EAA152 /* MenuView.swift */,
 				24B813601BA0A6D200EAA152 /* ObjectsMenuController.swift */,
 				24B813631BA0B73D00EAA152 /* ObjectsCell.swift */,
+				24B813651BA0B77200EAA152 /* ObjectsCell.xib */,
 				240C86E51BA3771B004F6794 /* PropertiesMenuViewController.swift */,
 				240C86E61BA3771B004F6794 /* PropertiesMenuViewController.xib */,
-				24B813651BA0B77200EAA152 /* ObjectsCell.xib */,
+				245991771BAB3E14008E8F60 /* ItemsMenuViewController.swift */,
+				245991791BAB3E43008E8F60 /* ItemsMenuViewController.xib */,
 				24B8132B1BA0A67C00EAA152 /* Main.storyboard */,
 				245991691BAAF27E008E8F60 /* EditorSceneManager.swift */,
 				24B8132E1BA0A67C00EAA152 /* Assets.xcassets */,
@@ -313,6 +319,7 @@
 			files = (
 				24B813321BA0A67C00EAA152 /* LaunchScreen.storyboard in Resources */,
 				240C86E81BA3771B004F6794 /* PropertiesMenuViewController.xib in Resources */,
+				2459917A1BAB3E43008E8F60 /* ItemsMenuViewController.xib in Resources */,
 				24B8132F1BA0A67C00EAA152 /* Assets.xcassets in Resources */,
 				24B813661BA0B77200EAA152 /* ObjectsCell.xib in Resources */,
 				24B8132D1BA0A67C00EAA152 /* Main.storyboard in Resources */,
@@ -347,6 +354,7 @@
 				24B813621BA0A6D200EAA152 /* ObjectsMenuController.swift in Sources */,
 				240C86E71BA3771B004F6794 /* PropertiesMenuViewController.swift in Sources */,
 				24B813641BA0B73D00EAA152 /* ObjectsCell.swift in Sources */,
+				245991781BAB3E14008E8F60 /* ItemsMenuViewController.swift in Sources */,
 				24B813611BA0A6D200EAA152 /* MenuView.swift in Sources */,
 				24B813281BA0A67C00EAA152 /* AppDelegate.swift in Sources */,
 				2459916A1BAAF27E008E8F60 /* EditorSceneManager.swift in Sources */,

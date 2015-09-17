@@ -72,6 +72,4 @@
  resetting the materials in JavaScript.
  */
 @property (nonatomic, strong) id materials;
-// TODO: Documentation
-@property (nonatomic, getter=isSelected) BOOL selected;
 @end

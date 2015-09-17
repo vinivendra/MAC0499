@@ -9,12 +9,19 @@ enum ViewControllerStates {
     case Neutral
     case ChoosingObject
     case ChangingProperties
+    case ChoosingItem
     case Playing
 }
 
 
-class ViewController: UIViewController, GestureDelegate {
+protocol MenuManager {
+    func dismissMenu()
+}
 
+
+class ViewController: UIViewController, GestureDelegate, MenuManager {
+
+    @IBOutlet weak var itemsButton: UIButton!
     @IBOutlet weak var propertiesButton: UIButton!
     @IBOutlet weak var objectsButton: UIButton!
     @IBOutlet weak var engineKitView: SCNView!
@@ -30,7 +37,7 @@ class ViewController: UIViewController, GestureDelegate {
     var cameraY: Vector?
     var cameraZ: Vector?
 
-    var selectedItem: Shape? {
+    var selectedItem: Item? {
         get {
             return editorSceneManager?.selectedItem
         }
@@ -79,25 +86,34 @@ class ViewController: UIViewController, GestureDelegate {
                     showMenuForButton(propertiesButton)
                 }
             }
+            else if (toState == .ChoosingItem) {
+                let itemController = ItemsMenuViewController()
+                itemController.manager = self
+                menuController = itemController
+                showMenuForButton(itemsButton)
+            }
             else if (toState == .Playing) {
                 hideUI()
                 createPlayScene()
                 switchToSceneManager(playerSceneManager)
             }
         }
-        else if (fromState == .ChoosingObject) {
-            hideMenu()
-        }
-        else if (fromState == .ChangingProperties) {
-            hideMenu()
-        }
         else if (fromState == .Playing) {
             showUI()
             switchToSceneManager(editorSceneManager)
         }
+        else {
+            hideMenu()
+        }
     }
 
-    // Mark: - GestureDelegate
+    // MARK: - MenuManager
+
+    func dismissMenu() {
+        state = .Neutral
+    }
+
+    // MARK: - GestureDelegate
 
     func callGestureCallbackForGesture(gesture: UIGestures, state: UIGestureRecognizerState, withArguments arguments: [AnyObject]!) {
         if (gesture == UIGestures.PanGesture && state == UIGestureRecognizerState.Changed) {
@@ -230,12 +246,12 @@ class ViewController: UIViewController, GestureDelegate {
         }
     }
 
-    func selectItem(item: Shape) {
+    func selectItem(item: Item) {
         selectedItem = item
         item.selected = true
     }
 
-    func deselectItem(item: Shape) {
+    func deselectItem(item: Item) {
         item.selected = false
         selectedItem = nil
     }
@@ -307,6 +323,15 @@ class ViewController: UIViewController, GestureDelegate {
     @IBAction func playButtonPressed(sender: AnyObject) {
         if (state == .Neutral) {
             state = .Playing
+        }
+        else {
+            state = .Neutral
+        }
+    }
+
+    @IBAction func itemsButtonTap(sender: AnyObject) {
+        if (state == .Neutral) {
+            state = .ChoosingItem
         }
         else {
             state = .Neutral

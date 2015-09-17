@@ -14,7 +14,7 @@
 @property (nonatomic, strong) id materials;
 @property (nonatomic, getter=isSelected) BOOL selected;
 //
-- (void)destroy;
+- (void)hide;
 @property (nonatomic, strong) id position;
 @property (nonatomic, strong) id rotation;
 @property (nonatomic, strong) id scale;

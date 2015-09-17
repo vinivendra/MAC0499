@@ -20,7 +20,7 @@
 - (void)addItem:(Item *)newItem;
 - (void)rotate:(id)rotation;
 - (void)rotate:(id)rotation around:(id)anchor;
-- (void)destroy;
+- (void)hide;
 @property (nonatomic, weak, readonly) Item *parent;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) id position;
@@ -35,7 +35,9 @@
  Basically, it's a wrapper for @p SCNNode.
  */
 @interface Item : NSObject <ItemExport>
-
+// TODO: Documentation
+@property (nonatomic, getter=isSelected) BOOL selected;
+@property (nonatomic) BOOL hidden;
 /*!
  Initializes the `Item` and adds it to the scene. Meant to be used by any
  subclasses' initializers that are exported to JavaScript.
@@ -71,7 +73,7 @@
  This method removes the Item's Node (and all its subnodes) from the Scene Graph
  and readies the Item for destruction.
  */
-- (void)destroy;
+- (void)hide;
 /*!
  Creates a deep copy of the receiver, including in it any relevant information.
  @return A new instance of Item, representing a copy of the receiver.

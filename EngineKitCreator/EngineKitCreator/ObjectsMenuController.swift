@@ -4,7 +4,7 @@ import UIKit
 import EngineKit
 
 
-let id = "cellID"
+private let id = "cellID"
 
 
 protocol MenuController {

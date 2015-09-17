@@ -74,10 +74,12 @@ static NSUInteger globalID = 0;
     return globalID++;
 }
 
-// FIXME: Destroying an item should free its memory.
-- (void)destroy {
-    self.node.hidden = YES;
-    self.node.position = SCNVector3Make(FLT_MAX, FLT_MAX, FLT_MAX);
+- (void)setHidden:(BOOL)hidden {
+    self.node.hidden = hidden;
+}
+
+- (BOOL)hidden {
+    return self.node.hidden;
 }
 
 - (void)addItem:(Item *)newItem {
@@ -175,7 +177,6 @@ static NSUInteger globalID = 0;
 - (SCNGeometry *)geometry {
     return self.node.geometry;
 }
-
 
 - (void)setParent:(Item *)parent {
     _parent = parent;
