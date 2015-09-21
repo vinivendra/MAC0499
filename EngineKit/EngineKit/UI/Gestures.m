@@ -23,7 +23,6 @@
 
 @property (nonatomic, strong) NSArray *classes;
 @property (nonatomic, strong) NSArray *selectors;
-@property (nonatomic, strong) NSMutableDictionary *options;
 @end
 
 
@@ -31,8 +30,7 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.options =
-            [[NSMutableDictionary alloc] initWithCapacity:GestureRecognizersCount];
+        
     }
     return self;
 }
@@ -41,18 +39,16 @@
 
 - (void)setupGestures {
     for (int i = 0; i < GestureRecognizersCount; i++) {
-        if (((NSNumber *)self.options[@(i)]).boolValue) {
-            Class class = self.classes[i];
-            SEL handler = NSSelectorFromString(self.selectors[i]);
+        Class class = self.classes[i];
+        SEL handler = NSSelectorFromString(self.selectors[i]);
 
-            UIGestureRecognizer *gesture = [class new];
-            [gesture addTarget:self action:handler];
+        UIGestureRecognizer *gesture = [class new];
+        [gesture addTarget:self action:handler];
 
-            if (i <= SwipeUpRecognizer)
-                ((UISwipeGestureRecognizer *)gesture).direction = 1 << i;
+        if (i <= SwipeUpRecognizer)
+            ((UISwipeGestureRecognizer *)gesture).direction = 1 << i;
 
-            [self.gesturesView addGestureRecognizer:gesture];
-        }
+        [self.gesturesView addGestureRecognizer:gesture];
     }
 }
 

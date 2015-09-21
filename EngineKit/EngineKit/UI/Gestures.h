@@ -49,6 +49,7 @@ typedef NS_ENUM(NSUInteger, GestureRecognizers) {
  The scene view used to test hits on taps and other similar gestures.
  */
 @property (nonatomic, weak) SCNView *sceneView;
+// TODO: Fix this doc
 /*!
  Tells the Gestures object to add the gesture recognizers the user opted to
  have, which automatically starts sending messages to the Javascript tap
@@ -59,15 +60,6 @@ typedef NS_ENUM(NSUInteger, GestureRecognizers) {
  GestureRecognizers enum.
  */
 - (void)setupGestures;
-// TODO: Fix this doc
-/*!
- The array used to inform the Gestures object which gesture recognizers should
- be initialized and added to the @p gesturesView. This is done based on the @p
- GestureRecognizers enum, which indicates the correct indices. All objects in
- this array have value @(NO); in order to opt into a specific gesture
- recognizer, change its index's value to @(YES).
- */
-@property (nonatomic, strong, readonly) NSMutableDictionary *options;
 // TODO: Add this doc
 @property (nonatomic, weak) id<GestureDelegate> delegate;
 @end

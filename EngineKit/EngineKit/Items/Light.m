@@ -51,7 +51,7 @@ static Sphere *selectionSphere;
                                 @"ambient".lowercaseString: SCNLightTypeAmbient,
                                 @"directional".lowercaseString: SCNLightTypeAmbient,
                                 @"omni".lowercaseString: SCNLightTypeAmbient,
-                                @"spot".lowercaseString: SCNLightTypeAmbient,};
+                                @"spot".lowercaseString: SCNLightTypeAmbient};
                   });
 
     return types[string.lowercaseString];

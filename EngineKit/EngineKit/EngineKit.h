@@ -22,3 +22,5 @@ FOUNDATION_EXPORT const unsigned char EngineKitVersionString[];
 #import <EngineKit/SceneManager.h>
 
 #import <EngineKit/ObjectiveSugar.h>
+
+#import <EngineKit/EngineKit-Swift.h>

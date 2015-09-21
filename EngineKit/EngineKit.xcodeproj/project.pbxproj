@@ -121,6 +121,8 @@
 		24B812CE1BA09C4C00EAA152 /* EngineKitItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 24B812CD1BA09C4C00EAA152 /* EngineKitItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24B812D01BA09CD800EAA152 /* EngineKitNSExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 24B812CF1BA09CD800EAA152 /* EngineKitNSExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24B812D21BA09D6000EAA152 /* EngineKitHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 24B812D11BA09D6000EAA152 /* EngineKitHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24DC4B701BB074CC00935A35 /* TriggerActionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DC4B6E1BB074CC00935A35 /* TriggerActionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24DC4B711BB074CC00935A35 /* TriggerActionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DC4B6F1BB074CC00935A35 /* TriggerActionManager.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -250,6 +252,8 @@
 		24B812CD1BA09C4C00EAA152 /* EngineKitItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EngineKitItem.h; sourceTree = "<group>"; };
 		24B812CF1BA09CD800EAA152 /* EngineKitNSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EngineKitNSExtensions.h; sourceTree = "<group>"; };
 		24B812D11BA09D6000EAA152 /* EngineKitHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EngineKitHelpers.h; sourceTree = "<group>"; };
+		24DC4B6E1BB074CC00935A35 /* TriggerActionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriggerActionManager.h; sourceTree = "<group>"; };
+		24DC4B6F1BB074CC00935A35 /* TriggerActionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriggerActionManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,6 +301,8 @@
 		24B8104B1BA073CA00EAA152 /* EngineKit */ = {
 			isa = PBXGroup;
 			children = (
+				24DC4B6E1BB074CC00935A35 /* TriggerActionManager.h */,
+				24DC4B6F1BB074CC00935A35 /* TriggerActionManager.m */,
 				24B811971BA0789800EAA152 /* EngineKit.h */,
 				249A03331BA9FC9C006EF4B0 /* SceneManager.h */,
 				249A03341BA9FC9C006EF4B0 /* SceneManager.m */,
@@ -559,6 +565,7 @@
 				24B812701BA07BC400EAA152 /* Contact.h in Headers */,
 				24B812011BA079D700EAA152 /* Position.h in Headers */,
 				24B811FA1BA079D700EAA152 /* EngineKitExtensions.h in Headers */,
+				24DC4B701BB074CC00935A35 /* TriggerActionManager.h in Headers */,
 				24B811E41BA079D700EAA152 /* NSDictionary+Extension.h in Headers */,
 				24B811E61BA079D700EAA152 /* NSNumber+Extension.h in Headers */,
 				24B811F41BA079D700EAA152 /* SCNScene+Extension.h in Headers */,
@@ -716,6 +723,7 @@
 				24B812471BA07B5300EAA152 /* Plane.m in Sources */,
 				24B812021BA079D700EAA152 /* Position.m in Sources */,
 				24B812101BA079D700EAA152 /* NSSet+ObjectiveSugar.m in Sources */,
+				24DC4B711BB074CC00935A35 /* TriggerActionManager.m in Sources */,
 				24B812431BA07B5300EAA152 /* Cylinder.m in Sources */,
 				24B812001BA079D700EAA152 /* Axis.m in Sources */,
 				24B8126A1BA07BB100EAA152 /* Parser.m in Sources */,

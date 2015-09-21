@@ -89,6 +89,7 @@ class ViewController: UIViewController, GestureDelegate, MenuManager {
             else if (toState == .Playing) {
                 hideUI()
                 createPlayScene()
+                setupCurrentSceneForPlayer(playerSceneManager!)
                 switchToSceneManager(playerSceneManager)
             }
         }
@@ -171,7 +172,7 @@ class ViewController: UIViewController, GestureDelegate, MenuManager {
 
         editorSceneManager = EditorSceneManager()
         switchToSceneManager(editorSceneManager)
-        setupCurrentScene(editorSceneManager!)
+        setupCurrentSceneForEditor(editorSceneManager!)
 
         self.propertiesButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Disabled)
         self.selectedItem = nil
@@ -285,35 +286,11 @@ class ViewController: UIViewController, GestureDelegate, MenuManager {
         camera!.rotate(rot, around: Position.origin())
     }
 
-    func setupCurrentScene(sceneManager: SceneManager) {
-//        let scene = sceneManager.scene
-//
-//        var light = Light()
-//        light.color = UIColor(white: 1.0, alpha: 1.0)
-//        light.position = Position(x:3, y:3, z:3)
-//        scene!.addItem(light)
-//
-//        light = Light()
-//        light.color = UIColor(white: 0.7, alpha: 1.0)
-//        light.position = Position(x:-3, y:-3, z:-3)
-//        scene!.addItem(light)
-//
-//        light = Light()
-//        light.type = SCNLightTypeAmbient
-//        light.color = UIColor(white: 0.4, alpha: 1.0)
-//        light.position = Position(x:-3, y:-3, z:-3)
-//        scene!.addItem(light)
-
+    func setupCurrentSceneForEditor(sceneManager: SceneManager) {
         let gestures = sceneManager.gestures
-        let options = gestures.options
 
         gestures.sceneView = engineKitView
         gestures.gesturesView = engineKitView
-
-        let pan = NSNumber(unsignedLong: GestureRecognizers.PanRecognizer.rawValue)
-        options[pan] = NSNumber(bool: true)
-        let tap = NSNumber(unsignedLong: GestureRecognizers.TapRecognizer.rawValue)
-        options[tap] = NSNumber(bool: true)
 
         gestures.setupGestures()
 
@@ -321,6 +298,17 @@ class ViewController: UIViewController, GestureDelegate, MenuManager {
 
         let javaScript = sceneManager.javaScript
         javaScript.load()
+    }
+
+    func setupCurrentSceneForPlayer(sceneManager: SceneManager) {
+        let gestures = sceneManager.gestures
+
+        gestures.sceneView = engineKitView
+        gestures.gesturesView = engineKitView
+
+        gestures.setupGestures()
+
+        gestures.delegate = sceneManager.javaScript
     }
 
     // MARK: - IBActions
