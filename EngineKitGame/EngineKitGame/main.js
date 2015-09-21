@@ -1,98 +1,159 @@
 
-var btn;
-var moon;
-var instance;
+var selectedItem;
 
 function load() {
-    
+
     var earth = sphere.template();
     earth.color = "blue";
     earth.position = [0, 0, -2];
-    earth.radius = 1.5;
+    earth.radius = 1;
 
-    instance = earth.create();
+    var moon = sphere.template();
+    moon.color = "dark gray";
+    moon.radius = 0.4;
+    moon.position = [0, 2, 0];
 
-    moon = earth.create();
-    moon.color = "darkGray";
-    moon.scale = 0.7;
-    moon.position = [0, 3, 0];
+    var satelite = box.template();
+    satelite.color = "light gray";
+    satelite.scale = 0.2;
+    satelite.position = [0.7, 0, 0];
 
-    instance.addItem(moon);
+    var spaaace = box.template();
+    spaaace.color = [0.6, 0.6, 1];
+    spaaace.scale = 0.3;
+    spaaace.position = [0, 1, 0];
 
-    var tubo = tube.create();
-    tubo.radius = 1;
-    tubo.thickness = 1.9;
-    tubo.position = "[0, -3, -2]";
-    tubo.rotation = ["[0.2, 0.3, 0.4]", 1];
-    tubo.color = "red";
-//    btn = UIButton.create();
-//    btn.position = [300, 200];
-//    btn.size = [100, 100];
-//    btn.string = "JUMP!";
-//
-//    sli = UISlider.create();
-//    print(sli);
-//    print(UISlider);
-//    sli.position = [50, 300];
-//    sli.size = [200, 50];
-//    sli.maximumValue = 50;
-//    sli.minimumValue = -10;
+    var sateliteInstance = satelite.create();
+    var spaceInstance = spaaace.create();
+    var moonInstance = moon.create();
+
+    sateliteInstance.addItem(spaceInstance);
+    moonInstance.addItem(sateliteInstance);
+    earth.addItem(moonInstance);
+
+    var instance1 = earth.create();
+    instance1.position = [-1, 0, 0];
+    instance1.name = "left";
+
+    var instance2 = earth.create();
+    instance2.position = [ 1, 0, 0];
+    instance2.name = "right";
 }
 
-function tap(items, hits) {
-    items[0].scale = items[0].scale.times(1.1);
+function update() {
+
 }
 
-function swipe(direction, items, swipes) {
+function tap(items, numberOfTouches, hits) {
+    if (typeof items[0] != 'undefined' && selectedItem != items[0]) {
+        if (typeof selectedItem != 'undefined') {
+            selectedItem.selected = false;
+        }
+        selectedItem = items[0];
+        selectedItem.selected = true;
+    }
+    else {
+        selectedItem.selected = false;
+        selectedItem = undefined;
+    }
+}
+
+function swipe(direction, items, numberOfTouches, hits) {
     var item = items[0];
 
-    var dict = {"0": 0, "Y": 1, "z": 0};
+    if (typeof item != 'undefined') {
+        var dict = {"0": 0, "Y": 1, "z": 0};
 
-    if (direction == up) {
-        item.position = item.position.plus(new vector(dict));
-    }
-    else if (direction == down) {
-        item.position = item.position.plus(new vector([0, -1, 0]));
-    }
-    else if (direction == left) {
-        item.position = item.position.plus(new vector([-1, 0, 0]));
-    }
-    else if (direction == right) {
-        item.position = item.position.plus(new vector([1, 0, 0]));
+        if (direction == up) {
+            item.position = item.position.plus(new vector(dict));
+        }
+        else if (direction == down) {
+            item.position = item.position.plus(new vector([0, -1, 0]));
+        }
+        else if (direction == left) {
+            item.position = item.position.plus(new vector([-1, 0, 0]));
+        }
+        else if (direction == right) {
+            item.position = item.position.plus(new vector([1, 0, 0]));
+        }
     }
 }
 
-function pan(translation) {
-    var resized = translation.times(0.02);
-    var newPosition = resized.translate(instance.position);
-    instance.position = newPosition;
+var x = [1, 0, 0];
+var y = [0, 1, 0];
+var z = [0, 0, 1];
+
+var cameraX = camera.rotation.rotate(x);
+var cameraY = camera.rotation.rotate(y);
+var cameraZ = camera.rotation.rotate(z);
+
+function pan(translation, items, numberOfTouches) {
+
+    if (numberOfTouches == 1) {
+        if (typeof selectedItem != 'undefined') {
+            var resized = translation.times(0.01);
+
+            var translation = cameraX.times(resized.x)
+                        .plus(cameraY.times(resized.y));
+
+            selectedItem.position = selectedItem.position.plus(translation);
+        }
+        else {
+            cameraX = camera.rotation.rotate(x);
+            cameraY = camera.rotation.rotate(y);
+
+            var resized = translation.times(0.02);
+
+            var axis = cameraX.times(resized.y)
+                 .plus(cameraY.times(-resized.x));
+
+            var rot = rotation.create([axis, resized.normSquared()]);
+            camera.rotateAround(rot, [0, 0, 0]);
+        }
+    }
+    else {
+        var resized = translation.times(0.01);
+
+        var translation = cameraX.times(-resized.x)
+                    .plus(cameraY.times(-resized.y));
+
+        camera.position = camera.position.plus(translation);
+    }
 }
 
-function pinch(scale) {
-    instance.radius = instance.radius * scale;
+function pinch(scale, items, numberOfTouches) {
+    var instance = items[0];
+
+    if (typeof instance != 'undefined') {
+        instance.scale = instance.scale.times(scale);
+    }
+    else {
+
+    }
 }
 
-function rotate(angle) {
-    instance.rotate({"0":0, "1":0, "2":1, "a":angle});
+function rotate(angle, items, numberOfTouches) {
+
+    if (typeof selectedItem != 'undefined') {
+        selectedItem.rotate({"0":0, "1":0, "2":1, "a":angle});
+    }
+    else {
+        cameraZ = camera.rotation.rotate(z);
+        var rotZ = rotation.create([cameraZ, -angle]);
+        camera.rotateAround(rotZ, [0, 0, 0]);
+    }
 }
 
-function longPress(translation) {
-    instance.position = instance.position.plus(translation.times(0.02));
+function longPress(translation, items, numberOfTouches) {
+
+    var instance = items[0];
+
+    if (typeof instance != 'undefined') {
+        instance.position = instance.position.plus(translation.times(0.02));
+    }
 }
 
 function contact(left, right, contact) {
 
 }
 
-//function button(pressedButton) {
-//    if (pressedButton == btn) {
-//        moon.velocity = [0, 5, 0];
-//    }
-//    else {
-//        console.log("outro botaum.");
-//    }
-//}
-//
-//function slider(slider) {
-//    print(slider.value);
-//}

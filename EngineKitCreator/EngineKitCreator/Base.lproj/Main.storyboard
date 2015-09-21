@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="EngineKitCreator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IPS-ES-w43">
+                                <rect key="frame" x="20" y="20" width="560" height="560"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </sceneKitView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kpq-wj-0cB">
+                                <rect key="frame" x="105" y="28" width="54" height="30"/>
+                                <state key="normal" title="Objects"/>
+                                <connections>
+                                    <action selector="objectsButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="82t-Qj-qYv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FV0-bx-iOg">
+                                <rect key="frame" x="167" y="28" width="71" height="30"/>
+                                <state key="normal" title="Properties"/>
+                                <connections>
+                                    <action selector="propertiesButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kk1-Cj-tDb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lOE-F0-L8c">
+                                <rect key="frame" x="539" y="28" width="30" height="30"/>
+                                <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="playButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ibL-mN-4AY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B3R-1c-gVA">
+                                <rect key="frame" x="246" y="28" width="42" height="30"/>
+                                <state key="normal" title="Items'"/>
+                                <connections>
+                                    <action selector="itemsButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E4V-u4-mCD"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="IPS-ES-w43" secondAttribute="trailing" id="C61-aa-TMs"/>
+                            <constraint firstItem="IPS-ES-w43" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="SDq-3u-0mx"/>
+                            <constraint firstItem="IPS-ES-w43" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dx2-SY-EHK"/>
+                            <constraint firstItem="IPS-ES-w43" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="rai-k1-ncd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="engineKitView" destination="IPS-ES-w43" id="hxp-Sb-Cc4"/>
+                        <outlet property="itemsButton" destination="B3R-1c-gVA" id="LCw-1T-zV1"/>
+                        <outlet property="objectsButton" destination="Kpq-wj-0cB" id="XDe-EC-ecf"/>
+                        <outlet property="playButton" destination="lOE-F0-L8c" id="wzy-ha-QG9"/>
+                        <outlet property="propertiesButton" destination="FV0-bx-iOg" id="Xuc-Ye-Yzg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="73" y="377"/>
+        </scene>
+    </scenes>
+</document>

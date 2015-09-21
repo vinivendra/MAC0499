@@ -2,11 +2,10 @@
 //  EngineKitGameTests.m
 //  EngineKitGameTests
 //
-//  Created by Vinicius Vendramini on 04/05/15.
-//  Copyright (c) 2015 Vinicius Vendramini. All rights reserved.
+//  Created by Vinicius Vendramini on 09/09/15.
+//  Copyright © 2015 Vinicius Vendramini. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
 @interface EngineKitGameTests : XCTestCase
@@ -27,7 +26,7 @@
 
 - (void)testExample {
     // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
+    // Use XCTAssert and related functions to verify your tests produce the correct results.
 }
 
 - (void)testPerformanceExample {
