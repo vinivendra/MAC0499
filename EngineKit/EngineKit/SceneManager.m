@@ -44,7 +44,7 @@ static SceneManager *currentSceneManager;
                                                     camera:self.camera
                                                         UI:self.ui];
 
-        self.ui.handler = self.javaScript;
+//        self.ui.delegate = self.javaScript.trigger;
         [_scene addItem:self.camera];
     }
 

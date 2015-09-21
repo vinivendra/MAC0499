@@ -4,38 +4,7 @@
 #import <UIKit/UIKit.h>
 #import <SceneKit/SceneKit.h>
 
-
-typedef NS_ENUM(NSUInteger, UIGestures) {
-    SwipeGesture,
-    TapGesture,
-    PanGesture,
-    PinchGesture,
-    RotateGesture,
-    LongPressGesture,
-
-    UIGesturesCount
-};
-
-typedef NS_ENUM(NSUInteger, GestureRecognizers) {
-    SwipeDownRecognizer = 0,
-    SwipeLeftRecognizer,
-    SwipeRightRecognizer,
-    SwipeUpRecognizer,
-    TapRecognizer,
-    PanRecognizer,
-    PinchRecognizer,
-    RotateRecognizer,
-    LongPressRecognizer,
-
-    GestureRecognizersCount
-};
-
-
-@protocol GestureDelegate <NSObject>
-- (void)callGestureCallbackForGesture:(UIGestures)gesture
-                                state:(UIGestureRecognizerState)state
-                        withArguments:(NSArray *)arguments;
-@end
+#import "Common.h"
 
 
 @interface Gestures : NSObject
@@ -61,5 +30,5 @@ typedef NS_ENUM(NSUInteger, GestureRecognizers) {
  */
 - (void)setupGestures;
 // TODO: Add this doc
-@property (nonatomic, weak) id<GestureDelegate> delegate;
+@property (nonatomic, weak) id<CallbackDelegate> delegate;
 @end

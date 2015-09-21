@@ -15,31 +15,32 @@
 }
 
 - (void)setAddButton:(UIButton *)button {
-    self.actions[@(button.hash)] = self.handler.buttonCallback;
     [button addTarget:self
-                  action:@selector(triggerActionForButton:)
-        forControlEvents:UIControlEventTouchUpInside];
+               action:@selector(triggerActionForButton:)
+     forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)setAddSlider:(UISlider *)slider {
-    self.actions[@(slider.hash)] = self.handler.sliderCallback;
     [slider addTarget:self
                action:@selector(triggerActionForSlider:)
      forControlEvents:UIControlEventValueChanged];
 }
 
+// TODO: CHANGE THIS TO A FREAKIN METHOD
 - (id)addButton {
     assert(false); // This property is meant to be used only for its setter.
 }
 
+- (id)addSlider {
+    assert(false); // This property is meant to be used only for its setter.
+}
+
 - (void)triggerActionForButton:(UIButton *)button {
-    JSValue *action = self.actions[@(button.hash)];
-    [action callWithArguments:@[button]];
+    [self.delegate callUICallbackForView:button ofType:Button];
 }
 
 - (void)triggerActionForSlider:(UISlider *)slider {
-    JSValue *action = self.actions[@(slider.hash)];
-    [action callWithArguments:@[slider]];
+    [self.delegate callUICallbackForView:slider ofType:Slider];
 }
 
 @end

@@ -1,4 +1,4 @@
-
+// TODO: Add a pinch gesture for zoom.
 
 #import "TriggerActionManager.h"
 #import <JavaScriptCore/JavaScriptCore.h>
@@ -21,7 +21,7 @@
     dispatch_once(&onceToken,
                   ^{
                       gestureCallbacks =
-                      [NSMutableArray arrayWithCapacity:6];
+                      [NSMutableArray arrayWithCapacity:UIGesturesCount];
 
                       NSMutableArray *tapArray = [NSMutableArray arrayWithCapacity:1];
                       NSMutableArray *swipeArray = [NSMutableArray arrayWithCapacity:1];
@@ -76,11 +76,36 @@
     return self.actions[gestureCallbacks[gesture][state]];
 }
 
+- (JSValue *)actionForUIViewOfType:(UIType)type {
+    static NSMutableArray *UICallbacks;
+
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken,
+                  ^{
+                      UICallbacks = [NSMutableArray arrayWithCapacity:UITypeCount];
+
+                      for (int i = 0; i < UITypeCount; i++) {
+                          UICallbacks[i] = [NSNull null];
+                      }
+
+                      UICallbacks[Button] = @"buttonPressed";
+                      UICallbacks[Slider] = @"sliderPressed";
+                  });
+    
+    return self.actions[UICallbacks[type]];
+}
+
+
 - (void)callGestureCallbackForGesture:(UIGestures)gesture
                                 state:(UIGestureRecognizerState)state
                         withArguments:(NSArray *)arguments {
     JSValue *action = [self actionForGesture:gesture state:state];
     [action callWithArguments:arguments];
+}
+
+- (void)callUICallbackForView:(UIView *)view
+                       ofType:(UIType)type {
+
 }
 
 @end

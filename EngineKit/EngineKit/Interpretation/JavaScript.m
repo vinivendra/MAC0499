@@ -2,8 +2,6 @@
 
 #import "JavaScript.h"
 
-#import "TriggerActionManager.h"
-
 #import "Physics.h"
 
 #import "Position.h"
@@ -60,10 +58,6 @@ static NSString *_defaultFilename = @"main.js";
 @property (nonatomic, strong) JSValue *updateFunction;
 
 @property (nonatomic, strong) JSValue *contactCallback;
-@property (nonatomic, strong) JSValue *buttonCallback;
-@property (nonatomic, strong) JSValue *sliderCallback;
-
-@property (nonatomic, strong) TriggerActionManager *triggerActionManager;
 
 @property (nonatomic, strong) Camera *camera;
 @end
@@ -197,8 +191,8 @@ static NSString *_defaultFilename = @"main.js";
     self.updateFunction = self.context[@"update"];
 
     self.contactCallback = self.context[@"contact"];
-    self.buttonCallback = self.context[@"button"];
-    self.sliderCallback = self.context[@"slider"];
+    self.triggerActionManager.actions[triggerButtonPressed] = self.context[@"button"];
+    self.triggerActionManager.actions[triggerSliderPressed] = self.context[@"slider"];
 
    self.triggerActionManager.actions[triggerTap] = self.context[@"tap"];
    self.triggerActionManager.actions[triggerSwipe] = self.context[@"swipe"];
@@ -214,15 +208,6 @@ static NSString *_defaultFilename = @"main.js";
    self.triggerActionManager.actions[triggerLongPressBegan] = self.context[@"longPressBegan"];
    self.triggerActionManager.actions[triggerLongPress] = self.context[@"longPress"];
    self.triggerActionManager.actions[triggerLongPressEnded] = self.context[@"longPressEnded"];
-}
-
-- (void)callGestureCallbackForGesture:(UIGestures)gesture
-                                state:(UIGestureRecognizerState)state
-                        withArguments:(NSArray *)arguments {
-
-    [self.triggerActionManager callGestureCallbackForGesture:gesture
-                                                       state:state
-                                               withArguments:arguments];
 }
 
 @end

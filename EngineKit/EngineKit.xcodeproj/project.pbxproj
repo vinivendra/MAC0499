@@ -123,6 +123,7 @@
 		24B812D21BA09D6000EAA152 /* EngineKitHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 24B812D11BA09D6000EAA152 /* EngineKitHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24DC4B701BB074CC00935A35 /* TriggerActionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DC4B6E1BB074CC00935A35 /* TriggerActionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24DC4B711BB074CC00935A35 /* TriggerActionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DC4B6F1BB074CC00935A35 /* TriggerActionManager.m */; settings = {ASSET_TAGS = (); }; };
+		24DC4B731BB08C0B00935A35 /* Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DC4B721BB08BCD00935A35 /* Common.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -254,6 +255,7 @@
 		24B812D11BA09D6000EAA152 /* EngineKitHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EngineKitHelpers.h; sourceTree = "<group>"; };
 		24DC4B6E1BB074CC00935A35 /* TriggerActionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriggerActionManager.h; sourceTree = "<group>"; };
 		24DC4B6F1BB074CC00935A35 /* TriggerActionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriggerActionManager.m; sourceTree = "<group>"; };
+		24DC4B721BB08BCD00935A35 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -301,6 +303,7 @@
 		24B8104B1BA073CA00EAA152 /* EngineKit */ = {
 			isa = PBXGroup;
 			children = (
+				24DC4B721BB08BCD00935A35 /* Common.h */,
 				24DC4B6E1BB074CC00935A35 /* TriggerActionManager.h */,
 				24DC4B6F1BB074CC00935A35 /* TriggerActionManager.m */,
 				24B811971BA0789800EAA152 /* EngineKit.h */,
@@ -571,6 +574,7 @@
 				24B811F41BA079D700EAA152 /* SCNScene+Extension.h in Headers */,
 				24B812391BA07B5300EAA152 /* Item.h in Headers */,
 				24B811FD1BA079D700EAA152 /* Angle.h in Headers */,
+				24DC4B731BB08C0B00935A35 /* Common.h in Headers */,
 				24B8120F1BA079D700EAA152 /* NSSet+ObjectiveSugar.h in Headers */,
 				24B812091BA079D700EAA152 /* NSDictionary+ObjectiveSugar.h in Headers */,
 				24B8119C1BA0789800EAA152 /* EngineKit.h in Headers */,

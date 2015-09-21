@@ -1,7 +1,7 @@
 
 
-
 #import "Gestures.h"
+#import "Common.h"
 
 
 static NSString *triggerTap = @"triggerTap";
@@ -19,7 +19,11 @@ static NSString *triggerLongPressBegan = @"triggerLongPressBegan";
 static NSString *triggerLongPress = @"triggerLongPress";
 static NSString *triggerLongPressEnded = @"triggerLongPressEnded";
 
-@interface TriggerActionManager : NSObject <GestureDelegate>
+static NSString *triggerButtonPressed = @"buttonPressed";
+static NSString *triggerSliderPressed = @"sliderPressed";
+
+
+@interface TriggerActionManager : NSObject <CallbackDelegate>
 // TODO: doc
 @property (nonatomic, strong) NSMutableDictionary *actions;
 // TODO: fix this doc
@@ -84,4 +88,6 @@ static NSString *triggerLongPressEnded = @"triggerLongPressEnded";
 - (void)callGestureCallbackForGesture:(UIGestures)gesture
                                 state:(UIGestureRecognizerState)state
                         withArguments:(NSArray *)arguments;
+- (void)callUICallbackForView:(UIView *)view
+                       ofType:(UIType)type;
 @end

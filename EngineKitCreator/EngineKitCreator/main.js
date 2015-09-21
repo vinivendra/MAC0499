@@ -143,7 +143,7 @@ function pinch(scale, items, numberOfTouches) {
         instance.scale = instance.scale.times(scale);
     }
     else {
-
+        
     }
 }
 

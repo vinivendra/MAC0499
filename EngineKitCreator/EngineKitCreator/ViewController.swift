@@ -19,7 +19,7 @@ protocol MenuManager {
 }
 
 
-class ViewController: UIViewController, GestureDelegate, MenuManager {
+class ViewController: UIViewController, CallbackDelegate, MenuManager {
 
     @IBOutlet weak var itemsButton: UIButton!
     @IBOutlet weak var propertiesButton: UIButton!
@@ -109,7 +109,7 @@ class ViewController: UIViewController, GestureDelegate, MenuManager {
         state = .Neutral
     }
 
-    // MARK: - GestureDelegate
+    // MARK: - CallbackDelegate
 
     func callGestureCallbackForGesture(gesture: UIGestures, state: UIGestureRecognizerState, withArguments arguments: [AnyObject]!) {
         if (gesture == UIGestures.PanGesture && state == UIGestureRecognizerState.Changed) {
@@ -118,6 +118,10 @@ class ViewController: UIViewController, GestureDelegate, MenuManager {
         if (gesture == UIGestures.TapGesture) {
             handleTap(arguments)
         }
+    }
+
+    func callUICallbackForView(view: UIView!, ofType type: UIType) {
+
     }
 
     // MARK: Gestures
@@ -211,11 +215,13 @@ class ViewController: UIViewController, GestureDelegate, MenuManager {
     func hideButtons() {
         objectsButton.hidden = true
         propertiesButton.hidden = true
+        itemsButton.hidden = true
     }
 
     func showButtons() {
         objectsButton.hidden = false
         propertiesButton.hidden = false
+        itemsButton.hidden = false
     }
 
     func hideMenu() {
@@ -308,7 +314,7 @@ class ViewController: UIViewController, GestureDelegate, MenuManager {
 
         gestures.setupGestures()
 
-        gestures.delegate = sceneManager.javaScript
+        gestures.delegate = sceneManager.javaScript.triggerActionManager
     }
 
     // MARK: - IBActions
