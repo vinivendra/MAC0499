@@ -1,6 +1,11 @@
 
 
-#import <Foundation/Foundation.h>
+#import <JavaScriptCore/JavaScriptCore.h>
+
+
+@protocol ParserExport <JSExport>
+- (void)parseFile:(NSString *)filename;
+@end
 
 
 /*!
@@ -9,7 +14,7 @@
  et the shared instance and call its parseFile method on the file that should be
  interpreted.
  */
-@interface Parser : NSObject
+@interface Parser : NSObject <ParserExport>
 /*!
  The singleton instance of the Parser class.
  @return In initialized instance of a Parser.

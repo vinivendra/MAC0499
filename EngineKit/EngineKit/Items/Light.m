@@ -38,6 +38,25 @@ static Sphere *selectionSphere;
     self.position = [[Position alloc] initWithX:0 Y:0 Z:10];
 }
 
+- (NSString *)lightTypeForString:(NSString *)string {
+    static NSDictionary *types;
+
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken,
+                  ^{
+                      types = @{SCNLightTypeAmbient.lowercaseString: SCNLightTypeAmbient,
+                                SCNLightTypeDirectional.lowercaseString: SCNLightTypeDirectional,
+                                SCNLightTypeOmni.lowercaseString: SCNLightTypeOmni,
+                                SCNLightTypeSpot.lowercaseString: SCNLightTypeSpot,
+                                @"ambient".lowercaseString: SCNLightTypeAmbient,
+                                @"directional".lowercaseString: SCNLightTypeAmbient,
+                                @"omni".lowercaseString: SCNLightTypeAmbient,
+                                @"spot".lowercaseString: SCNLightTypeAmbient,};
+                  });
+
+    return types[string.lowercaseString];
+}
+
 #pragma mark - Override
 
 - (void)copyInfoTo:(Item *)item {
@@ -55,7 +74,7 @@ static Sphere *selectionSphere;
 - (void)setSelected:(BOOL)selected {
     if (_selected != selected) {
         if (!selectionSphere) {
-            selectionSphere = [Sphere create];
+            selectionSphere = [[Sphere alloc] initAndAddToScene];
             selectionSphere.radius = @(0.1);
             selectionSphere.color = @"yellow";
         }
@@ -87,7 +106,8 @@ static Sphere *selectionSphere;
 }
 
 - (void)setType:(NSString *)type {
-    self.light.type = type;
+
+    self.light.type = [self lightTypeForString:type];
 }
 
 - (NSString *)type {

@@ -6,6 +6,10 @@
 
 
 @protocol LightExport <JSExport>
+- (instancetype)create;
++ (instancetype)create;
+- (instancetype)initAndAddToScene;
++ (instancetype) template;
 - (void)addItem:(Item *)newItem;
 - (void)rotate:(id)rotation;
 @property (nonatomic, weak, readonly) Item *parent;
@@ -20,6 +24,9 @@
 
 
 @interface Light : Item <LightExport>
+// TODO: doc
 @property (nonatomic, strong) id color;
+/// Accepts "ambient", "directional", "omni", "spot" or a default SCNLightType.
+/// Returns the default SCNLightType.
 @property (nonatomic) NSString *type;
 @end

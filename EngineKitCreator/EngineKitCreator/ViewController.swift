@@ -286,23 +286,23 @@ class ViewController: UIViewController, GestureDelegate, MenuManager {
     }
 
     func setupCurrentScene(sceneManager: SceneManager) {
-        let scene = sceneManager.scene
-
-        var light = Light()
-        light.color = UIColor(white: 1.0, alpha: 1.0)
-        light.position = Position(x:3, y:3, z:3)
-        scene!.addItem(light)
-
-        light = Light()
-        light.color = UIColor(white: 0.7, alpha: 1.0)
-        light.position = Position(x:-3, y:-3, z:-3)
-        scene!.addItem(light)
-
-        light = Light()
-        light.type = SCNLightTypeAmbient
-        light.color = UIColor(white: 0.4, alpha: 1.0)
-        light.position = Position(x:-3, y:-3, z:-3)
-        scene!.addItem(light)
+//        let scene = sceneManager.scene
+//
+//        var light = Light()
+//        light.color = UIColor(white: 1.0, alpha: 1.0)
+//        light.position = Position(x:3, y:3, z:3)
+//        scene!.addItem(light)
+//
+//        light = Light()
+//        light.color = UIColor(white: 0.7, alpha: 1.0)
+//        light.position = Position(x:-3, y:-3, z:-3)
+//        scene!.addItem(light)
+//
+//        light = Light()
+//        light.type = SCNLightTypeAmbient
+//        light.color = UIColor(white: 0.4, alpha: 1.0)
+//        light.position = Position(x:-3, y:-3, z:-3)
+//        scene!.addItem(light)
 
         let gestures = sceneManager.gestures
         let options = gestures.options
@@ -319,7 +319,8 @@ class ViewController: UIViewController, GestureDelegate, MenuManager {
 
         gestures.delegate = self
 
-        Parser.shared().parseFile("scene.fmt")
+        let javaScript = sceneManager.javaScript
+        javaScript.load()
     }
 
     // MARK: - IBActions

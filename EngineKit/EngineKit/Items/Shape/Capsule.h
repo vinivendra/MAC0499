@@ -6,6 +6,7 @@
 @protocol CapsuleExport <JSExport>
 - (instancetype)initAndAddToScene;
 - (instancetype)create;
++ (instancetype)create;
 + (instancetype) template;
 - (void)addItem:(Item *)newItem;
 - (void)rotate:(id)rotation;
@@ -14,7 +15,6 @@
 @property (nonatomic, strong) id materials;
 @property (nonatomic, getter=isSelected) BOOL selected;
 //
-- (void)hide;
 @property (nonatomic, strong) id position;
 @property (nonatomic, strong) id rotation;
 @property (nonatomic, strong) id scale;

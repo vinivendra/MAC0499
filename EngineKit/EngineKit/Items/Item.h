@@ -13,14 +13,13 @@
 
 
 @protocol ItemExport <JSExport>
+- (instancetype)create;
 + (instancetype)create;
 - (instancetype)initAndAddToScene;
-- (instancetype)create;
 + (instancetype) template;
 - (void)addItem:(Item *)newItem;
 - (void)rotate:(id)rotation;
 - (void)rotate:(id)rotation around:(id)anchor;
-- (void)hide;
 @property (nonatomic, weak, readonly) Item *parent;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) id position;
@@ -55,6 +54,7 @@
  template.
  */
 - (instancetype)create;
++ (instancetype)create;
 /*!
  Creates a template for the creation of new items. Equivalent to creating a new
  Item, but that Item isn't added to the scene.
@@ -66,14 +66,6 @@
  @return A new ID.
  */
 + (NSUInteger)newID;
-/*!
- @warning Must be called whenever an item should disappear, since Items and
- their Nodes
- create retain-cycles.
- This method removes the Item's Node (and all its subnodes) from the Scene Graph
- and readies the Item for destruction.
- */
-- (void)hide;
 /*!
  Creates a deep copy of the receiver, including in it any relevant information.
  @return A new instance of Item, representing a copy of the receiver.

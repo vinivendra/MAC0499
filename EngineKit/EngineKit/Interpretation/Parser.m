@@ -1,4 +1,5 @@
-
+// TODO: Make the parser a normal instance (not a singleton), maybe associated
+// with a JavaScript object.
 
 #import "Parser.h"
 

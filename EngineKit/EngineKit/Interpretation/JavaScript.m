@@ -8,6 +8,9 @@
 #import "Rotation.h"
 
 #import "Camera.h"
+#import "Light.h"
+
+#import "Parser.h"
 
 #import "Box.h"
 #import "Capsule.h"
@@ -133,12 +136,15 @@ static NSString *_defaultFilename = @"main.js";
 
     [self.context evaluateScript:@"var callback;"];
 
+    self.context[@"parser"] = [Parser shared];
+
     self.context[@"vector"] = [Vector class];
     self.context[@"position"] = [Position class];
     self.context[@"axis"] = [Axis class];
     self.context[@"rotation"] = [Rotation class];
     self.context[@"angle"] = [Angle class];
 
+    self.context[@"light"] = [Light class];
     self.context[@"camera"] = self.camera;
 
     self.context[@"sphere"] = [Sphere class];
