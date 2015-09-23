@@ -304,6 +304,19 @@ class ViewController: UIViewController, CallbackDelegate, MenuManager {
 
         let javaScript = sceneManager.javaScript
         javaScript.load()
+
+        let bola = Sphere.create()
+        bola.color = "blue";
+        bola.radius = 3
+        bola.addAction(["set", "position", "x"],
+                       forTrigger: NSNumber(unsignedLong: UIGestures.TapGesture.rawValue),
+                       withArguments: -1)
+        bola.addAction(["set", "position", "y"],
+                        forTrigger: NSNumber(unsignedLong: UIGestures.TapGesture.rawValue),
+                        withArguments: -1)
+        bola.addAction(["set", "position", "z"],
+                forTrigger: NSNumber(unsignedLong: UIGestures.TapGesture.rawValue),
+                withArguments: -1)
     }
 
     func setupCurrentSceneForPlayer(sceneManager: SceneManager) {

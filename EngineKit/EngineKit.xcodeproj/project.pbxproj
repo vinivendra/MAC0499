@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		245991711BAB009B008E8F60 /* Light.h in Headers */ = {isa = PBXBuildFile; fileRef = 2459916F1BAB009B008E8F60 /* Light.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		245991721BAB009B008E8F60 /* Light.m in Sources */ = {isa = PBXBuildFile; fileRef = 245991701BAB009B008E8F60 /* Light.m */; settings = {ASSET_TAGS = (); }; };
+		24713FFD1BB2D61200270024 /* JSValue+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 24713FFB1BB2D61200270024 /* JSValue+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24713FFE1BB2D61200270024 /* JSValue+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 24713FFC1BB2D61200270024 /* JSValue+Extension.m */; settings = {ASSET_TAGS = (); }; };
+		247140051BB2F66400270024 /* Actions.h in Headers */ = {isa = PBXBuildFile; fileRef = 247140031BB2F66300270024 /* Actions.h */; settings = {ASSET_TAGS = (); }; };
+		247140061BB2F66400270024 /* Actions.m in Sources */ = {isa = PBXBuildFile; fileRef = 247140041BB2F66400270024 /* Actions.m */; settings = {ASSET_TAGS = (); }; };
 		249A03351BA9FC9C006EF4B0 /* SceneManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 249A03331BA9FC9C006EF4B0 /* SceneManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		249A03361BA9FC9C006EF4B0 /* SceneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 249A03341BA9FC9C006EF4B0 /* SceneManager.m */; settings = {ASSET_TAGS = (); }; };
 		249A03371BA9FC9C006EF4B0 /* SceneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 249A03341BA9FC9C006EF4B0 /* SceneManager.m */; settings = {ASSET_TAGS = (); }; };
@@ -139,6 +143,10 @@
 /* Begin PBXFileReference section */
 		2459916F1BAB009B008E8F60 /* Light.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Light.h; sourceTree = "<group>"; };
 		245991701BAB009B008E8F60 /* Light.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Light.m; sourceTree = "<group>"; };
+		24713FFB1BB2D61200270024 /* JSValue+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSValue+Extension.h"; sourceTree = "<group>"; };
+		24713FFC1BB2D61200270024 /* JSValue+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSValue+Extension.m"; sourceTree = "<group>"; };
+		247140031BB2F66300270024 /* Actions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Actions.h; sourceTree = "<group>"; };
+		247140041BB2F66400270024 /* Actions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Actions.m; sourceTree = "<group>"; };
 		249A03331BA9FC9C006EF4B0 /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneManager.h; sourceTree = "<group>"; };
 		249A03341BA9FC9C006EF4B0 /* SceneManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneManager.m; sourceTree = "<group>"; };
 		24B810491BA073CA00EAA152 /* EngineKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EngineKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -281,6 +289,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		24713FF81BB2D52700270024 /* Triggers and Actions */ = {
+			isa = PBXGroup;
+			children = (
+				24DC4B6E1BB074CC00935A35 /* TriggerActionManager.h */,
+				24DC4B6F1BB074CC00935A35 /* TriggerActionManager.m */,
+				247140031BB2F66300270024 /* Actions.h */,
+				247140041BB2F66400270024 /* Actions.m */,
+			);
+			name = "Triggers and Actions";
+			sourceTree = "<group>";
+		};
 		24B8103F1BA073CA00EAA152 = {
 			isa = PBXGroup;
 			children = (
@@ -304,12 +323,11 @@
 			isa = PBXGroup;
 			children = (
 				24DC4B721BB08BCD00935A35 /* Common.h */,
-				24DC4B6E1BB074CC00935A35 /* TriggerActionManager.h */,
-				24DC4B6F1BB074CC00935A35 /* TriggerActionManager.m */,
 				24B811971BA0789800EAA152 /* EngineKit.h */,
 				249A03331BA9FC9C006EF4B0 /* SceneManager.h */,
 				249A03341BA9FC9C006EF4B0 /* SceneManager.m */,
 				24B811C21BA079D700EAA152 /* Includes */,
+				24713FF81BB2D52700270024 /* Triggers and Actions */,
 				24B811D21BA079D700EAA152 /* ObjectiveSugar */,
 				24B811A71BA079D700EAA152 /* Extensions */,
 				24B8125D1BA07BA300EAA152 /* Helpers */,
@@ -348,6 +366,8 @@
 			children = (
 				24B811A81BA079D700EAA152 /* JSContext+Extension.h */,
 				24B811A91BA079D700EAA152 /* JSContext+Extension.m */,
+				24713FFB1BB2D61200270024 /* JSValue+Extension.h */,
+				24713FFC1BB2D61200270024 /* JSValue+Extension.m */,
 				24B811AA1BA079D700EAA152 /* NSArray+Extension.h */,
 				24B811AB1BA079D700EAA152 /* NSArray+Extension.m */,
 				24B811AC1BA079D700EAA152 /* NSDictionary+Extension.h */,
@@ -573,6 +593,7 @@
 				24B811E61BA079D700EAA152 /* NSNumber+Extension.h in Headers */,
 				24B811F41BA079D700EAA152 /* SCNScene+Extension.h in Headers */,
 				24B812391BA07B5300EAA152 /* Item.h in Headers */,
+				24713FFD1BB2D61200270024 /* JSValue+Extension.h in Headers */,
 				24B811FD1BA079D700EAA152 /* Angle.h in Headers */,
 				24DC4B731BB08C0B00935A35 /* Common.h in Headers */,
 				24B8120F1BA079D700EAA152 /* NSSet+ObjectiveSugar.h in Headers */,
@@ -580,6 +601,7 @@
 				24B8119C1BA0789800EAA152 /* EngineKit.h in Headers */,
 				24B811FB1BA079D700EAA152 /* EngineKitMath.h in Headers */,
 				24B812591BA07B8500EAA152 /* Gestures.h in Headers */,
+				247140051BB2F66400270024 /* Actions.h in Headers */,
 				24B812501BA07B5300EAA152 /* Tube.h in Headers */,
 				24B812401BA07B5300EAA152 /* Cone.h in Headers */,
 				24B811FC1BA079D700EAA152 /* EngineKitSCNExtensions.h in Headers */,
@@ -703,6 +725,7 @@
 				24B812731BA07BC400EAA152 /* Physics.m in Sources */,
 				24B8124F1BA07B5300EAA152 /* Torus.m in Sources */,
 				24B8120E1BA079D700EAA152 /* NSNumber+ObjectiveSugar.m in Sources */,
+				24713FFE1BB2D61200270024 /* JSValue+Extension.m in Sources */,
 				24B811E91BA079D700EAA152 /* NSString+Extension.m in Sources */,
 				24B811F11BA079D700EAA152 /* SCNNode+Extension.m in Sources */,
 				24B812611BA07BA300EAA152 /* FileHelper.m in Sources */,
@@ -729,6 +752,7 @@
 				24B812101BA079D700EAA152 /* NSSet+ObjectiveSugar.m in Sources */,
 				24DC4B711BB074CC00935A35 /* TriggerActionManager.m in Sources */,
 				24B812431BA07B5300EAA152 /* Cylinder.m in Sources */,
+				247140061BB2F66400270024 /* Actions.m in Sources */,
 				24B812001BA079D700EAA152 /* Axis.m in Sources */,
 				24B8126A1BA07BB100EAA152 /* Parser.m in Sources */,
 				24B812681BA07BB100EAA152 /* JavaScript.m in Sources */,

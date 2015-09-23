@@ -4,8 +4,11 @@
 #define Item_h
 
 
-#import "Rotation.h"
+#import "Common.h"
 
+#import "Gestures.h"
+
+#import "Rotation.h"
 #import "Position.h"
 
 
@@ -35,6 +38,16 @@
  */
 @interface Item : NSObject <ItemExport>
 // TODO: Documentation
+
+- (void)addAction:(NSArray *)action
+       forTrigger:(NSNumber *)trigger
+    withArguments:(id)arguments;
+- (void)callActionForTrigger:(UIGestures)gesture;
+@property (nonatomic, strong) NSMutableDictionary *actions;
+// TODO: Add these to JSExport
+- (void)setPositionX:(NSNumber *)newValue;
+- (void)setPositionY:(NSNumber *)newValue;
+- (void)setPositionZ:(NSNumber *)newValue;
 @property (nonatomic, getter=isSelected) BOOL selected;
 @property (nonatomic) BOOL hidden;
 /*!

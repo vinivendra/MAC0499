@@ -4,11 +4,19 @@
 
 #import "SCNScene+Extension.h"
 #import "SCNNode+Extension.h"
+#import "NSArray+Extension.h"
 
 #import "NSMutableArray+ObjectiveSugar.h"
 
 #import "Position.h"
 
+
+@interface ConstantAction : NSObject
+@property (nonatomic) SEL selector;
+@property (nonatomic, strong) id arguments;
+@end
+@implementation ConstantAction
+@end
 
 static NSUInteger globalID = 0;
 
@@ -103,18 +111,31 @@ static NSUInteger globalID = 0;
     if (!item.node) {
         item.node = [SCNNode new];
         item.node.item = self;
-
-        item.position = self.position;
-        item.rotation = self.rotation;
-        item.scale = self.scale;
     }
 
     item.position = self.position;
     item.rotation = self.rotation;
     item.scale = self.scale;
 
+    item.actions = [self copyActions];
+
     for (Item *child in self.children)
         [item addItem:[child deepCopy]];
+}
+
+- (NSMutableDictionary *)copyActions {
+    NSMutableDictionary *newDictionary = [NSMutableDictionary new];
+
+    NSEnumerator *enumerator = self.actions.keyEnumerator;
+
+    NSNumber *key;
+
+    while ((key = enumerator.nextObject)) {
+        NSMutableArray *array = self.actions[key];
+        newDictionary[key] = array.copy;
+    }
+
+    return newDictionary;
 }
 
 - (void)rotate:(id)rotation {
@@ -140,6 +161,66 @@ static NSUInteger globalID = 0;
     self.node.transform = result;
 }
 
+////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Actions
+
+- (void)addAction:(NSArray *)action
+       forTrigger:(NSNumber *)trigger
+    withArguments:(id)arguments {
+
+    SEL selector = [self actionForArray:action];
+
+    ConstantAction *constantAction = [ConstantAction new];
+    constantAction.selector = selector;
+    constantAction.arguments = arguments;
+
+    [self addAction:constantAction forTrigger:trigger];
+}
+
+- (SEL)actionForArray:(NSArray *)array {
+    return NSSelectorFromString([[array joinInCamelCase] stringByAppendingString:@":"]);
+}
+
+- (void)addAction:(ConstantAction *)action forTrigger:(NSNumber *)trigger {
+    NSMutableArray *array = self.actions[trigger];
+    if (!array) {
+        array = [NSMutableArray array];
+        self.actions[trigger] = array;
+    }
+    [array addObject:action];
+}
+
+- (void)callActionForTrigger:(UIGestures)gesture {
+    NSMutableArray *array = self.actions[@(gesture)];
+
+    for (ConstantAction *action in array) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        [self performSelector:action.selector withObject:action.arguments];
+#pragma clang diagnostic pop
+    }
+}
+
+- (void)setPositionX:(NSNumber *)newValue {
+    Position *oldPosition = self.position;
+    self.position = [[Position alloc] initWithX:newValue.doubleValue
+                                              Y:oldPosition.y
+                                              Z:oldPosition.z];
+}
+
+- (void)setPositionY:(NSNumber *)newValue {
+    Position *oldPosition = self.position;
+    self.position = [[Position alloc] initWithX:oldPosition.x
+                                              Y:newValue.doubleValue
+                                              Z:oldPosition.z];
+}
+
+- (void)setPositionZ:(NSNumber *)newValue {
+    Position *oldPosition = self.position;
+    self.position = [[Position alloc] initWithX:oldPosition.z
+                                              Y:oldPosition.y
+                                              Z:newValue.doubleValue];
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Property Overriding
@@ -184,6 +265,13 @@ static NSUInteger globalID = 0;
 
 - (void)setChildren:(NSMutableArray *)children {
     _children = children;
+}
+
+- (NSMutableDictionary<NSNumber *,NSMutableArray *> *)actions {
+    if (!_actions) {
+        _actions = [NSMutableDictionary dictionary];
+    }
+    return _actions;
 }
 
 @end

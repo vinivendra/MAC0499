@@ -25,7 +25,8 @@ static NSString *triggerSliderPressed = @"sliderPressed";
 
 @interface TriggerActionManager : NSObject <CallbackDelegate>
 // TODO: doc
-@property (nonatomic, strong) NSMutableDictionary *actions;
+@property (nonatomic, strong) NSMutableDictionary <NSString *,
+                                                   id<Action> > *actions;
 // TODO: fix this doc
 /*!
  Calls the calback function for handling the given `gesture` in javascript.

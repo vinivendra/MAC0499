@@ -2,6 +2,8 @@
 
 #import "TriggerActionManager.h"
 #import <JavaScriptCore/JavaScriptCore.h>
+#import "Item.h"
+
 
 @implementation TriggerActionManager
 
@@ -13,7 +15,7 @@
     return self;
 }
 
-- (JSValue *)actionForGesture:(UIGestures)gesture
+- (id<Action>)actionForGesture:(UIGestures)gesture
                         state:(UIGestureRecognizerState)state {
     static NSMutableArray *gestureCallbacks;
 
@@ -76,7 +78,7 @@
     return self.actions[gestureCallbacks[gesture][state]];
 }
 
-- (JSValue *)actionForUIViewOfType:(UIType)type {
+- (id<Action>)actionForUIViewOfType:(UIType)type {
     static NSMutableArray *UICallbacks;
 
     static dispatch_once_t onceToken;
@@ -99,7 +101,16 @@
 - (void)callGestureCallbackForGesture:(UIGestures)gesture
                                 state:(UIGestureRecognizerState)state
                         withArguments:(NSArray *)arguments {
-    JSValue *action = [self actionForGesture:gesture state:state];
+    if (arguments.count > 0) {
+        NSArray *items = arguments[0];
+        if (items.count > 0) {
+            Item *item = items[0];
+            [item callActionForTrigger:gesture];
+            return;
+        }
+    }
+
+    id<Action> action = [self actionForGesture:gesture state:state];
     [action callWithArguments:arguments];
 }
 
