@@ -2,6 +2,8 @@
 
 #import "Gestures.h"
 #import "Common.h"
+#import "ActionCollection.h"
+#import "Item.h"
 
 
 static NSString *triggerTap = @"triggerTap";
@@ -25,8 +27,16 @@ static NSString *triggerSliderPressed = @"sliderPressed";
 
 @interface TriggerActionManager : NSObject <CallbackDelegate>
 // TODO: doc
-@property (nonatomic, strong) NSMutableDictionary <NSString *,
-                                                   id<Action> > *actions;
+@property (nonatomic, strong) ActionCollection *actions;
+@property (nonatomic, strong) NSMutableDictionary <id<NSCopying>,
+                                                   ActionCollection *> *items;
+- (void)addJSValue:(JSValue *)value
+        forTrigger:(NSString *)trigger;
+- (void)addAction:(MethodAction *)action
+       forTrigger:(NSString *)trigger;
+- (void)addAction:(MethodAction *)action
+           toItem:(Item *)item
+       forTrigger:(NSString *)trigger;
 // TODO: fix this doc
 /*!
  Calls the calback function for handling the given `gesture` in javascript.

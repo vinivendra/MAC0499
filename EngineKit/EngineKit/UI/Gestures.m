@@ -78,8 +78,8 @@
             callGestureCallbackForGesture:SwipeGesture
                                     state:UIGestureRecognizerStateRecognized
                             withArguments:@[
-                                @(sender.direction),
                                 items,
+                                @(sender.direction),
                                 @(sender.numberOfTouches),
                                 hits
                             ]];
@@ -118,8 +118,8 @@
         callGestureCallbackForGesture:PanGesture
                                 state:UIGestureRecognizerStateChanged
                         withArguments:@[
-                            translation,
                             self.selectedItems,
+                            translation,
                             @(sender.numberOfTouches),
                             self.selectedHits
                         ]];
@@ -150,8 +150,8 @@
         callGestureCallbackForGesture:PinchGesture
                                 state:UIGestureRecognizerStateChanged
                         withArguments:@[
-                            @(scale),
                             self.selectedItems,
+                            @(scale),
                             @(sender.numberOfTouches),
                             self.selectedHits
                         ]];
@@ -182,8 +182,8 @@
         callGestureCallbackForGesture:RotateGesture
                                 state:UIGestureRecognizerStateChanged
                         withArguments:@[
-                            @(angle),
                             self.selectedItems,
+                            @(angle),
                             @(sender.numberOfTouches),
                             self.selectedHits
                         ]];
@@ -221,8 +221,8 @@
         callGestureCallbackForGesture:LongPressGesture
                                 state:UIGestureRecognizerStateChanged
                         withArguments:@[
-                            translation,
                             self.selectedItems,
+                            translation,
                             @(sender.numberOfTouches),
                             self.selectedHits
                         ]];

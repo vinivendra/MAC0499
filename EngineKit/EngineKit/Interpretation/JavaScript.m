@@ -115,14 +115,6 @@ static NSString *_defaultFilename = @"main.js";
     [self.updateFunction callWithArguments:@[ @(delta) ]];
 }
 
-- (TriggerActionManager *)triggerActionManager {
-    if (!_triggerActionManager) {
-        _triggerActionManager = [TriggerActionManager new];
-    }
-
-    return _triggerActionManager;
-}
-
 //
 - (void)setObjects {
     __block NSString *filename = self.filename;
@@ -192,23 +184,45 @@ static NSString *_defaultFilename = @"main.js";
     self.updateFunction = self.context[@"update"];
 
     self.contactCallback = self.context[@"contact"];
-    self.triggerActionManager.actions[triggerButtonPressed] = self.context[@"button"];
-    self.triggerActionManager.actions[triggerSliderPressed] = self.context[@"slider"];
 
-    self.triggerActionManager.actions[triggerTap] = self.context[@"tap"];
-    self.triggerActionManager.actions[triggerSwipe] = self.context[@"swipe"];
-    self.triggerActionManager.actions[triggerPanBegan] = self.context[@"panBegan"];
-    self.triggerActionManager.actions[triggerPan] = self.context[@"pan"];
-    self.triggerActionManager.actions[triggerPanEnded] = self.context[@"panEnded"];
-    self.triggerActionManager.actions[triggerPinchBegan] = self.context[@"pinchBegan"];
-    self.triggerActionManager.actions[triggerPinch] = self.context[@"pinch"];
-    self.triggerActionManager.actions[triggerPinchEnded] = self.context[@"pinchEnded"];
-    self.triggerActionManager.actions[triggerRorateBegan] = self.context[@"rorateBegan"];
-    self.triggerActionManager.actions[triggerRotate] = self.context[@"rotate"];
-    self.triggerActionManager.actions[triggerRotateEnded] = self.context[@"rotateEnded"];
-    self.triggerActionManager.actions[triggerLongPressBegan] = self.context[@"longPressBegan"];
-    self.triggerActionManager.actions[triggerLongPress] = self.context[@"longPress"];
-    self.triggerActionManager.actions[triggerLongPressEnded] = self.context[@"longPressEnded"];
+
+    if (!self.triggerActionManager) {
+        self.triggerActionManager = [TriggerActionManager new];
+
+        [self.triggerActionManager addJSValue:self.context[@"button"]
+                                   forTrigger:triggerButtonPressed];
+        [self.triggerActionManager addJSValue:self.context[@"slider"]
+                                   forTrigger:triggerSliderPressed];
+
+        [self.triggerActionManager addJSValue:self.context[@"tap"]
+                                   forTrigger:triggerTap];
+        [self.triggerActionManager addJSValue:self.context[@"swipe"]
+                                   forTrigger:triggerSwipe];
+        [self.triggerActionManager addJSValue:self.context[@"panBegan"]
+                                   forTrigger:triggerPanBegan];
+        [self.triggerActionManager addJSValue:self.context[@"pan"]
+                                   forTrigger:triggerPan];
+        [self.triggerActionManager addJSValue:self.context[@"panEnded"]
+                                   forTrigger:triggerPanEnded];
+        [self.triggerActionManager addJSValue:self.context[@"pinchBegan"]
+                                   forTrigger:triggerPinchBegan];
+        [self.triggerActionManager addJSValue:self.context[@"pinch"]
+                                   forTrigger:triggerPinch];
+        [self.triggerActionManager addJSValue:self.context[@"pinchEnded"]
+                                   forTrigger:triggerPinchEnded];
+        [self.triggerActionManager addJSValue:self.context[@"rorateBegan"]
+                                   forTrigger:triggerRorateBegan];
+        [self.triggerActionManager addJSValue:self.context[@"rotate"]
+                                   forTrigger:triggerRotate];
+        [self.triggerActionManager addJSValue:self.context[@"rotateEnded"]
+                                   forTrigger:triggerRotateEnded];
+        [self.triggerActionManager addJSValue:self.context[@"longPressBegan"]
+                                   forTrigger:triggerLongPressBegan];
+        [self.triggerActionManager addJSValue:self.context[@"longPress"]
+                                   forTrigger:triggerLongPress];
+        [self.triggerActionManager addJSValue:self.context[@"longPressEnded"]
+                                   forTrigger:triggerLongPressEnded];
+    }
 }
 
 @end

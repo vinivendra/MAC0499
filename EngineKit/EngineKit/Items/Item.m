@@ -8,15 +8,10 @@
 
 #import "NSMutableArray+ObjectiveSugar.h"
 
+#import "Common.h"
+
 #import "Position.h"
 
-
-@interface ConstantAction : NSObject
-@property (nonatomic) SEL selector;
-@property (nonatomic, strong) id arguments;
-@end
-@implementation ConstantAction
-@end
 
 static NSUInteger globalID = 0;
 
@@ -117,25 +112,8 @@ static NSUInteger globalID = 0;
     item.rotation = self.rotation;
     item.scale = self.scale;
 
-    item.actions = [self copyActions];
-
     for (Item *child in self.children)
         [item addItem:[child deepCopy]];
-}
-
-- (NSMutableDictionary *)copyActions {
-    NSMutableDictionary *newDictionary = [NSMutableDictionary new];
-
-    NSEnumerator *enumerator = self.actions.keyEnumerator;
-
-    NSNumber *key;
-
-    while ((key = enumerator.nextObject)) {
-        NSMutableArray *array = self.actions[key];
-        newDictionary[key] = array.copy;
-    }
-
-    return newDictionary;
 }
 
 - (void)rotate:(id)rotation {
@@ -154,7 +132,7 @@ static NSUInteger globalID = 0;
     Vector *translation = [[Vector alloc] initWithObject:anchor];
 
     SCNMatrix4 result =
-        [translation.opposite translateMatrix:self.node.transform];
+    [translation.opposite translateMatrix:self.node.transform];
     result = [rotationObject rotateMatrix:result];
     result = [translation translateMatrix:result];
 
@@ -163,43 +141,6 @@ static NSUInteger globalID = 0;
 
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Actions
-
-- (void)addAction:(NSArray *)action
-       forTrigger:(NSNumber *)trigger
-    withArguments:(id)arguments {
-
-    SEL selector = [self actionForArray:action];
-
-    ConstantAction *constantAction = [ConstantAction new];
-    constantAction.selector = selector;
-    constantAction.arguments = arguments;
-
-    [self addAction:constantAction forTrigger:trigger];
-}
-
-- (SEL)actionForArray:(NSArray *)array {
-    return NSSelectorFromString([[array joinInCamelCase] stringByAppendingString:@":"]);
-}
-
-- (void)addAction:(ConstantAction *)action forTrigger:(NSNumber *)trigger {
-    NSMutableArray *array = self.actions[trigger];
-    if (!array) {
-        array = [NSMutableArray array];
-        self.actions[trigger] = array;
-    }
-    [array addObject:action];
-}
-
-- (void)callActionForTrigger:(UIGestures)gesture {
-    NSMutableArray *array = self.actions[@(gesture)];
-
-    for (ConstantAction *action in array) {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-        [self performSelector:action.selector withObject:action.arguments];
-#pragma clang diagnostic pop
-    }
-}
 
 - (void)setPositionX:(NSNumber *)newValue {
     Position *oldPosition = self.position;
@@ -217,17 +158,156 @@ static NSUInteger globalID = 0;
 
 - (void)setPositionZ:(NSNumber *)newValue {
     Position *oldPosition = self.position;
-    self.position = [[Position alloc] initWithX:oldPosition.z
+    self.position = [[Position alloc] initWithX:oldPosition.x
                                               Y:oldPosition.y
                                               Z:newValue.doubleValue];
 }
+
+- (void)setScaleX:(NSNumber *)newValue {
+    Vector *oldScale = self.scale;
+    self.scale = [[Vector alloc] initWithX:newValue.doubleValue
+                                         Y:oldScale.y
+                                         Z:oldScale.z];
+}
+
+- (void)setScaleY:(NSNumber *)newValue {
+    Vector *oldScale = self.scale;
+    self.scale = [[Vector alloc] initWithX:oldScale.x
+                                         Y:newValue.doubleValue
+                                         Z:oldScale.z];
+}
+
+- (void)setScaleZ:(NSNumber *)newValue {
+    Vector *oldScale = self.scale;
+    self.scale = [[Vector alloc] initWithX:oldScale.x
+                                         Y:oldScale.y
+                                         Z:newValue.doubleValue];
+}
+
+- (void)setRotationX:(NSNumber *)newValue {
+    Rotation *oldRotation = self.rotation;
+    self.rotation = [[Rotation alloc] initWithX:newValue.doubleValue
+                                              Y:oldRotation.y
+                                              Z:oldRotation.z
+                                          Angle:oldRotation.a];
+}
+
+- (void)setRotationY:(NSNumber *)newValue {
+    Rotation *oldRotation = self.rotation;
+    self.rotation = [[Rotation alloc] initWithX:oldRotation.x
+                                              Y:newValue.doubleValue
+                                              Z:oldRotation.z
+                                          Angle:oldRotation.a];
+}
+
+- (void)setRotationZ:(NSNumber *)newValue {
+    Rotation *oldRotation = self.rotation;
+    self.rotation = [[Rotation alloc] initWithX:oldRotation.x
+                                              Y:oldRotation.y
+                                              Z:newValue.doubleValue
+                                          Angle:oldRotation.a];
+}
+
+- (void)setRotationA:(NSNumber *)newValue {
+    Rotation *oldRotation = self.rotation;
+    self.rotation = [[Rotation alloc] initWithX:oldRotation.x
+                                              Y:oldRotation.y
+                                              Z:oldRotation.z
+                                          Angle:newValue.doubleValue];
+}
+
+
+- (void)addPositionX:(NSNumber *)newValue {
+    Position *oldPosition = self.position;
+    self.position = [[Position alloc]
+                     initWithX:oldPosition.x + newValue.doubleValue
+                     Y:oldPosition.y
+                     Z:oldPosition.z];
+}
+
+- (void)addPositionY:(NSNumber *)newValue {
+    Position *oldPosition = self.position;
+    self.position = [[Position alloc]
+                     initWithX:oldPosition.x
+                     Y:oldPosition.y + newValue.doubleValue
+                     Z:oldPosition.z];
+}
+
+- (void)addPositionZ:(NSNumber *)newValue {
+    Position *oldPosition = self.position;
+    self.position = [[Position alloc]
+                     initWithX:oldPosition.x
+                     Y:oldPosition.y
+                     Z:oldPosition.z + newValue.doubleValue];
+}
+
+- (void)addScaleX:(NSNumber *)newValue {
+    Vector *oldScale = self.scale;
+    self.scale = [[Vector alloc]
+                  initWithX:oldScale.x + newValue.doubleValue
+                  Y:oldScale.y
+                  Z:oldScale.z];
+}
+
+- (void)addScaleY:(NSNumber *)newValue {
+    Vector *oldScale = self.scale;
+    self.scale = [[Vector alloc]
+                  initWithX:oldScale.x
+                  Y:oldScale.y + newValue.doubleValue
+                  Z:oldScale.z];
+}
+
+- (void)addScaleZ:(NSNumber *)newValue {
+    Vector *oldScale = self.scale;
+    self.scale = [[Vector alloc]
+                  initWithX:oldScale.x
+                  Y:oldScale.y
+                  Z:oldScale.z + newValue.doubleValue];
+}
+
+- (void)addRotationX:(NSNumber *)newValue {
+    Rotation *oldRotation = self.rotation;
+    self.rotation = [[Rotation alloc]
+                     initWithX:oldRotation.x + newValue.doubleValue
+                     Y:oldRotation.y
+                     Z:oldRotation.z
+                     Angle:oldRotation.a];
+}
+
+- (void)addRotationY:(NSNumber *)newValue {
+    Rotation *oldRotation = self.rotation;
+    self.rotation = [[Rotation alloc]
+                     initWithX:oldRotation.x
+                     Y:oldRotation.y + newValue.doubleValue
+                     Z:oldRotation.z
+                     Angle:oldRotation.a];
+}
+
+- (void)addRotationZ:(NSNumber *)newValue {
+    Rotation *oldRotation = self.rotation;
+    self.rotation = [[Rotation alloc]
+                     initWithX:oldRotation.x
+                     Y:oldRotation.y
+                     Z:oldRotation.z + newValue.doubleValue
+                     Angle:oldRotation.a];
+}
+
+- (void)addRotationA:(NSNumber *)newValue {
+    Rotation *oldRotation = self.rotation;
+    self.rotation = [[Rotation alloc]
+                     initWithX:oldRotation.x
+                     Y:oldRotation.y
+                     Z:oldRotation.z
+                     Angle:oldRotation.a + newValue.doubleValue];
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Property Overriding
 
 - (void)setPosition:(id)position {
     self.node.position =
-        [[[Position alloc] initWithObject:position] toSCNVector3];
+    [[[Position alloc] initWithObject:position] toSCNVector3];
 }
 
 - (id)position {
@@ -236,7 +316,7 @@ static NSUInteger globalID = 0;
 
 - (void)setRotation:(id)rotation {
     self.node.rotation =
-        [[[Rotation alloc] initWithObject:rotation] toSCNVector];
+    [[[Rotation alloc] initWithObject:rotation] toSCNVector];
 }
 
 - (id)rotation {
@@ -265,13 +345,6 @@ static NSUInteger globalID = 0;
 
 - (void)setChildren:(NSMutableArray *)children {
     _children = children;
-}
-
-- (NSMutableDictionary<NSNumber *,NSMutableArray *> *)actions {
-    if (!_actions) {
-        _actions = [NSMutableDictionary dictionary];
-    }
-    return _actions;
 }
 
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24A86AFB1BB9A40100D5C215 /* EngineKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 24B8114E1BA0758F00EAA152 /* EngineKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		24B8110B1BA0756B00EAA152 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B8110A1BA0756B00EAA152 /* main.m */; };
 		24B8110E1BA0756B00EAA152 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B8110D1BA0756B00EAA152 /* AppDelegate.m */; };
 		24B811111BA0756B00EAA152 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B811101BA0756B00EAA152 /* ViewController.m */; };
@@ -21,6 +22,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		24A86AFC1BB9A40100D5C215 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24B811481BA0758F00EAA152 /* EngineKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 24B810481BA073CA00EAA152;
+			remoteInfo = EngineKit;
+		};
 		24B811201BA0756B00EAA152 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 24B810FE1BA0756B00EAA152 /* Project object */;
@@ -50,6 +58,20 @@
 			remoteInfo = EngineKitTests;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		24A86AFE1BB9A40100D5C215 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				24A86AFB1BB9A40100D5C215 /* EngineKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		24B811061BA0756B00EAA152 /* EngineKitGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EngineKitGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,10 +205,12 @@
 				24B811021BA0756B00EAA152 /* Sources */,
 				24B811031BA0756B00EAA152 /* Frameworks */,
 				24B811041BA0756B00EAA152 /* Resources */,
+				24A86AFE1BB9A40100D5C215 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				24A86AFD1BB9A40100D5C215 /* PBXTargetDependency */,
 			);
 			name = EngineKitGame;
 			productName = EngineKitGame;
@@ -356,6 +380,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		24A86AFD1BB9A40100D5C215 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = EngineKit;
+			targetProxy = 24A86AFC1BB9A40100D5C215 /* PBXContainerItemProxy */;
+		};
 		24B811211BA0756B00EAA152 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 24B811051BA0756B00EAA152 /* EngineKitGame */;

@@ -4,6 +4,6 @@
 #import "Common.h"
 
 
-@interface JSValue (Extension) <Action>
+@interface JSValue (Extension)
 
 @end

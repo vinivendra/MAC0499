@@ -28,6 +28,21 @@ static SceneManager *currentSceneManager;
     return currentSceneManager;
 }
 
+- (void)runOnSceneView:(SCNView *)view {
+    view.scene =self.scene;
+
+    [self makeCurrentSceneManager];
+
+    self.gestures.sceneView = view;
+    self.gestures.gesturesView = view;
+
+    [self.gestures setupGestures];
+
+    self.gestures.delegate = self.javaScript.triggerActionManager;
+
+    [self.javaScript load];
+}
+
 - (void)makeCurrentSceneManager {
     currentSceneManager = self;
     [self.scene makeCurrentScene];

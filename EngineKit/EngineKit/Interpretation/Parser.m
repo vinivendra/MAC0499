@@ -146,7 +146,7 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
         }
 
 
-        while (1) {
+        while (YES) {
             lastIndentation = ((NSNumber *)self.indentationsStack.lastObject)
                                   .unsignedIntegerValue;
 

@@ -38,16 +38,17 @@
  */
 @interface Item : NSObject <ItemExport>
 // TODO: Documentation
-
-- (void)addAction:(NSArray *)action
-       forTrigger:(NSNumber *)trigger
-    withArguments:(id)arguments;
-- (void)callActionForTrigger:(UIGestures)gesture;
-@property (nonatomic, strong) NSMutableDictionary *actions;
 // TODO: Add these to JSExport
 - (void)setPositionX:(NSNumber *)newValue;
 - (void)setPositionY:(NSNumber *)newValue;
 - (void)setPositionZ:(NSNumber *)newValue;
+- (void)setScaleX:(NSNumber *)newValue;
+- (void)setScaleY:(NSNumber *)newValue;
+- (void)setScaleZ:(NSNumber *)newValue;
+- (void)setRotationX:(NSNumber *)newValue;
+- (void)setRotationY:(NSNumber *)newValue;
+- (void)setRotationZ:(NSNumber *)newValue;
+- (void)setRotationA:(NSNumber *)newValue;
 @property (nonatomic, getter=isSelected) BOOL selected;
 @property (nonatomic) BOOL hidden;
 /*!

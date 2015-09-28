@@ -16,6 +16,8 @@
 
 
 @interface SceneManager : NSObject
+- (void)runOnSceneView:(SCNView *)view;
+
 + (SceneManager *)currentSceneManager;
 - (void)makeCurrentSceneManager;
 
@@ -29,3 +31,4 @@
 - (void)addItemFromTemplate:(Item *)template;
 - (void)addItem:(Item *)item;
 @end
+

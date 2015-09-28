@@ -3,41 +3,56 @@ var selectedItem;
 
 function load() {
 
-    var earth = sphere.template();
-    earth.color = "blue";
-    earth.position = [0, 0, -2];
-    earth.radius = 1;
+    //    var earth = sphere.template();
+    //    earth.color = "blue";
+    //    earth.position = [0, 0, -2];
+    //    earth.radius = 1;
+    //
+    //    var moon = sphere.template();
+    //    moon.color = "dark gray";
+    //    moon.radius = 0.4;
+    //    moon.position = [0, 2, 0];
+    //
+    //    var satelite = box.template();
+    //    satelite.color = "light gray";
+    //    satelite.scale = 0.2;
+    //    satelite.position = [0.7, 0, 0];
+    //
+    //    var spaaace = box.template();
+    //    spaaace.color = [0.6, 0.6, 1];
+    //    spaaace.scale = 0.3;
+    //    spaaace.position = [0, 1, 0];
+    //
+    //    var sateliteInstance = satelite.create();
+    //    var spaceInstance = spaaace.create();
+    //    var moonInstance = moon.create();
+    //
+    //    sateliteInstance.addItem(spaceInstance);
+    //    moonInstance.addItem(sateliteInstance);
+    //    earth.addItem(moonInstance);
+    //
+    //    var instance1 = earth.create();
+    //    instance1.position = [-1, 0, 0];
+    //    instance1.name = "left";
+    //
+    //    var instance2 = earth.create();
+    //    instance2.position = [ 1, 0, 0];
+    //    instance2.name = "right";
 
-    var moon = sphere.template();
-    moon.color = "dark gray";
-    moon.radius = 0.4;
-    moon.position = [0, 2, 0];
+    var light1 = light.create();
+    light1.color = [1.0, 1.0];
+    light1.position = [3, 3, 3];
 
-    var satelite = box.template();
-    satelite.color = "light gray";
-    satelite.scale = 0.2;
-    satelite.position = [0.7, 0, 0];
+    light1 = light.create();
+    light1.color = [0.7, 1.0];
+    light1.position = [-3, -3, -3];
 
-    var spaaace = box.template();
-    spaaace.color = [0.6, 0.6, 1];
-    spaaace.scale = 0.3;
-    spaaace.position = [0, 1, 0];
+    light1 = light.create();
+    light1.color = [0.4, 1.0];
+    light1.type = "ambient";
+    light1.position = [-3, -3, -3];
 
-    var sateliteInstance = satelite.create();
-    var spaceInstance = spaaace.create();
-    var moonInstance = moon.create();
-
-    sateliteInstance.addItem(spaceInstance);
-    moonInstance.addItem(sateliteInstance);
-    earth.addItem(moonInstance);
-
-    var instance1 = earth.create();
-    instance1.position = [-1, 0, 0];
-    instance1.name = "left";
-
-    var instance2 = earth.create();
-    instance2.position = [ 1, 0, 0];
-    instance2.name = "right";
+    parser.parseFile("scene.fmt");
 }
 
 function update() {
@@ -58,7 +73,7 @@ function tap(items, numberOfTouches, hits) {
     }
 }
 
-function swipe(direction, items, numberOfTouches, hits) {
+function swipe(items, direction, numberOfTouches, hits) {
     var item = items[0];
 
     if (typeof item != 'undefined') {
@@ -87,14 +102,14 @@ var cameraX = camera.rotation.rotate(x);
 var cameraY = camera.rotation.rotate(y);
 var cameraZ = camera.rotation.rotate(z);
 
-function pan(translation, items, numberOfTouches) {
+function pan(items, translation, numberOfTouches) {
 
     if (numberOfTouches == 1) {
         if (typeof selectedItem != 'undefined') {
             var resized = translation.times(0.01);
 
             var translation = cameraX.times(resized.x)
-                        .plus(cameraY.times(resized.y));
+            .plus(cameraY.times(resized.y));
 
             selectedItem.position = selectedItem.position.plus(translation);
         }
@@ -105,7 +120,7 @@ function pan(translation, items, numberOfTouches) {
             var resized = translation.times(0.02);
 
             var axis = cameraX.times(resized.y)
-                 .plus(cameraY.times(-resized.x));
+            .plus(cameraY.times(-resized.x));
 
             var rot = rotation.create([axis, resized.normSquared()]);
             camera.rotateAround(rot, [0, 0, 0]);
@@ -115,13 +130,13 @@ function pan(translation, items, numberOfTouches) {
         var resized = translation.times(0.01);
 
         var translation = cameraX.times(-resized.x)
-                    .plus(cameraY.times(-resized.y));
+        .plus(cameraY.times(-resized.y));
 
         camera.position = camera.position.plus(translation);
     }
 }
 
-function pinch(scale, items, numberOfTouches) {
+function pinch(items, scale, numberOfTouches) {
     var instance = items[0];
 
     if (typeof instance != 'undefined') {
@@ -132,7 +147,7 @@ function pinch(scale, items, numberOfTouches) {
     }
 }
 
-function rotate(angle, items, numberOfTouches) {
+function rotate(items, angle, numberOfTouches) {
 
     if (typeof selectedItem != 'undefined') {
         selectedItem.rotate({"0":0, "1":0, "2":1, "a":angle});
@@ -144,7 +159,7 @@ function rotate(angle, items, numberOfTouches) {
     }
 }
 
-function longPress(translation, items, numberOfTouches) {
+function longPress(items, translation, numberOfTouches) {
 
     var instance = items[0];
 
@@ -154,6 +169,6 @@ function longPress(translation, items, numberOfTouches) {
 }
 
 function contact(left, right, contact) {
-
+    
 }
 

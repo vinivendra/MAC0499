@@ -43,9 +43,4 @@ typedef NS_ENUM(NSUInteger, GestureRecognizers) {
                        ofType:(UIType)type;
 @end
 
-
-@protocol Action <NSObject>
-- (void)callWithArguments:(NSArray *)arguments;
-@end
-
 #endif /* Enums_h */
