@@ -30,7 +30,7 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        
+
     }
     return self;
 }
@@ -46,7 +46,7 @@
         [gesture addTarget:self action:handler];
 
         if (i <= SwipeUpRecognizer)
-            ((UISwipeGestureRecognizer *)gesture).direction = 1 << i;
+        ((UISwipeGestureRecognizer *)gesture).direction = 1 << i;
 
         [self.gesturesView addGestureRecognizer:gesture];
     }
@@ -61,10 +61,11 @@
         NSArray *hits = [self.sceneView hitTest:location options:nil];
         NSArray *items = [hits valueForKeyPath:@"node.item"];
         [self.delegate
-            callGestureCallbackForGesture:TapGesture
-                                    state:UIGestureRecognizerStateRecognized
-                            withArguments:
-                                @[ items, @(sender.numberOfTouches), hits ]];
+         callGestureCallbackForGesture:TapGesture
+         state:UIGestureRecognizerStateRecognized
+         touches:sender.numberOfTouches
+         withArguments:
+         @[ items, hits ]];
     }
 }
 
@@ -75,14 +76,14 @@
         NSArray *hits = [self.sceneView hitTest:location options:nil];
         NSArray *items = [hits valueForKeyPath:@"node.item"];
         [self.delegate
-            callGestureCallbackForGesture:SwipeGesture
-                                    state:UIGestureRecognizerStateRecognized
-                            withArguments:@[
-                                items,
-                                @(sender.direction),
-                                @(sender.numberOfTouches),
-                                hits
-                            ]];
+         callGestureCallbackForGesture:SwipeGesture
+         state:UIGestureRecognizerStateRecognized
+         touches:sender.numberOfTouches
+         withArguments:@[
+                         items,
+                         @(sender.direction),
+                         hits
+                         ]];
     }
 }
 
@@ -103,7 +104,7 @@
     if (sender.state == UIGestureRecognizerStateChanged) {
         CGPoint absoluteTranslation = [sender translationInView:self.sceneView];
         Vector *currentPoint =
-            [[Vector alloc] initWithCGPoint:absoluteTranslation];
+        [[Vector alloc] initWithCGPoint:absoluteTranslation];
         translation = [currentPoint minus:self.lastPanPoint];
         self.lastPanPoint = currentPoint;
     }
@@ -115,14 +116,14 @@
     }
 
     [self.delegate
-        callGestureCallbackForGesture:PanGesture
-                                state:UIGestureRecognizerStateChanged
-                        withArguments:@[
-                            self.selectedItems,
-                            translation,
-                            @(sender.numberOfTouches),
-                            self.selectedHits
-                        ]];
+     callGestureCallbackForGesture:PanGesture
+     state:UIGestureRecognizerStateChanged
+     touches:sender.numberOfTouches
+     withArguments:@[
+                     self.selectedItems,
+                     translation,
+                     self.selectedHits
+                     ]];
 }
 
 - (void)handlePinch:(UIPinchGestureRecognizer *)sender {
@@ -147,14 +148,14 @@
     }
 
     [self.delegate
-        callGestureCallbackForGesture:PinchGesture
-                                state:UIGestureRecognizerStateChanged
-                        withArguments:@[
-                            self.selectedItems,
-                            @(scale),
-                            @(sender.numberOfTouches),
-                            self.selectedHits
-                        ]];
+     callGestureCallbackForGesture:PinchGesture
+     state:UIGestureRecognizerStateChanged
+     touches:sender.numberOfTouches
+     withArguments:@[
+                     self.selectedItems,
+                     @(scale),
+                     self.selectedHits
+                     ]];
 }
 
 - (void)handleRotation:(UIRotationGestureRecognizer *)sender {
@@ -179,14 +180,14 @@
     }
 
     [self.delegate
-        callGestureCallbackForGesture:RotateGesture
-                                state:UIGestureRecognizerStateChanged
-                        withArguments:@[
-                            self.selectedItems,
-                            @(angle),
-                            @(sender.numberOfTouches),
-                            self.selectedHits
-                        ]];
+     callGestureCallbackForGesture:RotateGesture
+     state:UIGestureRecognizerStateChanged
+     touches:sender.numberOfTouches
+     withArguments:@[
+                     self.selectedItems,
+                     @(angle),
+                     self.selectedHits
+                     ]];
 }
 
 - (void)handleLongPress:(UILongPressGestureRecognizer *)sender {
@@ -196,7 +197,7 @@
     if (sender.state == UIGestureRecognizerStateBegan) {
         CGPoint startingLocation = [sender locationInView:self.sceneView];
         self.lastLongPressPoint =
-            [[Vector alloc] initWithCGPoint:startingLocation];
+        [[Vector alloc] initWithCGPoint:startingLocation];
 
         CGPoint location = [sender locationInView:self.sceneView];
         self.selectedHits = [self.sceneView hitTest:location options:nil];
@@ -218,14 +219,14 @@
     }
 
     [self.delegate
-        callGestureCallbackForGesture:LongPressGesture
-                                state:UIGestureRecognizerStateChanged
-                        withArguments:@[
-                            self.selectedItems,
-                            translation,
-                            @(sender.numberOfTouches),
-                            self.selectedHits
-                        ]];
+     callGestureCallbackForGesture:LongPressGesture
+     state:UIGestureRecognizerStateChanged
+     touches:sender.numberOfTouches
+     withArguments:@[
+                     self.selectedItems,
+                     translation,
+                     self.selectedHits
+                     ]];
 }
 
 
@@ -238,16 +239,16 @@
     dispatch_once(&onceToken,
                   ^{
                       singleton = @[
-                          [UISwipeGestureRecognizer class],
-                          [UISwipeGestureRecognizer class],
-                          [UISwipeGestureRecognizer class],
-                          [UISwipeGestureRecognizer class],
-                          [UITapGestureRecognizer class],
-                          [UIPanGestureRecognizer class],
-                          [UIPinchGestureRecognizer class],
-                          [UIRotationGestureRecognizer class],
-                          [UILongPressGestureRecognizer class]
-                      ];
+                                    [UISwipeGestureRecognizer class],
+                                    [UISwipeGestureRecognizer class],
+                                    [UISwipeGestureRecognizer class],
+                                    [UISwipeGestureRecognizer class],
+                                    [UITapGestureRecognizer class],
+                                    [UIPanGestureRecognizer class],
+                                    [UIPinchGestureRecognizer class],
+                                    [UIRotationGestureRecognizer class],
+                                    [UILongPressGestureRecognizer class]
+                                    ];
                   });
 
     return singleton;
@@ -260,16 +261,16 @@
     dispatch_once(&onceToken,
                   ^{
                       singleton = @[
-                          @"handleSwipe:",
-                          @"handleSwipe:",
-                          @"handleSwipe:",
-                          @"handleSwipe:",
-                          @"handleTap:",
-                          @"handlePan:",
-                          @"handlePinch:",
-                          @"handleRotation:",
-                          @"handleLongPress:"
-                      ];
+                                    @"handleSwipe:",
+                                    @"handleSwipe:",
+                                    @"handleSwipe:",
+                                    @"handleSwipe:",
+                                    @"handleTap:",
+                                    @"handlePan:",
+                                    @"handlePinch:",
+                                    @"handleRotation:",
+                                    @"handleLongPress:"
+                                    ];
                   });
 
     return singleton;

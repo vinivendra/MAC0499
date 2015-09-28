@@ -6,37 +6,31 @@
 #import "Item.h"
 
 
-static NSString *triggerTap = @"triggerTap";
-static NSString *triggerSwipe = @"triggerSwipe";
-static NSString *triggerPanBegan = @"triggerPanBegan";
-static NSString *triggerPan = @"triggerPan";
-static NSString *triggerPanEnded = @"triggerPanEnded";
-static NSString *triggerPinchBegan = @"triggerPinchBegan";
-static NSString *triggerPinch = @"triggerPinch";
-static NSString *triggerPinchEnded = @"triggerPinchEnded";
-static NSString *triggerRorateBegan = @"triggerRorateBegan";
-static NSString *triggerRotate = @"triggerRotate";
-static NSString *triggerRotateEnded = @"triggerRotateEnded";
-static NSString *triggerLongPressBegan = @"triggerLongPressBegan";
-static NSString *triggerLongPress = @"triggerLongPress";
-static NSString *triggerLongPressEnded = @"triggerLongPressEnded";
-
-static NSString *triggerButtonPressed = @"buttonPressed";
-static NSString *triggerSliderPressed = @"sliderPressed";
+@protocol TriggerActionManagerExport <JSExport>
+@property (nonatomic, strong) ActionCollection *actions;
+- (void)addAction:(JSValue *)function forTrigger:(NSDictionary *)dictionary;
+@end
 
 
-@interface TriggerActionManager : NSObject <CallbackDelegate>
+@interface TriggerActionManager : NSObject <CallbackDelegate,
+TriggerActionManagerExport>
 // TODO: doc
 @property (nonatomic, strong) ActionCollection *actions;
 @property (nonatomic, strong) NSMutableDictionary <id<NSCopying>,
-                                                   ActionCollection *> *items;
+ActionCollection *> *items;
+
+- (void)addAction:(JSValue *)function forTrigger:(NSDictionary *)dictionary;
+
+- (NSString *)triggerForGesture:(UIGestures)gesture
+                          state:(UIGestureRecognizerState)state
+                        touches:(int)touches;
 - (void)addJSValue:(JSValue *)value
         forTrigger:(NSString *)trigger;
-- (void)addAction:(MethodAction *)action
-       forTrigger:(NSString *)trigger;
-- (void)addAction:(MethodAction *)action
-           toItem:(Item *)item
-       forTrigger:(NSString *)trigger;
+- (void)addMethodAction:(MethodAction *)action
+             forTrigger:(NSString *)trigger;
+- (void)addMethodAction:(MethodAction *)action
+                 toItem:(Item *)item
+             forTrigger:(NSString *)trigger;
 // TODO: fix this doc
 /*!
  Calls the calback function for handling the given `gesture` in javascript.
@@ -98,6 +92,7 @@ static NSString *triggerSliderPressed = @"sliderPressed";
  */
 - (void)callGestureCallbackForGesture:(UIGestures)gesture
                                 state:(UIGestureRecognizerState)state
+                              touches:(int)touches
                         withArguments:(NSArray *)arguments;
 - (void)callUICallbackForView:(UIView *)view
                        ofType:(UIType)type;

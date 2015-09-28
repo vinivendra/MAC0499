@@ -2,24 +2,24 @@
 var selectedItem;
 
 function load() {
-    loadStandardLights();
+    var light1 = light.create();
+    light1.color = [1.0, 1.0];
+    light1.position = [3, 3, 3];
+
+    light1 = light.create();
+    light1.color = [0.7, 1.0];
+    light1.position = [-3, -3, -3];
+
+    light1 = light.create();
+    light1.color = [0.4, 1.0];
+    light1.type = "ambient";
+    light1.position = [-3, -3, -3];
     
     parser.parseFile("scene.fmt");
 }
 
-function loadStandardLights() {
-    var light = light.create();
-    light.color = [1.0, 1.0];
-    light.position = [3, 3, 3];
+function update() {
 
-    light = light.create();
-    light.color = [0.7, 1.0];
-    light.position = [-3, -3, -3];
-
-    light = light.create();
-    light.color = [0.4, 1.0];
-    light.type = "ambient";
-    light.position = [-3, -3, -3];
 }
 
 function tap(items, numberOfTouches, hits) {

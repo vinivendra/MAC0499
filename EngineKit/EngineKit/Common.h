@@ -38,6 +38,7 @@ typedef NS_ENUM(NSUInteger, GestureRecognizers) {
 @protocol CallbackDelegate <NSObject>
 - (void)callGestureCallbackForGesture:(UIGestures)gesture
                                 state:(UIGestureRecognizerState)state
+                              touches:(int)touches
                         withArguments:(NSArray *)arguments;
 - (void)callUICallbackForView:(UIView *)view
                        ofType:(UIType)type;

@@ -49,6 +49,7 @@
 
 
 static NSString *_defaultFilename = @"main.js";
+static NSString *_supportFilename = @"support.js";
 
 
 @interface JavaScript ()
@@ -87,10 +88,12 @@ static NSString *_defaultFilename = @"main.js";
 
 //
 - (void)setup {
-    NSString *script = [FileHelper openTextFile:self.filename];
+    NSString *mainScript = [FileHelper openTextFile:self.filename];
+    NSString *supportScript = [FileHelper openTextFile:_supportFilename];
 
     [self setObjects];
-    [self.context evaluateScript:script];
+    [self.context evaluateScript:supportScript];
+    [self.context evaluateScript:mainScript];
     [self getObjects];
 }
 
@@ -174,6 +177,8 @@ static NSString *_defaultFilename = @"main.js";
     self.context[@"left"] = @(UISwipeGestureRecognizerDirectionLeft);
     self.context[@"down"] = @(UISwipeGestureRecognizerDirectionDown);
 
+    self.context[@"triggerManager"] = self.triggerActionManager;
+
     self.context[@"template"] = ^Item *(void) {
         return [Item template];
     };
@@ -188,41 +193,14 @@ static NSString *_defaultFilename = @"main.js";
 
     if (!self.triggerActionManager) {
         self.triggerActionManager = [TriggerActionManager new];
-
-        [self.triggerActionManager addJSValue:self.context[@"button"]
-                                   forTrigger:triggerButtonPressed];
-        [self.triggerActionManager addJSValue:self.context[@"slider"]
-                                   forTrigger:triggerSliderPressed];
-
-        [self.triggerActionManager addJSValue:self.context[@"tap"]
-                                   forTrigger:triggerTap];
-        [self.triggerActionManager addJSValue:self.context[@"swipe"]
-                                   forTrigger:triggerSwipe];
-        [self.triggerActionManager addJSValue:self.context[@"panBegan"]
-                                   forTrigger:triggerPanBegan];
-        [self.triggerActionManager addJSValue:self.context[@"pan"]
-                                   forTrigger:triggerPan];
-        [self.triggerActionManager addJSValue:self.context[@"panEnded"]
-                                   forTrigger:triggerPanEnded];
-        [self.triggerActionManager addJSValue:self.context[@"pinchBegan"]
-                                   forTrigger:triggerPinchBegan];
-        [self.triggerActionManager addJSValue:self.context[@"pinch"]
-                                   forTrigger:triggerPinch];
-        [self.triggerActionManager addJSValue:self.context[@"pinchEnded"]
-                                   forTrigger:triggerPinchEnded];
-        [self.triggerActionManager addJSValue:self.context[@"rorateBegan"]
-                                   forTrigger:triggerRorateBegan];
-        [self.triggerActionManager addJSValue:self.context[@"rotate"]
-                                   forTrigger:triggerRotate];
-        [self.triggerActionManager addJSValue:self.context[@"rotateEnded"]
-                                   forTrigger:triggerRotateEnded];
-        [self.triggerActionManager addJSValue:self.context[@"longPressBegan"]
-                                   forTrigger:triggerLongPressBegan];
-        [self.triggerActionManager addJSValue:self.context[@"longPress"]
-                                   forTrigger:triggerLongPress];
-        [self.triggerActionManager addJSValue:self.context[@"longPressEnded"]
-                                   forTrigger:triggerLongPressEnded];
     }
+}
+
+- (TriggerActionManager *)triggerActionManager {
+    if (!_triggerActionManager) {
+        _triggerActionManager = [TriggerActionManager new];
+    }
+    return _triggerActionManager;
 }
 
 @end

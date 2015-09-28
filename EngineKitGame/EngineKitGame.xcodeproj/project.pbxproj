@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2415E3691BB9C9AB006B12E2 /* support.js in Resources */ = {isa = PBXBuildFile; fileRef = 2415E3681BB9C9AB006B12E2 /* support.js */; settings = {ASSET_TAGS = (); }; };
 		24A86AFB1BB9A40100D5C215 /* EngineKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 24B8114E1BA0758F00EAA152 /* EngineKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		24B8110B1BA0756B00EAA152 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B8110A1BA0756B00EAA152 /* main.m */; };
 		24B8110E1BA0756B00EAA152 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B8110D1BA0756B00EAA152 /* AppDelegate.m */; };
@@ -74,6 +75,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2415E3681BB9C9AB006B12E2 /* support.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = support.js; sourceTree = "<group>"; };
 		24B811061BA0756B00EAA152 /* EngineKitGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EngineKitGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24B8110A1BA0756B00EAA152 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		24B8110C1BA0756B00EAA152 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				24B811151BA0756B00EAA152 /* Assets.xcassets */,
 				24B811171BA0756B00EAA152 /* LaunchScreen.storyboard */,
 				24B8111A1BA0756B00EAA152 /* Info.plist */,
+				2415E3681BB9C9AB006B12E2 /* support.js */,
 				24B812821BA07E2D00EAA152 /* main.js */,
 				24B812831BA07E2D00EAA152 /* scene.fmt */,
 				24B811091BA0756B00EAA152 /* Supporting Files */,
@@ -326,6 +329,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2415E3691BB9C9AB006B12E2 /* support.js in Resources */,
 				24B812851BA07E2D00EAA152 /* scene.fmt in Resources */,
 				24B811191BA0756B00EAA152 /* LaunchScreen.storyboard in Resources */,
 				24B811161BA0756B00EAA152 /* Assets.xcassets in Resources */,
