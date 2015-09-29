@@ -5,10 +5,10 @@
 
 #import "Common.h"
 #import "TriggerActionManager.h"
+
 #import "UI.h"
-
 #import "Camera.h"
-
+#import "Physics.h"
 
 /*!
  A JavaScript manager class, used to handle the interaction between the
@@ -25,7 +25,8 @@
  name.
  @return An initialized JavaScript object set up to handle the given file.
  */
-- (instancetype)initWithFile:(NSString *)filename camera:(Camera *)camera UI:(UI *)ui;
+- (instancetype)initWithCamera:(Camera *)camera UI:(UI *)ui physics:(Physics *)physics;
+- (instancetype)initWithFile:(NSString *)filename camera:(Camera *)camera UI:(UI *)ui physics:(Physics *)physics;
 @property (nonatomic, weak) UI *ui;
 /*!
  Sets up the framework for use in the Javascript code, runs the global code and

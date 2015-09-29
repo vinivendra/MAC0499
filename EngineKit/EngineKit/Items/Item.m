@@ -217,6 +217,47 @@ static NSUInteger globalID = 0;
 }
 
 
+- (NSNumber *)positionX {
+    return @(((Position *)self.position).x);
+}
+
+- (NSNumber *)positionY {
+    return @(((Position *)self.position).y);
+}
+
+- (NSNumber *)positionZ {
+    return @(((Position *)self.position).z);
+}
+
+- (NSNumber *)scaleX {
+    return @(((Vector *)self.scale).x);
+}
+
+- (NSNumber *)scaleY {
+    return @(((Vector *)self.scale).y);
+}
+
+- (NSNumber *)scaleZ {
+    return @(((Vector *)self.scale).z);
+}
+
+- (NSNumber *)rotationX {
+    return @(((Rotation *)self.rotation).x);
+}
+
+- (NSNumber *)rotationY {
+    return @(((Rotation *)self.rotation).y);
+}
+
+- (NSNumber *)rotationZ {
+    return @(((Rotation *)self.rotation).z);
+}
+
+- (NSNumber *)rotationA {
+    return @(((Rotation *)self.rotation).a);
+}
+
+
 - (void)addPositionX:(NSNumber *)newValue {
     Position *oldPosition = self.position;
     self.position = [[Position alloc]

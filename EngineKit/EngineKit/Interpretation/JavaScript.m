@@ -2,8 +2,6 @@
 
 #import "JavaScript.h"
 
-#import "Physics.h"
-
 #import "Position.h"
 #import "Rotation.h"
 
@@ -62,20 +60,22 @@ static NSString *_supportFilename = @"support.js";
 @property (nonatomic, strong) JSValue *contactCallback;
 
 @property (nonatomic, strong) Camera *camera;
+@property (nonatomic, strong) Physics *physics;
 @end
 
 
 @implementation JavaScript
 
-- (instancetype)initWithCamera:(Camera *)camera UI:(UI *)ui {
-    self = [self initWithFile:_defaultFilename camera:camera UI:ui];
+- (instancetype)initWithCamera:(Camera *)camera UI:(UI *)ui physics:(Physics *)physics {
+    self = [self initWithFile:_defaultFilename camera:camera UI:ui physics:physics];
     return self;
 }
 
-- (instancetype)initWithFile:(NSString *)filename camera:(Camera *)camera UI:(UI *)ui {
+- (instancetype)initWithFile:(NSString *)filename camera:(Camera *)camera UI:(UI *)ui physics:(Physics *)physics {
     if (self = [super init]) {
         self.camera = camera;
         self.ui = ui;
+        self.physics = physics;
         if (!filename.valid) {
             filename = _defaultFilename;
         }
@@ -130,38 +130,41 @@ static NSString *_supportFilename = @"support.js";
     self.context[@"print"] = ^(JSValue *value) {
         [console log:value];
     };
+    self.context[@"alert"] = ^(JSValue *value) {
+        [console log:value];
+    };
 
     self.context[@"pi"] = @(M_PI);
     self.context[@"origin"] = [Vector origin];
 
     [self.context evaluateScript:@"var callback;"];
 
-    self.context[@"parser"] = [Parser shared];
+    self.context[@"Parser"] = [Parser shared];
 
-    self.context[@"vector"] = [Vector class];
-    self.context[@"position"] = [Position class];
-    self.context[@"axis"] = [Axis class];
-    self.context[@"rotation"] = [Rotation class];
-    self.context[@"angle"] = [Angle class];
+    self.context[@"Vector"] = [Vector class];
+    self.context[@"Position"] = [Position class];
+    self.context[@"Axis"] = [Axis class];
+    self.context[@"Rotation"] = [Rotation class];
+    self.context[@"Angle"] = [Angle class];
 
-    self.context[@"light"] = [Light class];
-    self.context[@"camera"] = self.camera;
+    self.context[@"Light"] = [Light class];
+    self.context[@"Camera"] = self.camera;
 
-    self.context[@"sphere"] = [Sphere class];
-    self.context[@"box"] = [Box class];
-    self.context[@"cone"] = [Cone class];
-    self.context[@"cylinder"] = [Cylinder class];
-    self.context[@"tube"] = [Tube class];
-    self.context[@"capsule"] = [Capsule class];
-    self.context[@"torus"] = [Torus class];
-    self.context[@"pyramid"] = [Pyramid class];
-    self.context[@"plane"] = [Plane class];
-    self.context[@"text"] = [Text class];
-    self.context[@"floor"] = [Floor class];
+    self.context[@"Sphere"] = [Sphere class];
+    self.context[@"Box"] = [Box class];
+    self.context[@"Cone"] = [Cone class];
+    self.context[@"Cylinder"] = [Cylinder class];
+    self.context[@"Tube"] = [Tube class];
+    self.context[@"Capsule"] = [Capsule class];
+    self.context[@"Torus"] = [Torus class];
+    self.context[@"Pyramid"] = [Pyramid class];
+    self.context[@"Plane"] = [Plane class];
+    self.context[@"Text"] = [Text class];
+    self.context[@"Floor"] = [Floor class];
 
-    self.context[@"physics"] = [Physics new];
+    self.context[@"Physics"] = self.physics;
 
-    self.context[@"color"] = [UIColor class];
+    self.context[@"Color"] = [UIColor class];
 
     self.context[@"UIButton"] = [UIButton class];
     self.context[@"UISlider"] = [UISlider class];
@@ -172,14 +175,14 @@ static NSString *_supportFilename = @"support.js";
     self.context[@"alignmentLeft"] = @(NSTextAlignmentLeft);
     self.context[@"alignmentCenter"] = @(NSTextAlignmentCenter);
 
-    self.context[@"up"] = @(UISwipeGestureRecognizerDirectionUp);
-    self.context[@"right"] = @(UISwipeGestureRecognizerDirectionRight);
-    self.context[@"left"] = @(UISwipeGestureRecognizerDirectionLeft);
-    self.context[@"down"] = @(UISwipeGestureRecognizerDirectionDown);
+    self.context[@"Up"] = @(UISwipeGestureRecognizerDirectionUp);
+    self.context[@"Right"] = @(UISwipeGestureRecognizerDirectionRight);
+    self.context[@"Left"] = @(UISwipeGestureRecognizerDirectionLeft);
+    self.context[@"Down"] = @(UISwipeGestureRecognizerDirectionDown);
 
-    self.context[@"triggerManager"] = self.triggerActionManager;
+    self.context[@"TriggerManager"] = self.triggerActionManager;
 
-    self.context[@"template"] = ^Item *(void) {
+    self.context[@"Template"] = ^Item *(void) {
         return [Item template];
     };
 }

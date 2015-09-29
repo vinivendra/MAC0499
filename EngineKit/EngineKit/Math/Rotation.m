@@ -112,7 +112,16 @@
         radians = [dictionary floatForStringKey:@"3"];
 
     Angle *angle = [[Angle alloc] initWithRadians:radians];
-    Axis *axis = [[Axis alloc] initWithDictionary:dictionary];
+
+    id axisObject = dictionary[@"axis"];
+    if (!axisObject) {
+        axisObject = dictionary[@"Axis"];
+    }
+    if (!axisObject) {
+        axisObject = dictionary;
+    }
+
+    Axis *axis = [[Axis alloc] initWithObject:axisObject];
     self = [self initWithAxis:axis angle:angle];
     return self;
 }

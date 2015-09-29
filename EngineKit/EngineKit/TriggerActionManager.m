@@ -97,7 +97,8 @@ NSDictionary *stateEnumConversion;
                                           gesture:gesture];
 
         NSInteger touches = [self
-                             numberOfTouchesForNumber:dictionary[@"touches"]];
+                             numberOfTouchesForNumber:dictionary[@"touches"]
+                             gesture:gesture];
 
         NSString *trigger = [self triggerForGesture:gesture
                                               state:state
@@ -151,7 +152,8 @@ NSDictionary *stateEnumConversion;
     return stateEnum;
 }
 
-- (NSInteger)numberOfTouchesForNumber:(NSNumber *)object {
+- (NSInteger)numberOfTouchesForNumber:(NSNumber *)object
+                              gesture:(UIGestures)gesture {
     NSInteger touches;
 
     if (!object) {
@@ -161,7 +163,17 @@ NSDictionary *stateEnumConversion;
         touches = object.integerValue;
     }
 
-    return touches;
+    return [self numberOfTouchesForInteger:touches gesture:gesture];
+}
+
+- (NSInteger)numberOfTouchesForInteger:(NSInteger)integer
+                               gesture:(UIGestures)gesture {
+
+    if (gesture == PinchGesture || gesture == RotateGesture) {
+        integer = 2;
+    }
+
+    return integer;
 }
 
 
@@ -171,6 +183,7 @@ NSDictionary *stateEnumConversion;
 - (NSString *)triggerForGesture:(UIGestures)gesture
                           state:(UIGestureRecognizerState)state
                         touches:(NSInteger)touches {
+    touches = [self numberOfTouchesForInteger:touches gesture:gesture];
 
     return [NSString stringWithFormat:@"triggerGesture%d-%d-%d",
             gesture, state, touches];

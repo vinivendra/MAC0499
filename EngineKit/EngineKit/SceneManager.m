@@ -57,7 +57,8 @@ static SceneManager *currentSceneManager;
         self.ui = [[UI alloc] init];
         self.javaScript = [[JavaScript alloc] initWithFile:nil
                                                     camera:self.camera
-                                                        UI:self.ui];
+                                                        UI:self.ui
+                                                   physics:self.physics];
 
 //        self.ui.delegate = self.javaScript.trigger;
         [_scene addItem:self.camera];
