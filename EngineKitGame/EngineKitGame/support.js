@@ -67,13 +67,15 @@ function itemScaleAction(items, scale) {
 }
 
 function itemRotationAction(items, angle) {
-    print(items);
-    print(angle);
     if (typeof items[0] != 'undefined') {
-        print(items[0].rotation);
         items[0].rotate({"axis":cameraZ, "a":angle});
-        print(items[0].rotation);
     }
+}
+
+function sceneRotationAction(items, angle) {
+    var rotZ = Rotation.create([cameraZ, -angle]);
+    Camera.rotateAround(rotZ, origin);
+    updateCamera();
 }
 
 
