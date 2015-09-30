@@ -1,7 +1,6 @@
 
-
 function load() {
-    Parser.parseFile("scene.fmt");
+    Parser.parseFileWithPhysics("scene.fmt", false);
 
     loadStandardLights();
 
@@ -11,9 +10,6 @@ function load() {
                                        "touches": 2});
     TriggerManager.addActionForTrigger(itemScaleAction, {"gesture": "pinch"});
     TriggerManager.addActionForTrigger(handleRotation, {"gesture": "rotate"});
-
-
-    Physics.gravity = [0, 0, -3];
 }
 
 function handleRotation(items, angle) {
@@ -24,6 +20,4 @@ function handleRotation(items, angle) {
         sceneRotationAction(items, angle);
     }
 }
-
-
 

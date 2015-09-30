@@ -37,16 +37,6 @@ class ViewController: UIViewController, MenuManager {
     var cameraY: Vector?
     var cameraZ: Vector?
 
-    var selectedItem: Item? {
-        get {
-            return editorSceneManager?.selectedItem
-        }
-        set {
-            editorSceneManager?.selectedItem = newValue
-            updatePropertiesButtonForSelectedItem(newValue)
-        }
-    }
-
     var state: ViewControllerStates? {
         willSet {
             if (state != newValue) {
@@ -75,7 +65,7 @@ class ViewController: UIViewController, MenuManager {
                 showMenuForButton(objectsButton)
             }
             else if (toState == .ChangingProperties) {
-                if let selectedItem = selectedItem {
+                if let selectedItem = editorSceneManager?.selectedItem {
                     menuController = PropertiesMenuViewController(item: selectedItem)
                     showMenuForButton(propertiesButton)
                 }
@@ -98,7 +88,6 @@ class ViewController: UIViewController, MenuManager {
         }
         else {
             hideMenu()
-            updatePropertiesButtonForSelectedItem(selectedItem)
         }
     }
 
@@ -118,7 +107,6 @@ class ViewController: UIViewController, MenuManager {
         switchToSceneManager(editorSceneManager)
 
         self.propertiesButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Disabled)
-        self.selectedItem = nil
 
         state = .Neutral
     }

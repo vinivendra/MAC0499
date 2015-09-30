@@ -22,7 +22,7 @@ var cameraX = Camera.rotation.rotate(x);
 var cameraY = Camera.rotation.rotate(y);
 var cameraZ = Camera.rotation.rotate(z);
 
-function updateCamera() {
+function updateCameraAxes() {
     cameraX = Camera.rotation.rotate(x);
     cameraY = Camera.rotation.rotate(y);
     cameraZ = Camera.rotation.rotate(z);
@@ -31,18 +31,18 @@ function updateCamera() {
 function trackballAction(items, translation) {
     var resized = translation.times(0.02);
 
+    updateCameraAxes();
     var axis = cameraX.times(resized.y)
     .plus(cameraY.times(-resized.x));
 
     var rot = Rotation.create([axis, resized.normSquared()]);
     Camera.rotateAround(rot, [0, 0, 0]);
-
-    updateCamera();
 }
 
 function sceneTranslationAction(items, translation) {
     var resized = translation.times(0.01);
 
+    updateCameraAxes();
     var translation = cameraX.times(-resized.x)
     .plus(cameraY.times(-resized.y));
 
@@ -53,6 +53,7 @@ function itemTranslationAction(items, translation) {
     if (typeof items[0] != 'undefined') {
         var resized = translation.times(0.01);
 
+        updateCameraAxes();
         var translation = cameraX.times(resized.x)
         .plus(cameraY.times(resized.y));
 
@@ -66,17 +67,25 @@ function itemScaleAction(items, scale) {
     }
 }
 
+function zoomCameraAction(items, scale) {
+    updateCameraAxes();
+    var translation = cameraZ.times((1 - (scale)) * 5);
+    Camera.position = Camera.position.plus(translation);
+}
+
 function itemRotationAction(items, angle) {
     if (typeof items[0] != 'undefined') {
+        updateCameraAxes();
         items[0].rotate({"axis":cameraZ, "a":angle});
     }
 }
 
 function sceneRotationAction(items, angle) {
+    updateCameraAxes();
     var rotZ = Rotation.create([cameraZ, -angle]);
     Camera.rotateAround(rotZ, origin);
-    updateCamera();
 }
+
 
 
 
