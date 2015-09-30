@@ -19,7 +19,7 @@ protocol MenuManager {
 }
 
 
-class ViewController: UIViewController, CallbackDelegate, MenuManager {
+class ViewController: UIViewController, MenuManager {
 
     @IBOutlet weak var itemsButton: UIButton!
     @IBOutlet weak var propertiesButton: UIButton!
@@ -89,7 +89,6 @@ class ViewController: UIViewController, CallbackDelegate, MenuManager {
             else if (toState == .Playing) {
                 hideUI()
                 createPlayScene()
-                setupCurrentSceneForPlayer(playerSceneManager!)
                 switchToSceneManager(playerSceneManager)
             }
         }
@@ -109,74 +108,14 @@ class ViewController: UIViewController, CallbackDelegate, MenuManager {
         state = .Neutral
     }
 
-    // MARK: - CallbackDelegate
-
-    func callGestureCallbackForGesture(gesture: UIGestures, state: UIGestureRecognizerState, withArguments arguments: [AnyObject]!) {
-        if (gesture == UIGestures.PanGesture && state == UIGestureRecognizerState.Changed) {
-            handlePan(arguments)
-        }
-        if (gesture == UIGestures.TapGesture) {
-            handleTap(arguments)
-        }
-    }
-
-    func callUICallbackForView(view: UIView!, ofType type: UIType) {
-
-    }
-
-    // MARK: Gestures
-
-    func handlePan(arguments: [AnyObject]!) {
-        if let numberOfTouches = arguments[2] as? Int,
-            items = arguments[1] as? [Item],
-            translation = arguments[0] as? Vector {
-
-                if (numberOfTouches == 1) {
-                    if (items.count > 0 && items[0] == selectedItem) {
-                        moveItem(translation)
-                    }
-                    else {
-                        rotateCamera(translation)
-                    }
-                }
-        }
-    }
-
-    func handleTap(arguments: [AnyObject]!) {
-        guard (state == .Neutral) else {
-            state = .Neutral
-            return
-        }
-
-        if let items = arguments[0] as? [Item]
-            where items.count > 0 {
-                if let item = items[0] as? Shape {
-                    if (item == selectedItem) {
-                        deselectItem(selectedItem!)
-                    }
-                    else {
-                        if (selectedItem != nil) {
-                            deselectItem(selectedItem!)
-                        }
-                        selectItem(item)
-                    }
-                }
-        }
-        else {
-            if let item = selectedItem {
-                deselectItem(item)
-            }
-        }
-    }
-
     // MARK: - Overrides
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        editorSceneManager = EditorSceneManager()
+        editorSceneManager = EditorSceneManager(script:"editor.js")
+        editorSceneManager?.runOnSceneView(self.engineKitView)
         switchToSceneManager(editorSceneManager)
-        setupCurrentSceneForEditor(editorSceneManager!)
 
         self.propertiesButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Disabled)
         self.selectedItem = nil
@@ -243,97 +182,12 @@ class ViewController: UIViewController, CallbackDelegate, MenuManager {
 
     func createPlayScene() {
         playerSceneManager = PlayerSceneManager()
-        editorSceneManager?.scene.deepCopyToScene(playerSceneManager?.scene)
+        playerSceneManager?.runOnSceneView(self.engineKitView)
     }
 
     func switchToSceneManager(sceneManager: SceneManager?) {
         engineKitView.scene = sceneManager?.scene
         sceneManager?.makeCurrentSceneManager()
-
-        if let camera = sceneManager?.camera {
-            cameraX = camera.rotation.rotate(Axis.x())
-            cameraY = camera.rotation.rotate(Axis.y())
-            cameraZ = camera.rotation.rotate(Axis.z())
-        }
-    }
-
-    func selectItem(item: Item) {
-        selectedItem = item
-        item.selected = true
-    }
-
-    func deselectItem(item: Item) {
-        item.selected = false
-        selectedItem = nil
-    }
-
-    func moveItem(translation: Vector) {
-        let resized = translation.times(0.01)
-
-        let translation = cameraX?.times(resized.x)
-            .plus(cameraY?.times(resized.y));
-
-        let position = selectedItem?.position as? Position
-        selectedItem?.position = position!.plus(translation!)
-    }
-
-    func rotateCamera(translation: Vector) {
-        let camera = SceneManager.currentSceneManager().camera
-
-        cameraX = camera!.rotation.rotate(Axis.x())
-        cameraY = camera!.rotation.rotate(Axis.y())
-
-        let resized = translation.times(0.02)
-
-        let axis: Vector = (cameraX?.times(resized.y).plus(cameraY?.times(-resized.x)))!
-
-        let rot = Rotation.create([axis, resized.normSquared])
-
-        camera!.rotate(rot, around: Position.origin())
-    }
-
-    func setupCurrentSceneForEditor(sceneManager: SceneManager) {
-        let gestures = sceneManager.gestures
-
-        gestures.sceneView = engineKitView
-        gestures.gesturesView = engineKitView
-
-        gestures.setupGestures()
-
-        gestures.delegate = self
-
-        let javaScript = sceneManager.javaScript
-        javaScript.load()
-
-        let bola = Sphere.create()
-        bola.color = "blue";
-        bola.radius = 3
-
-        let action1 = MethodAction(target: bola,
-            methodName: "setPosition",
-            arguments: [-1, -1, -1])
-        let action2 = MethodAction(target: bola,
-            methodName: "setScaleX",
-            arguments: 0.5)
-        let action3 = MethodAction(target: bola,
-            methodName: "setColor",
-            arguments: "purple")
-
-
-        javaScript.triggerActionManager.addAction(action1, toItem: bola, forTrigger: triggerTap)
-        javaScript.triggerActionManager.addAction(action2, toItem: bola, forTrigger: triggerTap)
-        javaScript.triggerActionManager.addAction(action3, toItem: bola, forTrigger: triggerTap)
-    }
-
-    func setupCurrentSceneForPlayer(sceneManager: SceneManager) {
-        let gestures = sceneManager.gestures
-
-        gestures.sceneView = engineKitView
-        gestures.gesturesView = engineKitView
-
-        gestures.setupGestures()
-
-        gestures.delegate = sceneManager.javaScript.triggerActionManager
     }
 
     // MARK: - IBActions

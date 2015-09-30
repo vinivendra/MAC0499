@@ -1,7 +1,7 @@
 
 
 function load() {
-    Parser.parseFile("scene.fmt");
+    Parser.parseFileWithPhysics("scene.fmt", false);
 
     loadStandardLights();
 

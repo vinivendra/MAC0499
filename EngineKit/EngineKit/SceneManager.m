@@ -48,6 +48,25 @@ static SceneManager *currentSceneManager;
     [self.scene makeCurrentScene];
 }
 
+- (instancetype)initWithScript:(NSString *)filename {
+    if (self = [super init]) {
+        self.scene = [SCNScene new];
+        self.physics = [[Physics alloc] initWithScene:self.scene];
+        self.camera = [[Camera alloc] init];
+        self.gestures = [[Gestures alloc] init];
+        self.ui = [[UI alloc] init];
+        self.javaScript = [[JavaScript alloc] initWithFile:filename
+                                                    camera:self.camera
+                                                        UI:self.ui
+                                                   physics:self.physics];
+
+        //        self.ui.delegate = self.javaScript.trigger;
+        [_scene addItem:self.camera];
+    }
+
+    return self;
+}
+
 - (instancetype)init {
     if (self = [super init]) {
         self.scene = [SCNScene new];

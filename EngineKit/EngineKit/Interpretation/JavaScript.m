@@ -51,7 +51,6 @@ static NSString *_supportFilename = @"support.js";
 
 
 @interface JavaScript ()
-@property (nonatomic, strong) JSContext *context;
 @property (nonatomic, strong) NSString *filename;
 
 @property (nonatomic, strong) JSValue *loadFunction;

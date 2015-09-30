@@ -5,11 +5,12 @@ import EngineKit
 
 class EditorSceneManager: SceneManager {
     var selectedItem: Item? {
-        willSet {
-            if selectedItem != newValue {
-                selectedItem?.selected = false
-                newValue?.selected = true
-            }
+        get {
+            let value: JSValue = self.javaScript.context.objectForKeyedSubscript("selectedItem")
+            return value.toObjectOfClass(Item) as? Item
+        }
+        set {
+            self.javaScript.context.setObject(newValue, forKeyedSubscript:"selectedItem")
         }
     }
 }

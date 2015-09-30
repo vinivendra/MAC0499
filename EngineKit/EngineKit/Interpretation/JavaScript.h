@@ -55,4 +55,5 @@
 @property (nonatomic, readonly, strong) JSValue *contactCallback;
 // TODO: doc
 @property (nonatomic, strong) TriggerActionManager *triggerActionManager;
+@property (nonatomic, strong) JSContext *context;
 @end

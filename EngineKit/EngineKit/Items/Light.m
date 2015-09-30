@@ -12,12 +12,7 @@
 @end
 
 
-static Sphere *selectionSphere;
-
-
 @implementation Light
-
-@synthesize selected = _selected;
 
 - (instancetype)init {
     if (self = [super init]) {
@@ -70,23 +65,6 @@ static Sphere *selectionSphere;
 }
 
 #pragma mark - Property Overrides
-
-- (void)setSelected:(BOOL)selected {
-    if (_selected != selected) {
-        if (!selectionSphere) {
-            selectionSphere = [[Sphere alloc] initAndAddToScene];
-            selectionSphere.radius = @(0.1);
-            selectionSphere.color = @"yellow";
-        }
-        selectionSphere.hidden = !selected;
-
-        if (selected) {
-            selectionSphere.position = self.position;
-        }
-    }
-
-    _selected = selected;
-}
 
 - (SCNLight *)light {
     return self.node.light;

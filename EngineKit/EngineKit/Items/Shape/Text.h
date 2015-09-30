@@ -13,7 +13,6 @@
 @property (nonatomic, weak, readonly) Item *parent;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) id materials;
-@property (nonatomic, getter=isSelected) BOOL selected;
 //
 @property (nonatomic, strong) id position;
 @property (nonatomic, strong) id rotation;

@@ -39,6 +39,8 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
 @property (nonatomic, strong) NSMutableDictionary *templates;
 
 @property (nonatomic) State state;
+
+@property (nonatomic) BOOL shouldCreatePhysics;
 @end
 
 
@@ -114,8 +116,14 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
 }
 
 - (void)parseFile:(NSString *)filename {
+    [self parseFile:filename withPhysics:YES];
+}
+
+- (void)parseFile:(NSString *)filename withPhysics:(BOOL)physics {
 
     [self reset];
+
+    self.shouldCreatePhysics = physics;
 
     if (!filename) {
         filename = defaultFilename;
@@ -242,8 +250,10 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
         NSNumber *value = [NSNumber numberWithString:line.lastObject];
         ((Shape *)item).scale = value;
     } else if ([line.firstObject isEqualToString:@"physics"]) {
-        NSString *value = line.lastObject;
-        ((Shape *)item).physics = value;
+        if (self.shouldCreatePhysics) {
+            NSString *value = line.lastObject;
+            ((Shape *)item).physics = value;
+        }
     } else if ([line.firstObject isEqualToString:@"position"]) {
 
         NSNumber *z = [NSNumber numberWithString:[line pop]];

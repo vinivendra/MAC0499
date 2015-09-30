@@ -36,8 +36,12 @@ class ItemsMenuViewController: UIViewController,
 
         cell.textLabel?.text = item.name
 
-        if (item.selected) {
-            tableView .selectRowAtIndexPath(indexPath, animated: false, scrollPosition: UITableViewScrollPosition.None)
+        if let editorManager = SceneManager.currentSceneManager() as? EditorSceneManager {
+            let selectedItem = editorManager.selectedItem
+
+            if (item == selectedItem) {
+                tableView .selectRowAtIndexPath(indexPath, animated: false, scrollPosition: UITableViewScrollPosition.None)
+            }
         }
 
         return cell

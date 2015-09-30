@@ -5,6 +5,7 @@
 
 @protocol ParserExport <JSExport>
 - (void)parseFile:(NSString *)filename;
+- (void)parseFile:(NSString *)filename withPhysics:(BOOL)physics;
 @end
 
 
@@ -27,4 +28,6 @@
  -openTextFile: method.
  */
 - (void)parseFile:(NSString *)filename;
+// TODO: doc
+- (void)parseFile:(NSString *)filename withPhysics:(BOOL)physics;
 @end

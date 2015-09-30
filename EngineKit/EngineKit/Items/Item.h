@@ -72,7 +72,6 @@
 - (void)addRotationZ:(NSNumber *)newValue;
 - (void)addRotationA:(NSNumber *)newValue;
 
-@property (nonatomic, getter=isSelected) BOOL selected;
 @property (nonatomic) BOOL hidden;
 /*!
  Initializes the `Item` and adds it to the scene. Meant to be used by any

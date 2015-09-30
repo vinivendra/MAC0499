@@ -12,8 +12,6 @@
 
 @implementation Shape
 
-@synthesize selected = _selected;
-
 - (void)assertTheresNoPhysicsBody {
     assert(!self.physicsBody); // Error: change the shape's dimensions only
                                // before choosing a physics type! This shape's
@@ -23,19 +21,6 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Property Overriding
-
-- (void)setSelected:(BOOL)selected {
-    if (selected && !self.selected) {
-        self.previousMaterials = self.materials;
-        self.color = @"red";
-    }
-    else if (!selected && self.selected) {
-        self.materials = self.previousMaterials;
-        self.previousMaterials = nil;
-    }
-
-    _selected = selected;
-}
 
 - (void)setMaterials:(id)materials {
     self.geometry.materials = materials;
@@ -54,12 +39,7 @@
     material.diffuse.contents = color;
     material.specular.contents = color;
 
-    if (self.selected) {
-        self.previousMaterials = @[material];
-    }
-    else {
-        self.materials = @[material];
-    }
+    self.materials = @[material];
 }
 
 - (id)color {
