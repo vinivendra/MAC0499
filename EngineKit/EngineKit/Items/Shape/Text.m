@@ -44,6 +44,22 @@
     item.string = self.string;
 }
 
+- (NSMutableArray *)propertyStringsBasedOnTemplate:(Text *)template {
+    NSMutableArray *statements;
+    statements = [super propertyStringsBasedOnTemplate:template];
+
+    if (![self.depth isEqual:template.depth]) {
+        [statements addObject:[NSString stringWithFormat:@"depth is %@",
+                               self.depth]];
+    }
+    if (![self.string isEqualToString:template.string]) {
+        [statements addObject:[NSString stringWithFormat:@"string is %@",
+                               self.string]];
+    }
+
+    return statements;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Property Overriding
 

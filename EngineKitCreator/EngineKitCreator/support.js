@@ -1,19 +1,4 @@
 
-function loadStandardLights() {
-    var myLight = Light.create();
-    myLight.color = [1.0, 1.0];
-    myLight.position = [3, 3, 3];
-
-    myLight = Light.create();
-    myLight.color = [0.7, 1.0];
-    myLight.position = [-3, -3, -3];
-
-    myLight = Light.create();
-    myLight.color = [0.4, 1.0];
-    myLight.type = "ambient";
-    myLight.position = [-3, -3, -3];
-}
-
 var x = [1, 0, 0];
 var y = [0, 1, 0];
 var z = [0, 0, 1];
@@ -57,7 +42,46 @@ function itemTranslationAction(items, translation) {
         var translation = cameraX.times(resized.x)
         .plus(cameraY.times(resized.y));
 
-        items[0].position = items[0].position.plus(translation);
+        var distance = items[0].position.minus(Camera.position);
+        var ratio = distance.norm() / 7.5;
+
+        var resizedTranslation = translation.times(ratio);
+
+        items[0].position = items[0].position.plus(resizedTranslation);
+    }
+}
+
+function itemTranslationActionSnappedToAxes(items, translation) {
+    if (typeof items[0] != 'undefined') {
+
+        updateCameraAxes();
+
+        var resized = translation.times(0.01);
+        var translation = cameraX.times(resized.x)
+        .plus(cameraY.times(resized.y));
+
+        var xDot = Math.abs(cameraZ.dot(x));
+        var yDot = Math.abs(cameraZ.dot(y));
+        var zDot = Math.abs(cameraZ.dot(z));
+
+        var projection;
+
+        if (xDot >  yDot && xDot > zDot) {
+            projection = translation.setNewX(0);
+        }
+        else if (yDot > zDot) {
+            projection = translation.setNewY(0);
+        }
+        else {
+            projection = translation.setNewZ(0);
+        }
+
+        var distance = items[0].position.minus(Camera.position);
+        var ratio = distance.norm() / 7.5;
+
+        var resizedProjection = projection.times(ratio);
+
+        items[0].position = items[0].position.plus(resizedProjection);
     }
 }
 

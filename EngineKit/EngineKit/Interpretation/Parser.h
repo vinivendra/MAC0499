@@ -1,11 +1,11 @@
 
 
 #import <JavaScriptCore/JavaScriptCore.h>
+#import <SceneKit/SceneKit.h>
 
 
 @protocol ParserExport <JSExport>
 - (void)parseFile:(NSString *)filename;
-- (void)parseFile:(NSString *)filename withPhysics:(BOOL)physics;
 @end
 
 
@@ -29,5 +29,5 @@
  */
 - (void)parseFile:(NSString *)filename;
 // TODO: doc
-- (void)parseFile:(NSString *)filename withPhysics:(BOOL)physics;
+- (void)writeFileForScene:(SCNScene *)scene;
 @end

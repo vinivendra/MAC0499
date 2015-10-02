@@ -50,6 +50,26 @@
     item.height = self.height;
 }
 
+- (NSMutableArray *)propertyStringsBasedOnTemplate:(Cone *)template {
+    NSMutableArray *statements;
+    statements = [super propertyStringsBasedOnTemplate:template];
+
+    if (![self.radius isEqual:template.radius]) {
+        [statements addObject:[NSString stringWithFormat:@"radius is %@",
+                               self.radius]];
+    }
+    if (![self.topRadius isEqual:template.topRadius]) {
+        [statements addObject:[NSString stringWithFormat:@"topRadius is %@",
+                               self.topRadius]];
+    }
+    if (![self.height isEqual:template.height]) {
+        [statements addObject:[NSString stringWithFormat:@"height is %@",
+                               self.height]];
+    }
+
+    return statements;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Property Overriding
 

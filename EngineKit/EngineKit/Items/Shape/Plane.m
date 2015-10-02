@@ -44,6 +44,22 @@
     item.height = self.height;
 }
 
+- (NSMutableArray *)propertyStringsBasedOnTemplate:(Plane *)template {
+    NSMutableArray *statements;
+    statements = [super propertyStringsBasedOnTemplate:template];
+
+    if (![self.width isEqual:template.width]) {
+        [statements addObject:[NSString stringWithFormat:@"width is %@",
+                               self.width]];
+    }
+    if (![self.height isEqual:template.height]) {
+        [statements addObject:[NSString stringWithFormat:@"height is %@",
+                               self.height]];
+    }
+
+    return statements;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Property Overriding
 

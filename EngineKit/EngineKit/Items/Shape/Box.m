@@ -52,6 +52,26 @@
     box.chamferRadius = self.chamferRadius;
 }
 
+- (NSMutableArray *)propertyStringsBasedOnTemplate:(Box *)template {
+    NSMutableArray *statements;
+    statements = [super propertyStringsBasedOnTemplate:template];
+
+    if (![self.width isEqual:template.width]) {
+        [statements addObject:[NSString stringWithFormat:@"width is %@",
+                               self.width]];
+    }
+    if (![self.height isEqual:template.height]) {
+        [statements addObject:[NSString stringWithFormat:@"height is %@",
+                               self.height]];
+    }
+    if (![self.length isEqual:template.length]) {
+        [statements addObject:[NSString stringWithFormat:@"length is %@",
+                               self.length]];
+    }
+
+    return statements;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Property Overriding
 

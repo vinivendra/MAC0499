@@ -1,5 +1,4 @@
-// TODO: Create light items and substitute the light nodes for them
-// TODO: Allow loading fmt files from javascript, stop loading them from code.
+
 
 import UIKit
 import EngineKit
@@ -109,6 +108,8 @@ class ViewController: UIViewController, MenuManager {
         self.propertiesButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Disabled)
 
         state = .Neutral
+
+        Parser.shared().writeFileForScene(editorSceneManager?.scene);
     }
 
     override func didReceiveMemoryWarning() {

@@ -46,6 +46,22 @@
     item.pipeRadius = self.pipeRadius;
 }
 
+- (NSMutableArray *)propertyStringsBasedOnTemplate:(Torus *)template {
+    NSMutableArray *statements;
+    statements = [super propertyStringsBasedOnTemplate:template];
+
+    if (![self.ringRadius isEqual:template.ringRadius]) {
+        [statements addObject:[NSString stringWithFormat:@"ringRadius is %@",
+                               self.ringRadius]];
+    }
+    if (![self.pipeRadius isEqual:template.pipeRadius]) {
+        [statements addObject:[NSString stringWithFormat:@"pipeRadius is %@",
+                               self.pipeRadius]];
+    }
+
+    return statements;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Property Overriding
 

@@ -34,4 +34,14 @@
     return i;
 }
 
++ (NSString *)stringFromFloat:(float) val {
+    NSString *ret = [NSString stringWithFormat:@"%lf", val];
+    unichar c = [ret characterAtIndex:[ret length] - 1];
+    while (c == 48 || c == 46) { // 0 or .
+        ret = [ret substringToIndex:[ret length] - 1];
+        c = [ret characterAtIndex:[ret length] - 1];
+    }
+    return ret;
+}
+
 @end

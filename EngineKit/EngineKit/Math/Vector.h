@@ -34,7 +34,7 @@
 - (Vector *)over:(CGFloat)scalar;
 - (Vector *)plus:(Vector *)vector;
 - (Vector *)minus:(Vector *)vector;
-- (CGFloat)dot:(Vector *)vector;
+- (CGFloat)dot:(id)object;
 - (CGFloat)normSquared;
 - (CGFloat)norm;
 - (Vector *)normalize;
@@ -50,7 +50,6 @@
  Represents a tuple of three `CGFloats`, here named `x`, `y` and `z`.
  */
 @interface Vector : NSObject <VectorExport>
-
 
 ///-----------------------------------------------------------------------------
 /// @name Getting the Vector's information
@@ -370,7 +369,8 @@
  @see normSquared
  @see norm
  */
-- (CGFloat)dot:(Vector *)vector;
+// TODO: doc
+- (CGFloat)dot:(id)object;
 /*!
  Returns the squared norm of the receiver.
 

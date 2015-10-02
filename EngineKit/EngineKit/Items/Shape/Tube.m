@@ -49,6 +49,26 @@
     item.height = self.height;
 }
 
+- (NSMutableArray *)propertyStringsBasedOnTemplate:(Tube *)template {
+    NSMutableArray *statements;
+    statements = [super propertyStringsBasedOnTemplate:template];
+
+    if (![self.innerRadius isEqual:template.innerRadius]) {
+        [statements addObject:[NSString stringWithFormat:@"innerRadius is %@",
+                               self.innerRadius]];
+    }
+    if (![self.outerRadius isEqual:template.outerRadius]) {
+        [statements addObject:[NSString stringWithFormat:@"outerRadius is %@",
+                               self.outerRadius]];
+    }
+    if (![self.height isEqual:template.height]) {
+        [statements addObject:[NSString stringWithFormat:@"height is %@",
+                               self.height]];
+    }
+
+    return statements;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Property Overriding
 

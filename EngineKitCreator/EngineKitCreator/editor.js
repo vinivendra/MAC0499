@@ -1,13 +1,14 @@
 
 
 function load() {
-    Parser.parseFileWithPhysics("scene.fmt", false);
+    Physics.gravity = [0, 0, -3];
+    Physics.speed = 0;
 
-    loadStandardLights();
+    Parser.parseFile("scene.fmt");
 
     TriggerManager.addActionForTrigger(handleTap, {"gesture": "tap"});
 
-    TriggerManager.addActionForTrigger(itemTranslationAction, {"gesture": "longpress"});
+    TriggerManager.addActionForTrigger(itemTranslationActionSnappedToAxes, {"gesture": "longpress"});
     TriggerManager.addActionForTrigger(trackballAction, {"gesture": "pan"});
     TriggerManager.addActionForTrigger(sceneTranslationAction, {"gesture": "pan",
                                        "touches": 2});
@@ -15,9 +16,6 @@ function load() {
     TriggerManager.addActionForTrigger(handleScale, {"gesture": "pinch"});
 
     TriggerManager.addActionForTrigger(handleRotation, {"gesture": "rotate"});
-
-
-    Physics.gravity = [0, 0, -3];
 }
 
 function handleScale(items, scale) {

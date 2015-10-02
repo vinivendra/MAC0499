@@ -16,18 +16,18 @@
 #import "Text.h"
 #import "Torus.h"
 #import "Tube.h"
+#import "Camera.h"
+#import "Light.h"
 
 #import "ObjectiveSugar.h"
 #import "NSString+Extension.h"
 #import "NSNumber+Extension.h"
+#import "SCNNode+Extension.h"
 
 
 static NSString *defaultFilename = @"scene.fmt";
 
 static NSString *cleanLine;
-
-static NSArray *properties;
-static NSDictionary *itemClasses;
 
 typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
 
@@ -35,8 +35,6 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
 @interface Parser ()
 @property (nonatomic, strong) NSMutableArray *itemsStack;
 @property (nonatomic, strong) NSMutableArray *indentationsStack;
-@property (nonatomic, strong) NSMutableArray *scopesStack;
-@property (nonatomic, strong) NSMutableDictionary *templates;
 
 @property (nonatomic) State state;
 
@@ -64,66 +62,39 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken,
                       ^{
-                          properties = @[
-                              @"color",
-                              @"physics",
-                              @"position",
-                              @"scale",
-                              @"rotation",
-                              @"width",
-                              @"length",
-                              @"height",
-                              @"chamferRadius",
-                              @"radius",
-                              @"topRadius",
-                              @"bottomRadius",
-                              @"innerRadius",
-                              @"outerRadius",
-                              @"ringRadius",
-                              @"pipeRadius",
-                              @"depth",
-                              @"string",
-                          ];
-                          itemClasses = @{
-                              @"box" : [Box class],
-                              @"capsule" : [Capsule class],
-                              @"cone" : [Cone class],
-                              @"cylinder" : [Cylinder class],
-                              @"floor" : [Floor class],
-                              @"plane" : [Plane class],
-                              @"pyramid" : [Pyramid class],
-                              @"sphere" : [Sphere class],
-                              @"text" : [Text class],
-                              @"torus" : [Torus class],
-                              @"tube" : [Tube class]
-                          };
+                          [Item registerTemplate:[Box template]];
+                          [Item registerTemplate:[Capsule template]];
+                          [Item registerTemplate:[Cone template]];
+                          [Item registerTemplate:[Cylinder template]];
+                          [Item registerTemplate:[Floor template]];
+                          [Item registerTemplate:[Plane template]];
+                          [Item registerTemplate:[Pyramid template]];
+                          [Item registerTemplate:[Sphere template]];
+                          [Item registerTemplate:[Text template]];
+                          [Item registerTemplate:[Torus template]];
+                          [Item registerTemplate:[Tube template]];
+
+                          [Item registerTemplate:[Light template]];
+                          [Item registerTemplate:[Camera template]];
                       });
     }
     return self;
 }
 
+////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Reading
 
 /*!
  Resets the parser's state so that it's ready to parse a new file.
  */
 - (void)reset {
-    self.templates = [NSMutableDictionary new];
-
     self.itemsStack = [NSMutableArray new];
     self.indentationsStack = [NSMutableArray new];
-    self.scopesStack =
-        [NSMutableArray arrayWithObject:[NSMutableDictionary new]];
 }
 
 - (void)parseFile:(NSString *)filename {
-    [self parseFile:filename withPhysics:YES];
-}
-
-- (void)parseFile:(NSString *)filename withPhysics:(BOOL)physics {
 
     [self reset];
-
-    self.shouldCreatePhysics = physics;
 
     if (!filename) {
         filename = defaultFilename;
@@ -135,42 +106,54 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
     NSArray *lines = [contents split:@"\n"];
 
     Item *currentItem;
+    Item *nextItem;
     NSUInteger currentIndentation = 0;
     NSUInteger lastIndentation = 0;
 
 
     for (NSString *line in lines) {
 
+        //// Clean up the line
         cleanLine = [self stripComments:line];
 
         if (![cleanLine valid])
             continue;
 
 
+        //// Handle Indentation
         currentIndentation = cleanLine.indentation;
 
+        // If we're going one level deeper
         if (currentIndentation > lastIndentation) {
             [self pushScopeWithItem:currentItem indentation:currentIndentation];
+            currentItem = nextItem;
         }
 
-
+        // If we're going back one (or more) level(s)
         while (YES) {
-            lastIndentation = ((NSNumber *)self.indentationsStack.lastObject)
-                                  .unsignedIntegerValue;
+            NSNumber *lastIndentationAux = self.indentationsStack.lastObject;
+            lastIndentation = lastIndentationAux.unsignedIntegerValue;
 
             if (lastIndentation > currentIndentation) {
+                id lastItem = self.itemsStack.lastObject;
+                if (lastItem == [NSNull null]) {
+                    lastItem = nil;
+                }
+                currentItem = lastItem;
+
                 [self popScope];
             } else {
                 break;
             }
         }
 
-
+        //// Clean up the line
         NSUInteger statementLength = cleanLine.length - currentIndentation;
         NSRange whitespaceRange
-            = NSMakeRange(currentIndentation, statementLength);
+        = NSMakeRange(currentIndentation, statementLength);
         cleanLine = [cleanLine substringWithRange:whitespaceRange];
 
+        //// Split the line
         NSMutableArray *components = [[cleanLine split:@" "] mutableCopy];
         for (NSInteger i = 0; i < components.count; i++) {
             if (![components[i] valid]) {
@@ -179,47 +162,90 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
             }
         }
 
+        //// Analyze the line
         NSString *itemName = components.firstObject;
-        NSString *propertyName = components.firstObject;
 
-        if ([self currentScopeHasTemplate:itemName]) {
-            [currentItem addItem:(Item *)[self.templates[itemName] deepCopy]];
-        } else if ([properties containsObject:propertyName]) {
-            [self setPropertyFromLine:components onItem:currentItem];
-        } else if ([itemName isEqualToString:@"templates"]) {
+        // If we're adding a new Item to a Template that's being created
+        if (self.state == Templates &&
+            [Item templates][itemName]) {
+
+            Item *template = [Item templates][itemName];
+            Item *newItem = [template create];
+            newItem.name = itemName;
+            [currentItem addItem:newItem];
+            nextItem = newItem;
+        }
+        // If we're starting the Templates section
+        else if ([itemName isEqualToString:@"templates"]) {
             self.state = Templates;
-        } else if ([itemName isEqualToString:@"items"]) {
+            currentItem = nil;
+            nextItem = nil;
+        }
+        // If we're starting the Items section
+        else if ([itemName isEqualToString:@"items"]) {
             self.state = Items;
-        } else {
-            Class class = itemClasses[components.lastObject];
-
-            if (!class)
-                class = [Item class];
-
+            currentItem = nil;
+            nextItem = nil;
+        }
+        else {
+            BOOL done = NO;
 
             switch (self.state) {
-            case Templates: {
-                NSString *templateName = components.firstObject;
+                case Templates: {
+                    NSString *templateName = components.lastObject;
+                    Item *existingTemplate = [Item templates][templateName];
 
-                Item *newTemplate = [class template];
+                    if (existingTemplate) {
+                        NSString *newTemplateName = components.firstObject;
+                        Item *newTemplate = [existingTemplate template];
 
-                self.templates[templateName] = newTemplate;
+                        newTemplate.name = newTemplateName;
 
-                currentItem = newTemplate;
+                        [Item registerTemplate:newTemplate];
 
-                NSMutableDictionary *currentScope = self.scopesStack.lastObject;
-                currentScope[templateName] = templateName;
+                        currentItem = newTemplate;
+                        nextItem = newTemplate;
 
-                break;
+                        done = YES;
+                    }
+
+                    break;
+                }
+                case Items: {
+                    NSString *templateName = components.firstObject;
+
+                    Item *chosenItem;
+                    chosenItem = [currentItem childItemWithName:templateName
+                                                    recursively:NO];
+                    if (chosenItem) {
+                        nextItem = chosenItem;
+                        done = YES;
+                    }
+                    else {
+                        Item *template = [Item templates][itemName];
+
+                        if (template) {
+                            Item *newItem = [template create];
+                            newItem.name = itemName;
+                            [currentItem addItem:newItem];
+                            nextItem = newItem;
+
+                            done = YES;
+                        }
+                    }
+
+                    break;
+                }
+                default: {
+                    break;
+                }
             }
-            case Items:
-            case None:
-            default:
-                [self.templates[components.firstObject] create];
-                break;
+
+            if (!done) {
+                [self setPropertyFromLine:components
+                                   onItem:currentItem];
             }
         }
-
 
         lastIndentation = currentIndentation;
     }
@@ -233,7 +259,7 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
  In the following case:
  @code
  ball sphere
-    color is red
+ color is red
  @endcode
  The line would have been formatted as ["color", "is", "red"] and the Item would
  be the Sphere called "ball".
@@ -280,7 +306,17 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
 
         [item setValue:string forKey:@"string"];
     } else {
-        NSNumber *value = [NSNumber numberWithString:line.lastObject];
+        id value;
+
+        NSCharacterSet *digits = [NSCharacterSet decimalDigitCharacterSet];
+        NSRange digitRange = [line.lastObject rangeOfCharacterFromSet:digits];
+        if (digitRange.location != NSNotFound) {
+            value = [NSNumber numberWithString:line.lastObject];
+        }
+        else {
+            value = line.lastObject;
+        }
+
         [item setValue:value forKey:line.firstObject];
     }
 }
@@ -320,7 +356,6 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
 - (void)pushScopeWithItem:(Item *)currentItem
               indentation:(NSUInteger)currentIndentation {
     [self.itemsStack push:currentItem ?: [NSNull null]];
-    [self.scopesStack push:[NSMutableDictionary new]];
     [self.indentationsStack push:@(currentIndentation)];
 }
 
@@ -330,24 +365,31 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
  */
 - (void)popScope {
     [self.itemsStack pop];
-    [self.scopesStack pop];
     [self.indentationsStack pop];
 }
 
-/*!
- Attempts to find a reference to a template, if that reference is accessible
- from the current scope.
- @param templateName The name of the referenced template.
- @return @p YES if the template is acessible by the current scope; @p NO
- otherwise.
- */
-- (BOOL)currentScopeHasTemplate:(NSString *)templateName {
-    for (NSInteger i = (NSInteger)self.scopesStack.count - 1; i >= 0; i--) {
+////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Writing
 
-        if (((NSMutableDictionary *)self.scopesStack[i])[templateName])
-            return YES;
+- (void)writeFileForScene:(SCNScene *)scene {
+    [self reset];
+
+    NSMutableArray *statements = [NSMutableArray new];
+    [statements addObject:@"items"];
+    
+    for (SCNNode *node in scene.rootNode.childNodes) {
+        Item *item = node.item;
+        
+        NSString *itemString = [item parserString];;
+
+        unless([item isKindOfClass:[Camera class]])
+            [statements addObject:itemString];
     }
-    return NO;
+    
+    NSString *result = [statements join:@"\n"];
+    
+    NSLog(@"\n\n%@", result);
 }
+
 
 @end

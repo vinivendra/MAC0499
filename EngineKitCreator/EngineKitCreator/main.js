@@ -2,8 +2,6 @@
 function load() {
     Parser.parseFileWithPhysics("scene.fmt", false);
 
-    loadStandardLights();
-
     TriggerManager.addActionForTrigger(itemTranslationAction, {"gesture": "longpress"});
     TriggerManager.addActionForTrigger(trackballAction, {"gesture": "pan"});
     TriggerManager.addActionForTrigger(sceneTranslationAction, {"gesture": "pan",

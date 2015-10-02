@@ -43,6 +43,18 @@
     item.radius = self.radius;
 }
 
+- (NSMutableArray *)propertyStringsBasedOnTemplate:(Sphere *)template {
+    NSMutableArray *statements;
+    statements = [super propertyStringsBasedOnTemplate:template];
+
+    if (![self.radius isEqual:template.radius]) {
+        [statements addObject:[NSString stringWithFormat:@"radius is %@",
+                               self.radius]];
+    }
+
+    return statements;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Property Overriding
 

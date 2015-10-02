@@ -6,7 +6,6 @@
 
 
 @interface Shape ()
-@property (nonatomic, strong) NSArray<SCNMaterial *> *previousMaterials;
 @end
 
 
@@ -17,6 +16,18 @@
                                // before choosing a physics type! This shape's
                                // physics have already been calculated and can't
                                // change now to reflect its new size.
+}
+
+- (NSMutableArray *)propertyStringsBasedOnTemplate:(Shape *)template {
+    NSMutableArray *statements;
+    statements = [super propertyStringsBasedOnTemplate:template];
+
+    if (![self.color isEqual:template.color]) {
+        [statements addObject:[NSString stringWithFormat:@"color is %@",
+                               ((UIColor *)self.color).name]];
+    }
+
+    return statements;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -44,13 +55,7 @@
 
 - (id)color {
 
-    NSArray <SCNMaterial *> *materials;
-    if (self.previousMaterials) {
-        materials = self.previousMaterials;
-    }
-    else {
-        materials = self.geometry.materials;
-    }
+    NSArray <SCNMaterial *> *materials = self.geometry.materials;
 
     if (materials.count == 0)
         return nil;
@@ -81,8 +86,6 @@
 }
 
 - (void)setPhysics:(id)physics {
-    assert(!self.physicsBody); // Physics type can only be chosen once!
-
     if ([physics isKindOfClass:[NSString class]]) {
         NSString *string = (NSString *)physics;
         if ([string containsString:@"dynamic"]) {
@@ -93,8 +96,6 @@
             self.node.physicsBody = [SCNPhysicsBody staticBody];
         }
     }
-
-    assert(self.physicsBody); // Oops, trying to set an unsupported object.
 }
 
 - (id)physics {

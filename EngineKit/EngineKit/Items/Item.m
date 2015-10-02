@@ -5,8 +5,7 @@
 #import "SCNScene+Extension.h"
 #import "SCNNode+Extension.h"
 #import "NSArray+Extension.h"
-
-#import "NSMutableArray+ObjectiveSugar.h"
+#import "ObjectiveSugar.h"
 
 #import "Common.h"
 
@@ -14,24 +13,29 @@
 
 
 static NSUInteger globalID = 0;
-
+static NSMutableDictionary *templates;
 
 @implementation Item
 
-+ (NSMutableDictionary *)items {
-    static NSMutableDictionary *items;
++ (NSMutableDictionary *)templates {
+    if (!templates) {
+        templates = [NSMutableDictionary new];
+    }
+    return templates;
+}
 
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken,
-                  ^{
-                      items = [NSMutableDictionary new];
-                  });
-
-    return items;
++ (void)registerTemplate:(Item *)template {
+    if (![[self templates] hasKey:template.name]) {
+        [self templates][template.name] = template;
+    }
 }
 
 + (instancetype) template {
     return [self new];
+}
+
+- (instancetype) template {
+    return [self deepCopy];
 }
 
 + (instancetype)create {
@@ -69,20 +73,12 @@ static NSUInteger globalID = 0;
     _children = [NSMutableArray new];
 }
 
-- (NSString *)description {
-    return NSStringFromClass([self class]);
-}
-
 + (NSUInteger)newID {
     return globalID++;
 }
 
-- (void)setHidden:(BOOL)hidden {
-    self.node.hidden = hidden;
-}
-
-- (BOOL)hidden {
-    return self.node.hidden;
+- (Item *)childItemWithName:(NSString *)string recursively:(BOOL)recursively {
+    return [self.node childNodeWithName:string recursively:recursively].item;
 }
 
 - (void)addItem:(Item *)newItem {
@@ -108,6 +104,8 @@ static NSUInteger globalID = 0;
         item.node.item = self;
     }
 
+    item.name = self.name;
+
     item.position = self.position;
     item.rotation = self.rotation;
     item.scale = self.scale;
@@ -115,6 +113,82 @@ static NSUInteger globalID = 0;
     for (Item *child in self.children)
         [item addItem:[child deepCopy]];
 }
+
+- (NSString *)parserString {
+    Item *template = [Item templates][self.name];
+    NSString *result = [self parserStringWithIndentation:@"    "
+                                                template:template];
+    result = [result stringByAppendingString:@"\n"];
+
+    if (result) {
+        return result;
+    }
+    else {
+        return [NSString stringWithFormat:@"    %@\n", self.name];
+    }
+}
+
+- (NSString *)parserStringWithIndentation:(NSString *)indentation
+                                 template:(Item *)template {
+
+    NSString *deeperIndentation = [indentation stringByAppendingString:@"    "];
+
+    NSMutableArray *statements = [NSMutableArray new];
+    [statements addObject:[indentation stringByAppendingString:self.name]];
+
+    NSMutableArray *propertiesArray;
+    propertiesArray = [self propertyStringsBasedOnTemplate:template];
+    if ([propertiesArray valid]) {
+        NSString *prefix = [@"\n" stringByAppendingString:deeperIndentation];
+        NSString *properties = [propertiesArray join:prefix];
+        properties = [deeperIndentation stringByAppendingString:properties];
+        [statements addObject:properties];
+    }
+
+    for (Item *item in self.children) {
+        Item *childTemplate = [template childItemWithName:item.name
+                                              recursively:NO];
+        if (!childTemplate) {
+            childTemplate = [Item templates][item.name];
+        }
+
+        NSString *childString;
+        childString = [item parserStringWithIndentation:deeperIndentation
+                                               template:childTemplate];
+
+        if (childString) {
+            [statements addObject:childString];
+        }
+    }
+
+    if (statements.count <= 1) {
+        return nil;
+    }
+
+    return [statements join:@"\n"];
+}
+
+- (NSMutableArray *)propertyStringsBasedOnTemplate:(Item *)template {
+    NSMutableArray *statements = [NSMutableArray new];
+
+    if (![self.position isEqual:template.position]) {
+        [statements addObject:[NSString stringWithFormat:@"position is %@",
+                               self.position]];
+    }
+    if (![self.scale isEqual:template.scale]) {
+        [statements addObject:[NSString stringWithFormat:@"scale is %@",
+                               self.scale]];
+    }
+    if (![self.rotation isEqual:template.rotation]) {
+        [statements addObject:[NSString stringWithFormat:@"rotation is %@",
+                               self.rotation]];
+    }
+
+    return statements;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Actions
 
 - (void)rotate:(id)rotation {
     Rotation *rotationObject = [[Rotation alloc] initWithObject:rotation];
@@ -138,9 +212,6 @@ static NSUInteger globalID = 0;
 
     self.node.transform = result;
 }
-
-////////////////////////////////////////////////////////////////////////////////
-#pragma mark - Actions
 
 - (void)setPositionX:(NSNumber *)newValue {
     Position *oldPosition = self.position;
@@ -386,6 +457,26 @@ static NSUInteger globalID = 0;
 
 - (void)setChildren:(NSMutableArray *)children {
     _children = children;
+}
+
+- (void)setName:(NSString *)name {
+    self.node.name = name;
+}
+
+- (NSString *)name {
+    return self.node.name;
+}
+
+- (void)setHidden:(BOOL)hidden {
+    self.node.hidden = hidden;
+}
+
+- (BOOL)hidden {
+    return self.node.hidden;
+}
+
+- (NSString *)description {
+    return NSStringFromClass([self class]);
 }
 
 @end

@@ -72,7 +72,15 @@
 - (void)addRotationZ:(NSNumber *)newValue;
 - (void)addRotationA:(NSNumber *)newValue;
 
++ (NSMutableDictionary *)templates;
+- (Item *)childItemWithName:(NSString *)string recursively:(BOOL)recursively;
+- (NSString *)parserString;
 @property (nonatomic) BOOL hidden;
+- (instancetype) template;
+// Protected
+- (NSMutableArray *)propertyStringsBasedOnTemplate:(Item *)template;
++ (void)registerTemplate:(Item *)template;
+
 /*!
  Initializes the `Item` and adds it to the scene. Meant to be used by any
  subclasses' initializers that are exported to JavaScript.

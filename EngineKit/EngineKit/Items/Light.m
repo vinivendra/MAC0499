@@ -52,6 +52,21 @@
     return types[string.lowercaseString];
 }
 
+- (NSString *)stringForLightType:(NSString *)type {
+    static NSDictionary *strings;
+
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken,
+                  ^{
+                      strings = @{SCNLightTypeAmbient: @"ambient",
+                                  SCNLightTypeAmbient: @"directional",
+                                  SCNLightTypeAmbient: @"omni",
+                                  SCNLightTypeAmbient: @"spot"};
+                  });
+
+    return strings[type];
+}
+
 #pragma mark - Override
 
 - (void)copyInfoTo:(Item *)item {
@@ -62,6 +77,22 @@
         light.type = self.type;
         light.color = self.color;
     }
+}
+
+- (NSMutableArray *)propertyStringsBasedOnTemplate:(Light *)template {
+    NSMutableArray *statements;
+    statements = [super propertyStringsBasedOnTemplate:template];
+    
+    if (![self.type isEqual:template.type]) {
+        [statements addObject:[NSString stringWithFormat:@"type is %@",
+                               [self stringForLightType:self.type]]];
+    }
+    if (![self.color isEqual:template.color]) {
+        [statements addObject:[NSString stringWithFormat:@"color is %@",
+                               ((UIColor *)self.color).name]];
+    }
+
+    return statements;
 }
 
 #pragma mark - Property Overrides
@@ -84,7 +115,6 @@
 }
 
 - (void)setType:(NSString *)type {
-
     self.light.type = [self lightTypeForString:type];
 }
 
