@@ -41,6 +41,11 @@
         ret = [ret substringToIndex:[ret length] - 1];
         c = [ret characterAtIndex:[ret length] - 1];
     }
+
+    if ([ret length] == 0) {
+        ret = @"0";
+    }
+
     return ret;
 }
 

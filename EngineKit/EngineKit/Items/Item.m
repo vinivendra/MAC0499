@@ -116,8 +116,15 @@ static NSMutableDictionary *templates;
 
 - (NSString *)parserString {
     Item *template = [Item templates][self.name];
+    return [self parserStringBasedOnTemplate:template
+                            withTemplateName:NO];
+}
+
+- (NSString *)parserStringBasedOnTemplate:(Item *)template
+                         withTemplateName:(BOOL)withTemplateName {
     NSString *result = [self parserStringWithIndentation:@"    "
-                                                template:template];
+                                         basedOnTemplate:template
+                                        withTemplateName:withTemplateName];
     result = [result stringByAppendingString:@"\n"];
 
     if (result) {
@@ -129,12 +136,20 @@ static NSMutableDictionary *templates;
 }
 
 - (NSString *)parserStringWithIndentation:(NSString *)indentation
-                                 template:(Item *)template {
+                          basedOnTemplate:(Item *)template
+                         withTemplateName:(BOOL)withTemplateName {
 
     NSString *deeperIndentation = [indentation stringByAppendingString:@"    "];
 
     NSMutableArray *statements = [NSMutableArray new];
-    [statements addObject:[indentation stringByAppendingString:self.name]];
+
+    NSString *headerString = self.name;
+    if (withTemplateName) {
+        NSString *headerSuffix = [NSString stringWithFormat:@" %@",
+                                  template.name];
+        headerString = [headerString stringByAppendingString:headerSuffix];
+    }
+    [statements addObject:[indentation stringByAppendingString:headerString]];
 
     NSMutableArray *propertiesArray;
     propertiesArray = [self propertyStringsBasedOnTemplate:template];
@@ -154,7 +169,8 @@ static NSMutableDictionary *templates;
 
         NSString *childString;
         childString = [item parserStringWithIndentation:deeperIndentation
-                                               template:childTemplate];
+                                        basedOnTemplate:childTemplate
+                                       withTemplateName:(BOOL)withTemplateName];
 
         if (childString) {
             [statements addObject:childString];

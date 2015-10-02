@@ -375,7 +375,30 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
     [self reset];
 
     NSMutableArray *statements = [NSMutableArray new];
-    [statements addObject:@"items"];
+    [statements addObject:@"templates"];
+
+    NSArray *keys = [[[Item templates] allKeys] reverse];
+
+    for (NSString *key in keys) {
+        id object = [Item templates][key];
+        Item *template = (Item *)object;
+        NSString *templateName = template.name;
+        NSString *className = NSStringFromClass([template class]);
+        BOOL templateIsOriginal = [className isEqualToString:templateName];
+
+        if (!templateIsOriginal) {
+            Item *originalTemplate = [Item templates][className];
+
+            NSString *templateString;
+            templateString = [template
+                              parserStringBasedOnTemplate:originalTemplate
+                              withTemplateName:YES];
+            [statements addObject:templateString];
+        }
+    }
+
+
+    [statements addObject:@"\nitems"];
     
     for (SCNNode *node in scene.rootNode.childNodes) {
         Item *item = node.item;

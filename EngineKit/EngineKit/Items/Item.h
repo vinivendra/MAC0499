@@ -75,6 +75,8 @@
 + (NSMutableDictionary *)templates;
 - (Item *)childItemWithName:(NSString *)string recursively:(BOOL)recursively;
 - (NSString *)parserString;
+- (NSString *)parserStringBasedOnTemplate:(Item *)template
+                         withTemplateName:(BOOL)withTemplateName;
 @property (nonatomic) BOOL hidden;
 - (instancetype) template;
 // Protected
