@@ -22,6 +22,9 @@ protocol MenuManager {
 
 class ViewController: UIViewController, MenuManager {
 
+    @IBOutlet weak var nameTextField: UITextField!
+
+    @IBOutlet weak var exportButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var itemsButton: UIButton!
     @IBOutlet weak var propertiesButton: UIButton!
@@ -44,6 +47,13 @@ class ViewController: UIViewController, MenuManager {
         willSet {
             if (state != newValue) {
                 changeState(state, toState: newValue)
+
+                if (newValue == .CreatingTemplate) {
+                    nameTextField.hidden = false
+                }
+                else if (newValue == .Neutral) {
+                    nameTextField.hidden = true
+                }
             }
         }
     }
@@ -96,7 +106,8 @@ class ViewController: UIViewController, MenuManager {
                     return
                 }
                 else if (fromState == .CreatingTemplate) {
-                    switchToSceneManager(editorSceneManager);
+                    registerTemplate()
+                    switchToSceneManager(editorSceneManager)
                     return
                 }
                 else {
@@ -227,6 +238,23 @@ class ViewController: UIViewController, MenuManager {
         templateSceneManager?.runOnSceneView(self.engineKitView)
     }
 
+    func registerTemplate() {
+        let newItem = Item()
+
+        let nodes = SCNScene.currentScene().rootNode.childNodes
+
+        for node in nodes {
+            let item = node.item
+            if (!item.isDefault) {
+                newItem.addItem(item)
+            }
+        }
+
+        newItem.name = nameTextField.text
+
+        Item.registerTemplate(newItem)
+    }
+
     func switchToSceneManager(sceneManager: SceneManager?) {
         engineKitView.scene = sceneManager?.scene
         sceneManager?.makeCurrentSceneManager()
@@ -251,6 +279,10 @@ class ViewController: UIViewController, MenuManager {
         else {
             state = .Playing
         }
+    }
+
+    @IBAction func exportButtonPressed(sender: AnyObject) {
+        Parser.shared().writeFileForScene(editorSceneManager!.scene)
     }
 
     @IBAction func itemsButtonTap(sender: AnyObject) {

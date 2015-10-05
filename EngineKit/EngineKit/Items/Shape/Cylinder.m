@@ -11,21 +11,27 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.cylinder = [SCNCylinder new];
+        [self commonInit];
     }
     return self;
 }
 
 - (instancetype)initAndAddToScene {
     if (self = [super initAndAddToScene]) {
-        self.cylinder = [SCNCylinder new];
+        [self commonInit];
     }
     return self;
+}
+
+- (void)commonInit {
+    self.cylinder = [SCNCylinder new];
+    self.color = @"lightGray";
 }
 
 - (instancetype)initWithRadius:(CGFloat)radius height:(CGFloat)height {
     if (self = [super initAndAddToScene]) {
         self.cylinder = [SCNCylinder cylinderWithRadius:radius height:height];
+        self.color = @"lightGray";
     }
     return self;
 }

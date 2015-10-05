@@ -3,14 +3,12 @@ function loadStandardLights() {
     var myLight = Light.create();
     myLight.color = [1.0, 1.0];
     myLight.position = [3, 3, 3];
-
-    myLight = Light.create();
-    myLight.color = [0.7, 1.0];
-    myLight.position = [-3, -3, -3];
+    myLight.isDefault = true;
 
     myLight = Light.create();
     myLight.color = [0.4, 1.0];
     myLight.type = "ambient";
+    myLight.isDefault = true;
     myLight.position = [-3, -3, -3];
 }
 

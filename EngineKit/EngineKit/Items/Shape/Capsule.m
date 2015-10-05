@@ -11,21 +11,28 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.capsule = [SCNCapsule new];
+        [self commonInit];
     }
     return self;
 }
 
 - (instancetype)initAndAddToScene {
     if (self = [super initAndAddToScene]) {
-        self.capsule = [SCNCapsule new];
+        [self commonInit];
     }
     return self;
 }
 
+- (void)commonInit {
+    self.capsule = [SCNCapsule new];
+    self.color = @"lightGray";
+}
+
+
 - (instancetype)initWithRadius:(CGFloat)radius height:(CGFloat)height {
     if (self = [super initAndAddToScene]) {
         self.capsule = [SCNCapsule capsuleWithCapRadius:radius height:height];
+        self.color = @"lightGray";
     }
     return self;
 }

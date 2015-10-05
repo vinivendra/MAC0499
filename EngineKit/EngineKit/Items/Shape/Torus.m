@@ -11,23 +11,29 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.torus = [SCNTorus new];
+        [self commonInit];
     }
     return self;
 }
 
 - (instancetype)initAndAddToScene {
     if (self = [super initAndAddToScene]) {
-        self.torus = [SCNTorus new];
+        [self commonInit];
     }
     return self;
+}
+
+- (void)commonInit {
+    self.torus = [SCNTorus new];
+    self.color = @"lightGray";
 }
 
 - (instancetype)initWithRingRadius:(CGFloat)ringRadius
                         pipeRadius:(CGFloat)pipeRadius {
     if (self = [super initAndAddToScene]) {
         self.torus =
-            [SCNTorus torusWithRingRadius:ringRadius pipeRadius:pipeRadius];
+        [SCNTorus torusWithRingRadius:ringRadius pipeRadius:pipeRadius];
+        self.color = @"lightGray";
     }
     return self;
 }

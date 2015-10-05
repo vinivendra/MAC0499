@@ -11,18 +11,22 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.cone = [SCNCone new];
+        [self commonInit];
     }
     return self;
 }
 
 - (instancetype)initAndAddToScene {
     if (self = [super initAndAddToScene]) {
-        self.cone = [SCNCone new];
+        [self commonInit];
     }
     return self;
 }
 
+- (void)commonInit {
+    self.cone = [SCNCone new];
+    self.color = @"lightGray";
+}
 
 - (instancetype)initWithTopRadius:(CGFloat)topRadius
                      bottomRadius:(CGFloat)bottomRadius
@@ -31,6 +35,7 @@
         self.cone = [SCNCone coneWithTopRadius:topRadius
                                   bottomRadius:bottomRadius
                                         height:height];
+        self.color = @"lightGray";
     }
     return self;
 }

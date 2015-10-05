@@ -11,16 +11,21 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.pyramid = [SCNPyramid new];
+        [self commonInit];
     }
     return self;
 }
 
 - (instancetype)initAndAddToScene {
     if (self = [super initAndAddToScene]) {
-        self.pyramid = [SCNPyramid new];
+        [self commonInit];
     }
     return self;
+}
+
+- (void)commonInit {
+    self.pyramid = [SCNPyramid new];
+    self.color = @"lightGray";
 }
 
 - (instancetype)initWithWidth:(CGFloat)width
@@ -28,7 +33,8 @@
                        length:(CGFloat)length {
     if (self = [super initAndAddToScene]) {
         self.pyramid =
-            [SCNPyramid pyramidWithWidth:width height:height length:length];
+        [SCNPyramid pyramidWithWidth:width height:height length:length];
+        self.color = @"lightGray";
     }
     return self;
 }

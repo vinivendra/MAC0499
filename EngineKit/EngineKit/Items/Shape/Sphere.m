@@ -11,21 +11,27 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.sphere = [SCNSphere new];
+        [self commonInit];
     }
     return self;
 }
 
 - (instancetype)initAndAddToScene {
     if (self = [super initAndAddToScene]) {
-        self.sphere = [SCNSphere new];
+        [self commonInit];
     }
     return self;
+}
+
+- (void)commonInit {
+    self.sphere = [SCNSphere new];
+    self.color = @"lightGray";
 }
 
 - (instancetype)initWithRadius:(CGFloat)radius {
     if (self = [super initAndAddToScene]) {
         self.sphere = [SCNSphere sphereWithRadius:radius];
+        self.color = @"lightGray";
     }
     return self;
 }

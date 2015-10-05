@@ -24,10 +24,8 @@ static NSMutableDictionary *templates;
     return templates;
 }
 
-+ (void)registerTemplate:(Item *)template {
-    if (![[self templates] hasKey:template.name]) {
-        [self templates][template.name] = template;
-    }
++ (void)registerTemplate:(Item *)newValue {
+    [self templates][newValue.name] = newValue;
 }
 
 + (instancetype) template {
@@ -52,7 +50,7 @@ static NSMutableDictionary *templates;
 
 - (instancetype)initAndAddToScene {
     if (self = [super init]) {
-        [self commonInit];
+        [self commonItemInit];
         [[SCNScene currentScene] addItem:self];
     }
     return self;
@@ -60,16 +58,17 @@ static NSMutableDictionary *templates;
 
 - (instancetype)init {
     if (self = [super init]) {
-        [self commonInit];
+        [self commonItemInit];
     }
     return self;
 }
 
-- (void)commonInit {
+- (void)commonItemInit {
     self.node = [SCNNode node];
     self.node.item = self;
     self.ID = [Item newID];
     self.name = NSStringFromClass(self.class);
+    self.isDefault = NO;
     _children = [NSMutableArray new];
 }
 
@@ -177,7 +176,7 @@ static NSMutableDictionary *templates;
         }
     }
 
-    if (statements.count <= 1) {
+    if (statements.count <= 1 && !withTemplateName) {
         return nil;
     }
 

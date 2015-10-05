@@ -62,6 +62,23 @@
                                     <action selector="doneButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qdP-V8-9sf"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l9S-rf-9m0">
+                                <rect key="frame" x="389" y="28" width="97" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="11X-SD-42K"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PkW-Ur-PlE">
+                                <rect key="frame" x="31" y="28" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Export"/>
+                                <connections>
+                                    <action selector="exportButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oYW-8a-19J"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -75,7 +92,9 @@
                     <connections>
                         <outlet property="doneButton" destination="MSa-HT-KEf" id="P3m-cX-11j"/>
                         <outlet property="engineKitView" destination="IPS-ES-w43" id="hxp-Sb-Cc4"/>
+                        <outlet property="exportButton" destination="PkW-Ur-PlE" id="jDu-mM-aM5"/>
                         <outlet property="itemsButton" destination="B3R-1c-gVA" id="LCw-1T-zV1"/>
+                        <outlet property="nameTextField" destination="l9S-rf-9m0" id="W1g-wO-2nL"/>
                         <outlet property="objectsButton" destination="Kpq-wj-0cB" id="XDe-EC-ecf"/>
                         <outlet property="playButton" destination="lOE-F0-L8c" id="wzy-ha-QG9"/>
                         <outlet property="propertiesButton" destination="FV0-bx-iOg" id="Xuc-Ye-Yzg"/>

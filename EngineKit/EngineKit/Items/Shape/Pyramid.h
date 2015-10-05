@@ -17,6 +17,8 @@
 @property (nonatomic, strong) id position;
 @property (nonatomic, strong) id rotation;
 @property (nonatomic, strong) id scale;
+@property (nonatomic) BOOL isDefault;
+@property (nonatomic) BOOL hidden;
 //
 @property (nonatomic, strong) id color;
 @property (nonatomic, strong) id physics;

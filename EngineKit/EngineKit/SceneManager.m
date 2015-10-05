@@ -62,6 +62,7 @@ static SceneManager *currentSceneManager;
         self.scene = [SCNScene new];
         self.physics = [[Physics alloc] initWithScene:self.scene];
         self.camera = [[Camera alloc] init];
+        self.camera.isDefault = YES;
         self.gestures = [[Gestures alloc] init];
         self.ui = [[UI alloc] init];
         self.javaScript = [[JavaScript alloc] initWithScriptFile:scriptFilename

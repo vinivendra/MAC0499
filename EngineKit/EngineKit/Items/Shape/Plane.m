@@ -11,21 +11,27 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.plane = [SCNPlane new];
+        [self commonInit];
     }
     return self;
 }
 
 - (instancetype)initAndAddToScene {
     if (self = [super initAndAddToScene]) {
-        self.plane = [SCNPlane new];
+        [self commonInit];
     }
     return self;
+}
+
+- (void)commonInit {
+    self.plane = [SCNPlane new];
+    self.color = @"lightGray";
 }
 
 - (instancetype)initWithWidth:(CGFloat)width height:(CGFloat)height {
     if (self = [super initAndAddToScene]) {
         self.plane = [SCNPlane planeWithWidth:width height:height];
+        self.color = @"lightGray";
     }
     return self;
 }

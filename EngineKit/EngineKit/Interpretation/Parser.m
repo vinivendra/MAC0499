@@ -45,11 +45,9 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
 + (Parser *)shared {
     static Parser *singleton;
 
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken,
-                  ^{
-                      singleton = [self new];
-                  });
+    if (!singleton) {
+        singleton = [self new];
+    }
 
     return singleton;
 }
@@ -57,24 +55,20 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
 - (instancetype)init {
     if (self = [super init]) {
 
-        static dispatch_once_t onceToken;
-        dispatch_once(&onceToken,
-                      ^{
-                          [Item registerTemplate:[Box template]];
-                          [Item registerTemplate:[Capsule template]];
-                          [Item registerTemplate:[Cone template]];
-                          [Item registerTemplate:[Cylinder template]];
-                          [Item registerTemplate:[Floor template]];
-                          [Item registerTemplate:[Plane template]];
-                          [Item registerTemplate:[Pyramid template]];
-                          [Item registerTemplate:[Sphere template]];
-                          [Item registerTemplate:[Text template]];
-                          [Item registerTemplate:[Torus template]];
-                          [Item registerTemplate:[Tube template]];
+      [Item registerTemplate:[Box template]];
+      [Item registerTemplate:[Capsule template]];
+      [Item registerTemplate:[Cone template]];
+      [Item registerTemplate:[Cylinder template]];
+      [Item registerTemplate:[Floor template]];
+      [Item registerTemplate:[Plane template]];
+      [Item registerTemplate:[Pyramid template]];
+      [Item registerTemplate:[Sphere template]];
+      [Item registerTemplate:[Text template]];
+      [Item registerTemplate:[Torus template]];
+      [Item registerTemplate:[Tube template]];
 
-                          [Item registerTemplate:[Light template]];
-                          [Item registerTemplate:[Camera template]];
-                      });
+      [Item registerTemplate:[Light template]];
+      [Item registerTemplate:[Camera template]];
     }
     return self;
 }
@@ -384,6 +378,10 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
 
         if (!templateIsOriginal) {
             Item *originalTemplate = [Item templates][className];
+
+            if (!originalTemplate) {
+                originalTemplate = [Item template];
+            }
 
             NSString *templateString;
             templateString = [template

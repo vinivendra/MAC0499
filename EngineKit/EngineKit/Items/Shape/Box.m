@@ -11,16 +11,21 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.box = [SCNBox new];
+        [self commonInit];
     }
     return self;
 }
 
 - (instancetype)initAndAddToScene {
     if (self = [super initAndAddToScene]) {
-        self.box = [SCNBox new];
+        [self commonInit];
     }
     return self;
+}
+
+- (void)commonInit {
+    self.box = [SCNBox new];
+    self.color = @"lightGray";
 }
 
 - (instancetype)initWithWidth:(CGFloat)width
@@ -32,6 +37,7 @@
                                  height:height
                                  length:length
                           chamferRadius:chamferRadius];
+        self.color = @"lightGray";
     }
     return self;
 }

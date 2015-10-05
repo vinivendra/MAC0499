@@ -11,21 +11,27 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.text = [SCNText new];
+        [self commonInit];
     }
     return self;
 }
 
 - (instancetype)initAndAddToScene {
     if (self = [super initAndAddToScene]) {
-        self.text = [SCNText new];
+        [self commonInit];
     }
     return self;
+}
+
+- (void)commonInit {
+    self.text = [SCNText new];
+    self.color = @"lightGray";
 }
 
 - (instancetype)initWithString:(id)string depth:(CGFloat)depth {
     if (self = [super initAndAddToScene]) {
         self.text = [SCNText textWithString:string extrusionDepth:depth];
+        self.color = @"lightGray";
     }
     return self;
 }

@@ -28,6 +28,8 @@
 @property (nonatomic, strong) id position;
 @property (nonatomic, strong) id rotation;
 @property (nonatomic, strong) id scale;
+@property (nonatomic) BOOL isDefault;
+@property (nonatomic) BOOL hidden;
 @end
 
 
@@ -78,6 +80,7 @@
 - (NSString *)parserStringBasedOnTemplate:(Item *)template
                          withTemplateName:(BOOL)withTemplateName;
 @property (nonatomic) BOOL hidden;
+@property (nonatomic) BOOL isDefault;
 - (instancetype) template;
 // Protected
 - (NSMutableArray *)propertyStringsBasedOnTemplate:(Item *)template;
