@@ -18,13 +18,34 @@
                                // change now to reflect its new size.
 }
 
-- (NSMutableArray *)propertyStringsBasedOnTemplate:(Shape *)template {
-    NSMutableArray *statements;
-    statements = [super propertyStringsBasedOnTemplate:template];
+- (NSString *)stringForPhysicsBody:(SCNPhysicsBody *)physicsBody {
 
-    if (![self.color isEqual:template.color]) {
+    if (physicsBody.type == SCNPhysicsBodyTypeDynamic) {
+        return @"dynamic";
+    }
+    else if (physicsBody.type == SCNPhysicsBodyTypeStatic) {
+        return @"static";
+    }
+    else if (physicsBody.type == SCNPhysicsBodyTypeKinematic) {
+        return @"kinematic";
+    }
+
+    return nil;
+}
+
+- (NSMutableArray *)propertyStringsBasedOnTemplate:(Shape *)aTemplate {
+    NSMutableArray *statements;
+    statements = [super propertyStringsBasedOnTemplate:aTemplate];
+
+    if (![self.color isEqual:aTemplate.color]) {
         [statements addObject:[NSString stringWithFormat:@"color is %@",
                                ((UIColor *)self.color).name]];
+    }
+    if ((self.physicsBody.type != aTemplate.physicsBody.type)
+        || (self.physicsBody && !aTemplate.physicsBody)
+        || (!self.physicsBody && aTemplate.physicsBody)) {
+        [statements addObject:[NSString stringWithFormat:@"physics is %@",
+                               [self stringForPhysicsBody:self.physicsBody]]];
     }
 
     return statements;

@@ -9,20 +9,8 @@ private let id = "cellID"
 
 protocol MenuController {
     func setupMenuView(menuView: MenuView)
+    var manager: MenuManager? {get set}
 }
-
-
-var itemClasses : [Item] = [Box.template(),
-    Capsule.template(),
-    Cone.template(),
-    Cylinder.template(),
-    Floor.template(),
-    Plane.template(),
-    Pyramid.template(),
-    Sphere.template(),
-    Text.template(),
-    Torus.template(),
-    Tube.template()]
 
 
 class ObjectsMenuController: NSObject,
@@ -31,7 +19,23 @@ class ObjectsMenuController: NSObject,
     UICollectionViewDelegateFlowLayout,
 MenuController {
 
+    var manager :MenuManager?
+
     var collectionView: UICollectionView?
+    var _templates: [Item]?
+    var templates: [Item]? {
+        get {
+            if (_templates == nil) {
+                _templates = Item.templates().allValues as? [Item]
+            }
+            return _templates
+        }
+        set {
+            _templates = newValue
+        }
+    }
+
+    var shouldShowPlusCell: Bool?
 
     // MARK: - UICollectionViewDataSource
 
@@ -40,7 +44,16 @@ MenuController {
     }
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return itemClasses.count
+        if let templates = templates {
+            if let shouldShowPlusCell = shouldShowPlusCell
+                where shouldShowPlusCell{
+                    return templates.count + 1
+            }
+            else {
+                return templates.count
+            }
+        }
+        return 0;
     }
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -50,9 +63,14 @@ MenuController {
 
         cell.backgroundColor = UIColor.redColor()
 
-        let template = itemClasses[indexPath.row]
-        let string = template.name
-        cell.label.text = string
+        if let templates = templates
+            where indexPath.row < templates.count {
+                let string = templates[indexPath.row].name
+                cell.label.text = string
+        }
+        else {
+            cell.label.text = "+";
+        }
 
         return cell
     }
@@ -66,9 +84,17 @@ MenuController {
     // MARK: - UICollectionViewDelegate
 
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let template = itemClasses[indexPath.row]
+        if let templates = templates
+            where indexPath.row < templates.count {
+                let template = templates[indexPath.row]
 
-        template.create()
+                template.create()
+
+                manager?.dismissMenu()
+        }
+        else {
+            manager?.dismissMenuAndRespond()
+        }
     }
 
     // MARK: - MenuController
@@ -90,10 +116,10 @@ MenuController {
         collectionView?.backgroundColor = UIColor.greenColor()
 
         collectionView?.registerNib(UINib(nibName: "ObjectsCell", bundle: nil), forCellWithReuseIdentifier: id)
-
+        
         menuView.addSubview(collectionView!)
     }
-
+    
 }
 
 

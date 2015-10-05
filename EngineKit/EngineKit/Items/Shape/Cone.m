@@ -51,8 +51,7 @@
 }
 
 - (NSMutableArray *)propertyStringsBasedOnTemplate:(Cone *)template {
-    NSMutableArray *statements;
-    statements = [super propertyStringsBasedOnTemplate:template];
+    NSMutableArray *statements = [NSMutableArray new];
 
     if (![self.radius isEqual:template.radius]) {
         [statements addObject:[NSString stringWithFormat:@"radius is %@",
@@ -67,6 +66,10 @@
                                self.height]];
     }
 
+    NSMutableArray *superStatements;
+    superStatements = [super propertyStringsBasedOnTemplate:template];
+    statements = [[statements arrayByAddingObjectsFromArray:superStatements]
+                  mutableCopy];
     return statements;
 }
 

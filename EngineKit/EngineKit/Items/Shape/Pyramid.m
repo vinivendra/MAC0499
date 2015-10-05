@@ -49,8 +49,7 @@
 }
 
 - (NSMutableArray *)propertyStringsBasedOnTemplate:(Pyramid *)template {
-    NSMutableArray *statements;
-    statements = [super propertyStringsBasedOnTemplate:template];
+    NSMutableArray *statements = [NSMutableArray new];
 
     if (![self.width isEqual:template.width]) {
         [statements addObject:[NSString stringWithFormat:@"width is %@",
@@ -65,6 +64,10 @@
                                self.length]];
     }
 
+    NSMutableArray *superStatements;
+    superStatements = [super propertyStringsBasedOnTemplate:template];
+    statements = [[statements arrayByAddingObjectsFromArray:superStatements]
+                  mutableCopy];
     return statements;
 }
 

@@ -50,8 +50,7 @@
 }
 
 - (NSMutableArray *)propertyStringsBasedOnTemplate:(Tube *)template {
-    NSMutableArray *statements;
-    statements = [super propertyStringsBasedOnTemplate:template];
+    NSMutableArray *statements = [NSMutableArray new];
 
     if (![self.innerRadius isEqual:template.innerRadius]) {
         [statements addObject:[NSString stringWithFormat:@"innerRadius is %@",
@@ -66,6 +65,10 @@
                                self.height]];
     }
 
+    NSMutableArray *superStatements;
+    superStatements = [super propertyStringsBasedOnTemplate:template];
+    statements = [[statements arrayByAddingObjectsFromArray:superStatements]
+                  mutableCopy];
     return statements;
 }
 

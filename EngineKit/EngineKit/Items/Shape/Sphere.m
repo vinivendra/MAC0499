@@ -44,14 +44,17 @@
 }
 
 - (NSMutableArray *)propertyStringsBasedOnTemplate:(Sphere *)template {
-    NSMutableArray *statements;
-    statements = [super propertyStringsBasedOnTemplate:template];
+    NSMutableArray *statements = [NSMutableArray new];
 
     if (![self.radius isEqual:template.radius]) {
         [statements addObject:[NSString stringWithFormat:@"radius is %@",
                                self.radius]];
     }
 
+    NSMutableArray *superStatements;
+    superStatements = [super propertyStringsBasedOnTemplate:template];
+    statements = [[statements arrayByAddingObjectsFromArray:superStatements]
+                  mutableCopy];
     return statements;
 }
 

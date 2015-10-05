@@ -4,7 +4,12 @@ function load() {
     Physics.gravity = [0, 0, -3];
     Physics.speed = 0;
 
-    Parser.parseFile("scene.fmt");
+    if (typeof sceneFilename != 'undefined') {
+        Parser.parseFile(sceneFilename);
+    }
+    else {
+        loadStandardLights();
+    }
 
     TriggerManager.addActionForTrigger(handleTap, {"gesture": "tap"});
 

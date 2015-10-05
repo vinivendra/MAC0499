@@ -47,8 +47,7 @@
 }
 
 - (NSMutableArray *)propertyStringsBasedOnTemplate:(Torus *)template {
-    NSMutableArray *statements;
-    statements = [super propertyStringsBasedOnTemplate:template];
+    NSMutableArray *statements = [NSMutableArray new];
 
     if (![self.ringRadius isEqual:template.ringRadius]) {
         [statements addObject:[NSString stringWithFormat:@"ringRadius is %@",
@@ -59,6 +58,10 @@
                                self.pipeRadius]];
     }
 
+    NSMutableArray *superStatements;
+    superStatements = [super propertyStringsBasedOnTemplate:template];
+    statements = [[statements arrayByAddingObjectsFromArray:superStatements]
+                  mutableCopy];
     return statements;
 }
 

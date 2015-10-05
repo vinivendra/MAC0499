@@ -1,6 +1,6 @@
 
 function load() {
-    Parser.parseFileWithPhysics("scene.fmt", false);
+    Parser.parseFile("scene.fmt");
 
     TriggerManager.addActionForTrigger(itemTranslationAction, {"gesture": "longpress"});
     TriggerManager.addActionForTrigger(trackballAction, {"gesture": "pan"});

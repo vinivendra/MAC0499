@@ -37,8 +37,6 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
 @property (nonatomic, strong) NSMutableArray *indentationsStack;
 
 @property (nonatomic) State state;
-
-@property (nonatomic) BOOL shouldCreatePhysics;
 @end
 
 
@@ -276,10 +274,8 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
         NSNumber *value = [NSNumber numberWithString:line.lastObject];
         ((Shape *)item).scale = value;
     } else if ([line.firstObject isEqualToString:@"physics"]) {
-        if (self.shouldCreatePhysics) {
-            NSString *value = line.lastObject;
-            ((Shape *)item).physics = value;
-        }
+        NSString *value = line.lastObject;
+        ((Shape *)item).physics = value;
     } else if ([line.firstObject isEqualToString:@"position"]) {
 
         NSNumber *z = [NSNumber numberWithString:[line pop]];

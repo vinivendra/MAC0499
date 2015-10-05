@@ -22,6 +22,8 @@
 - (void)makeCurrentSceneManager;
 
 - (instancetype)initWithScript:(NSString *)filename;
+- (instancetype)initWithScript:(NSString *)scriptFilename
+                         scene:(NSString *)sceneFilename;
 
 @property (nonatomic, strong, readonly) SCNScene *scene;
 @property (nonatomic, strong, readonly) Physics *physics;

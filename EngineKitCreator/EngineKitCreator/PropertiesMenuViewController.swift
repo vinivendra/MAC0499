@@ -78,6 +78,8 @@ class PropertiesMenuViewController: UIViewController, MenuController, UITextFiel
 
     var propertyActions: [UITextField: ((Item, CGFloat) -> Void)]?
 
+    var manager :MenuManager?
+
     var item: Item
 
     @IBOutlet weak var nameTextField: UITextField!

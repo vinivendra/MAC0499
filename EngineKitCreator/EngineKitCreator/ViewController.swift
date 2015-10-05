@@ -6,6 +6,7 @@ import EngineKit
 
 enum ViewControllerStates {
     case Neutral
+    case CreatingTemplate
     case ChoosingObject
     case ChangingProperties
     case ChoosingItem
@@ -15,11 +16,13 @@ enum ViewControllerStates {
 
 protocol MenuManager {
     func dismissMenu()
+    func dismissMenuAndRespond()
 }
 
 
 class ViewController: UIViewController, MenuManager {
 
+    @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var itemsButton: UIButton!
     @IBOutlet weak var propertiesButton: UIButton!
     @IBOutlet weak var objectsButton: UIButton!
@@ -27,6 +30,7 @@ class ViewController: UIViewController, MenuManager {
     @IBOutlet weak var playButton: UIButton!
 
     var editorSceneManager: EditorSceneManager?
+    var templateSceneManager: EditorSceneManager?
     var playerSceneManager: PlayerSceneManager?
 
     var menuView: MenuView?
@@ -39,61 +43,105 @@ class ViewController: UIViewController, MenuManager {
     var state: ViewControllerStates? {
         willSet {
             if (state != newValue) {
-                if (state == .Neutral) {            // From neutral
-                    if (newValue != .Neutral) {     // To something
-                        changeState(state, toState: newValue)
-                    }
-                }
-                else {                              // From something
-                    if (newValue == .Neutral) {     // To neutral
-                        changeState(state, toState: newValue)
-                    }
-                    else {                          // To something else
-                        changeState(state, toState: .Neutral)
-                        changeState(.Neutral, toState: newValue)
-                    }
-                }
+                changeState(state, toState: newValue)
             }
         }
     }
 
     func changeState(fromState: ViewControllerStates?, toState: ViewControllerStates?) {
-        if (fromState == .Neutral) {
+        if (fromState == .Neutral || fromState == .CreatingTemplate) {
             if (toState == .ChoosingObject) {
-                menuController = ObjectsMenuController()
+                let objectsController = ObjectsMenuController()
+                objectsController.shouldShowPlusCell = (fromState == .Neutral);
+                menuController = objectsController
+                menuController?.manager = self
                 showMenuForButton(objectsButton)
+                return
             }
             else if (toState == .ChangingProperties) {
-                if let selectedItem = editorSceneManager?.selectedItem {
-                    menuController = PropertiesMenuViewController(item: selectedItem)
-                    showMenuForButton(propertiesButton)
+                if let editorSceneManager = SceneManager.currentSceneManager() as? EditorSceneManager,
+                    let selectedItem = editorSceneManager.selectedItem {
+                        menuController = PropertiesMenuViewController(item: selectedItem)
+                        menuController?.manager = self
+                        showMenuForButton(propertiesButton)
                 }
+                return
             }
             else if (toState == .ChoosingItem) {
                 let itemController = ItemsMenuViewController()
                 itemController.manager = self
                 menuController = itemController
                 showMenuForButton(itemsButton)
+                return
             }
-            else if (toState == .Playing) {
+        }
+        if (fromState == .Neutral) {
+            if (toState == .Playing) {
                 hideUI()
                 createPlayScene()
                 switchToSceneManager(playerSceneManager)
+                return
+            }
+            else if (toState == .CreatingTemplate) {
+                createTemplateScene()
+                switchToSceneManager(templateSceneManager)
+                return
             }
         }
-        else if (fromState == .Playing) {
-            showUI()
-            switchToSceneManager(editorSceneManager)
-        }
         else {
-            hideMenu()
+            if (toState == .Neutral) {
+                if (fromState == .Playing) {
+                    showUI()
+                    switchToSceneManager(editorSceneManager)
+                    return
+                }
+                else if (fromState == .CreatingTemplate) {
+                    switchToSceneManager(editorSceneManager);
+                    return
+                }
+                else {
+                    hideMenu()
+                    return
+                }
+            }
+            else if (toState == .CreatingTemplate) {
+                if (SceneManager.currentSceneManager() == templateSceneManager) {
+                    hideMenu()
+                    return
+                }
+                else {
+                    changeState(fromState, toState: .Neutral)
+                    changeState(.Neutral, toState: toState)
+                }
+            }
+            else {
+                let intermediateState: ViewControllerStates;
+                if (SceneManager.currentSceneManager() == templateSceneManager) {
+                    intermediateState = .CreatingTemplate
+                }
+                else {
+                    intermediateState = .Neutral
+                }
+                changeState(fromState, toState: intermediateState)
+                changeState(intermediateState, toState: toState)
+                return
+            }
         }
     }
 
     // MARK: - MenuManager
 
     func dismissMenu() {
-        state = .Neutral
+        if (SceneManager.currentSceneManager() == templateSceneManager) {
+            state = .CreatingTemplate
+        }
+        else {
+            state = .Neutral
+        }
+    }
+
+    func dismissMenuAndRespond() {
+        state = .CreatingTemplate
     }
 
     // MARK: - Overrides
@@ -101,7 +149,7 @@ class ViewController: UIViewController, MenuManager {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        editorSceneManager = EditorSceneManager(script:"editor.js")
+        editorSceneManager = EditorSceneManager(script:"editor.js", scene:"scene.fmt")
         editorSceneManager?.runOnSceneView(self.engineKitView)
         switchToSceneManager(editorSceneManager)
 
@@ -174,6 +222,11 @@ class ViewController: UIViewController, MenuManager {
         playerSceneManager?.runOnSceneView(self.engineKitView)
     }
 
+    func createTemplateScene() {
+        templateSceneManager = EditorSceneManager(script: "editor.js")
+        templateSceneManager?.runOnSceneView(self.engineKitView)
+    }
+
     func switchToSceneManager(sceneManager: SceneManager?) {
         engineKitView.scene = sceneManager?.scene
         sceneManager?.makeCurrentSceneManager()
@@ -181,36 +234,46 @@ class ViewController: UIViewController, MenuManager {
 
     // MARK: - IBActions
 
-    @IBAction func playButtonPressed(sender: AnyObject) {
-        if (state == .Neutral) {
-            state = .Playing
+    @IBAction func doneButtonPressed(sender: AnyObject) {
+        if (SceneManager.currentSceneManager() == templateSceneManager
+            && state != .CreatingTemplate) {
+                state = .CreatingTemplate
         }
         else {
             state = .Neutral
         }
     }
 
-    @IBAction func itemsButtonTap(sender: AnyObject) {
-        if (state == .Neutral) {
-            state = .ChoosingItem
+    @IBAction func playButtonPressed(sender: AnyObject) {
+        if (state == .Playing) {
+            state = .Neutral
         }
         else {
-            state = .Neutral
+            state = .Playing
+        }
+    }
+
+    @IBAction func itemsButtonTap(sender: AnyObject) {
+        if (state == .ChoosingItem) {
+            dismissMenu()
+        }
+        else {
+            state = .ChoosingItem
         }
     }
 
     @IBAction func propertiesButtonTap(sender: AnyObject) {
         if (state == .ChangingProperties) {
-            state = .Neutral
+            dismissMenu()
         }
         else {
             state = .ChangingProperties
         }
     }
-    
+
     @IBAction func objectsButtonTap(sender: UIView) {
         if (state == .ChoosingObject) {
-            state = .Neutral
+            dismissMenu()
         }
         else {
             state = .ChoosingObject

@@ -1,4 +1,19 @@
 
+function loadStandardLights() {
+    var myLight = Light.create();
+    myLight.color = [1.0, 1.0];
+    myLight.position = [3, 3, 3];
+
+    myLight = Light.create();
+    myLight.color = [0.7, 1.0];
+    myLight.position = [-3, -3, -3];
+
+    myLight = Light.create();
+    myLight.color = [0.4, 1.0];
+    myLight.type = "ambient";
+    myLight.position = [-3, -3, -3];
+}
+
 var x = [1, 0, 0];
 var y = [0, 1, 0];
 var z = [0, 0, 1];

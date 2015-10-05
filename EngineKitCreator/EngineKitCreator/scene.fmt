@@ -1,20 +1,23 @@
+
 templates
     Satelite Box
-        position is 1 0 0
-        color is darkgrey
         width is 0.3
         height is 0.3
         length is 0.3
+        position is 1 0 0
+        color is darkgrey
 
     Terra Sphere
-        color is red
         radius is 2
+        color is red
+        physics is static
 
     Lua Sphere
+        radius is 0.7
         position is 3 0 0
         rotation is 0 0 1 1.6
         color is purple
-        radius is 0.7
+        physics is dynamic
 
 
 items

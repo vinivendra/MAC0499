@@ -51,7 +51,8 @@ static NSString *_supportFilename = @"support.js";
 
 
 @interface JavaScript ()
-@property (nonatomic, strong) NSString *filename;
+@property (nonatomic, strong) NSString *scriptFilename;
+@property (nonatomic, strong) NSString *sceneFilename;
 
 @property (nonatomic, strong) JSValue *loadFunction;
 @property (nonatomic, strong) JSValue *updateFunction;
@@ -70,15 +71,37 @@ static NSString *_supportFilename = @"support.js";
     return self;
 }
 
-- (instancetype)initWithFile:(NSString *)filename camera:(Camera *)camera UI:(UI *)ui physics:(Physics *)physics {
+- (instancetype)initWithFile:(NSString *)scriptFilename
+                            camera:(Camera *)camera
+                                UI:(UI *)ui
+                           physics:(Physics *)physics {
+
+    if (self = [self initWithScriptFile:scriptFilename
+                              sceneFile:nil
+                                 camera:camera
+                                     UI:ui
+                                physics:physics]) {
+
+    }
+    return self;
+}
+
+- (instancetype)initWithScriptFile:(NSString *)scriptFilename
+                        sceneFile:(NSString *)sceneFilename
+                            camera:(Camera *)camera
+                                UI:(UI *)ui
+                           physics:(Physics *)physics {
     if (self = [super init]) {
         self.camera = camera;
         self.ui = ui;
         self.physics = physics;
-        if (!filename.valid) {
-            filename = _defaultFilename;
+        self.sceneFilename = sceneFilename;
+
+        if (!scriptFilename.valid) {
+            scriptFilename = _defaultFilename;
         }
-        self.filename = filename;
+        self.scriptFilename = scriptFilename;
+
         self.context = [JSContext shared];
         [self setup];
     }
@@ -87,7 +110,7 @@ static NSString *_supportFilename = @"support.js";
 
 //
 - (void)setup {
-    NSString *mainScript = [FileHelper openTextFile:self.filename];
+    NSString *mainScript = [FileHelper openTextFile:self.scriptFilename];
     NSString *supportScript = [FileHelper openTextFile:_supportFilename];
 
     [self setObjects];
@@ -119,7 +142,7 @@ static NSString *_supportFilename = @"support.js";
 
 //
 - (void)setObjects {
-    __block NSString *filename = self.filename;
+    __block NSString *filename = self.scriptFilename;
 
     self.context.exceptionHandler = ^(JSContext *context, JSValue *value) {
         NSLog(@"JavaScript Error in file %@: %@.", filename, [value toString]);
@@ -132,6 +155,8 @@ static NSString *_supportFilename = @"support.js";
     self.context[@"alert"] = ^(JSValue *value) {
         [console log:value];
     };
+
+    self.context[@"sceneFilename"] = self.sceneFilename;
 
     self.context[@"pi"] = @(M_PI);
     self.context[@"origin"] = [Vector origin];

@@ -45,8 +45,7 @@
 }
 
 - (NSMutableArray *)propertyStringsBasedOnTemplate:(Text *)template {
-    NSMutableArray *statements;
-    statements = [super propertyStringsBasedOnTemplate:template];
+    NSMutableArray *statements = [NSMutableArray new];
 
     if (![self.depth isEqual:template.depth]) {
         [statements addObject:[NSString stringWithFormat:@"depth is %@",
@@ -57,6 +56,10 @@
                                self.string]];
     }
 
+    NSMutableArray *superStatements;
+    superStatements = [super propertyStringsBasedOnTemplate:template];
+    statements = [[statements arrayByAddingObjectsFromArray:superStatements]
+                  mutableCopy];
     return statements;
 }
 
