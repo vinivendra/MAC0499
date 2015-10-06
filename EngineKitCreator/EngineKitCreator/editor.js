@@ -21,6 +21,8 @@ function load() {
     TriggerManager.addActionForTrigger(handleScale, {"gesture": "pinch"});
 
     TriggerManager.addActionForTrigger(handleRotation, {"gesture": "rotate"});
+
+    TriggerManager.addActionForTrigger("setPositionX", {"item": item, "argument": 10});
 }
 
 function handleScale(items, scale) {

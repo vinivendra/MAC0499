@@ -26,7 +26,7 @@ MenuController {
     var templates: [Item]? {
         get {
             if (_templates == nil) {
-                _templates = Item.templates().allValues as? [Item]
+                _templates = Item.templates() as NSArray as? [Item]
             }
             return _templates
         }
@@ -65,7 +65,7 @@ MenuController {
 
         if let templates = templates
             where indexPath.row < templates.count {
-                let string = templates[indexPath.row].name
+                let string = templates[indexPath.row].templateName
                 cell.label.text = string
         }
         else {

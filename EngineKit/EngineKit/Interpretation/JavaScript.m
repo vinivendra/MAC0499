@@ -142,10 +142,8 @@ static NSString *_supportFilename = @"support.js";
 
 //
 - (void)setObjects {
-    __block NSString *filename = self.scriptFilename;
-
     self.context.exceptionHandler = ^(JSContext *context, JSValue *value) {
-        NSLog(@"JavaScript Error in file %@: %@.", filename, [value toString]);
+        NSLog(@"JavaScript Error: %@.", [value toString]);
     };
 
     self.context[@"console"] = [console class];

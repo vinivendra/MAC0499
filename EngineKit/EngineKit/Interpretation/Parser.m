@@ -159,11 +159,11 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
 
         // If we're adding a new Item to a Template that's being created
         if (self.state == Templates &&
-            [Item templates][itemName]) {
+            [Item templateNamed:itemName]) {
 
-            Item *template = [Item templates][itemName];
+            Item *template = [Item templateNamed:itemName];
             Item *newItem = [template create];
-            newItem.name = itemName;
+            newItem.templateName = itemName;
             [currentItem addItem:newItem];
             nextItem = newItem;
         }
@@ -185,13 +185,13 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
             switch (self.state) {
                 case Templates: {
                     NSString *templateName = components.lastObject;
-                    Item *existingTemplate = [Item templates][templateName];
+                    Item *existingTemplate = [Item templateNamed:templateName];
 
                     if (existingTemplate) {
                         NSString *newTemplateName = components.firstObject;
                         Item *newTemplate = [existingTemplate template];
 
-                        newTemplate.name = newTemplateName;
+                        newTemplate.templateName = newTemplateName;
 
                         [Item registerTemplate:newTemplate];
 
@@ -214,11 +214,11 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
                         done = YES;
                     }
                     else {
-                        Item *template = [Item templates][itemName];
+                        Item *template = [Item templateNamed:itemName];
 
                         if (template) {
                             Item *newItem = [template create];
-                            newItem.name = itemName;
+                            newItem.templateName = itemName;
                             [currentItem addItem:newItem];
                             nextItem = newItem;
 
@@ -367,17 +367,15 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
     NSMutableArray *statements = [NSMutableArray new];
     [statements addObject:@"templates"];
 
-    NSArray *keys = [[[Item templates] allKeys] reverse];
-
-    for (NSString *key in keys) {
-        id object = [Item templates][key];
+    for (id object in [Item templates]) {
+        
         Item *template = (Item *)object;
-        NSString *templateName = template.name;
+        NSString *templateName = template.templateName;
         NSString *className = NSStringFromClass([template class]);
         BOOL templateIsOriginal = [className isEqualToString:templateName];
 
         if (!templateIsOriginal) {
-            Item *originalTemplate = [Item templates][className];
+            Item *originalTemplate = [Item templateNamed:className];
 
             if (!originalTemplate) {
                 originalTemplate = [Item template];

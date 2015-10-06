@@ -13,19 +13,29 @@
 
 
 static NSUInteger globalID = 0;
-static NSMutableDictionary *templates;
+static NSMutableArray *templates;
 
 @implementation Item
 
-+ (NSMutableDictionary *)templates {
++ (NSMutableArray *)templates {
     if (!templates) {
-        templates = [NSMutableDictionary new];
+        templates = [NSMutableArray new];
     }
     return templates;
 }
 
++ (Item *)templateNamed:(NSString *)name {
+    for (Item *item in [self templates]) {
+        if ([item.templateName isEqualToString:name]) {
+            return item;
+        }
+    }
+
+    return nil;
+}
+
 + (void)registerTemplate:(Item *)newValue {
-    [self templates][newValue.name] = newValue;
+    [[self templates] addObject:newValue];
 }
 
 + (instancetype) template {
@@ -67,6 +77,7 @@ static NSMutableDictionary *templates;
     self.node = [SCNNode node];
     self.node.item = self;
     self.ID = [Item newID];
+    self.templateName = NSStringFromClass(self.class);
     self.name = NSStringFromClass(self.class);
     self.isDefault = NO;
     _children = [NSMutableArray new];
@@ -103,6 +114,7 @@ static NSMutableDictionary *templates;
         item.node.item = self;
     }
 
+    item.templateName = self.templateName;
     item.name = self.name;
 
     item.position = self.position;
@@ -114,8 +126,8 @@ static NSMutableDictionary *templates;
 }
 
 - (NSString *)parserString {
-    Item *template = [Item templates][self.name];
-    return [self parserStringBasedOnTemplate:template
+    Item *itemTemplate = [Item templateNamed:self.templateName];
+    return [self parserStringBasedOnTemplate:itemTemplate
                             withTemplateName:NO];
 }
 
@@ -123,35 +135,45 @@ static NSMutableDictionary *templates;
                          withTemplateName:(BOOL)withTemplateName {
     NSString *result = [self parserStringWithIndentation:@"    "
                                          basedOnTemplate:template
-                                        withTemplateName:withTemplateName];
+                                        withTemplateName:withTemplateName
+                                                withName:NO];
     result = [result stringByAppendingString:@"\n"];
 
     if (result) {
         return result;
     }
     else {
-        return [NSString stringWithFormat:@"    %@\n", self.name];
+        return [NSString stringWithFormat:@"    %@\n", self.templateName];
     }
 }
 
 - (NSString *)parserStringWithIndentation:(NSString *)indentation
-                          basedOnTemplate:(Item *)template
-                         withTemplateName:(BOOL)withTemplateName {
-
+                          basedOnTemplate:(Item *)itemTemplate
+                         withTemplateName:(BOOL)withTemplateName
+                                 withName:(BOOL)withName {
     NSString *deeperIndentation = [indentation stringByAppendingString:@"    "];
 
     NSMutableArray *statements = [NSMutableArray new];
 
-    NSString *headerString = self.name;
+    NSString *headerString;
     if (withTemplateName) {
-        NSString *headerSuffix = [NSString stringWithFormat:@" %@",
-                                  template.name];
-        headerString = [headerString stringByAppendingString:headerSuffix];
+        headerString = [NSString stringWithFormat:@"%@ %@",
+                        self.templateName,
+                        itemTemplate.name];
+    }
+    else {
+        if (withName) {
+            headerString = self.name;
+        }
+        else {
+            headerString = self.templateName;
+        }
+
     }
     [statements addObject:[indentation stringByAppendingString:headerString]];
 
     NSMutableArray *propertiesArray;
-    propertiesArray = [self propertyStringsBasedOnTemplate:template];
+    propertiesArray = [self propertyStringsBasedOnTemplate:itemTemplate];
     if ([propertiesArray valid]) {
         NSString *prefix = [@"\n" stringByAppendingString:deeperIndentation];
         NSString *properties = [propertiesArray join:prefix];
@@ -160,16 +182,17 @@ static NSMutableDictionary *templates;
     }
 
     for (Item *item in self.children) {
-        Item *childTemplate = [template childItemWithName:item.name
-                                              recursively:NO];
+        Item *childTemplate = [itemTemplate childItemWithName:item.templateName
+                                                  recursively:NO];
         if (!childTemplate) {
-            childTemplate = [Item templates][item.name];
+            childTemplate = [Item templateNamed:item.templateName];
         }
 
         NSString *childString;
         childString = [item parserStringWithIndentation:deeperIndentation
                                         basedOnTemplate:childTemplate
-                                       withTemplateName:(BOOL)withTemplateName];
+                                       withTemplateName:withTemplateName
+                                               withName:YES];
 
         if (childString) {
             [statements addObject:childString];
@@ -179,7 +202,7 @@ static NSMutableDictionary *templates;
     if (statements.count <= 1 && !withTemplateName) {
         return nil;
     }
-
+    
     return [statements join:@"\n"];
 }
 
@@ -197,6 +220,10 @@ static NSMutableDictionary *templates;
     if (![self.rotation isEqual:template.rotation]) {
         [statements addObject:[NSString stringWithFormat:@"rotation is %@",
                                self.rotation]];
+    }
+    if (![self.name isEqual:template.name]) {
+        [statements addObject:[NSString stringWithFormat:@"name is %@",
+                               self.name]];
     }
 
     return statements;
@@ -474,14 +501,6 @@ static NSMutableDictionary *templates;
     _children = children;
 }
 
-- (void)setName:(NSString *)name {
-    self.node.name = name;
-}
-
-- (NSString *)name {
-    return self.node.name;
-}
-
 - (void)setHidden:(BOOL)hidden {
     self.node.hidden = hidden;
 }
@@ -492,6 +511,14 @@ static NSMutableDictionary *templates;
 
 - (NSString *)description {
     return NSStringFromClass([self class]);
+}
+
+- (void)setName:(NSString *)name {
+    self.node.name = name;
+}
+
+- (NSString *)name {
+    return self.node.name;
 }
 
 @end

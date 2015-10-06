@@ -34,7 +34,7 @@ class ItemsMenuViewController: UIViewController,
 
         let item = node.item
 
-        cell.textLabel?.text = item.name
+        cell.textLabel?.text = item.templateName
 
         if let editorManager = SceneManager.currentSceneManager() as? EditorSceneManager {
             let selectedItem = editorManager.selectedItem

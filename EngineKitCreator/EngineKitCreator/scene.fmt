@@ -1,4 +1,3 @@
-
 templates
     Satelite Box
         width is 0.3
@@ -7,25 +6,32 @@ templates
         position is 1 0 0
         color is darkgrey
 
-    Terra Sphere
-        radius is 2
-        color is red
-        physics is static
-
     Lua Sphere
         radius is 0.7
         position is 3 0 0
-        rotation is 0 0 1 1.6
         color is purple
         physics is dynamic
 
+    Planeta Sphere
+        radius is 2
+        color is red
+        physics is static
+        Lua Sphere
+            name is Moon
+            Satelite Box
+                name is Spudnik
+
 
 items
-    Terra
-        color is green
-        Lua
-            Satelite
-                color is black
+    Planeta
+        name is terra
+        color is blue
+        Moon
+            name is Moon
+            color is darkgrey
+            Spudnik
+                name is Spudnik
+                color is white
 
     Light
         position is 3 3 3

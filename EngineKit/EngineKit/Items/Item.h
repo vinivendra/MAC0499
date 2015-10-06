@@ -24,12 +24,42 @@
 - (void)rotate:(id)rotation;
 - (void)rotate:(id)rotation around:(id)anchor;
 @property (nonatomic, weak, readonly) Item *parent;
-@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *templateName;
 @property (nonatomic, strong) id position;
 @property (nonatomic, strong) id rotation;
 @property (nonatomic, strong) id scale;
 @property (nonatomic) BOOL isDefault;
 @property (nonatomic) BOOL hidden;
+- (void)setPositionX:(NSNumber *)newValue;
+- (void)setPositionY:(NSNumber *)newValue;
+- (void)setPositionZ:(NSNumber *)newValue;
+- (void)setScaleX:(NSNumber *)newValue;
+- (void)setScaleY:(NSNumber *)newValue;
+- (void)setScaleZ:(NSNumber *)newValue;
+- (void)setRotationX:(NSNumber *)newValue;
+- (void)setRotationY:(NSNumber *)newValue;
+- (void)setRotationZ:(NSNumber *)newValue;
+- (void)setRotationA:(NSNumber *)newValue;
+- (NSNumber *)positionX;
+- (NSNumber *)positionY;
+- (NSNumber *)positionZ;
+- (NSNumber *)scaleX;
+- (NSNumber *)scaleY;
+- (NSNumber *)scaleZ;
+- (NSNumber *)rotationX;
+- (NSNumber *)rotationY;
+- (NSNumber *)rotationZ;
+- (NSNumber *)rotationA;
+- (void)addPositionX:(NSNumber *)newValue;
+- (void)addPositionY:(NSNumber *)newValue;
+- (void)addPositionZ:(NSNumber *)newValue;
+- (void)addScaleX:(NSNumber *)newValue;
+- (void)addScaleY:(NSNumber *)newValue;
+- (void)addScaleZ:(NSNumber *)newValue;
+- (void)addRotationX:(NSNumber *)newValue;
+- (void)addRotationY:(NSNumber *)newValue;
+- (void)addRotationZ:(NSNumber *)newValue;
+- (void)addRotationA:(NSNumber *)newValue;
 @end
 
 
@@ -74,13 +104,16 @@
 - (void)addRotationZ:(NSNumber *)newValue;
 - (void)addRotationA:(NSNumber *)newValue;
 
-+ (NSMutableDictionary *)templates;
++ (NSMutableArray *)templates;
++ (Item *)templateNamed:(NSString *)name;
 - (Item *)childItemWithName:(NSString *)string recursively:(BOOL)recursively;
 - (NSString *)parserString;
 - (NSString *)parserStringBasedOnTemplate:(Item *)template
                          withTemplateName:(BOOL)withTemplateName;
 @property (nonatomic) BOOL hidden;
 @property (nonatomic) BOOL isDefault;
+@property (nonatomic, strong) NSString *templateName;
+@property (nonatomic, strong) NSString *name;
 - (instancetype) template;
 // Protected
 - (NSMutableArray *)propertyStringsBasedOnTemplate:(Item *)template;
@@ -201,10 +234,6 @@
  The item's parent item, equivalent to a node's parent node.
  */
 @property (nonatomic, weak) Item *parent;
-/*!
- A string to be used at will in order to easily reference `Item` objects.
- */
-@property (nonatomic, strong) NSString *name;
 @end
 
 #endif

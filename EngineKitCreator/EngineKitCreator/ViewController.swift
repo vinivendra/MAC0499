@@ -250,7 +250,7 @@ class ViewController: UIViewController, MenuManager {
             }
         }
 
-        newItem.name = nameTextField.text
+        newItem.templateName = nameTextField.text
 
         Item.registerTemplate(newItem)
     }

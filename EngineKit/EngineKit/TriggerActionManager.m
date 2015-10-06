@@ -89,6 +89,8 @@ NSDictionary *stateEnumConversion;
 
     NSString *gestureString = dictionary[@"gesture"];
 
+    Item *item = dictionary[@"item"];
+
     if (gestureString) {
         UIGestures gesture = [self gestureForString:gestureString];
 
@@ -105,6 +107,13 @@ NSDictionary *stateEnumConversion;
                                             touches:touches];
 
         [self addJSValue:function forTrigger:trigger];
+    }
+    else if (item) {
+        id argument = dictionary[@"argument"];
+
+        NSString *methodName = function.toString;
+
+        NSLog(@"Method name: [%@ %@]", methodName, argument);
     }
 }
 
@@ -127,7 +136,7 @@ NSDictionary *stateEnumConversion;
 - (UIGestureRecognizerState)stateForString:(NSString *)string
                                    gesture:(UIGestures)gesture {
     if (!stateEnumConversion) {
-        stateEnumConversion = @{@"beagn": @(UIGestureRecognizerStateBegan),
+        stateEnumConversion = @{@"began": @(UIGestureRecognizerStateBegan),
                                 @"ended": @(UIGestureRecognizerStateEnded),
                                 @"recognized": @(UIGestureRecognizerStateRecognized),
                                 @"changed": @(UIGestureRecognizerStateChanged)};
