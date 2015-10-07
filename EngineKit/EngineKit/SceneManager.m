@@ -31,21 +31,31 @@ static SceneManager *currentSceneManager;
 - (void)runOnSceneView:(SCNView *)view {
     view.scene =self.scene;
 
-    [self makeCurrentSceneManager];
-
     self.gestures.sceneView = view;
     self.gestures.gesturesView = view;
 
-    [self.gestures setupGestures];
-
     self.gestures.delegate = self.javaScript.triggerActionManager;
+
+    [self makeCurrentSceneManager];
 
     [self.javaScript load];
 }
 
+- (void)pauseScene {
+    [self.gestures pauseGestures];
+}
+
+- (void)resumeScene {
+    [self.gestures resumeGestures];
+}
+
 - (void)makeCurrentSceneManager {
+    [currentSceneManager pauseScene];
+
     currentSceneManager = self;
     [self.scene makeCurrentScene];
+
+    [currentSceneManager resumeScene];
 }
 
 - (instancetype)initWithScript:(NSString *)filename {

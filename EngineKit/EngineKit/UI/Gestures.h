@@ -31,4 +31,6 @@
 - (void)setupGestures;
 // TODO: Add this doc
 @property (nonatomic, weak) id<CallbackDelegate> delegate;
+- (void)pauseGestures;
+- (void)resumeGestures;
 @end

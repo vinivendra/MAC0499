@@ -23,6 +23,8 @@
 
 @property (nonatomic, strong) NSArray *classes;
 @property (nonatomic, strong) NSArray *selectors;
+
+@property (nonatomic, strong) NSMutableArray *gesturesRecognizers;
 @end
 
 
@@ -38,18 +40,38 @@
 #pragma mark - Setup
 
 - (void)setupGestures {
+    self.gesturesRecognizers = [NSMutableArray new];
+
     for (int i = 0; i < GestureRecognizersCount; i++) {
         Class class = self.classes[i];
         SEL handler = NSSelectorFromString(self.selectors[i]);
 
         UIGestureRecognizer *gesture = [class new];
         [gesture addTarget:self action:handler];
+        [self.gesturesRecognizers addObject:gesture];
 
         if (i <= SwipeUpRecognizer)
         ((UISwipeGestureRecognizer *)gesture).direction = 1 << i;
 
         [self.gesturesView addGestureRecognizer:gesture];
     }
+}
+
+- (void)pauseGestures {
+    for (int i = 0; i < GestureRecognizersCount; i++) {
+        SEL handler = NSSelectorFromString(self.selectors[i]);
+
+        UIGestureRecognizer *gesture = self.gesturesRecognizers[i];
+        [gesture removeTarget:self action:handler];
+
+        [self.gesturesView removeGestureRecognizer:gesture];
+    }
+
+    self.gesturesRecognizers = nil;
+}
+
+- (void)resumeGestures {
+    [self setupGestures];
 }
 
 #pragma mark - Handlers

@@ -102,7 +102,7 @@ static NSString *_supportFilename = @"support.js";
         }
         self.scriptFilename = scriptFilename;
 
-        self.context = [JSContext shared];
+        self.context = [JSContext new];
         [self setup];
     }
     return self;

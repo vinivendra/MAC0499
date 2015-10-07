@@ -10,12 +10,10 @@ templates
         radius is 0.7
         position is 3 0 0
         color is purple
-        physics is dynamic
 
     Planeta Sphere
         radius is 2
         color is red
-        physics is static
         Lua Sphere
             name is Moon
             Satelite Box

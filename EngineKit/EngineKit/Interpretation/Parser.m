@@ -139,6 +139,7 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
             }
         }
 
+        // FIXME: This shouldn't be hard coded
         if (currentIndentation == 4) {
             currentItem = nil;
         }
