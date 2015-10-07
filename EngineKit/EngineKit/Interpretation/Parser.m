@@ -139,6 +139,10 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
             }
         }
 
+        if (currentIndentation == 4) {
+            currentItem = nil;
+        }
+
         //// Clean up the line
         NSUInteger statementLength = cleanLine.length - currentIndentation;
         NSRange whitespaceRange
@@ -159,7 +163,8 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
 
         // If we're adding a new Item to a Template that's being created
         if (self.state == Templates &&
-            [Item templateNamed:itemName]) {
+            [Item templateNamed:itemName] &&
+            currentItem) {
 
             Item *template = [Item templateNamed:itemName];
             Item *newItem = [template create];

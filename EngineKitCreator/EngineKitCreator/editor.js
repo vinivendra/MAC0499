@@ -32,14 +32,16 @@ function load() {
 
     print(terra);
 
-//    TriggerManager.addActionForTrigger(movementForRotation,
-//                                       {"item": terra,
-//                                        "action": "rotate",
+// To call a method with a function as an argument
+//    TriggerManager.addActionForTrigger(movementForRotation, // Function as argument
+//                                       {"item": terra,      // Item that triggers the call
+//                                        "action": "rotate", // Method name
 //                                        "gesture": "rotate"});
 
-//    TriggerManager.addActionForTrigger("rotate",
-//                                       {"item": terra,
-//                                        "argument": [0, 0, 1, 0.1],
+// To call a method with a fixed value as an argument
+//    TriggerManager.addActionForTrigger("rotate",      // Method name
+//                                       {"item": terra,// Item that triggers the call
+//                                        "argument": [0, 0, 1, 0.1], // Fixed value as an argument
 //                                        "gesture": "rotate"});
 }
 
