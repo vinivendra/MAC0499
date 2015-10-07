@@ -28,6 +28,8 @@
 - (void)setRotationY:(NSNumber *)newValue;
 - (void)setRotationZ:(NSNumber *)newValue;
 - (void)setRotationA:(NSNumber *)newValue;
+- (void)addPosition:(id)object;
+- (void)addScale:(id)object;
 - (NSNumber *)positionX;
 - (NSNumber *)positionY;
 - (NSNumber *)positionZ;

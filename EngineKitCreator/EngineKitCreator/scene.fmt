@@ -24,7 +24,7 @@ templates
 
 items
     Planeta
-        name is terra
+        name is Terra
         color is blue
         Moon
             name is Moon

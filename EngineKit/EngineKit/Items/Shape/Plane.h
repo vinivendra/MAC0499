@@ -49,6 +49,8 @@
 - (void)addRotationY:(NSNumber *)newValue;
 - (void)addRotationZ:(NSNumber *)newValue;
 - (void)addRotationA:(NSNumber *)newValue;
+- (void)addPosition:(id)object;
+- (void)addScale:(id)object;
 //
 @property (nonatomic, strong) id color;
 @property (nonatomic, strong) id physics;

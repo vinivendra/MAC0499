@@ -89,8 +89,6 @@ NSDictionary *stateEnumConversion;
 
     NSString *gestureString = dictionary[@"gesture"];
 
-    Item *item = dictionary[@"item"];
-
     if (gestureString) {
         UIGestures gesture = [self gestureForString:gestureString];
 
@@ -106,14 +104,37 @@ NSDictionary *stateEnumConversion;
                                               state:state
                                             touches:touches];
 
-        [self addJSValue:function forTrigger:trigger];
-    }
-    else if (item) {
-        id argument = dictionary[@"argument"];
+        Item *item = dictionary[@"item"];
 
-        NSString *methodName = function.toString;
+        if (item) {
+            id argument = function.toObject;
+            NSString *methodName;
 
-        NSLog(@"Method name: [%@ %@]", methodName, argument);
+            if ([argument isKindOfClass:[NSDictionary class]] &&
+                ((NSDictionary *)argument).count == 0) {
+                argument = [[FunctionAction alloc] initWithJSValue:function
+                                                         arguments:nil];
+                methodName = dictionary[@"action"];
+            }
+            else {
+                argument = dictionary[@"argument"];
+                methodName = function.toString;
+            }
+
+
+
+            MethodAction *action = [[MethodAction alloc]
+                                    initWithTarget:item
+                                    methodName:methodName
+                                    arguments:argument];
+
+            [self addMethodAction:action
+                           toItem:item
+                       forTrigger:trigger];
+        }
+        else {
+            [self addJSValue:function forTrigger:trigger];
+        }
     }
 }
 

@@ -255,6 +255,16 @@ static NSMutableArray *templates;
     self.node.transform = result;
 }
 
+- (void)addPosition:(id)object {
+    Position *position = [[Position alloc] initWithObject:object];
+    self.position = [self.position plus:position];
+}
+
+- (void)addScale:(id)object {
+    Vector *scale = [[Vector alloc] initWithObject:object];
+    self.scale = [self.scale plus:scale];
+}
+
 - (void)setPositionX:(NSNumber *)newValue {
     Position *oldPosition = self.position;
     self.position = [[Position alloc] initWithX:newValue.doubleValue

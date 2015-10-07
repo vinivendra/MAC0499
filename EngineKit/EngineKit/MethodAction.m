@@ -1,6 +1,7 @@
 
 
 #import "MethodAction.h"
+#import <JavaScriptCore/JavaScriptCore.h>
 
 
 @implementation MethodAction
@@ -46,24 +47,42 @@
 
 
 ////////////////////////////////////////////////////////////////////////////////
-- (id)call {
+- (void)call {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    [self.target performSelector:self.selector
+                      withObject:[self evaluateArguments]];
+#pragma clang diagnostic pop
+}
+
+- (id)callAndReturn {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
     return [self.target performSelector:self.selector
                              withObject:[self evaluateArguments]];
 #pragma clang diagnostic pop
 }
+
 - (id)evaluateArguments {
     if ([self.arguments isKindOfClass:[MethodAction class]]) {
         MethodAction *newAction = self.arguments;
-        return [newAction call];
+        return [(JSValue *)[newAction callAndReturn] toObject];
     }
     else {
         return self.arguments;
     }
 }
 
-- (id)callWithArguments:(id)arguments {
+- (void)callWithArguments:(id)arguments {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    [self.target
+     performSelector:self.selector
+     withObject:[self evaluateArgumentsWithTailArgument:arguments]];
+#pragma clang diagnostic pop
+}
+
+- (id)callAndReturnWithArguments:(id)arguments {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
     return [self.target
@@ -71,10 +90,12 @@
             withObject:[self evaluateArgumentsWithTailArgument:arguments]];
 #pragma clang diagnostic pop
 }
+
 - (id)evaluateArgumentsWithTailArgument:(id)argument {
     if ([self.arguments isKindOfClass:[MethodAction class]]) {
         MethodAction *newAction = self.arguments;
-        return [newAction callWithArguments:argument];
+        return [(JSValue *)[newAction callAndReturnWithArguments:argument]
+                toObject];
     }
     else if(!self.arguments) {
         return argument;

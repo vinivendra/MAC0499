@@ -71,6 +71,19 @@
 
 - (void)handleSwipe:(UISwipeGestureRecognizer *)sender {
 
+    static NSDictionary *directions;
+
+    if (!directions) {
+        directions = @{@(UISwipeGestureRecognizerDirectionDown):
+                           [[Vector alloc] initWithCGPoint:CGPointMake(0, 1)],
+                       @(UISwipeGestureRecognizerDirectionLeft):
+                           [[Vector alloc] initWithCGPoint:CGPointMake(-1, 0)],
+                       @(UISwipeGestureRecognizerDirectionRight):
+                           [[Vector alloc] initWithCGPoint:CGPointMake(1, 0)],
+                       @(UISwipeGestureRecognizerDirectionUp):
+                           [[Vector alloc] initWithCGPoint:CGPointMake(0, -1)]};
+    }
+
     if (sender.state == UIGestureRecognizerStateRecognized) {
         CGPoint location = [sender locationInView:self.sceneView];
         NSArray *hits = [self.sceneView hitTest:location options:nil];
@@ -81,7 +94,7 @@
          touches:sender.numberOfTouches
          withArguments:@[
                          items,
-                         @(sender.direction),
+                         directions[@(sender.direction)],
                          hits
                          ]];
     }

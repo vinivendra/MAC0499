@@ -11,18 +11,40 @@ function load() {
         loadStandardLights();
     }
 
-    TriggerManager.addActionForTrigger(handleTap, {"gesture": "tap"});
+    TriggerManager.addActionForTrigger(handleTap,
+                                       {"gesture": "tap"});
 
-    TriggerManager.addActionForTrigger(itemTranslationActionSnappedToAxes, {"gesture": "longpress"});
-    TriggerManager.addActionForTrigger(trackballAction, {"gesture": "pan"});
-    TriggerManager.addActionForTrigger(sceneTranslationAction, {"gesture": "pan",
-                                       "touches": 2});
+    TriggerManager.addActionForTrigger(itemTranslationActionSnappedToAxes,
+                                       {"gesture": "longpress"});
+    TriggerManager.addActionForTrigger(trackballAction,
+                                       {"gesture": "pan"});
+    TriggerManager.addActionForTrigger(sceneTranslationAction,
+                                       {"gesture": "pan",
+                                        "touches": 2});
 
-    TriggerManager.addActionForTrigger(handleScale, {"gesture": "pinch"});
+    TriggerManager.addActionForTrigger(handleScale,
+                                       {"gesture": "pinch"});
 
-    TriggerManager.addActionForTrigger(handleRotation, {"gesture": "rotate"});
+    TriggerManager.addActionForTrigger(handleRotation,
+                                       {"gesture": "rotate"});
 
-    TriggerManager.addActionForTrigger("setPositionX", {"item": item, "argument": 10});
+    var terra = Scene.itemNamed("Terra");
+
+    print(terra);
+
+//    TriggerManager.addActionForTrigger(movementForRotation,
+//                                       {"item": terra,
+//                                        "action": "rotate",
+//                                        "gesture": "rotate"});
+
+//    TriggerManager.addActionForTrigger("rotate",
+//                                       {"item": terra,
+//                                        "argument": [0, 0, 1, 0.1],
+//                                        "gesture": "rotate"});
+}
+
+function movementForRotation(items, angle) {
+    return Rotation.create([0, 0, 1, angle]);
 }
 
 function handleScale(items, scale) {

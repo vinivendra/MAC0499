@@ -40,6 +40,8 @@
 - (void)setRotationY:(NSNumber *)newValue;
 - (void)setRotationZ:(NSNumber *)newValue;
 - (void)setRotationA:(NSNumber *)newValue;
+- (void)addPosition:(id)object;
+- (void)addScale:(id)object;
 - (NSNumber *)positionX;
 - (NSNumber *)positionY;
 - (NSNumber *)positionZ;
@@ -103,6 +105,9 @@
 - (void)addRotationY:(NSNumber *)newValue;
 - (void)addRotationZ:(NSNumber *)newValue;
 - (void)addRotationA:(NSNumber *)newValue;
+
+- (void)addPosition:(id)object;
+- (void)addScale:(id)object;
 
 + (NSMutableArray *)templates;
 + (Item *)templateNamed:(NSString *)name;

@@ -161,6 +161,8 @@ static NSString *_supportFilename = @"support.js";
 
     [self.context evaluateScript:@"var callback;"];
 
+    self.context[@"Scene"] = self.physics.scene;
+
     self.context[@"Parser"] = [Parser shared];
 
     self.context[@"Vector"] = [Vector class];

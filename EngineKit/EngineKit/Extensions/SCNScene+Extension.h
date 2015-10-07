@@ -5,7 +5,12 @@
 #import "Item.h"
 
 
-@interface SCNScene (Extension)
+@protocol SceneExport <JSExport>
+- (Item *)itemNamed:(NSString *)name;
+@end
+
+
+@interface SCNScene (Extension) <SceneExport>
 // TODO: doc
 + (SCNScene *)currentScene;
 - (void)makeCurrentScene;
@@ -17,6 +22,7 @@
 - (void)addItem:(Item *)item;
 // TODO: doc
 - (void)deepCopyToScene:(SCNScene *)scene;
+- (Item *)itemNamed:(NSString *)name;
 @end
 
 

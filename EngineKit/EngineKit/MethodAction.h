@@ -18,8 +18,10 @@
                     methodName:(NSString *)name;
 
 
-- (id)call;
-- (id)callWithArguments:(id)arguments;
+- (void)call;
+- (id)callAndReturn;
+- (void)callWithArguments:(id)arguments;
+- (id)callAndReturnWithArguments:(id)arguments;
 
 // Protected
 - (id)evaluateArguments;

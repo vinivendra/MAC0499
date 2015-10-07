@@ -167,8 +167,6 @@ class ViewController: UIViewController, MenuManager {
         self.propertiesButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Disabled)
 
         state = .Neutral
-
-        Parser.shared().writeFileForScene(editorSceneManager?.scene);
     }
 
     override func didReceiveMemoryWarning() {

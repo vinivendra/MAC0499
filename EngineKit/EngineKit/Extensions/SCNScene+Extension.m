@@ -35,5 +35,15 @@ static SCNScene *currentScene;
     }
 }
 
+- (Item *)itemNamed:(NSString *)name {
+    for (SCNNode *node in self.rootNode.childNodes) {
+        Item *item = node.item;
+        if ([item.name isEqualToString:name]) {
+            return item;
+        }
+    }
+    return nil;
+}
+
 @end
 
