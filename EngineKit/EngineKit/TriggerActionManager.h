@@ -18,7 +18,7 @@ TriggerActionManagerExport>
 @property (nonatomic, strong) ActionCollection *actions;
 @property (nonatomic, strong) NSMutableDictionary <id<NSCopying>,
 ActionCollection *> *items;
-
+- (NSString *)writeToFile;
 - (void)addAction:(JSValue *)function forTrigger:(NSDictionary *)dictionary;
 
 - (NSString *)triggerForGesture:(UIGestures)gesture

@@ -30,4 +30,6 @@
 @property (nonatomic) id target;
 @property (nonatomic) SEL selector;
 @property (nonatomic, strong) id arguments;
+
+@property (nonatomic, readonly) NSString *JSString;
 @end

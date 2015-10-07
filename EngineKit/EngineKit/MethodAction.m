@@ -1,7 +1,10 @@
 
 
 #import "MethodAction.h"
+
 #import <JavaScriptCore/JavaScriptCore.h>
+
+#import "Item.h"
 
 
 @implementation MethodAction
@@ -47,6 +50,8 @@
 
 
 ////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Calls
+
 - (void)call {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
@@ -104,4 +109,30 @@
         return self.arguments;
     }
 }
+
+////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Writing
+
+- (NSString *)JSString {
+
+    if ([self.target isKindOfClass:[Item class]]) {
+        Item *target = self.target;
+        NSString *targetString = target.name;
+
+        NSString *selectorString = NSStringFromSelector(self.selector);
+        selectorString = [selectorString
+                          substringToIndex:selectorString.length-1];
+
+        NSObject *arguments = self.arguments;
+        NSString *argumentsString = arguments.description;
+
+        NSString *result = [NSString stringWithFormat:@"TriggerManager.addActionForTrigger(%@, {\"item\": \"%@\", \"action\": \"%@\", ",
+                            argumentsString, targetString, selectorString];
+        
+        return result;
+    }
+
+    return self.description;
+}
+
 @end

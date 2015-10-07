@@ -281,6 +281,7 @@ class ViewController: UIViewController, MenuManager {
 
     @IBAction func exportButtonPressed(sender: AnyObject) {
         Parser.shared().writeFileForScene(editorSceneManager!.scene)
+        SceneManager.currentSceneManager().javaScript.triggerActionManager.writeToFile()
     }
 
     @IBAction func itemsButtonTap(sender: AnyObject) {

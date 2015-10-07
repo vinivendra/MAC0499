@@ -11,38 +11,21 @@ function load() {
         loadStandardLights();
     }
 
-    TriggerManager.addActionForTrigger(handleTap,
-                                       {"gesture": "tap"});
-
-    TriggerManager.addActionForTrigger(itemTranslationActionSnappedToAxes,
-                                       {"gesture": "longpress"});
-    TriggerManager.addActionForTrigger(trackballAction,
-                                       {"gesture": "pan"});
-    TriggerManager.addActionForTrigger(sceneTranslationAction,
-                                       {"gesture": "pan",
-                                        "touches": 2});
-
-    TriggerManager.addActionForTrigger(handleScale,
-                                       {"gesture": "pinch"});
-
-    TriggerManager.addActionForTrigger(handleRotation,
-                                       {"gesture": "rotate"});
-
-    var terra = Scene.itemNamed("Terra");
-
-    print(terra);
-
-// To call a method with a function as an argument
-//    TriggerManager.addActionForTrigger(movementForRotation, // Function as argument
-//                                       {"item": terra,      // Item that triggers the call
-//                                        "action": "rotate", // Method name
-//                                        "gesture": "rotate"});
 
 // To call a method with a fixed value as an argument
 //    TriggerManager.addActionForTrigger("rotate",      // Method name
 //                                       {"item": terra,// Item that triggers the call
 //                                        "argument": [0, 0, 1, 0.1], // Fixed value as an argument
 //                                        "gesture": "rotate"});
+//
+//        TriggerManager.addActionForTrigger(movementForRotation, {"item": "Terra", "action": "rotate", "gesture": "rotate"});
+
+    TriggerManager.addActionForTrigger(trackballAction, {"gesture": "pan"});
+    TriggerManager.addActionForTrigger(handleScale, {"gesture": "pinch"});
+    TriggerManager.addActionForTrigger(sceneTranslationAction, {"gesture": "pan", "touches": "2"});
+    TriggerManager.addActionForTrigger(handleTap, {"gesture": "tap"});
+    TriggerManager.addActionForTrigger(itemTranslationActionSnappedToAxes, {"gesture": "longpress"});
+    TriggerManager.addActionForTrigger(handleRotation, {"gesture": "rotate"});
 }
 
 function movementForRotation(items, angle) {
