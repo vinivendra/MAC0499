@@ -25,6 +25,7 @@ function updateCameraAxes() {
     cameraY = Camera.rotation.rotate(y);
     cameraZ = Camera.rotation.rotate(z);
 }
+TriggerManager.registerAction(updateCameraAxes);
 
 function trackballAction(items, translation) {
     var resized = translation.times(0.02);
@@ -36,6 +37,7 @@ function trackballAction(items, translation) {
     var rot = Rotation.create([axis, resized.normSquared()]);
     Camera.rotateAround(rot, [0, 0, 0]);
 }
+TriggerManager.registerAction(trackballAction);
 
 function sceneTranslationAction(items, translation) {
     var resized = translation.times(0.01);
@@ -46,6 +48,7 @@ function sceneTranslationAction(items, translation) {
 
     Camera.position = Camera.position.plus(translation);
 }
+TriggerManager.registerAction(sceneTranslationAction);
 
 function itemTranslationAction(items, translation) {
     if (typeof items[0] != 'undefined') {
@@ -63,6 +66,9 @@ function itemTranslationAction(items, translation) {
         items[0].position = items[0].position.plus(resizedTranslation);
     }
 }
+TriggerManager.registerAction(itemTranslationAction);
+
+print("HUEEEE");
 
 function itemTranslationActionSnappedToAxes(items, translation) {
     if (typeof items[0] != 'undefined') {
@@ -97,18 +103,21 @@ function itemTranslationActionSnappedToAxes(items, translation) {
         items[0].position = items[0].position.plus(resizedProjection);
     }
 }
+TriggerManager.registerAction(itemTranslationActionSnappedToAxes);
 
 function itemScaleAction(items, scale) {
     if (typeof items[0] != 'undefined') {
         items[0].scale = items[0].scale.times(scale);
     }
 }
+TriggerManager.registerAction(itemScaleAction);
 
 function zoomCameraAction(items, scale) {
     updateCameraAxes();
     var translation = cameraZ.times((1 - (scale)) * 5);
     Camera.position = Camera.position.plus(translation);
 }
+TriggerManager.registerAction(zoomCameraAction);
 
 function itemRotationAction(items, angle) {
     if (typeof items[0] != 'undefined') {
@@ -116,13 +125,14 @@ function itemRotationAction(items, angle) {
         items[0].rotate({"axis":cameraZ, "a":angle});
     }
 }
+TriggerManager.registerAction(itemRotationAction);
 
 function sceneRotationAction(items, angle) {
     updateCameraAxes();
     var rotZ = Rotation.create([cameraZ, -angle]);
     Camera.rotateAround(rotZ, origin);
 }
-
+TriggerManager.registerAction(sceneRotationAction);
 
 
 

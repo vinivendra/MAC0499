@@ -88,6 +88,7 @@ class ViewController: UIViewController, MenuManager {
             }
             else if (toState == .ChoosingActions) {
                 let triggerController = TriggerActionViewController()
+                triggerController.triggerActionManager = editorSceneManager?.javaScript.triggerActionManager
                 triggerController.manager = self
                 menuController = triggerController
                 showMenuForButton(actionsButton)
@@ -225,7 +226,7 @@ class ViewController: UIViewController, MenuManager {
     func showMenuForButton(button:UIButton) {
         hideMenu()
 
-        menuView = MenuView(fromView: button, inView: view, orientation: .Vertical, sizeRatio: 0.3)
+        menuView = MenuView(fromView: button, inView: view, orientation: .Vertical, sizeRatio: 0.7)
         menuView?.backgroundColor = UIColor.orangeColor()
 
         menuController!.setupMenuView(menuView!)

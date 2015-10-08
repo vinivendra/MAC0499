@@ -3,6 +3,7 @@
 #import "FunctionAction.h"
 
 #import "ObjectiveSugar.h"
+#import "JSValue+Extension.h"
 
 
 @implementation FunctionAction
@@ -44,11 +45,7 @@
 
     if ([self.target isKindOfClass:[JSValue class]]) {
         JSValue *function = self.target;
-        NSString *functionString = function.toString;
-        NSArray *functionElements = [functionString split];
-        NSString *functionHeader = functionElements[1];
-        NSArray *functionName = [functionHeader split:@"("];
-        return functionName[0];
+        return function.functionName;
     }
 
     return nil;

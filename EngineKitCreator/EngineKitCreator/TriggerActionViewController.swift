@@ -25,10 +25,13 @@ class TriggerActionViewController: UIViewController,
     ]
     var triggersSecond: [String]?
     var triggersThird: [String]?
+    var actions: [String]?
 
     var selectedTrigger: Int?
     var selectedSecondTrigger: Int?
     var selectedThirdTrigger: Int?
+
+    var triggerActionManager: TriggerActionManager?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +59,36 @@ class TriggerActionViewController: UIViewController,
         return 1
     }
 
+    func indexOfTouch(touch: Int, inArray array: [String]?) -> Int {
+        for var i = 0; i < array?.count; i++ {
+            let int = Int((array?[i])!)
+            if (touch == int) {
+                return i
+            }
+        }
+
+        return NSNotFound
+    }
+
+    func indexOfActionNamed(name: String) -> Int {
+        let gesture = Gestures.gestureForString(triggers[selectedTrigger!].lowercaseString)
+        let state = Gestures.stateForString(triggersSecond?[selectedSecondTrigger!].lowercaseString, gesture:gesture)
+        let touches = Int((triggersThird?[selectedThirdTrigger!])!)!
+        let array = triggerActionManager!.actionsForGesture(gesture, state: state, touches: touches)
+
+        for var i = 0; i < array?.count; i++ {
+            if let function = array?[i] as? FunctionAction {
+                let string = function.target.functionName
+
+                if (string == name) {
+                    return i;
+                }
+            }
+        }
+
+        return NSNotFound
+    }
+
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (tableView == triggersTableView) {
             return triggers.count
@@ -63,12 +96,22 @@ class TriggerActionViewController: UIViewController,
         else if (tableView == triggersSecondTableView) {
             if (selectedTrigger != nil) {
                 let trigger = triggers[selectedTrigger!].lowercaseString
-                let gestureName = Gestures.gestureForString(trigger)
+                let gesture = Gestures.gestureForString(trigger)
                 let gesturesDictionary: NSDictionary
-                gesturesDictionary = Gestures.possibleStatesForGesture(gestureName)
+                gesturesDictionary = Gestures.possibleStatesForGesture(gesture)
 
                 if let strings = gesturesDictionary.allKeys as? [String] {
                     triggersSecond = strings
+
+                    let state = Gestures.defaultStateForGesture(gesture)
+                    let stateName = Gestures.stringForState(state, gesture: gesture)
+
+                    var index = triggersSecond?.indexOf(stateName)
+                    if (index == nil) {
+                        index = triggersSecond?.indexOf("recognized")
+                    }
+                    selectedSecondTrigger = index
+
                     return (triggersSecond?.count)!
                 }
             }
@@ -76,9 +119,9 @@ class TriggerActionViewController: UIViewController,
         else if (tableView == triggersThirdTableView) {
             if (selectedTrigger != nil) {
                 let trigger = triggers[selectedTrigger!].lowercaseString
-                let gestureName = Gestures.gestureForString(trigger)
+                let gesture = Gestures.gestureForString(trigger)
                 let touches: NSArray
-                touches = Gestures.possibleTouchesForGesture(gestureName)
+                touches = Gestures.possibleTouchesForGesture(gesture)
 
                 if let numbers = touches as? [Int] {
                     var strings = [String]()
@@ -89,12 +132,29 @@ class TriggerActionViewController: UIViewController,
                     }
 
                     triggersThird = strings
+
+                    selectedThirdTrigger = Gestures.defaultNumberOfTouchesForGesture(gesture)
+                    selectedThirdTrigger = indexOfTouch(selectedThirdTrigger!, inArray: triggersThird)
+
                     return (triggersThird?.count)!
                 }
             }
         }
         else {
-            
+            if (selectedTrigger != nil) {
+                let array = TriggerActionManager.registeredActions()
+                
+                let strings = array.map({ (object: AnyObject) -> AnyObject! in
+                    if let function = object as? JSValue {
+                        return function.functionName
+                    }
+                    return ""
+                })
+
+                actions = (strings as? [NSString]) as? [String]
+                return strings.count
+
+            }
         }
 
         return 0
@@ -114,6 +174,13 @@ class TriggerActionViewController: UIViewController,
 
             cell.textLabel?.text = triggersSecond?[indexPath.row].capitalizedString
 
+            if (indexPath.row == selectedSecondTrigger) {
+                tableView.selectRowAtIndexPath(indexPath, animated: false, scrollPosition: .None)
+            }
+            else {
+                tableView.deselectRowAtIndexPath(indexPath, animated: false)
+            }
+
             return cell
         }
         else if (tableView == triggersThirdTableView) {
@@ -121,14 +188,30 @@ class TriggerActionViewController: UIViewController,
 
             cell.textLabel?.text = triggersThird?[indexPath.row]
 
+            if (indexPath.row == selectedThirdTrigger) {
+                tableView.selectRowAtIndexPath(indexPath, animated: false, scrollPosition: .None)
+            }
+            else {
+                tableView.deselectRowAtIndexPath(indexPath, animated: false)
+            }
+
             return cell
         }
         else {
+            let cell = tableView.dequeueReusableCellWithIdentifier(actionsID, forIndexPath: indexPath)
+
+            let name = actions?[indexPath.row]
+            cell.textLabel?.text = name
+
+            if (indexOfActionNamed(name!) != NSNotFound) {
+                tableView.selectRowAtIndexPath(indexPath, animated: false, scrollPosition: .None)
+            }
+            else {
+                tableView.deselectRowAtIndexPath(indexPath, animated: false)
+            }
+
+            return cell
         }
-
-        let cell = tableView.dequeueReusableCellWithIdentifier(triggersID, forIndexPath: indexPath)
-
-        return cell;
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

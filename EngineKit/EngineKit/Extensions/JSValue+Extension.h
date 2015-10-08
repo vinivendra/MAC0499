@@ -5,5 +5,5 @@
 
 
 @interface JSValue (Extension)
-
+@property (nonatomic, readonly) NSString *functionName;
 @end

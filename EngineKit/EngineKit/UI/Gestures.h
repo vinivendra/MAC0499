@@ -38,7 +38,7 @@
 + (UIGestureRecognizerState)defaultStateForGesture:(UIGestures)gesture;
 
 + (NSArray <NSNumber *> *)possibleTouchesForGesture:(UIGestures)gesture;
-+ (NSInteger)deafultNumberOfTouchesForGesture:(UIGestures)gesture;
++ (NSInteger)defaultNumberOfTouchesForGesture:(UIGestures)gesture;
 
 
 + (UIGestures)gestureForString:(NSString *)string;

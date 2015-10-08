@@ -68,7 +68,7 @@
     }
 }
 
-+ (NSInteger)deafultNumberOfTouchesForGesture:(UIGestures)gesture {
++ (NSInteger)defaultNumberOfTouchesForGesture:(UIGestures)gesture {
     if (gesture == PinchGesture || gesture == RotateGesture) {
         return 2;
     }
@@ -137,15 +137,7 @@
 }
 
 + (NSString *)stringForState:(UIGestureRecognizerState)state
-                     gesture:(UIGestures)gesture {
-    if (gesture == TapGesture || gesture == SwipeGesture) {
-        return nil;
-    }
-    else {
-        if (state == UIGestureRecognizerStateChanged) {
-            return nil;
-        }
-    }
+                            gesture:(UIGestures)gesture {
 
     static NSDictionary *stateStringConversion;
     if (!stateStringConversion) {
@@ -162,7 +154,7 @@
                               gesture:(UIGestures)gesture {
 
     if (!object) {
-        return [Gestures deafultNumberOfTouchesForGesture:gesture];
+        return [Gestures defaultNumberOfTouchesForGesture:gesture];
     }
     else {
         NSArray *possibleTouches = [Gestures possibleTouchesForGesture:gesture];
@@ -171,7 +163,7 @@
             return object.integerValue;
         }
         else {
-            return [Gestures deafultNumberOfTouchesForGesture:gesture];
+            return [Gestures defaultNumberOfTouchesForGesture:gesture];
         }
     }
 }

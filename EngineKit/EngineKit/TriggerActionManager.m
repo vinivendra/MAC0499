@@ -18,6 +18,7 @@
 NSDictionary *gestureEnumConversion;
 NSDictionary *stateEnumConversion;
 
+NSMutableArray <JSValue *> *registeredActions;
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -40,6 +41,27 @@ NSDictionary *stateEnumConversion;
             actionsForKey:[self triggerForGesture:gesture
                                             state:state
                                           touches:touches]];
+}
+
+- (NSArray *)actionsForGesture:(UIGestures)gesture
+                         state:(UIGestureRecognizerState)state
+                       touches:(NSInteger)touches {
+    return [self.actions
+            actionsForKey:[self triggerForGesture:gesture
+                                            state:state
+                                          touches:touches]];
+}
+
+- (void)registerAction:(JSValue *)function {
+    if (!registeredActions) {
+        registeredActions = [NSMutableArray new];
+    }
+
+    [registeredActions addObject:function];
+}
+
++ (NSArray *)registeredActions {
+    return registeredActions;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -193,6 +215,21 @@ NSDictionary *stateEnumConversion;
     return statement;
 }
 
++ (NSString *)writingStringForState:(UIGestureRecognizerState)state
+                            gesture:(UIGestures)gesture {
+    if (gesture == TapGesture || gesture == SwipeGesture) {
+        return nil;
+    }
+    else {
+        if (state == UIGestureRecognizerStateChanged) {
+            return nil;
+        }
+    }
+
+    return [Gestures stringForState:state
+                            gesture:gesture];
+}
+
 - (NSString *)writingStringForTrigger:(NSString *)trigger {
 
     if ([trigger containsString:@"Gesture"]) {
@@ -211,8 +248,9 @@ NSDictionary *stateEnumConversion;
                                    stringWithFormat:@"\"gesture\": \"%@\"",
                                    [Gestures stringForGesture:gesture]];
 
-        NSString *stateString = [Gestures stringForState:state
-                                                 gesture:gesture];
+        NSString *stateString = [TriggerActionManager
+                                 writingStringForState:state
+                                 gesture:gesture];
         if (stateString) {
             stateString = [NSString stringWithFormat:@", \"state\": \"%@\"",
                            stateString];

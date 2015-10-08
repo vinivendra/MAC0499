@@ -9,6 +9,7 @@
 @protocol TriggerActionManagerExport <JSExport>
 @property (nonatomic, strong) ActionCollection *actions;
 - (void)addAction:(JSValue *)function forTrigger:(NSDictionary *)dictionary;
+- (void)registerAction:(JSValue *)function;
 @end
 
 
@@ -18,12 +19,23 @@ TriggerActionManagerExport>
 @property (nonatomic, strong) ActionCollection *actions;
 @property (nonatomic, strong) NSMutableDictionary <id<NSCopying>,
 ActionCollection *> *items;
+
+- (NSArray *)actionsForItem:(Item *)item
+                    gesture:(UIGestures)gesture
+                      state:(UIGestureRecognizerState)state
+                    touches:(NSInteger)touches;
+- (NSArray *)actionsForGesture:(UIGestures)gesture
+                         state:(UIGestureRecognizerState)state
+                       touches:(NSInteger)touches;
+
 - (NSString *)writeToFile;
+
 - (void)addAction:(JSValue *)function forTrigger:(NSDictionary *)dictionary;
 
 - (NSString *)triggerForGesture:(UIGestures)gesture
                           state:(UIGestureRecognizerState)state
                         touches:(int)touches;
+
 - (void)addJSValue:(JSValue *)value
         forTrigger:(NSString *)trigger;
 - (void)addMethodAction:(MethodAction *)action
@@ -31,6 +43,9 @@ ActionCollection *> *items;
 - (void)addMethodAction:(MethodAction *)action
                  toItem:(Item *)item
              forTrigger:(NSString *)trigger;
+
+- (void)registerAction:(JSValue *)function;
++ (NSArray *)registeredActions;
 
 // TODO: fix this doc
 /*!
