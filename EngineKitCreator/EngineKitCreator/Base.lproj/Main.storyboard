@@ -79,6 +79,14 @@
                                     <action selector="exportButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oYW-8a-19J"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YxR-N5-H8x">
+                                <rect key="frame" x="296" y="29" width="52" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Actions"/>
+                                <connections>
+                                    <action selector="actionsButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8eE-PS-WbY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -90,6 +98,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="actionsButton" destination="YxR-N5-H8x" id="3yU-Md-iHt"/>
                         <outlet property="doneButton" destination="MSa-HT-KEf" id="P3m-cX-11j"/>
                         <outlet property="engineKitView" destination="IPS-ES-w43" id="hxp-Sb-Cc4"/>
                         <outlet property="exportButton" destination="PkW-Ur-PlE" id="jDu-mM-aM5"/>

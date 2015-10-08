@@ -31,6 +31,7 @@ ActionCollection *> *items;
 - (void)addMethodAction:(MethodAction *)action
                  toItem:(Item *)item
              forTrigger:(NSString *)trigger;
+
 // TODO: fix this doc
 /*!
  Calls the calback function for handling the given `gesture` in javascript.

@@ -10,6 +10,7 @@ enum ViewControllerStates {
     case ChoosingObject
     case ChangingProperties
     case ChoosingItem
+    case ChoosingActions
     case Playing
 }
 
@@ -24,6 +25,7 @@ class ViewController: UIViewController, MenuManager {
 
     @IBOutlet weak var nameTextField: UITextField!
 
+    @IBOutlet weak var actionsButton: UIButton!
     @IBOutlet weak var exportButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var itemsButton: UIButton!
@@ -82,6 +84,13 @@ class ViewController: UIViewController, MenuManager {
                 itemController.manager = self
                 menuController = itemController
                 showMenuForButton(itemsButton)
+                return
+            }
+            else if (toState == .ChoosingActions) {
+                let triggerController = TriggerActionViewController()
+                triggerController.manager = self
+                menuController = triggerController
+                showMenuForButton(actionsButton)
                 return
             }
         }
@@ -276,6 +285,15 @@ class ViewController: UIViewController, MenuManager {
         }
         else {
             state = .Playing
+        }
+    }
+
+    @IBAction func actionsButtonPressed(sender: AnyObject) {
+        if (state == .ChoosingActions) {
+            dismissMenu()
+        }
+        else {
+            state = .ChoosingActions
         }
     }
 

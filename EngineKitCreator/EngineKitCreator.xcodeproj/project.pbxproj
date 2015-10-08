@@ -19,6 +19,8 @@
 		249121451BBC2C370078BA64 /* EngineKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 24B8135B1BA0A69000EAA152 /* EngineKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2491214A1BBC2C620078BA64 /* support.js in Resources */ = {isa = PBXBuildFile; fileRef = 249121491BBC2C620078BA64 /* support.js */; settings = {ASSET_TAGS = (); }; };
 		2491214C1BBC2C730078BA64 /* editor.js in Resources */ = {isa = PBXBuildFile; fileRef = 2491214B1BBC2C730078BA64 /* editor.js */; settings = {ASSET_TAGS = (); }; };
+		24B1E3121BC6A099007831BB /* TriggerActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B1E3101BC6A099007831BB /* TriggerActionViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		24B1E3131BC6A099007831BB /* TriggerActionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24B1E3111BC6A099007831BB /* TriggerActionViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		24B813281BA0A67C00EAA152 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B813271BA0A67C00EAA152 /* AppDelegate.swift */; };
 		24B8132A1BA0A67C00EAA152 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B813291BA0A67C00EAA152 /* ViewController.swift */; };
 		24B8132D1BA0A67C00EAA152 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24B8132B1BA0A67C00EAA152 /* Main.storyboard */; };
@@ -95,6 +97,8 @@
 		245991791BAB3E43008E8F60 /* ItemsMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemsMenuViewController.xib; sourceTree = "<group>"; };
 		249121491BBC2C620078BA64 /* support.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = support.js; sourceTree = "<group>"; };
 		2491214B1BBC2C730078BA64 /* editor.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = editor.js; sourceTree = "<group>"; };
+		24B1E3101BC6A099007831BB /* TriggerActionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerActionViewController.swift; sourceTree = "<group>"; };
+		24B1E3111BC6A099007831BB /* TriggerActionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TriggerActionViewController.xib; sourceTree = "<group>"; };
 		24B813241BA0A67C00EAA152 /* EngineKitCreator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EngineKitCreator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24B813271BA0A67C00EAA152 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24B813291BA0A67C00EAA152 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -176,6 +180,8 @@
 				240C86E61BA3771B004F6794 /* PropertiesMenuViewController.xib */,
 				245991771BAB3E14008E8F60 /* ItemsMenuViewController.swift */,
 				245991791BAB3E43008E8F60 /* ItemsMenuViewController.xib */,
+				24B1E3101BC6A099007831BB /* TriggerActionViewController.swift */,
+				24B1E3111BC6A099007831BB /* TriggerActionViewController.xib */,
 				24B8132B1BA0A67C00EAA152 /* Main.storyboard */,
 				245991691BAAF27E008E8F60 /* EditorSceneManager.swift */,
 				24B8132E1BA0A67C00EAA152 /* Assets.xcassets */,
@@ -350,6 +356,7 @@
 				24B813321BA0A67C00EAA152 /* LaunchScreen.storyboard in Resources */,
 				240C86E81BA3771B004F6794 /* PropertiesMenuViewController.xib in Resources */,
 				2459917A1BAB3E43008E8F60 /* ItemsMenuViewController.xib in Resources */,
+				24B1E3131BC6A099007831BB /* TriggerActionViewController.xib in Resources */,
 				24B8132F1BA0A67C00EAA152 /* Assets.xcassets in Resources */,
 				2491214A1BBC2C620078BA64 /* support.js in Resources */,
 				24B813661BA0B77200EAA152 /* ObjectsCell.xib in Resources */,
@@ -384,6 +391,7 @@
 				24B8132A1BA0A67C00EAA152 /* ViewController.swift in Sources */,
 				2459916E1BAAF362008E8F60 /* PlayerSceneManager.swift in Sources */,
 				24B813621BA0A6D200EAA152 /* ObjectsMenuController.swift in Sources */,
+				24B1E3121BC6A099007831BB /* TriggerActionViewController.swift in Sources */,
 				240C86E71BA3771B004F6794 /* PropertiesMenuViewController.swift in Sources */,
 				24B813641BA0B73D00EAA152 /* ObjectsCell.swift in Sources */,
 				245991781BAB3E14008E8F60 /* ItemsMenuViewController.swift in Sources */,

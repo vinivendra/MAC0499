@@ -37,6 +37,162 @@
     return self;
 }
 
+#pragma mark - Defaults
+
++ (UIGestureRecognizerState)defaultStateForGesture:(UIGestures)gesture {
+    if (gesture == TapGesture || gesture == SwipeGesture) {
+        return UIGestureRecognizerStateRecognized;
+    }
+    else {
+        return UIGestureRecognizerStateChanged;
+    }
+}
+
++ (NSDictionary *)possibleStatesForGesture:(UIGestures)gesture {
+    if (gesture == TapGesture || gesture == SwipeGesture) {
+        return @{@"recognized": @YES};
+    }
+    else {
+        return @{@"began": @YES,
+                 @"changed": @YES,
+                 @"ended": @YES};
+    }
+}
+
++ (NSArray *)possibleTouchesForGesture:(UIGestures)gesture {
+    if (gesture == PinchGesture || gesture == RotateGesture) {
+        return @[@NO, @2, @NO, @NO, @NO];
+    }
+    else {
+        return @[@1, @2, @3, @4, @5];
+    }
+}
+
++ (NSInteger)deafultNumberOfTouchesForGesture:(UIGestures)gesture {
+    if (gesture == PinchGesture || gesture == RotateGesture) {
+        return 2;
+    }
+    else {
+        return 1;
+    }
+}
+
+
++ (UIGestures)gestureForString:(NSString *)string {
+    static NSDictionary *gestureEnumConversion;
+
+    if (!gestureEnumConversion) {
+        gestureEnumConversion = @{@"swipe": @(SwipeGesture),
+                                  @"tap": @(TapGesture),
+                                  @"pan": @(PanGesture),
+                                  @"pinch": @(PinchGesture),
+                                  @"rotate": @(RotateGesture),
+                                  @"longpress": @(LongPressGesture)};
+    }
+
+    NSNumber *gestureNumber = gestureEnumConversion[string];
+    UIGestures gestureEnum = gestureNumber.unsignedIntegerValue;
+
+    return gestureEnum;
+}
+
++ (NSString *)stringForGesture:(UIGestures)gesture {
+    static NSDictionary *gestureStringConversion;
+
+    if (!gestureStringConversion) {
+        gestureStringConversion = @{@(SwipeGesture): @"swipe",
+                                    @(TapGesture): @"tap",
+                                    @(PanGesture): @"pan",
+                                    @(PinchGesture): @"pinch",
+                                    @(RotateGesture): @"rotate",
+                                    @(LongPressGesture): @"longpress"};
+    }
+
+    return gestureStringConversion[@(gesture)];
+}
+
++ (UIGestureRecognizerState)stateForString:(NSString *)string
+                                   gesture:(UIGestures)gesture {
+    static NSDictionary *stateEnumConversion;
+
+    if (!stateEnumConversion) {
+        stateEnumConversion = @{@"began": @(UIGestureRecognizerStateBegan),
+                                @"ended": @(UIGestureRecognizerStateEnded),
+                                @"recognized": @(UIGestureRecognizerStateRecognized),
+                                @"changed": @(UIGestureRecognizerStateChanged)};
+    }
+
+    NSNumber *stateNumber = stateEnumConversion[string];
+
+    UIGestureRecognizerState stateEnum;
+
+    if (stateNumber) {
+        stateEnum = stateNumber.unsignedIntegerValue;
+    }
+    else {
+        stateEnum = [Gestures defaultStateForGesture:gesture];
+    }
+
+    return stateEnum;
+}
+
++ (NSString *)stringForState:(UIGestureRecognizerState)state
+                     gesture:(UIGestures)gesture {
+    if (gesture == TapGesture || gesture == SwipeGesture) {
+        return nil;
+    }
+    else {
+        if (state == UIGestureRecognizerStateChanged) {
+            return nil;
+        }
+    }
+
+    static NSDictionary *stateStringConversion;
+    if (!stateStringConversion) {
+        stateStringConversion = @{@(UIGestureRecognizerStateBegan): @"began",
+                                  @(UIGestureRecognizerStateEnded): @"ended",
+                                  @(UIGestureRecognizerStateRecognized): @"recognized",
+                                  @(UIGestureRecognizerStateChanged): @"changed"};
+    }
+
+    return stateStringConversion[@(state)];
+}
+
++ (NSInteger)numberOfTouchesForNumber:(NSNumber *)object
+                              gesture:(UIGestures)gesture {
+
+    if (!object) {
+        return [Gestures deafultNumberOfTouchesForGesture:gesture];
+    }
+    else {
+        NSArray *possibleTouches = [Gestures possibleTouchesForGesture:gesture];
+        NSNumber *touchIsPossible = possibleTouches[object.integerValue];
+        if (touchIsPossible.boolValue) {
+            return object.integerValue;
+        }
+        else {
+            return [Gestures deafultNumberOfTouchesForGesture:gesture];
+        }
+    }
+}
+
+
++ (NSString *)stringForTouches:(NSInteger)touches
+                       gesture:(UIGestures)gesture {
+
+    if (gesture == PinchGesture || gesture == RotateGesture) {
+        return nil;
+    }
+    else if (touches == 1) {
+        return nil;
+    }
+    else {
+        return [NSString stringWithFormat:@"%d", touches];
+    }
+    
+    return nil;
+}
+
 #pragma mark - Setup
 
 - (void)setupGestures {
@@ -310,6 +466,5 @@
 
     return singleton;
 }
-
 
 @end

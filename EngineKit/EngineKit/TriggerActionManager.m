@@ -97,13 +97,13 @@ NSDictionary *stateEnumConversion;
     NSString *gestureString = dictionary[@"gesture"];
 
     if (gestureString) {
-        UIGestures gesture = [self gestureForString:gestureString];
+        UIGestures gesture = [Gestures gestureForString:gestureString];
 
-        UIGestureRecognizerState state = [self
+        UIGestureRecognizerState state = [Gestures
                                           stateForString:dictionary[@"state"]
                                           gesture:gesture];
 
-        NSInteger touches = [self
+        NSInteger touches = [Gestures
                              numberOfTouchesForNumber:dictionary[@"touches"]
                              gesture:gesture];
 
@@ -146,116 +146,6 @@ NSDictionary *stateEnumConversion;
     }
 }
 
-- (UIGestures)gestureForString:(NSString *)string {
-    if (!gestureEnumConversion) {
-        gestureEnumConversion = @{@"swipe": @(SwipeGesture),
-                                  @"tap": @(TapGesture),
-                                  @"pan": @(PanGesture),
-                                  @"pinch": @(PinchGesture),
-                                  @"rotate": @(RotateGesture),
-                                  @"longpress": @(LongPressGesture)};
-    }
-
-    NSNumber *gestureNumber = gestureEnumConversion[string];
-    UIGestures gestureEnum = gestureNumber.unsignedIntegerValue;
-
-    return gestureEnum;
-}
-
-- (NSString *)stringForGesture:(UIGestures)gesture {
-    static NSDictionary *gestureStringConversion;
-
-    if (!gestureStringConversion) {
-        gestureStringConversion = @{@(SwipeGesture): @"swipe",
-                                    @(TapGesture): @"tap",
-                                    @(PanGesture): @"pan",
-                                    @(PinchGesture): @"pinch",
-                                    @(RotateGesture): @"rotate",
-                                    @(LongPressGesture): @"longpress"};
-    }
-
-    return gestureStringConversion[@(gesture)];
-}
-
-- (UIGestureRecognizerState)stateForString:(NSString *)string
-                                   gesture:(UIGestures)gesture {
-    if (!stateEnumConversion) {
-        stateEnumConversion = @{@"began": @(UIGestureRecognizerStateBegan),
-                                @"ended": @(UIGestureRecognizerStateEnded),
-                                @"recognized": @(UIGestureRecognizerStateRecognized),
-                                @"changed": @(UIGestureRecognizerStateChanged)};
-    }
-
-    NSNumber *stateNumber = stateEnumConversion[string];
-
-    UIGestureRecognizerState stateEnum;
-
-    if (!stateNumber) {
-        if (gesture == TapGesture || gesture == SwipeGesture) {
-            stateEnum = UIGestureRecognizerStateRecognized;
-        }
-        else {
-            stateEnum = UIGestureRecognizerStateChanged;
-        }
-    }
-    else {
-        stateEnum = stateNumber.unsignedIntegerValue;
-    }
-
-    return stateEnum;
-}
-
-- (NSString *)stringForState:(UIGestureRecognizerState)state
-                     gesture:(UIGestures)gesture {
-    if (gesture == TapGesture || gesture == SwipeGesture) {
-        return nil;
-    }
-    else {
-        if (state == UIGestureRecognizerStateChanged) {
-            return nil;
-        }
-    }
-
-    static NSDictionary *stateStringConversion;
-    if (!stateStringConversion) {
-        stateStringConversion = @{@(UIGestureRecognizerStateBegan): @"began",
-                                  @(UIGestureRecognizerStateEnded): @"ended",
-                                  @(UIGestureRecognizerStateRecognized): @"recognized",
-                                  @(UIGestureRecognizerStateChanged): @"changed"};
-    }
-
-    return stateStringConversion[@(state)];
-}
-
-- (NSInteger)numberOfTouchesForNumber:(NSNumber *)object
-                              gesture:(UIGestures)gesture {
-
-    if (gesture == PinchGesture || gesture == RotateGesture) {
-        return 2;
-    }
-    else if (!object) {
-        return 1;
-    }
-    else {
-        return object.integerValue;
-    }
-}
-
-- (NSString *)stringForTouches:(NSInteger)touches
-                       gesture:(UIGestures)gesture {
-
-    if (gesture == PinchGesture || gesture == RotateGesture) {
-        return nil;
-    }
-    else if (touches == 1) {
-        return nil;
-    }
-    else {
-        return [NSString stringWithFormat:@"%d", touches];
-    }
-
-    return nil;
-}
 
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Export
@@ -319,17 +209,17 @@ NSDictionary *stateEnumConversion;
 
         NSString *gestureString = [NSString
                                    stringWithFormat:@"\"gesture\": \"%@\"",
-                                   [self stringForGesture:gesture]];
+                                   [Gestures stringForGesture:gesture]];
 
-        NSString *stateString = [self stringForState:state
-                                             gesture:gesture];
+        NSString *stateString = [Gestures stringForState:state
+                                                 gesture:gesture];
         if (stateString) {
             stateString = [NSString stringWithFormat:@", \"state\": \"%@\"",
                            stateString];
         }
 
-        NSString *touchesString = [self stringForTouches:touches
-                                                 gesture:gesture];
+        NSString *touchesString = [Gestures stringForTouches:touches
+                                                     gesture:gesture];
         if (touchesString) {
             touchesString = [NSString stringWithFormat:@", \"touches\": \"%@\"",
                              touchesString];
@@ -355,7 +245,7 @@ NSDictionary *stateEnumConversion;
 - (NSString *)triggerForGesture:(UIGestures)gesture
                           state:(UIGestureRecognizerState)state
                         touches:(NSInteger)touches {
-    touches = [self numberOfTouchesForNumber:@(touches) gesture:gesture];
+    touches = [Gestures numberOfTouchesForNumber:@(touches) gesture:gesture];
 
     return [NSString stringWithFormat:@"triggerGesture%d-%d-%d",
             gesture, state, touches];

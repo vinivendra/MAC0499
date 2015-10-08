@@ -33,4 +33,25 @@
 @property (nonatomic, weak) id<CallbackDelegate> delegate;
 - (void)pauseGestures;
 - (void)resumeGestures;
+
++ (NSDictionary <NSString *, NSNumber *> *)possibleStatesForGesture:(UIGestures)gesture;
++ (UIGestureRecognizerState)defaultStateForGesture:(UIGestures)gesture;
+
++ (NSArray <NSNumber *> *)possibleTouchesForGesture:(UIGestures)gesture;
++ (NSInteger)deafultNumberOfTouchesForGesture:(UIGestures)gesture;
+
+
++ (UIGestures)gestureForString:(NSString *)string;
++ (NSString *)stringForGesture:(UIGestures)gesture;
+
++ (UIGestureRecognizerState)stateForString:(NSString *)string
+                                   gesture:(UIGestures)gesture;
++ (NSString *)stringForState:(UIGestureRecognizerState)state
+                     gesture:(UIGestures)gesture;
+
++ (NSInteger)numberOfTouchesForNumber:(NSNumber *)object
+                              gesture:(UIGestures)gesture;
++ (NSString *)stringForTouches:(NSInteger)touches
+                       gesture:(UIGestures)gesture;
+
 @end
