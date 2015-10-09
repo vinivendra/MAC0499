@@ -13,6 +13,7 @@
 
 #import "MethodAction.h"
 #import "FunctionAction.h"
+#import "PlaceholderAction.h"
 
 #import "ActionCollection.h"
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		242D204D1BC75D3600651F3D /* PlaceholderAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 242D204B1BC75D3600651F3D /* PlaceholderAction.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		242D204E1BC75D3600651F3D /* PlaceholderAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 242D204C1BC75D3600651F3D /* PlaceholderAction.m */; settings = {ASSET_TAGS = (); }; };
 		245991711BAB009B008E8F60 /* Light.h in Headers */ = {isa = PBXBuildFile; fileRef = 2459916F1BAB009B008E8F60 /* Light.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		245991721BAB009B008E8F60 /* Light.m in Sources */ = {isa = PBXBuildFile; fileRef = 245991701BAB009B008E8F60 /* Light.m */; settings = {ASSET_TAGS = (); }; };
 		24713FFD1BB2D61200270024 /* JSValue+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 24713FFB1BB2D61200270024 /* JSValue+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -146,6 +148,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		242D204B1BC75D3600651F3D /* PlaceholderAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceholderAction.h; sourceTree = "<group>"; };
+		242D204C1BC75D3600651F3D /* PlaceholderAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceholderAction.m; sourceTree = "<group>"; };
 		2459916F1BAB009B008E8F60 /* Light.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Light.h; sourceTree = "<group>"; };
 		245991701BAB009B008E8F60 /* Light.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Light.m; sourceTree = "<group>"; };
 		24713FFB1BB2D61200270024 /* JSValue+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSValue+Extension.h"; sourceTree = "<group>"; };
@@ -302,6 +306,8 @@
 		24713FF81BB2D52700270024 /* Triggers and Actions */ = {
 			isa = PBXGroup;
 			children = (
+				242D204B1BC75D3600651F3D /* PlaceholderAction.h */,
+				242D204C1BC75D3600651F3D /* PlaceholderAction.m */,
 				24D494691BB8949F00C15BD2 /* FunctionAction.h */,
 				24D4946A1BB8949F00C15BD2 /* FunctionAction.m */,
 				24DC4B6E1BB074CC00935A35 /* TriggerActionManager.h */,
@@ -578,6 +584,7 @@
 				24B8124A1BA07B5300EAA152 /* Sphere.h in Headers */,
 				24B8120D1BA079D700EAA152 /* NSNumber+ObjectiveSugar.h in Headers */,
 				24B8123C1BA07B5300EAA152 /* Box.h in Headers */,
+				242D204D1BC75D3600651F3D /* PlaceholderAction.h in Headers */,
 				24B8125B1BA07B8500EAA152 /* UI.h in Headers */,
 				24B812171BA07B1C00EAA152 /* EngineKitJSExtensions.h in Headers */,
 				24B811F81BA079D700EAA152 /* UIColor+Extension.h in Headers */,
@@ -781,6 +788,7 @@
 				24B812531BA07B5300EAA152 /* Shape.m in Sources */,
 				24D494641BB8931E00C15BD2 /* MethodAction.m in Sources */,
 				24B811EB1BA079D700EAA152 /* SCN+Exports.m in Sources */,
+				242D204E1BC75D3600651F3D /* PlaceholderAction.m in Sources */,
 				24B811F71BA079D700EAA152 /* UI+Exports.m in Sources */,
 				24B811E51BA079D700EAA152 /* NSDictionary+Extension.m in Sources */,
 				24B812121BA079D700EAA152 /* NSString+ObjectiveSugar.m in Sources */,

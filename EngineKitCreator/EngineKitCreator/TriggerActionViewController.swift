@@ -9,9 +9,9 @@ private let triggersThirdID = "triggers"
 private let actionsID = "actions"
 
 class TriggerActionViewController: UIViewController,
-                                   UITableViewDataSource,
-                                   UITableViewDelegate,
-                                   MenuController {
+    UITableViewDataSource,
+    UITableViewDelegate,
+MenuController {
 
     @IBOutlet weak var triggersTableView: UITableView!
     @IBOutlet weak var triggersSecondTableView: UITableView!
@@ -47,6 +47,7 @@ class TriggerActionViewController: UIViewController,
 
         actionsTableView.delegate = self
         actionsTableView.dataSource = self
+        actionsTableView.allowsMultipleSelection = true
 
         triggersTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: triggersID)
         triggersSecondTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: triggersSecondID)
@@ -77,8 +78,8 @@ class TriggerActionViewController: UIViewController,
         let array = triggerActionManager!.actionsForGesture(gesture, state: state, touches: touches)
 
         for var i = 0; i < array?.count; i++ {
-            if let function = array?[i] as? FunctionAction {
-                let string = function.target.functionName
+            if let action = array?[i] as? PlaceholderAction {
+                let string = action.description
 
                 if (string == name) {
                     return i;
@@ -143,7 +144,7 @@ class TriggerActionViewController: UIViewController,
         else {
             if (selectedTrigger != nil) {
                 let array = TriggerActionManager.registeredActions()
-                
+
                 let strings = array.map({ (object: AnyObject) -> AnyObject! in
                     if let function = object as? JSValue {
                         return function.functionName
@@ -214,6 +215,22 @@ class TriggerActionViewController: UIViewController,
         }
     }
 
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        if (tableView == actionsTableView) {
+            let index = self.indexOfActionNamed((actions?[indexPath.row])!)
+            if (index != NSNotFound) {
+                let gesture = Gestures.gestureForString(triggers[selectedTrigger!].lowercaseString)
+                let state = Gestures.stateForString(triggersSecond?[selectedSecondTrigger!].lowercaseString, gesture:gesture)
+                let touches = Int((triggersThird?[selectedThirdTrigger!])!)!
+                let array = triggerActionManager!.actionsForGesture(gesture, state: state, touches: touches)
+
+                array?.removeObjectAtIndex(index)
+
+                actionsTableView.reloadData()
+            }
+        }
+    }
+
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if (tableView == triggersTableView) {
             selectedTrigger = indexPath.row
@@ -223,24 +240,40 @@ class TriggerActionViewController: UIViewController,
             actionsTableView.reloadData()
         }
         else if (tableView == triggersSecondTableView) {
-
+            selectedSecondTrigger = indexPath.row
+            triggersThirdTableView.reloadData()
+            actionsTableView.reloadData()
         }
         else if (tableView == triggersThirdTableView) {
-
+            selectedThirdTrigger = indexPath.row
+            actionsTableView.reloadData()
         }
         else {
+            print(tableView.cellForRowAtIndexPath(indexPath)?.selected)
 
+            let index = self.indexOfActionNamed((actions?[indexPath.row])!)
+            if (index == NSNotFound) {
+                let gesture = Gestures.gestureForString(triggers[selectedTrigger!].lowercaseString)
+                let state = Gestures.stateForString(triggersSecond?[selectedSecondTrigger!].lowercaseString, gesture:gesture)
+                let touches = Int32((triggersThird?[selectedThirdTrigger!])!)!
+
+                let action = PlaceholderAction(target: nil, methodName: actions?[indexPath.row]);
+
+                let trigger = triggerActionManager?.triggerForGesture(gesture, state: state, touches: touches)
+                triggerActionManager?.addMethodAction(action, forTrigger: trigger)
+                actionsTableView.reloadData()
+            }
         }
     }
-
+    
     // MARK: Menu Controller
     func setupMenuView(menuView: MenuView) {
         menuView.backgroundColor = UIColor.yellowColor()
-
+        
         self.view.frame = CGRectMake(0, 0, menuView.frame.size.width,
             menuView.frame.size.height)
-
+        
         menuView.addSubview(self.view)
     }
-
+    
 }

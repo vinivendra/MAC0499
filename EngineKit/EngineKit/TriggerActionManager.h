@@ -20,13 +20,13 @@ TriggerActionManagerExport>
 @property (nonatomic, strong) NSMutableDictionary <id<NSCopying>,
 ActionCollection *> *items;
 
-- (NSArray *)actionsForItem:(Item *)item
-                    gesture:(UIGestures)gesture
-                      state:(UIGestureRecognizerState)state
-                    touches:(NSInteger)touches;
-- (NSArray *)actionsForGesture:(UIGestures)gesture
-                         state:(UIGestureRecognizerState)state
-                       touches:(NSInteger)touches;
+- (NSMutableArray *)actionsForItem:(Item *)item
+                           gesture:(UIGestures)gesture
+                             state:(UIGestureRecognizerState)state
+                           touches:(NSInteger)touches;
+- (NSMutableArray *)actionsForGesture:(UIGestures)gesture
+                                state:(UIGestureRecognizerState)state
+                              touches:(NSInteger)touches;
 
 - (NSString *)writeToFile;
 
@@ -46,6 +46,8 @@ ActionCollection *> *items;
 
 - (void)registerAction:(JSValue *)function;
 + (NSArray *)registeredActions;
+
+@property (nonatomic, strong) SCNScene *scene;
 
 // TODO: fix this doc
 /*!

@@ -11,9 +11,11 @@
     }
     return _arrays;
 }
-- (NSArray <MethodAction *> *)actionsForKey:(NSString *)key {
+
+- (NSMutableArray <MethodAction *> *)actionsForKey:(NSString *)key {
     return self.arrays[key];
 }
+
 - (void)addAction:(MethodAction *)action forKey:(NSString *)key {
     NSMutableArray *array = self.arrays[key];
     if (!array) {

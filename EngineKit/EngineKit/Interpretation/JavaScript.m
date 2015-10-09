@@ -216,16 +216,12 @@ static NSString *_supportFilename = @"support.js";
     self.updateFunction = self.context[@"update"];
 
     self.contactCallback = self.context[@"contact"];
-
-
-    if (!self.triggerActionManager) {
-        self.triggerActionManager = [TriggerActionManager new];
-    }
 }
 
 - (TriggerActionManager *)triggerActionManager {
     if (!_triggerActionManager) {
         _triggerActionManager = [TriggerActionManager new];
+        _triggerActionManager.scene = self.physics.scene;
     }
     return _triggerActionManager;
 }

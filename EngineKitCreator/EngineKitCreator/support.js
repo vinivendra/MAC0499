@@ -68,8 +68,6 @@ function itemTranslationAction(items, translation) {
 }
 TriggerManager.registerAction(itemTranslationAction);
 
-print("HUEEEE");
-
 function itemTranslationActionSnappedToAxes(items, translation) {
     if (typeof items[0] != 'undefined') {
 

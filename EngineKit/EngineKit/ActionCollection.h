@@ -11,7 +11,7 @@
                                                     <MethodAction *> *
                                                     > *arrays;
 
-- (NSArray <MethodAction *> *)actionsForKey:(NSString *)key;
+- (NSMutableArray <MethodAction *> *)actionsForKey:(NSString *)key;
 - (void)addAction:(MethodAction *)action forKey:(NSString *)key;
 @end
 

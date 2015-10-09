@@ -7,6 +7,7 @@
 #import "NSArray+Extension.h"
 #import "NSNumber+Extension.h"
 #import "SCNScene+Extension.h"
+#import "JSValue+Extension.h"
 #import "ObjectiveSugar.h"
 
 #import "SceneManager.h"
@@ -33,19 +34,19 @@ NSMutableArray <JSValue *> *registeredActions;
     return self;
 }
 
-- (NSArray *)actionsForItem:(Item *)item
-                    gesture:(UIGestures)gesture
-                      state:(UIGestureRecognizerState)state
-                    touches:(NSInteger)touches {
+- (NSMutableArray *)actionsForItem:(Item *)item
+                           gesture:(UIGestures)gesture
+                             state:(UIGestureRecognizerState)state
+                           touches:(NSInteger)touches {
     return [self.items[@(item.hash)]
             actionsForKey:[self triggerForGesture:gesture
                                             state:state
                                           touches:touches]];
 }
 
-- (NSArray *)actionsForGesture:(UIGestures)gesture
-                         state:(UIGestureRecognizerState)state
-                       touches:(NSInteger)touches {
+- (NSMutableArray *)actionsForGesture:(UIGestures)gesture
+                                state:(UIGestureRecognizerState)state
+                              touches:(NSInteger)touches {
     return [self.actions
             actionsForKey:[self triggerForGesture:gesture
                                             state:state
@@ -57,7 +58,16 @@ NSMutableArray <JSValue *> *registeredActions;
         registeredActions = [NSMutableArray new];
     }
 
-    [registeredActions addObject:function];
+    BOOL present = NO;
+    for (JSValue *action in registeredActions) {
+        if ([action.functionName isEqualToString:function.functionName]) {
+            present = YES;
+        }
+    }
+
+    if (!present) {
+        [registeredActions addObject:function];
+    }
 }
 
 + (NSArray *)registeredActions {
@@ -134,8 +144,8 @@ NSMutableArray <JSValue *> *registeredActions;
                                             touches:touches];
 
         NSString *itemName = dictionary[@"item"];
-        Item *item = [[SceneManager currentSceneManager].scene
-                      itemNamed:itemName];
+        Item *item = [self.scene itemNamed:itemName];
+        
         if (item) {
             id argument = function.toObject;
             NSString *methodName;

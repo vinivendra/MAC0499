@@ -34,6 +34,8 @@ class ViewController: UIViewController, MenuManager {
     @IBOutlet weak var engineKitView: SCNView!
     @IBOutlet weak var playButton: UIButton!
 
+    var placeholderTriggerManager: TriggerActionManager?
+
     var editorSceneManager: EditorSceneManager?
     var templateSceneManager: EditorSceneManager?
     var playerSceneManager: PlayerSceneManager?
@@ -87,8 +89,12 @@ class ViewController: UIViewController, MenuManager {
                 return
             }
             else if (toState == .ChoosingActions) {
+                if (placeholderTriggerManager == nil) {
+                    placeholderTriggerManager = TriggerActionManager()
+                }
+
                 let triggerController = TriggerActionViewController()
-                triggerController.triggerActionManager = editorSceneManager?.javaScript.triggerActionManager
+                triggerController.triggerActionManager = placeholderTriggerManager
                 triggerController.manager = self
                 menuController = triggerController
                 showMenuForButton(actionsButton)
@@ -237,7 +243,16 @@ class ViewController: UIViewController, MenuManager {
     // MARK: Scene Actions
 
     func createPlayScene() {
+        if (placeholderTriggerManager == nil) {
+            placeholderTriggerManager = TriggerActionManager()
+        }
+
+        let string = placeholderTriggerManager?.writeToFile()
+
+        print(string)
+
         playerSceneManager = PlayerSceneManager()
+        playerSceneManager?.javaScript.context.evaluateScript(string)
         playerSceneManager?.runOnSceneView(self.engineKitView)
     }
 
