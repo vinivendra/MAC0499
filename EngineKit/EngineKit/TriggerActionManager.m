@@ -126,6 +126,25 @@ NSMutableArray <JSValue *> *registeredActions;
 
 - (void)addAction:(JSValue *)function forTrigger:(NSDictionary *)dictionary {
 
+    NSString *trigger = [self triggerForDictionary:dictionary];
+    MethodAction *action = [self methodActionForJSValue:function
+                                             dictionary:dictionary];
+
+    if ([action.target isKindOfClass:[Item class]]) {
+        NSString *itemName = dictionary[@"item"];
+        Item *item = [self.scene itemNamed:itemName];
+
+        [self addMethodAction:action
+                       toItem:item
+                   forTrigger:trigger];
+    }
+    else {
+        [self addMethodAction:action
+                   forTrigger:trigger];
+    }
+}
+
+- (NSString *)triggerForDictionary:(NSDictionary *)dictionary {
     NSString *gestureString = dictionary[@"gesture"];
 
     if (gestureString) {
@@ -142,42 +161,48 @@ NSMutableArray <JSValue *> *registeredActions;
         NSString *trigger = [self triggerForGesture:gesture
                                               state:state
                                             touches:touches];
-
-        NSString *itemName = dictionary[@"item"];
-        Item *item = [self.scene itemNamed:itemName];
-        
-        if (item) {
-            id argument = function.toObject;
-            NSString *methodName;
-
-            if ([argument isKindOfClass:[NSDictionary class]] &&
-                ((NSDictionary *)argument).count == 0) {
-                argument = [[FunctionAction alloc] initWithJSValue:function
-                                                         arguments:nil];
-                methodName = dictionary[@"action"];
-            }
-            else {
-                argument = dictionary[@"argument"];
-                methodName = function.toString;
-            }
-
-
-
-            MethodAction *action = [[MethodAction alloc]
-                                    initWithTarget:item
-                                    methodName:methodName
-                                    arguments:argument];
-
-            [self addMethodAction:action
-                           toItem:item
-                       forTrigger:trigger];
-        }
-        else {
-            [self addJSValue:function forTrigger:trigger];
-        }
+        return trigger;
+    }
+    else {
+        return nil;
     }
 }
 
+- (MethodAction *)methodActionForJSValue:(JSValue *)function
+                              dictionary:(NSDictionary *)dictionary {
+    NSString *itemName = dictionary[@"item"];
+    Item *item = [self.scene itemNamed:itemName];
+
+    if (item) {
+        id argument = function.toObject;
+        NSString *methodName;
+
+        if ([argument isKindOfClass:[NSDictionary class]] &&
+            ((NSDictionary *)argument).count == 0) {
+            argument = [[FunctionAction alloc] initWithJSValue:function
+                                                     arguments:nil];
+            methodName = dictionary[@"action"];
+        }
+        else {
+            argument = dictionary[@"argument"];
+            methodName = function.toString;
+        }
+
+
+
+        MethodAction *action = [[MethodAction alloc]
+                                initWithTarget:item
+                                methodName:methodName
+                                arguments:argument];
+        return action;
+    }
+    else {
+        FunctionAction *action = [[FunctionAction alloc]
+                                  initWithJSValue:function
+                                  arguments:nil];
+        return action;
+    }
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Export
@@ -297,6 +322,16 @@ NSMutableArray <JSValue *> *registeredActions;
 
     return [NSString stringWithFormat:@"triggerGesture%d-%d-%d",
             gesture, state, touches];
+}
+
+- (void)addActionNamed:(NSString *)name forTrigger:(NSDictionary *)dictionary {
+    JSValue *value = self.context[name];
+    MethodAction *action = [self methodActionForJSValue:value
+                                             dictionary:dictionary];
+
+    NSString *trigger = [self triggerForDictionary:dictionary];
+
+    [self addMethodAction:action forTrigger:trigger];
 }
 
 - (void)addJSValue:(JSValue *)value

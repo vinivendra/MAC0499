@@ -135,6 +135,8 @@
 		24DC4B701BB074CC00935A35 /* TriggerActionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DC4B6E1BB074CC00935A35 /* TriggerActionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24DC4B711BB074CC00935A35 /* TriggerActionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DC4B6F1BB074CC00935A35 /* TriggerActionManager.m */; settings = {ASSET_TAGS = (); }; };
 		24DC4B731BB08C0B00935A35 /* Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DC4B721BB08BCD00935A35 /* Common.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24F15B151BCA7F660063B7E2 /* PlaceholderTriggerActionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F15B131BCA7F660063B7E2 /* PlaceholderTriggerActionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24F15B161BCA7F660063B7E2 /* PlaceholderTriggerActionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F15B141BCA7F660063B7E2 /* PlaceholderTriggerActionManager.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -278,6 +280,8 @@
 		24DC4B6E1BB074CC00935A35 /* TriggerActionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriggerActionManager.h; sourceTree = "<group>"; };
 		24DC4B6F1BB074CC00935A35 /* TriggerActionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriggerActionManager.m; sourceTree = "<group>"; };
 		24DC4B721BB08BCD00935A35 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		24F15B131BCA7F660063B7E2 /* PlaceholderTriggerActionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceholderTriggerActionManager.h; sourceTree = "<group>"; };
+		24F15B141BCA7F660063B7E2 /* PlaceholderTriggerActionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceholderTriggerActionManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,6 +310,8 @@
 		24713FF81BB2D52700270024 /* Triggers and Actions */ = {
 			isa = PBXGroup;
 			children = (
+				24F15B131BCA7F660063B7E2 /* PlaceholderTriggerActionManager.h */,
+				24F15B141BCA7F660063B7E2 /* PlaceholderTriggerActionManager.m */,
 				242D204B1BC75D3600651F3D /* PlaceholderAction.h */,
 				242D204C1BC75D3600651F3D /* PlaceholderAction.m */,
 				24D494691BB8949F00C15BD2 /* FunctionAction.h */,
@@ -617,6 +623,7 @@
 				24B811E61BA079D700EAA152 /* NSNumber+Extension.h in Headers */,
 				24B811F41BA079D700EAA152 /* SCNScene+Extension.h in Headers */,
 				24B812391BA07B5300EAA152 /* Item.h in Headers */,
+				24F15B151BCA7F660063B7E2 /* PlaceholderTriggerActionManager.h in Headers */,
 				24713FFD1BB2D61200270024 /* JSValue+Extension.h in Headers */,
 				24D494671BB8938200C15BD2 /* ActionCollection.h in Headers */,
 				24B811FD1BA079D700EAA152 /* Angle.h in Headers */,
@@ -766,6 +773,7 @@
 				249A03361BA9FC9C006EF4B0 /* SceneManager.m in Sources */,
 				24B811F91BA079D700EAA152 /* UIColor+Extension.m in Sources */,
 				24B811E11BA079D700EAA152 /* JSContext+Extension.m in Sources */,
+				24F15B161BCA7F660063B7E2 /* PlaceholderTriggerActionManager.m in Sources */,
 				24B8124B1BA07B5300EAA152 /* Sphere.m in Sources */,
 				24B8124D1BA07B5300EAA152 /* Text.m in Sources */,
 				24B8123F1BA07B5300EAA152 /* Capsule.m in Sources */,

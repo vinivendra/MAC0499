@@ -20,7 +20,7 @@ function load() {
 //
 //        TriggerManager.addActionForTrigger(movementForRotation, {"item": "Terra", "action": "rotate", "gesture": "rotate"});
 
-    TriggerManager.addActionForTrigger(trackballAction, {"gesture": "pan"});
+//    TriggerManager.addActionForTrigger(trackballAction, {"gesture": "pan"});
     TriggerManager.addActionForTrigger(handleScale, {"gesture": "pinch"});
     TriggerManager.addActionForTrigger(sceneTranslationAction, {"gesture": "pan", "touches": "2"});
     TriggerManager.addActionForTrigger(handleTap, {"gesture": "tap"});

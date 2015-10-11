@@ -29,6 +29,8 @@ static NSString *defaultFilename = @"scene.fmt";
 
 static NSString *cleanLine;
 
+static BOOL itemsHaveBeenRegistered = NO;
+
 typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
 
 
@@ -42,33 +44,27 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
 
 @implementation Parser
 
-+ (Parser *)shared {
-    static Parser *singleton;
-
-    if (!singleton) {
-        singleton = [self new];
-    }
-
-    return singleton;
-}
-
 - (instancetype)init {
     if (self = [super init]) {
 
-      [Item registerTemplate:[Box template]];
-      [Item registerTemplate:[Capsule template]];
-      [Item registerTemplate:[Cone template]];
-      [Item registerTemplate:[Cylinder template]];
-      [Item registerTemplate:[Floor template]];
-      [Item registerTemplate:[Plane template]];
-      [Item registerTemplate:[Pyramid template]];
-      [Item registerTemplate:[Sphere template]];
-      [Item registerTemplate:[Text template]];
-      [Item registerTemplate:[Torus template]];
-      [Item registerTemplate:[Tube template]];
+        if (!itemsHaveBeenRegistered) {
+            itemsHaveBeenRegistered = YES;
+            
+            [Item registerTemplate:[Box template]];
+            [Item registerTemplate:[Capsule template]];
+            [Item registerTemplate:[Cone template]];
+            [Item registerTemplate:[Cylinder template]];
+            [Item registerTemplate:[Floor template]];
+            [Item registerTemplate:[Plane template]];
+            [Item registerTemplate:[Pyramid template]];
+            [Item registerTemplate:[Sphere template]];
+            [Item registerTemplate:[Text template]];
+            [Item registerTemplate:[Torus template]];
+            [Item registerTemplate:[Tube template]];
 
-      [Item registerTemplate:[Light template]];
-      [Item registerTemplate:[Camera template]];
+            [Item registerTemplate:[Light template]];
+            [Item registerTemplate:[Camera template]];
+        }
     }
     return self;
 }
@@ -301,6 +297,23 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
         string = [[line objectsAtIndexes:stringIndexes] join:@" "];
 
         [item setValue:string forKey:@"string"];
+    } else if ([line.firstObject isEqualToString:@"action"]) {
+        NSString *actionName = line[1];
+
+        NSMutableDictionary *dictionary = [NSMutableDictionary new];
+
+        NSInteger index;
+
+        NSArray *keys = @[@"gesture", @"state", @"touches", @"arguments"];
+
+        for (NSString *key in keys) {
+            if ((index = [line indexOfObject:key]) != NSNotFound) {
+                dictionary[key] = line[index + 1];
+            }
+        }
+
+        [self.triggerActionManager addActionNamed:actionName
+                                       forTrigger:dictionary];
     } else {
         id value;
 

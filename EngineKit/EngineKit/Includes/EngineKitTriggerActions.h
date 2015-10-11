@@ -10,6 +10,7 @@
 #define EngineKitTriggerActions_h
 
 #import "TriggerActionManager.h"
+#import "PlaceholderTriggerActionManager.h"
 
 #import "MethodAction.h"
 #import "FunctionAction.h"

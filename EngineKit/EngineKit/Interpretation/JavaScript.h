@@ -6,6 +6,8 @@
 #import "Common.h"
 #import "TriggerActionManager.h"
 
+#import "Parser.h"
+
 #import "UI.h"
 #import "Camera.h"
 #import "Physics.h"
@@ -27,16 +29,19 @@
  */
 - (instancetype)initWithCamera:(Camera *)camera
                             UI:(UI *)ui
-                       physics:(Physics *)physics;
+                       physics:(Physics *)physics
+                        parser:(Parser *)parser;
 - (instancetype)initWithFile:(NSString *)filename
                       camera:(Camera *)camera
                           UI:(UI *)ui
-                     physics:(Physics *)physics;
+                     physics:(Physics *)physics
+                      parser:(Parser *)parser;
 - (instancetype)initWithScriptFile:(NSString *)scriptFilename
                          sceneFile:(NSString *)sceneFilename
                             camera:(Camera *)camera
                                 UI:(UI *)ui
-                           physics:(Physics *)physics;
+                           physics:(Physics *)physics
+                            parser:(Parser *)parser;
 @property (nonatomic, weak) UI *ui;
 /*!
  Sets up the framework for use in the Javascript code, runs the global code and
@@ -66,4 +71,5 @@
 // TODO: doc
 @property (nonatomic, strong) TriggerActionManager *triggerActionManager;
 @property (nonatomic, strong) JSContext *context;
+@property (nonatomic, strong) Parser *parser;
 @end

@@ -19,6 +19,7 @@ templates
             Satelite Box
                 name is Spudnik
 
+    action trackballAction for gesture pan
 
 items
     Planeta

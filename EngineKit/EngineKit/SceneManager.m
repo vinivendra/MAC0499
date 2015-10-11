@@ -19,6 +19,7 @@ static SceneManager *currentSceneManager;
 @property (nonatomic, strong) JavaScript *javaScript;
 @property (nonatomic, strong) UI *ui;
 @property (nonatomic, strong) Gestures *gestures;
+@property (nonatomic, strong) Parser *parser;
 @end
 
 
@@ -75,12 +76,16 @@ static SceneManager *currentSceneManager;
         self.camera.isDefault = YES;
         self.gestures = [[Gestures alloc] init];
         self.ui = [[UI alloc] init];
+        self.parser = [Parser new];
         self.javaScript = [[JavaScript alloc] initWithScriptFile:scriptFilename
                                                        sceneFile:sceneFilename
                                                           camera:self.camera
                                                               UI:self.ui
-                                                         physics:self.physics];
-
+                                                         physics:self.physics
+                                                          parser:self.parser];
+        self.parser.triggerActionManager = self.javaScript.triggerActionManager;
+        self.parser.context = self.javaScript.context;
+        
         //        self.ui.delegate = self.javaScript.trigger;
         [_scene addItem:self.camera];
     }
@@ -99,7 +104,8 @@ static SceneManager *currentSceneManager;
         self.javaScript = [[JavaScript alloc] initWithFile:nil
                                                     camera:self.camera
                                                         UI:self.ui
-                                                   physics:self.physics];
+                                                   physics:self.physics
+                                                    parser:self.parser];
 
 //        self.ui.delegate = self.javaScript.trigger;
         [_scene addItem:self.camera];

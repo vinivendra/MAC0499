@@ -11,6 +11,7 @@
 #import "Physics.h"
 #import "JavaScript.h"
 #import "UI.h"
+#import "Parser.h"
 
 #import "Shape.h"
 
@@ -31,6 +32,7 @@
 @property (nonatomic, strong, readonly) JavaScript *javaScript;
 @property (nonatomic, strong, readonly) UI *ui;
 @property (nonatomic, strong, readonly) Gestures *gestures;
+@property (nonatomic, strong, readonly) Parser *parser;
 
 - (void)addItemFromTemplate:(Item *)template;
 - (void)addItem:(Item *)item;

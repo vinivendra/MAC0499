@@ -90,12 +90,21 @@ class ViewController: UIViewController, MenuManager {
             }
             else if (toState == .ChoosingActions) {
                 if (placeholderTriggerManager == nil) {
-                    placeholderTriggerManager = TriggerActionManager()
+                    placeholderTriggerManager = PlaceholderTriggerActionManager()
                 }
 
-                let triggerController = TriggerActionViewController()
-                triggerController.triggerActionManager = placeholderTriggerManager
-                triggerController.manager = self
+                let selectedItem: Item?
+                if (SceneManager.currentSceneManager() == templateSceneManager) {
+                    
+
+                    selectedItem = topItem
+                }
+                else {
+                    selectedItem = editorSceneManager?.selectedItem
+                }
+
+                let triggerController = TriggerActionViewController(item: selectedItem,
+                    triggerActionManager:placeholderTriggerManager)
                 menuController = triggerController
                 showMenuForButton(actionsButton)
                 return
@@ -244,7 +253,7 @@ class ViewController: UIViewController, MenuManager {
 
     func createPlayScene() {
         if (placeholderTriggerManager == nil) {
-            placeholderTriggerManager = TriggerActionManager()
+            placeholderTriggerManager = PlaceholderTriggerActionManager()
         }
 
         let string = placeholderTriggerManager?.writeToFile()
@@ -314,7 +323,12 @@ class ViewController: UIViewController, MenuManager {
     }
 
     @IBAction func exportButtonPressed(sender: AnyObject) {
-        Parser.shared().writeFileForScene(editorSceneManager!.scene)
+        let triggerManager = editorSceneManager?.parser.triggerActionManager
+
+        editorSceneManager?.parser.triggerActionManager = placeholderTriggerManager
+        editorSceneManager?.parser.writeFileForScene(editorSceneManager!.scene)
+        editorSceneManager?.parser.triggerActionManager = triggerManager
+
         SceneManager.currentSceneManager().javaScript.triggerActionManager.writeToFile()
     }
 

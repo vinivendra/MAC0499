@@ -3,6 +3,8 @@
 #import <JavaScriptCore/JavaScriptCore.h>
 #import <SceneKit/SceneKit.h>
 
+#import "TriggerActionManager.h"
+
 
 @protocol ParserExport <JSExport>
 - (void)parseFile:(NSString *)filename;
@@ -17,11 +19,6 @@
  */
 @interface Parser : NSObject <ParserExport>
 /*!
- The singleton instance of the Parser class.
- @return In initialized instance of a Parser.
- */
-+ (Parser *)shared;
-/*!
  Interprets the given file, creates the necessary Templates and Items, sets
  their properties and adds them to the scene as requested.
  @param filename The name of the file, as should be recognized by FileHelper's
@@ -30,4 +27,6 @@
 - (void)parseFile:(NSString *)filename;
 // TODO: doc
 - (void)writeFileForScene:(SCNScene *)scene;
+@property (nonatomic, strong) JSContext *context;
+@property (nonatomic, strong) TriggerActionManager *triggerActionManager;
 @end

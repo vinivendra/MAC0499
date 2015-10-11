@@ -32,6 +32,18 @@ MenuController {
     var selectedThirdTrigger: Int?
 
     var triggerActionManager: TriggerActionManager?
+    var item: Item?
+
+    init(item: Item?, triggerActionManager: TriggerActionManager?) {
+        self.item = item
+        self.triggerActionManager = triggerActionManager
+        super.init(nibName: "TriggerActionViewController", bundle: NSBundle.mainBundle())
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,11 +83,24 @@ MenuController {
         return NSNotFound
     }
 
-    func indexOfActionNamed(name: String) -> Int {
+    func actionsArray() -> NSMutableArray? {
         let gesture = Gestures.gestureForString(triggers[selectedTrigger!].lowercaseString)
         let state = Gestures.stateForString(triggersSecond?[selectedSecondTrigger!].lowercaseString, gesture:gesture)
         let touches = Int((triggersThird?[selectedThirdTrigger!])!)!
-        let array = triggerActionManager!.actionsForGesture(gesture, state: state, touches: touches)
+        let array: NSMutableArray?
+
+        if (item != nil) {
+            array = triggerActionManager!.actionsForItem(item, gesture: gesture, state: state, touches: touches)
+        }
+        else {
+            array = triggerActionManager!.actionsForGesture(gesture, state: state, touches: touches)
+        }
+
+        return array
+    }
+
+    func indexOfActionNamed(name: String) -> Int {
+        let array = actionsArray()
 
         for var i = 0; i < array?.count; i++ {
             if let action = array?[i] as? PlaceholderAction {
@@ -219,14 +244,11 @@ MenuController {
         if (tableView == actionsTableView) {
             let index = self.indexOfActionNamed((actions?[indexPath.row])!)
             if (index != NSNotFound) {
-                let gesture = Gestures.gestureForString(triggers[selectedTrigger!].lowercaseString)
-                let state = Gestures.stateForString(triggersSecond?[selectedSecondTrigger!].lowercaseString, gesture:gesture)
-                let touches = Int((triggersThird?[selectedThirdTrigger!])!)!
-                let array = triggerActionManager!.actionsForGesture(gesture, state: state, touches: touches)
+                if let array = actionsArray() {
+                    array.removeObjectAtIndex(index)
 
-                array?.removeObjectAtIndex(index)
-
-                actionsTableView.reloadData()
+                    actionsTableView.reloadData()
+                }
             }
         }
     }
@@ -249,7 +271,7 @@ MenuController {
             actionsTableView.reloadData()
         }
         else {
-            print(tableView.cellForRowAtIndexPath(indexPath)?.selected)
+
 
             let index = self.indexOfActionNamed((actions?[indexPath.row])!)
             if (index == NSNotFound) {
@@ -257,10 +279,17 @@ MenuController {
                 let state = Gestures.stateForString(triggersSecond?[selectedSecondTrigger!].lowercaseString, gesture:gesture)
                 let touches = Int32((triggersThird?[selectedThirdTrigger!])!)!
 
-                let action = PlaceholderAction(target: nil, methodName: actions?[indexPath.row]);
+                let action = PlaceholderAction(name: actions?[indexPath.row]);
 
                 let trigger = triggerActionManager?.triggerForGesture(gesture, state: state, touches: touches)
-                triggerActionManager?.addMethodAction(action, forTrigger: trigger)
+
+                if (item != nil) {
+                    triggerActionManager?.addMethodAction(action, toItem: item, forTrigger: trigger)
+                }
+                else {
+                    triggerActionManager?.addMethodAction(action, forTrigger: trigger)
+                }
+
                 actionsTableView.reloadData()
             }
         }

@@ -35,7 +35,10 @@ ActionCollection *> *items;
 - (NSString *)triggerForGesture:(UIGestures)gesture
                           state:(UIGestureRecognizerState)state
                         touches:(int)touches;
+- (NSString *)triggerForDictionary:(NSDictionary *)dictionary;
 
+- (void)addActionNamed:(NSString *)name
+            forTrigger:(NSDictionary *)dictionary;
 - (void)addJSValue:(JSValue *)value
         forTrigger:(NSString *)trigger;
 - (void)addMethodAction:(MethodAction *)action
@@ -46,6 +49,11 @@ ActionCollection *> *items;
 
 - (void)registerAction:(JSValue *)function;
 + (NSArray *)registeredActions;
+
+- (MethodAction *)methodActionForJSValue:(JSValue *)function
+                              dictionary:(NSDictionary *)dictionary;
+
+@property (nonatomic, strong) JSContext *context;
 
 @property (nonatomic, strong) SCNScene *scene;
 

@@ -8,8 +8,6 @@
 #import "Camera.h"
 #import "Light.h"
 
-#import "Parser.h"
-
 #import "Box.h"
 #import "Capsule.h"
 #import "Cone.h"
@@ -66,21 +64,30 @@ static NSString *_supportFilename = @"support.js";
 
 @implementation JavaScript
 
-- (instancetype)initWithCamera:(Camera *)camera UI:(UI *)ui physics:(Physics *)physics {
-    self = [self initWithFile:_defaultFilename camera:camera UI:ui physics:physics];
+- (instancetype)initWithCamera:(Camera *)camera
+                            UI:(UI *)ui
+                       physics:(Physics *)physics
+                        parser:(Parser *)parser {
+    self = [self initWithFile:_defaultFilename
+                       camera:camera
+                           UI:ui
+                      physics:physics
+                       parser:parser];
     return self;
 }
 
 - (instancetype)initWithFile:(NSString *)scriptFilename
                             camera:(Camera *)camera
                                 UI:(UI *)ui
-                           physics:(Physics *)physics {
+                           physics:(Physics *)physics
+                            parser:(Parser *)parser {
 
     if (self = [self initWithScriptFile:scriptFilename
                               sceneFile:nil
                                  camera:camera
                                      UI:ui
-                                physics:physics]) {
+                                physics:physics
+                                 parser:parser]) {
 
     }
     return self;
@@ -90,7 +97,8 @@ static NSString *_supportFilename = @"support.js";
                         sceneFile:(NSString *)sceneFilename
                             camera:(Camera *)camera
                                 UI:(UI *)ui
-                           physics:(Physics *)physics {
+                           physics:(Physics *)physics
+                            parser:(Parser *)parser {
     if (self = [super init]) {
         self.camera = camera;
         self.ui = ui;
@@ -103,6 +111,12 @@ static NSString *_supportFilename = @"support.js";
         self.scriptFilename = scriptFilename;
 
         self.context = [JSContext new];
+        self.parser = parser;
+
+        self.triggerActionManager = [TriggerActionManager new];
+        self.triggerActionManager.scene = self.physics.scene;
+        self.triggerActionManager.context = self.context;
+
         [self setup];
     }
     return self;
@@ -163,7 +177,7 @@ static NSString *_supportFilename = @"support.js";
 
     self.context[@"Scene"] = self.physics.scene;
 
-    self.context[@"Parser"] = [Parser shared];
+    self.context[@"Parser"] = self.parser;
 
     self.context[@"Vector"] = [Vector class];
     self.context[@"Position"] = [Position class];
@@ -216,14 +230,6 @@ static NSString *_supportFilename = @"support.js";
     self.updateFunction = self.context[@"update"];
 
     self.contactCallback = self.context[@"contact"];
-}
-
-- (TriggerActionManager *)triggerActionManager {
-    if (!_triggerActionManager) {
-        _triggerActionManager = [TriggerActionManager new];
-        _triggerActionManager.scene = self.physics.scene;
-    }
-    return _triggerActionManager;
 }
 
 @end
