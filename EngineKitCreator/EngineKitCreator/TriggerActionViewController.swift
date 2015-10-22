@@ -271,8 +271,6 @@ MenuController {
             actionsTableView.reloadData()
         }
         else {
-
-
             let index = self.indexOfActionNamed((actions?[indexPath.row])!)
             if (index == NSNotFound) {
                 let gesture = Gestures.gestureForString(triggers[selectedTrigger!].lowercaseString)
@@ -281,7 +279,7 @@ MenuController {
 
                 let action = PlaceholderAction(name: actions?[indexPath.row]);
 
-                let trigger = triggerActionManager?.triggerForGesture(gesture, state: state, touches: touches)
+                let trigger = TriggerActionManager.triggerForGesture(gesture, state: state, touches: touches)
 
                 if (item != nil) {
                     triggerActionManager?.addMethodAction(action, toItem: item, forTrigger: trigger)

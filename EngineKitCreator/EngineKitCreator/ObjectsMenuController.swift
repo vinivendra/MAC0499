@@ -88,9 +88,9 @@ MenuController {
             where indexPath.row < templates.count {
                 let template = templates[indexPath.row]
 
-                template.create()
+                let item = template.create()
 
-                manager?.dismissMenu()
+                manager?.dismissMenu(item)
         }
         else {
             manager?.dismissMenuAndRespond()

@@ -11,6 +11,7 @@
 		240C86D81BA31F35004F6794 /* scene.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 240C86D61BA31F35004F6794 /* scene.fmt */; };
 		240C86E71BA3771B004F6794 /* PropertiesMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240C86E51BA3771B004F6794 /* PropertiesMenuViewController.swift */; };
 		240C86E81BA3771B004F6794 /* PropertiesMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 240C86E61BA3771B004F6794 /* PropertiesMenuViewController.xib */; };
+		2421FCE01BCA9E7E00DF634B /* TemplateEditorSceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2421FCDF1BCA9E7E00DF634B /* TemplateEditorSceneManager.swift */; settings = {ASSET_TAGS = (); }; };
 		2459916A1BAAF27E008E8F60 /* EditorSceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245991691BAAF27E008E8F60 /* EditorSceneManager.swift */; settings = {ASSET_TAGS = (); }; };
 		2459916E1BAAF362008E8F60 /* PlayerSceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2459916D1BAAF362008E8F60 /* PlayerSceneManager.swift */; settings = {ASSET_TAGS = (); }; };
 		245991781BAB3E14008E8F60 /* ItemsMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245991771BAB3E14008E8F60 /* ItemsMenuViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -91,6 +92,7 @@
 		240C86D61BA31F35004F6794 /* scene.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scene.fmt; sourceTree = "<group>"; };
 		240C86E51BA3771B004F6794 /* PropertiesMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertiesMenuViewController.swift; sourceTree = "<group>"; };
 		240C86E61BA3771B004F6794 /* PropertiesMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PropertiesMenuViewController.xib; sourceTree = "<group>"; };
+		2421FCDF1BCA9E7E00DF634B /* TemplateEditorSceneManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplateEditorSceneManager.swift; sourceTree = "<group>"; };
 		245991691BAAF27E008E8F60 /* EditorSceneManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorSceneManager.swift; sourceTree = "<group>"; };
 		2459916D1BAAF362008E8F60 /* PlayerSceneManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerSceneManager.swift; path = EngineKitCreator/PlayerSceneManager.swift; sourceTree = "<group>"; };
 		245991771BAB3E14008E8F60 /* ItemsMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsMenuViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 		24B813261BA0A67C00EAA152 /* EngineKitCreator */ = {
 			isa = PBXGroup;
 			children = (
+				2421FCDF1BCA9E7E00DF634B /* TemplateEditorSceneManager.swift */,
 				24B813271BA0A67C00EAA152 /* AppDelegate.swift */,
 				24B813291BA0A67C00EAA152 /* ViewController.swift */,
 				24B8135F1BA0A6D200EAA152 /* MenuView.swift */,
@@ -393,6 +396,7 @@
 				24B813621BA0A6D200EAA152 /* ObjectsMenuController.swift in Sources */,
 				24B1E3121BC6A099007831BB /* TriggerActionViewController.swift in Sources */,
 				240C86E71BA3771B004F6794 /* PropertiesMenuViewController.swift in Sources */,
+				2421FCE01BCA9E7E00DF634B /* TemplateEditorSceneManager.swift in Sources */,
 				24B813641BA0B73D00EAA152 /* ObjectsCell.swift in Sources */,
 				245991781BAB3E14008E8F60 /* ItemsMenuViewController.swift in Sources */,
 				24B813611BA0A6D200EAA152 /* MenuView.swift in Sources */,

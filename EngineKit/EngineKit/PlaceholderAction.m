@@ -42,11 +42,12 @@
     return self.target;
 }
 
-- (NSString *)JSString {
-    NSString *result = [NSString stringWithFormat:@"TriggerManager.addActionForTrigger(%@, {",
-                        self.description];
+- (NSString *)name {
+    return self.target;
+}
 
-    return result;
+- (NSString *)options {
+    return nil;
 }
 
 @end

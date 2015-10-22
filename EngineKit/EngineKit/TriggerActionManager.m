@@ -1,4 +1,4 @@
-// TODO: Add a pinch gesture for zoom.
+  // TODO: Add a pinch gesture for zoom.
 
 #import "TriggerActionManager.h"
 
@@ -28,7 +28,6 @@ NSMutableArray <JSValue *> *registeredActions;
 - (instancetype)init {
     if (self = [super init]) {
         self.actions = [ActionCollection new];
-        self.items = [NSMutableDictionary new];
     }
 
     return self;
@@ -38,19 +37,18 @@ NSMutableArray <JSValue *> *registeredActions;
                            gesture:(UIGestures)gesture
                              state:(UIGestureRecognizerState)state
                            touches:(NSInteger)touches {
-    return [self.items[@(item.hash)]
-            actionsForKey:[self triggerForGesture:gesture
-                                            state:state
-                                          touches:touches]];
+    return [item actionsForKey:[TriggerActionManager triggerForGesture:gesture
+                                                                 state:state
+                                                               touches:touches]];
 }
 
 - (NSMutableArray *)actionsForGesture:(UIGestures)gesture
                                 state:(UIGestureRecognizerState)state
                               touches:(NSInteger)touches {
     return [self.actions
-            actionsForKey:[self triggerForGesture:gesture
-                                            state:state
-                                          touches:touches]];
+            actionsForKey:[TriggerActionManager triggerForGesture:gesture
+                                                            state:state
+                                                          touches:touches]];
 }
 
 - (void)registerAction:(JSValue *)function {
@@ -99,9 +97,10 @@ NSMutableArray <JSValue *> *registeredActions;
     }
 
     NSArray *actions = [self.actions
-                        actionsForKey:[self triggerForGesture:gesture
-                                                        state:state
-                                                      touches:touches]];
+                        actionsForKey:[TriggerActionManager
+                                       triggerForGesture:gesture
+                                       state:state
+                                       touches:touches]];
     for (NSInteger i = 0; i < actions.count; i++) {
         MethodAction *action = actions[i];
         [action callWithArguments:arguments];
@@ -126,7 +125,7 @@ NSMutableArray <JSValue *> *registeredActions;
 
 - (void)addAction:(JSValue *)function forTrigger:(NSDictionary *)dictionary {
 
-    NSString *trigger = [self triggerForDictionary:dictionary];
+    NSString *trigger = [TriggerActionManager triggerForDictionary:dictionary];
     MethodAction *action = [self methodActionForJSValue:function
                                              dictionary:dictionary];
 
@@ -144,7 +143,7 @@ NSMutableArray <JSValue *> *registeredActions;
     }
 }
 
-- (NSString *)triggerForDictionary:(NSDictionary *)dictionary {
++ (NSString *)triggerForDictionary:(NSDictionary *)dictionary {
     NSString *gestureString = dictionary[@"gesture"];
 
     if (gestureString) {
@@ -209,45 +208,13 @@ NSMutableArray <JSValue *> *registeredActions;
 
 - (NSString *)writeToFile {
 
-    NSMutableArray *statements = [NSMutableArray new];
-
-    [self addWritingStringsForActionCollection:self.actions
-                                       inArray:statements];
-
-    for (id<NSCopying> key in self.items) {
-        ActionCollection *actions = self.items[key];
-        [self addWritingStringsForActionCollection:actions
-                                           inArray:statements];
-    }
+    NSArray *statements = [self.actions javaScriptStrings];
 
     NSString *result = [statements join:@"\n"];
 
     NSLog(@"\n\n%@", result);
 
     return result;
-}
-
-- (void)addWritingStringsForActionCollection:(ActionCollection *)actions
-                                     inArray:(NSMutableArray *)statements {
-    NSMutableDictionary *arrays = actions.arrays;
-    for (NSString *key in arrays) {
-        NSMutableArray *array = arrays[key];
-        for (MethodAction *action in array) {
-            [statements addObject:[self writingStringForAction:action
-                                                           key:key]];
-        }
-    }
-}
-
-- (NSString *)writingStringForAction:(MethodAction *)action
-                               key:(NSString *)key {
-    NSString *statement = action.JSString;
-    NSString *triggerString = [self writingStringForTrigger:key];
-
-    statement = [NSString stringWithFormat:@"%@%@});",
-                 statement, triggerString];
-
-    return statement;
 }
 
 + (NSString *)writingStringForState:(UIGestureRecognizerState)state
@@ -265,7 +232,8 @@ NSMutableArray <JSValue *> *registeredActions;
                             gesture:gesture];
 }
 
-- (NSString *)writingStringForTrigger:(NSString *)trigger {
++ (void)addOptionsToDictionary:(NSMutableDictionary *)options
+                    forTrigger:(NSString *)trigger {
 
     if ([trigger containsString:@"Gesture"]) {
         NSRange range = [trigger rangeOfString:@"Gesture"];
@@ -279,43 +247,27 @@ NSMutableArray <JSValue *> *registeredActions;
         state = ((NSString *)separatedInfo[1]).integerValue;
         NSInteger touches = ((NSString *)separatedInfo[2]).integerValue;
 
-        NSString *gestureString = [NSString
-                                   stringWithFormat:@"\"gesture\": \"%@\"",
-                                   [Gestures stringForGesture:gesture]];
+        options[@"gesture"] = [Gestures stringForGesture:gesture];
 
         NSString *stateString = [TriggerActionManager
                                  writingStringForState:state
                                  gesture:gesture];
         if (stateString) {
-            stateString = [NSString stringWithFormat:@", \"state\": \"%@\"",
-                           stateString];
+            options[@"state"] = stateString;
         }
 
         NSString *touchesString = [Gestures stringForTouches:touches
                                                      gesture:gesture];
         if (touchesString) {
-            touchesString = [NSString stringWithFormat:@", \"touches\": \"%@\"",
-                             touchesString];
+            options[@"touches"] = touchesString;
         }
-
-        NSString *result = gestureString;
-        if (stateString) {
-            result = [result stringByAppendingString:stateString];
-        }
-        if (touchesString) {
-            result = [result stringByAppendingString:touchesString];
-        }
-
-        return result;
     }
-
-    return nil;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Interface
 
-- (NSString *)triggerForGesture:(UIGestures)gesture
++ (NSString *)triggerForGesture:(UIGestures)gesture
                           state:(UIGestureRecognizerState)state
                         touches:(NSInteger)touches {
     touches = [Gestures numberOfTouchesForNumber:@(touches) gesture:gesture];
@@ -324,14 +276,55 @@ NSMutableArray <JSValue *> *registeredActions;
             gesture, state, touches];
 }
 
-- (void)addActionNamed:(NSString *)name forTrigger:(NSDictionary *)dictionary {
+- (void)addActionNamed:(NSString *)name
+  forTriggerDictionary:(NSDictionary *)dictionary {
+
     JSValue *value = self.context[name];
     MethodAction *action = [self methodActionForJSValue:value
                                              dictionary:dictionary];
 
-    NSString *trigger = [self triggerForDictionary:dictionary];
+    NSString *trigger = [TriggerActionManager triggerForDictionary:dictionary];
 
     [self addMethodAction:action forTrigger:trigger];
+}
+
+- (void)addActionNamed:(NSString *)name
+            forTrigger:(NSString *)trigger {
+    JSValue *value = self.context[name];
+    MethodAction *action = [self methodActionForJSValue:value
+                                             dictionary:nil];
+
+    [self addMethodAction:action forTrigger:trigger];
+}
+
+- (void)addActionNamed:(NSString *)name
+                toItem:(Item *)item
+  forTriggerDictionary:(NSDictionary *)dictionary {
+    JSValue *value = self.context[name];
+    MethodAction *action = [self methodActionForJSValue:value
+                                             dictionary:dictionary];
+
+    NSString *trigger = [TriggerActionManager triggerForDictionary:dictionary];
+
+    while (![item isEqual:item.parent]) {
+        item = item.parent;
+    }
+
+    [item addAction:action forKey:trigger];
+}
+
+- (void)addActionNamed:(NSString *)name
+                toItem:(Item *)item
+            forTrigger:(NSString *)trigger {
+    JSValue *value = self.context[name];
+    MethodAction *action = [self methodActionForJSValue:value
+                                             dictionary:nil];
+
+    while (![item isEqual:item.parent]) {
+        item = item.parent;
+    }
+
+    [item addAction:action forKey:trigger];
 }
 
 - (void)addJSValue:(JSValue *)value
@@ -349,13 +342,7 @@ NSMutableArray <JSValue *> *registeredActions;
 - (void)addMethodAction:(MethodAction *)action
                  toItem:(Item *)item
              forTrigger:(NSString *)trigger {
-    ActionCollection *collection = self.items[@(item.hash)];
-    if (!collection) {
-        collection = [ActionCollection new];
-        self.items[@(item.hash)] = collection;
-    }
-    
-    [collection addAction:action forKey:trigger];
+    [item addAction:action forKey:trigger];
 }
 
 

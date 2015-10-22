@@ -59,7 +59,7 @@ class ItemsMenuViewController: UIViewController,
                 editor.selectedItem = node.item
             }
         }
-        manager?.dismissMenu()
+        manager?.dismissMenu(nil)
     }
 
     // MARK: UIViewController

@@ -1,5 +1,5 @@
 
 function load() {
-    Parser.parseFile("scene.fmt");
+//    Parser.parseFile("scene.fmt");
 }
 

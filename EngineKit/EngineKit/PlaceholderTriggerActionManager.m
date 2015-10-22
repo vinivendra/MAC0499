@@ -5,10 +5,44 @@
 
 @implementation PlaceholderTriggerActionManager
 
-- (void)addActionNamed:(NSString *)name forTrigger:(NSDictionary *)dictionary {
+- (void)addActionNamed:(NSString *)name
+  forTriggerDictionary:(NSDictionary *)dictionary {
+
+    NSString *trigger = [TriggerActionManager triggerForDictionary:dictionary];
+    
+    [self addActionNamed:name forTrigger:trigger];
+}
+
+- (void)addActionNamed:(NSString *)name
+            forTrigger:(NSString *)trigger {
+
     PlaceholderAction *action = [[PlaceholderAction alloc] initWithName:name];
-    NSString *trigger = [self triggerForDictionary:dictionary];
+
     [self addMethodAction:action forTrigger:trigger];
+}
+
+- (void)addActionNamed:(NSString *)name
+                toItem:(Item *)item
+            forTriggerDictionary:(NSDictionary *)dictionary {
+
+    NSString *trigger = [TriggerActionManager triggerForDictionary:dictionary];
+
+    [self addActionNamed:name
+                  toItem:item
+              forTrigger:trigger];
+}
+
+- (void)addActionNamed:(NSString *)name
+                toItem:(Item *)item
+            forTrigger:(NSString *)trigger {
+
+    PlaceholderAction *action = [[PlaceholderAction alloc] initWithName:name];
+
+    while (![item isEqual:item.parent]) {
+        item = item.parent;
+    }
+
+    [item addAction:action forKey:trigger];
 }
 
 - (void)addJSValue:(JSValue *)value forTrigger:(NSString *)trigger {

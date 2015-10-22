@@ -113,26 +113,33 @@
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Writing
 
-- (NSString *)JSString {
+- (NSString *)name {
+    if ([self.target isKindOfClass:[Item class]]) {
+        NSObject *arguments = self.arguments;
+        return arguments.description;
+    }
+    return self.description;
+}
+
+- (NSMutableDictionary *)options {
+    NSMutableDictionary *dictionary = [NSMutableDictionary new];
 
     if ([self.target isKindOfClass:[Item class]]) {
         Item *target = self.target;
+
         NSString *targetString = target.name;
 
         NSString *selectorString = NSStringFromSelector(self.selector);
         selectorString = [selectorString
                           substringToIndex:selectorString.length-1];
 
-        NSObject *arguments = self.arguments;
-        NSString *argumentsString = arguments.description;
-
-        NSString *result = [NSString stringWithFormat:@"TriggerManager.addActionForTrigger(%@, {\"item\": \"%@\", \"action\": \"%@\", ",
-                            argumentsString, targetString, selectorString];
-        
-        return result;
+        dictionary[@"item"] = targetString;
+        dictionary[@"action"] = selectorString;
     }
 
-    return self.description;
+    return dictionary;
 }
 
 @end
+
+

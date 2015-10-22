@@ -17,8 +17,6 @@
 TriggerActionManagerExport>
 // TODO: doc
 @property (nonatomic, strong) ActionCollection *actions;
-@property (nonatomic, strong) NSMutableDictionary <id<NSCopying>,
-ActionCollection *> *items;
 
 - (NSMutableArray *)actionsForItem:(Item *)item
                            gesture:(UIGestures)gesture
@@ -32,13 +30,25 @@ ActionCollection *> *items;
 
 - (void)addAction:(JSValue *)function forTrigger:(NSDictionary *)dictionary;
 
-- (NSString *)triggerForGesture:(UIGestures)gesture
++ (NSString *)triggerForGesture:(UIGestures)gesture
                           state:(UIGestureRecognizerState)state
                         touches:(int)touches;
-- (NSString *)triggerForDictionary:(NSDictionary *)dictionary;
++ (NSString *)triggerForDictionary:(NSDictionary *)dictionary;
+
++ (void)addOptionsToDictionary:(NSMutableDictionary *)options
+                    forTrigger:(NSString *)trigger;
 
 - (void)addActionNamed:(NSString *)name
-            forTrigger:(NSDictionary *)dictionary;
+  forTriggerDictionary:(NSDictionary *)dictionary;
+- (void)addActionNamed:(NSString *)name
+                toItem:(Item *)item
+  forTriggerDictionary:(NSDictionary *)dictionary;
+- (void)addActionNamed:(NSString *)name
+            forTrigger:(NSString *)trigger;
+- (void)addActionNamed:(NSString *)name
+                toItem:(Item *)item
+            forTrigger:(NSString *)trigger;
+
 - (void)addJSValue:(JSValue *)value
         forTrigger:(NSString *)trigger;
 - (void)addMethodAction:(MethodAction *)action

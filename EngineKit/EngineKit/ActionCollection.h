@@ -12,7 +12,13 @@
                                                     > *arrays;
 
 - (NSMutableArray <MethodAction *> *)actionsForKey:(NSString *)key;
+
 - (void)addAction:(MethodAction *)action forKey:(NSString *)key;
+
+- (ActionCollection *)deepCopy;
+
+- (NSArray *)javaScriptStrings;
+- (NSArray *)parserStrings;
 @end
 
 #endif

@@ -8,6 +8,8 @@
 
 #import "Gestures.h"
 
+#import "ActionCollection.h"
+
 #import "Rotation.h"
 #import "Position.h"
 
@@ -120,6 +122,11 @@
 @property (nonatomic, strong) NSString *templateName;
 @property (nonatomic, strong) NSString *name;
 - (instancetype) template;
+
+@property (nonatomic, strong) ActionCollection *actionCollection;
+- (void)addAction:(MethodAction *)action forKey:(NSString *)key;
+- (NSMutableArray <MethodAction *> *)actionsForKey:(NSString *)key;
+
 // Protected
 - (NSMutableArray *)propertyStringsBasedOnTemplate:(Item *)template;
 + (void)registerTemplate:(Item *)template;

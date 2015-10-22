@@ -16,7 +16,7 @@ enum ViewControllerStates {
 
 
 protocol MenuManager {
-    func dismissMenu()
+    func dismissMenu(object: AnyObject?)
     func dismissMenuAndRespond()
 }
 
@@ -37,7 +37,7 @@ class ViewController: UIViewController, MenuManager {
     var placeholderTriggerManager: TriggerActionManager?
 
     var editorSceneManager: EditorSceneManager?
-    var templateSceneManager: EditorSceneManager?
+    var templateSceneManager: TemplateEditorSceneManager?
     var playerSceneManager: PlayerSceneManager?
 
     var menuView: MenuView?
@@ -89,15 +89,9 @@ class ViewController: UIViewController, MenuManager {
                 return
             }
             else if (toState == .ChoosingActions) {
-                if (placeholderTriggerManager == nil) {
-                    placeholderTriggerManager = PlaceholderTriggerActionManager()
-                }
-
                 let selectedItem: Item?
                 if (SceneManager.currentSceneManager() == templateSceneManager) {
-                    
-
-                    selectedItem = topItem
+                    selectedItem = templateSceneManager!.topItem
                 }
                 else {
                     selectedItem = editorSceneManager?.selectedItem
@@ -167,9 +161,13 @@ class ViewController: UIViewController, MenuManager {
 
     // MARK: - MenuManager
 
-    func dismissMenu() {
+    func dismissMenu(object: AnyObject?) {
         if (SceneManager.currentSceneManager() == templateSceneManager) {
             state = .CreatingTemplate
+
+            if let item = object as? Item {
+                templateSceneManager?.addItem(item)
+            }
         }
         else {
             state = .Neutral
@@ -185,9 +183,14 @@ class ViewController: UIViewController, MenuManager {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        editorSceneManager = EditorSceneManager(script:"editor.js", scene:"scene.fmt")
+        editorSceneManager = EditorSceneManager(script:"editor.js")
         editorSceneManager?.runOnSceneView(self.engineKitView)
         switchToSceneManager(editorSceneManager)
+
+        placeholderTriggerManager = PlaceholderTriggerActionManager()
+
+        editorSceneManager?.parser.triggerActionManager = placeholderTriggerManager
+        editorSceneManager?.parser.parseFile("scene.fmt")
 
         self.propertiesButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Disabled)
 
@@ -252,39 +255,48 @@ class ViewController: UIViewController, MenuManager {
     // MARK: Scene Actions
 
     func createPlayScene() {
-        if (placeholderTriggerManager == nil) {
-            placeholderTriggerManager = PlaceholderTriggerActionManager()
-        }
-
-        let string = placeholderTriggerManager?.writeToFile()
-
-        print(string)
+        let scene = editorSceneManager!.scene
+        let parser = editorSceneManager?.parser
+        let exportedFormatFileContents = parser?.writeFileForScene(scene)
 
         playerSceneManager = PlayerSceneManager()
-        playerSceneManager?.javaScript.context.evaluateScript(string)
         playerSceneManager?.runOnSceneView(self.engineKitView)
+        playerSceneManager?.parser.parseString(exportedFormatFileContents)
+        addRealActionsForItems(playerSceneManager!)
+    }
+
+    func addRealActionsForItems(playerSceneManager: PlayerSceneManager) {
+        let scene = playerSceneManager.scene
+        let nodes = scene.rootNode.childNodes
+
+        let manager = playerSceneManager.javaScript.triggerActionManager
+
+        for node in nodes {
+            let item = node.item
+            let oldActionCollection = item.actionCollection
+
+            let newActionCollection = ActionCollection()
+            item.actionCollection = newActionCollection
+
+            for (key, value) in oldActionCollection.arrays {
+
+                if let trigger = key as? String,
+                    let actionsArray = value as? [MethodAction] {
+                        for action in actionsArray {
+                            manager.addActionNamed(action.description, forTrigger: trigger)
+                        }
+                }
+            }
+        }
     }
 
     func createTemplateScene() {
-        templateSceneManager = EditorSceneManager(script: "editor.js")
+        templateSceneManager = TemplateEditorSceneManager(script: "editor.js")
         templateSceneManager?.runOnSceneView(self.engineKitView)
     }
 
     func registerTemplate() {
-        let newItem = Item()
-
-        let nodes = SCNScene.currentScene().rootNode.childNodes
-
-        for node in nodes {
-            let item = node.item
-            if (!item.isDefault) {
-                newItem.addItem(item)
-            }
-        }
-
-        newItem.templateName = nameTextField.text
-
-        Item.registerTemplate(newItem)
+        Item.registerTemplate(templateSceneManager?.topItem)
     }
 
     func switchToSceneManager(sceneManager: SceneManager?) {
@@ -315,7 +327,7 @@ class ViewController: UIViewController, MenuManager {
 
     @IBAction func actionsButtonPressed(sender: AnyObject) {
         if (state == .ChoosingActions) {
-            dismissMenu()
+            dismissMenu(nil)
         }
         else {
             state = .ChoosingActions
@@ -326,7 +338,10 @@ class ViewController: UIViewController, MenuManager {
         let triggerManager = editorSceneManager?.parser.triggerActionManager
 
         editorSceneManager?.parser.triggerActionManager = placeholderTriggerManager
-        editorSceneManager?.parser.writeFileForScene(editorSceneManager!.scene)
+        let string = editorSceneManager?.parser.writeFileForScene(editorSceneManager!.scene)
+
+        print(NSString(string: string!));
+
         editorSceneManager?.parser.triggerActionManager = triggerManager
 
         SceneManager.currentSceneManager().javaScript.triggerActionManager.writeToFile()
@@ -334,7 +349,7 @@ class ViewController: UIViewController, MenuManager {
 
     @IBAction func itemsButtonTap(sender: AnyObject) {
         if (state == .ChoosingItem) {
-            dismissMenu()
+            dismissMenu(nil)
         }
         else {
             state = .ChoosingItem
@@ -343,7 +358,7 @@ class ViewController: UIViewController, MenuManager {
 
     @IBAction func propertiesButtonTap(sender: AnyObject) {
         if (state == .ChangingProperties) {
-            dismissMenu()
+            dismissMenu(nil)
         }
         else {
             state = .ChangingProperties
@@ -352,7 +367,7 @@ class ViewController: UIViewController, MenuManager {
 
     @IBAction func objectsButtonTap(sender: UIView) {
         if (state == .ChoosingObject) {
-            dismissMenu()
+            dismissMenu(nil)
         }
         else {
             state = .ChoosingObject

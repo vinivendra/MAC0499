@@ -4,14 +4,6 @@ function load() {
     Physics.gravity = [0, 0, -3];
     Physics.speed = 0;
 
-    if (typeof sceneFilename != 'undefined') {
-        Parser.parseFile(sceneFilename);
-    }
-    else {
-        loadStandardLights();
-    }
-
-
 // To call a method with a fixed value as an argument
 //    TriggerManager.addActionForTrigger("rotate",      // Method name
 //                                       {"item": terra,// Item that triggers the call
@@ -20,7 +12,7 @@ function load() {
 //
 //        TriggerManager.addActionForTrigger(movementForRotation, {"item": "Terra", "action": "rotate", "gesture": "rotate"});
 
-//    TriggerManager.addActionForTrigger(trackballAction, {"gesture": "pan"});
+    TriggerManager.addActionForTrigger(trackballAction, {"gesture": "pan"});
     TriggerManager.addActionForTrigger(handleScale, {"gesture": "pinch"});
     TriggerManager.addActionForTrigger(sceneTranslationAction, {"gesture": "pan", "touches": "2"});
     TriggerManager.addActionForTrigger(handleTap, {"gesture": "tap"});

@@ -101,12 +101,14 @@ static SceneManager *currentSceneManager;
         self.camera = [[Camera alloc] init];
         self.gestures = [[Gestures alloc] init];
         self.ui = [[UI alloc] init];
+        self.parser = [Parser new];
         self.javaScript = [[JavaScript alloc] initWithFile:nil
                                                     camera:self.camera
                                                         UI:self.ui
                                                    physics:self.physics
                                                     parser:self.parser];
-
+        self.parser.triggerActionManager = self.javaScript.triggerActionManager;
+        self.parser.context = self.javaScript.context;
 //        self.ui.delegate = self.javaScript.trigger;
         [_scene addItem:self.camera];
     }

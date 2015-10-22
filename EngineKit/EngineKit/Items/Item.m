@@ -80,6 +80,7 @@ static NSMutableArray *templates;
     self.templateName = NSStringFromClass(self.class);
     self.name = NSStringFromClass(self.class);
     self.isDefault = NO;
+    self.parent = self;
     _children = [NSMutableArray new];
 }
 
@@ -121,8 +122,19 @@ static NSMutableArray *templates;
     item.rotation = self.rotation;
     item.scale = self.scale;
 
+    item.actionCollection = self.actionCollection;
+
     for (Item *child in self.children)
         [item addItem:[child deepCopy]];
+}
+
+- (void)addAction:(MethodAction *)action forKey:(NSString *)key {
+    self.actionCollection = self.actionCollection.deepCopy;
+    [self.actionCollection addAction:action forKey:key];
+}
+
+- (NSMutableArray <MethodAction *> *)actionsForKey:(NSString *)key {
+    return [self.actionCollection actionsForKey:key];
 }
 
 - (NSString *)parserString {
@@ -206,25 +218,29 @@ static NSMutableArray *templates;
     return [statements join:@"\n"];
 }
 
-- (NSMutableArray *)propertyStringsBasedOnTemplate:(Item *)template {
+- (NSMutableArray *)propertyStringsBasedOnTemplate:(Item *)baseTemplate {
     NSMutableArray *statements = [NSMutableArray new];
 
-    if (![self.position isEqual:template.position]) {
+    if (![self.position isEqual:baseTemplate.position]) {
         [statements addObject:[NSString stringWithFormat:@"position is %@",
                                self.position]];
     }
-    if (![self.scale isEqual:template.scale]) {
+    if (![self.scale isEqual:baseTemplate.scale]) {
         [statements addObject:[NSString stringWithFormat:@"scale is %@",
                                self.scale]];
     }
-    if (![self.rotation isEqual:template.rotation]) {
+    if (![self.rotation isEqual:baseTemplate.rotation]) {
         [statements addObject:[NSString stringWithFormat:@"rotation is %@",
                                self.rotation]];
     }
-    if (![self.name isEqual:template.name]) {
+    if (![self.name isEqual:baseTemplate.name]) {
         [statements addObject:[NSString stringWithFormat:@"name is %@",
                                self.name]];
     }
+    if (![self.actionCollection isEqual:baseTemplate.actionCollection]) {
+        [statements addObjectsFromArray:[self.actionCollection parserStrings]];
+    }
+
 
     return statements;
 }
@@ -529,6 +545,13 @@ static NSMutableArray *templates;
 
 - (NSString *)name {
     return self.node.name;
+}
+
+- (ActionCollection *)actionCollection {
+    if (!_actionCollection) {
+        _actionCollection = [ActionCollection new];
+    }
+    return _actionCollection;
 }
 
 @end

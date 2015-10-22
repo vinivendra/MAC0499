@@ -1,5 +1,4 @@
-// TODO: Make the parser a normal instance (not a singleton), maybe associated
-// with a JavaScript object.
+
 
 #import "Parser.h"
 
@@ -81,7 +80,6 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
 }
 
 - (void)parseFile:(NSString *)filename {
-
     [self reset];
 
     if (!filename) {
@@ -91,6 +89,12 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
     self.state = None;
 
     NSString *contents = [FileHelper openTextFile:filename];
+
+    [self parseString:contents];
+}
+
+- (void)parseString:(NSString *)contents {
+
     NSArray *lines = [contents split:@"\n"];
 
     Item *currentItem;
@@ -312,8 +316,15 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
             }
         }
 
-        [self.triggerActionManager addActionNamed:actionName
-                                       forTrigger:dictionary];
+        if (item) {
+            [self.triggerActionManager addActionNamed:actionName
+                                               toItem:item
+                                 forTriggerDictionary:dictionary];
+        }
+        else {
+            [self.triggerActionManager addActionNamed:actionName
+                                 forTriggerDictionary:dictionary];
+        }
     } else {
         id value;
 
@@ -380,10 +391,15 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Writing
 
-- (void)writeFileForScene:(SCNScene *)scene {
+- (NSString *)writeFileForScene:(SCNScene *)scene {
     [self reset];
 
     NSMutableArray *statements = [NSMutableArray new];
+
+    [statements addObjectsFromArray:[self.triggerActionManager.actions parserStrings]];
+
+    [statements addObject:@"\n\n"];
+
     [statements addObject:@"templates"];
 
     for (id object in [Item templates]) {
@@ -422,7 +438,7 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
     
     NSString *result = [statements join:@"\n"];
     
-    NSLog(@"\n\n%@", result);
+    return result;
 }
 
 

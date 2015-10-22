@@ -26,7 +26,8 @@
  */
 - (void)parseFile:(NSString *)filename;
 // TODO: doc
-- (void)writeFileForScene:(SCNScene *)scene;
+- (void)parseString:(NSString *)contents;
+- (NSString *)writeFileForScene:(SCNScene *)scene;
 @property (nonatomic, strong) JSContext *context;
 @property (nonatomic, strong) TriggerActionManager *triggerActionManager;
 @end

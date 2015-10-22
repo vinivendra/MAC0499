@@ -31,5 +31,6 @@
 @property (nonatomic) SEL selector;
 @property (nonatomic, strong) id arguments;
 
-@property (nonatomic, readonly) NSString *JSString;
+@property (nonatomic, readonly) NSString *name;
+@property (nonatomic, readonly) NSMutableDictionary *options;
 @end
