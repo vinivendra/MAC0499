@@ -21,6 +21,17 @@ class TemplateEditorSceneManager: EditorSceneManager {
         }
     }
 
+    override var selectedItem: Item? {
+        get {
+            let value: JSValue = self.javaScript.context.objectForKeyedSubscript("selectedItem")
+            let item = value.toObjectOfClass(Item) as? Item
+            return item
+        }
+        set {
+            self.javaScript.context.setObject(newValue, forKeyedSubscript:"selectedItem")
+        }
+    }
+
     override init () {
         super.init()
 

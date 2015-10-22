@@ -79,21 +79,37 @@ NSMutableArray <JSValue *> *registeredActions;
                                 state:(UIGestureRecognizerState)state
                               touches:(NSInteger)touches
                         withArguments:(NSArray *)arguments {
+    BOOL done = NO;
+
     if (arguments.count > 0) {
         NSArray *items = arguments[0];
         if (items.count > 0) {
-            Item *item = items[0];
 
-            NSArray *actions = [self actionsForItem:item
-                                            gesture:gesture
-                                              state:state
-                                            touches:touches];
+            for (Item *item = items[0];; item = item.parent) {
+                NSArray *actions = [self actionsForItem:item
+                                                gesture:gesture
+                                                  state:state
+                                                touches:touches];
 
-            for (NSInteger i = 0; i < actions.count; i++) {
-                MethodAction *action = actions[i];
-                [action callWithArguments:arguments];
+                for (NSInteger i = 0; i < actions.count; i++) {
+                    done = YES;
+                    MethodAction *action = actions[i];
+                    [action callWithArguments:arguments];
+                }
+
+                if (done) {
+                    return;
+                }
+
+                if (item == item.parent) {
+                    break;
+                }
             }
         }
+    }
+
+    if (done) {
+        return;
     }
 
     NSArray *actions = [self.actions
@@ -276,6 +292,16 @@ NSMutableArray <JSValue *> *registeredActions;
             gesture, state, touches];
 }
 
+- (MethodAction *)actionNamed:(NSString *)name
+                   forTrigger:(NSString *)trigger {
+
+    JSValue *value = self.context[name];
+    MethodAction *action = [self methodActionForJSValue:value
+                                             dictionary:nil];
+
+    return action;
+}
+
 - (void)addActionNamed:(NSString *)name
   forTriggerDictionary:(NSDictionary *)dictionary {
 
@@ -290,9 +316,8 @@ NSMutableArray <JSValue *> *registeredActions;
 
 - (void)addActionNamed:(NSString *)name
             forTrigger:(NSString *)trigger {
-    JSValue *value = self.context[name];
-    MethodAction *action = [self methodActionForJSValue:value
-                                             dictionary:nil];
+
+    MethodAction *action = [self actionNamed:name forTrigger:trigger];
 
     [self addMethodAction:action forTrigger:trigger];
 }

@@ -35,6 +35,9 @@ TriggerActionManagerExport>
                         touches:(int)touches;
 + (NSString *)triggerForDictionary:(NSDictionary *)dictionary;
 
+- (MethodAction *)actionNamed:(NSString *)name
+                   forTrigger:(NSString *)trigger;
+
 + (void)addOptionsToDictionary:(NSMutableDictionary *)options
                     forTrigger:(NSString *)trigger;
 

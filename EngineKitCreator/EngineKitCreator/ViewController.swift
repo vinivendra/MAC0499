@@ -282,8 +282,9 @@ class ViewController: UIViewController, MenuManager {
 
                 if let trigger = key as? String,
                     let actionsArray = value as? [MethodAction] {
-                        for action in actionsArray {
-                            manager.addActionNamed(action.description, forTrigger: trigger)
+                        for oldAction in actionsArray {
+                            let newAction = manager.actionNamed(oldAction.description, forTrigger: trigger)
+                            newActionCollection.addAction(newAction, forKey: trigger)
                         }
                 }
             }
@@ -296,6 +297,8 @@ class ViewController: UIViewController, MenuManager {
     }
 
     func registerTemplate() {
+        let item = templateSceneManager?.topItem
+        item?.templateName = self.nameTextField.text
         Item.registerTemplate(templateSceneManager?.topItem)
     }
 
