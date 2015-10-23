@@ -19,6 +19,9 @@ class TemplateEditorSceneManager: EditorSceneManager {
 
             return nil
         }
+        set {
+            scene.addItem(newValue)
+        }
     }
 
     override var selectedItem: Item? {

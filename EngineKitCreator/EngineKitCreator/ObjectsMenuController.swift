@@ -42,9 +42,20 @@ MenuController {
 
     var shouldShowPlusCell: Bool?
 
+    var isEditing: Bool = false
+    var editButton: UIButton?
+
+    func editButtonPressed() {
+        isEditing = !isEditing
+
+        collectionView?.reloadData()
+    }
+
     // MARK: - UICollectionViewDataSource
 
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        templates = nil
+
         return 1
     }
 
@@ -58,6 +69,7 @@ MenuController {
                 return templates.count
             }
         }
+        
         return 0;
     }
 
@@ -71,10 +83,16 @@ MenuController {
             where indexPath.row < templates.count {
                 let string = templates[indexPath.row].templateName
                 cell.label.text = string
+
+                if (isEditing) {
+                    cell.backgroundColor = UIColor("cyan")
+                }
+                else {
+                    cell.backgroundColor = UIColor("yellow")
+                }
         }
         else {
             cell.label.text = "+";
-            _templates = nil;
         }
 
         return cell
@@ -95,10 +113,15 @@ MenuController {
 
                 let item = template.create()
 
-                manager?.dismissMenu(item)
+                if (isEditing) {
+                    manager?.dismissMenuAndRespond(item)
+                }
+                else {
+                    manager?.dismissMenu(item)
+                }
         }
         else {
-            manager?.dismissMenuAndRespond()
+            manager?.dismissMenuAndRespond(nil)
         }
     }
 
@@ -108,7 +131,7 @@ MenuController {
         menuView.backgroundColor = UIColor.yellowColor()
 
         let size = menuView.frame.size
-        let frame = CGRectMake(0, 0, size.width, size.height)
+        let frame = CGRectMake(0, 20, size.width, size.height - 20)
         let layout = UICollectionViewFlowLayout()
 
         layout.minimumInteritemSpacing = 10
@@ -123,6 +146,14 @@ MenuController {
         collectionView?.registerNib(UINib(nibName: "ObjectsCell", bundle: nil), forCellWithReuseIdentifier: id)
         
         menuView.addSubview(collectionView!)
+
+
+        editButton = UIButton(type: .System)
+        editButton?.frame = CGRectMake(0, 0, size.width, 20)
+        editButton?.addTarget(self, action: "editButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
+        editButton?.setTitle("Edit", forState: .Normal)
+
+        menuView.addSubview(editButton!)
     }
     
 }

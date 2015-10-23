@@ -58,6 +58,8 @@ function handleTap(items, hits) {
         deselectItem();
         replaceCamera();
     }
+
+    didSelectItem(selectedItem);
 }
 
 function deselectItem() {

@@ -89,6 +89,18 @@ static NSMutableDictionary *templates;
     return globalID++;
 }
 
+- (void)delete {
+    SCNNode *node = self.node;
+
+    self.node = nil;
+    node.item = nil;
+
+    [self.parent.children removeObject:self];
+    self.parent = nil;
+
+    [node removeFromParentNode];
+}
+
 - (Item *)childItemWithName:(NSString *)string recursively:(BOOL)recursively {
     return [self.node childNodeWithName:string recursively:recursively].item;
 }

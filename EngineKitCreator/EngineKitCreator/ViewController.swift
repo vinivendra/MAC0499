@@ -17,7 +17,7 @@ enum ViewControllerStates {
 
 protocol MenuManager {
     func dismissMenu(object: AnyObject?)
-    func dismissMenuAndRespond()
+    func dismissMenuAndRespond(object: AnyObject?)
 }
 
 
@@ -25,6 +25,9 @@ class ViewController: UIViewController, MenuManager {
 
     @IBOutlet weak var nameTextField: UITextField!
 
+    @IBOutlet weak var nameLabel: UILabel!
+
+    @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var actionsButton: UIButton!
     @IBOutlet weak var exportButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
@@ -174,8 +177,17 @@ class ViewController: UIViewController, MenuManager {
         }
     }
 
-    func dismissMenuAndRespond() {
-        state = .CreatingTemplate
+    func dismissMenuAndRespond(object: AnyObject?) {
+        if (object == nil) {
+            state = .CreatingTemplate
+        }
+        else {
+            if let item = object as? Item {
+                templateSceneManager?.topItem = item.deepCopy
+                nameTextField.text = item.templateName
+                state = .CreatingTemplate
+            }
+        }
     }
 
     // MARK: - Overrides
@@ -192,9 +204,25 @@ class ViewController: UIViewController, MenuManager {
         editorSceneManager?.parser.triggerActionManager = placeholderTriggerManager
         editorSceneManager?.parser.parseFile("scene.fmt")
 
+        let selectItemBlock: @convention(block) Item -> Void = { item in
+            self.didSelectItem(item)
+        }
+        let block = unsafeBitCast(selectItemBlock, AnyObject.self)
+        editorSceneManager?.javaScript.context.setObject(block, forKeyedSubscript: "didSelectItem")
+        didSelectItem(nil)
+
         self.propertiesButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Disabled)
 
         state = .Neutral
+    }
+
+    func didSelectItem(item: Item?) {
+        if (item != nil) {
+            nameLabel.text = item?.name;
+        }
+        else {
+            nameLabel.text = "";
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -300,7 +328,7 @@ class ViewController: UIViewController, MenuManager {
         let item = templateSceneManager?.topItem
 
         if (self.nameTextField.text != nil && self.nameTextField.text != "") {
-                item?.templateName = self.nameTextField.text
+                item?.templateName = self.nameTextField.text?.capitalizedString
         }
         else {
             item?.templateName = "Item"
@@ -312,6 +340,15 @@ class ViewController: UIViewController, MenuManager {
     func switchToSceneManager(sceneManager: SceneManager?) {
         engineKitView.scene = sceneManager?.scene
         sceneManager?.makeCurrentSceneManager()
+    }
+
+    func deleteSelectedItem() {
+        if let sceneManager = SceneManager.currentSceneManager() as? EditorSceneManager {
+            let item = sceneManager.selectedItem
+            item?.delete()
+            sceneManager.selectedItem = nil
+            nameLabel.text = ""
+        }
     }
 
     // MARK: - IBActions
@@ -384,5 +421,8 @@ class ViewController: UIViewController, MenuManager {
         }
     }
     
+    @IBAction func deleteButtonPressed(sender: AnyObject) {
+        deleteSelectedItem();
+    }
 }
 

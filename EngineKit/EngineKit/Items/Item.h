@@ -64,6 +64,8 @@
 - (void)addRotationY:(NSNumber *)newValue;
 - (void)addRotationZ:(NSNumber *)newValue;
 - (void)addRotationA:(NSNumber *)newValue;
+
+- (void)delete;
 @end
 
 
@@ -126,6 +128,8 @@
 @property (nonatomic, strong) ActionCollection *actionCollection;
 - (void)addAction:(MethodAction *)action forKey:(NSString *)key;
 - (NSMutableArray <MethodAction *> *)actionsForKey:(NSString *)key;
+
+- (void)delete;
 
 // Protected
 - (NSMutableArray *)propertyStringsBasedOnTemplate:(Item *)template;
