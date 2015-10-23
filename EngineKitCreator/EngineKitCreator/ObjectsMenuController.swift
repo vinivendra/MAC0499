@@ -26,7 +26,12 @@ MenuController {
     var templates: [Item]? {
         get {
             if (_templates == nil) {
-                _templates = Item.templates() as NSArray as? [Item]
+                _templates = [Item]()
+                let dictionary = Item.templates() as NSDictionary as? [NSString : Item]
+
+                for (_, value) in dictionary! {
+                    _templates?.append(value)
+                }
             }
             return _templates
         }
@@ -58,8 +63,7 @@ MenuController {
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell: ObjectsCell
-        cell = collectionView.dequeueReusableCellWithReuseIdentifier(id,
-            forIndexPath: indexPath) as! ObjectsCell
+        cell = collectionView.dequeueReusableCellWithReuseIdentifier(id, forIndexPath: indexPath) as! ObjectsCell
 
         cell.backgroundColor = UIColor.redColor()
 
@@ -70,6 +74,7 @@ MenuController {
         }
         else {
             cell.label.text = "+";
+            _templates = nil;
         }
 
         return cell

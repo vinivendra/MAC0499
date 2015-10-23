@@ -111,7 +111,7 @@
 - (void)addPosition:(id)object;
 - (void)addScale:(id)object;
 
-+ (NSMutableArray *)templates;
++ (NSMutableDictionary <NSString *, Item *> *)templates;
 + (Item *)templateNamed:(NSString *)name;
 - (Item *)childItemWithName:(NSString *)string recursively:(BOOL)recursively;
 - (NSString *)parserString;

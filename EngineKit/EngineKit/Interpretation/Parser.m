@@ -402,9 +402,9 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
 
     [statements addObject:@"templates"];
 
-    for (id object in [Item templates]) {
+    for (NSString *key in [Item templates]) {
         
-        Item *template = (Item *)object;
+        Item *template = [Item templates][key];
         NSString *templateName = template.templateName;
         NSString *className = NSStringFromClass([template class]);
         BOOL templateIsOriginal = [className isEqualToString:templateName];

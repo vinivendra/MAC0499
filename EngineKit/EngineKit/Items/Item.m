@@ -13,19 +13,20 @@
 
 
 static NSUInteger globalID = 0;
-static NSMutableArray *templates;
+static NSMutableDictionary *templates;
 
 @implementation Item
 
-+ (NSMutableArray *)templates {
++ (NSMutableDictionary *)templates {
     if (!templates) {
-        templates = [NSMutableArray new];
+        templates = [NSMutableDictionary new];
     }
     return templates;
 }
 
 + (Item *)templateNamed:(NSString *)name {
-    for (Item *item in [self templates]) {
+    for (NSString *templateName in [self templates]) {
+        Item *item = [self templates][templateName];
         if ([item.templateName isEqualToString:name]) {
             return item;
         }
@@ -35,7 +36,7 @@ static NSMutableArray *templates;
 }
 
 + (void)registerTemplate:(Item *)newValue {
-    [[self templates] addObject:newValue];
+    [self templates][newValue.templateName] = newValue;
 }
 
 + (instancetype) template {

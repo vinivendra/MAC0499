@@ -298,7 +298,14 @@ class ViewController: UIViewController, MenuManager {
 
     func registerTemplate() {
         let item = templateSceneManager?.topItem
-        item?.templateName = self.nameTextField.text
+
+        if (self.nameTextField.text != nil && self.nameTextField.text != "") {
+                item?.templateName = self.nameTextField.text
+        }
+        else {
+            item?.templateName = "Item"
+        }
+
         Item.registerTemplate(templateSceneManager?.topItem)
     }
 
