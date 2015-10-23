@@ -52,24 +52,28 @@ TriggerManager.registerAction(sceneTranslationAction);
 
 function itemTranslationAction(items, translation) {
     if (typeof items[0] != 'undefined') {
+        var item = itemForActions(items[0]);
+
         var resized = translation.times(0.01);
 
         updateCameraAxes();
         var translation = cameraX.times(resized.x)
         .plus(cameraY.times(resized.y));
 
-        var distance = items[0].position.minus(Camera.position);
+        var distance = item.position.minus(Camera.position);
         var ratio = distance.norm() / 7.5;
 
         var resizedTranslation = translation.times(ratio);
 
-        items[0].position = items[0].position.plus(resizedTranslation);
+        item.position = item.position.plus(resizedTranslation);
     }
 }
 TriggerManager.registerAction(itemTranslationAction);
 
 function itemTranslationActionSnappedToAxes(items, translation) {
     if (typeof items[0] != 'undefined') {
+
+        var item = itemForActions(items[0]);
 
         updateCameraAxes();
 
@@ -93,19 +97,20 @@ function itemTranslationActionSnappedToAxes(items, translation) {
             projection = translation.setNewZ(0);
         }
 
-        var distance = items[0].position.minus(Camera.position);
+        var distance = item.position.minus(Camera.position);
         var ratio = distance.norm() / 7.5;
 
         var resizedProjection = projection.times(ratio);
 
-        items[0].position = items[0].position.plus(resizedProjection);
+        item.position = item.position.plus(resizedProjection);
     }
 }
 TriggerManager.registerAction(itemTranslationActionSnappedToAxes);
 
 function itemScaleAction(items, scale) {
     if (typeof items[0] != 'undefined') {
-        items[0].scale = items[0].scale.times(scale);
+        var item = itemForActions(items[0]);
+        item.scale = item.scale.times(scale);
     }
 }
 TriggerManager.registerAction(itemScaleAction);
@@ -119,8 +124,9 @@ TriggerManager.registerAction(zoomCameraAction);
 
 function itemRotationAction(items, angle) {
     if (typeof items[0] != 'undefined') {
+        var item = itemForActions(items[0]);
         updateCameraAxes();
-        items[0].rotate({"axis":cameraZ, "a":angle});
+        item.rotate({"axis":cameraZ, "a":angle});
     }
 }
 TriggerManager.registerAction(itemRotationAction);
@@ -132,6 +138,24 @@ function sceneRotationAction(items, angle) {
 }
 TriggerManager.registerAction(sceneRotationAction);
 
+////////////////////////////////////////////////////////////////////////////////
 
+function itemIdentity(item) {
+    return item;
+}
 
+function topItem(item) {
+    while (item != item.parent && typeof item.parent != 'undefined') {
+        item = item.parent;
+    }
+    return item;
+}
 
+function templateBase(item) {
+    while (!item.isTemplateBase && typeof item.parent != 'undefined') {
+        item = item.parent;
+    }
+    return item;
+}
+
+var itemForActions = itemIdentity;

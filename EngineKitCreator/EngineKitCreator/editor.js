@@ -18,6 +18,8 @@ function load() {
     TriggerManager.addActionForTrigger(handleTap, {"gesture": "tap"});
     TriggerManager.addActionForTrigger(itemTranslationActionSnappedToAxes, {"gesture": "longpress"});
     TriggerManager.addActionForTrigger(handleRotation, {"gesture": "rotate"});
+
+    itemForActions = topItem;
 }
 
 function movementForRotation(items, angle) {

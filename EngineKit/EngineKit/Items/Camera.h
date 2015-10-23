@@ -17,6 +17,7 @@
 @property (nonatomic, strong) id rotation;
 @property (nonatomic, strong) id scale;
 @property (nonatomic) BOOL isDefault;
+@property (nonatomic) BOOL isTemplateBase;
 @property (nonatomic) BOOL hidden;
 - (void)setPositionX:(NSNumber *)newValue;
 - (void)setPositionY:(NSNumber *)newValue;

@@ -258,7 +258,7 @@ class PropertiesMenuViewController: UIViewController, MenuController, UITextFiel
             for propertyName in shape.numericProperties() {
 
                 let label = otherLabels?[i]
-                label?.text = propertyName
+                label?.text = propertyName.capitalizedString
                 label?.hidden = false
 
                 i++

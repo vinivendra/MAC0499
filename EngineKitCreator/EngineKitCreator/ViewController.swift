@@ -218,7 +218,12 @@ class ViewController: UIViewController, MenuManager {
 
     func didSelectItem(item: Item?) {
         if (item != nil) {
-            nameLabel.text = item?.name;
+            if let sceneManager = SceneManager.currentSceneManager() as? EditorSceneManager {
+                nameLabel.text = sceneManager.selectedItem?.name
+            }
+            else {
+                nameLabel.text = item?.name
+            }
         }
         else {
             nameLabel.text = "";
@@ -322,6 +327,15 @@ class ViewController: UIViewController, MenuManager {
     func createTemplateScene() {
         templateSceneManager = TemplateEditorSceneManager(script: "editor.js")
         templateSceneManager?.runOnSceneView(self.engineKitView)
+
+        let selectItemBlock: @convention(block) Item -> Void = { item in
+            self.didSelectItem(item)
+        }
+        let block = unsafeBitCast(selectItemBlock, AnyObject.self)
+        templateSceneManager?.javaScript.context.setObject(block, forKeyedSubscript: "didSelectItem")
+        didSelectItem(nil)
+
+        templateSceneManager?.javaScript.context.evaluateScript("itemForActions = templateBase;")
     }
 
     func registerTemplate() {

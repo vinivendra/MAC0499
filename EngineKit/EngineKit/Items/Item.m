@@ -37,6 +37,7 @@ static NSMutableDictionary *templates;
 
 + (void)registerTemplate:(Item *)newValue {
     [self templates][newValue.templateName] = newValue;
+    newValue.isTemplateBase = YES;
 }
 
 + (instancetype) template {
@@ -81,6 +82,7 @@ static NSMutableDictionary *templates;
     self.templateName = NSStringFromClass(self.class);
     self.name = NSStringFromClass(self.class);
     self.isDefault = NO;
+    self.isTemplateBase = NO;
     self.parent = self;
     _children = [NSMutableArray new];
 }
@@ -135,10 +137,15 @@ static NSMutableDictionary *templates;
     item.rotation = self.rotation;
     item.scale = self.scale;
 
+    item.isTemplateBase = YES;
+
     item.actionCollection = self.actionCollection;
 
-    for (Item *child in self.children)
-        [item addItem:[child deepCopy]];
+    for (Item *child in self.children) {
+        Item *childCopy = [child deepCopy];
+        [item addItem:childCopy];
+        childCopy.isTemplateBase = NO;
+    }
 }
 
 - (void)addAction:(MethodAction *)action forKey:(NSString *)key {
