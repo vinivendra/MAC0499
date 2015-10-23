@@ -5,6 +5,13 @@
 
 @implementation Box
 
+- (NSArray <NSString *>*)numericProperties {
+    return @[@"width",
+             @"height",
+             @"length",
+             @"chamferRadius"];
+}
+
 + (instancetype)box {
     return [self new];
 }
@@ -94,7 +101,6 @@
 
 
 - (void)setWidth:(NSNumber *)width {
-    [self assertTheresNoPhysicsBody];
     self.box.width = width.doubleValue;
 }
 
@@ -103,7 +109,6 @@
 }
 
 - (void)setHeight:(NSNumber *)height {
-    [self assertTheresNoPhysicsBody];
     self.box.height = height.doubleValue;
 }
 
@@ -112,7 +117,6 @@
 }
 
 - (void)setLength:(NSNumber *)length {
-    [self assertTheresNoPhysicsBody];
     self.box.length = length.doubleValue;
 }
 
@@ -121,7 +125,6 @@
 }
 
 - (void)setChamferRadius:(NSNumber *)chamferRadius {
-    [self assertTheresNoPhysicsBody];
     self.box.chamferRadius = chamferRadius.doubleValue;
 }
 

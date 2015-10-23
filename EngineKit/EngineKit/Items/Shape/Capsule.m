@@ -5,6 +5,11 @@
 
 @implementation Capsule
 
+- (NSArray <NSString *>*)numericProperties {
+    return @[@"radius",
+             @"height"];
+}
+
 + (instancetype)capsule {
     return [self new];
 }
@@ -83,7 +88,6 @@
 
 
 - (void)setRadius:(NSNumber *)radius {
-    [self assertTheresNoPhysicsBody];
     self.capsule.capRadius = radius.doubleValue;
 }
 
@@ -92,7 +96,6 @@
 }
 
 - (void)setHeight:(NSNumber *)height {
-    [self assertTheresNoPhysicsBody];
     self.capsule.height = height.doubleValue;
 }
 

@@ -5,6 +5,11 @@
 
 @implementation Torus
 
+- (NSArray <NSString *>*)numericProperties {
+    return @[@"ringRadius",
+             @"pipeRadius"];
+}
+
 + (instancetype)torus {
     return [self new];
 }
@@ -84,7 +89,6 @@
 
 
 - (void)setPipeRadius:(NSNumber *)pipeRadius {
-    [self assertTheresNoPhysicsBody];
     self.torus.pipeRadius = pipeRadius.doubleValue;
 }
 
@@ -93,7 +97,6 @@
 }
 
 - (void)setRingRadius:(NSNumber *)ringRadius {
-    [self assertTheresNoPhysicsBody];
     self.torus.ringRadius = ringRadius.doubleValue;
 }
 

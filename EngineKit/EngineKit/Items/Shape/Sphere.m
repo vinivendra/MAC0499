@@ -5,6 +5,10 @@
 
 @implementation Sphere
 
+- (NSArray <NSString *>*)numericProperties {
+    return @[@"radius"];
+}
+
 + (instancetype)sphere {
     return [self new];
 }
@@ -77,7 +81,6 @@
 
 
 - (void)setRadius:(NSNumber *)radius {
-    [self assertTheresNoPhysicsBody];
     self.sphere.radius = radius.doubleValue;
 }
 

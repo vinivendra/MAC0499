@@ -5,6 +5,13 @@
 
 @implementation Cone
 
+- (NSArray <NSString *>*)numericProperties {
+    return @[@"radius",
+             @"topRadius",
+             @"bottomRadius",
+             @"height"];
+}
+
 + (instancetype)cone {
     return [self new];
 }
@@ -91,7 +98,6 @@
 
 
 - (void)setRadius:(NSNumber *)radius {
-    [self assertTheresNoPhysicsBody];
     self.cone.bottomRadius = radius.doubleValue;
 }
 
@@ -100,7 +106,6 @@
 }
 
 - (void)setBottomRadius:(NSNumber *)radius {
-    [self assertTheresNoPhysicsBody];
     self.radius = radius;
 }
 
@@ -109,7 +114,6 @@
 }
 
 - (void)setTopRadius:(NSNumber *)radius {
-    [self assertTheresNoPhysicsBody];
     self.cone.topRadius = radius.doubleValue;
 }
 
@@ -118,7 +122,6 @@
 }
 
 - (void)setHeight:(NSNumber *)height {
-    [self assertTheresNoPhysicsBody];
     self.cone.height = height.doubleValue;
 }
 

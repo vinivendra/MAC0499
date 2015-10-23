@@ -5,6 +5,11 @@
 
 @implementation Plane
 
+- (NSArray <NSString *>*)numericProperties {
+    return @[@"width",
+             @"height"];
+}
+
 + (instancetype)plane {
     return [self new];
 }
@@ -82,7 +87,6 @@
 
 
 - (void)setWidth:(NSNumber *)width {
-    [self assertTheresNoPhysicsBody];
     self.plane.width = width.doubleValue;
 }
 
@@ -91,7 +95,6 @@
 }
 
 - (void)setHeight:(NSNumber *)height {
-    [self assertTheresNoPhysicsBody];
     self.plane.height = height.doubleValue;
 }
 

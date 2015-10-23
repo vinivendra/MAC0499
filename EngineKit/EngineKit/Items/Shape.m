@@ -11,22 +11,19 @@
 
 @implementation Shape
 
-- (void)assertTheresNoPhysicsBody {
-    assert(!self.physicsBody); // Error: change the shape's dimensions only
-                               // before choosing a physics type! This shape's
-                               // physics have already been calculated and can't
-                               // change now to reflect its new size.
+- (NSArray <NSString *>*)numericProperties {
+    return @[];
 }
 
-- (NSString *)stringForPhysicsBody:(SCNPhysicsBody *)physicsBody {
+- (NSString *)stringForPhysicsBody {
 
-    if (physicsBody.type == SCNPhysicsBodyTypeDynamic) {
+    if (self.physicsBody.type == SCNPhysicsBodyTypeDynamic) {
         return @"dynamic";
     }
-    else if (physicsBody.type == SCNPhysicsBodyTypeStatic) {
+    else if (self.physicsBody.type == SCNPhysicsBodyTypeStatic) {
         return @"static";
     }
-    else if (physicsBody.type == SCNPhysicsBodyTypeKinematic) {
+    else if (self.physicsBody.type == SCNPhysicsBodyTypeKinematic) {
         return @"kinematic";
     }
 
@@ -45,7 +42,7 @@
         || (self.physicsBody && !aTemplate.physicsBody)
         || (!self.physicsBody && aTemplate.physicsBody)) {
         [statements addObject:[NSString stringWithFormat:@"physics is %@",
-                               [self stringForPhysicsBody:self.physicsBody]]];
+                               [self stringForPhysicsBody]]];
     }
 
     return statements;

@@ -5,6 +5,14 @@
 
 @implementation Tube
 
+- (NSArray <NSString *>*)numericProperties {
+    return @[@"radius",
+             @"innerRadius",
+             @"outerRadius",
+             @"height",
+             @"thickness"];
+}
+
 + (instancetype)tube {
     return [self new];
 }
@@ -91,7 +99,6 @@
 
 
 - (void)setRadius:(NSNumber *)radius {
-    [self assertTheresNoPhysicsBody];
 
     CGFloat currentRadius = (self.tube.outerRadius + self.tube.innerRadius) / 2;
     CGFloat ratio = radius.doubleValue / currentRadius;
@@ -105,7 +112,6 @@
 }
 
 - (void)setInnerRadius:(NSNumber *)innerRadius {
-    [self assertTheresNoPhysicsBody];
     self.tube.innerRadius = innerRadius.doubleValue;
 }
 
@@ -114,7 +120,6 @@
 }
 
 - (void)setOuterRadius:(NSNumber *)outerRadius {
-    [self assertTheresNoPhysicsBody];
     self.tube.outerRadius = outerRadius.doubleValue;
 }
 
@@ -123,7 +128,6 @@
 }
 
 - (void)setHeight:(NSNumber *)height {
-    [self assertTheresNoPhysicsBody];
     self.tube.height = height.doubleValue;
 }
 
@@ -132,7 +136,6 @@
 }
 
 - (void)setThickness:(NSNumber *)thickness {
-    [self assertTheresNoPhysicsBody];
 
     CGFloat currentRadius = (self.tube.outerRadius + self.tube.innerRadius) / 2;
     self.tube.innerRadius = currentRadius - thickness.doubleValue/2;

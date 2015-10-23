@@ -82,9 +82,24 @@ class PropertiesMenuViewController: UIViewController, MenuController, UITextFiel
 
     var item: Item
 
+
+    @IBOutlet weak var otherLabel1: UILabel!
+    @IBOutlet weak var otherLabel2: UILabel!
+    @IBOutlet weak var otherLabel3: UILabel!
+    @IBOutlet weak var otherLabel4: UILabel!
+    @IBOutlet weak var otherLabel5: UILabel!
+
+    @IBOutlet weak var otherTextField1: UITextField!
+    @IBOutlet weak var otherTextField2: UITextField!
+    @IBOutlet weak var otherTextField3: UITextField!
+    @IBOutlet weak var otherTextField4: UITextField!
+    @IBOutlet weak var otherTextField5: UITextField!
+
     @IBOutlet weak var nameTextField: UITextField!
 
     @IBOutlet weak var colorNameTextField: UITextField!
+
+    @IBOutlet weak var physicsTypeTextField: UITextField!
 
     @IBOutlet weak var colorRTextField: UITextField!
     @IBOutlet weak var colorGTextField: UITextField!
@@ -101,6 +116,9 @@ class PropertiesMenuViewController: UIViewController, MenuController, UITextFiel
     @IBOutlet weak var rotationXTextField: UITextField!
     @IBOutlet weak var rotationYTextField: UITextField!
     @IBOutlet weak var rotationZTextField: UITextField!
+
+    var otherLabels : [UILabel]?
+    var otherTextFields : [UITextField]?
 
     init(item: Item) {
         self.item = item
@@ -128,6 +146,9 @@ class PropertiesMenuViewController: UIViewController, MenuController, UITextFiel
             colorRTextField : setItemColorR,
             colorGTextField : setItemColorG,
             colorBTextField : setItemColorB]
+
+        otherLabels = [otherLabel1, otherLabel2, otherLabel3, otherLabel4, otherLabel5]
+        otherTextFields = [otherTextField1, otherTextField2, otherTextField3, otherTextField4, otherTextField5]
 
         updateTextFieldTexts()
     }
@@ -159,13 +180,28 @@ class PropertiesMenuViewController: UIViewController, MenuController, UITextFiel
         rotationYTextField.text = String(toDegrees(rotation.y))
         rotationZTextField.text = String(toDegrees(rotation.z))
 
-        if let shape = item as? Shape,
-            color = shape.color as? UIColor {
+        if let shape = item as? Shape {
+            if let color = shape.color as? UIColor {
                 var components = [CGFloat](count: 4, repeatedValue: 0.0)
                 color.getRed(&components[0], green:&components[1], blue:&components[2], alpha:&components[3])
                 colorRTextField.text = String(components[0])
                 colorGTextField.text = String(components[1])
                 colorBTextField.text = String(components[2])
+            }
+
+            let string = shape.stringForPhysicsBody()
+            physicsTypeTextField.text = string
+
+            var i = 0
+            for propertyName in shape.numericProperties() {
+                let textField = otherTextFields?[i]
+
+                if let value = shape.valueForKey(propertyName) as? NSNumber {
+                    textField?.text = String(value)
+                }
+
+                i++
+            }
         }
     }
 
@@ -186,6 +222,20 @@ class PropertiesMenuViewController: UIViewController, MenuController, UITextFiel
                     shape.color = string
                 }
             }
+            else if (textField == physicsTypeTextField) {
+                if let shape = item as? Shape {
+                    shape.physics = string
+                }
+            }
+            else if (otherTextFields!.contains(textField)) {
+                if let shape = item as? Shape {
+                    let index = otherTextFields?.indexOf(textField)
+                    let properties = shape.numericProperties()
+                    let propertyName = properties[index!]
+                    let number = NSNumber(string: string)
+                    shape.setValue(number, forKey: propertyName)
+                }
+            }
             else {
                 let number = NSNumber(string: string)
 
@@ -201,7 +251,29 @@ class PropertiesMenuViewController: UIViewController, MenuController, UITextFiel
         menuView.backgroundColor = UIColor.yellowColor()
 
         self.view.frame = CGRectMake(0, 0, menuView.frame.size.width, menuView.frame.size.height)
-        
+
+        var i = 0
+
+        if let shape = item as? Shape {
+            for propertyName in shape.numericProperties() {
+
+                let label = otherLabels?[i]
+                label?.text = propertyName
+                label?.hidden = false
+
+                i++
+            }
+        }
+
+        for (; i < otherLabels?.count; i++) {
+            let label = otherLabels?[i]
+            label?.text = ""
+            label?.hidden = true
+            let textField = otherTextFields?[i]
+            textField?.text = ""
+            textField?.hidden = true
+        }
+
         menuView.addSubview(self.view)
     }
 }

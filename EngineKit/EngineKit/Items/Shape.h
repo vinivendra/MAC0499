@@ -8,11 +8,9 @@
  visible objects, such as @p Spheres and @p Boxes, are subclasses of @p Shape.
  */
 @interface Shape : Item
-/*!
- Used internally to make sure the Shape's dimensions won't change after we've
- already calculated the physics information.
- */
-- (void)assertTheresNoPhysicsBody;
+// TODO: doc
+- (NSArray <NSString *>*)numericProperties;
+- (NSString *)stringForPhysicsBody;
 /*!
  Similar to -copyInfoTo:, meant to be used in the same context. -copyInfoTo:
  copies information that should be available @b before subclasses can copy their

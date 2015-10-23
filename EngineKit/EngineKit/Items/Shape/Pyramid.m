@@ -5,6 +5,12 @@
 
 @implementation Pyramid
 
+- (NSArray <NSString *>*)numericProperties {
+    return @[@"width",
+             @"height",
+             @"length"];
+}
+
 + (instancetype)pyramid {
     return [self new];
 }
@@ -90,7 +96,6 @@
 
 
 - (void)setWidth:(NSNumber *)width {
-    [self assertTheresNoPhysicsBody];
     self.pyramid.width = width.doubleValue;
 }
 
@@ -99,7 +104,6 @@
 }
 
 - (void)setHeight:(NSNumber *)height {
-    [self assertTheresNoPhysicsBody];
     self.pyramid.height = height.doubleValue;
 }
 
@@ -108,7 +112,6 @@
 }
 
 - (void)setLength:(NSNumber *)length {
-    [self assertTheresNoPhysicsBody];
     self.pyramid.length = length.doubleValue;
 }
 

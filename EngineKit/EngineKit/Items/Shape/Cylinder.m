@@ -5,6 +5,11 @@
 
 @implementation Cylinder
 
+- (NSArray <NSString *>*)numericProperties {
+    return @[@"radius",
+             @"height"];
+}
+
 + (instancetype)cylinder {
     return [self new];
 }
@@ -82,7 +87,6 @@
 
 
 - (void)setRadius:(NSNumber *)radius {
-    [self assertTheresNoPhysicsBody];
     self.cylinder.radius = radius.doubleValue;
 }
 
@@ -91,7 +95,6 @@
 }
 
 - (void)setHeight:(NSNumber *)height {
-    [self assertTheresNoPhysicsBody];
     self.cylinder.height = height.doubleValue;
 }
 

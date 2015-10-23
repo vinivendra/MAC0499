@@ -5,6 +5,11 @@
 
 @implementation Text
 
+- (NSArray <NSString *>*)numericProperties {
+    return @[@"depth",
+             @"string"];
+}
+
 + (instancetype)text {
     return [self new];
 }
@@ -82,7 +87,6 @@
 
 
 - (void)setString:(id)string {
-    [self assertTheresNoPhysicsBody];
     self.text.string = string;
 }
 
@@ -91,7 +95,6 @@
 }
 
 - (void)setDepth:(NSNumber *)depth {
-    [self assertTheresNoPhysicsBody];
     self.text.extrusionDepth = depth.doubleValue;
 }
 
