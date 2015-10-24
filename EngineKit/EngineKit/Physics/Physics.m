@@ -80,4 +80,12 @@
     assert(false); // This property is meant to be used only for its setter.
 }
 
+- (void)setSpeed:(NSNumber *)speed {
+    self.scene.physicsWorld.speed = speed.doubleValue;
+}
+
+- (NSNumber *)speed {
+    return @(self.scene.physicsWorld.speed);
+}
+
 @end

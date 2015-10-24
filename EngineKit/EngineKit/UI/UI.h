@@ -3,11 +3,11 @@
 #import <UIKit/UIKit.h>
 #import <JavaScriptCore/JavaScriptCore.h>
 
+#import "Common.h"
 
-@protocol UICallbackHandler <NSObject>
-@property (nonatomic, readonly, strong) JSValue *buttonCallback;
-@property (nonatomic, readonly, strong) JSValue *sliderCallback;
-@end
+
+
+
 
 
 @class UI;
@@ -18,7 +18,7 @@
 
 @interface UI : NSObject <UIExport>
 - (instancetype)init;
-@property (nonatomic, strong) id<UICallbackHandler> handler;
+@property (nonatomic, strong) id<CallbackDelegate> delegate;
 @property (nonatomic, strong) UIView *view;
 @property (nonatomic, strong) NSMutableDictionary *actions;
 @property (nonatomic, weak) id addButton;

@@ -11,16 +11,21 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.floor = [SCNFloor floor];
+        [self commonInit];
     }
     return self;
 }
 
 - (instancetype)initAndAddToScene {
     if (self = [super initAndAddToScene]) {
-        self.floor = [SCNFloor floor];
+        [self commonInit];
     }
     return self;
+}
+
+- (void)commonInit {
+    self.floor = [SCNFloor new];
+    self.color = @"lightGray";
 }
 
 - (Item *)deepCopy {

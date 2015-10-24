@@ -5,22 +5,33 @@
 
 @implementation Pyramid
 
+- (NSArray <NSString *>*)numericProperties {
+    return @[@"width",
+             @"height",
+             @"length"];
+}
+
 + (instancetype)pyramid {
     return [self new];
 }
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.pyramid = [SCNPyramid new];
+        [self commonInit];
     }
     return self;
 }
 
 - (instancetype)initAndAddToScene {
     if (self = [super initAndAddToScene]) {
-        self.pyramid = [SCNPyramid new];
+        [self commonInit];
     }
     return self;
+}
+
+- (void)commonInit {
+    self.pyramid = [SCNPyramid new];
+    self.color = @"lightGray";
 }
 
 - (instancetype)initWithWidth:(CGFloat)width
@@ -28,7 +39,8 @@
                        length:(CGFloat)length {
     if (self = [super initAndAddToScene]) {
         self.pyramid =
-            [SCNPyramid pyramidWithWidth:width height:height length:length];
+        [SCNPyramid pyramidWithWidth:width height:height length:length];
+        self.color = @"lightGray";
     }
     return self;
 }
@@ -48,6 +60,29 @@
     item.length = self.length;
 }
 
+- (NSMutableArray *)propertyStringsBasedOnTemplate:(Pyramid *)template {
+    NSMutableArray *statements = [NSMutableArray new];
+
+    if (![self.width isEqual:template.width]) {
+        [statements addObject:[NSString stringWithFormat:@"width is %@",
+                               self.width]];
+    }
+    if (![self.height isEqual:template.height]) {
+        [statements addObject:[NSString stringWithFormat:@"height is %@",
+                               self.height]];
+    }
+    if (![self.length isEqual:template.length]) {
+        [statements addObject:[NSString stringWithFormat:@"length is %@",
+                               self.length]];
+    }
+
+    NSMutableArray *superStatements;
+    superStatements = [super propertyStringsBasedOnTemplate:template];
+    statements = [[statements arrayByAddingObjectsFromArray:superStatements]
+                  mutableCopy];
+    return statements;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Property Overriding
 
@@ -61,7 +96,6 @@
 
 
 - (void)setWidth:(NSNumber *)width {
-    [self assertTheresNoPhysicsBody];
     self.pyramid.width = width.doubleValue;
 }
 
@@ -70,7 +104,6 @@
 }
 
 - (void)setHeight:(NSNumber *)height {
-    [self assertTheresNoPhysicsBody];
     self.pyramid.height = height.doubleValue;
 }
 
@@ -79,7 +112,6 @@
 }
 
 - (void)setLength:(NSNumber *)length {
-    [self assertTheresNoPhysicsBody];
     self.pyramid.length = length.doubleValue;
 }
 

@@ -11,10 +11,17 @@
 		240C86D81BA31F35004F6794 /* scene.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 240C86D61BA31F35004F6794 /* scene.fmt */; };
 		240C86E71BA3771B004F6794 /* PropertiesMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240C86E51BA3771B004F6794 /* PropertiesMenuViewController.swift */; };
 		240C86E81BA3771B004F6794 /* PropertiesMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 240C86E61BA3771B004F6794 /* PropertiesMenuViewController.xib */; };
+		2421FCE01BCA9E7E00DF634B /* TemplateEditorSceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2421FCDF1BCA9E7E00DF634B /* TemplateEditorSceneManager.swift */; settings = {ASSET_TAGS = (); }; };
 		2459916A1BAAF27E008E8F60 /* EditorSceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245991691BAAF27E008E8F60 /* EditorSceneManager.swift */; settings = {ASSET_TAGS = (); }; };
 		2459916E1BAAF362008E8F60 /* PlayerSceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2459916D1BAAF362008E8F60 /* PlayerSceneManager.swift */; settings = {ASSET_TAGS = (); }; };
 		245991781BAB3E14008E8F60 /* ItemsMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245991771BAB3E14008E8F60 /* ItemsMenuViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		2459917A1BAB3E43008E8F60 /* ItemsMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 245991791BAB3E43008E8F60 /* ItemsMenuViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		249121441BBC2C370078BA64 /* EngineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24B8135B1BA0A69000EAA152 /* EngineKit.framework */; };
+		249121451BBC2C370078BA64 /* EngineKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 24B8135B1BA0A69000EAA152 /* EngineKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2491214A1BBC2C620078BA64 /* support.js in Resources */ = {isa = PBXBuildFile; fileRef = 249121491BBC2C620078BA64 /* support.js */; settings = {ASSET_TAGS = (); }; };
+		2491214C1BBC2C730078BA64 /* editor.js in Resources */ = {isa = PBXBuildFile; fileRef = 2491214B1BBC2C730078BA64 /* editor.js */; settings = {ASSET_TAGS = (); }; };
+		24B1E3121BC6A099007831BB /* TriggerActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B1E3101BC6A099007831BB /* TriggerActionViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		24B1E3131BC6A099007831BB /* TriggerActionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24B1E3111BC6A099007831BB /* TriggerActionViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		24B813281BA0A67C00EAA152 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B813271BA0A67C00EAA152 /* AppDelegate.swift */; };
 		24B8132A1BA0A67C00EAA152 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B813291BA0A67C00EAA152 /* ViewController.swift */; };
 		24B8132D1BA0A67C00EAA152 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24B8132B1BA0A67C00EAA152 /* Main.storyboard */; };
@@ -22,7 +29,6 @@
 		24B813321BA0A67C00EAA152 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24B813301BA0A67C00EAA152 /* LaunchScreen.storyboard */; };
 		24B8133D1BA0A67C00EAA152 /* EngineKitCreatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B8133C1BA0A67C00EAA152 /* EngineKitCreatorTests.swift */; };
 		24B813481BA0A67C00EAA152 /* EngineKitCreatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B813471BA0A67C00EAA152 /* EngineKitCreatorUITests.swift */; };
-		24B8135E1BA0A6A900EAA152 /* EngineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24B8135B1BA0A69000EAA152 /* EngineKit.framework */; };
 		24B813611BA0A6D200EAA152 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B8135F1BA0A6D200EAA152 /* MenuView.swift */; };
 		24B813621BA0A6D200EAA152 /* ObjectsMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B813601BA0A6D200EAA152 /* ObjectsMenuController.swift */; };
 		24B813641BA0B73D00EAA152 /* ObjectsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B813631BA0B73D00EAA152 /* ObjectsCell.swift */; };
@@ -30,6 +36,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		249121461BBC2C370078BA64 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24B813551BA0A69000EAA152 /* EngineKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 24B810481BA073CA00EAA152;
+			remoteInfo = EngineKit;
+		};
 		24B813391BA0A67C00EAA152 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 24B8131C1BA0A67C00EAA152 /* Project object */;
@@ -60,15 +73,34 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		249121481BBC2C370078BA64 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				249121451BBC2C370078BA64 /* EngineKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		240C86D51BA31F35004F6794 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
 		240C86D61BA31F35004F6794 /* scene.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scene.fmt; sourceTree = "<group>"; };
 		240C86E51BA3771B004F6794 /* PropertiesMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertiesMenuViewController.swift; sourceTree = "<group>"; };
 		240C86E61BA3771B004F6794 /* PropertiesMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PropertiesMenuViewController.xib; sourceTree = "<group>"; };
+		2421FCDF1BCA9E7E00DF634B /* TemplateEditorSceneManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplateEditorSceneManager.swift; sourceTree = "<group>"; };
 		245991691BAAF27E008E8F60 /* EditorSceneManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorSceneManager.swift; sourceTree = "<group>"; };
 		2459916D1BAAF362008E8F60 /* PlayerSceneManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerSceneManager.swift; path = EngineKitCreator/PlayerSceneManager.swift; sourceTree = "<group>"; };
 		245991771BAB3E14008E8F60 /* ItemsMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsMenuViewController.swift; sourceTree = "<group>"; };
 		245991791BAB3E43008E8F60 /* ItemsMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemsMenuViewController.xib; sourceTree = "<group>"; };
+		249121491BBC2C620078BA64 /* support.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = support.js; sourceTree = "<group>"; };
+		2491214B1BBC2C730078BA64 /* editor.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = editor.js; sourceTree = "<group>"; };
+		24B1E3101BC6A099007831BB /* TriggerActionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerActionViewController.swift; sourceTree = "<group>"; };
+		24B1E3111BC6A099007831BB /* TriggerActionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TriggerActionViewController.xib; sourceTree = "<group>"; };
 		24B813241BA0A67C00EAA152 /* EngineKitCreator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EngineKitCreator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24B813271BA0A67C00EAA152 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24B813291BA0A67C00EAA152 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -94,7 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24B8135E1BA0A6A900EAA152 /* EngineKit.framework in Frameworks */,
+				249121441BBC2C370078BA64 /* EngineKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +172,7 @@
 		24B813261BA0A67C00EAA152 /* EngineKitCreator */ = {
 			isa = PBXGroup;
 			children = (
+				2421FCDF1BCA9E7E00DF634B /* TemplateEditorSceneManager.swift */,
 				24B813271BA0A67C00EAA152 /* AppDelegate.swift */,
 				24B813291BA0A67C00EAA152 /* ViewController.swift */,
 				24B8135F1BA0A6D200EAA152 /* MenuView.swift */,
@@ -150,12 +183,16 @@
 				240C86E61BA3771B004F6794 /* PropertiesMenuViewController.xib */,
 				245991771BAB3E14008E8F60 /* ItemsMenuViewController.swift */,
 				245991791BAB3E43008E8F60 /* ItemsMenuViewController.xib */,
+				24B1E3101BC6A099007831BB /* TriggerActionViewController.swift */,
+				24B1E3111BC6A099007831BB /* TriggerActionViewController.xib */,
 				24B8132B1BA0A67C00EAA152 /* Main.storyboard */,
 				245991691BAAF27E008E8F60 /* EditorSceneManager.swift */,
 				24B8132E1BA0A67C00EAA152 /* Assets.xcassets */,
 				24B813301BA0A67C00EAA152 /* LaunchScreen.storyboard */,
 				24B813331BA0A67C00EAA152 /* Info.plist */,
+				249121491BBC2C620078BA64 /* support.js */,
 				240C86D51BA31F35004F6794 /* main.js */,
+				2491214B1BBC2C730078BA64 /* editor.js */,
 				240C86D61BA31F35004F6794 /* scene.fmt */,
 			);
 			path = EngineKitCreator;
@@ -198,10 +235,12 @@
 				24B813201BA0A67C00EAA152 /* Sources */,
 				24B813211BA0A67C00EAA152 /* Frameworks */,
 				24B813221BA0A67C00EAA152 /* Resources */,
+				249121481BBC2C370078BA64 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				249121471BBC2C370078BA64 /* PBXTargetDependency */,
 			);
 			name = EngineKitCreator;
 			productName = EngineKitCreator;
@@ -320,11 +359,14 @@
 				24B813321BA0A67C00EAA152 /* LaunchScreen.storyboard in Resources */,
 				240C86E81BA3771B004F6794 /* PropertiesMenuViewController.xib in Resources */,
 				2459917A1BAB3E43008E8F60 /* ItemsMenuViewController.xib in Resources */,
+				24B1E3131BC6A099007831BB /* TriggerActionViewController.xib in Resources */,
 				24B8132F1BA0A67C00EAA152 /* Assets.xcassets in Resources */,
+				2491214A1BBC2C620078BA64 /* support.js in Resources */,
 				24B813661BA0B77200EAA152 /* ObjectsCell.xib in Resources */,
 				24B8132D1BA0A67C00EAA152 /* Main.storyboard in Resources */,
 				240C86D81BA31F35004F6794 /* scene.fmt in Resources */,
 				240C86D71BA31F35004F6794 /* main.js in Resources */,
+				2491214C1BBC2C730078BA64 /* editor.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,7 +394,9 @@
 				24B8132A1BA0A67C00EAA152 /* ViewController.swift in Sources */,
 				2459916E1BAAF362008E8F60 /* PlayerSceneManager.swift in Sources */,
 				24B813621BA0A6D200EAA152 /* ObjectsMenuController.swift in Sources */,
+				24B1E3121BC6A099007831BB /* TriggerActionViewController.swift in Sources */,
 				240C86E71BA3771B004F6794 /* PropertiesMenuViewController.swift in Sources */,
+				2421FCE01BCA9E7E00DF634B /* TemplateEditorSceneManager.swift in Sources */,
 				24B813641BA0B73D00EAA152 /* ObjectsCell.swift in Sources */,
 				245991781BAB3E14008E8F60 /* ItemsMenuViewController.swift in Sources */,
 				24B813611BA0A6D200EAA152 /* MenuView.swift in Sources */,
@@ -380,6 +424,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		249121471BBC2C370078BA64 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = EngineKit;
+			targetProxy = 249121461BBC2C370078BA64 /* PBXContainerItemProxy */;
+		};
 		24B8133A1BA0A67C00EAA152 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 24B813231BA0A67C00EAA152 /* EngineKitCreator */;

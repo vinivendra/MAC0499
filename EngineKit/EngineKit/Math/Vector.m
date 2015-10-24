@@ -255,7 +255,8 @@ unsigned long mutationsCounter;
     return [[[self class] alloc] initWithX:-self.x Y:-self.y Z:-self.z];
 }
 
-- (CGFloat)dot:(Vector *)vector {
+- (CGFloat)dot:(id)object {
+    Vector *vector = [[Vector alloc] initWithObject:object];
     return self.x * vector.x + self.y * vector.y + self.z * vector.z;
 }
 
@@ -295,10 +296,15 @@ unsigned long mutationsCounter;
 //------------------------------------------------------------------------------
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"(x = %lf, y = %lf, z = %lf)",
-                                      self.vector.x,
-                                      self.vector.y,
-                                      self.vector.z];
+    return [NSString stringWithFormat:@"%@ %@ %@",
+            [NSString stringFromFloat:self.vector.x],
+            [NSString stringFromFloat:self.vector.y],
+            [NSString stringFromFloat:self.vector.z]];
+
+//    return [NSString stringWithFormat:@"(x = %lf, y = %lf, z = %lf)",
+//                                      self.vector.x,
+//                                      self.vector.y,
+//                                      self.vector.z];
 }
 
 - (Vector *)setNewX:(CGFloat)x {

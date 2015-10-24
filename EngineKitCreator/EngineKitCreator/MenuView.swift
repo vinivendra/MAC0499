@@ -150,7 +150,7 @@ class MenuView: UIView {
                 finish = fromViewFinish
             }
 
-            self.frame = CGRectMake(start, self.frame.origin.y, finish - start, self.frame.size.width)
+            self.frame = CGRectMake(start, self.frame.origin.y, finish - start, self.frame.size.height)
         }
 
     }

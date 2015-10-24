@@ -5,27 +5,38 @@
 
 @implementation Plane
 
+- (NSArray <NSString *>*)numericProperties {
+    return @[@"width",
+             @"height"];
+}
+
 + (instancetype)plane {
     return [self new];
 }
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.plane = [SCNPlane new];
+        [self commonInit];
     }
     return self;
 }
 
 - (instancetype)initAndAddToScene {
     if (self = [super initAndAddToScene]) {
-        self.plane = [SCNPlane new];
+        [self commonInit];
     }
     return self;
+}
+
+- (void)commonInit {
+    self.plane = [SCNPlane new];
+    self.color = @"lightGray";
 }
 
 - (instancetype)initWithWidth:(CGFloat)width height:(CGFloat)height {
     if (self = [super initAndAddToScene]) {
         self.plane = [SCNPlane planeWithWidth:width height:height];
+        self.color = @"lightGray";
     }
     return self;
 }
@@ -44,6 +55,25 @@
     item.height = self.height;
 }
 
+- (NSMutableArray *)propertyStringsBasedOnTemplate:(Plane *)template {
+    NSMutableArray *statements = [NSMutableArray new];
+
+    if (![self.width isEqual:template.width]) {
+        [statements addObject:[NSString stringWithFormat:@"width is %@",
+                               self.width]];
+    }
+    if (![self.height isEqual:template.height]) {
+        [statements addObject:[NSString stringWithFormat:@"height is %@",
+                               self.height]];
+    }
+
+    NSMutableArray *superStatements;
+    superStatements = [super propertyStringsBasedOnTemplate:template];
+    statements = [[statements arrayByAddingObjectsFromArray:superStatements]
+                  mutableCopy];
+    return statements;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Property Overriding
 
@@ -57,7 +87,6 @@
 
 
 - (void)setWidth:(NSNumber *)width {
-    [self assertTheresNoPhysicsBody];
     self.plane.width = width.doubleValue;
 }
 
@@ -66,7 +95,6 @@
 }
 
 - (void)setHeight:(NSNumber *)height {
-    [self assertTheresNoPhysicsBody];
     self.plane.height = height.doubleValue;
 }
 

@@ -5,27 +5,38 @@
 
 @implementation Text
 
+- (NSArray <NSString *>*)numericProperties {
+    return @[@"depth",
+             @"string"];
+}
+
 + (instancetype)text {
     return [self new];
 }
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.text = [SCNText new];
+        [self commonInit];
     }
     return self;
 }
 
 - (instancetype)initAndAddToScene {
     if (self = [super initAndAddToScene]) {
-        self.text = [SCNText new];
+        [self commonInit];
     }
     return self;
+}
+
+- (void)commonInit {
+    self.text = [SCNText new];
+    self.color = @"lightGray";
 }
 
 - (instancetype)initWithString:(id)string depth:(CGFloat)depth {
     if (self = [super initAndAddToScene]) {
         self.text = [SCNText textWithString:string extrusionDepth:depth];
+        self.color = @"lightGray";
     }
     return self;
 }
@@ -44,6 +55,25 @@
     item.string = self.string;
 }
 
+- (NSMutableArray *)propertyStringsBasedOnTemplate:(Text *)template {
+    NSMutableArray *statements = [NSMutableArray new];
+
+    if (![self.depth isEqual:template.depth]) {
+        [statements addObject:[NSString stringWithFormat:@"depth is %@",
+                               self.depth]];
+    }
+    if (![self.string isEqualToString:template.string]) {
+        [statements addObject:[NSString stringWithFormat:@"string is %@",
+                               self.string]];
+    }
+
+    NSMutableArray *superStatements;
+    superStatements = [super propertyStringsBasedOnTemplate:template];
+    statements = [[statements arrayByAddingObjectsFromArray:superStatements]
+                  mutableCopy];
+    return statements;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Property Overriding
 
@@ -57,7 +87,6 @@
 
 
 - (void)setString:(id)string {
-    [self assertTheresNoPhysicsBody];
     self.text.string = string;
 }
 
@@ -66,7 +95,6 @@
 }
 
 - (void)setDepth:(NSNumber *)depth {
-    [self assertTheresNoPhysicsBody];
     self.text.extrusionDepth = depth.doubleValue;
 }
 

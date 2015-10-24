@@ -16,11 +16,11 @@
                   ^{
                       colorNames = @{
                                      @"black" : [UIColor blackColor],
-                                     @"dark gray" : [UIColor darkGrayColor],
-                                     @"darkGray" : [UIColor darkGrayColor],
+                                     @"darkgrey" : [UIColor darkGrayColor],
+                                     @"darkgray" : [UIColor darkGrayColor],
                                      @"gray" : [UIColor grayColor],
-                                     @"light gray" : [UIColor lightGrayColor],
-                                     @"lightGray" : [UIColor lightGrayColor],
+                                     @"lightgrey" : [UIColor lightGrayColor],
+                                     @"lightgray" : [UIColor lightGrayColor],
                                      @"white" : [UIColor whiteColor],
                                      @"red" : [UIColor redColor],
                                      @"green" : [UIColor greenColor],
@@ -61,6 +61,7 @@
 
 + (UIColor *)colorWithName:(NSString *)name {
     name = name.camelCase;
+    name = name.lowercaseString;
     return self.colorNames[name];
 }
 

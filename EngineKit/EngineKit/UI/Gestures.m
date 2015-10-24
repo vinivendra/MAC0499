@@ -23,7 +23,8 @@
 
 @property (nonatomic, strong) NSArray *classes;
 @property (nonatomic, strong) NSArray *selectors;
-@property (nonatomic, strong) NSMutableDictionary *options;
+
+@property (nonatomic, strong) NSMutableArray *gesturesRecognizers;
 @end
 
 
@@ -31,29 +32,194 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.options =
-            [[NSMutableDictionary alloc] initWithCapacity:GestureRecognizersCount];
+
     }
     return self;
+}
+
+#pragma mark - Defaults
+
++ (UIGestureRecognizerState)defaultStateForGesture:(UIGestures)gesture {
+    if (gesture == TapGesture || gesture == SwipeGesture) {
+        return UIGestureRecognizerStateRecognized;
+    }
+    else {
+        return UIGestureRecognizerStateChanged;
+    }
+}
+
++ (NSDictionary *)possibleStatesForGesture:(UIGestures)gesture {
+    if (gesture == TapGesture || gesture == SwipeGesture) {
+        return @{@"recognized": @YES};
+    }
+    else {
+        return @{@"began": @YES,
+                 @"changed": @YES,
+                 @"ended": @YES};
+    }
+}
+
++ (NSArray *)possibleTouchesForGesture:(UIGestures)gesture {
+    if (gesture == PinchGesture || gesture == RotateGesture) {
+        return @[@NO, @2, @NO, @NO, @NO];
+    }
+    else {
+        return @[@1, @2, @3, @4, @5];
+    }
+}
+
++ (NSInteger)defaultNumberOfTouchesForGesture:(UIGestures)gesture {
+    if (gesture == PinchGesture || gesture == RotateGesture) {
+        return 2;
+    }
+    else {
+        return 1;
+    }
+}
+
+
++ (UIGestures)gestureForString:(NSString *)string {
+    static NSDictionary *gestureEnumConversion;
+
+    if (!gestureEnumConversion) {
+        gestureEnumConversion = @{@"swipe": @(SwipeGesture),
+                                  @"tap": @(TapGesture),
+                                  @"pan": @(PanGesture),
+                                  @"pinch": @(PinchGesture),
+                                  @"rotate": @(RotateGesture),
+                                  @"longpress": @(LongPressGesture)};
+    }
+
+    NSNumber *gestureNumber = gestureEnumConversion[string];
+    UIGestures gestureEnum = gestureNumber.unsignedIntegerValue;
+
+    return gestureEnum;
+}
+
++ (NSString *)stringForGesture:(UIGestures)gesture {
+    static NSDictionary *gestureStringConversion;
+
+    if (!gestureStringConversion) {
+        gestureStringConversion = @{@(SwipeGesture): @"swipe",
+                                    @(TapGesture): @"tap",
+                                    @(PanGesture): @"pan",
+                                    @(PinchGesture): @"pinch",
+                                    @(RotateGesture): @"rotate",
+                                    @(LongPressGesture): @"longpress"};
+    }
+
+    return gestureStringConversion[@(gesture)];
+}
+
++ (UIGestureRecognizerState)stateForString:(NSString *)string
+                                   gesture:(UIGestures)gesture {
+    static NSDictionary *stateEnumConversion;
+
+    if (!stateEnumConversion) {
+        stateEnumConversion = @{@"began": @(UIGestureRecognizerStateBegan),
+                                @"ended": @(UIGestureRecognizerStateEnded),
+                                @"recognized": @(UIGestureRecognizerStateRecognized),
+                                @"changed": @(UIGestureRecognizerStateChanged)};
+    }
+
+    NSNumber *stateNumber = stateEnumConversion[string];
+
+    UIGestureRecognizerState stateEnum;
+
+    if (stateNumber) {
+        stateEnum = stateNumber.unsignedIntegerValue;
+    }
+    else {
+        stateEnum = [Gestures defaultStateForGesture:gesture];
+    }
+
+    return stateEnum;
+}
+
++ (NSString *)stringForState:(UIGestureRecognizerState)state
+                            gesture:(UIGestures)gesture {
+
+    static NSDictionary *stateStringConversion;
+    if (!stateStringConversion) {
+        stateStringConversion = @{@(UIGestureRecognizerStateBegan): @"began",
+                                  @(UIGestureRecognizerStateEnded): @"ended",
+                                  @(UIGestureRecognizerStateRecognized): @"recognized",
+                                  @(UIGestureRecognizerStateChanged): @"changed"};
+    }
+
+    return stateStringConversion[@(state)];
+}
+
++ (NSInteger)numberOfTouchesForNumber:(NSNumber *)object
+                              gesture:(UIGestures)gesture {
+
+    if (!object) {
+        return [Gestures defaultNumberOfTouchesForGesture:gesture];
+    }
+    else {
+        NSArray *possibleTouches = [Gestures possibleTouchesForGesture:gesture];
+        NSNumber *touchIsPossible = possibleTouches[object.integerValue];
+        if (touchIsPossible.boolValue) {
+            return object.integerValue;
+        }
+        else {
+            return [Gestures defaultNumberOfTouchesForGesture:gesture];
+        }
+    }
+}
+
+
++ (NSString *)stringForTouches:(NSInteger)touches
+                       gesture:(UIGestures)gesture {
+
+    if (gesture == PinchGesture || gesture == RotateGesture) {
+        return nil;
+    }
+    else if (touches == 1) {
+        return nil;
+    }
+    else {
+        return [NSString stringWithFormat:@"%d", touches];
+    }
+    
+    return nil;
 }
 
 #pragma mark - Setup
 
 - (void)setupGestures {
+    self.gesturesRecognizers = [NSMutableArray new];
+
     for (int i = 0; i < GestureRecognizersCount; i++) {
-        if (((NSNumber *)self.options[@(i)]).boolValue) {
-            Class class = self.classes[i];
-            SEL handler = NSSelectorFromString(self.selectors[i]);
+        Class class = self.classes[i];
+        SEL handler = NSSelectorFromString(self.selectors[i]);
 
-            UIGestureRecognizer *gesture = [class new];
-            [gesture addTarget:self action:handler];
+        UIGestureRecognizer *gesture = [class new];
+        [gesture addTarget:self action:handler];
+        [self.gesturesRecognizers addObject:gesture];
 
-            if (i <= SwipeUpRecognizer)
-                ((UISwipeGestureRecognizer *)gesture).direction = 1 << i;
+        if (i <= SwipeUpRecognizer)
+        ((UISwipeGestureRecognizer *)gesture).direction = 1 << i;
 
-            [self.gesturesView addGestureRecognizer:gesture];
-        }
+        [self.gesturesView addGestureRecognizer:gesture];
     }
+}
+
+- (void)pauseGestures {
+    for (int i = 0; i < GestureRecognizersCount; i++) {
+        SEL handler = NSSelectorFromString(self.selectors[i]);
+
+        UIGestureRecognizer *gesture = self.gesturesRecognizers[i];
+        [gesture removeTarget:self action:handler];
+
+        [self.gesturesView removeGestureRecognizer:gesture];
+    }
+
+    self.gesturesRecognizers = nil;
+}
+
+- (void)resumeGestures {
+    [self setupGestures];
 }
 
 #pragma mark - Handlers
@@ -65,28 +231,42 @@
         NSArray *hits = [self.sceneView hitTest:location options:nil];
         NSArray *items = [hits valueForKeyPath:@"node.item"];
         [self.delegate
-            callGestureCallbackForGesture:TapGesture
-                                    state:UIGestureRecognizerStateRecognized
-                            withArguments:
-                                @[ items, @(sender.numberOfTouches), hits ]];
+         callGestureCallbackForGesture:TapGesture
+         state:UIGestureRecognizerStateRecognized
+         touches:sender.numberOfTouches
+         withArguments:
+         @[ items, hits ]];
     }
 }
 
 - (void)handleSwipe:(UISwipeGestureRecognizer *)sender {
+
+    static NSDictionary *directions;
+
+    if (!directions) {
+        directions = @{@(UISwipeGestureRecognizerDirectionDown):
+                           [[Vector alloc] initWithCGPoint:CGPointMake(0, 1)],
+                       @(UISwipeGestureRecognizerDirectionLeft):
+                           [[Vector alloc] initWithCGPoint:CGPointMake(-1, 0)],
+                       @(UISwipeGestureRecognizerDirectionRight):
+                           [[Vector alloc] initWithCGPoint:CGPointMake(1, 0)],
+                       @(UISwipeGestureRecognizerDirectionUp):
+                           [[Vector alloc] initWithCGPoint:CGPointMake(0, -1)]};
+    }
 
     if (sender.state == UIGestureRecognizerStateRecognized) {
         CGPoint location = [sender locationInView:self.sceneView];
         NSArray *hits = [self.sceneView hitTest:location options:nil];
         NSArray *items = [hits valueForKeyPath:@"node.item"];
         [self.delegate
-            callGestureCallbackForGesture:SwipeGesture
-                                    state:UIGestureRecognizerStateRecognized
-                            withArguments:@[
-                                @(sender.direction),
-                                items,
-                                @(sender.numberOfTouches),
-                                hits
-                            ]];
+         callGestureCallbackForGesture:SwipeGesture
+         state:UIGestureRecognizerStateRecognized
+         touches:sender.numberOfTouches
+         withArguments:@[
+                         items,
+                         directions[@(sender.direction)],
+                         hits
+                         ]];
     }
 }
 
@@ -107,7 +287,7 @@
     if (sender.state == UIGestureRecognizerStateChanged) {
         CGPoint absoluteTranslation = [sender translationInView:self.sceneView];
         Vector *currentPoint =
-            [[Vector alloc] initWithCGPoint:absoluteTranslation];
+        [[Vector alloc] initWithCGPoint:absoluteTranslation];
         translation = [currentPoint minus:self.lastPanPoint];
         self.lastPanPoint = currentPoint;
     }
@@ -119,14 +299,14 @@
     }
 
     [self.delegate
-        callGestureCallbackForGesture:PanGesture
-                                state:UIGestureRecognizerStateChanged
-                        withArguments:@[
-                            translation,
-                            self.selectedItems,
-                            @(sender.numberOfTouches),
-                            self.selectedHits
-                        ]];
+     callGestureCallbackForGesture:PanGesture
+     state:UIGestureRecognizerStateChanged
+     touches:sender.numberOfTouches
+     withArguments:@[
+                     self.selectedItems,
+                     translation,
+                     self.selectedHits
+                     ]];
 }
 
 - (void)handlePinch:(UIPinchGestureRecognizer *)sender {
@@ -151,14 +331,14 @@
     }
 
     [self.delegate
-        callGestureCallbackForGesture:PinchGesture
-                                state:UIGestureRecognizerStateChanged
-                        withArguments:@[
-                            @(scale),
-                            self.selectedItems,
-                            @(sender.numberOfTouches),
-                            self.selectedHits
-                        ]];
+     callGestureCallbackForGesture:PinchGesture
+     state:UIGestureRecognizerStateChanged
+     touches:sender.numberOfTouches
+     withArguments:@[
+                     self.selectedItems,
+                     @(scale),
+                     self.selectedHits
+                     ]];
 }
 
 - (void)handleRotation:(UIRotationGestureRecognizer *)sender {
@@ -183,14 +363,14 @@
     }
 
     [self.delegate
-        callGestureCallbackForGesture:RotateGesture
-                                state:UIGestureRecognizerStateChanged
-                        withArguments:@[
-                            @(angle),
-                            self.selectedItems,
-                            @(sender.numberOfTouches),
-                            self.selectedHits
-                        ]];
+     callGestureCallbackForGesture:RotateGesture
+     state:UIGestureRecognizerStateChanged
+     touches:sender.numberOfTouches
+     withArguments:@[
+                     self.selectedItems,
+                     @(angle),
+                     self.selectedHits
+                     ]];
 }
 
 - (void)handleLongPress:(UILongPressGestureRecognizer *)sender {
@@ -200,7 +380,7 @@
     if (sender.state == UIGestureRecognizerStateBegan) {
         CGPoint startingLocation = [sender locationInView:self.sceneView];
         self.lastLongPressPoint =
-            [[Vector alloc] initWithCGPoint:startingLocation];
+        [[Vector alloc] initWithCGPoint:startingLocation];
 
         CGPoint location = [sender locationInView:self.sceneView];
         self.selectedHits = [self.sceneView hitTest:location options:nil];
@@ -222,14 +402,14 @@
     }
 
     [self.delegate
-        callGestureCallbackForGesture:LongPressGesture
-                                state:UIGestureRecognizerStateChanged
-                        withArguments:@[
-                            translation,
-                            self.selectedItems,
-                            @(sender.numberOfTouches),
-                            self.selectedHits
-                        ]];
+     callGestureCallbackForGesture:LongPressGesture
+     state:UIGestureRecognizerStateChanged
+     touches:sender.numberOfTouches
+     withArguments:@[
+                     self.selectedItems,
+                     translation,
+                     self.selectedHits
+                     ]];
 }
 
 
@@ -242,16 +422,16 @@
     dispatch_once(&onceToken,
                   ^{
                       singleton = @[
-                          [UISwipeGestureRecognizer class],
-                          [UISwipeGestureRecognizer class],
-                          [UISwipeGestureRecognizer class],
-                          [UISwipeGestureRecognizer class],
-                          [UITapGestureRecognizer class],
-                          [UIPanGestureRecognizer class],
-                          [UIPinchGestureRecognizer class],
-                          [UIRotationGestureRecognizer class],
-                          [UILongPressGestureRecognizer class]
-                      ];
+                                    [UISwipeGestureRecognizer class],
+                                    [UISwipeGestureRecognizer class],
+                                    [UISwipeGestureRecognizer class],
+                                    [UISwipeGestureRecognizer class],
+                                    [UITapGestureRecognizer class],
+                                    [UIPanGestureRecognizer class],
+                                    [UIPinchGestureRecognizer class],
+                                    [UIRotationGestureRecognizer class],
+                                    [UILongPressGestureRecognizer class]
+                                    ];
                   });
 
     return singleton;
@@ -264,20 +444,19 @@
     dispatch_once(&onceToken,
                   ^{
                       singleton = @[
-                          @"handleSwipe:",
-                          @"handleSwipe:",
-                          @"handleSwipe:",
-                          @"handleSwipe:",
-                          @"handleTap:",
-                          @"handlePan:",
-                          @"handlePinch:",
-                          @"handleRotation:",
-                          @"handleLongPress:"
-                      ];
+                                    @"handleSwipe:",
+                                    @"handleSwipe:",
+                                    @"handleSwipe:",
+                                    @"handleSwipe:",
+                                    @"handleTap:",
+                                    @"handlePan:",
+                                    @"handlePinch:",
+                                    @"handleRotation:",
+                                    @"handleLongPress:"
+                                    ];
                   });
 
     return singleton;
 }
-
 
 @end

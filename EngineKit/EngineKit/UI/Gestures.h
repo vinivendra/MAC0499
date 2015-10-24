@@ -4,38 +4,7 @@
 #import <UIKit/UIKit.h>
 #import <SceneKit/SceneKit.h>
 
-
-typedef NS_ENUM(NSUInteger, UIGestures) {
-    SwipeGesture,
-    TapGesture,
-    PanGesture,
-    PinchGesture,
-    RotateGesture,
-    LongPressGesture,
-
-    UIGesturesCount
-};
-
-typedef NS_ENUM(NSUInteger, GestureRecognizers) {
-    SwipeDownRecognizer = 0,
-    SwipeLeftRecognizer,
-    SwipeRightRecognizer,
-    SwipeUpRecognizer,
-    TapRecognizer,
-    PanRecognizer,
-    PinchRecognizer,
-    RotateRecognizer,
-    LongPressRecognizer,
-
-    GestureRecognizersCount
-};
-
-
-@protocol GestureDelegate <NSObject>
-- (void)callGestureCallbackForGesture:(UIGestures)gesture
-                                state:(UIGestureRecognizerState)state
-                        withArguments:(NSArray *)arguments;
-@end
+#import "Common.h"
 
 
 @interface Gestures : NSObject
@@ -49,6 +18,7 @@ typedef NS_ENUM(NSUInteger, GestureRecognizers) {
  The scene view used to test hits on taps and other similar gestures.
  */
 @property (nonatomic, weak) SCNView *sceneView;
+// TODO: Fix this doc
 /*!
  Tells the Gestures object to add the gesture recognizers the user opted to
  have, which automatically starts sending messages to the Javascript tap
@@ -59,15 +29,29 @@ typedef NS_ENUM(NSUInteger, GestureRecognizers) {
  GestureRecognizers enum.
  */
 - (void)setupGestures;
-// TODO: Fix this doc
-/*!
- The array used to inform the Gestures object which gesture recognizers should
- be initialized and added to the @p gesturesView. This is done based on the @p
- GestureRecognizers enum, which indicates the correct indices. All objects in
- this array have value @(NO); in order to opt into a specific gesture
- recognizer, change its index's value to @(YES).
- */
-@property (nonatomic, strong, readonly) NSMutableDictionary *options;
 // TODO: Add this doc
-@property (nonatomic, weak) id<GestureDelegate> delegate;
+@property (nonatomic, weak) id<CallbackDelegate> delegate;
+- (void)pauseGestures;
+- (void)resumeGestures;
+
++ (NSDictionary <NSString *, NSNumber *> *)possibleStatesForGesture:(UIGestures)gesture;
++ (UIGestureRecognizerState)defaultStateForGesture:(UIGestures)gesture;
+
++ (NSArray <NSNumber *> *)possibleTouchesForGesture:(UIGestures)gesture;
++ (NSInteger)defaultNumberOfTouchesForGesture:(UIGestures)gesture;
+
+
++ (UIGestures)gestureForString:(NSString *)string;
++ (NSString *)stringForGesture:(UIGestures)gesture;
+
++ (UIGestureRecognizerState)stateForString:(NSString *)string
+                                   gesture:(UIGestures)gesture;
++ (NSString *)stringForState:(UIGestureRecognizerState)state
+                     gesture:(UIGestures)gesture;
+
++ (NSInteger)numberOfTouchesForNumber:(NSNumber *)object
+                              gesture:(UIGestures)gesture;
++ (NSString *)stringForTouches:(NSInteger)touches
+                       gesture:(UIGestures)gesture;
+
 @end

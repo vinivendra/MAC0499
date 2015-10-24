@@ -12,6 +12,7 @@
 @protocol PhysicsExport <JSExport>
 @property (nonatomic, weak) id addContact;
 @property (nonatomic, strong) id gravity;
+@property (nonatomic, weak) NSNumber *speed;
 @end
 
 
@@ -42,4 +43,6 @@
  register a Contact object, which is used to handle contacts in JavaScript code.
  */
 @property (nonatomic, weak) id addContact;
+//TODO: doc
+@property (nonatomic, weak) NSNumber *speed;
 @end

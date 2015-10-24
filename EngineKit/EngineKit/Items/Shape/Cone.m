@@ -5,24 +5,35 @@
 
 @implementation Cone
 
+- (NSArray <NSString *>*)numericProperties {
+    return @[@"radius",
+             @"topRadius",
+             @"bottomRadius",
+             @"height"];
+}
+
 + (instancetype)cone {
     return [self new];
 }
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.cone = [SCNCone new];
+        [self commonInit];
     }
     return self;
 }
 
 - (instancetype)initAndAddToScene {
     if (self = [super initAndAddToScene]) {
-        self.cone = [SCNCone new];
+        [self commonInit];
     }
     return self;
 }
 
+- (void)commonInit {
+    self.cone = [SCNCone new];
+    self.color = @"lightGray";
+}
 
 - (instancetype)initWithTopRadius:(CGFloat)topRadius
                      bottomRadius:(CGFloat)bottomRadius
@@ -31,6 +42,7 @@
         self.cone = [SCNCone coneWithTopRadius:topRadius
                                   bottomRadius:bottomRadius
                                         height:height];
+        self.color = @"lightGray";
     }
     return self;
 }
@@ -50,6 +62,29 @@
     item.height = self.height;
 }
 
+- (NSMutableArray *)propertyStringsBasedOnTemplate:(Cone *)template {
+    NSMutableArray *statements = [NSMutableArray new];
+
+    if (![self.radius isEqual:template.radius]) {
+        [statements addObject:[NSString stringWithFormat:@"radius is %@",
+                               self.radius]];
+    }
+    if (![self.topRadius isEqual:template.topRadius]) {
+        [statements addObject:[NSString stringWithFormat:@"topRadius is %@",
+                               self.topRadius]];
+    }
+    if (![self.height isEqual:template.height]) {
+        [statements addObject:[NSString stringWithFormat:@"height is %@",
+                               self.height]];
+    }
+
+    NSMutableArray *superStatements;
+    superStatements = [super propertyStringsBasedOnTemplate:template];
+    statements = [[statements arrayByAddingObjectsFromArray:superStatements]
+                  mutableCopy];
+    return statements;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Property Overriding
 
@@ -63,7 +98,6 @@
 
 
 - (void)setRadius:(NSNumber *)radius {
-    [self assertTheresNoPhysicsBody];
     self.cone.bottomRadius = radius.doubleValue;
 }
 
@@ -72,7 +106,6 @@
 }
 
 - (void)setBottomRadius:(NSNumber *)radius {
-    [self assertTheresNoPhysicsBody];
     self.radius = radius;
 }
 
@@ -81,7 +114,6 @@
 }
 
 - (void)setTopRadius:(NSNumber *)radius {
-    [self assertTheresNoPhysicsBody];
     self.cone.topRadius = radius.doubleValue;
 }
 
@@ -90,7 +122,6 @@
 }
 
 - (void)setHeight:(NSNumber *)height {
-    [self assertTheresNoPhysicsBody];
     self.cone.height = height.doubleValue;
 }
 

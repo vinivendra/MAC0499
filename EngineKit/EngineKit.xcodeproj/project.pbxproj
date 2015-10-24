@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		242D204D1BC75D3600651F3D /* PlaceholderAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 242D204B1BC75D3600651F3D /* PlaceholderAction.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		242D204E1BC75D3600651F3D /* PlaceholderAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 242D204C1BC75D3600651F3D /* PlaceholderAction.m */; settings = {ASSET_TAGS = (); }; };
 		245991711BAB009B008E8F60 /* Light.h in Headers */ = {isa = PBXBuildFile; fileRef = 2459916F1BAB009B008E8F60 /* Light.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		245991721BAB009B008E8F60 /* Light.m in Sources */ = {isa = PBXBuildFile; fileRef = 245991701BAB009B008E8F60 /* Light.m */; settings = {ASSET_TAGS = (); }; };
+		24713FFD1BB2D61200270024 /* JSValue+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 24713FFB1BB2D61200270024 /* JSValue+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24713FFE1BB2D61200270024 /* JSValue+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 24713FFC1BB2D61200270024 /* JSValue+Extension.m */; settings = {ASSET_TAGS = (); }; };
 		249A03351BA9FC9C006EF4B0 /* SceneManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 249A03331BA9FC9C006EF4B0 /* SceneManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		249A03361BA9FC9C006EF4B0 /* SceneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 249A03341BA9FC9C006EF4B0 /* SceneManager.m */; settings = {ASSET_TAGS = (); }; };
 		249A03371BA9FC9C006EF4B0 /* SceneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 249A03341BA9FC9C006EF4B0 /* SceneManager.m */; settings = {ASSET_TAGS = (); }; };
@@ -121,6 +125,18 @@
 		24B812CE1BA09C4C00EAA152 /* EngineKitItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 24B812CD1BA09C4C00EAA152 /* EngineKitItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24B812D01BA09CD800EAA152 /* EngineKitNSExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 24B812CF1BA09CD800EAA152 /* EngineKitNSExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24B812D21BA09D6000EAA152 /* EngineKitHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 24B812D11BA09D6000EAA152 /* EngineKitHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24D494631BB8931E00C15BD2 /* MethodAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 24D494611BB8931E00C15BD2 /* MethodAction.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24D494641BB8931E00C15BD2 /* MethodAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D494621BB8931E00C15BD2 /* MethodAction.m */; settings = {ASSET_TAGS = (); }; };
+		24D494671BB8938200C15BD2 /* ActionCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 24D494651BB8938200C15BD2 /* ActionCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24D494681BB8938200C15BD2 /* ActionCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D494661BB8938200C15BD2 /* ActionCollection.m */; settings = {ASSET_TAGS = (); }; };
+		24D4946B1BB8949F00C15BD2 /* FunctionAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 24D494691BB8949F00C15BD2 /* FunctionAction.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24D4946C1BB8949F00C15BD2 /* FunctionAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D4946A1BB8949F00C15BD2 /* FunctionAction.m */; settings = {ASSET_TAGS = (); }; };
+		24D4946E1BB898AB00C15BD2 /* EngineKitTriggerActions.h in Headers */ = {isa = PBXBuildFile; fileRef = 24D4946D1BB8989600C15BD2 /* EngineKitTriggerActions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24DC4B701BB074CC00935A35 /* TriggerActionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DC4B6E1BB074CC00935A35 /* TriggerActionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24DC4B711BB074CC00935A35 /* TriggerActionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DC4B6F1BB074CC00935A35 /* TriggerActionManager.m */; settings = {ASSET_TAGS = (); }; };
+		24DC4B731BB08C0B00935A35 /* Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DC4B721BB08BCD00935A35 /* Common.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24F15B151BCA7F660063B7E2 /* PlaceholderTriggerActionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F15B131BCA7F660063B7E2 /* PlaceholderTriggerActionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24F15B161BCA7F660063B7E2 /* PlaceholderTriggerActionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F15B141BCA7F660063B7E2 /* PlaceholderTriggerActionManager.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,8 +150,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		242D204B1BC75D3600651F3D /* PlaceholderAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceholderAction.h; sourceTree = "<group>"; };
+		242D204C1BC75D3600651F3D /* PlaceholderAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceholderAction.m; sourceTree = "<group>"; };
 		2459916F1BAB009B008E8F60 /* Light.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Light.h; sourceTree = "<group>"; };
 		245991701BAB009B008E8F60 /* Light.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Light.m; sourceTree = "<group>"; };
+		24713FFB1BB2D61200270024 /* JSValue+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSValue+Extension.h"; sourceTree = "<group>"; };
+		24713FFC1BB2D61200270024 /* JSValue+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSValue+Extension.m"; sourceTree = "<group>"; };
 		249A03331BA9FC9C006EF4B0 /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneManager.h; sourceTree = "<group>"; };
 		249A03341BA9FC9C006EF4B0 /* SceneManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneManager.m; sourceTree = "<group>"; };
 		24B810491BA073CA00EAA152 /* EngineKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EngineKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -250,6 +270,18 @@
 		24B812CD1BA09C4C00EAA152 /* EngineKitItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EngineKitItem.h; sourceTree = "<group>"; };
 		24B812CF1BA09CD800EAA152 /* EngineKitNSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EngineKitNSExtensions.h; sourceTree = "<group>"; };
 		24B812D11BA09D6000EAA152 /* EngineKitHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EngineKitHelpers.h; sourceTree = "<group>"; };
+		24D494611BB8931E00C15BD2 /* MethodAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MethodAction.h; sourceTree = "<group>"; };
+		24D494621BB8931E00C15BD2 /* MethodAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MethodAction.m; sourceTree = "<group>"; };
+		24D494651BB8938200C15BD2 /* ActionCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionCollection.h; sourceTree = "<group>"; };
+		24D494661BB8938200C15BD2 /* ActionCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionCollection.m; sourceTree = "<group>"; };
+		24D494691BB8949F00C15BD2 /* FunctionAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunctionAction.h; sourceTree = "<group>"; };
+		24D4946A1BB8949F00C15BD2 /* FunctionAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunctionAction.m; sourceTree = "<group>"; };
+		24D4946D1BB8989600C15BD2 /* EngineKitTriggerActions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EngineKitTriggerActions.h; sourceTree = "<group>"; };
+		24DC4B6E1BB074CC00935A35 /* TriggerActionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriggerActionManager.h; sourceTree = "<group>"; };
+		24DC4B6F1BB074CC00935A35 /* TriggerActionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriggerActionManager.m; sourceTree = "<group>"; };
+		24DC4B721BB08BCD00935A35 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		24F15B131BCA7F660063B7E2 /* PlaceholderTriggerActionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceholderTriggerActionManager.h; sourceTree = "<group>"; };
+		24F15B141BCA7F660063B7E2 /* PlaceholderTriggerActionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceholderTriggerActionManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +307,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		24713FF81BB2D52700270024 /* Triggers and Actions */ = {
+			isa = PBXGroup;
+			children = (
+				24F15B131BCA7F660063B7E2 /* PlaceholderTriggerActionManager.h */,
+				24F15B141BCA7F660063B7E2 /* PlaceholderTriggerActionManager.m */,
+				242D204B1BC75D3600651F3D /* PlaceholderAction.h */,
+				242D204C1BC75D3600651F3D /* PlaceholderAction.m */,
+				24D494691BB8949F00C15BD2 /* FunctionAction.h */,
+				24D4946A1BB8949F00C15BD2 /* FunctionAction.m */,
+				24DC4B6E1BB074CC00935A35 /* TriggerActionManager.h */,
+				24DC4B6F1BB074CC00935A35 /* TriggerActionManager.m */,
+				24D494611BB8931E00C15BD2 /* MethodAction.h */,
+				24D494621BB8931E00C15BD2 /* MethodAction.m */,
+				24D494651BB8938200C15BD2 /* ActionCollection.h */,
+				24D494661BB8938200C15BD2 /* ActionCollection.m */,
+			);
+			name = "Triggers and Actions";
+			sourceTree = "<group>";
+		};
 		24B8103F1BA073CA00EAA152 = {
 			isa = PBXGroup;
 			children = (
@@ -297,10 +348,12 @@
 		24B8104B1BA073CA00EAA152 /* EngineKit */ = {
 			isa = PBXGroup;
 			children = (
+				24DC4B721BB08BCD00935A35 /* Common.h */,
 				24B811971BA0789800EAA152 /* EngineKit.h */,
 				249A03331BA9FC9C006EF4B0 /* SceneManager.h */,
 				249A03341BA9FC9C006EF4B0 /* SceneManager.m */,
 				24B811C21BA079D700EAA152 /* Includes */,
+				24713FF81BB2D52700270024 /* Triggers and Actions */,
 				24B811D21BA079D700EAA152 /* ObjectiveSugar */,
 				24B811A71BA079D700EAA152 /* Extensions */,
 				24B8125D1BA07BA300EAA152 /* Helpers */,
@@ -339,6 +392,8 @@
 			children = (
 				24B811A81BA079D700EAA152 /* JSContext+Extension.h */,
 				24B811A91BA079D700EAA152 /* JSContext+Extension.m */,
+				24713FFB1BB2D61200270024 /* JSValue+Extension.h */,
+				24713FFC1BB2D61200270024 /* JSValue+Extension.m */,
 				24B811AA1BA079D700EAA152 /* NSArray+Extension.h */,
 				24B811AB1BA079D700EAA152 /* NSArray+Extension.m */,
 				24B811AC1BA079D700EAA152 /* NSDictionary+Extension.h */,
@@ -370,6 +425,7 @@
 		24B811C21BA079D700EAA152 /* Includes */ = {
 			isa = PBXGroup;
 			children = (
+				24D4946D1BB8989600C15BD2 /* EngineKitTriggerActions.h */,
 				24B811C31BA079D700EAA152 /* EngineKitExtensions.h */,
 				24B812D11BA09D6000EAA152 /* EngineKitHelpers.h */,
 				24B8127C1BA07DC400EAA152 /* EngineKitInterpretation.h */,
@@ -534,10 +590,12 @@
 				24B8124A1BA07B5300EAA152 /* Sphere.h in Headers */,
 				24B8120D1BA079D700EAA152 /* NSNumber+ObjectiveSugar.h in Headers */,
 				24B8123C1BA07B5300EAA152 /* Box.h in Headers */,
+				242D204D1BC75D3600651F3D /* PlaceholderAction.h in Headers */,
 				24B8125B1BA07B8500EAA152 /* UI.h in Headers */,
 				24B812171BA07B1C00EAA152 /* EngineKitJSExtensions.h in Headers */,
 				24B811F81BA079D700EAA152 /* UIColor+Extension.h in Headers */,
 				24B812371BA07B5300EAA152 /* Camera.h in Headers */,
+				24D4946B1BB8949F00C15BD2 /* FunctionAction.h in Headers */,
 				249A03351BA9FC9C006EF4B0 /* SceneManager.h in Headers */,
 				24B8124C1BA07B5300EAA152 /* Text.h in Headers */,
 				24B812691BA07BB100EAA152 /* Parser.h in Headers */,
@@ -559,17 +617,24 @@
 				24B812701BA07BC400EAA152 /* Contact.h in Headers */,
 				24B812011BA079D700EAA152 /* Position.h in Headers */,
 				24B811FA1BA079D700EAA152 /* EngineKitExtensions.h in Headers */,
+				24D494631BB8931E00C15BD2 /* MethodAction.h in Headers */,
+				24DC4B701BB074CC00935A35 /* TriggerActionManager.h in Headers */,
 				24B811E41BA079D700EAA152 /* NSDictionary+Extension.h in Headers */,
 				24B811E61BA079D700EAA152 /* NSNumber+Extension.h in Headers */,
 				24B811F41BA079D700EAA152 /* SCNScene+Extension.h in Headers */,
 				24B812391BA07B5300EAA152 /* Item.h in Headers */,
+				24F15B151BCA7F660063B7E2 /* PlaceholderTriggerActionManager.h in Headers */,
+				24713FFD1BB2D61200270024 /* JSValue+Extension.h in Headers */,
+				24D494671BB8938200C15BD2 /* ActionCollection.h in Headers */,
 				24B811FD1BA079D700EAA152 /* Angle.h in Headers */,
+				24DC4B731BB08C0B00935A35 /* Common.h in Headers */,
 				24B8120F1BA079D700EAA152 /* NSSet+ObjectiveSugar.h in Headers */,
 				24B812091BA079D700EAA152 /* NSDictionary+ObjectiveSugar.h in Headers */,
 				24B8119C1BA0789800EAA152 /* EngineKit.h in Headers */,
 				24B811FB1BA079D700EAA152 /* EngineKitMath.h in Headers */,
 				24B812591BA07B8500EAA152 /* Gestures.h in Headers */,
 				24B812501BA07B5300EAA152 /* Tube.h in Headers */,
+				24D4946E1BB898AB00C15BD2 /* EngineKitTriggerActions.h in Headers */,
 				24B812401BA07B5300EAA152 /* Cone.h in Headers */,
 				24B811FC1BA079D700EAA152 /* EngineKitSCNExtensions.h in Headers */,
 				24B812521BA07B5300EAA152 /* Shape.h in Headers */,
@@ -692,19 +757,23 @@
 				24B812731BA07BC400EAA152 /* Physics.m in Sources */,
 				24B8124F1BA07B5300EAA152 /* Torus.m in Sources */,
 				24B8120E1BA079D700EAA152 /* NSNumber+ObjectiveSugar.m in Sources */,
+				24713FFE1BB2D61200270024 /* JSValue+Extension.m in Sources */,
 				24B811E91BA079D700EAA152 /* NSString+Extension.m in Sources */,
 				24B811F11BA079D700EAA152 /* SCNNode+Extension.m in Sources */,
 				24B812611BA07BA300EAA152 /* FileHelper.m in Sources */,
 				24B812061BA079D700EAA152 /* Vector.m in Sources */,
+				24D4946C1BB8949F00C15BD2 /* FunctionAction.m in Sources */,
 				24B8120A1BA079D700EAA152 /* NSDictionary+ObjectiveSugar.m in Sources */,
 				24B812511BA07B5300EAA152 /* Tube.m in Sources */,
 				24B811E31BA079D700EAA152 /* NSArray+Extension.m in Sources */,
 				24B811EF1BA079D700EAA152 /* SCNGeometry+Extension.m in Sources */,
 				24B811E71BA079D700EAA152 /* NSNumber+Extension.m in Sources */,
 				24B811FE1BA079D700EAA152 /* Angle.m in Sources */,
+				24D494681BB8938200C15BD2 /* ActionCollection.m in Sources */,
 				249A03361BA9FC9C006EF4B0 /* SceneManager.m in Sources */,
 				24B811F91BA079D700EAA152 /* UIColor+Extension.m in Sources */,
 				24B811E11BA079D700EAA152 /* JSContext+Extension.m in Sources */,
+				24F15B161BCA7F660063B7E2 /* PlaceholderTriggerActionManager.m in Sources */,
 				24B8124B1BA07B5300EAA152 /* Sphere.m in Sources */,
 				24B8124D1BA07B5300EAA152 /* Text.m in Sources */,
 				24B8123F1BA07B5300EAA152 /* Capsule.m in Sources */,
@@ -716,6 +785,7 @@
 				24B812471BA07B5300EAA152 /* Plane.m in Sources */,
 				24B812021BA079D700EAA152 /* Position.m in Sources */,
 				24B812101BA079D700EAA152 /* NSSet+ObjectiveSugar.m in Sources */,
+				24DC4B711BB074CC00935A35 /* TriggerActionManager.m in Sources */,
 				24B812431BA07B5300EAA152 /* Cylinder.m in Sources */,
 				24B812001BA079D700EAA152 /* Axis.m in Sources */,
 				24B8126A1BA07BB100EAA152 /* Parser.m in Sources */,
@@ -724,7 +794,9 @@
 				24B812381BA07B5300EAA152 /* Camera.m in Sources */,
 				24B812041BA079D700EAA152 /* Rotation.m in Sources */,
 				24B812531BA07B5300EAA152 /* Shape.m in Sources */,
+				24D494641BB8931E00C15BD2 /* MethodAction.m in Sources */,
 				24B811EB1BA079D700EAA152 /* SCN+Exports.m in Sources */,
+				242D204E1BC75D3600651F3D /* PlaceholderAction.m in Sources */,
 				24B811F71BA079D700EAA152 /* UI+Exports.m in Sources */,
 				24B811E51BA079D700EAA152 /* NSDictionary+Extension.m in Sources */,
 				24B812121BA079D700EAA152 /* NSString+ObjectiveSugar.m in Sources */,

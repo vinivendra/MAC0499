@@ -5,27 +5,38 @@
 
 @implementation Cylinder
 
+- (NSArray <NSString *>*)numericProperties {
+    return @[@"radius",
+             @"height"];
+}
+
 + (instancetype)cylinder {
     return [self new];
 }
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.cylinder = [SCNCylinder new];
+        [self commonInit];
     }
     return self;
 }
 
 - (instancetype)initAndAddToScene {
     if (self = [super initAndAddToScene]) {
-        self.cylinder = [SCNCylinder new];
+        [self commonInit];
     }
     return self;
+}
+
+- (void)commonInit {
+    self.cylinder = [SCNCylinder new];
+    self.color = @"lightGray";
 }
 
 - (instancetype)initWithRadius:(CGFloat)radius height:(CGFloat)height {
     if (self = [super initAndAddToScene]) {
         self.cylinder = [SCNCylinder cylinderWithRadius:radius height:height];
+        self.color = @"lightGray";
     }
     return self;
 }
@@ -44,6 +55,25 @@
     item.height = self.height;
 }
 
+- (NSMutableArray *)propertyStringsBasedOnTemplate:(Cylinder *)template {
+    NSMutableArray *statements = [NSMutableArray new];
+
+    if (![self.radius isEqual:template.radius]) {
+        [statements addObject:[NSString stringWithFormat:@"radius is %@",
+                               self.radius]];
+    }
+    if (![self.height isEqual:template.height]) {
+        [statements addObject:[NSString stringWithFormat:@"height is %@",
+                               self.height]];
+    }
+
+    NSMutableArray *superStatements;
+    superStatements = [super propertyStringsBasedOnTemplate:template];
+    statements = [[statements arrayByAddingObjectsFromArray:superStatements]
+                  mutableCopy];
+    return statements;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Property Overriding
 
@@ -57,7 +87,6 @@
 
 
 - (void)setRadius:(NSNumber *)radius {
-    [self assertTheresNoPhysicsBody];
     self.cylinder.radius = radius.doubleValue;
 }
 
@@ -66,7 +95,6 @@
 }
 
 - (void)setHeight:(NSNumber *)height {
-    [self assertTheresNoPhysicsBody];
     self.cylinder.height = height.doubleValue;
 }
 

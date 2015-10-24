@@ -5,22 +5,34 @@
 
 @implementation Box
 
+- (NSArray <NSString *>*)numericProperties {
+    return @[@"width",
+             @"height",
+             @"length",
+             @"chamferRadius"];
+}
+
 + (instancetype)box {
     return [self new];
 }
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.box = [SCNBox new];
+        [self commonInit];
     }
     return self;
 }
 
 - (instancetype)initAndAddToScene {
     if (self = [super initAndAddToScene]) {
-        self.box = [SCNBox new];
+        [self commonInit];
     }
     return self;
+}
+
+- (void)commonInit {
+    self.box = [SCNBox new];
+    self.color = @"lightGray";
 }
 
 - (instancetype)initWithWidth:(CGFloat)width
@@ -32,6 +44,7 @@
                                  height:height
                                  length:length
                           chamferRadius:chamferRadius];
+        self.color = @"lightGray";
     }
     return self;
 }
@@ -52,6 +65,29 @@
     box.chamferRadius = self.chamferRadius;
 }
 
+- (NSMutableArray *)propertyStringsBasedOnTemplate:(Box *)template {
+    NSMutableArray *statements = [NSMutableArray new];
+
+    if (![self.width isEqual:template.width]) {
+        [statements addObject:[NSString stringWithFormat:@"width is %@",
+                               self.width]];
+    }
+    if (![self.height isEqual:template.height]) {
+        [statements addObject:[NSString stringWithFormat:@"height is %@",
+                               self.height]];
+    }
+    if (![self.length isEqual:template.length]) {
+        [statements addObject:[NSString stringWithFormat:@"length is %@",
+                               self.length]];
+    }
+
+    NSMutableArray *superStatements;
+    superStatements = [super propertyStringsBasedOnTemplate:template];
+    statements = [[statements arrayByAddingObjectsFromArray:superStatements]
+                  mutableCopy];
+    return statements;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Property Overriding
 
@@ -65,7 +101,6 @@
 
 
 - (void)setWidth:(NSNumber *)width {
-    [self assertTheresNoPhysicsBody];
     self.box.width = width.doubleValue;
 }
 
@@ -74,7 +109,6 @@
 }
 
 - (void)setHeight:(NSNumber *)height {
-    [self assertTheresNoPhysicsBody];
     self.box.height = height.doubleValue;
 }
 
@@ -83,7 +117,6 @@
 }
 
 - (void)setLength:(NSNumber *)length {
-    [self assertTheresNoPhysicsBody];
     self.box.length = length.doubleValue;
 }
 
@@ -92,7 +125,6 @@
 }
 
 - (void)setChamferRadius:(NSNumber *)chamferRadius {
-    [self assertTheresNoPhysicsBody];
     self.box.chamferRadius = chamferRadius.doubleValue;
 }
 

@@ -23,4 +23,6 @@
  @return A number representing the string's indentation level.
  */
 @property (nonatomic, readonly) NSUInteger indentation;
+// TODO: doc
++ (NSString *)stringFromFloat:(float) val;
 @end

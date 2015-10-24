@@ -4,6 +4,8 @@
 
 #import "NSNumber+Extension.h"
 
+#import "ObjectiveSugar.h"
+
 
 @implementation NSArray (Extension)
 
@@ -23,6 +25,15 @@
 
 - (id)at:(NSUInteger)index {
     return self.count <= index ? nil : self[index];
+}
+
+- (NSString *)joinInSnakeCase {
+    return [self join:@"_"];
+}
+
+- (NSString *)joinInCamelCase {
+    NSString *snakeCase = [self joinInSnakeCase];
+    return snakeCase.camelCase;
 }
 
 @end

@@ -11,13 +11,20 @@
 #import "Physics.h"
 #import "JavaScript.h"
 #import "UI.h"
+#import "Parser.h"
 
 #import "Shape.h"
 
 
 @interface SceneManager : NSObject
+- (void)runOnSceneView:(SCNView *)view;
+
 + (SceneManager *)currentSceneManager;
 - (void)makeCurrentSceneManager;
+
+- (instancetype)initWithScript:(NSString *)filename;
+- (instancetype)initWithScript:(NSString *)scriptFilename
+                         scene:(NSString *)sceneFilename;
 
 @property (nonatomic, strong, readonly) SCNScene *scene;
 @property (nonatomic, strong, readonly) Physics *physics;
@@ -25,7 +32,9 @@
 @property (nonatomic, strong, readonly) JavaScript *javaScript;
 @property (nonatomic, strong, readonly) UI *ui;
 @property (nonatomic, strong, readonly) Gestures *gestures;
+@property (nonatomic, strong, readonly) Parser *parser;
 
 - (void)addItemFromTemplate:(Item *)template;
 - (void)addItem:(Item *)item;
 @end
+

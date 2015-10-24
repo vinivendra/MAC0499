@@ -19,6 +19,8 @@ templates
 
         color is red
 
+        physics is dynamic
+
     piramide pyramid
         position is 2 2.5 0
         rotation is 0 1 0 0.5
@@ -91,24 +93,21 @@ templates
 
         color is lightGray
 
-    cena
-        rotation is 0 1 0 0.2
-
-        esfera
-        piramide
-        caixa
-        capsula
-        chapeu
-        cilindro
-        toro
-        tubo
-        plano
-        texto
+        physics is static
 
 
 items
 
-    cena
+    esfera
+    piramide
+    caixa
+    capsula
+    chapeu
+    cilindro
+    toro
+    tubo
+    plano
+    texto
 
     chao
 

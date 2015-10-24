@@ -112,7 +112,16 @@
         radians = [dictionary floatForStringKey:@"3"];
 
     Angle *angle = [[Angle alloc] initWithRadians:radians];
-    Axis *axis = [[Axis alloc] initWithDictionary:dictionary];
+
+    id axisObject = dictionary[@"axis"];
+    if (!axisObject) {
+        axisObject = dictionary[@"Axis"];
+    }
+    if (!axisObject) {
+        axisObject = dictionary;
+    }
+
+    Axis *axis = [[Axis alloc] initWithObject:axisObject];
     self = [self initWithAxis:axis angle:angle];
     return self;
 }
@@ -189,16 +198,27 @@
     return SCNMatrix4Rotate(matrix, self.a, self.x, self.y, self.z);
 }
 
+- (BOOL)isEqual:(id)object {
+    Rotation *rotation = [[Rotation alloc] initWithObject:object];
+    return (self.x == rotation.x && self.y == rotation.y &&
+            self.z == rotation.z && self.a == rotation.a);
+}
+
 //------------------------------------------------------------------------------
 #pragma mark - Overriding
 //------------------------------------------------------------------------------
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"(x = %lf, y = %lf, z = %lf | a = %lf)",
-                                      self.axis.x,
-                                      self.axis.y,
-                                      self.axis.z,
-                                      self.angle.toRadians];
+//    return [NSString stringWithFormat:@"(x = %lf, y = %lf, z = %lf | a = %lf)",
+//                                      self.axis.x,
+//                                      self.axis.y,
+//                                      self.axis.z,
+//                                      self.angle.toRadians];
+    return [NSString stringWithFormat:@"%@ %@ %@ %@",
+            [NSString stringFromFloat:self.x],
+            [NSString stringFromFloat:self.y],
+            [NSString stringFromFloat:self.z],
+            [NSString stringFromFloat:self.a]];
 }
 
 - (CGFloat)x {

@@ -2,15 +2,11 @@
 
 #import "JavaScript.h"
 
-#import "Physics.h"
-
 #import "Position.h"
 #import "Rotation.h"
 
 #import "Camera.h"
 #import "Light.h"
-
-#import "Parser.h"
 
 #import "Box.h"
 #import "Capsule.h"
@@ -28,6 +24,7 @@
 
 #import "NSString+Extension.h"
 #import "JSContext+Extension.h"
+#import "JSValue+Extension.h"
 
 #import "FileHelper.h"
 
@@ -48,41 +45,78 @@
 
 
 static NSString *_defaultFilename = @"main.js";
+static NSString *_supportFilename = @"support.js";
 
 
 @interface JavaScript ()
-@property (nonatomic, strong) JSContext *context;
-@property (nonatomic, strong) NSString *filename;
+@property (nonatomic, strong) NSString *scriptFilename;
+@property (nonatomic, strong) NSString *sceneFilename;
 
 @property (nonatomic, strong) JSValue *loadFunction;
 @property (nonatomic, strong) JSValue *updateFunction;
 
 @property (nonatomic, strong) JSValue *contactCallback;
-@property (nonatomic, strong) JSValue *buttonCallback;
-@property (nonatomic, strong) JSValue *sliderCallback;
-
-@property (nonatomic, strong) NSArray *gestureCallbacks;
 
 @property (nonatomic, strong) Camera *camera;
+@property (nonatomic, strong) Physics *physics;
 @end
 
 
 @implementation JavaScript
 
-- (instancetype)initWithCamera:(Camera *)camera UI:(UI *)ui {
-    self = [self initWithFile:_defaultFilename camera:camera UI:ui];
+- (instancetype)initWithCamera:(Camera *)camera
+                            UI:(UI *)ui
+                       physics:(Physics *)physics
+                        parser:(Parser *)parser {
+    self = [self initWithFile:_defaultFilename
+                       camera:camera
+                           UI:ui
+                      physics:physics
+                       parser:parser];
     return self;
 }
 
-- (instancetype)initWithFile:(NSString *)filename camera:(Camera *)camera UI:(UI *)ui {
+- (instancetype)initWithFile:(NSString *)scriptFilename
+                            camera:(Camera *)camera
+                                UI:(UI *)ui
+                           physics:(Physics *)physics
+                            parser:(Parser *)parser {
+
+    if (self = [self initWithScriptFile:scriptFilename
+                              sceneFile:nil
+                                 camera:camera
+                                     UI:ui
+                                physics:physics
+                                 parser:parser]) {
+
+    }
+    return self;
+}
+
+- (instancetype)initWithScriptFile:(NSString *)scriptFilename
+                        sceneFile:(NSString *)sceneFilename
+                            camera:(Camera *)camera
+                                UI:(UI *)ui
+                           physics:(Physics *)physics
+                            parser:(Parser *)parser {
     if (self = [super init]) {
         self.camera = camera;
         self.ui = ui;
-        if (!filename.valid) {
-            filename = _defaultFilename;
+        self.physics = physics;
+        self.sceneFilename = sceneFilename;
+
+        if (!scriptFilename.valid) {
+            scriptFilename = _defaultFilename;
         }
-        self.filename = filename;
-        self.context = [JSContext shared];
+        self.scriptFilename = scriptFilename;
+
+        self.context = [JSContext new];
+        self.parser = parser;
+
+        self.triggerActionManager = [TriggerActionManager new];
+        self.triggerActionManager.scene = self.physics.scene;
+        self.triggerActionManager.context = self.context;
+
         [self setup];
     }
     return self;
@@ -90,10 +124,12 @@ static NSString *_defaultFilename = @"main.js";
 
 //
 - (void)setup {
-    NSString *script = [FileHelper openTextFile:self.filename];
+    NSString *mainScript = [FileHelper openTextFile:self.scriptFilename];
+    NSString *supportScript = [FileHelper openTextFile:_supportFilename];
 
     [self setObjects];
-    [self.context evaluateScript:script];
+    [self.context evaluateScript:supportScript];
+    [self.context evaluateScript:mainScript];
     [self getObjects];
 }
 
@@ -120,48 +156,53 @@ static NSString *_defaultFilename = @"main.js";
 
 //
 - (void)setObjects {
-    __block NSString *filename = self.filename;
-
     self.context.exceptionHandler = ^(JSContext *context, JSValue *value) {
-        NSLog(@"JavaScript Error in file %@: %@.", filename, [value toString]);
+        NSLog(@"JavaScript Error: %@.", [value toString]);
     };
 
     self.context[@"console"] = [console class];
     self.context[@"print"] = ^(JSValue *value) {
         [console log:value];
     };
+    self.context[@"alert"] = ^(JSValue *value) {
+        [console log:value];
+    };
+
+    self.context[@"sceneFilename"] = self.sceneFilename;
 
     self.context[@"pi"] = @(M_PI);
     self.context[@"origin"] = [Vector origin];
 
     [self.context evaluateScript:@"var callback;"];
 
-    self.context[@"parser"] = [Parser shared];
+    self.context[@"Scene"] = self.physics.scene;
 
-    self.context[@"vector"] = [Vector class];
-    self.context[@"position"] = [Position class];
-    self.context[@"axis"] = [Axis class];
-    self.context[@"rotation"] = [Rotation class];
-    self.context[@"angle"] = [Angle class];
+    self.context[@"Parser"] = self.parser;
 
-    self.context[@"light"] = [Light class];
-    self.context[@"camera"] = self.camera;
+    self.context[@"Vector"] = [Vector class];
+    self.context[@"Position"] = [Position class];
+    self.context[@"Axis"] = [Axis class];
+    self.context[@"Rotation"] = [Rotation class];
+    self.context[@"Angle"] = [Angle class];
 
-    self.context[@"sphere"] = [Sphere class];
-    self.context[@"box"] = [Box class];
-    self.context[@"cone"] = [Cone class];
-    self.context[@"cylinder"] = [Cylinder class];
-    self.context[@"tube"] = [Tube class];
-    self.context[@"capsule"] = [Capsule class];
-    self.context[@"torus"] = [Torus class];
-    self.context[@"pyramid"] = [Pyramid class];
-    self.context[@"plane"] = [Plane class];
-    self.context[@"text"] = [Text class];
-    self.context[@"floor"] = [Floor class];
+    self.context[@"Light"] = [Light class];
+    self.context[@"Camera"] = self.camera;
 
-    self.context[@"physics"] = [Physics new];
+    self.context[@"Sphere"] = [Sphere class];
+    self.context[@"Box"] = [Box class];
+    self.context[@"Cone"] = [Cone class];
+    self.context[@"Cylinder"] = [Cylinder class];
+    self.context[@"Tube"] = [Tube class];
+    self.context[@"Capsule"] = [Capsule class];
+    self.context[@"Torus"] = [Torus class];
+    self.context[@"Pyramid"] = [Pyramid class];
+    self.context[@"Plane"] = [Plane class];
+    self.context[@"Text"] = [Text class];
+    self.context[@"Floor"] = [Floor class];
 
-    self.context[@"color"] = [UIColor class];
+    self.context[@"Physics"] = self.physics;
+
+    self.context[@"Color"] = [UIColor class];
 
     self.context[@"UIButton"] = [UIButton class];
     self.context[@"UISlider"] = [UISlider class];
@@ -172,12 +213,14 @@ static NSString *_defaultFilename = @"main.js";
     self.context[@"alignmentLeft"] = @(NSTextAlignmentLeft);
     self.context[@"alignmentCenter"] = @(NSTextAlignmentCenter);
 
-    self.context[@"up"] = @(UISwipeGestureRecognizerDirectionUp);
-    self.context[@"right"] = @(UISwipeGestureRecognizerDirectionRight);
-    self.context[@"left"] = @(UISwipeGestureRecognizerDirectionLeft);
-    self.context[@"down"] = @(UISwipeGestureRecognizerDirectionDown);
+    self.context[@"Up"] = @(UISwipeGestureRecognizerDirectionUp);
+    self.context[@"Right"] = @(UISwipeGestureRecognizerDirectionRight);
+    self.context[@"Left"] = @(UISwipeGestureRecognizerDirectionLeft);
+    self.context[@"Down"] = @(UISwipeGestureRecognizerDirectionDown);
 
-    self.context[@"template"] = ^Item *(void) {
+    self.context[@"TriggerManager"] = self.triggerActionManager;
+
+    self.context[@"Template"] = ^Item *(void) {
         return [Item template];
     };
 }
@@ -187,69 +230,6 @@ static NSString *_defaultFilename = @"main.js";
     self.updateFunction = self.context[@"update"];
 
     self.contactCallback = self.context[@"contact"];
-    self.buttonCallback = self.context[@"button"];
-    self.sliderCallback = self.context[@"slider"];
-
-    NSMutableArray *gestureCallbacks =
-        [NSMutableArray arrayWithCapacity:GestureRecognizersCount];
-
-    NSMutableArray *tapArray = [NSMutableArray arrayWithCapacity:1];
-    NSMutableArray *swipeArray = [NSMutableArray arrayWithCapacity:1];
-    NSMutableArray *panArray = [NSMutableArray arrayWithCapacity:6];
-    NSMutableArray *pinchArray = [NSMutableArray arrayWithCapacity:6];
-    NSMutableArray *rotateArray = [NSMutableArray arrayWithCapacity:6];
-    NSMutableArray *longPressArray = [NSMutableArray arrayWithCapacity:6];
-
-    long int max = MAX(MAX(MAX(UIGestureRecognizerStateRecognized,
-                          UIGestureRecognizerStateEnded),
-                      UIGestureRecognizerStateBegan),
-                  UIGestureRecognizerStateBegan);
-    for (long int i = 0; i < max + 1; i++) {
-        tapArray[i] = [NSNull null];
-        swipeArray[i] = [NSNull null];
-        panArray[i] = [NSNull null];
-        pinchArray[i] = [NSNull null];
-        rotateArray[i] = [NSNull null];
-        longPressArray[i] = [NSNull null];
-    }
-    for (int i = 0; i < UIGesturesCount; i++) {
-        gestureCallbacks[i] = [NSNull null];
-    }
-
-    tapArray[UIGestureRecognizerStateRecognized] = self.context[@"tap"];
-    swipeArray[UIGestureRecognizerStateRecognized] = self.context[@"swipe"];
-    panArray[UIGestureRecognizerStateBegan] = self.context[@"panBegan"];
-    panArray[UIGestureRecognizerStateChanged] = self.context[@"pan"];
-    panArray[UIGestureRecognizerStateEnded] = self.context[@"panEnded"];
-    pinchArray[UIGestureRecognizerStateBegan] = self.context[@"pinchBegan"];
-    pinchArray[UIGestureRecognizerStateChanged] = self.context[@"pinch"];
-    pinchArray[UIGestureRecognizerStateEnded] = self.context[@"pinchEnded"];
-    rotateArray[UIGestureRecognizerStateBegan] = self.context[@"rorateBegan"];
-    rotateArray[UIGestureRecognizerStateChanged]
-        = self.context[@"rotate"];
-    rotateArray[UIGestureRecognizerStateEnded] = self.context[@"rotateEnded"];
-    longPressArray[UIGestureRecognizerStateBegan]
-        = self.context[@"longPressBegan"];
-    longPressArray[UIGestureRecognizerStateChanged]
-        = self.context[@"longPress"];
-    longPressArray[UIGestureRecognizerStateEnded]
-        = self.context[@"longPressEnded"];
-
-    gestureCallbacks[TapGesture] = tapArray;
-    gestureCallbacks[SwipeGesture] = swipeArray;
-    gestureCallbacks[PanGesture] = panArray;
-    gestureCallbacks[PinchGesture] = pinchArray;
-    gestureCallbacks[RotateGesture] = rotateArray;
-    gestureCallbacks[LongPressGesture] = longPressArray;
-
-    self.gestureCallbacks = gestureCallbacks;
-}
-
-- (void)callGestureCallbackForGesture:(UIGestures)gesture
-                                state:(UIGestureRecognizerState)state
-                        withArguments:(NSArray *)arguments {
-
-    [self.gestureCallbacks[gesture][state] callWithArguments:arguments];
 }
 
 @end

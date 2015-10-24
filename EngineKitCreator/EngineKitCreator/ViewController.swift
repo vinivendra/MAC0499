@@ -1,5 +1,4 @@
-// TODO: Create light items and substitute the light nodes for them
-// TODO: Allow loading fmt files from javascript, stop loading them from code.
+
 
 import UIKit
 import EngineKit
@@ -7,27 +6,42 @@ import EngineKit
 
 enum ViewControllerStates {
     case Neutral
+    case CreatingTemplate
     case ChoosingObject
     case ChangingProperties
     case ChoosingItem
+    case ChoosingActions
     case Playing
 }
 
 
 protocol MenuManager {
-    func dismissMenu()
+    func dismissMenu(object: AnyObject?)
+    func dismissMenuAndRespond(object: AnyObject?)
+    func didSelectItem(item: Item?)
 }
 
 
-class ViewController: UIViewController, GestureDelegate, MenuManager {
+class ViewController: UIViewController, MenuManager {
 
+    @IBOutlet weak var nameTextField: UITextField!
+
+    @IBOutlet weak var nameLabel: UILabel!
+
+    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var actionsButton: UIButton!
+    @IBOutlet weak var exportButton: UIButton!
+    @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var itemsButton: UIButton!
     @IBOutlet weak var propertiesButton: UIButton!
     @IBOutlet weak var objectsButton: UIButton!
     @IBOutlet weak var engineKitView: SCNView!
     @IBOutlet weak var playButton: UIButton!
 
+    var placeholderTriggerManager: TriggerActionManager?
+
     var editorSceneManager: EditorSceneManager?
+    var templateSceneManager: TemplateEditorSceneManager?
     var playerSceneManager: PlayerSceneManager?
 
     var menuView: MenuView?
@@ -37,129 +51,142 @@ class ViewController: UIViewController, GestureDelegate, MenuManager {
     var cameraY: Vector?
     var cameraZ: Vector?
 
-    var selectedItem: Item? {
-        get {
-            return editorSceneManager?.selectedItem
-        }
-        set {
-            editorSceneManager?.selectedItem = newValue
-            updatePropertiesButtonForSelectedItem(newValue)
-        }
-    }
-
     var state: ViewControllerStates? {
         willSet {
             if (state != newValue) {
-                if (state == .Neutral) {            // From neutral
-                    if (newValue != .Neutral) {     // To something
-                        changeState(state, toState: newValue)
-                    }
+                changeState(state, toState: newValue)
+
+                if (newValue == .CreatingTemplate) {
+                    nameTextField.hidden = false
                 }
-                else {                              // From something
-                    if (newValue == .Neutral) {     // To neutral
-                        changeState(state, toState: newValue)
-                    }
-                    else {                          // To something else
-                        changeState(state, toState: .Neutral)
-                        changeState(.Neutral, toState: newValue)
-                    }
+                else if (newValue == .Neutral) {
+                    nameTextField.hidden = true
                 }
             }
         }
     }
 
     func changeState(fromState: ViewControllerStates?, toState: ViewControllerStates?) {
-        if (fromState == .Neutral) {
+        if (fromState == .Neutral || fromState == .CreatingTemplate) {
             if (toState == .ChoosingObject) {
-                menuController = ObjectsMenuController()
+                let objectsController = ObjectsMenuController()
+                objectsController.shouldShowPlusCell = (fromState == .Neutral);
+                menuController = objectsController
+                menuController?.manager = self
                 showMenuForButton(objectsButton)
+                return
             }
             else if (toState == .ChangingProperties) {
-                if let selectedItem = selectedItem {
-                    menuController = PropertiesMenuViewController(item: selectedItem)
-                    showMenuForButton(propertiesButton)
+                if let editorSceneManager = SceneManager.currentSceneManager() as? EditorSceneManager,
+                    let selectedItem = editorSceneManager.selectedItem {
+                        menuController = PropertiesMenuViewController(item: selectedItem)
+                        menuController?.manager = self
+                        showMenuForButton(propertiesButton)
                 }
+                return
             }
             else if (toState == .ChoosingItem) {
                 let itemController = ItemsMenuViewController()
                 itemController.manager = self
                 menuController = itemController
                 showMenuForButton(itemsButton)
+                return
             }
-            else if (toState == .Playing) {
+            else if (toState == .ChoosingActions) {
+                let selectedItem: Item?
+                if (SceneManager.currentSceneManager() == templateSceneManager) {
+                    selectedItem = templateSceneManager!.topItem
+                }
+                else {
+                    selectedItem = editorSceneManager?.selectedItem
+                }
+
+                let triggerController = TriggerActionViewController(item: selectedItem,
+                    triggerActionManager:placeholderTriggerManager)
+                menuController = triggerController
+                showMenuForButton(actionsButton)
+                return
+            }
+        }
+        if (fromState == .Neutral) {
+            if (toState == .Playing) {
                 hideUI()
                 createPlayScene()
                 switchToSceneManager(playerSceneManager)
+                return
+            }
+            else if (toState == .CreatingTemplate) {
+                createTemplateScene()
+                switchToSceneManager(templateSceneManager)
+                return
             }
         }
-        else if (fromState == .Playing) {
-            showUI()
-            switchToSceneManager(editorSceneManager)
-        }
         else {
-            hideMenu()
-            updatePropertiesButtonForSelectedItem(selectedItem)
+            if (toState == .Neutral) {
+                if (fromState == .Playing) {
+                    showUI()
+                    switchToSceneManager(editorSceneManager)
+                    return
+                }
+                else if (fromState == .CreatingTemplate) {
+                    registerTemplate()
+                    switchToSceneManager(editorSceneManager)
+                    return
+                }
+                else {
+                    hideMenu()
+                    return
+                }
+            }
+            else if (toState == .CreatingTemplate) {
+                if (SceneManager.currentSceneManager() == templateSceneManager) {
+                    hideMenu()
+                    return
+                }
+                else {
+                    changeState(fromState, toState: .Neutral)
+                    changeState(.Neutral, toState: toState)
+                }
+            }
+            else {
+                let intermediateState: ViewControllerStates;
+                if (SceneManager.currentSceneManager() == templateSceneManager) {
+                    intermediateState = .CreatingTemplate
+                }
+                else {
+                    intermediateState = .Neutral
+                }
+                changeState(fromState, toState: intermediateState)
+                changeState(intermediateState, toState: toState)
+                return
+            }
         }
     }
 
     // MARK: - MenuManager
 
-    func dismissMenu() {
-        state = .Neutral
-    }
+    func dismissMenu(object: AnyObject?) {
+        if (SceneManager.currentSceneManager() == templateSceneManager) {
+            state = .CreatingTemplate
 
-    // MARK: - GestureDelegate
-
-    func callGestureCallbackForGesture(gesture: UIGestures, state: UIGestureRecognizerState, withArguments arguments: [AnyObject]!) {
-        if (gesture == UIGestures.PanGesture && state == UIGestureRecognizerState.Changed) {
-            handlePan(arguments)
-        }
-        if (gesture == UIGestures.TapGesture) {
-            handleTap(arguments)
-        }
-    }
-
-    // MARK: Gestures
-
-    func handlePan(arguments: [AnyObject]!) {
-        if let numberOfTouches = arguments[2] as? Int,
-            items = arguments[1] as? [Item],
-            translation = arguments[0] as? Vector {
-
-                if (numberOfTouches == 1) {
-                    if (items.count > 0 && items[0] == selectedItem) {
-                        moveItem(translation)
-                    }
-                    else {
-                        rotateCamera(translation)
-                    }
-                }
-        }
-    }
-
-    func handleTap(arguments: [AnyObject]!) {
-        guard (state == .Neutral) else {
-            state = .Neutral
-            return
-        }
-
-        if let items = arguments[0] as? [Item]
-            where items.count > 0 {
-                if let item = items[0] as? Shape {
-                    if (item == selectedItem) {
-                        deselectItem(selectedItem!)
-                    }
-                    else {
-                        if (selectedItem != nil) {
-                            deselectItem(selectedItem!)
-                        }
-                        selectItem(item)
-                    }
-                }
+            if let item = object as? Item {
+                templateSceneManager?.addItem(item)
+            }
         }
         else {
-            if let item = selectedItem {
-                deselectItem(item)
+            state = .Neutral
+        }
+    }
+
+    func dismissMenuAndRespond(object: AnyObject?) {
+        if (object == nil) {
+            state = .CreatingTemplate
+        }
+        else {
+            if let item = object as? Item {
+                templateSceneManager?.topItem = item.deepCopy
+                nameTextField.text = item.templateName
+                state = .CreatingTemplate
             }
         }
     }
@@ -169,14 +196,39 @@ class ViewController: UIViewController, GestureDelegate, MenuManager {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        editorSceneManager = EditorSceneManager()
+        editorSceneManager = EditorSceneManager(script:"editor.js")
+        editorSceneManager?.runOnSceneView(self.engineKitView)
         switchToSceneManager(editorSceneManager)
-        setupCurrentScene(editorSceneManager!)
+
+        placeholderTriggerManager = PlaceholderTriggerActionManager()
+
+        editorSceneManager?.parser.triggerActionManager = placeholderTriggerManager
+        editorSceneManager?.parser.parseFile("scene.fmt")
+
+        let selectItemBlock: @convention(block) Item -> Void = { item in
+            self.didSelectItem(item)
+        }
+        let block = unsafeBitCast(selectItemBlock, AnyObject.self)
+        editorSceneManager?.javaScript.context.setObject(block, forKeyedSubscript: "didSelectItem")
+        didSelectItem(nil)
 
         self.propertiesButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Disabled)
-        self.selectedItem = nil
 
         state = .Neutral
+    }
+
+    func didSelectItem(item: Item?) {
+        if (item != nil) {
+            if let sceneManager = SceneManager.currentSceneManager() as? EditorSceneManager {
+                nameLabel.text = sceneManager.selectedItem?.name
+            }
+            else {
+                nameLabel.text = item?.name
+            }
+        }
+        else {
+            nameLabel.text = "";
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -210,11 +262,21 @@ class ViewController: UIViewController, GestureDelegate, MenuManager {
     func hideButtons() {
         objectsButton.hidden = true
         propertiesButton.hidden = true
+        itemsButton.hidden = true
+        actionsButton.hidden = true
+        deleteButton.hidden = true
+        exportButton.hidden = true
+        doneButton.hidden = true
     }
 
     func showButtons() {
         objectsButton.hidden = false
         propertiesButton.hidden = false
+        itemsButton.hidden = false
+        actionsButton.hidden = false
+        deleteButton.hidden = false
+        exportButton.hidden = false
+        doneButton.hidden = false
     }
 
     func hideMenu() {
@@ -224,7 +286,7 @@ class ViewController: UIViewController, GestureDelegate, MenuManager {
     func showMenuForButton(button:UIButton) {
         hideMenu()
 
-        menuView = MenuView(fromView: button, inView: view, orientation: .Vertical, sizeRatio: 0.3)
+        menuView = MenuView(fromView: button, inView: view, orientation: .Vertical, sizeRatio: 0.7)
         menuView?.backgroundColor = UIColor.orangeColor()
 
         menuController!.setupMenuView(menuView!)
@@ -235,131 +297,155 @@ class ViewController: UIViewController, GestureDelegate, MenuManager {
     // MARK: Scene Actions
 
     func createPlayScene() {
+        let scene = editorSceneManager!.scene
+        let parser = editorSceneManager?.parser
+        let exportedFormatFileContents = parser?.writeFileForScene(scene)
+
         playerSceneManager = PlayerSceneManager()
-        editorSceneManager?.scene.deepCopyToScene(playerSceneManager?.scene)
+        playerSceneManager?.runOnSceneView(self.engineKitView)
+        playerSceneManager?.parser.parseString(exportedFormatFileContents)
+        addRealActionsForItems(playerSceneManager!)
+    }
+
+    func addRealActionsForItems(playerSceneManager: PlayerSceneManager) {
+        let scene = playerSceneManager.scene
+        let nodes = scene.rootNode.childNodes
+
+        let manager = playerSceneManager.javaScript.triggerActionManager
+
+        for node in nodes {
+            let item = node.item
+            let oldActionCollection = item.actionCollection
+
+            let newActionCollection = ActionCollection()
+            item.actionCollection = newActionCollection
+
+            for (key, value) in oldActionCollection.arrays {
+
+                if let trigger = key as? String,
+                    let actionsArray = value as? [MethodAction] {
+                        for oldAction in actionsArray {
+                            let newAction = manager.actionNamed(oldAction.description, forTrigger: trigger)
+                            newActionCollection.addAction(newAction, forKey: trigger)
+                        }
+                }
+            }
+        }
+    }
+
+    func createTemplateScene() {
+        templateSceneManager = TemplateEditorSceneManager(script: "editor.js")
+        templateSceneManager?.runOnSceneView(self.engineKitView)
+
+        let selectItemBlock: @convention(block) Item -> Void = { item in
+            self.didSelectItem(item)
+        }
+        let block = unsafeBitCast(selectItemBlock, AnyObject.self)
+        templateSceneManager?.javaScript.context.setObject(block, forKeyedSubscript: "didSelectItem")
+        didSelectItem(nil)
+
+        templateSceneManager?.javaScript.context.evaluateScript("itemForActions = templateBase;")
+    }
+
+    func registerTemplate() {
+        let item = templateSceneManager?.topItem
+
+        if (self.nameTextField.text != nil && self.nameTextField.text != "") {
+                item?.templateName = self.nameTextField.text?.capitalizedString
+        }
+        else {
+            item?.templateName = "Item"
+        }
+
+        Item.registerTemplate(templateSceneManager?.topItem)
     }
 
     func switchToSceneManager(sceneManager: SceneManager?) {
         engineKitView.scene = sceneManager?.scene
         sceneManager?.makeCurrentSceneManager()
+    }
 
-        if let camera = sceneManager?.camera {
-            cameraX = camera.rotation.rotate(Axis.x())
-            cameraY = camera.rotation.rotate(Axis.y())
-            cameraZ = camera.rotation.rotate(Axis.z())
+    func deleteSelectedItem() {
+        if let sceneManager = SceneManager.currentSceneManager() as? EditorSceneManager {
+            let item = sceneManager.selectedItem
+            item?.delete()
+            sceneManager.selectedItem = nil
+            nameLabel.text = ""
         }
-    }
-
-    func selectItem(item: Item) {
-        selectedItem = item
-        item.selected = true
-    }
-
-    func deselectItem(item: Item) {
-        item.selected = false
-        selectedItem = nil
-    }
-
-    func moveItem(translation: Vector) {
-        let resized = translation.times(0.01)
-
-        let translation = cameraX?.times(resized.x)
-            .plus(cameraY?.times(resized.y));
-
-        let position = selectedItem?.position as? Position
-        selectedItem?.position = position!.plus(translation!)
-    }
-
-    func rotateCamera(translation: Vector) {
-        let camera = SceneManager.currentSceneManager().camera
-
-        cameraX = camera!.rotation.rotate(Axis.x())
-        cameraY = camera!.rotation.rotate(Axis.y())
-
-        let resized = translation.times(0.02)
-
-        let axis: Vector = (cameraX?.times(resized.y).plus(cameraY?.times(-resized.x)))!
-
-        let rot = Rotation.create([axis, resized.normSquared])
-
-        camera!.rotate(rot, around: Position.origin())
-    }
-
-    func setupCurrentScene(sceneManager: SceneManager) {
-//        let scene = sceneManager.scene
-//
-//        var light = Light()
-//        light.color = UIColor(white: 1.0, alpha: 1.0)
-//        light.position = Position(x:3, y:3, z:3)
-//        scene!.addItem(light)
-//
-//        light = Light()
-//        light.color = UIColor(white: 0.7, alpha: 1.0)
-//        light.position = Position(x:-3, y:-3, z:-3)
-//        scene!.addItem(light)
-//
-//        light = Light()
-//        light.type = SCNLightTypeAmbient
-//        light.color = UIColor(white: 0.4, alpha: 1.0)
-//        light.position = Position(x:-3, y:-3, z:-3)
-//        scene!.addItem(light)
-
-        let gestures = sceneManager.gestures
-        let options = gestures.options
-
-        gestures.sceneView = engineKitView
-        gestures.gesturesView = engineKitView
-
-        let pan = NSNumber(unsignedLong: GestureRecognizers.PanRecognizer.rawValue)
-        options[pan] = NSNumber(bool: true)
-        let tap = NSNumber(unsignedLong: GestureRecognizers.TapRecognizer.rawValue)
-        options[tap] = NSNumber(bool: true)
-
-        gestures.setupGestures()
-
-        gestures.delegate = self
-
-        let javaScript = sceneManager.javaScript
-        javaScript.load()
     }
 
     // MARK: - IBActions
 
-    @IBAction func playButtonPressed(sender: AnyObject) {
-        if (state == .Neutral) {
-            state = .Playing
+    @IBAction func doneButtonPressed(sender: AnyObject) {
+        if (SceneManager.currentSceneManager() == templateSceneManager
+            && state != .CreatingTemplate) {
+                state = .CreatingTemplate
         }
         else {
             state = .Neutral
         }
     }
 
-    @IBAction func itemsButtonTap(sender: AnyObject) {
-        if (state == .Neutral) {
-            state = .ChoosingItem
+    @IBAction func playButtonPressed(sender: AnyObject) {
+        if (state == .Playing) {
+            state = .Neutral
         }
         else {
-            state = .Neutral
+            state = .Playing
+        }
+    }
+
+    @IBAction func actionsButtonPressed(sender: AnyObject) {
+        if (state == .ChoosingActions) {
+            dismissMenu(nil)
+        }
+        else {
+            state = .ChoosingActions
+        }
+    }
+
+    @IBAction func exportButtonPressed(sender: AnyObject) {
+        let triggerManager = editorSceneManager?.parser.triggerActionManager
+
+        editorSceneManager?.parser.triggerActionManager = placeholderTriggerManager
+        let string = editorSceneManager?.parser.writeFileForScene(editorSceneManager!.scene)
+
+        print(NSString(string: string!));
+
+        editorSceneManager?.parser.triggerActionManager = triggerManager
+
+        SceneManager.currentSceneManager().javaScript.triggerActionManager.writeToFile()
+    }
+
+    @IBAction func itemsButtonTap(sender: AnyObject) {
+        if (state == .ChoosingItem) {
+            dismissMenu(nil)
+        }
+        else {
+            state = .ChoosingItem
         }
     }
 
     @IBAction func propertiesButtonTap(sender: AnyObject) {
         if (state == .ChangingProperties) {
-            state = .Neutral
+            dismissMenu(nil)
         }
         else {
             state = .ChangingProperties
         }
     }
-    
+
     @IBAction func objectsButtonTap(sender: UIView) {
         if (state == .ChoosingObject) {
-            state = .Neutral
+            dismissMenu(nil)
         }
         else {
             state = .ChoosingObject
         }
     }
     
+    @IBAction func deleteButtonPressed(sender: AnyObject) {
+        deleteSelectedItem();
+    }
 }
 

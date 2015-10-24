@@ -35,9 +35,16 @@ class ItemsMenuViewController: UIViewController,
         let item = node.item
 
         cell.textLabel?.text = item.name
+        cell.backgroundColor = UIColor.clearColor()
+        cell.textLabel?.textColor = UIColor(white: 0.7, alpha: 1.0)
+        cell.textLabel?.highlightedTextColor = UIColor(white: 0.15, alpha: 1.0)
 
-        if (item.selected) {
-            tableView .selectRowAtIndexPath(indexPath, animated: false, scrollPosition: UITableViewScrollPosition.None)
+        if let editorManager = SceneManager.currentSceneManager() as? EditorSceneManager {
+            let selectedItem = editorManager.selectedItem
+
+            if (item == selectedItem) {
+                tableView .selectRowAtIndexPath(indexPath, animated: false, scrollPosition: UITableViewScrollPosition.None)
+            }
         }
 
         return cell
@@ -50,12 +57,14 @@ class ItemsMenuViewController: UIViewController,
             let node = nodes?[indexPath.row] as! SCNNode
             if (editor.selectedItem == node.item) {
                 editor.selectedItem = nil
+                manager?.didSelectItem(nil)
             }
             else {
                 editor.selectedItem = node.item
+                manager?.didSelectItem(node.item)
             }
         }
-        manager?.dismissMenu()
+        manager?.dismissMenu(nil)
     }
 
     // MARK: UIViewController
@@ -63,12 +72,14 @@ class ItemsMenuViewController: UIViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        nodes = SceneManager.currentSceneManager().scene.rootNode.childNodes
+
         tableView.delegate = self
         tableView.dataSource = self
 
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: id)
 
-        nodes = SceneManager.currentSceneManager().scene.rootNode.childNodes
+        tableView.tableFooterView = UIView()
     }
 
     // MARK: MenuController

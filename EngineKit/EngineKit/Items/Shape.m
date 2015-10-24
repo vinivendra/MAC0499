@@ -6,36 +6,50 @@
 
 
 @interface Shape ()
-@property (nonatomic, strong) NSArray<SCNMaterial *> *previousMaterials;
 @end
 
 
 @implementation Shape
 
-@synthesize selected = _selected;
+- (NSArray <NSString *>*)numericProperties {
+    return @[];
+}
 
-- (void)assertTheresNoPhysicsBody {
-    assert(!self.physicsBody); // Error: change the shape's dimensions only
-                               // before choosing a physics type! This shape's
-                               // physics have already been calculated and can't
-                               // change now to reflect its new size.
+- (NSString *)stringForPhysicsBody {
+
+    if (self.physicsBody.type == SCNPhysicsBodyTypeDynamic) {
+        return @"dynamic";
+    }
+    else if (self.physicsBody.type == SCNPhysicsBodyTypeStatic) {
+        return @"static";
+    }
+    else if (self.physicsBody.type == SCNPhysicsBodyTypeKinematic) {
+        return @"kinematic";
+    }
+
+    return nil;
+}
+
+- (NSMutableArray *)propertyStringsBasedOnTemplate:(Shape *)aTemplate {
+    NSMutableArray *statements;
+    statements = [super propertyStringsBasedOnTemplate:aTemplate];
+
+    if (![self.color isEqual:aTemplate.color]) {
+        [statements addObject:[NSString stringWithFormat:@"color is %@",
+                               ((UIColor *)self.color).name]];
+    }
+    if ((self.physicsBody.type != aTemplate.physicsBody.type)
+        || (self.physicsBody && !aTemplate.physicsBody)
+        || (!self.physicsBody && aTemplate.physicsBody)) {
+        [statements addObject:[NSString stringWithFormat:@"physics is %@",
+                               [self stringForPhysicsBody]]];
+    }
+
+    return statements;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Property Overriding
-
-- (void)setSelected:(BOOL)selected {
-    if (selected && !self.selected) {
-        self.previousMaterials = self.materials;
-        self.color = @"red";
-    }
-    else if (!selected && self.selected) {
-        self.materials = self.previousMaterials;
-        self.previousMaterials = nil;
-    }
-
-    _selected = selected;
-}
 
 - (void)setMaterials:(id)materials {
     self.geometry.materials = materials;
@@ -54,23 +68,12 @@
     material.diffuse.contents = color;
     material.specular.contents = color;
 
-    if (self.selected) {
-        self.previousMaterials = @[material];
-    }
-    else {
-        self.materials = @[material];
-    }
+    self.materials = @[material];
 }
 
 - (id)color {
 
-    NSArray <SCNMaterial *> *materials;
-    if (self.previousMaterials) {
-        materials = self.previousMaterials;
-    }
-    else {
-        materials = self.geometry.materials;
-    }
+    NSArray <SCNMaterial *> *materials = self.geometry.materials;
 
     if (materials.count == 0)
         return nil;
@@ -101,8 +104,6 @@
 }
 
 - (void)setPhysics:(id)physics {
-    assert(!self.physicsBody); // Physics type can only be chosen once!
-
     if ([physics isKindOfClass:[NSString class]]) {
         NSString *string = (NSString *)physics;
         if ([string containsString:@"dynamic"]) {
@@ -113,8 +114,6 @@
             self.node.physicsBody = [SCNPhysicsBody staticBody];
         }
     }
-
-    assert(self.physicsBody); // Oops, trying to set an unsupported object.
 }
 
 - (id)physics {

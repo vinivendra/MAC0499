@@ -19,6 +19,7 @@ static SceneManager *currentSceneManager;
 @property (nonatomic, strong) JavaScript *javaScript;
 @property (nonatomic, strong) UI *ui;
 @property (nonatomic, strong) Gestures *gestures;
+@property (nonatomic, strong) Parser *parser;
 @end
 
 
@@ -28,10 +29,70 @@ static SceneManager *currentSceneManager;
     return currentSceneManager;
 }
 
+- (void)runOnSceneView:(SCNView *)view {
+    view.scene =self.scene;
+
+    self.gestures.sceneView = view;
+    self.gestures.gesturesView = view;
+
+    self.gestures.delegate = self.javaScript.triggerActionManager;
+
+    [self makeCurrentSceneManager];
+
+    [self.javaScript load];
+}
+
+- (void)pauseScene {
+    [self.gestures pauseGestures];
+}
+
+- (void)resumeScene {
+    [self.gestures resumeGestures];
+}
+
 - (void)makeCurrentSceneManager {
+    [currentSceneManager pauseScene];
+
     currentSceneManager = self;
     [self.scene makeCurrentScene];
+
+    [currentSceneManager resumeScene];
 }
+
+- (instancetype)initWithScript:(NSString *)filename {
+    if (self = [self initWithScript:filename
+                              scene:nil]) {
+    }
+
+    return self;
+}
+
+- (instancetype)initWithScript:(NSString *)scriptFilename
+                         scene:(NSString *)sceneFilename {
+    if (self = [super init]) {
+        self.scene = [SCNScene new];
+        self.physics = [[Physics alloc] initWithScene:self.scene];
+        self.camera = [[Camera alloc] init];
+        self.camera.isDefault = YES;
+        self.gestures = [[Gestures alloc] init];
+        self.ui = [[UI alloc] init];
+        self.parser = [Parser new];
+        self.javaScript = [[JavaScript alloc] initWithScriptFile:scriptFilename
+                                                       sceneFile:sceneFilename
+                                                          camera:self.camera
+                                                              UI:self.ui
+                                                         physics:self.physics
+                                                          parser:self.parser];
+        self.parser.triggerActionManager = self.javaScript.triggerActionManager;
+        self.parser.context = self.javaScript.context;
+        
+        //        self.ui.delegate = self.javaScript.trigger;
+        [_scene addItem:self.camera];
+    }
+
+    return self;
+}
+
 
 - (instancetype)init {
     if (self = [super init]) {
@@ -40,11 +101,15 @@ static SceneManager *currentSceneManager;
         self.camera = [[Camera alloc] init];
         self.gestures = [[Gestures alloc] init];
         self.ui = [[UI alloc] init];
+        self.parser = [Parser new];
         self.javaScript = [[JavaScript alloc] initWithFile:nil
                                                     camera:self.camera
-                                                        UI:self.ui];
-
-        self.ui.handler = self.javaScript;
+                                                        UI:self.ui
+                                                   physics:self.physics
+                                                    parser:self.parser];
+        self.parser.triggerActionManager = self.javaScript.triggerActionManager;
+        self.parser.context = self.javaScript.context;
+//        self.ui.delegate = self.javaScript.trigger;
         [_scene addItem:self.camera];
     }
 

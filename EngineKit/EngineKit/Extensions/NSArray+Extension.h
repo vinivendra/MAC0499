@@ -5,6 +5,9 @@
 
 
 @interface NSArray (Extension)
+// TODO: doc
+- (NSString *)joinInSnakeCase;
+- (NSString *)joinInCamelCase;
 /*!
  Checks if the array is valid, which means that it exists and is not empty.
  @warning A valid array may still contain only @p NSNulls.

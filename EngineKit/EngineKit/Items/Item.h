@@ -4,8 +4,13 @@
 #define Item_h
 
 
-#import "Rotation.h"
+#import "Common.h"
 
+#import "Gestures.h"
+
+#import "ActionCollection.h"
+
+#import "Rotation.h"
 #import "Position.h"
 
 
@@ -21,10 +26,47 @@
 - (void)rotate:(id)rotation;
 - (void)rotate:(id)rotation around:(id)anchor;
 @property (nonatomic, weak, readonly) Item *parent;
-@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *templateName;
 @property (nonatomic, strong) id position;
 @property (nonatomic, strong) id rotation;
 @property (nonatomic, strong) id scale;
+@property (nonatomic) BOOL isDefault;
+@property (nonatomic) BOOL isTemplateBase;
+@property (nonatomic) BOOL hidden;
+- (void)setPositionX:(NSNumber *)newValue;
+- (void)setPositionY:(NSNumber *)newValue;
+- (void)setPositionZ:(NSNumber *)newValue;
+- (void)setScaleX:(NSNumber *)newValue;
+- (void)setScaleY:(NSNumber *)newValue;
+- (void)setScaleZ:(NSNumber *)newValue;
+- (void)setRotationX:(NSNumber *)newValue;
+- (void)setRotationY:(NSNumber *)newValue;
+- (void)setRotationZ:(NSNumber *)newValue;
+- (void)setRotationA:(NSNumber *)newValue;
+- (void)addPosition:(id)object;
+- (void)addScale:(id)object;
+- (NSNumber *)positionX;
+- (NSNumber *)positionY;
+- (NSNumber *)positionZ;
+- (NSNumber *)scaleX;
+- (NSNumber *)scaleY;
+- (NSNumber *)scaleZ;
+- (NSNumber *)rotationX;
+- (NSNumber *)rotationY;
+- (NSNumber *)rotationZ;
+- (NSNumber *)rotationA;
+- (void)addPositionX:(NSNumber *)newValue;
+- (void)addPositionY:(NSNumber *)newValue;
+- (void)addPositionZ:(NSNumber *)newValue;
+- (void)addScaleX:(NSNumber *)newValue;
+- (void)addScaleY:(NSNumber *)newValue;
+- (void)addScaleZ:(NSNumber *)newValue;
+- (void)addRotationX:(NSNumber *)newValue;
+- (void)addRotationY:(NSNumber *)newValue;
+- (void)addRotationZ:(NSNumber *)newValue;
+- (void)addRotationA:(NSNumber *)newValue;
+
+- (void)delete;
 @end
 
 
@@ -35,8 +77,66 @@
  */
 @interface Item : NSObject <ItemExport>
 // TODO: Documentation
-@property (nonatomic, getter=isSelected) BOOL selected;
+// TODO: Add these to JSExport
+- (void)setPositionX:(NSNumber *)newValue;
+- (void)setPositionY:(NSNumber *)newValue;
+- (void)setPositionZ:(NSNumber *)newValue;
+- (void)setScaleX:(NSNumber *)newValue;
+- (void)setScaleY:(NSNumber *)newValue;
+- (void)setScaleZ:(NSNumber *)newValue;
+- (void)setRotationX:(NSNumber *)newValue;
+- (void)setRotationY:(NSNumber *)newValue;
+- (void)setRotationZ:(NSNumber *)newValue;
+- (void)setRotationA:(NSNumber *)newValue;
+
+- (NSNumber *)positionX;
+- (NSNumber *)positionY;
+- (NSNumber *)positionZ;
+- (NSNumber *)scaleX;
+- (NSNumber *)scaleY;
+- (NSNumber *)scaleZ;
+- (NSNumber *)rotationX;
+- (NSNumber *)rotationY;
+- (NSNumber *)rotationZ;
+- (NSNumber *)rotationA;
+
+- (void)addPositionX:(NSNumber *)newValue;
+- (void)addPositionY:(NSNumber *)newValue;
+- (void)addPositionZ:(NSNumber *)newValue;
+- (void)addScaleX:(NSNumber *)newValue;
+- (void)addScaleY:(NSNumber *)newValue;
+- (void)addScaleZ:(NSNumber *)newValue;
+- (void)addRotationX:(NSNumber *)newValue;
+- (void)addRotationY:(NSNumber *)newValue;
+- (void)addRotationZ:(NSNumber *)newValue;
+- (void)addRotationA:(NSNumber *)newValue;
+
+- (void)addPosition:(id)object;
+- (void)addScale:(id)object;
+
++ (NSMutableDictionary <NSString *, Item *> *)templates;
++ (Item *)templateNamed:(NSString *)name;
+- (Item *)childItemWithName:(NSString *)string recursively:(BOOL)recursively;
+- (NSString *)parserString;
+- (NSString *)parserStringBasedOnTemplate:(Item *)template
+                         withTemplateName:(BOOL)withTemplateName;
 @property (nonatomic) BOOL hidden;
+@property (nonatomic) BOOL isDefault;
+@property (nonatomic) BOOL isTemplateBase;
+@property (nonatomic, strong) NSString *templateName;
+@property (nonatomic, strong) NSString *name;
+- (instancetype) template;
+
+@property (nonatomic, strong) ActionCollection *actionCollection;
+- (void)addAction:(MethodAction *)action forKey:(NSString *)key;
+- (NSMutableArray <MethodAction *> *)actionsForKey:(NSString *)key;
+
+- (void)delete;
+
+// Protected
+- (NSMutableArray *)propertyStringsBasedOnTemplate:(Item *)template;
++ (void)registerTemplate:(Item *)template;
+
 /*!
  Initializes the `Item` and adds it to the scene. Meant to be used by any
  subclasses' initializers that are exported to JavaScript.
@@ -152,10 +252,6 @@
  The item's parent item, equivalent to a node's parent node.
  */
 @property (nonatomic, weak) Item *parent;
-/*!
- A string to be used at will in order to easily reference `Item` objects.
- */
-@property (nonatomic, strong) NSString *name;
 @end
 
 #endif

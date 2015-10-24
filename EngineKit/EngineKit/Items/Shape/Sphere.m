@@ -5,27 +5,37 @@
 
 @implementation Sphere
 
+- (NSArray <NSString *>*)numericProperties {
+    return @[@"radius"];
+}
+
 + (instancetype)sphere {
     return [self new];
 }
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.sphere = [SCNSphere new];
+        [self commonInit];
     }
     return self;
 }
 
 - (instancetype)initAndAddToScene {
     if (self = [super initAndAddToScene]) {
-        self.sphere = [SCNSphere new];
+        [self commonInit];
     }
     return self;
+}
+
+- (void)commonInit {
+    self.sphere = [SCNSphere new];
+    self.color = @"lightGray";
 }
 
 - (instancetype)initWithRadius:(CGFloat)radius {
     if (self = [super initAndAddToScene]) {
         self.sphere = [SCNSphere sphereWithRadius:radius];
+        self.color = @"lightGray";
     }
     return self;
 }
@@ -43,6 +53,21 @@
     item.radius = self.radius;
 }
 
+- (NSMutableArray *)propertyStringsBasedOnTemplate:(Sphere *)template {
+    NSMutableArray *statements = [NSMutableArray new];
+
+    if (![self.radius isEqual:template.radius]) {
+        [statements addObject:[NSString stringWithFormat:@"radius is %@",
+                               self.radius]];
+    }
+
+    NSMutableArray *superStatements;
+    superStatements = [super propertyStringsBasedOnTemplate:template];
+    statements = [[statements arrayByAddingObjectsFromArray:superStatements]
+                  mutableCopy];
+    return statements;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Property Overriding
 
@@ -56,7 +81,6 @@
 
 
 - (void)setRadius:(NSNumber *)radius {
-    [self assertTheresNoPhysicsBody];
     self.sphere.radius = radius.doubleValue;
 }
 
