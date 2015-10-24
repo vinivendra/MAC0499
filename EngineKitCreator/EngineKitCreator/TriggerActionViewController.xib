@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TriggerActionViewController" customModule="EngineKitCreator" customModuleProvider="target">
+            <connections>
+                <outlet property="actionsTableView" destination="Uf0-x4-r9y" id="0bg-K3-jh6"/>
+                <outlet property="triggersSecondTableView" destination="Jqr-Em-1kl" id="OM7-y3-71m"/>
+                <outlet property="triggersTableView" destination="28V-zS-Y6z" id="zJl-db-lCR"/>
+                <outlet property="triggersThirdTableView" destination="hEJ-pV-kcS" id="ofx-Xn-xaH"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Uf0-x4-r9y">
+                    <rect key="frame" x="305" y="8" width="287" height="584"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="calibratedWhite"/>
+                    <color key="separatorColor" white="0.80067349139999999" alpha="0.69999999999999996" colorSpace="calibratedWhite"/>
+                </tableView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hEJ-pV-kcS">
+                    <rect key="frame" x="8" y="400" width="287" height="192"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="calibratedWhite"/>
+                    <color key="separatorColor" white="0.80067349139999999" alpha="0.69999999999999996" colorSpace="calibratedWhite"/>
+                </tableView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="28V-zS-Y6z">
+                    <rect key="frame" x="8" y="8" width="287" height="192"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="calibratedWhite"/>
+                    <color key="separatorColor" white="0.80067349139999999" alpha="0.69999999999999996" colorSpace="calibratedWhite"/>
+                </tableView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jqr-Em-1kl">
+                    <rect key="frame" x="8" y="210" width="287" height="180"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="calibratedWhite"/>
+                    <color key="separatorColor" white="0.80067349139999999" alpha="0.69999999999999996" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="0.20000000000000001" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="28V-zS-Y6z" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="1Ep-ps-xop"/>
+                <constraint firstItem="Jqr-Em-1kl" firstAttribute="trailing" secondItem="28V-zS-Y6z" secondAttribute="trailing" id="1Yf-Og-BYR"/>
+                <constraint firstItem="Jqr-Em-1kl" firstAttribute="leading" secondItem="28V-zS-Y6z" secondAttribute="leading" id="2dB-4Q-ES8"/>
+                <constraint firstItem="Jqr-Em-1kl" firstAttribute="top" secondItem="28V-zS-Y6z" secondAttribute="bottom" id="7R5-7A-dUa"/>
+                <constraint firstAttribute="trailing" secondItem="Uf0-x4-r9y" secondAttribute="trailing" constant="8" id="EWS-ac-zFR"/>
+                <constraint firstItem="hEJ-pV-kcS" firstAttribute="trailing" secondItem="Jqr-Em-1kl" secondAttribute="trailing" id="IKy-Rj-9uY"/>
+                <constraint firstItem="Jqr-Em-1kl" firstAttribute="top" secondItem="28V-zS-Y6z" secondAttribute="bottom" constant="10" id="NWk-bh-6Nx"/>
+                <constraint firstItem="hEJ-pV-kcS" firstAttribute="top" secondItem="Jqr-Em-1kl" secondAttribute="bottom" constant="10" id="Odp-8Y-Y6m"/>
+                <constraint firstItem="28V-zS-Y6z" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="XxX-Jg-F4T"/>
+                <constraint firstItem="Uf0-x4-r9y" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="aGJ-ds-3xQ"/>
+                <constraint firstAttribute="bottom" secondItem="hEJ-pV-kcS" secondAttribute="bottom" constant="8" id="bp3-ri-tCp"/>
+                <constraint firstItem="hEJ-pV-kcS" firstAttribute="leading" secondItem="Jqr-Em-1kl" secondAttribute="leading" id="cJs-9I-GHs"/>
+                <constraint firstItem="Uf0-x4-r9y" firstAttribute="leading" secondItem="28V-zS-Y6z" secondAttribute="trailing" constant="10" id="hgh-Sy-H0L"/>
+                <constraint firstAttribute="centerX" secondItem="28V-zS-Y6z" secondAttribute="trailing" constant="5" id="ii6-Dh-HUO"/>
+                <constraint firstAttribute="bottom" secondItem="Uf0-x4-r9y" secondAttribute="bottom" constant="8" id="loI-3G-bnW"/>
+                <constraint firstItem="Jqr-Em-1kl" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.3" id="o2S-DN-vtf"/>
+                <constraint firstItem="Jqr-Em-1kl" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="rd3-BD-bV2"/>
+                <constraint firstItem="Jqr-Em-1kl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vk0-uq-YQ3"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="7R5-7A-dUa"/>
+                    <exclude reference="vk0-uq-YQ3"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>

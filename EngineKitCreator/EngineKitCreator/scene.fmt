@@ -1,0 +1,48 @@
+action trackballAction | gesture pan
+
+templates
+    Satelite Box
+        width is 0.3
+        height is 0.3
+        length is 0.3
+        position is 1 0 0
+        color is darkgrey
+
+    Lua Sphere
+        radius is 0.7
+        position is 3 0 0
+        color is purple
+
+    Planeta Sphere
+        radius is 2
+        color is red
+        Lua Sphere
+            name is Moon
+            Satelite Box
+                name is Spudnik
+
+        action itemTranslationActionSnappedToAxes | gesture pan | touches 2
+
+items
+    Planeta
+        name is Terra
+        color is blue
+        Moon
+            name is Moon
+            color is darkgrey
+            Spudnik
+                name is Spudnik
+                color is white
+
+    Light
+        position is 3 3 3
+        color is white
+
+    Light
+        position is -3 -3 -3
+        color is lightgrey
+
+    Light
+        position is -3 -3 -3
+        type is ambient
+        color is darkgrey

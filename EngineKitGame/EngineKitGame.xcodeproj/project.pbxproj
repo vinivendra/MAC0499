@@ -1,0 +1,618 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2415E3691BB9C9AB006B12E2 /* support.js in Resources */ = {isa = PBXBuildFile; fileRef = 2415E3681BB9C9AB006B12E2 /* support.js */; settings = {ASSET_TAGS = (); }; };
+		24A86AFB1BB9A40100D5C215 /* EngineKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 24B8114E1BA0758F00EAA152 /* EngineKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		24B8110B1BA0756B00EAA152 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B8110A1BA0756B00EAA152 /* main.m */; };
+		24B8110E1BA0756B00EAA152 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B8110D1BA0756B00EAA152 /* AppDelegate.m */; };
+		24B811111BA0756B00EAA152 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B811101BA0756B00EAA152 /* ViewController.m */; };
+		24B811141BA0756B00EAA152 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24B811121BA0756B00EAA152 /* Main.storyboard */; };
+		24B811161BA0756B00EAA152 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24B811151BA0756B00EAA152 /* Assets.xcassets */; };
+		24B811191BA0756B00EAA152 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24B811171BA0756B00EAA152 /* LaunchScreen.storyboard */; };
+		24B811241BA0756B00EAA152 /* EngineKitGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B811231BA0756B00EAA152 /* EngineKitGameTests.m */; };
+		24B8112F1BA0756B00EAA152 /* EngineKitGameUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B8112E1BA0756B00EAA152 /* EngineKitGameUITests.m */; };
+		24B811511BA0759A00EAA152 /* EngineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24B8114E1BA0758F00EAA152 /* EngineKit.framework */; };
+		24B812841BA07E2D00EAA152 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = 24B812821BA07E2D00EAA152 /* main.js */; };
+		24B812851BA07E2D00EAA152 /* scene.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 24B812831BA07E2D00EAA152 /* scene.fmt */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		24A86AFC1BB9A40100D5C215 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24B811481BA0758F00EAA152 /* EngineKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 24B810481BA073CA00EAA152;
+			remoteInfo = EngineKit;
+		};
+		24B811201BA0756B00EAA152 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24B810FE1BA0756B00EAA152 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 24B811051BA0756B00EAA152;
+			remoteInfo = EngineKitGame;
+		};
+		24B8112B1BA0756B00EAA152 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24B810FE1BA0756B00EAA152 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 24B811051BA0756B00EAA152;
+			remoteInfo = EngineKitGame;
+		};
+		24B8114D1BA0758F00EAA152 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24B811481BA0758F00EAA152 /* EngineKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 24B810491BA073CA00EAA152;
+			remoteInfo = EngineKit;
+		};
+		24B8114F1BA0758F00EAA152 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24B811481BA0758F00EAA152 /* EngineKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 24B810531BA073CA00EAA152;
+			remoteInfo = EngineKitTests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		24A86AFE1BB9A40100D5C215 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				24A86AFB1BB9A40100D5C215 /* EngineKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		2415E3681BB9C9AB006B12E2 /* support.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = support.js; sourceTree = "<group>"; };
+		24B811061BA0756B00EAA152 /* EngineKitGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EngineKitGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		24B8110A1BA0756B00EAA152 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		24B8110C1BA0756B00EAA152 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		24B8110D1BA0756B00EAA152 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		24B8110F1BA0756B00EAA152 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		24B811101BA0756B00EAA152 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		24B811131BA0756B00EAA152 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		24B811151BA0756B00EAA152 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		24B811181BA0756B00EAA152 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		24B8111A1BA0756B00EAA152 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24B8111F1BA0756B00EAA152 /* EngineKitGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EngineKitGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		24B811231BA0756B00EAA152 /* EngineKitGameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EngineKitGameTests.m; sourceTree = "<group>"; };
+		24B811251BA0756B00EAA152 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24B8112A1BA0756B00EAA152 /* EngineKitGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EngineKitGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		24B8112E1BA0756B00EAA152 /* EngineKitGameUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EngineKitGameUITests.m; sourceTree = "<group>"; };
+		24B811301BA0756B00EAA152 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24B811481BA0758F00EAA152 /* EngineKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = EngineKit.xcodeproj; path = ../EngineKit/EngineKit.xcodeproj; sourceTree = "<group>"; };
+		24B812821BA07E2D00EAA152 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
+		24B812831BA07E2D00EAA152 /* scene.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scene.fmt; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		24B811031BA0756B00EAA152 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24B811511BA0759A00EAA152 /* EngineKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24B8111C1BA0756B00EAA152 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24B811271BA0756B00EAA152 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		24B810FD1BA0756B00EAA152 = {
+			isa = PBXGroup;
+			children = (
+				24B811481BA0758F00EAA152 /* EngineKit.xcodeproj */,
+				24B811081BA0756B00EAA152 /* EngineKitGame */,
+				24B811221BA0756B00EAA152 /* EngineKitGameTests */,
+				24B8112D1BA0756B00EAA152 /* EngineKitGameUITests */,
+				24B811071BA0756B00EAA152 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		24B811071BA0756B00EAA152 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				24B811061BA0756B00EAA152 /* EngineKitGame.app */,
+				24B8111F1BA0756B00EAA152 /* EngineKitGameTests.xctest */,
+				24B8112A1BA0756B00EAA152 /* EngineKitGameUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		24B811081BA0756B00EAA152 /* EngineKitGame */ = {
+			isa = PBXGroup;
+			children = (
+				24B8110C1BA0756B00EAA152 /* AppDelegate.h */,
+				24B8110D1BA0756B00EAA152 /* AppDelegate.m */,
+				24B8110F1BA0756B00EAA152 /* ViewController.h */,
+				24B811101BA0756B00EAA152 /* ViewController.m */,
+				24B811121BA0756B00EAA152 /* Main.storyboard */,
+				24B811151BA0756B00EAA152 /* Assets.xcassets */,
+				24B811171BA0756B00EAA152 /* LaunchScreen.storyboard */,
+				24B8111A1BA0756B00EAA152 /* Info.plist */,
+				2415E3681BB9C9AB006B12E2 /* support.js */,
+				24B812821BA07E2D00EAA152 /* main.js */,
+				24B812831BA07E2D00EAA152 /* scene.fmt */,
+				24B811091BA0756B00EAA152 /* Supporting Files */,
+			);
+			path = EngineKitGame;
+			sourceTree = "<group>";
+		};
+		24B811091BA0756B00EAA152 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				24B8110A1BA0756B00EAA152 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		24B811221BA0756B00EAA152 /* EngineKitGameTests */ = {
+			isa = PBXGroup;
+			children = (
+				24B811231BA0756B00EAA152 /* EngineKitGameTests.m */,
+				24B811251BA0756B00EAA152 /* Info.plist */,
+			);
+			path = EngineKitGameTests;
+			sourceTree = "<group>";
+		};
+		24B8112D1BA0756B00EAA152 /* EngineKitGameUITests */ = {
+			isa = PBXGroup;
+			children = (
+				24B8112E1BA0756B00EAA152 /* EngineKitGameUITests.m */,
+				24B811301BA0756B00EAA152 /* Info.plist */,
+			);
+			path = EngineKitGameUITests;
+			sourceTree = "<group>";
+		};
+		24B811491BA0758F00EAA152 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				24B8114E1BA0758F00EAA152 /* EngineKit.framework */,
+				24B811501BA0758F00EAA152 /* EngineKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		24B811051BA0756B00EAA152 /* EngineKitGame */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24B811331BA0756B00EAA152 /* Build configuration list for PBXNativeTarget "EngineKitGame" */;
+			buildPhases = (
+				24B811021BA0756B00EAA152 /* Sources */,
+				24B811031BA0756B00EAA152 /* Frameworks */,
+				24B811041BA0756B00EAA152 /* Resources */,
+				24A86AFE1BB9A40100D5C215 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				24A86AFD1BB9A40100D5C215 /* PBXTargetDependency */,
+			);
+			name = EngineKitGame;
+			productName = EngineKitGame;
+			productReference = 24B811061BA0756B00EAA152 /* EngineKitGame.app */;
+			productType = "com.apple.product-type.application";
+		};
+		24B8111E1BA0756B00EAA152 /* EngineKitGameTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24B811361BA0756B00EAA152 /* Build configuration list for PBXNativeTarget "EngineKitGameTests" */;
+			buildPhases = (
+				24B8111B1BA0756B00EAA152 /* Sources */,
+				24B8111C1BA0756B00EAA152 /* Frameworks */,
+				24B8111D1BA0756B00EAA152 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				24B811211BA0756B00EAA152 /* PBXTargetDependency */,
+			);
+			name = EngineKitGameTests;
+			productName = EngineKitGameTests;
+			productReference = 24B8111F1BA0756B00EAA152 /* EngineKitGameTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		24B811291BA0756B00EAA152 /* EngineKitGameUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24B811391BA0756B00EAA152 /* Build configuration list for PBXNativeTarget "EngineKitGameUITests" */;
+			buildPhases = (
+				24B811261BA0756B00EAA152 /* Sources */,
+				24B811271BA0756B00EAA152 /* Frameworks */,
+				24B811281BA0756B00EAA152 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				24B8112C1BA0756B00EAA152 /* PBXTargetDependency */,
+			);
+			name = EngineKitGameUITests;
+			productName = EngineKitGameUITests;
+			productReference = 24B8112A1BA0756B00EAA152 /* EngineKitGameUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		24B810FE1BA0756B00EAA152 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Vinicius Vendramini";
+				TargetAttributes = {
+					24B811051BA0756B00EAA152 = {
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = HHT774898M;
+					};
+					24B8111E1BA0756B00EAA152 = {
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = HHT774898M;
+						TestTargetID = 24B811051BA0756B00EAA152;
+					};
+					24B811291BA0756B00EAA152 = {
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = HHT774898M;
+						TestTargetID = 24B811051BA0756B00EAA152;
+					};
+				};
+			};
+			buildConfigurationList = 24B811011BA0756B00EAA152 /* Build configuration list for PBXProject "EngineKitGame" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 24B810FD1BA0756B00EAA152;
+			productRefGroup = 24B811071BA0756B00EAA152 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 24B811491BA0758F00EAA152 /* Products */;
+					ProjectRef = 24B811481BA0758F00EAA152 /* EngineKit.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				24B811051BA0756B00EAA152 /* EngineKitGame */,
+				24B8111E1BA0756B00EAA152 /* EngineKitGameTests */,
+				24B811291BA0756B00EAA152 /* EngineKitGameUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		24B8114E1BA0758F00EAA152 /* EngineKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = EngineKit.framework;
+			remoteRef = 24B8114D1BA0758F00EAA152 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		24B811501BA0758F00EAA152 /* EngineKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = EngineKitTests.xctest;
+			remoteRef = 24B8114F1BA0758F00EAA152 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		24B811041BA0756B00EAA152 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2415E3691BB9C9AB006B12E2 /* support.js in Resources */,
+				24B812851BA07E2D00EAA152 /* scene.fmt in Resources */,
+				24B811191BA0756B00EAA152 /* LaunchScreen.storyboard in Resources */,
+				24B811161BA0756B00EAA152 /* Assets.xcassets in Resources */,
+				24B811141BA0756B00EAA152 /* Main.storyboard in Resources */,
+				24B812841BA07E2D00EAA152 /* main.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24B8111D1BA0756B00EAA152 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24B811281BA0756B00EAA152 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		24B811021BA0756B00EAA152 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24B811111BA0756B00EAA152 /* ViewController.m in Sources */,
+				24B8110E1BA0756B00EAA152 /* AppDelegate.m in Sources */,
+				24B8110B1BA0756B00EAA152 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24B8111B1BA0756B00EAA152 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24B811241BA0756B00EAA152 /* EngineKitGameTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24B811261BA0756B00EAA152 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24B8112F1BA0756B00EAA152 /* EngineKitGameUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		24A86AFD1BB9A40100D5C215 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = EngineKit;
+			targetProxy = 24A86AFC1BB9A40100D5C215 /* PBXContainerItemProxy */;
+		};
+		24B811211BA0756B00EAA152 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 24B811051BA0756B00EAA152 /* EngineKitGame */;
+			targetProxy = 24B811201BA0756B00EAA152 /* PBXContainerItemProxy */;
+		};
+		24B8112C1BA0756B00EAA152 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 24B811051BA0756B00EAA152 /* EngineKitGame */;
+			targetProxy = 24B8112B1BA0756B00EAA152 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		24B811121BA0756B00EAA152 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				24B811131BA0756B00EAA152 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		24B811171BA0756B00EAA152 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				24B811181BA0756B00EAA152 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		24B811311BA0756B00EAA152 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		24B811321BA0756B00EAA152 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		24B811341BA0756B00EAA152 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = EngineKitGame/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.PeropusEst.EngineKitGame;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		24B811351BA0756B00EAA152 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = EngineKitGame/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.PeropusEst.EngineKitGame;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		24B811371BA0756B00EAA152 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = EngineKitGameTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.PeropusEst.EngineKitGameTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EngineKitGame.app/EngineKitGame";
+			};
+			name = Debug;
+		};
+		24B811381BA0756B00EAA152 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = EngineKitGameTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.PeropusEst.EngineKitGameTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EngineKitGame.app/EngineKitGame";
+			};
+			name = Release;
+		};
+		24B8113A1BA0756B00EAA152 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = EngineKitGameUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.PeropusEst.EngineKitGameUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = EngineKitGame;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		24B8113B1BA0756B00EAA152 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = EngineKitGameUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.PeropusEst.EngineKitGameUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = EngineKitGame;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		24B811011BA0756B00EAA152 /* Build configuration list for PBXProject "EngineKitGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24B811311BA0756B00EAA152 /* Debug */,
+				24B811321BA0756B00EAA152 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		24B811331BA0756B00EAA152 /* Build configuration list for PBXNativeTarget "EngineKitGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24B811341BA0756B00EAA152 /* Debug */,
+				24B811351BA0756B00EAA152 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		24B811361BA0756B00EAA152 /* Build configuration list for PBXNativeTarget "EngineKitGameTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24B811371BA0756B00EAA152 /* Debug */,
+				24B811381BA0756B00EAA152 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		24B811391BA0756B00EAA152 /* Build configuration list for PBXNativeTarget "EngineKitGameUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24B8113A1BA0756B00EAA152 /* Debug */,
+				24B8113B1BA0756B00EAA152 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 24B810FE1BA0756B00EAA152 /* Project object */;
+}

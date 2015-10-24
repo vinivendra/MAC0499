@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="EngineKitCreator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IPS-ES-w43">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </sceneKitView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kpq-wj-0cB">
+                                <rect key="frame" x="85" y="28" width="54" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Objects">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="objectsButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="82t-Qj-qYv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FV0-bx-iOg">
+                                <rect key="frame" x="147" y="28" width="71" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Properties">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="propertiesButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kk1-Cj-tDb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lOE-F0-L8c">
+                                <rect key="frame" x="539" y="28" width="30" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Play">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="playButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ibL-mN-4AY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B3R-1c-gVA">
+                                <rect key="frame" x="226" y="28" width="38" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Items">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="itemsButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E4V-u4-mCD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MSa-HT-KEf">
+                                <rect key="frame" x="494" y="28" width="37" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qdP-V8-9sf"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l9S-rf-9m0">
+                                <rect key="frame" x="389" y="28" width="97" height="30"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="0.40000000000000002" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.69999999999999996" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="11X-SD-42K"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PkW-Ur-PlE">
+                                <rect key="frame" x="31" y="28" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Export">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="exportButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oYW-8a-19J"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YxR-N5-H8x">
+                                <rect key="frame" x="272" y="28" width="52" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Actions">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionsButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8eE-PS-WbY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4uK-N4-zmY">
+                                <rect key="frame" x="332" y="28" width="45" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uVi-DQ-7Ix"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhP-gv-joJ">
+                                <rect key="frame" x="31" y="66" width="97" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.69999999999999996" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="IPS-ES-w43" secondAttribute="trailing" id="C61-aa-TMs"/>
+                            <constraint firstItem="IPS-ES-w43" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="SDq-3u-0mx"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IPS-ES-w43" secondAttribute="bottom" id="bjW-IR-GAk"/>
+                            <constraint firstItem="IPS-ES-w43" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dx2-SY-EHK"/>
+                            <constraint firstAttribute="trailing" secondItem="IPS-ES-w43" secondAttribute="trailing" id="hD1-jR-Wh3"/>
+                            <constraint firstItem="IPS-ES-w43" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="rai-k1-ncd"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="C61-aa-TMs"/>
+                                <exclude reference="rai-k1-ncd"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="actionsButton" destination="YxR-N5-H8x" id="3yU-Md-iHt"/>
+                        <outlet property="deleteButton" destination="4uK-N4-zmY" id="C16-g1-GiN"/>
+                        <outlet property="doneButton" destination="MSa-HT-KEf" id="P3m-cX-11j"/>
+                        <outlet property="engineKitView" destination="IPS-ES-w43" id="hxp-Sb-Cc4"/>
+                        <outlet property="exportButton" destination="PkW-Ur-PlE" id="jDu-mM-aM5"/>
+                        <outlet property="itemsButton" destination="B3R-1c-gVA" id="LCw-1T-zV1"/>
+                        <outlet property="nameLabel" destination="zhP-gv-joJ" id="I4m-gu-zzb"/>
+                        <outlet property="nameTextField" destination="l9S-rf-9m0" id="W1g-wO-2nL"/>
+                        <outlet property="objectsButton" destination="Kpq-wj-0cB" id="XDe-EC-ecf"/>
+                        <outlet property="playButton" destination="lOE-F0-L8c" id="wzy-ha-QG9"/>
+                        <outlet property="propertiesButton" destination="FV0-bx-iOg" id="Xuc-Ye-Yzg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="73" y="377"/>
+        </scene>
+    </scenes>
+</document>
