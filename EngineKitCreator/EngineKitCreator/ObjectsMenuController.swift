@@ -48,7 +48,24 @@ MenuController {
     func editButtonPressed() {
         isEditing = !isEditing
 
-        collectionView?.reloadData()
+        UIView.animateWithDuration(0.2, animations: { () -> Void in
+            for (var i = 0; i < self.collectionView(self.collectionView!, numberOfItemsInSection: 0) - 1; i++) {
+                let indexPath = NSIndexPath(forItem: i, inSection: 0)
+                let cell = self.collectionView?.cellForItemAtIndexPath(indexPath) as? ObjectsCell
+                if (self.isEditing) {
+                    cell?.backgroundColor = UIColor(white: 1.0, alpha: 0.5)
+                    cell?.label.textColor = UIColor(white: 0.15, alpha: 1.0)
+                    self.editButton?.setTitle("Done", forState: .Normal)
+                }
+                else {
+                    cell?.backgroundColor = UIColor(white: 0.0, alpha: 0.1)
+                    cell?.label.textColor = UIColor(white: 0.7, alpha: 1.0)
+                    self.editButton?.setTitle("Edit", forState: .Normal)
+                }
+            }
+        }) { (completed) -> Void in
+            collectionView?.reloadData()
+        }
     }
 
     // MARK: - UICollectionViewDataSource
@@ -77,21 +94,25 @@ MenuController {
         let cell: ObjectsCell
         cell = collectionView.dequeueReusableCellWithReuseIdentifier(id, forIndexPath: indexPath) as! ObjectsCell
 
-        cell.backgroundColor = UIColor.redColor()
-
         if let templates = templates
             where indexPath.row < templates.count {
                 let string = templates[indexPath.row].templateName
                 cell.label.text = string
 
                 if (isEditing) {
-                    cell.backgroundColor = UIColor("cyan")
+                    cell.backgroundColor = UIColor(white: 1.0, alpha: 0.5)
+                    cell.label.textColor = UIColor(white: 0.15, alpha: 1.0)
                 }
                 else {
-                    cell.backgroundColor = UIColor("yellow")
+                    cell.backgroundColor = UIColor(white: 0.0, alpha: 0.1)
+                    cell.label.textColor = UIColor(white: 0.7, alpha: 1.0)
                 }
+                cell.label.font = UIFont.systemFontOfSize(17)
         }
         else {
+            cell.backgroundColor = UIColor(white: 0.0, alpha: 0.1)
+            cell.label.textColor = UIColor(white: 0.7, alpha: 1.0)
+            cell.label.font = UIFont.systemFontOfSize(34)
             cell.label.text = "+";
         }
 
@@ -128,20 +149,20 @@ MenuController {
     // MARK: - MenuController
 
     func setupMenuView(menuView: MenuView) {
-        menuView.backgroundColor = UIColor.yellowColor()
+        menuView.backgroundColor = UIColor(white: 0.2, alpha: 1.0)
 
         let size = menuView.frame.size
-        let frame = CGRectMake(0, 20, size.width, size.height - 20)
+        let frame = CGRectMake(20, 40, size.width - 40, size.height - 40)
         let layout = UICollectionViewFlowLayout()
 
         layout.minimumInteritemSpacing = 10
-        layout.minimumLineSpacing = 10
+        layout.minimumLineSpacing = 20
 
         collectionView = UICollectionView(frame: frame,
             collectionViewLayout: layout)
         collectionView?.dataSource = self
         collectionView?.delegate = self
-        collectionView?.backgroundColor = UIColor.greenColor()
+        collectionView?.backgroundColor = UIColor.clearColor()
 
         collectionView?.registerNib(UINib(nibName: "ObjectsCell", bundle: nil), forCellWithReuseIdentifier: id)
         
@@ -149,7 +170,8 @@ MenuController {
 
 
         editButton = UIButton(type: .System)
-        editButton?.frame = CGRectMake(0, 0, size.width, 20)
+        editButton?.frame = CGRectMake(0, 0, 60, 40)
+        editButton?.tintColor = UIColor.whiteColor()
         editButton?.addTarget(self, action: "editButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
         editButton?.setTitle("Edit", forState: .Normal)
 
