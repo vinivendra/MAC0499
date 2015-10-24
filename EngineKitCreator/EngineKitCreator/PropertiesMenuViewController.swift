@@ -154,7 +154,7 @@ class PropertiesMenuViewController: UIViewController, MenuController, UITextFiel
     }
 
     func updateTextFieldTexts() {
-        nameTextField.text = item.templateName
+        nameTextField.text = item.name
 
         if let shape = item as? Shape,
             color = shape.color as? UIColor
@@ -215,7 +215,7 @@ class PropertiesMenuViewController: UIViewController, MenuController, UITextFiel
             where string.valid {
 
             if (textField == nameTextField) {
-                item.templateName = string
+                item.name = string
             }
             else if (textField == colorNameTextField) {
                 if let shape = item as? Shape {

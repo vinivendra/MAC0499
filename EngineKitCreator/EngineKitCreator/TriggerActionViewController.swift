@@ -65,6 +65,11 @@ MenuController {
         triggersSecondTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: triggersSecondID)
         triggersThirdTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: triggersThirdID)
         actionsTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: actionsID)
+
+        triggersTableView.tableFooterView = UIView()
+        triggersSecondTableView.tableFooterView = UIView()
+        triggersThirdTableView.tableFooterView = UIView()
+        actionsTableView.tableFooterView = UIView()
     }
 
     // MARK: Table View Data Source
@@ -192,6 +197,9 @@ MenuController {
             let cell = tableView.dequeueReusableCellWithIdentifier(triggersID, forIndexPath: indexPath)
 
             cell.textLabel?.text = triggers[indexPath.row]
+            cell.backgroundColor = UIColor.clearColor()
+            cell.textLabel?.textColor = UIColor(white: 0.7, alpha: 1.0)
+            cell.textLabel?.highlightedTextColor = UIColor(white: 0.15, alpha: 1.0)
 
             return cell
         }
@@ -199,6 +207,9 @@ MenuController {
             let cell = tableView.dequeueReusableCellWithIdentifier(triggersSecondID, forIndexPath: indexPath)
 
             cell.textLabel?.text = triggersSecond?[indexPath.row].capitalizedString
+            cell.backgroundColor = UIColor.clearColor()
+            cell.textLabel?.textColor = UIColor(white: 0.7, alpha: 1.0)
+            cell.textLabel?.highlightedTextColor = UIColor(white: 0.15, alpha: 1.0)
 
             if (indexPath.row == selectedSecondTrigger) {
                 tableView.selectRowAtIndexPath(indexPath, animated: false, scrollPosition: .None)
@@ -213,6 +224,9 @@ MenuController {
             let cell = tableView.dequeueReusableCellWithIdentifier(triggersThirdID, forIndexPath: indexPath)
 
             cell.textLabel?.text = triggersThird?[indexPath.row]
+            cell.backgroundColor = UIColor.clearColor()
+            cell.textLabel?.textColor = UIColor(white: 0.7, alpha: 1.0)
+            cell.textLabel?.highlightedTextColor = UIColor(white: 0.15, alpha: 1.0)
 
             if (indexPath.row == selectedThirdTrigger) {
                 tableView.selectRowAtIndexPath(indexPath, animated: false, scrollPosition: .None)
@@ -228,6 +242,9 @@ MenuController {
 
             let name = actions?[indexPath.row]
             cell.textLabel?.text = name
+            cell.backgroundColor = UIColor.clearColor()
+            cell.textLabel?.textColor = UIColor(white: 0.7, alpha: 1.0)
+            cell.textLabel?.highlightedTextColor = UIColor(white: 0.15, alpha: 1.0)
 
             if (indexOfActionNamed(name!) != NSNotFound) {
                 tableView.selectRowAtIndexPath(indexPath, animated: false, scrollPosition: .None)

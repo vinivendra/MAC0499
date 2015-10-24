@@ -19,7 +19,7 @@
                 </label>
             </subviews>
             <animations/>
-            <color key="backgroundColor" white="0.0" alpha="0.10000000000000001" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="gx9-g4-N6s" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="FkY-Uk-kuK"/>
                 <constraint firstItem="gx9-g4-N6s" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="KnE-f7-bgW"/>

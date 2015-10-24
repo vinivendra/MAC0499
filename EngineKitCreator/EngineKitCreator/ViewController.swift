@@ -18,6 +18,7 @@ enum ViewControllerStates {
 protocol MenuManager {
     func dismissMenu(object: AnyObject?)
     func dismissMenuAndRespond(object: AnyObject?)
+    func didSelectItem(item: Item?)
 }
 
 
@@ -262,12 +263,20 @@ class ViewController: UIViewController, MenuManager {
         objectsButton.hidden = true
         propertiesButton.hidden = true
         itemsButton.hidden = true
+        actionsButton.hidden = true
+        deleteButton.hidden = true
+        exportButton.hidden = true
+        doneButton.hidden = true
     }
 
     func showButtons() {
         objectsButton.hidden = false
         propertiesButton.hidden = false
         itemsButton.hidden = false
+        actionsButton.hidden = false
+        deleteButton.hidden = false
+        exportButton.hidden = false
+        doneButton.hidden = false
     }
 
     func hideMenu() {

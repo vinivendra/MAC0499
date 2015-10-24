@@ -34,7 +34,10 @@ class ItemsMenuViewController: UIViewController,
 
         let item = node.item
 
-        cell.textLabel?.text = item.templateName
+        cell.textLabel?.text = item.name
+        cell.backgroundColor = UIColor.clearColor()
+        cell.textLabel?.textColor = UIColor(white: 0.7, alpha: 1.0)
+        cell.textLabel?.highlightedTextColor = UIColor(white: 0.15, alpha: 1.0)
 
         if let editorManager = SceneManager.currentSceneManager() as? EditorSceneManager {
             let selectedItem = editorManager.selectedItem
@@ -54,9 +57,11 @@ class ItemsMenuViewController: UIViewController,
             let node = nodes?[indexPath.row] as! SCNNode
             if (editor.selectedItem == node.item) {
                 editor.selectedItem = nil
+                manager?.didSelectItem(nil)
             }
             else {
                 editor.selectedItem = node.item
+                manager?.didSelectItem(node.item)
             }
         }
         manager?.dismissMenu(nil)
@@ -67,12 +72,14 @@ class ItemsMenuViewController: UIViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        nodes = SceneManager.currentSceneManager().scene.rootNode.childNodes
+
         tableView.delegate = self
         tableView.dataSource = self
 
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: id)
 
-        nodes = SceneManager.currentSceneManager().scene.rootNode.childNodes
+        tableView.tableFooterView = UIView()
     }
 
     // MARK: MenuController

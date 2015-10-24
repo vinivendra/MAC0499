@@ -53,12 +53,12 @@ MenuController {
                 let indexPath = NSIndexPath(forItem: i, inSection: 0)
                 let cell = self.collectionView?.cellForItemAtIndexPath(indexPath) as? ObjectsCell
                 if (self.isEditing) {
-                    cell?.backgroundColor = UIColor(white: 1.0, alpha: 0.5)
+                    cell?.backgroundColor = UIColor(white: 1.0, alpha: 0.7)
                     cell?.label.textColor = UIColor(white: 0.15, alpha: 1.0)
                     self.editButton?.setTitle("Done", forState: .Normal)
                 }
                 else {
-                    cell?.backgroundColor = UIColor(white: 0.0, alpha: 0.1)
+                    cell?.backgroundColor = UIColor(white: 0.0, alpha: 0.3)
                     cell?.label.textColor = UIColor(white: 0.7, alpha: 1.0)
                     self.editButton?.setTitle("Edit", forState: .Normal)
                 }
@@ -100,17 +100,17 @@ MenuController {
                 cell.label.text = string
 
                 if (isEditing) {
-                    cell.backgroundColor = UIColor(white: 1.0, alpha: 0.5)
+                    cell.backgroundColor = UIColor(white: 1.0, alpha: 0.7)
                     cell.label.textColor = UIColor(white: 0.15, alpha: 1.0)
                 }
                 else {
-                    cell.backgroundColor = UIColor(white: 0.0, alpha: 0.1)
+                    cell.backgroundColor = UIColor(white: 0.0, alpha: 0.3)
                     cell.label.textColor = UIColor(white: 0.7, alpha: 1.0)
                 }
                 cell.label.font = UIFont.systemFontOfSize(17)
         }
         else {
-            cell.backgroundColor = UIColor(white: 0.0, alpha: 0.1)
+            cell.backgroundColor = UIColor(white: 0.0, alpha: 0.3)
             cell.label.textColor = UIColor(white: 0.7, alpha: 1.0)
             cell.label.font = UIFont.systemFontOfSize(34)
             cell.label.text = "+";
