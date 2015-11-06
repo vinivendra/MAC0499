@@ -4,6 +4,7 @@
 
 #import "SCNScene+Extension.h"
 #import "SCNNode+Extension.h"
+#import "CABasicAnimation+Exports.h"
 #import "NSArray+Extension.h"
 #import "ObjectiveSugar.h"
 
@@ -94,7 +95,7 @@ static NSString *animationID = @"0";
     return globalID++;
 }
 
-- (void)delete {
+- (void) delete {
     SCNNode *node = self.node;
 
     self.node = nil;
@@ -151,7 +152,9 @@ static NSString *animationID = @"0";
     }
 }
 
-- (void)addAnimation:(CAAnimation *)animation {
+- (void)addAnimation:(NSDictionary *)dictionary {
+    CABasicAnimation *animation =
+        [[CABasicAnimation alloc] initWithDictionary:dictionary];
     int newID = animationID.integerValue;
     newID++;
     animationID = [NSString stringWithFormat:@"%d", newID];
@@ -164,17 +167,16 @@ static NSString *animationID = @"0";
     [self.actionCollection addAction:action forKey:key];
 }
 
-- (NSMutableArray <MethodAction *> *)actionsForKey:(NSString *)key {
+- (NSMutableArray<MethodAction *> *)actionsForKey:(NSString *)key {
     return [self.actionCollection actionsForKey:key];
 }
 
 - (NSString *)parserString {
     Item *itemTemplate = [Item templateNamed:self.templateName];
-    return [self parserStringBasedOnTemplate:itemTemplate
-                            withTemplateName:NO];
+    return [self parserStringBasedOnTemplate:itemTemplate withTemplateName:NO];
 }
 
-- (NSString *)parserStringBasedOnTemplate:(Item *)template
+- (NSString *)parserStringBasedOnTemplate:(Item *) template
                          withTemplateName:(BOOL)withTemplateName {
     NSString *result = [self parserStringWithIndentation:@"    "
                                          basedOnTemplate:template
@@ -184,8 +186,7 @@ static NSString *animationID = @"0";
 
     if (result) {
         return result;
-    }
-    else {
+    } else {
         return [NSString stringWithFormat:@"    %@\n", self.templateName];
     }
 }
@@ -200,18 +201,14 @@ static NSString *animationID = @"0";
 
     NSString *headerString;
     if (withTemplateName) {
-        headerString = [NSString stringWithFormat:@"%@ %@",
-                        self.templateName,
-                        itemTemplate.name];
-    }
-    else {
+        headerString = [NSString
+            stringWithFormat:@"%@ %@", self.templateName, itemTemplate.name];
+    } else {
         if (withName) {
             headerString = self.name;
-        }
-        else {
+        } else {
             headerString = self.templateName;
         }
-
     }
     [statements addObject:[indentation stringByAppendingString:headerString]];
 
@@ -225,8 +222,8 @@ static NSString *animationID = @"0";
     }
 
     for (Item *item in self.children) {
-        Item *childTemplate = [itemTemplate childItemWithName:item.templateName
-                                                  recursively:NO];
+        Item *childTemplate =
+            [itemTemplate childItemWithName:item.templateName recursively:NO];
         if (!childTemplate) {
             childTemplate = [Item templateNamed:item.templateName];
         }
@@ -245,7 +242,7 @@ static NSString *animationID = @"0";
     if (statements.count <= 1 && !withTemplateName) {
         return nil;
     }
-    
+
     return [statements join:@"\n"];
 }
 
@@ -254,19 +251,19 @@ static NSString *animationID = @"0";
 
     if (![self.position isEqual:baseTemplate.position]) {
         [statements addObject:[NSString stringWithFormat:@"position is %@",
-                               self.position]];
+                                                         self.position]];
     }
     if (![self.scale isEqual:baseTemplate.scale]) {
-        [statements addObject:[NSString stringWithFormat:@"scale is %@",
-                               self.scale]];
+        [statements
+            addObject:[NSString stringWithFormat:@"scale is %@", self.scale]];
     }
     if (![self.rotation isEqual:baseTemplate.rotation]) {
         [statements addObject:[NSString stringWithFormat:@"rotation is %@",
-                               self.rotation]];
+                                                         self.rotation]];
     }
     if (![self.name isEqual:baseTemplate.name]) {
-        [statements addObject:[NSString stringWithFormat:@"name is %@",
-                               self.name]];
+        [statements
+            addObject:[NSString stringWithFormat:@"name is %@", self.name]];
     }
     if (![self.actionCollection isEqual:baseTemplate.actionCollection]) {
         [statements addObjectsFromArray:[self.actionCollection parserStrings]];
@@ -295,7 +292,7 @@ static NSString *animationID = @"0";
     Vector *translation = [[Vector alloc] initWithObject:anchor];
 
     SCNMatrix4 result =
-    [translation.opposite translateMatrix:self.node.transform];
+        [translation.opposite translateMatrix:self.node.transform];
     result = [rotationObject rotateMatrix:result];
     result = [translation translateMatrix:result];
 
@@ -430,86 +427,83 @@ static NSString *animationID = @"0";
 
 - (void)addPositionX:(NSNumber *)newValue {
     Position *oldPosition = self.position;
-    self.position = [[Position alloc]
-                     initWithX:oldPosition.x + newValue.doubleValue
-                     Y:oldPosition.y
-                     Z:oldPosition.z];
+    self.position =
+        [[Position alloc] initWithX:oldPosition.x + newValue.doubleValue
+                                  Y:oldPosition.y
+                                  Z:oldPosition.z];
 }
 
 - (void)addPositionY:(NSNumber *)newValue {
     Position *oldPosition = self.position;
-    self.position = [[Position alloc]
-                     initWithX:oldPosition.x
-                     Y:oldPosition.y + newValue.doubleValue
-                     Z:oldPosition.z];
+    self.position =
+        [[Position alloc] initWithX:oldPosition.x
+                                  Y:oldPosition.y + newValue.doubleValue
+                                  Z:oldPosition.z];
 }
 
 - (void)addPositionZ:(NSNumber *)newValue {
     Position *oldPosition = self.position;
-    self.position = [[Position alloc]
-                     initWithX:oldPosition.x
-                     Y:oldPosition.y
-                     Z:oldPosition.z + newValue.doubleValue];
+    self.position =
+        [[Position alloc] initWithX:oldPosition.x
+                                  Y:oldPosition.y
+                                  Z:oldPosition.z + newValue.doubleValue];
 }
 
 - (void)addScaleX:(NSNumber *)newValue {
     Vector *oldScale = self.scale;
-    self.scale = [[Vector alloc]
-                  initWithX:oldScale.x + newValue.doubleValue
-                  Y:oldScale.y
-                  Z:oldScale.z];
+    self.scale = [[Vector alloc] initWithX:oldScale.x + newValue.doubleValue
+                                         Y:oldScale.y
+                                         Z:oldScale.z];
 }
 
 - (void)addScaleY:(NSNumber *)newValue {
     Vector *oldScale = self.scale;
-    self.scale = [[Vector alloc]
-                  initWithX:oldScale.x
-                  Y:oldScale.y + newValue.doubleValue
-                  Z:oldScale.z];
+    self.scale = [[Vector alloc] initWithX:oldScale.x
+                                         Y:oldScale.y + newValue.doubleValue
+                                         Z:oldScale.z];
 }
 
 - (void)addScaleZ:(NSNumber *)newValue {
     Vector *oldScale = self.scale;
-    self.scale = [[Vector alloc]
-                  initWithX:oldScale.x
-                  Y:oldScale.y
-                  Z:oldScale.z + newValue.doubleValue];
+    self.scale = [[Vector alloc] initWithX:oldScale.x
+                                         Y:oldScale.y
+                                         Z:oldScale.z + newValue.doubleValue];
 }
 
 - (void)addRotationX:(NSNumber *)newValue {
     Rotation *oldRotation = self.rotation;
-    self.rotation = [[Rotation alloc]
-                     initWithX:oldRotation.x + newValue.doubleValue
-                     Y:oldRotation.y
-                     Z:oldRotation.z
-                     Angle:oldRotation.a];
+    self.rotation =
+        [[Rotation alloc] initWithX:oldRotation.x + newValue.doubleValue
+                                  Y:oldRotation.y
+                                  Z:oldRotation.z
+                              Angle:oldRotation.a];
 }
 
 - (void)addRotationY:(NSNumber *)newValue {
     Rotation *oldRotation = self.rotation;
-    self.rotation = [[Rotation alloc]
-                     initWithX:oldRotation.x
-                     Y:oldRotation.y + newValue.doubleValue
-                     Z:oldRotation.z
-                     Angle:oldRotation.a];
+    self.rotation =
+        [[Rotation alloc] initWithX:oldRotation.x
+                                  Y:oldRotation.y + newValue.doubleValue
+                                  Z:oldRotation.z
+                              Angle:oldRotation.a];
 }
 
 - (void)addRotationZ:(NSNumber *)newValue {
     Rotation *oldRotation = self.rotation;
-    self.rotation = [[Rotation alloc]
-                     initWithX:oldRotation.x
-                     Y:oldRotation.y
-                     Z:oldRotation.z + newValue.doubleValue
-                     Angle:oldRotation.a];
+    self.rotation =
+        [[Rotation alloc] initWithX:oldRotation.x
+                                  Y:oldRotation.y
+                                  Z:oldRotation.z + newValue.doubleValue
+                              Angle:oldRotation.a];
 }
 
 - (void)addRotationA:(NSNumber *)newValue {
     Rotation *oldRotation = self.rotation;
-    self.rotation = [[Rotation alloc]
-                     initWithX:oldRotation.x
-                     Y:oldRotation.y
-                     Z:oldRotation.z
-                     Angle:oldRotation.a + newValue.doubleValue];
+    self.rotation =
+        [[Rotation alloc] initWithX:oldRotation.x
+                                  Y:oldRotation.y
+                                  Z:oldRotation.z
+                              Angle:oldRotation.a + newValue.doubleValue];
 }
 
 
@@ -518,7 +512,7 @@ static NSString *animationID = @"0";
 
 - (void)setPosition:(id)position {
     self.node.position =
-    [[[Position alloc] initWithObject:position] toSCNVector3];
+        [[[Position alloc] initWithObject:position] toSCNVector3];
 }
 
 - (id)position {
@@ -527,7 +521,7 @@ static NSString *animationID = @"0";
 
 - (void)setRotation:(id)rotation {
     self.node.rotation =
-    [[[Rotation alloc] initWithObject:rotation] toSCNVector];
+        [[[Rotation alloc] initWithObject:rotation] toSCNVector];
 }
 
 - (id)rotation {

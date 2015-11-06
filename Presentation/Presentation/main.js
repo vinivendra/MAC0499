@@ -6,24 +6,17 @@ function load() {
     item.scale = 2;
     item.rotation = [1, 1, 0, 0];
 
-    var animation = Animation.animationWithKeyPath("rotation.w");
-    print(animation);
+    var dictionary = {"keyPath": "rotation.w",
+                      "toValue": 2 * pi,
+                      "duration": 3,
+                      "repeatCount": 1000};
+    item.addAnimation(dictionary);
 
-    animation.toValue = 2 * pi;
-    animation.duration = 3;
-    animation.repeatCount = 1000;
-
-    item.addAnimation(animation);
-
-
-    animation = Animation.animationWithKeyPath("position.x");
-    print(animation);
-
-    animation.toValue = 1;
-    animation.duration = 1;
-    animation.repeatCount = 1000;
-    animation.autoreverses = true;
-
-    item.addAnimation(animation);
+    dictionary = {"keyPath": "position.x",
+                  "toValue": 1,
+                  "duration": 1,
+                  "repeatCount": 1000,
+                  "autoreverses": true};
+    item.addAnimation(dictionary);
 }
 

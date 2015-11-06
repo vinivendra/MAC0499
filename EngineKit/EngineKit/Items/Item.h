@@ -25,7 +25,7 @@
 - (void)addItem:(Item *)newItem;
 - (void)rotate:(id)rotation;
 - (void)rotate:(id)rotation around:(id)anchor;
-- (void)addAnimation:(CAAnimation *)animation;
+- (void)addAnimation:(NSDictionary *)dictionary;
 @property (nonatomic, weak, readonly) Item *parent;
 @property (nonatomic, strong) NSString *templateName;
 
@@ -135,7 +135,7 @@
 
 @property (nonatomic, strong) ActionCollection *actionCollection;
 
-- (void)addAnimation:(CAAnimation *)animation;
+- (void)addAnimation:(NSDictionary *)dictionary;
 
 - (void)addAction:(MethodAction *)action forKey:(NSString *)key;
 - (NSMutableArray <MethodAction *> *)actionsForKey:(NSString *)key;
