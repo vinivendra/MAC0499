@@ -15,6 +15,9 @@
 static NSUInteger globalID = 0;
 static NSMutableDictionary *templates;
 
+static NSString *animationID = @"0";
+
+
 @implementation Item
 
 + (NSMutableDictionary *)templates {
@@ -146,6 +149,14 @@ static NSMutableDictionary *templates;
         [item addItem:childCopy];
         childCopy.isTemplateBase = NO;
     }
+}
+
+- (void)addAnimation:(CAAnimation *)animation {
+    int newID = animationID.integerValue;
+    newID++;
+    animationID = [NSString stringWithFormat:@"%d", newID];
+
+    [self.node addAnimation:animation forKey:animationID];
 }
 
 - (void)addAction:(MethodAction *)action forKey:(NSString *)key {

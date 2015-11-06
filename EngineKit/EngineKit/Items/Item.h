@@ -25,14 +25,17 @@
 - (void)addItem:(Item *)newItem;
 - (void)rotate:(id)rotation;
 - (void)rotate:(id)rotation around:(id)anchor;
+- (void)addAnimation:(CAAnimation *)animation;
 @property (nonatomic, weak, readonly) Item *parent;
 @property (nonatomic, strong) NSString *templateName;
+
 @property (nonatomic, strong) id position;
 @property (nonatomic, strong) id rotation;
 @property (nonatomic, strong) id scale;
 @property (nonatomic) BOOL isDefault;
 @property (nonatomic) BOOL isTemplateBase;
 @property (nonatomic) BOOL hidden;
+
 - (void)setPositionX:(NSNumber *)newValue;
 - (void)setPositionY:(NSNumber *)newValue;
 - (void)setPositionZ:(NSNumber *)newValue;
@@ -43,8 +46,10 @@
 - (void)setRotationY:(NSNumber *)newValue;
 - (void)setRotationZ:(NSNumber *)newValue;
 - (void)setRotationA:(NSNumber *)newValue;
+
 - (void)addPosition:(id)object;
 - (void)addScale:(id)object;
+
 - (NSNumber *)positionX;
 - (NSNumber *)positionY;
 - (NSNumber *)positionZ;
@@ -55,6 +60,7 @@
 - (NSNumber *)rotationY;
 - (NSNumber *)rotationZ;
 - (NSNumber *)rotationA;
+
 - (void)addPositionX:(NSNumber *)newValue;
 - (void)addPositionY:(NSNumber *)newValue;
 - (void)addPositionZ:(NSNumber *)newValue;
@@ -128,6 +134,9 @@
 - (instancetype) template;
 
 @property (nonatomic, strong) ActionCollection *actionCollection;
+
+- (void)addAnimation:(CAAnimation *)animation;
+
 - (void)addAction:(MethodAction *)action forKey:(NSString *)key;
 - (NSMutableArray <MethodAction *> *)actionsForKey:(NSString *)key;
 

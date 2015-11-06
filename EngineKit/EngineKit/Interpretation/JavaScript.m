@@ -47,6 +47,8 @@
 static NSString *_defaultFilename = @"main.js";
 static NSString *_supportFilename = @"support.js";
 
+static NSString *animationID = @"0";
+
 
 @interface JavaScript ()
 @property (nonatomic, strong) NSString *scriptFilename;
@@ -77,10 +79,10 @@ static NSString *_supportFilename = @"support.js";
 }
 
 - (instancetype)initWithFile:(NSString *)scriptFilename
-                            camera:(Camera *)camera
-                                UI:(UI *)ui
-                           physics:(Physics *)physics
-                            parser:(Parser *)parser {
+                      camera:(Camera *)camera
+                          UI:(UI *)ui
+                     physics:(Physics *)physics
+                      parser:(Parser *)parser {
 
     if (self = [self initWithScriptFile:scriptFilename
                               sceneFile:nil
@@ -88,13 +90,12 @@ static NSString *_supportFilename = @"support.js";
                                      UI:ui
                                 physics:physics
                                  parser:parser]) {
-
     }
     return self;
 }
 
 - (instancetype)initWithScriptFile:(NSString *)scriptFilename
-                        sceneFile:(NSString *)sceneFilename
+                         sceneFile:(NSString *)sceneFilename
                             camera:(Camera *)camera
                                 UI:(UI *)ui
                            physics:(Physics *)physics
@@ -223,6 +224,8 @@ static NSString *_supportFilename = @"support.js";
     self.context[@"Template"] = ^Item *(void) {
         return [Item template];
     };
+
+    self.context[@"Animation"] = [CABasicAnimation class];
 }
 
 - (void)getObjects {

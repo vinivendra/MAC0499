@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2417AF341BEC05C300AD7201 /* CABasicAnimation+Exports.h in Headers */ = {isa = PBXBuildFile; fileRef = 2417AF321BEC05C300AD7201 /* CABasicAnimation+Exports.h */; settings = {ASSET_TAGS = (); }; };
+		2417AF351BEC05C300AD7201 /* CABasicAnimation+Exports.m in Sources */ = {isa = PBXBuildFile; fileRef = 2417AF331BEC05C300AD7201 /* CABasicAnimation+Exports.m */; settings = {ASSET_TAGS = (); }; };
 		242D204D1BC75D3600651F3D /* PlaceholderAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 242D204B1BC75D3600651F3D /* PlaceholderAction.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		242D204E1BC75D3600651F3D /* PlaceholderAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 242D204C1BC75D3600651F3D /* PlaceholderAction.m */; settings = {ASSET_TAGS = (); }; };
 		245991711BAB009B008E8F60 /* Light.h in Headers */ = {isa = PBXBuildFile; fileRef = 2459916F1BAB009B008E8F60 /* Light.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -150,6 +152,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2417AF321BEC05C300AD7201 /* CABasicAnimation+Exports.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CABasicAnimation+Exports.h"; sourceTree = "<group>"; };
+		2417AF331BEC05C300AD7201 /* CABasicAnimation+Exports.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CABasicAnimation+Exports.m"; sourceTree = "<group>"; };
 		242D204B1BC75D3600651F3D /* PlaceholderAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceholderAction.h; sourceTree = "<group>"; };
 		242D204C1BC75D3600651F3D /* PlaceholderAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceholderAction.m; sourceTree = "<group>"; };
 		2459916F1BAB009B008E8F60 /* Light.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Light.h; sourceTree = "<group>"; };
@@ -390,6 +394,8 @@
 		24B811A71BA079D700EAA152 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2417AF321BEC05C300AD7201 /* CABasicAnimation+Exports.h */,
+				2417AF331BEC05C300AD7201 /* CABasicAnimation+Exports.m */,
 				24B811A81BA079D700EAA152 /* JSContext+Extension.h */,
 				24B811A91BA079D700EAA152 /* JSContext+Extension.m */,
 				24713FFB1BB2D61200270024 /* JSValue+Extension.h */,
@@ -606,6 +612,7 @@
 				245991711BAB009B008E8F60 /* Light.h in Headers */,
 				24B812151BA07ACE00EAA152 /* EngineKitUIExtensions.h in Headers */,
 				24B811EA1BA079D700EAA152 /* SCN+Exports.h in Headers */,
+				2417AF341BEC05C300AD7201 /* CABasicAnimation+Exports.h in Headers */,
 				24B811E21BA079D700EAA152 /* NSArray+Extension.h in Headers */,
 				24B812D21BA09D6000EAA152 /* EngineKitHelpers.h in Headers */,
 				24B812031BA079D700EAA152 /* Rotation.h in Headers */,
@@ -752,6 +759,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24B8123D1BA07B5300EAA152 /* Box.m in Sources */,
+				2417AF351BEC05C300AD7201 /* CABasicAnimation+Exports.m in Sources */,
 				24B8123A1BA07B5300EAA152 /* Item.m in Sources */,
 				24B812451BA07B5300EAA152 /* Floor.m in Sources */,
 				24B812731BA07BC400EAA152 /* Physics.m in Sources */,
