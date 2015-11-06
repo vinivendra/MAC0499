@@ -22,6 +22,7 @@
 #import "NSString+Extension.h"
 #import "NSNumber+Extension.h"
 #import "SCNNode+Extension.h"
+#import "UIColor+Extension.h"
 
 
 static NSString *defaultFilename = @"scene.fmt";
@@ -48,7 +49,9 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
 
         if (!itemsHaveBeenRegistered) {
             itemsHaveBeenRegistered = YES;
-            
+
+            [Item registerTemplate:[Item template]];
+
             [Item registerTemplate:[Box template]];
             [Item registerTemplate:[Capsule template]];
             [Item registerTemplate:[Cone template]];
@@ -170,6 +173,7 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
             Item *template = [Item templateNamed:itemName];
             Item *newItem = [template create];
             newItem.templateName = itemName;
+            newItem.name = components.lastObject;
             [currentItem addItem:newItem];
             nextItem = newItem;
         }
@@ -205,6 +209,18 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
                         nextItem = newTemplate;
 
                         done = YES;
+                    }
+                    else {
+                        NSString *itemName = components.firstObject;
+
+                        Item *chosenItem;
+                        chosenItem = [currentItem childItemWithName:itemName
+                                                        recursively:NO];
+                        if (chosenItem) {
+                            nextItem = chosenItem;
+                            done = YES;
+                        }
+
                     }
 
                     break;
@@ -269,7 +285,19 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
 - (void)setPropertyFromLine:(NSMutableArray *)line onItem:(Item *)item {
     if ([line.firstObject isEqualToString:@"color"]) {
         NSString *value = line.lastObject;
-        ((Shape *)item).color = value;
+        UIColor *color = [UIColor colorWithObject:value];
+
+        if (color) {
+            ((Shape *)item).color = color;
+        }
+        else {
+            NSNumber *r = [NSNumber numberWithString:[line pop]];
+            NSNumber *g = [NSNumber numberWithString:[line pop]];
+            NSNumber *b = [NSNumber numberWithString:[line pop]];
+            color = [UIColor colorWithArray:@[r, g, b]];
+            ((Shape *)item).color = color;
+        }
+
     } else if ([line.firstObject isEqualToString:@"scale"]) {
         NSNumber *value = [NSNumber numberWithString:line.lastObject];
         ((Shape *)item).scale = value;

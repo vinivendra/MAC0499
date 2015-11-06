@@ -30,7 +30,6 @@
 
 - (void)commonInit {
     self.torus = [SCNTorus new];
-    self.color = @"lightGray";
 }
 
 - (instancetype)initWithRingRadius:(CGFloat)ringRadius
@@ -38,7 +37,6 @@
     if (self = [super initAndAddToScene]) {
         self.torus =
         [SCNTorus torusWithRingRadius:ringRadius pipeRadius:pipeRadius];
-        self.color = @"lightGray";
     }
     return self;
 }

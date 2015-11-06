@@ -33,7 +33,6 @@
 
 - (void)commonInit {
     self.tube = [SCNTube new];
-    self.color = @"lightGray";
 }
 
 - (instancetype)initWithInnerRadius:(CGFloat)innerRadius
@@ -43,7 +42,6 @@
         self.tube = [SCNTube tubeWithInnerRadius:innerRadius
                                      outerRadius:outerRadius
                                           height:height];
-        self.color = @"lightGray";
     }
     return self;
 }

@@ -32,7 +32,6 @@
 
 - (void)commonInit {
     self.box = [SCNBox new];
-    self.color = @"lightGray";
 }
 
 - (instancetype)initWithWidth:(CGFloat)width
@@ -44,7 +43,6 @@
                                  height:height
                                  length:length
                           chamferRadius:chamferRadius];
-        self.color = @"lightGray";
     }
     return self;
 }

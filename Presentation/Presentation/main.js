@@ -18,5 +18,12 @@ function load() {
                   "repeatCount": 1000,
                   "autoreverses": true};
     item.addAnimation(dictionary);
+
+    dictionary = {"keyPath": "opacity",
+        "toValue": 0,
+        "duration": 1,
+        "repeatCount": 1000,
+        "autoreverses": true};
+    item.addAnimation(dictionary);
 }
 

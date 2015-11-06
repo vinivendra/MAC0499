@@ -25,7 +25,6 @@
 
 - (void)commonInit {
     self.floor = [SCNFloor new];
-    self.color = @"lightGray";
 }
 
 - (Item *)deepCopy {

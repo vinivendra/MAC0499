@@ -64,7 +64,7 @@ MenuController {
                 }
             }
         }) { (completed) -> Void in
-            collectionView?.reloadData()
+            self.collectionView?.reloadData()
         }
     }
 

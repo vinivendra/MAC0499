@@ -30,14 +30,12 @@
 
 - (void)commonInit {
     self.capsule = [SCNCapsule new];
-    self.color = @"lightGray";
 }
 
 
 - (instancetype)initWithRadius:(CGFloat)radius height:(CGFloat)height {
     if (self = [super initAndAddToScene]) {
         self.capsule = [SCNCapsule capsuleWithCapRadius:radius height:height];
-        self.color = @"lightGray";
     }
     return self;
 }

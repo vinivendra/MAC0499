@@ -31,7 +31,6 @@
 
 - (void)commonInit {
     self.pyramid = [SCNPyramid new];
-    self.color = @"lightGray";
 }
 
 - (instancetype)initWithWidth:(CGFloat)width
@@ -40,7 +39,6 @@
     if (self = [super initAndAddToScene]) {
         self.pyramid =
         [SCNPyramid pyramidWithWidth:width height:height length:length];
-        self.color = @"lightGray";
     }
     return self;
 }

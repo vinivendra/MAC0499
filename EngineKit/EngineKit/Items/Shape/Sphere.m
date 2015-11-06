@@ -29,13 +29,11 @@
 
 - (void)commonInit {
     self.sphere = [SCNSphere new];
-    self.color = @"lightGray";
 }
 
 - (instancetype)initWithRadius:(CGFloat)radius {
     if (self = [super initAndAddToScene]) {
         self.sphere = [SCNSphere sphereWithRadius:radius];
-        self.color = @"lightGray";
     }
     return self;
 }

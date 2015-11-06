@@ -30,13 +30,11 @@
 
 - (void)commonInit {
     self.plane = [SCNPlane new];
-    self.color = @"lightGray";
 }
 
 - (instancetype)initWithWidth:(CGFloat)width height:(CGFloat)height {
     if (self = [super initAndAddToScene]) {
         self.plane = [SCNPlane planeWithWidth:width height:height];
-        self.color = @"lightGray";
     }
     return self;
 }

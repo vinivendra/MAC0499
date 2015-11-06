@@ -30,13 +30,11 @@
 
 - (void)commonInit {
     self.text = [SCNText new];
-    self.color = @"lightGray";
 }
 
 - (instancetype)initWithString:(id)string depth:(CGFloat)depth {
     if (self = [super initAndAddToScene]) {
         self.text = [SCNText textWithString:string extrusionDepth:depth];
-        self.color = @"lightGray";
     }
     return self;
 }

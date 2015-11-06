@@ -6,6 +6,7 @@
 #import "SCNNode+Extension.h"
 #import "CABasicAnimation+Exports.h"
 #import "NSArray+Extension.h"
+#import "UIColor+Extension.h"
 #import "ObjectiveSugar.h"
 
 #import "Common.h"
@@ -114,6 +115,11 @@ static NSString *animationID = @"0";
 - (void)addItem:(Item *)newItem {
     [self.node addChildNode:newItem.node];
     [self.children push:newItem];
+
+    if (!newItem.color && self.color) {
+        newItem.color = self.color;
+    }
+
     newItem.parent = self;
 }
 
@@ -140,6 +146,12 @@ static NSString *animationID = @"0";
     item.position = self.position;
     item.rotation = self.rotation;
     item.scale = self.scale;
+
+    item.opacity = self.opacity;
+
+    if (self.color) {
+        item.color = self.color;
+    }
 
     item.isTemplateBase = YES;
 
@@ -275,6 +287,14 @@ static NSString *animationID = @"0";
 
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Actions
+
+- (void)setColor:(id)color {
+    _color = [UIColor colorWithObject:color];
+
+    for (Item *item in self.children) {
+        item.color = color;
+    }
+}
 
 - (void)rotate:(id)rotation {
     Rotation *rotationObject = [[Rotation alloc] initWithObject:rotation];
@@ -577,6 +597,14 @@ static NSString *animationID = @"0";
         _actionCollection = [ActionCollection new];
     }
     return _actionCollection;
+}
+
+- (void)setOpacity:(CGFloat)opacity {
+    self.node.opacity = opacity;
+}
+
+- (CGFloat)opacity {
+    return self.node.opacity;
 }
 
 @end

@@ -11,6 +11,8 @@
 
 @implementation Shape
 
+@synthesize color = _color;
+
 - (NSArray <NSString *>*)numericProperties {
     return @[];
 }
@@ -62,6 +64,8 @@
 - (void)setColor:(id)newValue {
     UIColor *color = [UIColor colorWithObject:newValue];
 
+    _color = color;
+
     SCNMaterial *material = [SCNMaterial new];
 
     material.ambient.contents = color;
@@ -73,34 +77,7 @@
 
 - (id)color {
 
-    NSArray <SCNMaterial *> *materials = self.geometry.materials;
-
-    if (materials.count == 0)
-        return nil;
-
-    SCNMaterial *material = materials[0];
-
-    UIColor *ambientColor, *diffuseColor, *specularColor;
-
-    id ambient = material.ambient.contents;
-    if ([ambient isKindOfClass:[UIColor class]]) {
-        ambientColor = (UIColor *)ambient;
-    }
-    id diffuse = material.diffuse.contents;
-    if ([diffuse isKindOfClass:[UIColor class]]) {
-        diffuseColor = (UIColor *)diffuse;
-    }
-    id specular = material.specular.contents;
-    if ([specular isKindOfClass:[UIColor class]]) {
-        specularColor = (UIColor *)specular;
-    }
-
-    if ([ambientColor isEqual:diffuseColor] &&
-        [diffuseColor isEqual:specularColor]) {
-        return ambientColor;
-    }
-
-    return nil;
+    return _color;
 }
 
 - (void)setPhysics:(id)physics {
@@ -157,7 +134,7 @@
 - (void)copyInfoTo:(Shape *)item {
     [super copyInfoTo:item];
 
-    item.geometry.materials = self.geometry.materials;
+    item.geometry.materials = self.geometry.materials.copy;
 }
 
 - (void)copyPhysicsTo:(Shape *)item {

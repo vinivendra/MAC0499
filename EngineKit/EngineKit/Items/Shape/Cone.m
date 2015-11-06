@@ -32,7 +32,6 @@
 
 - (void)commonInit {
     self.cone = [SCNCone new];
-    self.color = @"lightGray";
 }
 
 - (instancetype)initWithTopRadius:(CGFloat)topRadius
@@ -42,7 +41,6 @@
         self.cone = [SCNCone coneWithTopRadius:topRadius
                                   bottomRadius:bottomRadius
                                         height:height];
-        self.color = @"lightGray";
     }
     return self;
 }
