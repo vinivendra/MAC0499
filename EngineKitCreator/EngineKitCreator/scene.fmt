@@ -2,136 +2,227 @@
 
 templates
 
-    Corner Cylinder
-        radius is 0.1
-        height is 0.1
+    Sun Sphere
+        color is yellow
+        radius is 0.35
 
-    iDeviceShape Item
-        Corner corner1
-            position is 1.4 0 1.9
-        Corner corner2
-            position is -1.4 0 1.9
-        Corner corner3
-            position is 1.4 0 -1.9
-        Corner corner4
-            position is -1.4 0 -1.9
 
-        Box body1
-            width is 3.0
-            length is 3.8
-            height is 0.05
+    Mercury Sphere
+        color is red
+        radius is 0.05
 
-        Box body2
-            width is 2.8
-            length is 4.0
-            height is 0.05
 
-    iDeviceGlass iDeviceShape
-        color is black
+    Venus Sphere
+        color is green
+        radius is 0.075
 
-        corner1
-            height is 0.05
-        corner2
-            height is 0.05
-        corner3
-            height is 0.05
-        corner4
-            height is 0.05
-        body1
-            height is 0.05
-        body2
-            height is 0.05
 
-    iDeviceMetal iDeviceShape
+    EarthBody Sphere
+        color is blue
+        radius is 0.15
+
+    EarthMoon Sphere
         color is lightGray
+        radius is 0.05
 
-        corner1
-            height is 0.1
-        corner2
-            height is 0.1
-        corner3
-            height is 0.1
-        corner4
-            height is 0.1
-        body1
-            height is 0.1
-        body2
-            height is 0.1
-
-    iDeviceBody Item
-        iDeviceGlass glass
-            position is 0 0.025 0
-        iDeviceMetal metal
-            position is 0 -0.05 0
-        Box screen
-            color is white
-            opacity is 0.5
-            height is 0.05
-            width is 2.5
-            length is 3.1
-            position 0 0.05 -0.15
+    Earth Item
+        EarthBody
+        EarthMoon
+            position is 0.25 0 0
 
 
-    SymbolCorner Cylinder
-        radius is 0.02
-        height is 0.005
+    MarsBody Sphere
+        color is red
+        radius is 0.1
 
-    HomeButtonSymbolShape Item
-        SymbolCorner corner1
-            position is 0.03 0 0.03
-        SymbolCorner corner2
-            position is -0.03 0 0.03
-        SymbolCorner corner3
-            position is 0.03 0 -0.03
-        SymbolCorner corner4
-            position is -0.03 0 -0.03
+    MarsMoon Sphere
+        color is lightGray
+        radius is 0.025
 
-        Box body1
-            width is 0.1
-            length is 0.07
-            height is 0.005
-
-        Box body2
-            width is 0.07
-            length is 0.1
-            height is 0.005
-
-    HomeButtonSymbol Item
-        HomeButtonSymbolShape basis
-            color is black
-        HomeButtonSymbolShape contour
-            color is white
-            scale is 1.1
-            position is 0 -0.01 0
+    Mars Item
+        MarsBody body
+        MarsMoon moon1
+            position is 0.15 0 0
+        MarsMoon moon2
+            position is 0 0 0.15
 
 
-    HomeButtonBasis Item
-        Cylinder basis
-            color is black
-            radius is 0.15
-            height is 0.01
-        Cylinder contour
-            color is white
-            radius is 0.15
-            height is 0.01
-            scale is 1.025
-            position is 0 -0.005 0
+    JupiterBody Sphere
+        color is orange
+        radius is 0.25
 
-    HomeButton Item
-        HomeButtonSymbol symbol
-            position is 0  0.01 0
-        HomeButtonBasis basis
-            position is 0 -0.01 0
+    JupiterMoon Sphere
+        color is lightGray
+        radius 0.025
 
-    iDevice Item
-        iDeviceBody body
+    Jupiter Item
+        JupiterBody
+        JupiterMoon
+            position is 0.4 0 0
+        JupiterMoon
+            position is -0.4 0 0
+        JupiterMoon
+            position is 0 0 0.4
+        JupiterMoon
+            position is 0 0 -0.4
+        JupiterMoon
+            position is 0.3 0 0.3
+        JupiterMoon
+            position is 0.3 0 -0.3
+        JupiterMoon
+            position is -0.3 0 0.3
+        JupiterMoon
+            position is -0.3 0 -0.3
 
-        HomeButton button
-            position is 0 0.075 1.7
+
+    SaturnBody Sphere
+        color is yellow
+        radius is 0.15
+
+    SaturnRing Tube
+        color is white
+        opacity is 0.5
+        height is 0.01
+        innerRadius is 0.17
+        outerRadius is 0.3
+
+    SaturnMoon Sphere
+        color is lightGray
+        radius 0.025
+
+    Saturn Item
+        SaturnBody
+        SaturnRing
+        SaturnMoon
+            position is 0.4 0 0
+        SaturnMoon
+            position is -0.4 0 0
+        SaturnMoon
+            position is 0 0 0.4
+        SaturnMoon
+            position is 0 0 -0.4
+        SaturnMoon
+            position is 0.3 0 0.3
+        SaturnMoon
+            position is 0.3 0 -0.3
+        SaturnMoon
+            position is -0.3 0 0.3
+        SaturnMoon
+            position is -0.3 0 -0.3
+
+
+    UranusBody Sphere
+        color is purple
+        radius is 0.15
+
+    UranusRing Tube
+        color is white
+        height is 0.01
+        innerRadius is 0.17
+        outerRadius is 0.18
+
+    UranusMoon Sphere
+        color is lightGray
+        radius 0.025
+
+    Uranus Item
+        UranusBody
+        UranusRing
+        UranusMoon
+            position is 0.3 0 0
+        UranusMoon
+            position is -0.3 0 0
+        UranusMoon
+            position is 0 0 0.3
+        UranusMoon
+            position is 0 0 -0.3
+        UranusMoon
+            position is 0.2 0 0.2
+
+
+    NeptuneBody Sphere
+        color is cyan
+        radius is 0.15
+
+    NeptuneRing Tube
+        color is white
+        height is 0.01
+        innerRadius is 0.17
+        outerRadius is 0.18
+
+    NeptuneMoon Sphere
+        color is lightGray
+        radius 0.025
+
+    Neptune Item
+        NeptuneBody
+        NeptuneRing
+        NeptuneMoon
+            position is 0.3 0 0
+
+
+    PlutoBody Sphere
+        color is white
+        radius is 0.07
+
+    PlutoMoon Sphere
+        color is lightGray
+        radius 0.05
+
+    Pluto Item
+        PlutoBody
+        PlutoMoon
+            position is 0.15 0 0
+
 
 items
 
-    iDevice
+    Sun
+
+    Mercury
+        position is 0.7 0 0
+
+    Venus
+        position is 0 0 1
+
+    Earth
+        position is -1.5 0 0
+
+    Mars
+        position is 0 0 -1.5
+
+    Jupiter
+        position is 2 0 0
+
+    Saturn
+        position is -1 0 2
+
+    Uranus
+        position is 1.5 0 -2.5
+
+    Neptune
+        position is 1.5 0 2.5
+
+    Pluto
+        position is -1.7 0 -2.7
+
+
+
+
+    Light
+        position is 3 3 3
+        color is white
+
+    Light
+        position is -3 -3 -3
+        color is lightgrey
+
+    Light
+        position is -3 -3 -3
+        type is ambient
+        color is darkgrey
+
+
 
 
 

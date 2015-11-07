@@ -1,36 +1,213 @@
-action trackballAction | gesture pan
+
 
 templates
-    Satelite Box
-        width is 0.3
-        height is 0.3
-        length is 0.3
-        position is 1 0 0
-        color is darkgrey
 
-    Lua Sphere
-        radius is 0.7
-        position is 3 0 0
-        color is purple
+    Sun Sphere
+        color is yellow
+        radius is 0.35
 
-    Planeta Sphere
-        radius is 2
+
+    Mercury Sphere
         color is red
-        Lua Sphere
-            name is Moon
-            Satelite Box
-                name is Spudnik
+        radius is 0.05
+
+
+    Venus Sphere
+        color is green
+        radius is 0.075
+
+
+    EarthBody Sphere
+        color is blue
+        radius is 0.15
+
+    EarthMoon Sphere
+        color is lightGray
+        radius is 0.05
+
+    Earth Item
+        EarthBody
+        EarthMoon
+            position is 0.25 0 0
+
+
+    MarsBody Sphere
+        color is red
+        radius is 0.1
+
+    MarsMoon Sphere
+        color is lightGray
+        radius is 0.025
+
+    Mars Item
+        MarsBody body
+        MarsMoon moon1
+            position is 0.15 0 0
+        MarsMoon moon2
+            position is 0 0 0.15
+
+
+    JupiterBody Sphere
+        color is orange
+        radius is 0.25
+
+    JupiterMoon Sphere
+        color is lightGray
+        radius 0.025
+
+    Jupiter Item
+        JupiterBody
+        JupiterMoon
+            position is 0.4 0 0
+        JupiterMoon
+            position is -0.4 0 0
+        JupiterMoon
+            position is 0 0 0.4
+        JupiterMoon
+            position is 0 0 -0.4
+        JupiterMoon
+            position is 0.3 0 0.3
+        JupiterMoon
+            position is 0.3 0 -0.3
+        JupiterMoon
+            position is -0.3 0 0.3
+        JupiterMoon
+            position is -0.3 0 -0.3
+
+
+    SaturnBody Sphere
+        color is yellow
+        radius is 0.15
+
+    SaturnRing Tube
+        color is white
+        opacity is 0.5
+        height is 0.01
+        innerRadius is 0.17
+        outerRadius is 0.3
+
+    SaturnMoon Sphere
+        color is lightGray
+        radius 0.025
+
+    Saturn Item
+        SaturnBody
+        SaturnRing
+        SaturnMoon
+            position is 0.4 0 0
+        SaturnMoon
+            position is -0.4 0 0
+        SaturnMoon
+            position is 0 0 0.4
+        SaturnMoon
+            position is 0 0 -0.4
+        SaturnMoon
+            position is 0.3 0 0.3
+        SaturnMoon
+            position is 0.3 0 -0.3
+        SaturnMoon
+            position is -0.3 0 0.3
+        SaturnMoon
+            position is -0.3 0 -0.3
+
+
+    UranusBody Sphere
+        color is purple
+        radius is 0.15
+
+    UranusRing Tube
+        color is white
+        height is 0.01
+        innerRadius is 0.17
+        outerRadius is 0.18
+
+    UranusMoon Sphere
+        color is lightGray
+        radius 0.025
+
+    Uranus Item
+        UranusBody
+        UranusRing
+        UranusMoon
+            position is 0.3 0 0
+        UranusMoon
+            position is -0.3 0 0
+        UranusMoon
+            position is 0 0 0.3
+        UranusMoon
+            position is 0 0 -0.3
+        UranusMoon
+            position is 0.2 0 0.2
+
+
+    NeptuneBody Sphere
+        color is cyan
+        radius is 0.15
+
+    NeptuneRing Tube
+        color is white
+        height is 0.01
+        innerRadius is 0.17
+        outerRadius is 0.18
+
+    NeptuneMoon Sphere
+        color is lightGray
+        radius 0.025
+
+    Neptune Item
+        NeptuneBody
+        NeptuneRing
+        NeptuneMoon
+            position is 0.3 0 0
+
+
+    PlutoBody Sphere
+        color is white
+        radius is 0.07
+
+    PlutoMoon Sphere
+        color is lightGray
+        radius 0.05
+
+    Pluto Item
+        PlutoBody
+        PlutoMoon
+            position is 0.15 0 0
+
 
 items
-    Planeta
-        name is Terra
-        color is blue
-        Moon
-            name is Moon
-            color is darkgrey
-            Spudnik
-                name is Spudnik
-                color is white
+
+    Sun
+
+    Mercury
+        position is 0.7 0 0
+
+    Venus
+        position is 0 0 1
+
+    Earth
+        position is -1.5 0 0
+
+    Mars
+        position is 0 0 -1.5
+
+    Jupiter
+        position is 2 0 0
+
+    Saturn
+        position is -1 0 2
+
+    Uranus
+        position is 1.5 0 -2.5
+
+    Neptune
+        position is 1.5 0 2.5
+
+    Pluto
+        position is -1.7 0 -2.7
+
+
+
 
     Light
         position is 3 3 3
@@ -44,3 +221,8 @@ items
         position is -3 -3 -3
         type is ambient
         color is darkgrey
+
+
+
+
+

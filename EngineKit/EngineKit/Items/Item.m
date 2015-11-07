@@ -167,7 +167,7 @@ static NSString *animationID = @"0";
 - (void)addAnimation:(NSDictionary *)dictionary {
     CABasicAnimation *animation =
         [[CABasicAnimation alloc] initWithDictionary:dictionary];
-    int newID = animationID.integerValue;
+    int newID = (int)animationID.integerValue;
     newID++;
     animationID = [NSString stringWithFormat:@"%d", newID];
 
