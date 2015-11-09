@@ -358,13 +358,23 @@ templates
 
         Text text
             string is Back
-            scale is 0.15
-            position is 0.8 -1.1 0
+            scale is 0.17
+            position is 0.8 -1.2 0
+
+    NavigationUI Item
+        color is red
+
+        BackButton
+            position is 0.9 -0.09 0.1
+            scale is 0.4
+
+        Text title
+            string is My App
+            scale is 0.1
+            position is 5 -0.65 0.1
 
     NavigationButton Item
-        BackButton
-            position is 0.9 0 0.1
-            scale is 0.6
+        NavigationUI
 
         Box background
             color is white
@@ -372,6 +382,8 @@ templates
             width is 15
             height is 2
             position is 7.5 0 0
+
+
 
     ViewBackground Box
         color is lightGray
@@ -395,7 +407,7 @@ templates
             color is purple
             string is bla\nbla\nHello World!\nbla\nbla\nHello World!\nHello World!
             scale is 0.005
-            position is -0.85 0.4 0.1
+            position is -0.85 0.4 0.15
 items
 
     iDevice
@@ -414,4 +426,4 @@ items
         position is -0.1 -1.1 0
 
     TextView
-        position is 1.1 -1.1 0.1
+        position is 1.1 -1.1 0
