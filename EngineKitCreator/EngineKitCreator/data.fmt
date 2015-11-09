@@ -3,6 +3,8 @@
 templates
 
     Axis Item
+        color is 0.11 0.36 0.40
+
         Cylinder line
             height is 4
             radius is 0.04
@@ -16,26 +18,23 @@ templates
         radius is 0.1
 
     DataPointA DataPoint
-        color is orange
+        color is 0.19 0.61 0.64
 
     DataPointB DataPoint
-        color is yellow
+        color is 0.95 0.95 0.96
 
     DataPointC DataPoint
-        color is cyan
+        color is 0.99 0.83 0.18
 
 
 items
 
     Axis
-        color is green
 
     Axis
-        color is red
         rotation is 0 0 1 -1.5707
 
     Axis
-        color is blue
         rotation is 1 0 0 1.5707
 
 
