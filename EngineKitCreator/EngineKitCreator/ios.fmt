@@ -134,4 +134,15 @@ items
     iDevice
 
 
+    Light
+        position is -3 -3 -3
+        color is 0.5 0.5 0.5
 
+    Light
+        position is 3 3 3
+        color is lightgrey
+
+    Light
+        position is -3 -3 -3
+        type is ambient
+        color is lightgrey

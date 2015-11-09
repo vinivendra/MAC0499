@@ -3,22 +3,24 @@
 templates
 
     Axis Item
-        color is 0.11 0.36 0.40
+        color is 0.19 0.61 0.64
 
-        Cylinder line
+        Box line
             height is 4
-            radius is 0.04
+            width is 0.08
+            length is 0.08
             position is 0 2 0
-        Cone point
-            height is 0.2
-            radius is 0.08
-            position is 0 4.1 0
+        Pyramid point
+            height is 0.3
+            width is 0.16
+            length is 0.16
+            position is 0 4 0
 
     DataPoint Sphere
         radius is 0.1
 
     DataPointA DataPoint
-        color is 0.19 0.61 0.64
+        color is 0.49 0.78 0.79
 
     DataPointB DataPoint
         color is 0.95 0.95 0.96
@@ -214,17 +216,17 @@ items
 
 
     Light
-        position is 3 3 3
-        color is white
+        position is -3 -3 -3
+        color is 0.5 0.5 0.5
 
     Light
-        position is -3 -3 -3
+        position is 3 3 3
         color is lightgrey
 
     Light
         position is -3 -3 -3
         type is ambient
-        color is darkgrey
+        color is lightgrey
 
 
 

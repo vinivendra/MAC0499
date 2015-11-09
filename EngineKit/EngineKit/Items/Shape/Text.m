@@ -30,6 +30,7 @@
 
 - (void)commonInit {
     self.text = [SCNText new];
+    self.text.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:1];
 }
 
 - (instancetype)initWithString:(id)string depth:(CGFloat)depth {

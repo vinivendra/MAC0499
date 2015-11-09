@@ -38,6 +38,9 @@
 		24B813621BA0A6D200EAA152 /* ObjectsMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B813601BA0A6D200EAA152 /* ObjectsMenuController.swift */; };
 		24B813641BA0B73D00EAA152 /* ObjectsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B813631BA0B73D00EAA152 /* ObjectsCell.swift */; };
 		24B813661BA0B77200EAA152 /* ObjectsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24B813651BA0B77200EAA152 /* ObjectsCell.xib */; };
+		24BE696F1BF1402100ACB3F8 /* square.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 24BE696E1BF1402100ACB3F8 /* square.fmt */; };
+		24BE69721BF142F400ACB3F8 /* lego.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 24BE69711BF142F400ACB3F8 /* lego.fmt */; };
+		24BE69741BF14C8D00ACB3F8 /* notebook.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 24BE69731BF14C8D00ACB3F8 /* notebook.fmt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +132,9 @@
 		24B813601BA0A6D200EAA152 /* ObjectsMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectsMenuController.swift; sourceTree = "<group>"; };
 		24B813631BA0B73D00EAA152 /* ObjectsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectsCell.swift; sourceTree = "<group>"; };
 		24B813651BA0B77200EAA152 /* ObjectsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ObjectsCell.xib; sourceTree = "<group>"; };
+		24BE696E1BF1402100ACB3F8 /* square.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = square.fmt; sourceTree = "<group>"; };
+		24BE69711BF142F400ACB3F8 /* lego.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lego.fmt; sourceTree = "<group>"; };
+		24BE69731BF14C8D00ACB3F8 /* notebook.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = notebook.fmt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,11 +210,14 @@
 				240C86D51BA31F35004F6794 /* main.js */,
 				2491214B1BBC2C730078BA64 /* editor.js */,
 				240C86D61BA31F35004F6794 /* scene.fmt */,
+				24BE69711BF142F400ACB3F8 /* lego.fmt */,
+				24BE696E1BF1402100ACB3F8 /* square.fmt */,
 				247D8F641BF0FFA6006ACA73 /* app.fmt */,
 				246378261BEE5E3700145589 /* octocat.fmt */,
 				246378241BEE47AF00145589 /* data.fmt */,
 				246378211BEE40F600145589 /* solarSystem.fmt */,
 				24A92BEA1BED8E5700E6850B /* ios.fmt */,
+				24BE69731BF14C8D00ACB3F8 /* notebook.fmt */,
 			);
 			path = EngineKitCreator;
 			sourceTree = "<group>";
@@ -371,6 +380,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24BE696F1BF1402100ACB3F8 /* square.fmt in Resources */,
 				246378221BEE40F600145589 /* solarSystem.fmt in Resources */,
 				24B813321BA0A67C00EAA152 /* LaunchScreen.storyboard in Resources */,
 				240C86E81BA3771B004F6794 /* PropertiesMenuViewController.xib in Resources */,
@@ -386,6 +396,8 @@
 				240C86D81BA31F35004F6794 /* scene.fmt in Resources */,
 				247D8F651BF0FFA6006ACA73 /* app.fmt in Resources */,
 				240C86D71BA31F35004F6794 /* main.js in Resources */,
+				24BE69741BF14C8D00ACB3F8 /* notebook.fmt in Resources */,
+				24BE69721BF142F400ACB3F8 /* lego.fmt in Resources */,
 				2491214C1BBC2C730078BA64 /* editor.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
