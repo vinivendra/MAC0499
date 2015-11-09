@@ -196,7 +196,7 @@ class ViewController: UIViewController, MenuManager {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        engineKitView.backgroundColor = UIColor.darkGrayColor()
+        engineKitView.backgroundColor = UIColor(red: 0.78, green: 0.77, blue: 0.70, alpha: 1)
 
         editorSceneManager = EditorSceneManager(script:"editor.js")
         editorSceneManager?.runOnSceneView(self.engineKitView)
