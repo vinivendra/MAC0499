@@ -41,6 +41,7 @@
 		24BE696F1BF1402100ACB3F8 /* square.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 24BE696E1BF1402100ACB3F8 /* square.fmt */; };
 		24BE69721BF142F400ACB3F8 /* lego.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 24BE69711BF142F400ACB3F8 /* lego.fmt */; };
 		24BE69741BF14C8D00ACB3F8 /* notebook.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 24BE69731BF14C8D00ACB3F8 /* notebook.fmt */; };
+		24BE69761BF1520100ACB3F8 /* window.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 24BE69751BF1520100ACB3F8 /* window.fmt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +136,7 @@
 		24BE696E1BF1402100ACB3F8 /* square.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = square.fmt; sourceTree = "<group>"; };
 		24BE69711BF142F400ACB3F8 /* lego.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lego.fmt; sourceTree = "<group>"; };
 		24BE69731BF14C8D00ACB3F8 /* notebook.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = notebook.fmt; sourceTree = "<group>"; };
+		24BE69751BF1520100ACB3F8 /* window.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = window.fmt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +212,7 @@
 				240C86D51BA31F35004F6794 /* main.js */,
 				2491214B1BBC2C730078BA64 /* editor.js */,
 				240C86D61BA31F35004F6794 /* scene.fmt */,
+				24BE69751BF1520100ACB3F8 /* window.fmt */,
 				24BE69711BF142F400ACB3F8 /* lego.fmt */,
 				24BE696E1BF1402100ACB3F8 /* square.fmt */,
 				247D8F641BF0FFA6006ACA73 /* app.fmt */,
@@ -387,6 +390,7 @@
 				246378251BEE47AF00145589 /* data.fmt in Resources */,
 				2459917A1BAB3E43008E8F60 /* ItemsMenuViewController.xib in Resources */,
 				24A92BEB1BED8E5700E6850B /* ios.fmt in Resources */,
+				24BE69761BF1520100ACB3F8 /* window.fmt in Resources */,
 				24B1E3131BC6A099007831BB /* TriggerActionViewController.xib in Resources */,
 				24B8132F1BA0A67C00EAA152 /* Assets.xcassets in Resources */,
 				246378271BEE5E3700145589 /* octocat.fmt in Resources */,
