@@ -72,6 +72,18 @@
     return statements;
 }
 
+- (NSString *)processString:(id)newValue {
+    if ([newValue isKindOfClass:[NSString class]]) {
+        NSString *string = newValue;
+
+        string = [string stringByReplacingOccurrencesOfString:@"\\n" withString:@"\n"];
+
+        return string;
+    }
+
+    return newValue;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Property Overriding
 
@@ -85,7 +97,7 @@
 
 
 - (void)setString:(id)string {
-    self.text.string = string;
+    self.text.string = [self processString:string];
 }
 
 - (id)string {

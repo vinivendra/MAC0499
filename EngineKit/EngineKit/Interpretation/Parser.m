@@ -291,16 +291,25 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
             ((Shape *)item).color = color;
         }
         else {
-            NSNumber *r = [NSNumber numberWithString:[line pop]];
-            NSNumber *g = [NSNumber numberWithString:[line pop]];
             NSNumber *b = [NSNumber numberWithString:[line pop]];
+            NSNumber *g = [NSNumber numberWithString:[line pop]];
+            NSNumber *r = [NSNumber numberWithString:[line pop]];
             color = [UIColor colorWithArray:@[r, g, b]];
             ((Shape *)item).color = color;
         }
 
     } else if ([line.firstObject isEqualToString:@"scale"]) {
-        NSNumber *value = [NSNumber numberWithString:line.lastObject];
-        ((Shape *)item).scale = value;
+
+        if (line.count >= 5) {
+            NSNumber *z = [NSNumber numberWithString:[line pop]];
+            NSNumber *y = [NSNumber numberWithString:[line pop]];
+            NSNumber *x = [NSNumber numberWithString:[line pop]];
+            ((Shape *)item).scale = @[x, y, z];
+        }
+        else {
+            NSNumber *value = [NSNumber numberWithString:line.lastObject];
+            ((Shape *)item).scale = value;
+        }
     } else if ([line.firstObject isEqualToString:@"physics"]) {
         NSString *value = line.lastObject;
         ((Shape *)item).physics = value;

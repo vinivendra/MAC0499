@@ -16,6 +16,10 @@
 		2459916E1BAAF362008E8F60 /* PlayerSceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2459916D1BAAF362008E8F60 /* PlayerSceneManager.swift */; };
 		245991781BAB3E14008E8F60 /* ItemsMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245991771BAB3E14008E8F60 /* ItemsMenuViewController.swift */; };
 		2459917A1BAB3E43008E8F60 /* ItemsMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 245991791BAB3E43008E8F60 /* ItemsMenuViewController.xib */; };
+		246378221BEE40F600145589 /* solarSystem.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 246378211BEE40F600145589 /* solarSystem.fmt */; };
+		246378251BEE47AF00145589 /* data.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 246378241BEE47AF00145589 /* data.fmt */; };
+		246378271BEE5E3700145589 /* octocat.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 246378261BEE5E3700145589 /* octocat.fmt */; };
+		247D8F651BF0FFA6006ACA73 /* app.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 247D8F641BF0FFA6006ACA73 /* app.fmt */; };
 		249121441BBC2C370078BA64 /* EngineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24B8135B1BA0A69000EAA152 /* EngineKit.framework */; };
 		249121451BBC2C370078BA64 /* EngineKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 24B8135B1BA0A69000EAA152 /* EngineKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2491214A1BBC2C620078BA64 /* support.js in Resources */ = {isa = PBXBuildFile; fileRef = 249121491BBC2C620078BA64 /* support.js */; };
@@ -98,6 +102,10 @@
 		2459916D1BAAF362008E8F60 /* PlayerSceneManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerSceneManager.swift; path = EngineKitCreator/PlayerSceneManager.swift; sourceTree = "<group>"; };
 		245991771BAB3E14008E8F60 /* ItemsMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsMenuViewController.swift; sourceTree = "<group>"; };
 		245991791BAB3E43008E8F60 /* ItemsMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemsMenuViewController.xib; sourceTree = "<group>"; };
+		246378211BEE40F600145589 /* solarSystem.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = solarSystem.fmt; sourceTree = "<group>"; };
+		246378241BEE47AF00145589 /* data.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = data.fmt; sourceTree = "<group>"; };
+		246378261BEE5E3700145589 /* octocat.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = octocat.fmt; sourceTree = "<group>"; };
+		247D8F641BF0FFA6006ACA73 /* app.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = app.fmt; sourceTree = "<group>"; };
 		249121491BBC2C620078BA64 /* support.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = support.js; sourceTree = "<group>"; };
 		2491214B1BBC2C730078BA64 /* editor.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = editor.js; sourceTree = "<group>"; };
 		24A92BEA1BED8E5700E6850B /* ios.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ios.fmt; sourceTree = "<group>"; };
@@ -196,6 +204,10 @@
 				240C86D51BA31F35004F6794 /* main.js */,
 				2491214B1BBC2C730078BA64 /* editor.js */,
 				240C86D61BA31F35004F6794 /* scene.fmt */,
+				247D8F641BF0FFA6006ACA73 /* app.fmt */,
+				246378261BEE5E3700145589 /* octocat.fmt */,
+				246378241BEE47AF00145589 /* data.fmt */,
+				246378211BEE40F600145589 /* solarSystem.fmt */,
 				24A92BEA1BED8E5700E6850B /* ios.fmt */,
 			);
 			path = EngineKitCreator;
@@ -359,16 +371,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				246378221BEE40F600145589 /* solarSystem.fmt in Resources */,
 				24B813321BA0A67C00EAA152 /* LaunchScreen.storyboard in Resources */,
 				240C86E81BA3771B004F6794 /* PropertiesMenuViewController.xib in Resources */,
+				246378251BEE47AF00145589 /* data.fmt in Resources */,
 				2459917A1BAB3E43008E8F60 /* ItemsMenuViewController.xib in Resources */,
 				24A92BEB1BED8E5700E6850B /* ios.fmt in Resources */,
 				24B1E3131BC6A099007831BB /* TriggerActionViewController.xib in Resources */,
 				24B8132F1BA0A67C00EAA152 /* Assets.xcassets in Resources */,
+				246378271BEE5E3700145589 /* octocat.fmt in Resources */,
 				2491214A1BBC2C620078BA64 /* support.js in Resources */,
 				24B813661BA0B77200EAA152 /* ObjectsCell.xib in Resources */,
 				24B8132D1BA0A67C00EAA152 /* Main.storyboard in Resources */,
 				240C86D81BA31F35004F6794 /* scene.fmt in Resources */,
+				247D8F651BF0FFA6006ACA73 /* app.fmt in Resources */,
 				240C86D71BA31F35004F6794 /* main.js in Resources */,
 				2491214C1BBC2C730078BA64 /* editor.js in Resources */,
 			);
