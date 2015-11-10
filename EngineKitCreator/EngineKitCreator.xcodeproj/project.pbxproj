@@ -44,6 +44,7 @@
 		24BE69761BF1520100ACB3F8 /* window.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 24BE69751BF1520100ACB3F8 /* window.fmt */; };
 		24FE9EF81BF24C2C006D1ADB /* features.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 24FE9EF71BF24C2C006D1ADB /* features.fmt */; };
 		24FE9EFB1BF254FF006D1ADB /* file.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 24FE9EFA1BF254FF006D1ADB /* file.fmt */; };
+		24FE9EFD1BF26134006D1ADB /* game.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 24FE9EFC1BF26134006D1ADB /* game.fmt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +142,7 @@
 		24BE69751BF1520100ACB3F8 /* window.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = window.fmt; sourceTree = "<group>"; };
 		24FE9EF71BF24C2C006D1ADB /* features.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = features.fmt; sourceTree = "<group>"; };
 		24FE9EFA1BF254FF006D1ADB /* file.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = file.fmt; sourceTree = "<group>"; };
+		24FE9EFC1BF26134006D1ADB /* game.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = game.fmt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +218,7 @@
 				240C86D51BA31F35004F6794 /* main.js */,
 				2491214B1BBC2C730078BA64 /* editor.js */,
 				240C86D61BA31F35004F6794 /* scene.fmt */,
+				24FE9EFC1BF26134006D1ADB /* game.fmt */,
 				24FE9EFA1BF254FF006D1ADB /* file.fmt */,
 				24BE69751BF1520100ACB3F8 /* window.fmt */,
 				24FE9EF71BF24C2C006D1ADB /* features.fmt */,
@@ -397,6 +400,7 @@
 				2459917A1BAB3E43008E8F60 /* ItemsMenuViewController.xib in Resources */,
 				24A92BEB1BED8E5700E6850B /* ios.fmt in Resources */,
 				24BE69761BF1520100ACB3F8 /* window.fmt in Resources */,
+				24FE9EFD1BF26134006D1ADB /* game.fmt in Resources */,
 				24B1E3131BC6A099007831BB /* TriggerActionViewController.xib in Resources */,
 				24B8132F1BA0A67C00EAA152 /* Assets.xcassets in Resources */,
 				246378271BEE5E3700145589 /* octocat.fmt in Resources */,

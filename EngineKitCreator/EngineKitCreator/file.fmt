@@ -31,9 +31,19 @@ templates
             position is -0.35 0.6 0.05
             rotation is 0 0 1 -2.356
 
+    FileText Text
+        scale is 0.5
+        color is 0.11 0.36 0.40
+        position is -0.3 -0.1 0.15
+        string is EK
+
+    File Item
+        FileBody
+        FileText
+
 items
 
-    FileBody
+    File
 
     Light
         position is -3 -3 -3
