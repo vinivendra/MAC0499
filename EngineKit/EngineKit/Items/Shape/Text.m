@@ -3,6 +3,10 @@
 #import "Text.h"
 
 
+static NSString *fontName = @"HelveticaNeue";
+static NSInteger fontSize = 1;
+
+
 @implementation Text
 
 - (NSArray <NSString *>*)numericProperties {
@@ -30,7 +34,7 @@
 
 - (void)commonInit {
     self.text = [SCNText new];
-    self.text.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:1];
+    self.weight = @"Light";
 }
 
 - (instancetype)initWithString:(id)string depth:(CGFloat)depth {
@@ -52,6 +56,7 @@
 
     item.depth = self.depth;
     item.string = self.string;
+    item.text.font = self.text.font;
 }
 
 - (NSMutableArray *)propertyStringsBasedOnTemplate:(Text *)template {
@@ -111,6 +116,27 @@
 
 - (NSNumber *)depth {
     return @(self.text.extrusionDepth);
+}
+
+- (NSString *)weight {
+    UIFontDescriptor *descriptor = self.text.font.fontDescriptor;
+    NSDictionary *attributes = descriptor.fontAttributes;
+    return attributes[@"weight"];
+}
+
+- (void)setWeight:(NSString *)weight {
+    NSString *name;
+
+    if ([weight caseInsensitiveCompare:@"regular"] == NSOrderedSame) {
+        name = fontName;
+    }
+    else {
+        weight = weight.capitalizedString;
+        name = [NSString stringWithFormat:@"%@-%@", fontName, weight];
+    }
+
+    UIFont *font = [UIFont fontWithName:name size:fontSize];
+    self.text.font = font;
 }
 
 @end

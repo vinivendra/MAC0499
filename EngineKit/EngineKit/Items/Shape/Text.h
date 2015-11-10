@@ -59,6 +59,7 @@
 //
 @property (nonatomic) NSNumber *depth;
 @property (nonatomic) id string;
+@property (nonatomic) NSString *weight;
 @end
 
 
@@ -83,4 +84,6 @@
  @see SCNText's string property.
  */
 @property (nonatomic) id string;
+// TODO: doc
+@property (nonatomic) NSString *weight;
 @end

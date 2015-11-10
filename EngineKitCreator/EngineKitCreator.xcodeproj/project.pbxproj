@@ -42,6 +42,7 @@
 		24BE69721BF142F400ACB3F8 /* lego.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 24BE69711BF142F400ACB3F8 /* lego.fmt */; };
 		24BE69741BF14C8D00ACB3F8 /* notebook.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 24BE69731BF14C8D00ACB3F8 /* notebook.fmt */; };
 		24BE69761BF1520100ACB3F8 /* window.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 24BE69751BF1520100ACB3F8 /* window.fmt */; };
+		24FE9EF81BF24C2C006D1ADB /* features.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 24FE9EF71BF24C2C006D1ADB /* features.fmt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,7 +99,7 @@
 
 /* Begin PBXFileReference section */
 		240C86D51BA31F35004F6794 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
-		240C86D61BA31F35004F6794 /* scene.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scene.fmt; sourceTree = "<group>"; };
+		240C86D61BA31F35004F6794 /* scene.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scene.fmt; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.c; };
 		240C86E51BA3771B004F6794 /* PropertiesMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertiesMenuViewController.swift; sourceTree = "<group>"; };
 		240C86E61BA3771B004F6794 /* PropertiesMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PropertiesMenuViewController.xib; sourceTree = "<group>"; };
 		2421FCDF1BCA9E7E00DF634B /* TemplateEditorSceneManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplateEditorSceneManager.swift; sourceTree = "<group>"; };
@@ -137,6 +138,7 @@
 		24BE69711BF142F400ACB3F8 /* lego.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lego.fmt; sourceTree = "<group>"; };
 		24BE69731BF14C8D00ACB3F8 /* notebook.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = notebook.fmt; sourceTree = "<group>"; };
 		24BE69751BF1520100ACB3F8 /* window.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = window.fmt; sourceTree = "<group>"; };
+		24FE9EF71BF24C2C006D1ADB /* features.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = features.fmt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +215,7 @@
 				2491214B1BBC2C730078BA64 /* editor.js */,
 				240C86D61BA31F35004F6794 /* scene.fmt */,
 				24BE69751BF1520100ACB3F8 /* window.fmt */,
+				24FE9EF71BF24C2C006D1ADB /* features.fmt */,
 				24BE69711BF142F400ACB3F8 /* lego.fmt */,
 				24BE696E1BF1402100ACB3F8 /* square.fmt */,
 				247D8F641BF0FFA6006ACA73 /* app.fmt */,
@@ -401,6 +404,7 @@
 				247D8F651BF0FFA6006ACA73 /* app.fmt in Resources */,
 				240C86D71BA31F35004F6794 /* main.js in Resources */,
 				24BE69741BF14C8D00ACB3F8 /* notebook.fmt in Resources */,
+				24FE9EF81BF24C2C006D1ADB /* features.fmt in Resources */,
 				24BE69721BF142F400ACB3F8 /* lego.fmt in Resources */,
 				2491214C1BBC2C730078BA64 /* editor.js in Resources */,
 			);
