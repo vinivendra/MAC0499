@@ -1,0 +1,59 @@
+
+
+templates
+
+    FileBody Item
+        color is 0.95 0.95 0.96
+
+        Box body
+            length is 0.1
+            width is 1
+            height is 0.9
+
+        Box body
+            length is 0.1
+            width is 0.7
+            height is 0.3
+            position is 0.15 0.6 0
+
+        Box corner
+            length is 0.1
+            width is 0.423
+            height is 0.423
+            position is -0.2 0.45 0
+            rotation is 0 0 1 0.7853
+
+        Pyramid fold
+            color is 0.92 0.92 0.93
+            length is 0.1
+            width is 0.423
+            height is 0.22
+            position is -0.35 0.6 0.05
+            rotation is 0 0 1 -2.356
+
+    FileText Text
+        scale is 0.5
+        color is 0.11 0.36 0.40
+        position is -0.3 -0.1 0.15
+        string is EK
+
+    File Item
+        FileBody
+        FileText
+
+items
+
+    File
+
+    Light
+        position is -3 -3 -3
+        color is 0.5 0.5 0.5
+
+    Light
+        position is 3 3 3
+        color is lightgrey
+
+    Light
+        position is -3 -3 -3
+        type is ambient
+        color is lightgrey

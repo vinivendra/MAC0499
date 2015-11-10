@@ -1,0 +1,148 @@
+
+
+templates
+
+    Corner Cylinder
+        radius is 0.1
+        height is 0.1
+
+    iDeviceShape Item
+        Corner corner1
+            position is 1.4 0 1.9
+        Corner corner2
+            position is -1.4 0 1.9
+        Corner corner3
+            position is 1.4 0 -1.9
+        Corner corner4
+            position is -1.4 0 -1.9
+
+        Box body1
+            width is 3.0
+            length is 3.8
+            height is 0.05
+
+        Box body2
+            width is 2.8
+            length is 4.0
+            height is 0.05
+
+    iDeviceGlass iDeviceShape
+        color is black
+
+        corner1
+            height is 0.05
+        corner2
+            height is 0.05
+        corner3
+            height is 0.05
+        corner4
+            height is 0.05
+        body1
+            height is 0.05
+        body2
+            height is 0.05
+
+    iDeviceMetal iDeviceShape
+        color is lightGray
+
+        corner1
+            height is 0.1
+        corner2
+            height is 0.1
+        corner3
+            height is 0.1
+        corner4
+            height is 0.1
+        body1
+            height is 0.1
+        body2
+            height is 0.1
+
+    iDeviceBody Item
+        iDeviceGlass glass
+            position is 0 0.025 0
+        iDeviceMetal metal
+            position is 0 -0.05 0
+        Box screen
+            color is white
+            opacity is 0.5
+            height is 0.05
+            width is 2.5
+            length is 3.1
+            position 0 0.05 -0.15
+
+
+    SymbolCorner Cylinder
+        radius is 0.02
+        height is 0.005
+
+    HomeButtonSymbolShape Item
+        SymbolCorner corner1
+            position is 0.03 0 0.03
+        SymbolCorner corner2
+            position is -0.03 0 0.03
+        SymbolCorner corner3
+            position is 0.03 0 -0.03
+        SymbolCorner corner4
+            position is -0.03 0 -0.03
+
+        Box body1
+            width is 0.1
+            length is 0.07
+            height is 0.005
+
+        Box body2
+            width is 0.07
+            length is 0.1
+            height is 0.005
+
+    HomeButtonSymbol Item
+        HomeButtonSymbolShape basis
+            color is black
+        HomeButtonSymbolShape contour
+            color is white
+            scale is 1.1
+            position is 0 -0.01 0
+
+
+    HomeButtonBasis Item
+        Cylinder basis
+            color is black
+            radius is 0.15
+            height is 0.01
+        Cylinder contour
+            color is white
+            radius is 0.15
+            height is 0.01
+            scale is 1.025
+            position is 0 -0.005 0
+
+    HomeButton Item
+        HomeButtonSymbol symbol
+            position is 0  0.01 0
+        HomeButtonBasis basis
+            position is 0 -0.01 0
+
+    iDevice Item
+        iDeviceBody body
+
+        HomeButton button
+            position is 0 0.075 1.7
+
+items
+
+    iDevice
+
+
+    Light
+        position is -3 -3 -3
+        color is 0.5 0.5 0.5
+
+    Light
+        position is 3 3 3
+        color is lightgrey
+
+    Light
+        position is -3 -3 -3
+        type is ambient
+        color is lightgrey

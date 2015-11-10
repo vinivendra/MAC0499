@@ -199,13 +199,13 @@ class ViewController: UIViewController, MenuManager {
         engineKitView.backgroundColor = UIColor(red: 0.78, green: 0.77, blue: 0.70, alpha: 1)
 
         editorSceneManager = EditorSceneManager(script:"editor.js")
-        editorSceneManager?.runOnSceneView(self.engineKitView)
-        switchToSceneManager(editorSceneManager)
 
         placeholderTriggerManager = PlaceholderTriggerActionManager()
 
         editorSceneManager?.parser.triggerActionManager = placeholderTriggerManager
-        editorSceneManager?.parser.parseFile("scene.fmt")
+        
+        editorSceneManager?.runOnSceneView(self.engineKitView)
+        switchToSceneManager(editorSceneManager)
 
         let selectItemBlock: @convention(block) Item -> Void = { item in
             self.didSelectItem(item)

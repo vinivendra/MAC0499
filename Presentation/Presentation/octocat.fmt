@@ -1,0 +1,116 @@
+
+
+templates
+
+    HeadBody Sphere
+        color is black
+        scale is 1.2 1 1
+
+    Ear Cone
+        color is black
+        radius is 0.2
+        height is 0.3
+
+    LeftEar Ear
+        rotation is 0 0 1 -0.57
+        position is 0.43 0.47 0
+
+    RightEar Ear
+        rotation is 0 0 1 0.57
+        position is -0.43 0.47 0
+
+    Eye Item
+        Sphere white
+            color is white
+            scale is 1 1.4 1
+            radius is 0.08
+
+        Sphere pupil
+            color is 0.6 0.27 0.25
+            scale is 1 1.4 1
+            radius is 0.05
+            position is -0.005 0 0.05
+
+        Sphere glow
+            color is white
+            radius is 0.015
+            position is -0.025 0.025 0.1
+
+    Nose Sphere
+        color is 0.6 0.27 0.25
+        radius is 0.023
+        position is 0 -0.15 0.55
+
+    Mouth Tube
+        color is 0.6 0.27 0.25
+        innerRadius is 0.05
+        outerRadius is 0.07
+        height is 0.1
+        rotation is 1 0 0 1.5707
+        position is 0 -0.18 0.48
+
+    Face Item
+        Sphere body
+            color is 0.94 0.74 0.63
+            scale is 1 0.7 0.7
+            radius is 0.45
+            position is 0 -0.07 0.25
+
+        Eye
+            position is 0.2 -0.05 0.5
+
+        Eye
+            position is -0.2 -0.05 0.5
+            pupil
+                position is 0.005 0 0.05
+            glow
+                position is -0.008 0.025 0.1
+
+        Nose
+        Mouth
+
+
+    Moustache Item
+        Cylinder
+            color is black
+            radius is 0.01
+            height is 0.7
+
+
+    Head Item
+        LeftEar
+        RightEar
+        HeadBody
+        Face
+
+        Moustache
+            position is 0.5 -0.1 0.3
+            rotation is 0 0 0 1 -1.7
+        Moustache
+            position is 0.5 -0.15 0.3
+            rotation is 0 0 0 1 -1.8
+
+        Moustache
+            position is -0.5 -0.1 0.3
+            rotation is 0 0 0 1 1.7
+        Moustache
+            position is -0.5 -0.15 0.3
+            rotation is 0 0 0 1 1.8
+
+
+items
+
+    Head
+
+    Light
+        position is -3 -3 -3
+        color is 0.5 0.5 0.5
+
+    Light
+        position is 3 3 3
+        color is lightgrey
+
+    Light
+        position is -3 -3 -3
+        type is ambient
+        color is lightgrey

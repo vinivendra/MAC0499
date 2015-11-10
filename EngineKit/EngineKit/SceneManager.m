@@ -20,6 +20,8 @@ static SceneManager *currentSceneManager;
 @property (nonatomic, strong) UI *ui;
 @property (nonatomic, strong) Gestures *gestures;
 @property (nonatomic, strong) Parser *parser;
+
+@property (nonatomic, strong) NSString *sceneFilename;
 @end
 
 
@@ -38,6 +40,8 @@ static SceneManager *currentSceneManager;
     self.gestures.delegate = self.javaScript.triggerActionManager;
 
     [self makeCurrentSceneManager];
+
+    [self.parser parseFile:self.sceneFilename];
 
     [self.javaScript load];
 }
@@ -77,6 +81,7 @@ static SceneManager *currentSceneManager;
         self.gestures = [[Gestures alloc] init];
         self.ui = [[UI alloc] init];
         self.parser = [Parser new];
+        self.sceneFilename = sceneFilename;
         self.javaScript = [[JavaScript alloc] initWithScriptFile:scriptFilename
                                                        sceneFile:sceneFilename
                                                           camera:self.camera

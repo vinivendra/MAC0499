@@ -205,6 +205,8 @@ typedef NS_ENUM(NSUInteger, State) { None, Templates, Items };
 
                         [Item registerTemplate:newTemplate];
 
+                        self.context[newTemplateName] = newTemplate;
+
                         currentItem = newTemplate;
                         nextItem = newTemplate;
 

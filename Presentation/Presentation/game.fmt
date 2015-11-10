@@ -119,8 +119,8 @@ templates
 
 items
 
-//    Pinball
-//        scale is 0.6
+    Pinball
+        scale is 0.6
 
     Light
         position is -3 -3 -3
@@ -134,4 +134,3 @@ items
         position is -3 -3 -3
         type is ambient
         color is lightgrey
-

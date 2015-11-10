@@ -1,0 +1,227 @@
+
+
+templates
+
+    Sun Sphere
+        color is 0.99 0.83 0.18
+        radius is 0.35
+
+
+    Mercury Sphere
+        color is 0.19 0.61 0.64
+        radius is 0.05
+
+
+    Venus Sphere
+        color is 0.19 0.61 0.64
+        radius is 0.075
+
+
+    EarthBody Sphere
+        color is 0.19 0.61 0.64
+        radius is 0.15
+
+    EarthMoon Sphere
+        color is 0.95 0.95 0.96
+        radius is 0.05
+
+    Earth Item
+        EarthBody
+        EarthMoon
+            position is 0.25 0 0
+
+
+    MarsBody Sphere
+        color is 0.19 0.61 0.64
+        radius is 0.1
+
+    MarsMoon Sphere
+        color is 0.95 0.95 0.96
+        radius is 0.025
+
+    Mars Item
+        MarsBody body
+        MarsMoon moon1
+            position is 0.15 0 0
+        MarsMoon moon2
+            position is 0 0 0.15
+
+
+    JupiterBody Sphere
+        color is 0.19 0.61 0.64
+        radius is 0.25
+
+    JupiterMoon Sphere
+        color is 0.95 0.95 0.96
+        radius 0.025
+
+    Jupiter Item
+        JupiterBody
+        JupiterMoon
+            position is 0.4 0 0
+        JupiterMoon
+            position is -0.4 0 0
+        JupiterMoon
+            position is 0 0 0.4
+        JupiterMoon
+            position is 0 0 -0.4
+        JupiterMoon
+            position is 0.3 0 0.3
+        JupiterMoon
+            position is 0.3 0 -0.3
+        JupiterMoon
+            position is -0.3 0 0.3
+        JupiterMoon
+            position is -0.3 0 -0.3
+
+
+    SaturnBody Sphere
+        color is 0.19 0.61 0.64
+        radius is 0.15
+
+    SaturnRing Tube
+        color is 0.08 0.24 0.27
+        height is 0.01
+        innerRadius is 0.17
+        outerRadius is 0.3
+
+    SaturnMoon Sphere
+        color is 0.95 0.95 0.96
+        radius 0.025
+
+    Saturn Item
+        SaturnBody
+        SaturnRing
+        SaturnMoon
+            position is 0.4 0 0
+        SaturnMoon
+            position is -0.4 0 0
+        SaturnMoon
+            position is 0 0 0.4
+        SaturnMoon
+            position is 0 0 -0.4
+        SaturnMoon
+            position is 0.3 0 0.3
+        SaturnMoon
+            position is 0.3 0 -0.3
+        SaturnMoon
+            position is -0.3 0 0.3
+        SaturnMoon
+            position is -0.3 0 -0.3
+
+
+    UranusBody Sphere
+        color is 0.19 0.61 0.64
+        radius is 0.15
+
+    UranusRing Tube
+        color is 0.08 0.24 0.27
+        height is 0.01
+        innerRadius is 0.17
+        outerRadius is 0.18
+
+    UranusMoon Sphere
+        color is 0.95 0.95 0.96
+        radius 0.025
+
+    Uranus Item
+        UranusBody
+        UranusRing
+        UranusMoon
+            position is 0.3 0 0
+        UranusMoon
+            position is -0.3 0 0
+        UranusMoon
+            position is 0 0 0.3
+        UranusMoon
+            position is 0 0 -0.3
+        UranusMoon
+            position is 0.2 0 0.2
+
+
+    NeptuneBody Sphere
+        color is 0.19 0.61 0.64
+        radius is 0.15
+
+    NeptuneRing Tube
+        color is 0.08 0.24 0.27
+        height is 0.01
+        innerRadius is 0.17
+        outerRadius is 0.18
+
+    NeptuneMoon Sphere
+        color is 0.95 0.95 0.96
+        radius 0.025
+
+    Neptune Item
+        NeptuneBody
+        NeptuneRing
+        NeptuneMoon
+            position is 0.3 0 0
+
+
+    PlutoBody Sphere
+        color is 0.19 0.61 0.64
+        radius is 0.07
+
+    PlutoMoon Sphere
+        color is 0.95 0.95 0.96
+        radius 0.05
+
+    Pluto Item
+        PlutoBody
+        PlutoMoon
+            position is 0.15 0 0
+
+
+items
+
+    Sun
+
+    Mercury
+        position is 0.7 0 0
+
+    Venus
+        position is 0 0 1
+
+    Earth
+        position is -1.5 0 0
+
+    Mars
+        position is 0 0 -1.5
+
+    Jupiter
+        position is 2 0 0
+
+    Saturn
+        position is -1 0 2
+
+    Uranus
+        position is 1.5 0 -2.5
+
+    Neptune
+        position is 1.5 0 2.5
+
+    Pluto
+        position is -1.7 0 -2.7
+
+
+
+
+    Light
+        position is -3 -3 -3
+        color is 0.5 0.5 0.5
+
+    Light
+        position is 3 3 3
+        color is lightgrey
+
+    Light
+        position is -3 -3 -3
+        type is ambient
+        color is lightgrey
+
+
+
+
+
