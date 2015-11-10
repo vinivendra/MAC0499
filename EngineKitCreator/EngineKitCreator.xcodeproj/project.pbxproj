@@ -43,6 +43,7 @@
 		24BE69741BF14C8D00ACB3F8 /* notebook.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 24BE69731BF14C8D00ACB3F8 /* notebook.fmt */; };
 		24BE69761BF1520100ACB3F8 /* window.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 24BE69751BF1520100ACB3F8 /* window.fmt */; };
 		24FE9EF81BF24C2C006D1ADB /* features.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 24FE9EF71BF24C2C006D1ADB /* features.fmt */; };
+		24FE9EFB1BF254FF006D1ADB /* file.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 24FE9EFA1BF254FF006D1ADB /* file.fmt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +140,7 @@
 		24BE69731BF14C8D00ACB3F8 /* notebook.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = notebook.fmt; sourceTree = "<group>"; };
 		24BE69751BF1520100ACB3F8 /* window.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = window.fmt; sourceTree = "<group>"; };
 		24FE9EF71BF24C2C006D1ADB /* features.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = features.fmt; sourceTree = "<group>"; };
+		24FE9EFA1BF254FF006D1ADB /* file.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = file.fmt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +216,7 @@
 				240C86D51BA31F35004F6794 /* main.js */,
 				2491214B1BBC2C730078BA64 /* editor.js */,
 				240C86D61BA31F35004F6794 /* scene.fmt */,
+				24FE9EFA1BF254FF006D1ADB /* file.fmt */,
 				24BE69751BF1520100ACB3F8 /* window.fmt */,
 				24FE9EF71BF24C2C006D1ADB /* features.fmt */,
 				24BE69711BF142F400ACB3F8 /* lego.fmt */,
@@ -399,6 +402,7 @@
 				246378271BEE5E3700145589 /* octocat.fmt in Resources */,
 				2491214A1BBC2C620078BA64 /* support.js in Resources */,
 				24B813661BA0B77200EAA152 /* ObjectsCell.xib in Resources */,
+				24FE9EFB1BF254FF006D1ADB /* file.fmt in Resources */,
 				24B8132D1BA0A67C00EAA152 /* Main.storyboard in Resources */,
 				240C86D81BA31F35004F6794 /* scene.fmt in Resources */,
 				247D8F651BF0FFA6006ACA73 /* app.fmt in Resources */,

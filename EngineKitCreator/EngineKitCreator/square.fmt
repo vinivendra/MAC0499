@@ -23,17 +23,36 @@ templates
 
     TitleSquare Item
 
-        SquareBackground
+        SquareBackground background
 
-        SquareTitle
+        SquareTitle title
             position is -0.8 -0.15 0.1
 
 items
 
     TitleSquare
+        scale is 2
+        position is -3 1 0
 
+    TitleSquare
+        scale is 2
+        position is 0 -2 0
+        background
+            foreground
+                color is 0.99 0.83 0.18
+            background
+                color is 0.59 0.49 0.10
+        title
+            color is 0.35 0.29 0.06
 
-
+    TitleSquare
+        scale is 2
+        position is 3 1 0
+        background
+            foreground
+                color is 0.49 0.78 0.79
+            background
+                color is 0.19 0.61 0.64
 
     Light
         position is -3 -3 -3
