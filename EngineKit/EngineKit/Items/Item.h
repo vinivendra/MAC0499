@@ -32,6 +32,7 @@
 @property (nonatomic, strong) id position;
 @property (nonatomic, strong) id rotation;
 @property (nonatomic, strong) id scale;
+@property (nonatomic, strong) id anchor;
 @property (nonatomic) BOOL isDefault;
 @property (nonatomic) BOOL isTemplateBase;
 @property (nonatomic) BOOL hidden;
@@ -133,6 +134,8 @@
 @property (nonatomic) BOOL isTemplateBase;
 @property (nonatomic, strong) NSString *templateName;
 @property (nonatomic, strong) NSString *name;
+
+@property (nonatomic, strong) id anchor;
 
 @property (nonatomic, strong) id color;
 

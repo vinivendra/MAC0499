@@ -239,13 +239,15 @@ unsigned long mutationsCounter;
                                    Z:self.z / scalar];
 }
 
-- (Vector *)plus:(Vector *)vector {
+- (Vector *)plus:(id)object {
+    Vector *vector = [[Vector alloc] initWithObject:object];
     return [[[self class] alloc] initWithX:self.x + vector.x
                                    Y:self.y + vector.y
                                    Z:self.z + vector.z];
 }
 
-- (Vector *)minus:(Vector *)vector {
+- (Vector *)minus:(id)object {
+    Vector *vector = [[Vector alloc] initWithObject:object];
     return [[[self class] alloc] initWithX:self.x - vector.x
                                    Y:self.y - vector.y
                                    Z:self.z - vector.z];
@@ -277,7 +279,8 @@ unsigned long mutationsCounter;
     return [vector plus:self];
 }
 
-- (Vector *)scale:(Vector *)vector {
+- (Vector *)scale:(id)object {
+    Vector *vector = [[Vector alloc] initWithObject:object];
     return [[[self class] alloc] initWithX:self.x * vector.x
                                    Y:self.y * vector.y
                                    Z:self.z * vector.z];

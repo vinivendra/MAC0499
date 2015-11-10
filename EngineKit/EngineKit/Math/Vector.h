@@ -32,14 +32,14 @@
 // Operations with Vectors
 - (Vector *)times:(CGFloat)scalar;
 - (Vector *)over:(CGFloat)scalar;
-- (Vector *)plus:(Vector *)vector;
-- (Vector *)minus:(Vector *)vector;
+- (Vector *)plus:(id)vector;
+- (Vector *)minus:(id)vector;
 - (CGFloat)dot:(id)object;
 - (CGFloat)normSquared;
 - (CGFloat)norm;
 - (Vector *)normalize;
-- (Vector *)translate:(Vector *)vector;
-- (Vector *)scale:(CGFloat)scale;
+- (Vector *)translate:(id)vector;
+- (Vector *)scale:(id)vector;
 - (Vector *)setNewX:(CGFloat)x;
 - (Vector *)setNewY:(CGFloat)y;
 - (Vector *)setNewZ:(CGFloat)z;
@@ -330,7 +330,7 @@
  @return A new instance of a `Vector` object.
  @see minus:
  */
-- (Vector *)plus:(Vector *)vector;
+- (Vector *)plus:(id)vector;
 /*!
  Creates a new `Vector` from the given `object` by calling `initWithObject:`.
  Subtracts this new `Vector` from the receiver and returns the result.
@@ -345,7 +345,7 @@
  @return A new instance of a `Vector` object.
  @see plus:
  */
-- (Vector *)minus:(Vector *)vector;
+- (Vector *)minus:(id)vector;
 /*!
  Creates a new `Vector`, representing the opposite from the given `Vector`.
 
@@ -425,7 +425,7 @@
  @see plus:
  @see scale:
  */
-- (Vector *)translate:(Vector *)vector;
+- (Vector *)translate:(id)vector;
 /*!
  Creates a new `Vector` from the given `object` by calling `initWithObject:`.
  That `Vector` is then scaled, using the receiver as a scale `Vector`.
@@ -441,7 +441,7 @@
  @return A new intance of a `Vector` object.
  @see translate:
  */
-- (Vector *)scale:(Vector *)vector;
+- (Vector *)scale:(id)vector;
 /*!
  Applies the translation the receiver represents to the given `SCNMatrix4`.
  @param matrix The matrix to translate.

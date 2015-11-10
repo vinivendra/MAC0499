@@ -607,4 +607,16 @@ static NSString *animationID = @"0";
     return self.node.opacity;
 }
 
+- (id)anchor {
+    Vector *vector = [[Vector alloc] initWithX:self.node.pivot.m41
+                                             Y:self.node.pivot.m42
+                                             Z:self.node.pivot.m43];
+    return vector;
+}
+
+- (void)setAnchor:(id)anchor {
+    Vector *vector = [[Vector alloc] initWithObject:anchor];
+    self.node.pivot = SCNMatrix4MakeTranslation(vector.x, vector.y, vector.z);
+}
+
 @end

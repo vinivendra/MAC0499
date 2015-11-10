@@ -19,18 +19,6 @@
 		2417AF2F1BEBFAE100AD7201 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = 2417AF2B1BEBFAE100AD7201 /* main.js */; };
 		2417AF311BEBFAE100AD7201 /* scene.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 2417AF2D1BEBFAE100AD7201 /* scene.fmt */; };
 		241C142F1BECF9AB0037FA53 /* EngineKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2417AF201BEBF97B00AD7201 /* EngineKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		24FE9F0C1BF26B68006D1ADB /* game.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 24FE9EFF1BF26B68006D1ADB /* game.fmt */; };
-		24FE9F0D1BF26B68006D1ADB /* file.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 24FE9F001BF26B68006D1ADB /* file.fmt */; };
-		24FE9F0E1BF26B68006D1ADB /* window.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 24FE9F011BF26B68006D1ADB /* window.fmt */; };
-		24FE9F0F1BF26B68006D1ADB /* features.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 24FE9F021BF26B68006D1ADB /* features.fmt */; };
-		24FE9F101BF26B68006D1ADB /* lego.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 24FE9F031BF26B68006D1ADB /* lego.fmt */; };
-		24FE9F111BF26B68006D1ADB /* square.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 24FE9F041BF26B68006D1ADB /* square.fmt */; };
-		24FE9F121BF26B68006D1ADB /* app.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 24FE9F051BF26B68006D1ADB /* app.fmt */; };
-		24FE9F131BF26B68006D1ADB /* octocat.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 24FE9F061BF26B68006D1ADB /* octocat.fmt */; };
-		24FE9F141BF26B68006D1ADB /* data.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 24FE9F071BF26B68006D1ADB /* data.fmt */; };
-		24FE9F151BF26B68006D1ADB /* solarSystem.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 24FE9F081BF26B68006D1ADB /* solarSystem.fmt */; };
-		24FE9F161BF26B68006D1ADB /* ios.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 24FE9F091BF26B68006D1ADB /* ios.fmt */; };
-		24FE9F171BF26B68006D1ADB /* notebook.fmt in Resources */ = {isa = PBXBuildFile; fileRef = 24FE9F0A1BF26B68006D1ADB /* notebook.fmt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,18 +70,6 @@
 		2417AF2A1BEBFAE100AD7201 /* support.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = support.js; sourceTree = "<group>"; };
 		2417AF2B1BEBFAE100AD7201 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
 		2417AF2D1BEBFAE100AD7201 /* scene.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scene.fmt; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.c; };
-		24FE9EFF1BF26B68006D1ADB /* game.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = game.fmt; sourceTree = "<group>"; };
-		24FE9F001BF26B68006D1ADB /* file.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = file.fmt; sourceTree = "<group>"; };
-		24FE9F011BF26B68006D1ADB /* window.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = window.fmt; sourceTree = "<group>"; };
-		24FE9F021BF26B68006D1ADB /* features.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = features.fmt; sourceTree = "<group>"; };
-		24FE9F031BF26B68006D1ADB /* lego.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lego.fmt; sourceTree = "<group>"; };
-		24FE9F041BF26B68006D1ADB /* square.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = square.fmt; sourceTree = "<group>"; };
-		24FE9F051BF26B68006D1ADB /* app.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = app.fmt; sourceTree = "<group>"; };
-		24FE9F061BF26B68006D1ADB /* octocat.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = octocat.fmt; sourceTree = "<group>"; };
-		24FE9F071BF26B68006D1ADB /* data.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = data.fmt; sourceTree = "<group>"; };
-		24FE9F081BF26B68006D1ADB /* solarSystem.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = solarSystem.fmt; sourceTree = "<group>"; };
-		24FE9F091BF26B68006D1ADB /* ios.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ios.fmt; sourceTree = "<group>"; };
-		24FE9F0A1BF26B68006D1ADB /* notebook.fmt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = notebook.fmt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,18 +127,6 @@
 				2417AF2A1BEBFAE100AD7201 /* support.js */,
 				2417AF2B1BEBFAE100AD7201 /* main.js */,
 				2417AF2D1BEBFAE100AD7201 /* scene.fmt */,
-				24FE9EFF1BF26B68006D1ADB /* game.fmt */,
-				24FE9F001BF26B68006D1ADB /* file.fmt */,
-				24FE9F011BF26B68006D1ADB /* window.fmt */,
-				24FE9F021BF26B68006D1ADB /* features.fmt */,
-				24FE9F031BF26B68006D1ADB /* lego.fmt */,
-				24FE9F041BF26B68006D1ADB /* square.fmt */,
-				24FE9F051BF26B68006D1ADB /* app.fmt */,
-				24FE9F061BF26B68006D1ADB /* octocat.fmt */,
-				24FE9F071BF26B68006D1ADB /* data.fmt */,
-				24FE9F081BF26B68006D1ADB /* solarSystem.fmt */,
-				24FE9F091BF26B68006D1ADB /* ios.fmt */,
-				24FE9F0A1BF26B68006D1ADB /* notebook.fmt */,
 				2417AEF61BEBF94100AD7201 /* Main.storyboard */,
 				2417AEF91BEBF94100AD7201 /* Assets.xcassets */,
 				2417AEFB1BEBF94100AD7201 /* LaunchScreen.storyboard */,
@@ -296,24 +260,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24FE9F111BF26B68006D1ADB /* square.fmt in Resources */,
 				2417AEFD1BEBF94100AD7201 /* LaunchScreen.storyboard in Resources */,
 				2417AEFA1BEBF94100AD7201 /* Assets.xcassets in Resources */,
-				24FE9F161BF26B68006D1ADB /* ios.fmt in Resources */,
 				2417AF2E1BEBFAE100AD7201 /* support.js in Resources */,
 				2417AEF81BEBF94100AD7201 /* Main.storyboard in Resources */,
-				24FE9F101BF26B68006D1ADB /* lego.fmt in Resources */,
 				2417AF2F1BEBFAE100AD7201 /* main.js in Resources */,
-				24FE9F141BF26B68006D1ADB /* data.fmt in Resources */,
-				24FE9F121BF26B68006D1ADB /* app.fmt in Resources */,
-				24FE9F131BF26B68006D1ADB /* octocat.fmt in Resources */,
-				24FE9F0F1BF26B68006D1ADB /* features.fmt in Resources */,
-				24FE9F151BF26B68006D1ADB /* solarSystem.fmt in Resources */,
 				2417AF311BEBFAE100AD7201 /* scene.fmt in Resources */,
-				24FE9F0E1BF26B68006D1ADB /* window.fmt in Resources */,
-				24FE9F171BF26B68006D1ADB /* notebook.fmt in Resources */,
-				24FE9F0D1BF26B68006D1ADB /* file.fmt in Resources */,
-				24FE9F0C1BF26B68006D1ADB /* game.fmt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
