@@ -2,131 +2,57 @@
 
 templates
 
-    X Item
-        Box
-            length is 0.05
-            width is 0.01
-            height is 0.07
-            rotation is 0 0 1 0.7853
+    SquareBackground Item
+        Box foreground
+            color is 0.19 0.61 0.64
+            width is 2
+            length is 0.1
 
-        Box
-            length is 0.05
-            width is 0.01
-            height is 0.07
-            rotation is 0 0 1 -0.7853
-
-    WideWindow Item
         Box background
-            length is 0.05
-            width is 1.5
+            color is 0.11 0.36 0.40
+            width is 2.2
+            height is 1.2
+            length is 0.1
+            position is 0 0 -0.05
 
-        Box top
-            length is 0.025
-            height is 0.1
-            width is 1.5
-            position is 0 0.45 0.0375
 
-        X x
-            position is -0.7 0.45 0.04
-
-    AreasText Text
-        scale is 0.1
-        weight is regular
-
-    Areas Item
+    SquareTitle Text
+        string is EngineKit
+        scale is 0.4
         color is 0.08 0.24 0.27
 
-        AreasText text1
-            string is Hardware
-            scale is 0.055
-            position is -0.48 0.15 0
-        AreasText text2
-            scale is 0.06
-            string is Drivers
-            position is 0.25 -0.06 0
-        AreasText text3
-            scale is 0.05
-            string is Sistemas Operacionais
-            position is -0.65 -0.15 0
-        AreasText text4
-            scale is 0.06
-            string is Estruturas de Dados
-            position is 0.1 0.22 0
-        AreasText text5
-            scale is 0.08
-            string is Interfaces
-            position is -0.55 0.01 0
-        AreasText text6
-            scale is 0.06
-            string is Simulações de Física
-            position is 0.07 -0.35 0
-        AreasText text7
-            scale is 0.05
-            string is Gerenciamento de Memória
-            position is -0.64 0.26 0
-        AreasText text7
-            scale is 0.07
-            string is Computação Gráfica
-            position is -0.05 -0.25 0
-        AreasText text7
-            scale is 0.065
-            string is Áudio
-            position is -0.5 -0.29 0
-        AreasText text7
-            scale is 0.055
-            string is Música
-            position is -0.3 -0.4 0
-        AreasText text7
-            scale is 0.065
-            string is Redes
-            position is 0.37 0.05 0
+    TitleSquare Item
 
+        SquareBackground background
 
-
-    ObjectSymbol Item
-        Box square
-            width is 0.28
-            height is 0.28
-            length is 0.1
-            position is 0 -0.05 0.05
-
-        Cylinder circle
-            radius is 0.15
-            height is 0.1
-            position is 0.1 0.07 0
-            rotation is 1 0 0 1.5707
-
-        Pyramid
-            width is 0.3
-            height is 0.3
-            length is 0.1
-            position is -0.1 0.05 -0.05
-
+        SquareTitle title
+            position is -0.8 -0.15 0.1
 
 items
 
-    WideWindow
-        scale is 5
+    TitleSquare
+        scale is 2
+        position is -3 1 0
+
+    TitleSquare
+        scale is 2
+        position is 0 -2 0
         background
-            color is 0.49 0.78 0.79
+            foreground
+                color is 0.99 0.83 0.18
+            background
+                color is 0.59 0.49 0.10
+        title
+            color is 0.35 0.29 0.06
 
-        top
-            color is 0.30 0.46 0.47
-
-        x
-            color is 0.18 0.27 0.28
-
-    Areas
-        scale is 5
-        position is 0 0 0.5
-
-    ObjectSymbol
-        color is 0.99 0.83 0.18
-        scale is 3
-        position is 0 -0.05 0.7
-
-
-
+    TitleSquare
+        scale is 2
+        position is 3 1 0
+        background
+            foreground
+                color is 0.49 0.78 0.79
+            background
+                color is 0.19 0.61 0.64
 
     Light
         position is -3 -3 -3
