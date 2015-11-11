@@ -57,7 +57,7 @@
                     self.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
                 }
                 else if ([value caseInsensitiveCompare:@"bounce"] == NSOrderedSame) {
-                    self.timingFunction = [CAMediaTimingFunction functionWithControlPoints:.5 :1.2 :1 :1];
+                    self.timingFunction = [CAMediaTimingFunction functionWithControlPoints:.5 :1.5 :1 :1];
                 }
             }
         }

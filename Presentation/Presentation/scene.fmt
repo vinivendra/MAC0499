@@ -85,6 +85,7 @@ templates
             height is 0.3
             length is 0.5
             physics is kinematic
+            color is 0.95 0.95 0.96
 
         Cylinder
             rotation is 1 0 0 1.5707
@@ -92,6 +93,7 @@ templates
             height is 0.5
             position is -0.5 0 0
             physics is kinematic
+            color is 0.95 0.95 0.96
 
         Cylinder
             rotation is 1 0 0 1.5707
@@ -99,6 +101,7 @@ templates
             height is 0.5
             position is 0.5 0 0
             physics is kinematic
+            color is 0.95 0.95 0.96
 
     PinballBall Sphere
         color is 0.99 0.83 0.18
@@ -273,7 +276,7 @@ templates
         weight is regular
 
     Areas Item
-        color is 0.08 0.24 0.27
+        color is 0.11 0.36 0.40
 
         AreasText text1
             string is Hardware
@@ -303,19 +306,19 @@ templates
             scale is 0.05
             string is Gerenciamento de Memória
             position is -0.64 0.26 0
-        AreasText text7
+        AreasText text8
             scale is 0.07
             string is Computação Gráfica
             position is -0.05 -0.25 0
-        AreasText text7
+        AreasText text9
             scale is 0.065
             string is Áudio
             position is -0.5 -0.29 0
-        AreasText text7
+        AreasText text10
             scale is 0.055
             string is Música
             position is -0.3 -0.4 0
-        AreasText text7
+        AreasText text11
             scale is 0.065
             string is Redes
             position is 0.37 0.05 0
@@ -323,6 +326,8 @@ templates
 
 
     ObjectSymbol Item
+        color is 0.99 0.83 0.18
+
         Box square
             width is 0.28
             height is 0.28
@@ -359,7 +364,6 @@ templates
             position is 0 0 0.5
 
         ObjectSymbol
-            color is 0.99 0.83 0.18
             scale is 3
             position is 0 -0.05 0.7
 
@@ -422,12 +426,12 @@ templates
 
     SquareBackground Item
         Box foreground
-            color is 0.19 0.61 0.64
+            color is 0.49 0.78 0.79
             width is 2
             length is 0.1
 
         Box background
-            color is 0.11 0.36 0.40
+            color is 0.19 0.61 0.64
             width is 2.2
             height is 1.2
             length is 0.1
@@ -437,7 +441,8 @@ templates
     SquareTitle Text
         string is EngineKit
         scale is 0.4
-        color is 0.08 0.24 0.27
+        color is 0.15 0.49 0.51
+
 
     TitleSquare Item
 
@@ -445,6 +450,52 @@ templates
 
         SquareTitle title
             position is -0.8 -0.15 0.1
+
+
+    ObjectSquareMedium Item
+        SquareBackground background
+            background
+                color is 0.11 0.36 0.38
+            foreground
+                color is 0.19 0.61 0.64
+        ObjectSymbol symbol
+            color is 0.11 0.36 0.38
+            scale is 1.3 1.3 0.8
+            position is 0 -0.05 0.15
+
+    ObjectSquareLight Item
+        SquareBackground background
+            background
+                color is 0.19 0.61 0.64
+            foreground
+                color is 0.49 0.78 0.79
+        ObjectSymbol symbol
+            color is 0.19 0.61 0.64
+            scale is 1.3 1.3 0.8
+            position is 0 -0.05 0.15
+
+    ObjectSquareDark Item
+        SquareBackground background
+            background
+                color is 0.06 0.21 0.24
+            foreground
+                color is 0.11 0.36 0.40
+        ObjectSymbol symbol
+            color is 0.19 0.61 0.64
+            scale is 1.3 1.3 0.8
+            position is 0 -0.05 0.15
+
+    ObjectSquareYellow Item
+        SquareBackground background
+            background
+                color is 0.59 0.49 0.10
+            foreground
+                color is 0.99 0.83 0.18
+        ObjectSymbol symbol
+            color is 0.19 0.61 0.64
+            scale is 1.3 1.3 0.8
+            position is 0 -0.05 0.15
+
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -681,7 +732,7 @@ templates
             height is 0.05
 
     iDeviceGlass iDeviceShape
-        color is black
+        color is 0.08 0.24 0.27
 
         corner1
             height is 0.05
@@ -697,7 +748,7 @@ templates
             height is 0.05
 
     iDeviceMetal iDeviceShape
-        color is lightGray
+        color is 0.95 0.95 0.96
 
         corner1
             height is 0.1
@@ -718,7 +769,8 @@ templates
         iDeviceMetal metal
             position is 0 -0.05 0
         Box screen
-            color is 0.19 0.61 0.64
+            color is 0.11 0.36 0.40
+            opacity is 0.3
             height is 0.05
             width is 2.5
             length is 3.1
@@ -751,23 +803,23 @@ templates
 
     HomeButtonSymbol Item
         HomeButtonSymbolShape basis
-            color is black
+            color is 0.08 0.24 0.27
         HomeButtonSymbolShape contour
-            color is white
-            scale is 1.1
+            color is 0.95 0.95 0.96
+            scale is 1.2
             position is 0 -0.01 0
 
 
     HomeButtonBasis Item
         Cylinder basis
-            color is black
+            color is 0.08 0.24 0.27
             radius is 0.15
             height is 0.01
         Cylinder contour
-            color is white
+            color is 0.95 0.95 0.96
             radius is 0.15
             height is 0.01
-            scale is 1.025
+            scale is 1.1
             position is 0 -0.005 0
 
     HomeButton Item
@@ -784,6 +836,7 @@ templates
         HomeButton button
             position is 0 0.075 1.7
 
+////////////////////////////////////////////////////////////////////////////////
 
     Arrow Item
         Box top
@@ -1341,135 +1394,6 @@ templates
         PlutoMoon
             position is 0.15 0 0
 
-////////////////////////////////////////////////////////////////////////////////
-
-
-    Corner Cylinder
-        radius is 0.1
-        height is 0.1
-
-    iDeviceShape Item
-        Corner corner1
-            position is 1.4 0 1.9
-        Corner corner2
-            position is -1.4 0 1.9
-        Corner corner3
-            position is 1.4 0 -1.9
-        Corner corner4
-            position is -1.4 0 -1.9
-
-        Box body1
-            width is 3.0
-            length is 3.8
-            height is 0.05
-
-        Box body2
-            width is 2.8
-            length is 4.0
-            height is 0.05
-
-    iDeviceGlass iDeviceShape
-        color is black
-
-        corner1
-            height is 0.05
-        corner2
-            height is 0.05
-        corner3
-            height is 0.05
-        corner4
-            height is 0.05
-        body1
-            height is 0.05
-        body2
-            height is 0.05
-
-    iDeviceMetal iDeviceShape
-        color is lightGray
-
-        corner1
-            height is 0.1
-        corner2
-            height is 0.1
-        corner3
-            height is 0.1
-        corner4
-            height is 0.1
-        body1
-            height is 0.1
-        body2
-            height is 0.1
-
-    iDeviceBody Item
-        iDeviceGlass glass
-            position is 0 0.025 0
-        iDeviceMetal metal
-            position is 0 -0.05 0
-        Box screen
-            color is white
-            opacity is 0.5
-            height is 0.05
-            width is 2.5
-            length is 3.1
-            position 0 0.05 -0.15
-
-
-    SymbolCorner Cylinder
-        radius is 0.02
-        height is 0.005
-
-    HomeButtonSymbolShape Item
-        SymbolCorner corner1
-            position is 0.03 0 0.03
-        SymbolCorner corner2
-            position is -0.03 0 0.03
-        SymbolCorner corner3
-            position is 0.03 0 -0.03
-        SymbolCorner corner4
-            position is -0.03 0 -0.03
-
-        Box body1
-            width is 0.1
-            length is 0.07
-            height is 0.005
-
-        Box body2
-            width is 0.07
-            length is 0.1
-            height is 0.005
-
-    HomeButtonSymbol Item
-        HomeButtonSymbolShape basis
-            color is black
-        HomeButtonSymbolShape contour
-            color is white
-            scale is 1.1
-            position is 0 -0.01 0
-
-
-    HomeButtonBasis Item
-        Cylinder basis
-            color is black
-            radius is 0.15
-            height is 0.01
-        Cylinder contour
-            color is white
-            radius is 0.15
-            height is 0.01
-            scale is 1.025
-            position is 0 -0.005 0
-
-    HomeButton Item
-        HomeButtonSymbol symbol
-            position is 0  0.01 0
-        HomeButtonBasis basis
-            position is 0 -0.01 0
-
-    iDevice Item
-        iDeviceBody body
-
-        HomeButton button
-            position is 0 0.075 1.7
 
 ////////////////////////////////////////////////////////////////////////////////
 

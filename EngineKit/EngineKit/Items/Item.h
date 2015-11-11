@@ -23,6 +23,7 @@
 - (instancetype)initAndAddToScene;
 + (instancetype) template;
 - (void)addItem:(Item *)newItem;
+- (Item *)childItemWithName:(NSString *)string recursively:(BOOL)recursively;
 - (void)rotate:(id)rotation;
 - (void)rotate:(id)rotation around:(id)anchor;
 - (void)addAnimation:(NSDictionary *)dictionary;
@@ -85,7 +86,6 @@
  */
 @interface Item : NSObject <ItemExport>
 // TODO: Documentation
-// TODO: Add these to JSExport
 - (void)setPositionX:(NSNumber *)newValue;
 - (void)setPositionY:(NSNumber *)newValue;
 - (void)setPositionZ:(NSNumber *)newValue;

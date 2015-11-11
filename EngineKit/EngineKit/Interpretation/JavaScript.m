@@ -168,9 +168,9 @@ static NSString *animationID = @"0";
     self.context[@"alert"] = ^(JSValue *value) {
         [console log:value];
     };
-    self.context[@"setTimeout"] = ^(JSValue* function, JSValue* timeout) {
+    self.context[@"setTimeout"] = ^(JSValue* function, JSValue* timeout, JSValue *arguments) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)([timeout toInt32] * NSEC_PER_MSEC)), dispatch_get_main_queue(), ^{
-            [function callWithArguments:@[]];
+            [function callWithArguments:@[arguments]];
         });
     };
 
