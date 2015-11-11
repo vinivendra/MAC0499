@@ -51,6 +51,9 @@ var iosText;
 var squares;
 var squareItems;
 
+var jsSquare;
+var jsText;
+
 function tap() {
     next();
 }
@@ -250,8 +253,8 @@ function load() {
     for (var i = 0; i < squareItems.length; i++) {
         var item = squareItems[i];
         item.position = [squarePositions[i][0],
-                           squarePositions[i][1],
-                           squares[i].position.z + 0.1 * smallSquareScale];
+                         squarePositions[i][1],
+                         squares[i].position.z + 0.1 * smallSquareScale];
         item.hidden = true;
         item.scale = smallSquareScale;
     }
@@ -259,15 +262,35 @@ function load() {
     squareItems[0].position = [squarePositions[0][0] + 0.1,
                                squarePositions[0][1] - 0.13,
                                squares[0].position.z + 0.2 * smallSquareScale];
-    print (squareItems[0].position);
 
+    var satellite = squareItems[4].childItemWithNameRecursively("satellite", true);
+    satellite.anchor = [0.35, 0, 0];
+    satellite.position = [0, 0, 0.2];
+
+
+    jsSquare = SquareBackgroundDark.create();
+    jsSquare.hidden = true;
+    jsSquare.scale = squareScale;
+
+    textScale = 0.4;
+    jsText = SquareTitle.create();
+    jsText.scale = jsText.scale.times(squareScale * textScale);
+    jsText.anchor = [0.95 * squareScale * textScale,
+                     0.1 * squareScale * textScale,
+                     0.0];
+    jsText.position = [0, 0, 0.3];
+    jsText.string = "JavaScript";
+    jsText.color = [0.08, 0.24, 0.27];
+    jsText.hidden = true;
 }
 
+////////////////////////////////////////////////////////////////////////////////
+
 function next() {
-    if (step == 1) {
+    if (step == 1) { // Fade in title
         appear(title);
     }
-    else if (step == 2) {
+    else if (step == 2) { // Fade out title, fade in graph and pinball
         disappear(title);
 
         bounceScale(graph);
@@ -282,7 +305,7 @@ function next() {
 
         appear(pinball);
     }
-    else if (step == 3) {
+    else if (step == 3) { // Fade out graph and pinball, fade in windows
         disappear(graph);
         disappear(pinball);
         disappear(pinballBall);
@@ -309,7 +332,7 @@ function next() {
         bounceScale(window8);
         bounceScale(window9);
     }
-    else if (step == 4) {
+    else if (step == 4) { // Fade out windows, zoom on center windows
         graph.hidden = true;
         pinball.delete();
         pinballBall.delete();
@@ -332,17 +355,17 @@ function next() {
 
         bounceScale(objectSymbol);
     }
-    else if (step == 5) {
+    else if (step == 5) { // Fade in features one by one
         var delay = 5000;
 
-        window1.hidden = true;
-        window2.hidden = true;
-        window3.hidden = true;
-        window4.hidden = true;
-        window6.hidden = true;
-        window7.hidden = true;
-        window8.hidden = true;
-        window9.hidden = true;
+        window1.delete();
+        window2.delete();
+        window3.delete();
+        window4.delete();
+        window6.delete();
+        window7.delete();
+        window8.delete();
+        window9.delete();
 
         bounceScale(text1);
         setTimeout(bounceScale, duration * delay, text2);
@@ -356,7 +379,7 @@ function next() {
         setTimeout(bounceScale, duration * 9 * delay, text10);
         setTimeout(bounceScale, duration * 10 * delay, text11);
     }
-    else if (step == 6) {
+    else if (step == 6) { //  Zoom out, fade in engines
         disappear(areas);
         disappear(objectSymbol);
         disappear(window5);
@@ -371,7 +394,10 @@ function next() {
                             "duration": duration});
         setTimeout(moveCamera, duration * 0.9 * 1000, 10);
     }
-    else if (step == 7) {
+    else if (step == 7) { // Fade out corner engines
+        areas.delete();
+        window5.delete();
+
         disappear(objectSquares[0]);
         disappear(objectSquares[1]);
         disappear(objectSquares[2]);
@@ -380,22 +406,22 @@ function next() {
         disappear(objectSquares[7]);
         disappear(objectSquares[8]);
     }
-    else if (step == 8) {
+    else if (step == 8) { // Fade out center engines one by one
         var delay = 4000;
 
         disappear(objectSquares[3]);
         setTimeout(disappear, duration * delay, objectSquares[5]);
         setTimeout(disappear, duration * 2 * delay, objectSquares[4]);
     }
-    else if (step == 9) {
+    else if (step == 9) { // Fade in title
         title.scale = 2;
         bounceScale(title);
 
-        objectSquares[3].hidden = true;
-        objectSquares[4].hidden = true;
-        objectSquares[5].hidden = true;
+        for (var i = 0; i < objectSquares.length; i++) {
+            objectSquares[i].delete();
+        }
     }
-    else if (step == 10) {
+    else if (step == 10) { // Zoom out title
         var newScale = 1.7;
 
         title.addAnimation({"keyPath": "scale.x",
@@ -420,7 +446,7 @@ function next() {
         setTimeout(scaleItem, 0.9 * duration * 1000, [title, newScale]);
         setTimeout(setPositionX, 0.9 * duration * 1000, [title, newPosition]);
     }
-    else if (step == 11) {
+    else if (step == 11) { // Appear file and iPad
         appear(file);
         appear(iPad);
     }
@@ -536,15 +562,167 @@ function next() {
             appear(square);
         }
     }
-    else if (step == 28) { // Fade in feature symbols
-        var delay = 1;
-        for (var i = 0; i < squareItems.length; i++) {
-            var item = squareItems[i];
-            setTimeout(appear, i * duration * delay * 1000, item);
+    else if (step == 28) { // Fade in feature - graphics
+        bounceScale(squareItems[0]);
+    }
+    else if (step == 29) { // Fade in feature - physics
+        var item = squareItems[1];
+        appear(item);
+        var sphere = item.childItemWithNameRecursively("sphere", true);
+        setTimeout(animatePhysics, duration * 1000, sphere);
+    }
+    else if (step == 30) { // Fade in feature - gestures
+        var item = squareItems[2];
+        appear(item);
+        setTimeout(animateGestures, duration * 1000, item);
+    }
+    else if (step == 31) { // Fade in feature - interface
+        var item = squareItems[3];
+        appear(item);
+        var knob = item.childItemWithNameRecursively("knob", true);
+        setTimeout(animateInterface, duration * 1000, knob);
+    }
+    else if (step == 32) { // Fade in feature - animation
+        var item = squareItems[4];
+        appear(item);
+        var satellite = item.childItemWithNameRecursively("satellite", true);
+        setTimeout(animateAnimation, duration * 1000, satellite);
+    }
+    else if (step == 33) { // Fade in feature - JavaScript
+        bounceScale(squareItems[5]);
+    }
+    else if (step == 34) { // Cross fade: iOS -> JavaScript
+        disappear(iosText);
+        disappear(iosSquare);
+
+        setTimeout(appear, duration * 2 * 1000, jsSquare);
+        setTimeout(bounceScale, duration * 2 * 1000, jsText);
+    }
+    else if (step == 35) { // Fade out
+        disappear(jsText);
+        disappear(jsSquare);
+        for (var i = 0; i < squares.length; i++) {
+            disappear(squares[i]);
+            disappear(squareItems[i]);
         }
     }
 
+    else if (step == 36) { // Fade in file, title, iPad
+        for (var i = 0; i < squares.length; i++) {
+            squares[i].delete();
+            squareItems[i].delete();
+        }
 
+        jsText.hidden = true;
+        jsSquare.hidden = true;
+
+        title.scale = title.scale.times(1.2);
+
+        var y = title.position.y;
+
+        file = FileBody.create();
+        file.scale = 1.2;
+        file.hidden = true;
+        file.position = [-6, y + 1.5, 0];
+
+        file2 = FileBody.create();
+        file2.scale = 1.2;
+        file2.hidden = true;
+        file2.position = [-6, y - 1.5, 0];
+
+        fileText2.scale = file2.scale.times(0.6);
+        var x = file2.position.x - file2.scale.x * 0.3;
+        var y = file2.position.y - file2.scale.y * 0.1;
+        var z = file2.position.z + file2.scale.z * 0.15;
+        fileText2.position = [x, y, z];
+
+        var x = file.position.x - file.scale.x * 0.3 + 0.4;
+        var y = file.position.y - file.scale.y * 0.1 + 0.1;
+        var z = file.position.z + file.scale.z * 0.15;
+        objectSymbol.position = [x, y, z];
+        objectSymbol.scale = file.scale.times(1.2);
+
+        bounceScale(file);
+        bounceScale(file2);
+        bounceScale(title);
+        bounceScale(iPad);
+
+        bounceScale(fileText2);
+        bounceScale(objectSymbol);
+    }
+    else if (step == 37) { // Files go into iPad
+        var depthVariation = 0.2;
+
+        var newPosition = file.position.z - depthVariation;
+
+        movePositionZ(file, newPosition);
+        movePositionZ(file2, newPosition);
+        movePositionZ(objectSymbol, objectSymbol.position.z - depthVariation);
+        movePositionZ(fileText2, fileText2.position.z - depthVariation);
+
+        var x = title.position.x;
+        var y = title.position.y;
+
+        setTimeout(autoMovePositionX, duration * 1000, [file, x]);
+        setTimeout(autoMovePositionX, duration * 1000, [file2, x]);
+        setTimeout(autoMovePositionX, duration * 1000, [fileText2, x]);
+        setTimeout(autoMovePositionX, duration * 1000, [objectSymbol, x]);
+        setTimeout(autoMovePositionY, duration * 1000, [file, y]);
+        setTimeout(autoMovePositionY, duration * 1000, [file2, y]);
+        setTimeout(autoMovePositionY, duration * 1000, [fileText2, y]);
+        setTimeout(autoMovePositionY, duration * 1000, [objectSymbol, y]);
+
+        setTimeout(bounce, 2 * duration * 1000, title);
+
+        setTimeout(instaScale, 3.5 * duration * 1000, [objectSymbol, objectSymbol.scale.times(2)]);
+        setTimeout(instaZ, 3.5 * duration * 1000, [objectSymbol, objectSymbol.position.z - 0.5]);
+        setTimeout(autoMovePositionX, 3.5 * duration * 1000, [objectSymbol, iPad.position.x - 0.4 * iPad.scale.x]);
+        setTimeout(autoMovePositionY, 3.5 * duration * 1000, [objectSymbol, iPad.position.y]);
+
+        setTimeout(autoMovePositionZ, 4.5 * duration * 1000, [objectSymbol, iPad.position.z + 0.4]);
+    }
+    else if (step == 38) { // Files move on iPad
+        var depthVariation = 0.07;
+
+        movePositionZ(objectSymbol, objectSymbol.position.z - depthVariation);
+
+        setTimeout(autoMovePositionX, duration * 1000, [objectSymbol, objectSymbol.position.x + 0.8 * iPad.scale.x])
+        setTimeout(autoMovePositionZ, 2 * duration * 1000, [objectSymbol, objectSymbol.position.z + depthVariation * 0.7])
+    }
+    else if (step == 39) { // Files leave iPad
+        var depthVariation = 0.2;
+
+        movePositionZ(objectSymbol, fileText2.position.z - depthVariation);
+
+        setTimeout(autoMovePositionX, duration * 1000, [objectSymbol, title.position.x]);
+        setTimeout(autoMovePositionY, duration * 1000, [objectSymbol, title.position.y]);
+
+        setTimeout(instaScale, 2 * duration * 1000, [objectSymbol, objectSymbol.scale.times(0.5)]);
+        setTimeout(instaZ, 2 * duration * 1000, [objectSymbol, file.position.z + file.scale.z * 0.15]);
+        setTimeout(bounce, 2 * duration * 1000, title);
+
+        var y = title.position.y;
+
+        var x1 = -6 - file.scale.x * 0.3 + 0.4;
+        var y1 = y + 1.5 - file.scale.y * 0.1 + 0.1;
+
+        var x2 = -6 - file2.scale.x * 0.3;
+        var y2 = y - 1.5 - file2.scale.y * 0.1;
+
+        setTimeout(autoMovePositionX, 3 * duration * 1000, [file, -6]);
+        setTimeout(autoMovePositionX, 3 * duration * 1000, [file2, -6]);
+        setTimeout(autoMovePositionX, 3 * duration * 1000, [fileText2, x2]);
+        setTimeout(autoMovePositionX, 3 * duration * 1000, [objectSymbol, x1]);
+        setTimeout(autoMovePositionY, 3 * duration * 1000, [file, y + 1.5]);
+        setTimeout(autoMovePositionY, 3 * duration * 1000, [file2, y - 1.5]);
+        setTimeout(autoMovePositionY, 3 * duration * 1000, [fileText2, y2]);
+        setTimeout(autoMovePositionY, 3 * duration * 1000, [objectSymbol, y1]);
+
+        setTimeout(autoMovePositionZ, 4 * duration * 1000, [file, file.position.z + depthVariation]);
+        setTimeout(autoMovePositionZ, 4 * duration * 1000, [file2, file2.position.z + depthVariation]);
+        setTimeout(autoMovePositionZ, 4 * duration * 1000, [objectSymbol, file.position.z + depthVariation + file.scale.z * 0.15]);
+        setTimeout(autoMovePositionZ, 4 * duration * 1000, [fileText2, fileText2.position.z + depthVariation]);
+    }
 
     step++;
 }
@@ -575,7 +753,6 @@ function bounceScale(item) {
     var scaley = item.scale.y;
     var scalez = item.scale.z;
 
-
     item.addAnimation({"keyPath": "scale.x",
                       "fromValue": scalex/2,
                       "toValue": scalex,
@@ -591,6 +768,31 @@ function bounceScale(item) {
                       "toValue": scalez,
                       "function": "bounce",
                       "duration": duration});
+}
+
+function bounce(item) {
+    var scalex = item.scale.x;
+    var scaley = item.scale.y;
+    var scalez = item.scale.z;
+
+    item.addAnimation({"keyPath": "scale.x",
+                      "fromValue": scalex,
+                      "toValue": scalex * 1.1,
+                      "function": "easeIn",
+                      "autoreverses": true,
+                      "duration": duration/2});
+//    item.addAnimation({"keyPath": "scale.y",
+//                      "fromValue": scaley * 1.1,
+//                      "toValue": scaley,
+//                      "function": "easeIn",
+//                      "autoreverses": true,
+//                      "duration": duration/2});
+//    item.addAnimation({"keyPath": "scale.z",
+//                      "fromValue": scalez * 1.1,
+//                      "toValue": scalez,
+//                      "function": "easeIn",
+//                      "autoreverses": true,
+//                      "duration": duration/2});
 }
 
 function rotate(item, speed) {
@@ -613,7 +815,17 @@ function halfFade(item) {
 
 ////////////////////////////////////////////////////////////////////////////////
 
+function instaScale(array) {
+    var item = array[0];
+    var scale = array[1];
+    item.scale = scale;
+}
 
+function instaZ(array) {
+    var item = array[0];
+    var z = array[1];
+    item.position = [item.position.x, item.position.y, z];
+}
 
 function moveCamera(newZ) {
     Camera.position = [0, 0, newZ];
@@ -621,6 +833,36 @@ function moveCamera(newZ) {
 
 function scaleItem(array) {
     array[0].scale = array[1];
+}
+
+function autoMovePositionX(array) {
+    var item = array[0];
+    var position = array[1];
+    item.addAnimation({"keyPath": "position.x",
+                      "toValue": position,
+                      "function": "easeInOut",
+                      "duration": duration});
+    setTimeout(setPositionX, 0.9 * duration * 1000, [item, position]);
+}
+
+function autoMovePositionY(array) {
+    var item = array[0];
+    var position = array[1];
+    item.addAnimation({"keyPath": "position.y",
+                      "toValue": position,
+                      "function": "easeInOut",
+                      "duration": duration});
+    setTimeout(setPositionY, 0.9 * duration * 1000, [item, position]);
+}
+
+function autoMovePositionZ(array) {
+    var item = array[0];
+    var position = array[1];
+    item.addAnimation({"keyPath": "position.z",
+                      "toValue": position,
+                      "function": "easeInOut",
+                      "duration": duration});
+    setTimeout(setPositionZ, 0.9 * duration * 1000, [item, position]);
 }
 
 function movePositionX(item, position) {
@@ -737,9 +979,9 @@ function moveObjectSymbolAgain() {
                               "function": "easeOut",
                               "duration": duration});
     setTimeout(setPositionZ, 0.9 * duration * 1000, [objectSymbol, newPosition]);
-    
+
     setTimeout(appearFile, 0.9 * duration * 1000, []);
-    
+
     objectSymbolCounter++;
 }
 
@@ -752,3 +994,39 @@ function changeTextAndAppear(array) {
     appear(array[0]);
 }
 
+function animatePhysics(item) {
+    var positionY = item.position.y - 0.6;
+
+    item.addAnimation({"keyPath": "position.y",
+                      "toValue": positionY,
+                      "function": "easeIn",
+                      "autoreverses": true,
+                      "repeatCount": 2,
+                      "duration": duration});
+}
+
+function animateGestures(item) {
+    var positionZ = item.position.z;
+    var positionX = item.position.x;
+    movePositionZ(item, positionZ - 0.1);
+    setTimeout(autoMovePositionX, duration * 0.9 * 1000, [item, positionX + 0.6]);
+    setTimeout(autoMovePositionZ, duration * 1.9 * 1000, [item, positionZ]);
+}
+
+function animateInterface(item) {
+    item.addAnimation({"keyPath": "position.x",
+                      "toValue": item.position.x + 0.8,
+                      "function": "easeInOut",
+                      "autoreverses": true,
+                      "duration": duration*2});
+    setTimeout(autoMovePositionX, duration * 4 * 1000, [item, 0]);
+}
+
+function animateAnimation(item) {
+    item.rotation = [0, 0, 1, 0];
+    item.addAnimation({"keyPath": "rotation.w",
+                      "toValue": 2 * pi,
+                      "function": "easeInOut",
+                      "autoreverses": true,
+                      "duration": duration*2});
+}

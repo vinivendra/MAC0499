@@ -458,13 +458,16 @@ templates
             length is 0.1
             position is 0 0 -0.05
 
-    SquareBackgroundSmall SquareBackground
+    SquareBackgroundDark SquareBackground
+        foreground
+            color is 0.19 0.61 0.64
+        background
+            color is 0.11 0.36 0.38
+
+    SquareBackgroundSmall SquareBackgroundDark
         background
             height is 1.17
             width is 2.17
-            color is 0.11 0.36 0.38
-        foreground
-            color is 0.19 0.61 0.64
 
     SquareTitle Text
         string is EngineKit
@@ -1607,25 +1610,37 @@ templates
         radius is 0.11
 
 
+//    PhysicsSymbol Item
+//        SymbolSphere sphere1
+//            position is -0.6 -0.2 0
+//        SymbolSphere sphere2
+//            position is -0.35 0.05 0
+//        SymbolSphere sphere3
+//            position is 0 0.2 0
+//        SymbolSphere sphere4
+//            position is 0.35 0.05 0
+//        SymbolSphere sphere5
+//            position is 0.6 -0.2 0
+
     PhysicsSymbol Item
-        SymbolSphere sphere1
-            position is -0.6 -0.2 0
-        SymbolSphere sphere2
-            position is -0.35 0.05 0
-        SymbolSphere sphere3
-            position is 0 0.2 0
-        SymbolSphere sphere4
-            position is 0.35 0.05 0
-        SymbolSphere sphere5
-            position is 0.6 -0.2 0
+        SymbolSphere sphere
+            position is 0 0.3 0
+        Box floor
+            height is 0.05
+            length is 0.05
+            width is 1.4
+            position is 0 -0.4 0
+            color is 0.95 0.95 0.96
+
 
     GesturesSymbol Item
         Cylinder circle
             scale is 1 0.5 1
             color is 0.99 0.83 0.18
             radius is 0.25
-            height is 0.05
+            height is 0.2
             rotation is 1 0 0 1.5707
+            position is -0.3 0 0
 
     InterfaceSymbol Item
         Cylinder knob
@@ -1634,26 +1649,24 @@ templates
             radius is 0.13
             height is 0.15
             rotation is 1 0 0 1.5707
+            position -0.4 0 0
 
         Box
             height is 0.05
             length is 0.05
             width is 1.4
-            physics is kinematic
             color is 0.95 0.95 0.96
         Cylinder
             rotation is 1 0 0 1.5707
             radius is 0.025
             height is 0.05
             position is -0.7 0 0
-            physics is kinematic
             color is 0.95 0.95 0.96
         Cylinder
             rotation is 1 0 0 1.5707
             radius is 0.025
             height is 0.05
             position is 0.7 0 0
-            physics is kinematic
             color is 0.95 0.95 0.96
 
     AnimationSymbol Item
@@ -1662,7 +1675,6 @@ templates
         SymbolSphere satellite
             color is 0.95 0.95 0.96
             radius is 0.07
-            position is -0.35 0 0
 
     JavaScriptSymbol Item
         Text
@@ -1671,7 +1683,6 @@ templates
             weight is bold
             string is { }
             scale is 0.65
-            depth is 0.1
 
 items
 

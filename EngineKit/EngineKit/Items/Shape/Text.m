@@ -34,6 +34,7 @@ static NSInteger fontSize = 1;
 
 - (void)commonInit {
     self.text = [SCNText new];
+    self.text.extrusionDepth = 0.1;
     self.weight = @"Light";
 }
 
