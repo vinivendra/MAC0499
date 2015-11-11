@@ -41,6 +41,15 @@ var objectSymbol1;
 var objectSymbol2;
 var objectSymbol3;
 
+var file2;
+var fileText;
+var fileText2;
+
+var iosSquare;
+var iosText;
+
+var squares;
+var squareItems;
 
 function tap() {
     next();
@@ -54,8 +63,8 @@ function load() {
     Physics.gravity = [0, -4, -10];
 
     title = TitleSquare.create();
+    title.hidden = true;
     title.scale = 3;
-    title.opacity = 0;
 
     graph = Graph3D.create();
     graph.hidden = true;
@@ -169,11 +178,89 @@ function load() {
                      ObjectSymbol.create()];
     for (var i = 0; i < 3; i++) {
         objectSymbols[i].hidden = true;
-        objectSymbols[i].scale = 2;
+        objectSymbols[i].scale = 3;
     }
 
     objectSymbolX = [1, -1, -1];
     objectSymbolY = [0, -1.3, 1.3];
+
+    file2 = FileBody.create();
+    file2.hidden = true;
+
+    fileText = FileText.create();
+    fileText.scale = 0.5;
+    fileText.position = [-0.3, -0.1, 0.15];
+    fileText.string = "<>";
+    fileText.weight = "Bold";
+    fileText.depth = 0.1;
+    fileText.hidden = true;
+
+    fileText2 = FileText.create();
+    fileText2.scale = 0.5;
+    fileText2.position = [-0.3, -0.1, 0.15];
+    fileText2.string = "{ }";
+    fileText2.weight = "Bold";
+    fileText2.depth = 0.1;
+    fileText2.hidden = true;
+
+    var squareScale = 5.5;
+    iosSquare = SquareBackground.create();
+    iosSquare.hidden = true;
+    iosSquare.scale = squareScale;
+
+    var textScale = 0.6;
+    iosText = SquareTitle.create();
+    iosText.scale = iosText.scale.times(squareScale * textScale);
+    iosText.position = [-0.3 * squareScale * textScale,
+                        -0.15 * squareScale * textScale,
+                        0.1 * squareScale];
+    iosText.string = "iOS";
+    iosText.color = [0.08, 0.24, 0.27];
+    iosText.hidden = true;
+
+    squares = [SquareBackgroundSmall.create(),
+               SquareBackgroundSmall.create(),
+               SquareBackgroundSmall.create(),
+               SquareBackgroundSmall.create(),
+               SquareBackgroundSmall.create(),
+               SquareBackgroundSmall.create()];
+    var squarePositions = [[-3.5,  1.35],
+                           [   0,  1.65],
+                           [ 3.5,  1.35],
+                           [-3.5, -1.35],
+                           [   0, -1.65],
+                           [ 3.5, -1.35]];
+
+    var smallSquareScale = 1.1;
+    for (var i = 0; i < squares.length; i++) {
+        var square = squares[i];
+        square.position = [squarePositions[i][0],
+                           squarePositions[i][1],
+                           iosSquare.position.z + 0.1 * squareScale];
+        square.hidden = true;
+        square.scale = smallSquareScale;
+    }
+
+    squareItems = [ObjectSymbol.create(),
+                   PhysicsSymbol.create(),
+                   GesturesSymbol.create(),
+                   InterfaceSymbol.create(),
+                   AnimationSymbol.create(),
+                   JavaScriptSymbol.create()];
+    for (var i = 0; i < squareItems.length; i++) {
+        var item = squareItems[i];
+        item.position = [squarePositions[i][0],
+                           squarePositions[i][1],
+                           squares[i].position.z + 0.1 * smallSquareScale];
+        item.hidden = true;
+        item.scale = smallSquareScale;
+    }
+    squareItems[0].scale = smallSquareScale * 1.2;
+    squareItems[0].position = [squarePositions[0][0] + 0.1,
+                               squarePositions[0][1] - 0.13,
+                               squares[0].position.z + 0.2 * smallSquareScale];
+    print (squareItems[0].position);
+
 }
 
 function next() {
@@ -202,15 +289,25 @@ function next() {
 
         var delay = 700;
 
+        //        bounceScale(window1);
+        //        setTimeout(bounceScale, duration * delay, window2);
+        //        setTimeout(bounceScale, duration * 2 * delay, window3);
+        //        setTimeout(bounceScale, duration * 3 * delay, window4);
+        //        setTimeout(bounceScale, duration * 4 * delay, window5);
+        //        setTimeout(bounceScale, duration * 5 * delay, window6);
+        //        setTimeout(bounceScale, duration * 6 * delay, window7);
+        //        setTimeout(bounceScale, duration * 7 * delay, window8);
+        //        setTimeout(bounceScale, duration * 8 * delay, window9);
+
         bounceScale(window1);
-        setTimeout(bounceScale, duration * delay, window2);
-        setTimeout(bounceScale, duration * 2 * delay, window3);
-        setTimeout(bounceScale, duration * 3 * delay, window4);
-        setTimeout(bounceScale, duration * 4 * delay, window5);
-        setTimeout(bounceScale, duration * 5 * delay, window6);
-        setTimeout(bounceScale, duration * 6 * delay, window7);
-        setTimeout(bounceScale, duration * 7 * delay, window8);
-        setTimeout(bounceScale, duration * 8 * delay, window9);
+        bounceScale(window2);
+        bounceScale(window3);
+        bounceScale(window4);
+        bounceScale(window5);
+        bounceScale(window6);
+        bounceScale(window7);
+        bounceScale(window8);
+        bounceScale(window9);
     }
     else if (step == 4) {
         graph.hidden = true;
@@ -242,7 +339,6 @@ function next() {
         window2.hidden = true;
         window3.hidden = true;
         window4.hidden = true;
-        window5.hidden = true;
         window6.hidden = true;
         window7.hidden = true;
         window8.hidden = true;
@@ -303,9 +399,9 @@ function next() {
         var newScale = 1.7;
 
         title.addAnimation({"keyPath": "scale.x",
-                            "toValue": newScale,
-                            "function": "easeInOut",
-                            "duration": duration});
+                           "toValue": newScale,
+                           "function": "easeInOut",
+                           "duration": duration});
         title.addAnimation({"keyPath": "scale.y",
                            "toValue": newScale,
                            "function": "easeInOut",
@@ -328,7 +424,7 @@ function next() {
         appear(file);
         appear(iPad);
     }
-    else if (step == 12) {
+    else if (step == 12) { // File turns into objects
         var newPosition = -0.2;
         file.addAnimation({"keyPath": "position.z",
                           "toValue": newPosition,
@@ -338,6 +434,117 @@ function next() {
 
         setTimeout(moveFile, 0.9 * duration * 1000, []);
     }
+    else if (step == 13) { // File, EK and iPad disappear
+        file.hidden = true;
+        disappear(title);
+        disappear(iPad);
+        disappear(objectSymbols[0]);
+        disappear(objectSymbols[1]);
+        disappear(objectSymbols[2]);
+    }
+    else if (step == 14) { // File appears
+        file.position = [0, 0, 0];
+        file.scale = 4;
+        file.hidden = true;
+        appear(file);
+    }
+    else if (step == 15) { // File divides into 2
+        file2.position = file.position;
+        file2.scale = file.scale;
+        file2.hidden = false;
+
+        movePositionX(file, -3);
+        movePositionX(file2, 3);
+
+        movePositionY(file, -0.3);
+        movePositionY(file2, -0.3);
+    }
+    else if (step == 16) { // Writing appears
+        fileText.scale = file.scale.x / 2;
+        var x = file.position.x - file.scale.x * 0.3 + 0.1;
+        var y = file.position.y - file.scale.y * 0.1;
+        var z = file.position.z + file.scale.z * 0.15;
+        fileText.position = [x, y, z];
+        appear(fileText);
+    }
+    else if (step == 17) { // Second writing appears
+        fileText2.scale = file2.scale.x / 2;
+        var x = file2.position.x - file2.scale.x * 0.3 + 0.1;
+        var y = file2.position.y - file2.scale.y * 0.1;
+        var z = file2.position.z + file2.scale.z * 0.15;
+        fileText2.position = [x, y, z];
+        appear(fileText2);
+    }
+    else if (step == 18) { // Focus on {}
+        disappear(file);
+        disappear(fileText);
+
+        movePositionX(Camera, file2.position.x);
+        movePositionZ(Camera, Camera.position.z - 3);
+    }
+    else if (step == 19) { // Change to JS
+        disappear(fileText2);
+
+        setTimeout(changeTextAndAppear, 0.9 * duration * 1000, [fileText2, "JS"]);
+    }
+    else if (step == 20) { // Zoom back out
+        appear(file);
+        appear(fileText);
+
+        movePositionX(Camera, 0);
+        movePositionZ(Camera, Camera.position.z + 3);
+    }
+    else if (step == 21) { // Focus on <>
+        disappear(file2);
+        disappear(fileText2);
+
+        movePositionX(Camera, file.position.x);
+        movePositionZ(Camera, Camera.position.z - 3);
+    }
+    else if (step == 22) { // Fade out on <>
+        disappear(fileText);
+    }
+    else if (step == 23) { // Fade in on object symbol
+        var x = fileText.position.x + 1.2;
+        var y = fileText.position.y + 0.5;
+        var z = fileText.position.z;
+        objectSymbol.position = [x, y, z];
+        objectSymbol.scale = file.scale;
+
+        appear(objectSymbol);
+    }
+    else if (step == 24) { // Zoom back out
+        appear(file2);
+        appear(fileText2);
+
+        movePositionX(Camera, 0);
+        movePositionZ(Camera, Camera.position.z + 3);
+    }
+    else if (step == 25) { // Fade out
+        disappear(file);
+        disappear(file2);
+        disappear(fileText2);
+        disappear(objectSymbol);
+    }
+    else if (step == 26) { // Fade in iOS Square
+        appear(iosSquare);
+        appear(iosText);
+    }
+    else if (step == 27) { // Fade in feature squares
+        for (var i = 0; i < squares.length; i++) {
+            var square = squares[i];
+            appear(square);
+        }
+    }
+    else if (step == 28) { // Fade in feature symbols
+        var delay = 1;
+        for (var i = 0; i < squareItems.length; i++) {
+            var item = squareItems[i];
+            setTimeout(appear, i * duration * delay * 1000, item);
+        }
+    }
+
+
 
     step++;
 }
@@ -416,13 +623,36 @@ function scaleItem(array) {
     array[0].scale = array[1];
 }
 
+function movePositionX(item, position) {
+    item.addAnimation({"keyPath": "position.x",
+                      "toValue": position,
+                      "function": "easeInOut",
+                      "duration": duration});
+    setTimeout(setPositionX, 0.9 * duration * 1000, [item, position]);
+}
+
+function movePositionY(item, position) {
+    item.addAnimation({"keyPath": "position.y",
+                      "toValue": position,
+                      "function": "easeInOut",
+                      "duration": duration});
+    setTimeout(setPositionY, 0.9 * duration * 1000, [item, position]);
+}
+
+function movePositionZ(item, position) {
+    item.addAnimation({"keyPath": "position.z",
+                      "toValue": position,
+                      "function": "easeInOut",
+                      "duration": duration});
+    setTimeout(setPositionZ, 0.9 * duration * 1000, [item, position]);
+}
+
 function setPositionX(array) {
     var x = array[1];
     var y = array[0].position.y;
     var z = array[0].position.z;
     array[0].position = [x, y, z];
 }
-
 
 function setPositionY(array) {
     var x = array[0].position.x;
@@ -482,9 +712,9 @@ function moveObjectSymbol() {
 
     var newPosition = iPad.position.x + objectSymbolX[objectSymbolCounter];
     objectSymbol.addAnimation({"keyPath": "position.x",
-                               "toValue": newPosition,
-                               "function": "easeOut",
-                               "duration": duration});
+                              "toValue": newPosition,
+                              "function": "easeOut",
+                              "duration": duration});
     setTimeout(setPositionX, 0.9 * duration * 1000, [objectSymbol, newPosition]);
 
     newPosition = iPad.position.y + objectSymbolY[objectSymbolCounter];
@@ -503,15 +733,22 @@ function moveObjectSymbolAgain() {
 
     newPosition = 0.3;
     objectSymbol.addAnimation({"keyPath": "position.z",
-                               "toValue": newPosition,
-                               "function": "easeOut",
-                               "duration": duration});
+                              "toValue": newPosition,
+                              "function": "easeOut",
+                              "duration": duration});
     setTimeout(setPositionZ, 0.9 * duration * 1000, [objectSymbol, newPosition]);
-
+    
     setTimeout(appearFile, 0.9 * duration * 1000, []);
-
+    
     objectSymbolCounter++;
 }
 
-
+function changeTextAndAppear(array) {
+    array[0].string = array[1];
+    array[0].position = [array[0].position.x - 0.2,
+                         array[0].position.y,
+                         array[0].position.z];
+    array[0].color = [0.99, 0.83, 0.18];
+    appear(array[0]);
+}
 

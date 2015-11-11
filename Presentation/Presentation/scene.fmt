@@ -155,7 +155,7 @@ templates
             rotation is 0 0 1 0.7853
 
         Pyramid fold
-            color is 0.92 0.92 0.93
+            color is 0.9 0.9 0.91
             length is 0.1
             width is 0.423
             height is 0.22
@@ -164,7 +164,7 @@ templates
 
     FileText Text
         scale is 0.5
-        color is 0.11 0.36 0.40
+        color is 0.19 0.61 0.64
         position is -0.3 -0.1 0.15
         string is EK
 
@@ -326,26 +326,47 @@ templates
 
 
     ObjectSymbol Item
-        color is 0.99 0.83 0.18
 
         Box square
+            scale is 1 1 0.5
+            color is 0.92 0.76 0.17
             width is 0.28
             height is 0.28
             length is 0.1
             position is 0 -0.05 0.05
 
         Cylinder circle
+            scale is 1 0.5 1
+            color is 0.99 0.83 0.18
             radius is 0.15
             height is 0.1
             position is 0.1 0.07 0
             rotation is 1 0 0 1.5707
 
-        Pyramid
+        Pyramid triangle
+            scale is 1 1 0.5
+            color is 1.0 0.91 0.20
             width is 0.3
             height is 0.3
             length is 0.1
             position is -0.1 0.05 -0.05
 
+
+    ObjectSymbolLight ObjectSymbol
+        square
+            color is 0.46 0.73 0.73
+        circle
+            color is 0.49 0.78 0.79
+        triangle
+            color is 0.53 0.85 0.87
+
+    ObjectSymbolMedium ObjectSymbol
+        square
+            color is 0.18 0.56 0.60
+        circle
+            color is 0.19 0.61 0.64
+        triangle
+            color is 0.20 0.68 0.70
 
     Features Item
         WideWindowYellow
@@ -432,11 +453,18 @@ templates
 
         Box background
             color is 0.19 0.61 0.64
-            width is 2.2
-            height is 1.2
+            width is 2.1
+            height is 1.1
             length is 0.1
             position is 0 0 -0.05
 
+    SquareBackgroundSmall SquareBackground
+        background
+            height is 1.17
+            width is 2.17
+            color is 0.11 0.36 0.38
+        foreground
+            color is 0.19 0.61 0.64
 
     SquareTitle Text
         string is EngineKit
@@ -469,8 +497,7 @@ templates
                 color is 0.19 0.61 0.64
             foreground
                 color is 0.49 0.78 0.79
-        ObjectSymbol symbol
-            color is 0.19 0.61 0.64
+        ObjectSymbolMedium symbol
             scale is 1.3 1.3 0.8
             position is 0 -0.05 0.15
 
@@ -480,8 +507,7 @@ templates
                 color is 0.06 0.21 0.24
             foreground
                 color is 0.11 0.36 0.40
-        ObjectSymbol symbol
-            color is 0.19 0.61 0.64
+        ObjectSymbolMedium symbol
             scale is 1.3 1.3 0.8
             position is 0 -0.05 0.15
 
@@ -491,8 +517,7 @@ templates
                 color is 0.59 0.49 0.10
             foreground
                 color is 0.99 0.83 0.18
-        ObjectSymbol symbol
-            color is 0.19 0.61 0.64
+        ObjectSymbolMedium symbol
             scale is 1.3 1.3 0.8
             position is 0 -0.05 0.15
 
@@ -1574,7 +1599,79 @@ templates
         BottomBody
             position is 0 -1.5 0
 
+////////////////////////////////////////////////////////////////////////////////
 
+    SymbolSphere Sphere
+        scale is 1 1 0.5
+        color is 0.99 0.83 0.18
+        radius is 0.11
+
+
+    PhysicsSymbol Item
+        SymbolSphere sphere1
+            position is -0.6 -0.2 0
+        SymbolSphere sphere2
+            position is -0.35 0.05 0
+        SymbolSphere sphere3
+            position is 0 0.2 0
+        SymbolSphere sphere4
+            position is 0.35 0.05 0
+        SymbolSphere sphere5
+            position is 0.6 -0.2 0
+
+    GesturesSymbol Item
+        Cylinder circle
+            scale is 1 0.5 1
+            color is 0.99 0.83 0.18
+            radius is 0.25
+            height is 0.05
+            rotation is 1 0 0 1.5707
+
+    InterfaceSymbol Item
+        Cylinder knob
+            scale is 1 0.5 1
+            color is 0.99 0.83 0.18
+            radius is 0.13
+            height is 0.15
+            rotation is 1 0 0 1.5707
+
+        Box
+            height is 0.05
+            length is 0.05
+            width is 1.4
+            physics is kinematic
+            color is 0.95 0.95 0.96
+        Cylinder
+            rotation is 1 0 0 1.5707
+            radius is 0.025
+            height is 0.05
+            position is -0.7 0 0
+            physics is kinematic
+            color is 0.95 0.95 0.96
+        Cylinder
+            rotation is 1 0 0 1.5707
+            radius is 0.025
+            height is 0.05
+            position is 0.7 0 0
+            physics is kinematic
+            color is 0.95 0.95 0.96
+
+    AnimationSymbol Item
+        SymbolSphere planet
+            radius is 0.2
+        SymbolSphere satellite
+            color is 0.95 0.95 0.96
+            radius is 0.07
+            position is -0.35 0 0
+
+    JavaScriptSymbol Item
+        Text
+            position is -0.28 -0.17 0
+            color is 0.99 0.83 0.18
+            weight is bold
+            string is { }
+            scale is 0.65
+            depth is 0.1
 
 items
 
@@ -1585,10 +1682,10 @@ items
 
     Light
         position is 3 3 3
-        color is lightgrey
+        color is darkGray
 
     Light
         position is -3 -3 -3
         type is ambient
-        color is lightgrey
+        color is 0.7 0.7 0.7
 
