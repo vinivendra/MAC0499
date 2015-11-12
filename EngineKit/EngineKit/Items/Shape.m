@@ -144,4 +144,12 @@
                                    shape:self.physicsBody.physicsShape];
 }
 
+- (NSNumber *)mass {
+    return @(self.physicsBody.mass);
+}
+
+- (void)setMass:(NSNumber *)mass {
+    self.physicsBody.mass = mass.doubleValue;
+}
+
 @end

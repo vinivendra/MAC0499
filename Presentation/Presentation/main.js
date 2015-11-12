@@ -73,6 +73,14 @@ var solarSystem;
 var spotlight;
 var spotlight2;
 
+var castle;
+var bullet;
+
+var app;
+var graph1;
+var graph2;
+var graph3;
+
 ////////////////////////////////////////////////////////////////////////////////
 
 function tap() {
@@ -377,6 +385,30 @@ function load() {
     spotlight2 = Light.create();
     spotlight2.position = [-3, -3, -3];
     spotlight2.color = [0.5, 0.5, 0.5];
+
+
+    var appScale = 2;
+    app = App.create();
+    app.scale = appScale;
+    app.hidden = true;
+
+    graph1 = GraphView.create();
+    graph1.scale = appScale;
+    graph1.anchor = [-0.5, 0.55, 0];
+    graph1.position = [(-0.1 - 0.5) * appScale, (0.1 + 0.55) * appScale, 0];
+    graph1.hidden = true;
+
+    graph2 = GraphView.create();
+    graph2.scale = 2;
+    graph2.anchor = [-0.5, 0.55, 0];
+    graph2.position = [(1.1 - 0.5) * appScale, (0.1 + 0.55) * appScale, 0];
+    graph2.hidden = true;
+
+    graph3 = GraphView.create();
+    graph3.scale = 2;
+    graph3.anchor = [-0.5, 0.55, 0];
+    graph3.position = [(-0.1 - 0.5) * appScale, (-1.1 + 0.55) * appScale, 0];
+    graph3.hidden = true;
 
     next();
 }
@@ -1023,7 +1055,50 @@ function next() {
         halfFadeBack(codeBackgroundML);
         halfFadeBack(codeTextML);
     }
+    else if (step == 55) { // Fade out
+        disappear(solarSystem);
+        disappear(codeBackgroundML);
+        disappear(codeTextML);
+        disappear(codeBackgroundJS);
+        disappear(codeTextJS);
+    }
+    else if (step == 56) { // Fade in castle
+        Physics.gravity = [0, -7.5, 0];
 
+        castle = Castle.create();
+        castle.position = [3, 0, 0];
+        castle.hidden = true;
+
+        appear(castle);
+
+        setTimeout(appearBullet, 2 * duration * 1000, []);
+    }
+    else if (step == 57) { // Cross fade castle -> graph
+        disappear(castle);
+        disappear(bullet);
+
+        graph.position = [0, -1, 0];
+        graph.scale = 1.5;
+        rotate(graph, 0.03);
+        appear(graph);
+    }
+    else if (step == 58) { // Cross fade graph -> app
+        castle.delete();
+        bullet.delete();
+
+        disappear(graph);
+
+        setTimeout(appear, 2 * duration * 1000, app);
+        setTimeout(bounceScale, 4 * duration * 1000, graph1);
+        setTimeout(bounceScale, 5 * duration * 1000, graph2);
+        setTimeout(bounceScale, 6 * duration * 1000, graph3);
+    }
+    else if (step == 59) { // Cross fade app -> poster
+        disappear(app);
+        disappear(graph1);
+        disappear(graph2);
+        disappear(graph3);
+    }
     step++;
 }
 
@@ -1345,4 +1420,14 @@ function animateAnimation(item) {
                       "function": "easeInOut",
                       "autoreverses": true,
                       "duration": duration*2});
+}
+
+function appearBullet() {
+    bullet = Bullet.create();
+    bullet.position = [-4, 0, 0];
+    bullet.hidden = true;
+
+    bullet.velocity = [6, 5, 0];
+
+    appear(bullet);
 }

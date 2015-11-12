@@ -141,7 +141,7 @@ static NSInteger fontSize = 1;
         name = fontName;
     }
     else {
-        weight = weight.capitalizedString;
+        weight = weight.camelCase;
         name = [NSString stringWithFormat:@"%@-%@", fontName, weight];
     }
 

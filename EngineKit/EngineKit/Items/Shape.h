@@ -11,6 +11,7 @@
 // TODO: doc
 - (NSArray <NSString *>*)numericProperties;
 - (NSString *)stringForPhysicsBody;
+@property (nonatomic, strong) NSNumber *mass;
 /*!
  Similar to -copyInfoTo:, meant to be used in the same context. -copyInfoTo:
  copies information that should be available @b before subclasses can copy their
