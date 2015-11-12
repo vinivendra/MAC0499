@@ -1099,6 +1099,9 @@ function next() {
         disappear(graph2);
         disappear(graph3);
     }
+    else if (step == 60) { // Cross fade poster -> github
+
+    }
     step++;
 }
 

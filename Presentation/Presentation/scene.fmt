@@ -796,7 +796,7 @@ templates
             height is 0.05
 
     iDeviceGlass iDeviceShape
-        color is 0.08 0.24 0.27
+        color is black
 
         corner1
             height is 0.05
@@ -830,11 +830,10 @@ templates
     iDeviceBody Item
         iDeviceGlass glass
             position is 0 0.025 0
-//        iDeviceMetal metal
-//            position is 0 -0.05 0
+        iDeviceMetal metal
+            position is 0 -0.05 0
         Box screen
             color is 0.11 0.36 0.40
-            opacity is 0.3
             height is 0.05
             width is 2.5
             length is 3.1
@@ -867,20 +866,20 @@ templates
 
     HomeButtonSymbol Item
         HomeButtonSymbolShape basis
-            color is 0.08 0.24 0.27
+            color is black
         HomeButtonSymbolShape contour
-            color is 0.95 0.95 0.96
+            color is white
             scale is 1.2
             position is 0 -0.01 0
 
 
     HomeButtonBasis Item
         Cylinder basis
-            color is 0.08 0.24 0.27
+            color is black
             radius is 0.15
             height is 0.01
         Cylinder contour
-            color is 0.95 0.95 0.96
+            color is white
             radius is 0.15
             height is 0.01
             scale is 1.1
