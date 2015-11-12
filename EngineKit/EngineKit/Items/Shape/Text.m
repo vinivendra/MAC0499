@@ -2,6 +2,9 @@
 
 #import "Text.h"
 
+#import "ObjectiveSugar.h"
+#import "NSString+Extension.h"
+
 
 static NSString *fontName = @"HelveticaNeue";
 static NSInteger fontSize = 1;
@@ -120,15 +123,21 @@ static NSInteger fontSize = 1;
 }
 
 - (NSString *)weight {
-    UIFontDescriptor *descriptor = self.text.font.fontDescriptor;
-    NSDictionary *attributes = descriptor.fontAttributes;
-    return attributes[@"weight"];
+    NSString *name = self.text.font.fontName;
+    NSArray *components = [name split:@"-"];
+    if (components.count > 1) {
+        return components.lastObject;
+    }
+    else {
+        return @"regular";
+    }
 }
 
 - (void)setWeight:(NSString *)weight {
     NSString *name;
 
-    if ([weight caseInsensitiveCompare:@"regular"] == NSOrderedSame) {
+    if ([weight caseInsensitiveCompare:@"regular"] == NSOrderedSame
+        || !weight.valid) {
         name = fontName;
     }
     else {

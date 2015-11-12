@@ -271,6 +271,19 @@ templates
             position is -0.7 0.45 0.04
             color is 0.03 0.12 0.14
 
+    TallWindowDark Item
+        Box background
+            length is 0.05
+            width is 1
+            color is 0.19 0.61 0.64
+
+        Box top
+            length is 0.025
+            height is 0.07
+            width is 1
+            position is 0 0.465 0.0375
+            color is 0.11 0.36 0.38
+
     AreasText Text
         scale is 0.1
         weight is regular
@@ -1276,7 +1289,7 @@ templates
 
     Earth Item
         EarthBody
-        EarthMoon
+        EarthMoon moon1
             position is 0.25 0 0
 
 
@@ -1306,21 +1319,21 @@ templates
 
     Jupiter Item
         JupiterBody
-        JupiterMoon
+        JupiterMoon moon1
             position is 0.4 0 0
-        JupiterMoon
+        JupiterMoon moon2
             position is -0.4 0 0
-        JupiterMoon
+        JupiterMoon moon3
             position is 0 0 0.4
-        JupiterMoon
+        JupiterMoon moon4
             position is 0 0 -0.4
-        JupiterMoon
+        JupiterMoon moon5
             position is 0.3 0 0.3
-        JupiterMoon
+        JupiterMoon moon6
             position is 0.3 0 -0.3
-        JupiterMoon
+        JupiterMoon moon7
             position is -0.3 0 0.3
-        JupiterMoon
+        JupiterMoon moon8
             position is -0.3 0 -0.3
 
 
@@ -1341,23 +1354,44 @@ templates
     Saturn Item
         SaturnBody
         SaturnRing
-        SaturnMoon
+        SaturnMoon moon1
             position is 0.4 0 0
-        SaturnMoon
+        SaturnMoon moon2
             position is -0.4 0 0
-        SaturnMoon
+        SaturnMoon moon3
             position is 0 0 0.4
-        SaturnMoon
+        SaturnMoon moon4
             position is 0 0 -0.4
-        SaturnMoon
+        SaturnMoon moon5
             position is 0.3 0 0.3
-        SaturnMoon
+        SaturnMoon moon6
             position is 0.3 0 -0.3
-        SaturnMoon
+        SaturnMoon moon7
             position is -0.3 0 0.3
-        SaturnMoon
+        SaturnMoon moon8
             position is -0.3 0 -0.3
 
+    SaturnYellow Item
+        SaturnBody
+            color is 0.99 0.83 0.18
+        SaturnRing
+            color is 0.35 0.29 0.06
+        SaturnMoon moon1
+            position is 0.4 0 0
+        SaturnMoon moon2
+            position is -0.4 0 0
+        SaturnMoon moon3
+            position is 0 0 0.4
+        SaturnMoon moon4
+            position is 0 0 -0.4
+        SaturnMoon moon5
+            position is 0.3 0 0.3
+        SaturnMoon moon6
+            position is 0.3 0 -0.3
+        SaturnMoon moon7
+            position is -0.3 0 0.3
+        SaturnMoon moon8
+            position is -0.3 0 -0.3
 
     UranusBody Sphere
         color is 0.19 0.61 0.64
@@ -1376,15 +1410,15 @@ templates
     Uranus Item
         UranusBody
         UranusRing
-        UranusMoon
+        UranusMoon moon1
             position is 0.3 0 0
-        UranusMoon
+        UranusMoon moon2
             position is -0.3 0 0
-        UranusMoon
+        UranusMoon moon3
             position is 0 0 0.3
-        UranusMoon
+        UranusMoon moon4
             position is 0 0 -0.3
-        UranusMoon
+        UranusMoon moon5
             position is 0.2 0 0.2
 
 
@@ -1405,7 +1439,7 @@ templates
     Neptune Item
         NeptuneBody
         NeptuneRing
-        NeptuneMoon
+        NeptuneMoon moon1
             position is 0.3 0 0
 
 
@@ -1419,8 +1453,20 @@ templates
 
     Pluto Item
         PlutoBody
-        PlutoMoon
+        PlutoMoon moon1
             position is 0.15 0 0
+
+    SolarSystem Item
+        Sun
+        Mercury
+        Venus
+        Earth
+        Mars
+        Jupiter
+        Saturn
+        Uranus
+        Neptune
+        Pluto
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -1687,13 +1733,13 @@ templates
 items
 
 
-    Light
-        position is -3 -3 -3
-        color is 0.5 0.5 0.5
+//    Light
+//        position is -3 -3 -3
+//        color is 0.5 0.5 0.5
 
-    Light
-        position is 3 3 3
-        color is darkGray
+//    Light
+//        position is 3 3 3
+//        color is darkGray
 
     Light
         position is -3 -3 -3

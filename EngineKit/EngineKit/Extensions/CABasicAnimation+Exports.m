@@ -17,15 +17,11 @@
         }
 
         if ((value = dictionary[@"toValue"])) {
-            if ([value isKindOfClass:[NSNumber class]]) {
-                self.toValue = value;
-            }
+            self.toValue = value;
         }
 
         if ((value = dictionary[@"fromValue"])) {
-            if ([value isKindOfClass:[NSNumber class]]) {
-                self.fromValue = value;
-            }
+            self.fromValue = value;
         }
 
         if ((value = dictionary[@"duration"])) {

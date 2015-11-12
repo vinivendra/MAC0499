@@ -54,6 +54,27 @@ var squareItems;
 var jsSquare;
 var jsText;
 
+var codeBackgroundML;
+var codeBackgroundJS;
+
+var codeTextML;
+var codeTextML2;
+var codeTextJS;
+
+var earthBody1;
+var earthBody2;
+var earthMoon;
+var earth;
+
+var saturn;
+
+var solarSystem;
+
+var spotlight;
+var spotlight2;
+
+////////////////////////////////////////////////////////////////////////////////
+
 function tap() {
     next();
 }
@@ -164,7 +185,6 @@ function load() {
         objectSquares[i].hidden = true;
         objectSquares[i].scale = 2;
     }
-
 
     file = FileBody.create();
     file.hidden = true;
@@ -282,6 +302,83 @@ function load() {
     jsText.string = "JavaScript";
     jsText.color = [0.08, 0.24, 0.27];
     jsText.hidden = true;
+
+
+    codeBackgroundML = TallWindowDark.create();
+    codeBackgroundML.position = [-4.5, 2.3, 0];
+    codeBackgroundML.scale = 4.5;
+    codeBackgroundML.hidden = true;
+
+    codeBackgroundJS = TallWindowDark.create();
+    codeBackgroundJS.position = [-4.5, -2.7, 0];
+    codeBackgroundJS.scale = 4.5;
+    codeBackgroundJS.hidden = true;
+
+    var offest = codeBackgroundML.scale.x * 0.4;
+    codeTextML = SquareTitle.create();
+    codeTextML.scale = 0.4;
+    codeTextML.position = [codeBackgroundML.position.x - offest - 0.2,
+                           codeBackgroundML.position.y - offest - 0.1,
+                           codeBackgroundML.position.z + 0.12];
+    codeTextML.color = [0.08, 0.24, 0.27];
+    codeTextML.weight = "regular";
+    codeTextML.hidden = true;
+
+    codeTextML2 = SquareTitle.create();
+    codeTextML2.scale = codeTextML.scale;
+    codeTextML2.position = codeTextML.position;
+    codeTextML2.color = codeTextML.color;
+    codeTextML2.weight = codeTextML.weight;
+    codeTextML2.hidden = true;
+
+    codeTextJS = SquareTitle.create();
+    codeTextJS.scale = 0.4;
+    codeTextJS.position = [codeBackgroundJS.position.x - offest - 0.2,
+                           codeBackgroundJS.position.y - offest - 0.1,
+                           codeBackgroundJS.position.z + 0.12];
+    codeTextJS.color = [0.08, 0.24, 0.27];
+    codeTextJS.weight = "regular";
+    codeTextJS.hidden = true;
+
+
+    earthBody1 = EarthBody.create();
+    earthBody1.scale = 7;
+    earthBody1.position = [3, 0, 0];
+    earthBody1.color = [0.99, 0.83, 0.18];
+    earthBody1.hidden = true;
+
+    earthBody2 = EarthBody.create();
+    earthBody2.scale = earthBody1.scale;
+    earthBody2.position = earthBody1.position;
+    earthBody2.hidden = true;
+
+    earthMoon = EarthBody.create();
+    earthMoon.scale = 7;
+    earthMoon.position = [0.8, 0, 0];
+    earthMoon.color = [0.95, 0.95, 0.96];
+    earthMoon.hidden = true;
+
+    saturn = SaturnYellow.create();
+    saturn.scale = earthBody1.scale;
+    saturn.position = earthBody1.position;
+    saturn.rotation = [1, 0, 0, 0.7];
+    saturn.hidden = true;
+
+    solarSystem = SolarSystem.create();
+    solarSystem.position = saturn.position;
+    solarSystem.rotation = saturn.rotation;
+    solarSystem.scale = 2;
+    solarSystem.hidden = true;
+
+    spotlight = Light.create();
+    spotlight.position = [3, 3, 3];
+    spotlight.color = "darkGray";
+
+    spotlight2 = Light.create();
+    spotlight2.position = [-3, -3, -3];
+    spotlight2.color = [0.5, 0.5, 0.5];
+
+    next();
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -544,7 +641,7 @@ function next() {
         appear(fileText2);
 
         movePositionX(Camera, 0);
-        movePositionZ(Camera, Camera.position.z + 3);
+        movePositionZ(Camera, 10);
     }
     else if (step == 25) { // Fade out
         disappear(file);
@@ -613,8 +710,8 @@ function next() {
             squareItems[i].delete();
         }
 
-        jsText.hidden = true;
-        jsSquare.hidden = true;
+        jsText.delete();
+        jsSquare.delete();
 
         title.scale = title.scale.times(1.2);
 
@@ -723,6 +820,209 @@ function next() {
         setTimeout(autoMovePositionZ, 4 * duration * 1000, [objectSymbol, file.position.z + depthVariation + file.scale.z * 0.15]);
         setTimeout(autoMovePositionZ, 4 * duration * 1000, [fileText2, fileText2.position.z + depthVariation]);
     }
+    else if (step == 40) { // Fade out
+        disappear(file);
+        disappear(file2);
+        disappear(objectSymbol);
+        disappear(fileText2);
+
+        disappear(title);
+        disappear(iPad);
+    }
+    else if (step == 41) { // Fade in code backgrounds
+        bounceScale(codeBackgroundML);
+        bounceScale(codeBackgroundJS);
+    }
+    else if (step == 42) { // Fade in first code text
+        codeTextML.string = "Terra Sphere\n\n\n\n\n\n\n\n\n";
+        appear(codeTextML);
+        appear(earthBody1);
+    }
+    else if (step == 43) { // Fade in second code text
+        codeTextML2.string = "Terra Sphere\n    color is blue\n\n\n\n\n\n\n\n";
+        appear(codeTextML2);
+        setTimeout(disappear, duration * 1000, codeTextML);
+
+        appear(earthBody2);
+        disappear(earthBody1);
+    }
+    else if (step == 44) { // Fade in third code text
+        codeTextML.string = "Terra Sphere\n    color is blue\n\nLua Sphere\n    color is white\n\n\n\n\n";
+        appear(codeTextML);
+        setTimeout(disappear, duration * 1000, codeTextML2);
+
+        appear(earthMoon);
+    }
+    else if (step == 45) { // Fade in fourth code text
+        codeTextML2.string = "Terra Sphere\n    color is blue\n\nLua Sphere\n    color is white\n    radius is 0.3\n\n\n\n";
+        appear(codeTextML2);
+        setTimeout(disappear, duration * 1000, codeTextML);
+
+        resize(earthMoon, earthMoon.scale.x * 0.3);
+    }
+    else if (step == 46) { // Fade in fifth code text
+        codeTextML.string = "Terra Sphere\n    color is blue\n\nLua Sphere\n    color is white\n    radius is 0.3\n    position is 1 0 0\n\n\n";
+        appear(codeTextML);
+        setTimeout(disappear, duration * 1000, codeTextML2);
+    }
+    else if (step == 47) { // Fade in JS code text
+        codeTextJS.string = "lua.addAnimation({\n    \"change\": \"rotation\",\n    \"to\": 2 * pi,\n    \"repeatCount\": 99,\n    \"duration\": 2.0});\n\n\n\n\n";
+        appear(codeTextJS);
+
+        earthMoon.anchor = [1.05, 0, 0];
+        earthMoon.position = earthBody2.position;
+
+        earthMoon.rotation = [0, 1, 0.4, 0];
+        earthMoon.addAnimation({"keyPath": "rotation.w",
+                               "toValue": 2 * pi,
+                               "repeatCount": 99,
+                               "duration": 2});
+    }
+    else if (step == 48) { // Cross fade to Saturn
+
+        var moons = ["moon1",
+                     "moon2",
+                     "moon3",
+                     "moon4",
+                     "moon5",
+                     "moon6",
+                     "moon7",
+                     "moon8"];
+
+        for (var i = 0; i < moons.length; i++) {
+            var name = moons[i];
+
+            var moon = saturn.childItemWithNameRecursively(name, true);
+            moon.anchor = moon.position.times(-1);
+            moon.anchor = [moon.anchor.x,
+                           moon.anchor.y - 0.025 + Math.random() * 0.05,
+                           moon.anchor.z];
+            moon.position = [0, 0, 0];
+            moon.rotation = [0, 1, 0, 0];
+            moon.addAnimation({"keyPath": "rotation.w",
+                              "toValue": 2 * pi,
+                              "repeatCount": 99,
+                              "duration": 6 + Math.random() * 0.2});
+        }
+
+        disappear(earthMoon);
+        disappear(earthBody2);
+        bounceScale(saturn);
+    }
+    else if (step == 49) { // Cross fade to Solar System
+
+        var moons = ["moon1",
+                     "moon2",
+                     "moon3",
+                     "moon4",
+                     "moon5",
+                     "moon6",
+                     "moon7",
+                     "moon8"];
+
+        var planets = [solarSystem.childItemWithNameRecursively("Mercury", true),
+                       solarSystem.childItemWithNameRecursively("Venus", true),
+                       solarSystem.childItemWithNameRecursively("Earth", true),
+                       solarSystem.childItemWithNameRecursively("Mars", true),
+                       solarSystem.childItemWithNameRecursively("Jupiter", true),
+                       solarSystem.childItemWithNameRecursively("Saturn", true),
+                       solarSystem.childItemWithNameRecursively("Uranus", true),
+                       solarSystem.childItemWithNameRecursively("Neptune", true),
+                       solarSystem.childItemWithNameRecursively("Pluto", true)];
+
+        var slices = [5, 4, 3, 8, 2, 1, 0, 7, 6];
+
+        for (var i = 0; i < planets.length; i++) {
+            var planet = planets[i];
+
+            var angle = 2 * pi / planets.length * slices[i];
+
+            radius = 1 + i / 6;
+
+            planet.anchor = [radius * Math.sin(angle),
+                             0,
+                             radius * Math.cos(angle)];
+
+            planet.rotation = [0, 1, 0, 0];
+
+            planet.addAnimation({"keyPath": "rotation.w",
+                                "toValue": 2 * pi,
+                                "repeatCount": 99,
+                                "duration": 15 + 2 * i});
+
+            for (var j = 0; j < moons.length; j++) {
+                var name = moons[j];
+
+                var moon = planet.childItemWithNameRecursively(name, true);
+                if (typeof moon != 'undefined') {
+                    moon.anchor = moon.position.times(-1);
+                    moon.anchor = [moon.anchor.x,
+                                   moon.anchor.y - 0.025 + Math.random() * 0.05,
+                                   moon.anchor.z];
+                    moon.position = [0, 0, 0];
+                    moon.rotation = [0, 1, 0, 0];
+                    moon.addAnimation({"keyPath": "rotation.w",
+                                      "toValue": 2 * pi,
+                                      "repeatCount": 99,
+                                      "duration": 6 + Math.random() * 0.2});
+                }
+            }
+        }
+
+        disappear(saturn);
+        appear(solarSystem);
+    }
+    else if (step == 50) { // Iluminação
+        spotlight.addAnimation({"keyPath": "position.y",
+                               "toValue": -3,
+                               "autoreverses": true,
+                               "duration": duration * 5});
+
+        spotlight2.addAnimation({"keyPath": "position.x",
+                                "toValue": 1,
+                                "autoreverses": true,
+                                "duration": duration * 5});
+        spotlight2.addAnimation({"keyPath": "position.y",
+                                "toValue": 2,
+                                "autoreverses": true,
+                                "duration": duration * 5});
+        spotlight2.addAnimation({"keyPath": "position.z",
+                                "toValue": 3,
+                                "autoreverses": true,
+                                "duration": duration * 5});
+    }
+    else if (step == 51) { // Agitate the planets
+        var planets = [solarSystem.childItemWithNameRecursively("Mercury", true),
+                       solarSystem.childItemWithNameRecursively("Venus", true),
+                       solarSystem.childItemWithNameRecursively("Earth", true),
+                       solarSystem.childItemWithNameRecursively("Mars", true),
+                       solarSystem.childItemWithNameRecursively("Jupiter", true),
+                       solarSystem.childItemWithNameRecursively("Saturn", true),
+                       solarSystem.childItemWithNameRecursively("Uranus", true),
+                       solarSystem.childItemWithNameRecursively("Neptune", true),
+                       solarSystem.childItemWithNameRecursively("Pluto", true)];
+
+        for (var i = 0; i < planets.length; i++) {
+            var planet = planets[i];
+            setTimeout(bounce, i * duration * 0.7 * 1000, planet);
+        }
+    }
+
+    else if (step == 52) { // Half fade JS
+        halfFade(codeBackgroundJS);
+        halfFade(codeTextJS);
+    }
+    else if (step == 53) { // Half fade ML
+        halfFadeBack(codeBackgroundJS);
+        halfFadeBack(codeTextJS);
+
+        halfFade(codeBackgroundML);
+        halfFade(codeTextML);
+    }
+    else if (step == 54) { // Half fade Back
+        halfFadeBack(codeBackgroundML);
+        halfFadeBack(codeTextML);
+    }
 
     step++;
 }
@@ -781,18 +1081,6 @@ function bounce(item) {
                       "function": "easeIn",
                       "autoreverses": true,
                       "duration": duration/2});
-//    item.addAnimation({"keyPath": "scale.y",
-//                      "fromValue": scaley * 1.1,
-//                      "toValue": scaley,
-//                      "function": "easeIn",
-//                      "autoreverses": true,
-//                      "duration": duration/2});
-//    item.addAnimation({"keyPath": "scale.z",
-//                      "fromValue": scalez * 1.1,
-//                      "toValue": scalez,
-//                      "function": "easeIn",
-//                      "autoreverses": true,
-//                      "duration": duration/2});
 }
 
 function rotate(item, speed) {
@@ -809,9 +1097,20 @@ function halfFade(item) {
     item.addAnimation({"keyPath": "opacity",
                       "toValue": alpha,
                       "duration": duration});
-    item.opacity = alpha;
+    setTimeout(setAlpha, 0.9 * duration * 1000, [item, alpha]);
 }
 
+function halfFadeBack(item) {
+    item.addAnimation({"keyPath": "opacity",
+                      "toValue": 1,
+                      "duration": duration});
+    item.opacity = 1;
+    setTimeout(setAlpha, 0.9 * duration * 1000, [item, 1]);
+}
+
+function setAlpha(array) {
+    array[0].opacity = array[1];
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -825,6 +1124,23 @@ function instaZ(array) {
     var item = array[0];
     var z = array[1];
     item.position = [item.position.x, item.position.y, z];
+}
+
+function resize(item, scale) {
+    item.addAnimation({"keyPath": "scale.x",
+                      "toValue": scale,
+                      "duration": duration});
+    item.addAnimation({"keyPath": "scale.y",
+                      "toValue": scale,
+                      "duration": duration});
+    item.addAnimation({"keyPath": "scale.z",
+                      "toValue": scale,
+                      "duration": duration});
+    setTimeout(setScale, 0.9 * duration * 1000, [item, scale]);
+}
+
+function setScale(array) {
+    array[0].scale = array[1];
 }
 
 function moveCamera(newZ) {
