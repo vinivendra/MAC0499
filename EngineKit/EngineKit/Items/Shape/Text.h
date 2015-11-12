@@ -60,6 +60,7 @@
 @property (nonatomic) NSNumber *depth;
 @property (nonatomic) id string;
 @property (nonatomic) NSString *weight;
+@property (nonatomic) NSString *font;
 @end
 
 
@@ -86,4 +87,5 @@
 @property (nonatomic) id string;
 // TODO: doc
 @property (nonatomic) NSString *weight;
+@property (nonatomic) NSString *font;
 @end

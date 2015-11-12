@@ -38,6 +38,7 @@ static NSInteger fontSize = 1;
 - (void)commonInit {
     self.text = [SCNText new];
     self.text.extrusionDepth = 0.1;
+    _font = fontName;
     self.weight = @"Light";
 }
 
@@ -60,7 +61,8 @@ static NSInteger fontSize = 1;
 
     item.depth = self.depth;
     item.string = self.string;
-    item.text.font = self.text.font;
+    item.weight = self.weight;
+    item.font = self.font;
 }
 
 - (NSMutableArray *)propertyStringsBasedOnTemplate:(Text *)template {
@@ -138,15 +140,23 @@ static NSInteger fontSize = 1;
 
     if ([weight caseInsensitiveCompare:@"regular"] == NSOrderedSame
         || !weight.valid) {
-        name = fontName;
+        name = self.font;
     }
     else {
         weight = weight.camelCase;
-        name = [NSString stringWithFormat:@"%@-%@", fontName, weight];
+        name = [NSString stringWithFormat:@"%@-%@", self.font, weight];
     }
 
     UIFont *font = [UIFont fontWithName:name size:fontSize];
     self.text.font = font;
+}
+
+- (void)setFont:(NSString *)font {
+    if (!font.valid)
+        font = fontName;
+
+    _font = font.camelCase;
+    self.weight = self.weight;
 }
 
 @end

@@ -1,5 +1,5 @@
 var duration = 0.3;
-var step = 1;
+var step = 0;
 
 var title;
 
@@ -81,6 +81,16 @@ var graph1;
 var graph2;
 var graph3;
 
+var octocat;
+var githubBackground;
+var languagesBackground;
+var githubText;
+var languagesText;
+
+var people;
+
+var questionMark;
+
 ////////////////////////////////////////////////////////////////////////////////
 
 function tap() {
@@ -97,6 +107,7 @@ function load() {
     title = TitleSquare.create();
     title.hidden = true;
     title.scale = 3;
+
 
     graph = Graph3D.create();
     graph.hidden = true;
@@ -121,7 +132,7 @@ function load() {
     window4.position = [-4.8, 0, 0];
     window4.hidden = true;
     window4.scale = 3;
-    window5 = WideWindowMedium.create();
+    window5 = WideWindowCenter.create();
     window5.position = [0, 0, 0];
     window5.hidden = true;
     window5.scale = 3;
@@ -246,7 +257,7 @@ function load() {
                         -0.15 * squareScale * textScale,
                         0.1 * squareScale];
     iosText.string = "iOS";
-    iosText.color = [0.08, 0.24, 0.27];
+    iosText.color = [0.11, 0.36, 0.40];
     iosText.hidden = true;
 
     squares = [SquareBackgroundSmall.create(),
@@ -312,14 +323,16 @@ function load() {
     jsText.hidden = true;
 
 
-    codeBackgroundML = TallWindowDark.create();
+    codeBackgroundML = TallWindowCenter.create();
     codeBackgroundML.position = [-4.5, 2.3, 0];
     codeBackgroundML.scale = 4.5;
+    codeBackgroundML.font = "Menlo";
     codeBackgroundML.hidden = true;
 
-    codeBackgroundJS = TallWindowDark.create();
+    codeBackgroundJS = TallWindowCenter.create();
     codeBackgroundJS.position = [-4.5, -2.7, 0];
     codeBackgroundJS.scale = 4.5;
+    codeBackgroundJS.font = "Menlo";
     codeBackgroundJS.hidden = true;
 
     var offest = codeBackgroundML.scale.x * 0.4;
@@ -379,11 +392,11 @@ function load() {
     solarSystem.hidden = true;
 
     spotlight = Light.create();
-    spotlight.position = [3, 3, 3];
+    spotlight.position = [6, 6, 6];
     spotlight.color = "darkGray";
 
     spotlight2 = Light.create();
-    spotlight2.position = [-3, -3, -3];
+    spotlight2.position = [-6, -6, -6];
     spotlight2.color = [0.5, 0.5, 0.5];
 
 
@@ -410,16 +423,114 @@ function load() {
     graph3.position = [(-0.1 - 0.5) * appScale, (-1.1 + 0.55) * appScale, 0];
     graph3.hidden = true;
 
-    next();
+
+    var windowOffest = 3.5;
+    githubBackground = WideWindowCenter.create();
+    githubBackground.scale = 4;
+    githubBackground.position = [-windowOffest, 2, 0];
+    githubBackground.hidden = true;
+
+    languagesBackground = WideWindowCenter.create();
+    languagesBackground.scale = 4;
+    languagesBackground.position = [windowOffest, 0, 0];
+    languagesBackground.hidden = true;
+
+    githubText = SquareTitle.create();
+    githubText.scale = 1;
+    githubText.position = [githubBackground.position.x - 1.5,
+                           githubBackground.position.y - 1.3,
+                           githubBackground.position.z + 0.12];
+    githubText.color = [0.11, 0.36, 0.40];
+    githubText.string = "Github";
+    githubText.weight = "regular";
+    githubText.hidden = true;
+
+    octocat = Octocat.create();
+    octocat.scale = 1.3;
+    octocat.position = [githubText.position.x + 1.5,
+                        githubText.position.y + 1.6,
+                        githubText.position.z + 0.12];
+    octocat.rotation = [0, 1, 0, 0.2];
+    octocat.rotate([0, 0, 1, 0.05]);
+    octocat.hidden = true;
+
+    languagesText = SquareTitle.create();
+    languagesText.scale = 0.4;
+    languagesText.position = [languagesBackground.position.x - 2.47,
+                              languagesBackground.position.y - 0.6,
+                              languagesBackground.position.z + 0.12];
+    languagesText.color = [0.11, 0.36, 0.40];
+    languagesText.font = "Menlo";
+    languagesText.string = "[Objective-C  lang];\n\nSwift.lang( )";
+    languagesText.weight = "Bold";
+    languagesText.hidden = true;
+
+
+    people = [Person.create(),
+              Person.create(),
+              Person.create(),
+              Person.create(),
+              Person.create(),
+              Person.create(),
+              Person.create(),
+              Person.create(),
+              Person.create(),
+              Person.create()];
+
+    var positions = [[   0, 0  ,    0],
+                     [ 0.5, 0.1, -0.5],
+                     [-0.5, 0.1, -0.5],
+                     [   1, 0.2,   -1],
+                     [   0, 0.2,   -1],
+                     [  -1, 0.2,   -1],
+                     [ 1.5, 0.3, -1.5],
+                     [ 0.5, 0.3, -1.5],
+                     [-0.5, 0.3, -1.5],
+                     [-1.5, 0.3 , -1.5]];
+
+    var colors = [[0.49, 0.78, 0.79],
+                  [0.19, 0.61, 0.64],
+                  [0.95, 0.95, 0.96],
+                  [0.95, 0.95, 0.96],
+                  [0.11, 0.36, 0.40],
+                  [0.49, 0.78, 0.79],
+                  [0.11, 0.36, 0.40],
+                  [0.49, 0.78, 0.79],
+                  [0.19, 0.61, 0.64],
+                  [0.95, 0.95, 0.96]];
+
+    for (var i = 0; i < people.length; i++) {
+        var person = people[i];
+        person.position = positions[i];
+        person.position = person.position.times(2);
+        person.scale = 1;
+        var head = person.childItemWithNameRecursively("head", true);
+        var body = person.childItemWithNameRecursively("body", true);
+        head.color = [colors[i][0] * 0.95,
+                      colors[i][1] * 0.95,
+                      colors[i][2] * 0.95];
+        body.color = colors[i];
+        person.hidden = true;
+    }
+
+
+
+    questionMark = SquareTitle.create();
+    questionMark.scale = 3;
+    questionMark.position = [-0.7, -0.5, 0.24];
+    questionMark.color = [0.11, 0.36, 0.40];
+    questionMark.string = "?";
+    questionMark.weight = "bold";
+    questionMark.hidden = true;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
 function next() {
-    if (step == 1) { // Fade in title
+    if (step == 0) { // Fade in title
         appear(title);
     }
-    else if (step == 2) { // Fade out title, fade in graph and pinball
+    else if (step == 1) { // Fade out title, fade in graph and pinball
         disappear(title);
 
         bounceScale(graph);
@@ -434,32 +545,24 @@ function next() {
 
         appear(pinball);
     }
-    else if (step == 3) { // Fade out graph and pinball, fade in windows
+    else if (step == 2) { // Fade out graph and pinball
         disappear(graph);
         disappear(pinball);
         disappear(pinballBall);
 
+    }
+    else if (step == 3) { // Fade in windows
         var delay = 700;
 
-        //        bounceScale(window1);
-        //        setTimeout(bounceScale, duration * delay, window2);
-        //        setTimeout(bounceScale, duration * 2 * delay, window3);
-        //        setTimeout(bounceScale, duration * 3 * delay, window4);
-        //        setTimeout(bounceScale, duration * 4 * delay, window5);
-        //        setTimeout(bounceScale, duration * 5 * delay, window6);
-        //        setTimeout(bounceScale, duration * 6 * delay, window7);
-        //        setTimeout(bounceScale, duration * 7 * delay, window8);
-        //        setTimeout(bounceScale, duration * 8 * delay, window9);
-
         bounceScale(window1);
-        bounceScale(window2);
-        bounceScale(window3);
-        bounceScale(window4);
-        bounceScale(window5);
-        bounceScale(window6);
-        bounceScale(window7);
-        bounceScale(window8);
-        bounceScale(window9);
+        setTimeout(bounceScale, duration * delay, window2);
+        setTimeout(bounceScale, duration * 2 * delay, window3);
+        setTimeout(bounceScale, duration * 3 * delay, window4);
+        setTimeout(bounceScale, duration * 4 * delay, window5);
+        setTimeout(bounceScale, duration * 5 * delay, window6);
+        setTimeout(bounceScale, duration * 6 * delay, window7);
+        setTimeout(bounceScale, duration * 7 * delay, window8);
+        setTimeout(bounceScale, duration * 8 * delay, window9);
     }
     else if (step == 4) { // Fade out windows, zoom on center windows
         graph.hidden = true;
@@ -485,7 +588,7 @@ function next() {
         bounceScale(objectSymbol);
     }
     else if (step == 5) { // Fade in features one by one
-        var delay = 5000;
+        var delay = 4000;
 
         window1.delete();
         window2.delete();
@@ -750,12 +853,12 @@ function next() {
         var y = title.position.y;
 
         file = FileBody.create();
-        file.scale = 1.2;
+        file.scale = 1.25;
         file.hidden = true;
         file.position = [-6, y + 1.5, 0];
 
         file2 = FileBody.create();
-        file2.scale = 1.2;
+        file2.scale = 1.25;
         file2.hidden = true;
         file2.position = [-6, y - 1.5, 0];
 
@@ -1041,6 +1144,7 @@ function next() {
     }
 
     else if (step == 52) { // Half fade JS
+        halfFade(solarSystem);
         halfFade(codeBackgroundJS);
         halfFade(codeTextJS);
     }
@@ -1052,6 +1156,7 @@ function next() {
         halfFade(codeTextML);
     }
     else if (step == 54) { // Half fade Back
+        halfFadeBack(solarSystem);
         halfFadeBack(codeBackgroundML);
         halfFadeBack(codeTextML);
     }
@@ -1100,8 +1205,68 @@ function next() {
         disappear(graph3);
     }
     else if (step == 60) { // Cross fade poster -> github
-
+        app.delete();
+        graph1.delete();
+        graph2.delete();
+        graph3.delete();
+        appear(githubBackground);
+        appear(githubText);
+        appear(octocat);
     }
+    else if (step == 61) { // Fade in languages
+        appear(languagesBackground);
+        appear(languagesText);
+    }
+    else if (step == 62) { // Fade in people
+        var yOffset = githubBackground.position.y - languagesBackground.position.y;
+        var xOffset = githubBackground.position.x;
+        for (var i = 0; i < people.length; i++) {
+            var person = people[i];
+            person.position = [person.position.x + xOffset - 0.5,
+                               person.position.y - 2 * yOffset,
+                               person.position.z];
+            setTimeout(bounceScale, duration * 1000 * i, person);
+        }
+    }
+    else if (step == 63) { // Transition to links
+
+        for (var i = 0; i < people.length; i++) {
+            disappear(people[i]);
+        }
+        disappear(languagesBackground);
+        disappear(languagesText);
+        disappear(octocat);
+        disappear(githubText);
+
+        setTimeout(autoMovePositionX, 2 * duration * 1000, [githubBackground, 0]);
+        setTimeout(autoMovePositionY, 2 * duration * 1000, [githubBackground, 0]);
+        setTimeout(autoMovePositionZ, 2 * duration * 1000, [githubBackground, 0]);
+        setTimeout(autoResize, 2 * duration * 1000, [githubBackground, 6]);
+
+        setTimeout(appear, 3 * duration * 1000, questionMark);
+    }
+    else if (step == 64) { // Fade in github link
+        for (var i = 0; i < people.length; i++) {
+            people[i].delete();
+        }
+
+        githubText.position = [-3.62, -1.5, 0.24];
+        githubText.scale = 0.4;
+        githubText.string = "www.github.com/vinivendra/MAC0499";
+        githubText.weight = "bold";
+        githubText.color = languagesText.color;
+
+        appear(githubText);
+    }
+    else if (step == 65) { // Fade in email
+        languagesText.position = [-3.62, -2.25, 0.24];
+        languagesText.scale = 0.4;
+        languagesText.weight = "bold";
+        languagesText.font = "";
+        languagesText.string = "vinicius.vendramini@usp.br";
+        appear(languagesText);
+    }
+
     step++;
 }
 
@@ -1165,6 +1330,7 @@ function rotate(item, speed) {
     item.addAnimation({"keyPath": "rotation.w",
                       "fromValue": 0,
                       "toValue": 2 * pi,
+                      "repeatCount": 10,
                       "function": "linear",
                       "duration": duration / speed});
 }
@@ -1205,6 +1371,21 @@ function instaZ(array) {
 }
 
 function resize(item, scale) {
+    item.addAnimation({"keyPath": "scale.x",
+                      "toValue": scale,
+                      "duration": duration});
+    item.addAnimation({"keyPath": "scale.y",
+                      "toValue": scale,
+                      "duration": duration});
+    item.addAnimation({"keyPath": "scale.z",
+                      "toValue": scale,
+                      "duration": duration});
+    setTimeout(setScale, 0.9 * duration * 1000, [item, scale]);
+}
+
+function autoResize(array) {
+    var item = array[0];
+    var scale = array[1];
     item.addAnimation({"keyPath": "scale.x",
                       "toValue": scale,
                       "duration": duration});
@@ -1429,8 +1610,8 @@ function appearBullet() {
     bullet = Bullet.create();
     bullet.position = [-4, 0, 0];
     bullet.hidden = true;
-
+    
     bullet.velocity = [6, 5, 0];
-
+    
     appear(bullet);
 }

@@ -220,6 +220,24 @@ templates
             position is -0.7 0.45 0.04
             color is 0.35 0.29 0.06
 
+    WideWindowCenter Item
+        Box background
+            length is 0.05
+            width is 1.5
+            color is 0.43 0.77 0.79
+
+        Box top
+            length is 0.025
+            height is 0.1
+            width is 1.5
+            position is 0 0.45 0.0375
+            color is 0.16 0.50 0.54
+
+        X x
+            position is -0.7 0.45 0.04
+            color is 0.18 0.27 0.28
+
+
     WideWindowLight Item
         Box background
             length is 0.05
@@ -283,6 +301,32 @@ templates
             width is 1
             position is 0 0.465 0.0375
             color is 0.11 0.36 0.38
+
+    TallWindowMedium Item
+        Box background
+            length is 0.05
+            width is 1
+            color is 0.49 0.78 0.79
+
+        Box top
+            length is 0.025
+            height is 0.07
+            width is 1
+            position is 0 0.465 0.0375
+            color is 0.30 0.46 0.47
+
+    TallWindowCenter Item
+        Box background
+            length is 0.05
+            width is 1
+            color is 0.43 0.77 0.79
+
+        Box top
+            length is 0.025
+            height is 0.07
+            width is 1
+            position is 0 0.465 0.0375
+            color is 0.16 0.50 0.54
 
     AreasText Text
         scale is 0.1
@@ -483,12 +527,12 @@ templates
 
     SquareBackground Item
         Box foreground
-            color is 0.49 0.78 0.79
+            color is 0.43 0.77 0.79
             width is 2
             length is 0.1
 
         Box background
-            color is 0.19 0.61 0.64
+            color is 0.16 0.50 0.54
             width is 2.1
             height is 1.1
             length is 0.1
@@ -496,7 +540,7 @@ templates
 
     SquareBackgroundDark SquareBackground
         foreground
-            color is 0.19 0.61 0.64
+            color is 0.18 0.56 0.60
         background
             color is 0.11 0.36 0.38
 
@@ -508,7 +552,7 @@ templates
     SquareTitle Text
         string is EngineKit
         scale is 0.4
-        color is 0.15 0.49 0.51
+        color is 0.11 0.36 0.40
 
 
     TitleSquare Item
@@ -578,7 +622,7 @@ templates
         radius is 0.17
 
     DataPointFlatA DataPointFlat
-        color is 0.11 0.36 0.40
+        color is 0.19 0.61 0.64
 
     DataPointFlatB DataPointFlat
         color is 0.95 0.95 0.96
@@ -588,10 +632,10 @@ templates
 
     Graph Item
         AxisRound
-            color is 0.11 0.36 0.40
+            color is 0.16 0.50 0.54
 
         AxisRound
-            color is 0.11 0.36 0.40
+            color is 0.16 0.50 0.54
             rotation is 0 0 1 -1.5707
 
 
@@ -937,7 +981,7 @@ templates
 
     NavigationButton Item
         NavigationUI
-            color is 0.19 0.61 0.64
+            color is 0.16 0.50 0.54
 
         Box background
             color is 0.95 0.95 0.96
@@ -949,7 +993,7 @@ templates
 
 
     ViewBackground Box
-        color is 0.49 0.78 0.79
+        color is 0.43 0.77 0.79
         length is 0.1
         width is 1
         height is 1
@@ -968,7 +1012,7 @@ templates
             position is -0.5 0.55 0.05
 
         Text
-            color is 0.08 0.24 0.27
+            color is 0.11 0.36 0.40
             string is These are\nsome very\ninteresting\ngraphs!\nIt's great to have\nthem on my\napp.\n
             scale is 0.1
             weight is bold
@@ -998,11 +1042,11 @@ templates
 
 
     HeadBody Sphere
-        color is black
+        color is 0.08 0.24 0.27
         scale is 1.2 1 1
 
     Ear Cone
-        color is black
+        color is 0.08 0.24 0.27
         radius is 0.2
         height is 0.3
 
@@ -1067,12 +1111,12 @@ templates
 
     Moustache Item
         Cylinder
-            color is black
+            color is 0.08 0.24 0.27
             radius is 0.01
             height is 0.7
 
 
-    Head Item
+    Octocat Item
         LeftEar
         RightEar
         HeadBody
@@ -1097,19 +1141,17 @@ templates
     Axis Item
         color is 0.19 0.61 0.64
 
-        Box line
+        Cylinder line
             height is 4
-            width is 0.08
-            length is 0.08
-            position is 0 2 0
-        Pyramid point
+            radius is 0.06
+            position is 0 1.94 0
+        Cone point
             height is 0.3
-            width is 0.16
-            length is 0.16
+            radius is 0.12
             position is 0 4 0
 
     DataPoint Sphere
-        radius is 0.15
+        radius is 0.2
 
     DataPointA DataPoint
         color is 0.49 0.78 0.79
@@ -1130,7 +1172,11 @@ templates
         Axis
             rotation is 1 0 0 1.5707
 
-
+        Box
+            width is 0.3
+            height is 0.3
+            depth is 0.3
+            color is 0.19 0.61 0.64
 
         DataPointA
             position is 1.7719 2.6327 2.0855
@@ -1773,16 +1819,21 @@ templates
             string is { }
             scale is 0.65
 
+////////////////////////////////////////////////////////////////////////////////
+
+    PersonHead Box
+
+    PersonBody Box
+        height is 1.7
+
+    Person Item
+        color is 0.99 0.83 0.18
+        PersonHead head
+            position is 0 1.5 0
+        PersonBody body
+
 items
 
-
-//    Light
-//        position is -3 -3 -3
-//        color is 0.5 0.5 0.5
-
-//    Light
-//        position is 3 3 3
-//        color is darkGray
 
     Light
         position is -3 -3 -3
