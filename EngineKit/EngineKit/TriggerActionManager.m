@@ -39,7 +39,7 @@ NSMutableArray <JSValue *> *registeredActions;
                            touches:(NSInteger)touches {
     return [item actionsForKey:[TriggerActionManager triggerForGesture:gesture
                                                                  state:state
-                                                               touches:touches]];
+                                                               touches:(int)touches]];
 }
 
 - (NSMutableArray *)actionsForGesture:(UIGestures)gesture
@@ -48,7 +48,7 @@ NSMutableArray <JSValue *> *registeredActions;
     return [self.actions
             actionsForKey:[TriggerActionManager triggerForGesture:gesture
                                                             state:state
-                                                          touches:touches]];
+                                                          touches:(int)touches]];
 }
 
 - (void)registerAction:(JSValue *)function {
@@ -77,7 +77,7 @@ NSMutableArray <JSValue *> *registeredActions;
 
 - (void)callGestureCallbackForGesture:(UIGestures)gesture
                                 state:(UIGestureRecognizerState)state
-                              touches:(NSInteger)touches
+                              touches:(int)touches
                         withArguments:(NSArray *)arguments {
     BOOL done = NO;
 
@@ -175,7 +175,7 @@ NSMutableArray <JSValue *> *registeredActions;
 
         NSString *trigger = [self triggerForGesture:gesture
                                               state:state
-                                            touches:touches];
+                                            touches:(int)touches];
         return trigger;
     }
     else {
@@ -285,11 +285,11 @@ NSMutableArray <JSValue *> *registeredActions;
 
 + (NSString *)triggerForGesture:(UIGestures)gesture
                           state:(UIGestureRecognizerState)state
-                        touches:(NSInteger)touches {
-    touches = [Gestures numberOfTouchesForNumber:@(touches) gesture:gesture];
+                        touches:(int)touches {
+    touches = (int)[Gestures numberOfTouchesForNumber:@(touches) gesture:gesture];
 
-    return [NSString stringWithFormat:@"triggerGesture%d-%d-%d",
-            gesture, state, touches];
+    return [NSString stringWithFormat:@"triggerGesture%lu-%ld-%d",
+            (unsigned long)gesture, (long)state, touches];
 }
 
 - (MethodAction *)actionNamed:(NSString *)name

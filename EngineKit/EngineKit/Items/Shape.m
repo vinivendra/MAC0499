@@ -138,10 +138,12 @@
 }
 
 - (void)copyPhysicsTo:(Shape *)item {
-    if (self.physicsBody)
+    if (self.physicsBody) {
         item.physicsBody =
             [SCNPhysicsBody bodyWithType:self.physicsBody.type
                                    shape:self.physicsBody.physicsShape];
+        item.velocity = self.velocity;
+    }
 }
 
 - (NSNumber *)mass {

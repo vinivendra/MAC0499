@@ -1,7 +1,6 @@
 
 
 function load() {
-    Physics.gravity = [0, 0, -3];
     Physics.speed = 0;
 
 // To call a method with a fixed value as an argument

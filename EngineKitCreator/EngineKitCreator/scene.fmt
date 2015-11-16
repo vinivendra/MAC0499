@@ -1,18 +1,1304 @@
 templates
 
-    PersonHead Box
-        color is red
+    TallWindowCenter Item
+        Box background
+            length is 0.05
+            width is 1.2
+            height is 0.8
+            color is 0.08 0.24 0.27
 
-    PersonBody Box
-        color is yellow
-        height is 1.5
+    SquareTitle Text
+        string is EngineKit
+        scale is 0.4
+//
+//items
+//
+//    TallWindowCenter
+//        scale is 4.5
+//
+//    SquareTitle
+//        scale is 0.4
+//        position is -2.17 -2.1 0.12
+//        color is white
+//        weight is "regular"
+//        font is Menlo
+//        string is Earth Sphere\n    color is blue\n\nMoon Sphere\n    color is white\n    radius is 0.3\n    position is 1 0 0\n\n\n
 
-    Person Item
-        PersonHead
-            position is 0 1.4 0
-        PersonBody
+//templates
+//
+    Terra Sphere
+        scale is 4
+        color is 0.19 0.61 0.64
+
+    Lua Sphere
+        scale is 4
+        color is 0.95 0.95 0.96
+        radius is 0.2
+        position is -4 0 0
+//
+//items
+//
+//    Terra
+//
+//    Lua
+
+//templates
+//
+    Sun Sphere
+        color is 0.99 0.83 0.18
+        radius is 0.35
+
+
+    Mercury Sphere
+        color is 0.19 0.61 0.64
+        radius is 0.05
+
+
+    Venus Sphere
+        color is 0.19 0.61 0.64
+        radius is 0.075
+
+
+    EarthBody Sphere
+        color is 0.19 0.61 0.64
+        radius is 0.15
+
+    EarthMoon Sphere
+        color is 0.95 0.95 0.96
+        radius is 0.05
+
+    Earth Item
+        EarthBody
+        EarthMoon moon1
+            position is 0.25 0 0
+
+
+    MarsBody Sphere
+        color is 0.19 0.61 0.64
+        radius is 0.1
+
+    MarsMoon Sphere
+        color is 0.95 0.95 0.96
+        radius is 0.025
+
+    Mars Item
+        MarsBody body
+        MarsMoon moon1
+            position is 0.15 0 0
+        MarsMoon moon2
+            position is 0 0 0.15
+
+
+    JupiterBody Sphere
+        color is 0.19 0.61 0.64
+        radius is 0.25
+
+    JupiterMoon Sphere
+        color is 0.95 0.95 0.96
+        radius 0.025
+
+    Jupiter Item
+        JupiterBody
+        JupiterMoon moon1
+            position is 0.4 0 0
+        JupiterMoon moon2
+            position is -0.4 0 0
+        JupiterMoon moon3
+            position is 0 0 0.4
+        JupiterMoon moon4
+            position is 0 0 -0.4
+        JupiterMoon moon5
+            position is 0.3 0 0.3
+        JupiterMoon moon6
+            position is 0.3 0 -0.3
+        JupiterMoon moon7
+            position is -0.3 0 0.3
+        JupiterMoon moon8
+            position is -0.3 0 -0.3
+
+
+    SaturnBody Sphere
+        color is 0.19 0.61 0.64
+        radius is 0.15
+
+    SaturnRing Tube
+        color is 0.08 0.24 0.27
+        height is 0.01
+        innerRadius is 0.17
+        outerRadius is 0.3
+
+    SaturnMoon Sphere
+        color is 0.95 0.95 0.96
+        radius 0.025
+
+    Saturn Item
+        SaturnBody
+        SaturnRing
+        SaturnMoon moon1
+            position is 0.4 0 0
+        SaturnMoon moon2
+            position is -0.4 0 0
+        SaturnMoon moon3
+            position is 0 0 0.4
+        SaturnMoon moon4
+            position is 0 0 -0.4
+        SaturnMoon moon5
+            position is 0.3 0 0.3
+        SaturnMoon moon6
+            position is 0.3 0 -0.3
+        SaturnMoon moon7
+            position is -0.3 0 0.3
+        SaturnMoon moon8
+            position is -0.3 0 -0.3
+
+    SaturnYellow Item
+        SaturnBody
+            color is 0.99 0.83 0.18
+        SaturnRing
+            color is 0.35 0.29 0.06
+        SaturnMoon moon1
+            position is 0.4 0 0
+        SaturnMoon moon2
+            position is -0.4 0 0
+        SaturnMoon moon3
+            position is 0 0 0.4
+        SaturnMoon moon4
+            position is 0 0 -0.4
+        SaturnMoon moon5
+            position is 0.3 0 0.3
+        SaturnMoon moon6
+            position is 0.3 0 -0.3
+        SaturnMoon moon7
+            position is -0.3 0 0.3
+        SaturnMoon moon8
+            position is -0.3 0 -0.3
+
+    UranusBody Sphere
+        color is 0.19 0.61 0.64
+        radius is 0.15
+
+    UranusRing Tube
+        color is 0.08 0.24 0.27
+        height is 0.01
+        innerRadius is 0.17
+        outerRadius is 0.18
+
+    UranusMoon Sphere
+        color is 0.95 0.95 0.96
+        radius 0.025
+
+    Uranus Item
+        UranusBody
+        UranusRing
+        UranusMoon moon1
+            position is 0.3 0 0
+        UranusMoon moon2
+            position is -0.3 0 0
+        UranusMoon moon3
+            position is 0 0 0.3
+        UranusMoon moon4
+            position is 0 0 -0.3
+        UranusMoon moon5
+            position is 0.2 0 0.2
+
+
+    NeptuneBody Sphere
+        color is 0.19 0.61 0.64
+        radius is 0.15
+
+    NeptuneRing Tube
+        color is 0.08 0.24 0.27
+        height is 0.01
+        innerRadius is 0.17
+        outerRadius is 0.18
+
+    NeptuneMoon Sphere
+        color is 0.95 0.95 0.96
+        radius 0.025
+
+    Neptune Item
+        NeptuneBody
+        NeptuneRing
+        NeptuneMoon moon1
+            position is 0.3 0 0
+
+
+    PlutoBody Sphere
+        color is 0.19 0.61 0.64
+        radius is 0.07
+
+    PlutoMoon Sphere
+        color is 0.95 0.95 0.96
+        radius 0.05
+
+    Pluto Item
+        PlutoBody
+        PlutoMoon moon1
+            position is 0.15 0 0
+
+    TrajectoryRing Tube
+        color is 0.19 0.61 0.64
+        height is 0.005
+
+
+// 7.3 -6.5 0.14
+// 139 90
+    SolarSystem Item
+        Sun
+            scale is 1.3
+        Mercury
+            scale is 1.8
+            position is -0.34202 0 0.939693
+        Venus
+            scale is 1.8
+            position is 0.399024 0 1.096308
+        Earth
+            scale is 1.7
+            position is 1.154701 0 0.666667
+        Mars
+            scale is 1.7
+            position is -0.964181 0 -1.149067
+        Jupiter
+            scale is 1.3
+            position is 1.641346 0 -0.289414
+        Saturn
+            scale is 1.5
+            position is 1.178444 0 -1.404415
+        Uranus
+            scale is 1.5
+            position is 0 0 -2
+        Neptune
+            scale is 1.5
+            position is -2.13375 0 -0.376238
+        Pluto
+            scale is 2
+            position is -2.020726 0 1.166667
+
+        TrajectoryRing
+            innerRadius is 1
+            outerRadius is 1.005
+
+        TrajectoryRing
+            innerRadius is 1.17
+            outerRadius is 1.175
+
+        TrajectoryRing
+            innerRadius is 1.33
+            outerRadius is 1.335
+
+        TrajectoryRing
+            innerRadius is 1.5
+            outerRadius is 1.505
+
+        TrajectoryRing
+            innerRadius is 1.67
+            outerRadius is 1.675
+
+        TrajectoryRing
+            innerRadius is 1.83
+            outerRadius is 1.835
+
+        TrajectoryRing
+            innerRadius is 2
+            outerRadius is 2.005
+
+        TrajectoryRing
+            innerRadius is 2.17
+            outerRadius is 2.175
+
+        TrajectoryRing
+            innerRadius is 2.33
+            outerRadius is 2.34
+//
+//
+//items
+//
+//    SolarSystem
+//        rotation is 1 0 0 0.5
+
+//templates
+//
+    Corner Cylinder
+        radius is 0.1
+        height is 0.1
+
+    iDeviceShape Item
+        Corner corner1
+            position is 1.4 0 1.9
+        Corner corner2
+            position is -1.4 0 1.9
+        Corner corner3
+            position is 1.4 0 -1.9
+        Corner corner4
+            position is -1.4 0 -1.9
+
+        Box body1
+            width is 3.0
+            length is 3.8
+            height is 0.05
+
+        Box body2
+            width is 2.8
+            length is 4.0
+            height is 0.05
+
+    iDeviceGlass iDeviceShape
+        color is black
+
+        corner1
+            height is 0.05
+        corner2
+            height is 0.05
+        corner3
+            height is 0.05
+        corner4
+            height is 0.05
+        body1
+            height is 0.05
+        body2
+            height is 0.05
+
+    iDeviceMetal iDeviceShape
+        color is 0.95 0.95 0.96
+
+        corner1
+            height is 0.1
+        corner2
+            height is 0.1
+        corner3
+            height is 0.1
+        corner4
+            height is 0.1
+        body1
+            height is 0.1
+        body2
+            height is 0.1
+
+    iDeviceBody Item
+        iDeviceGlass glass
+            position is 0 0.025 0
+        iDeviceMetal metal
+            position is 0 -0.05 0
+        Box screen
+            color is 0.11 0.36 0.40
+            height is 0.05
+            width is 2.5
+            length is 3.1
+            position 0 0.05 -0.15
+
+
+    SymbolCorner Cylinder
+        radius is 0.02
+        height is 0.005
+
+    HomeButtonSymbolShape Item
+        SymbolCorner corner1
+            position is 0.03 0 0.03
+        SymbolCorner corner2
+            position is -0.03 0 0.03
+        SymbolCorner corner3
+            position is 0.03 0 -0.03
+        SymbolCorner corner4
+            position is -0.03 0 -0.03
+
+        Box body1
+            width is 0.1
+            length is 0.07
+            height is 0.005
+
+        Box body2
+            width is 0.07
+            length is 0.1
+            height is 0.005
+
+    HomeButtonSymbol Item
+        HomeButtonSymbolShape basis
+            color is black
+        HomeButtonSymbolShape contour
+            color is white
+            scale is 1.2
+            position is 0 -0.01 0
+
+
+    HomeButtonBasis Item
+        Cylinder basis
+            color is black
+            radius is 0.15
+            height is 0.01
+        Cylinder contour
+            color is white
+            radius is 0.15
+            height is 0.01
+            scale is 1.1
+            position is 0 -0.005 0
+
+    HomeButton Item
+        HomeButtonSymbol symbol
+            position is 0  0.01 0
+        HomeButtonBasis basis
+            position is 0 -0.01 0
+
+    iDevice Item
+        rotation is 1 0 0 1.5707
+
+        iDeviceBody body
+
+        HomeButton button
+            position is 0 0.075 1.7
+
+
+
+    ObjectSymbol Item
+
+        Box square
+            scale is 1 1 0.5
+            color is 0.92 0.76 0.17
+            width is 0.28
+            height is 0.28
+            length is 0.1
+            position is 0 -0.05 0.05
+
+        Cylinder circle
+            scale is 1 0.5 1
+            color is 0.99 0.83 0.18
+            radius is 0.15
+            height is 0.1
+            position is 0.1 0.07 0
+            rotation is 1 0 0 1.5707
+
+        Pyramid triangle
+            scale is 1 1 0.5
+            color is 1.0 0.91 0.20
+            width is 0.3
+            height is 0.3
+            length is 0.1
+            position is -0.1 0.05 -0.05
+
+    FileBody Item
+        color is 0.95 0.95 0.96
+
+        Box body
+            length is 0.1
+            width is 1
+            height is 0.9
+
+        Box body
+            length is 0.1
+            width is 0.7
+            height is 0.3
+            position is 0.15 0.6 0
+
+        Box corner
+            length is 0.1
+            width is 0.423
+            height is 0.423
+            position is -0.2 0.45 0
+            rotation is 0 0 1 0.7853
+
+        Pyramid fold
+            color is 0.9 0.9 0.91
+            length is 0.1
+            width is 0.423
+            height is 0.22
+            position is -0.35 0.6 0.05
+            rotation is 0 0 1 -2.356
+
+
+    SquareBackground Item
+        Box foreground
+            color is 0.43 0.77 0.79
+            width is 2
+            length is 0.1
+
+        Box background
+            color is 0.16 0.50 0.54
+            width is 2.1
+            height is 1.1
+            length is 0.1
+            position is 0 0 -0.05
+
+
+    SquareTitle Text
+        string is EngineKit
+        scale is 0.4
+        color is 0.11 0.36 0.40
+
+    TitleSquare Item
+
+        SquareBackground background
+
+        SquareTitle title
+            position is -0.8 -0.15 0.1
+
+
+    iPad Item
+        iDevice
+            rotation is 1 0 0 1.5707
+
+    Arrow Item
+        color is 0.11 0.36 0.40
+
+        Box
+            height is 0.2
+            length is 0.2
+            width is 0.7
+        Pyramid
+            height is 0.4
+            length is 0.4
+            width is 0.4
+            position is 0.35 0 0
+            rotation is 0 0 1 -1.5707
+        Pyramid
+            height is 0.4
+            length is 0.4
+            width is 0.4
+            position is -0.35 0 0
+            rotation is 0 0 1 1.5707
+
+    Arrow2 Item
+        color is 0.11 0.36 0.40
+
+        Box
+            height is 0.2
+            length is 0.2
+            width is 0.5
+        Pyramid
+            height is 0.4
+            length is 0.4
+            width is 0.4
+            position is 0.25 0 0
+            rotation is 0 0 1 -1.5707
+        Pyramid
+            height is 0.4
+            length is 0.4
+            width is 0.4
+            position is -0.25 0 0
+            rotation is 0 0 1 1.5707
+//
+//items
+//
+//    Arrow
+//        scale is 0.7
+//        position is -1.6 0.5 0
+//        rotation is 0 0 1 -0.3
+//
+//    Arrow
+//        scale is 0.7
+//        position is -1.6 -0.5 0
+//        rotation is 0 0 1 0.3
+//
+//    Arrow2
+//        position is 1.75 0 0
+//
+//    iPad
+//        rotation is 0 0 1 -1.5707
+//        position is 4.5 0 0
+//
+//    TitleSquare
+//
+//    ObjectSymbol
+//        scale is 1.2
+//        position is -2.62 0.8 0.2
+//
+//    FileBody
+//        position is -2.7 0.8 0
+//
+//    FileBody
+//        position is -2.7 -1.1 0
+//
+//    SquareTitle
+//        scale is 0.6
+//        position is -3 -1.22 0.2
+//        color is 0.99 0.83 0.18
+//        string is JS
+//        weight is bold
+//
+//
+//    ObjectSymbol
+//        scale is 1.5
+//        position is 4 0.6 0.2
+//
+//    ObjectSymbol
+//        scale is 1.5
+//        position is 5.3 0 0.2
+//
+//    ObjectSymbol
+//        scale is 1.5
+//        position is 4.4 -0.6 0.2
+
+//templates
+//
+    Axis Item
+        color is 0.19 0.61 0.64
+
+        Cylinder line
+            height is 4
+            radius is 0.06
+            position is 0 1.94 0
+        Cone point
+            height is 0.3
+            radius is 0.12
+            position is 0 4 0
+
+    DataPoint Sphere
+        radius is 0.2
+
+    DataPointA DataPoint
+        color is 0.49 0.78 0.79
+
+    DataPointB DataPoint
+        color is 0.95 0.95 0.96
+
+    DataPointC DataPoint
+        color is 0.99 0.83 0.18
+
+    Graph3D Item
+
+        Axis
+
+        Axis
+            rotation is 0 0 1 -1.5707
+
+        Axis
+            rotation is 1 0 0 1.5707
+
+        Box
+            width is 0.3
+            height is 0.3
+            length is 0.3
+            color is 0.19 0.61 0.64
+
+        DataPointA
+            position is 1.7719 2.6327 2.0855
+
+        DataPointA
+            position is 2.9438 2.0803 1.5914
+
+        DataPointA
+            position is 2.4305 2.2735 1.9545
+
+        DataPointA
+            position is 2.2346 2.4342 2.3552
+
+        DataPointA
+            position is 1.8746 2.2515 2.1636
+
+        DataPointA
+            position is 1.6234 1.6522 2.2416
+
+        DataPointA
+            position is 2.7464 2.4448 2.2930
+
+        DataPointA
+            position is 2.4756 2.2576 2.8770
+
+        DataPointA
+            position is 2.6362 2.5245 1.6138
+
+        DataPointA
+            position is 2.2434 2.6927 2.8789
+
+        DataPointA
+            position is 1.5773 2.7676 1.5726
+
+        DataPointA
+            position is 2.6267 2.4483 2.5943
+
+        DataPointA
+            position is 1.9460 2.5008 2.7493
+
+        DataPointA
+            position is 2.1360 2.3024 2.4788
+
+        DataPointA
+            position is 2.7385 2.9628 2.9907
+
+        DataPointA
+            position is 2.3507 2.4929 1.6684
+
+        DataPointA
+            position is 2.5712 2.3312 2.0337
+
+        DataPointA
+            position is 2.4706 2.2367 2.2489
+
+        DataPointA
+            position is 2.0070 2.4086 2.8627
+
+        DataPointA
+            position is 2.7506 2.7770 2.4495
+
+        DataPointA
+            position is 1.5299 2.0540 2.9935
+
+        DataPointA
+            position is 1.5130 2.6269 1.6985
+
+        DataPointA
+            position is 2.0873 2.8427 2.0402
+
+        DataPointA
+            position is 2.7727 2.0799 2.7520
+
+        DataPointA
+            position is 2.6291 2.5401 2.2352
+
+
+
+
+        DataPointB
+            position is 1.6078 0.9092 1.5479
+
+        DataPointB
+            position is 1.3239 0.2802 0.4559
+
+        DataPointB
+            position is 1.1155 0.5993 0.4796
+
+        DataPointB
+            position is 0.4983 1.6472 0.2199
+
+        DataPointB
+            position is 0.7136 0.2032 0.3798
+
+        DataPointB
+            position is 1.4849 0.3690 0.7582
+
+        DataPointB
+            position is 1.1427 1.1358 0.3936
+
+        DataPointB
+            position is 0.6458 0.7266 1.2974
+
+        DataPointB
+            position is 1.4393 1.2961 1.5373
+
+        DataPointB
+            position is 1.4658 0.3258 1.4298
+
+        DataPointB
+            position is 0.3776 0.5754 0.8818
+
+        DataPointB
+            position is 1.5998 1.4664 1.5950
+
+        DataPointB
+            position is 1.6237 0.3618 0.2008
+
+        DataPointB
+            position is 1.6328 0.6515 1.6005
+
+        DataPointB
+            position is 0.3593 1.4701 0.7964
+
+
+
+
+        DataPointC
+            position is 2.0983 2.1266 2.0369
+
+        DataPointC
+            position is 2.6950 2.6333 2.6685
+
+        DataPointC
+            position is 0.6084 1.6279 0.3527
+
+        DataPointC
+            position is 2.4565 0.7071 2.7490
+
+        DataPointC
+            position is 0.6950 2.9162 1.3163
+
+        DataPointC
+            position is 2.7186 1.9422 0.4811
+
+        DataPointC
+            position is 2.9765 2.3419 3.0180
+
+        DataPointC
+            position is 0.4011 2.0518 2.9321
+
+        DataPointC
+            position is 1.1450 0.4984 1.0009
+
+        DataPointC
+            position is 1.4539 2.0796 0.4890
+
+        DataPointC
+            position is 0.3444 1.5125 3.0422
+
+        DataPointC
+            position is 1.8915 2.5416 1.0897
+
+        DataPointC
+            position is 2.2562 0.3787 1.7930
+
+        DataPointC
+            position is 0.9840 1.8629 0.6299
+
+        DataPointC
+            position is 1.1617 2.7956 0.2736
+//
+//
+//items
+//
+//    Graph3D
+
+
+//templates
+//
+    Brick Box
+        color is 0.19 0.61 0.64
+
+        width is 0.95
+        height is 0.95
+        length is 0.95
+
+    CastleTop Pyramid
+        color is 0.11 0.36 0.40
+        width is 1.5
+        height is 1.95
+
+    CastleBottom Box
+        color is 0.49 0.78 0.79
+        width is 4
+        height is 0.5
+
+    Castle Item
+        Brick
+            position is 0 -1 0
+
+        Brick
+            position is 0 0 0
+
+        Brick
+            position is 0 1 0
+
+        CastleBottom
+            position is 0 -1.8 0
+
+
+
+    Bullet Sphere
+        radius is 0.4
+        color is 0.99 0.83 0.18
+//
+//
+//items
+//
+//
+//    Bullet Sphere
+//        position is -4 0 0
+//        velocity is 6 5 0
+//
+//    Brick
+//        position is 0 -1 0
+//
+//    Brick
+//        position is 0 0 0
+//
+//    Brick
+//        position is 0 1 0
+//
+//    CastleBottom
+//        position is 0 -1.8 0
+//
+//    CastleTop Pyramid
+//        color is 0.11 0.36 0.40
+//        width is 1.5
+//        height is 1.95
+//        position is 0 1.55 0
+//
+//
+//
+
+    SymbolSphere Sphere
+        scale is 1 1 0.5
+        color is 0.99 0.83 0.18
+        radius is 0.11
+
+
+//    PhysicsSymbol Item
+//        SymbolSphere sphere1
+//            position is -0.6 -0.2 0
+//        SymbolSphere sphere2
+//            position is -0.35 0.05 0
+//        SymbolSphere sphere3
+//            position is 0 0.2 0
+//        SymbolSphere sphere4
+//            position is 0.35 0.05 0
+//        SymbolSphere sphere5
+//            position is 0.6 -0.2 0
+
+    PhysicsSymbol Item
+        SymbolSphere sphere
+            position is 0 0.3 0
+        Box floor
+            height is 0.05
+            length is 0.05
+            width is 1.4
+            position is 0 -0.4 0
+            color is 0.95 0.95 0.96
+
+
+    GesturesSymbol Item
+        Cylinder circle
+            scale is 1 0.5 1
+            color is 0.99 0.83 0.18
+            radius is 0.25
+            height is 0.2
+            rotation is 1 0 0 1.5707
+            position is -0.3 0 0
+
+    InterfaceSymbol Item
+        Cylinder knob
+            scale is 1 0.5 1
+            color is 0.99 0.83 0.18
+            radius is 0.13
+            height is 0.15
+            rotation is 1 0 0 1.5707
+            position -0.4 0 0
+
+        Box
+            height is 0.05
+            length is 0.05
+            width is 1.4
+            color is 0.95 0.95 0.96
+        Cylinder
+            rotation is 1 0 0 1.5707
+            radius is 0.025
+            height is 0.05
+            position is -0.7 0 0
+            color is 0.95 0.95 0.96
+        Cylinder
+            rotation is 1 0 0 1.5707
+            radius is 0.025
+            height is 0.05
+            position is 0.7 0 0
+            color is 0.95 0.95 0.96
+
+    AnimationSymbol Item
+        SymbolSphere planet
+            radius is 0.2
+        SymbolSphere satellite
+            color is 0.95 0.95 0.96
+            radius is 0.07
+
+    JavaScriptSymbol Item
+        Text text
+            position is -0.28 -0.17 0
+            color is 0.99 0.83 0.18
+            weight is bold
+            string is { }
+            scale is 0.65
+
+
+    HeadBody Sphere
+        color is 0.08 0.24 0.27
+        scale is 1.2 1 1
+
+    Ear Cone
+        color is 0.08 0.24 0.27
+        radius is 0.2
+        height is 0.3
+
+    LeftEar Ear
+        rotation is 0 0 1 -0.57
+        position is 0.43 0.47 0
+
+    RightEar Ear
+        rotation is 0 0 1 0.57
+        position is -0.43 0.47 0
+
+    Eye Item
+        Sphere white
+            color is white
+            scale is 1 1.4 1
+            radius is 0.08
+
+        Sphere pupil
+            color is 0.6 0.27 0.25
+            scale is 1 1.4 1
+            radius is 0.05
+            position is -0.005 0 0.05
+
+        Sphere glow
+            color is white
+            radius is 0.015
+            position is -0.025 0.025 0.1
+
+    Nose Sphere
+        color is 0.6 0.27 0.25
+        radius is 0.023
+        position is 0 -0.15 0.55
+
+    Mouth Tube
+        color is 0.6 0.27 0.25
+        innerRadius is 0.05
+        outerRadius is 0.07
+        height is 0.1
+        rotation is 1 0 0 1.5707
+        position is 0 -0.18 0.48
+
+    Face Item
+        Sphere body
+            color is 0.94 0.74 0.63
+            scale is 1 0.7 0.7
+            radius is 0.45
+            position is 0 -0.07 0.25
+
+        Eye
+            position is 0.2 -0.05 0.5
+
+        Eye
+            position is -0.2 -0.05 0.5
+            pupil
+                position is 0.005 0 0.05
+            glow
+                position is -0.008 0.025 0.1
+
+        Nose
+        Mouth
+
+
+    Moustache Item
+        Cylinder
+            color is 0.08 0.24 0.27
+            radius is 0.01
+            height is 0.7
+
+
+    Octocat Item
+        LeftEar
+        RightEar
+        HeadBody
+        Face
+
+        Moustache
+            position is 0.5 -0.1 0.3
+            rotation is 0 0 0 1 -1.7
+        Moustache
+            position is 0.5 -0.15 0.3
+            rotation is 0 0 0 1 -1.8
+
+        Moustache
+            position is -0.5 -0.1 0.3
+            rotation is 0 0 0 1 1.7
+        Moustache
+            position is -0.5 -0.15 0.3
+            rotation is 0 0 0 1 1.8
+
+
+    PinballBase Item
+        color is 0.11 0.36 0.40
+
+        Box
+            height is 8
+            width is 8
+
+        Cylinder
+            height is 1
+            radius is 4
+            position is 0 4 0
+            rotation is 1 0 0 1.5707
+
+    PinballWalls Item
+        color is 0.19 0.61 0.64
+
+        Box left
+            height is 8
+            width is 1.2
+            length is 0.5
+            position is -3.65 -0.1 0.75
+        Box right
+            height is 8
+            width is 1.2
+            length is 0.5
+            position is 3.65 -0.1 0.75
+        Box bottomLeft
+            height is 0.7
+            width is 3
+            length is 0.5
+            position is -2.5 -3.65 0.75
+        Box bottomLeftSlant
+            height is 0.67
+            width is 3
+            length is 0.5
+            rotation is 0 0 1 -0.4
+            position is -2.5 -3 0.75
+        Box bottomLeftSlantFill
+            height is 1
+            width is 1
+            length is 0.5
+            position is -3 -3.4 0.75
+        Box bottomRight
+            height is 0.7
+            width is 3
+            length is 0.5
+            position is 2.5 -3.65 0.75
+        Box bottomRightSlant
+            height is 0.67
+            width is 3
+            length is 0.5
+            rotation is 0 0 1 0.4
+            position is 2.5 -3 0.75
+        Box bottomRightSlantFill
+            height is 1
+            width is 1
+            length is 0.5
+            position is 3 -3.4 0.75
+
+    PinballObstacle Item
+        color is 0.95 0.95 0.96
+
+        Capsule
+            scale is 1.2
+            rotation is 1 0 0 1.5707
+
+
+    PinballPaddle Item
+        Box
+            height is 0.3
+            length is 0.5
+            color is 0.95 0.95 0.96
+
+        Cylinder
+            rotation is 1 0 0 1.5707
+            radius is 0.15
+            height is 0.5
+            position is -0.5 0 0
+            color is 0.95 0.95 0.96
+
+        Cylinder
+            rotation is 1 0 0 1.5707
+            radius is 0.15
+            height is 0.5
+            position is 0.5 0 0
+            color is 0.95 0.95 0.96
+
+    PinballBall Sphere
+        color is 0.99 0.83 0.18
+        radius is 0.3
+
+    Pinball Item
+        PinballBase
+
+        PinballWalls
+
+        PinballPaddle
+            position is -1 -2.8 0.75
+            rotation is 0 0 1 -0.2
+
+        PinballObstacle
+            position is -0.2 1.4 0
+
+        PinballObstacle
+            position is 1.8 2.4 0
+
+        PinballObstacle
+            position is -1.2 3.4 0
+
+
+
+    Castle2 Item
+        Brick
+            position is -1 -1 0
+
+        Brick
+            position is 1 -1 0
+
+        Brick
+            position is -1 0 0
+
+        Brick
+            position is 1 0 0
+
+//        Brick
+//            position is 0 -1 0
+//
+//        Brick
+//            position is 0 0 0
+//
+//        Brick
+//            position is 0 1 0
+
+        Brick
+            color is 0.11 0.36 0.40
+            width is 2.95
+            position is 0 1 0
+
+        Brick
+            color is 0.11 0.36 0.40
+            width is 1.5
+            position is 0 1 0
+
+        CastleTop
+            width is 3
+            position is 0 1.55 0
+
+        CastleBottom
+            position is 0 -1.8 0
+
+
 
 items
 
-    Person
-        scale is 3
+
+
+//    ObjectSymbol
+
+    Octocat
+
+//    PinballPaddle
+//        position is 1.15 -2.449 0.75
+//        rotation is 0 0 1 -0.61
+//
+//    Pinball
+//
+//    PinballBall
+//        position is 0.934 -0.705 2
+
+//    PhysicsSymbol
+//        scale is 7
+//        color is 0.99 0.83 0.18
+//        sphere
+//            scale is 0.9
+//            position is 0 0 0
+//        floor
+//            chamferRadius is 0.025
+//            width is 0.5
+//            position is 0 0 0
+
+//    SymbolSphere
+//        scale is 5
+//    SymbolSphere
+//        scale is 5
+//        radius is 0.2
+//        position is 2 0 0
+
+//    SolarSystem
+
+//    Castle2
+
+//    JavaScriptSymbol
+
+//    Graph3D
+
+//    Terra
+//
+//    Lua
+
+    Light
+        position is -3 -3 -3
+        type is ambient
+        color is 0.7 0.7 0.7
+
+
+    Light
+        position is 6 6 6
+        color is darkGray
+
+
+    Light
+        position is -6 -6 -6
+        color is 0.5 0.5 0.5

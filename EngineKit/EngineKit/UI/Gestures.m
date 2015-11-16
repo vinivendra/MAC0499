@@ -179,7 +179,7 @@
         return nil;
     }
     else {
-        return [NSString stringWithFormat:@"%d", touches];
+        return [NSString stringWithFormat:@"%ld", (long)touches];
     }
     
     return nil;
@@ -233,7 +233,7 @@
         [self.delegate
          callGestureCallbackForGesture:TapGesture
          state:UIGestureRecognizerStateRecognized
-         touches:sender.numberOfTouches
+         touches:(int)sender.numberOfTouches
          withArguments:
          @[ items, hits ]];
     }
@@ -261,7 +261,7 @@
         [self.delegate
          callGestureCallbackForGesture:SwipeGesture
          state:UIGestureRecognizerStateRecognized
-         touches:sender.numberOfTouches
+         touches:(int)sender.numberOfTouches
          withArguments:@[
                          items,
                          directions[@(sender.direction)],
@@ -301,7 +301,7 @@
     [self.delegate
      callGestureCallbackForGesture:PanGesture
      state:UIGestureRecognizerStateChanged
-     touches:sender.numberOfTouches
+     touches:(int)sender.numberOfTouches
      withArguments:@[
                      self.selectedItems,
                      translation,
@@ -333,7 +333,7 @@
     [self.delegate
      callGestureCallbackForGesture:PinchGesture
      state:UIGestureRecognizerStateChanged
-     touches:sender.numberOfTouches
+     touches:(int)sender.numberOfTouches
      withArguments:@[
                      self.selectedItems,
                      @(scale),
@@ -365,7 +365,7 @@
     [self.delegate
      callGestureCallbackForGesture:RotateGesture
      state:UIGestureRecognizerStateChanged
-     touches:sender.numberOfTouches
+     touches:(int)sender.numberOfTouches
      withArguments:@[
                      self.selectedItems,
                      @(angle),
@@ -404,7 +404,7 @@
     [self.delegate
      callGestureCallbackForGesture:LongPressGesture
      state:UIGestureRecognizerStateChanged
-     touches:sender.numberOfTouches
+     touches:(int)sender.numberOfTouches
      withArguments:@[
                      self.selectedItems,
                      translation,

@@ -196,7 +196,9 @@ class ViewController: UIViewController, MenuManager {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        engineKitView.backgroundColor = UIColor(red: 0.78, green: 0.77, blue: 0.70, alpha: 1)
+//        engineKitView.backgroundColor = UIColor(red: 0.78, green: 0.77, blue: 0.70, alpha: 1)
+        engineKitView.backgroundColor = UIColor(red: 255/255, green: 254/255, blue: 228/255, alpha: 1)
+        engineKitView.antialiasingMode = .Multisampling4X
 
         editorSceneManager = EditorSceneManager(script:"editor.js")
 

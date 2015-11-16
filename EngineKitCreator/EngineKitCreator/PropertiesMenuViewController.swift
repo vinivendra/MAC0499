@@ -14,23 +14,23 @@ func toDegrees(radians: Float) -> Float {
 
 
 func setItemPositionX(item: Item, newValue: CGFloat) {
-    item.position = Position(x: newValue, y: item.position.y, z: item.position.z)
+    item.position = Position(x: newValue, y: (item.position as! Vector).y, z: (item.position as! Vector).z)
 }
 func setItemPositionY(item: Item, newValue: CGFloat) {
-    item.position = Position(x: item.position.x, y: newValue, z: item.position.z)
+    item.position = Position(x: (item.position as! Vector).x, y: newValue, z: (item.position as! Vector).z)
 }
 func setItemPositionZ(item: Item, newValue: CGFloat) {
-    item.position = Position(x: item.position.x, y: item.position.y, z: newValue)
+    item.position = Position(x: (item.position as! Vector).x, y: (item.position as! Vector).y, z: newValue)
 }
 
 func setItemScaleX(item: Item, newValue: CGFloat) {
-    item.scale = Vector(x: newValue, y: item.scale.y, z: item.scale.z)
+    item.scale = Vector(x: newValue, y: (item.scale as! Vector).y, z: (item.scale as! Vector).z)
 }
 func setItemScaleY(item: Item, newValue: CGFloat) {
-    item.scale = Vector(x: item.scale.x, y: newValue, z: item.scale.z)
+    item.scale = Vector(x: (item.scale as! Vector).x, y: newValue, z: (item.scale as! Vector).z)
 }
 func setItemScaleZ(item: Item, newValue: CGFloat) {
-    item.scale = Vector(x: item.scale.x, y: item.scale.y, z: newValue)
+    item.scale = Vector(x: (item.scale as! Vector).x, y: (item.scale as! Vector).y, z: newValue)
 }
 
 func setItemRotationX(item: Item, newValue: CGFloat) {

@@ -91,6 +91,10 @@ var people;
 
 var questionMark;
 
+var background;
+
+var creator;
+
 ////////////////////////////////////////////////////////////////////////////////
 
 function tap() {
@@ -104,7 +108,7 @@ function load() {
 
     Physics.gravity = [0, -4, -10];
 
-    title = TitleSquare.create();
+    title = TitleSquareLight.create();
     title.hidden = true;
     title.scale = 3;
 
@@ -120,11 +124,11 @@ function load() {
     window1.hidden = true;
     window1.position = [-4.8, 3.3, 0];
     window1.scale = 3;
-    window2 = WideWindowLight.create();
+    window2 = WideWindowDark.create();
     window2.position = [0, 3.3, 0];
     window2.hidden = true;
     window2.scale = 3;
-    window3 = WideWindowDark.create();
+    window3 = WideWindowMedium.create();
     window3.position = [4.8, 3.3, 0];
     window3.hidden = true;
     window3.scale = 3;
@@ -132,19 +136,19 @@ function load() {
     window4.position = [-4.8, 0, 0];
     window4.hidden = true;
     window4.scale = 3;
-    window5 = WideWindowCenter.create();
+    window5 = WideWindowMedium.create();
     window5.position = [0, 0, 0];
     window5.hidden = true;
     window5.scale = 3;
-    window6 = WideWindowMedium.create();
+    window6 = WideWindowDark.create();
     window6.position = [4.8, 0, 0];
     window6.hidden = true;
     window6.scale = 3;
-    window7 = WideWindowDark.create();
+    window7 = WideWindowMedium.create();
     window7.position = [-4.8, -3.3, 0];
     window7.hidden = true;
     window7.scale = 3;
-    window8 = WideWindowMedium.create();
+    window8 = WideWindowDark.create();
     window8.position = [0, -3.3, 0];
     window8.hidden = true;
     window8.scale = 3;
@@ -257,7 +261,7 @@ function load() {
                         -0.15 * squareScale * textScale,
                         0.1 * squareScale];
     iosText.string = "iOS";
-    iosText.color = [0.11, 0.36, 0.40];
+    iosText.color = [0.13, 0.40, 0.44];
     iosText.hidden = true;
 
     squares = [SquareBackgroundSmall.create(),
@@ -307,7 +311,7 @@ function load() {
     satellite.position = [0, 0, 0.2];
 
 
-    jsSquare = SquareBackgroundDark.create();
+    jsSquare = SquareBackground.create();
     jsSquare.hidden = true;
     jsSquare.scale = squareScale;
 
@@ -319,7 +323,7 @@ function load() {
                      0.0];
     jsText.position = [0, 0, 0.3];
     jsText.string = "JavaScript";
-    jsText.color = [0.08, 0.24, 0.27];
+    jsText.color = [0.13, 0.40, 0.44];
     jsText.hidden = true;
 
 
@@ -393,7 +397,7 @@ function load() {
 
     spotlight = Light.create();
     spotlight.position = [6, 6, 6];
-    spotlight.color = "darkGray";
+    spotlight.color = [0.2, 0.2, 0.2];
 
     spotlight2 = Light.create();
     spotlight2.position = [-6, -6, -6];
@@ -425,12 +429,12 @@ function load() {
 
 
     var windowOffest = 3.5;
-    githubBackground = WideWindowCenter.create();
+    githubBackground = WideWindowMedium.create();
     githubBackground.scale = 4;
     githubBackground.position = [-windowOffest, 2, 0];
     githubBackground.hidden = true;
 
-    languagesBackground = WideWindowCenter.create();
+    languagesBackground = WideWindowMedium.create();
     languagesBackground.scale = 4;
     languagesBackground.position = [windowOffest, 0, 0];
     languagesBackground.hidden = true;
@@ -440,7 +444,7 @@ function load() {
     githubText.position = [githubBackground.position.x - 1.5,
                            githubBackground.position.y - 1.3,
                            githubBackground.position.z + 0.12];
-    githubText.color = [0.11, 0.36, 0.40];
+    githubText.color = [0.08, 0.24, 0.27];
     githubText.string = "Github";
     githubText.weight = "regular";
     githubText.hidden = true;
@@ -459,7 +463,7 @@ function load() {
     languagesText.position = [languagesBackground.position.x - 2.47,
                               languagesBackground.position.y - 0.6,
                               languagesBackground.position.z + 0.12];
-    languagesText.color = [0.11, 0.36, 0.40];
+    languagesText.color = [0.08, 0.24, 0.27];
     languagesText.font = "Menlo";
     languagesText.string = "[Objective-C  lang];\n\nSwift.lang( )";
     languagesText.weight = "Bold";
@@ -490,14 +494,14 @@ function load() {
 
     var colors = [[0.49, 0.78, 0.79],
                   [0.19, 0.61, 0.64],
-                  [0.95, 0.95, 0.96],
-                  [0.95, 0.95, 0.96],
+                  [0.92, 0.92, 0.93],
+                  [0.92, 0.92, 0.93],
                   [0.11, 0.36, 0.40],
                   [0.49, 0.78, 0.79],
                   [0.11, 0.36, 0.40],
                   [0.49, 0.78, 0.79],
                   [0.19, 0.61, 0.64],
-                  [0.95, 0.95, 0.96]];
+                  [0.92, 0.92, 0.93]];
 
     for (var i = 0; i < people.length; i++) {
         var person = people[i];
@@ -506,9 +510,9 @@ function load() {
         person.scale = 1;
         var head = person.childItemWithNameRecursively("head", true);
         var body = person.childItemWithNameRecursively("body", true);
-        head.color = [colors[i][0] * 0.95,
-                      colors[i][1] * 0.95,
-                      colors[i][2] * 0.95];
+        head.color = [colors[i][0] * 0.96,
+                      colors[i][1] * 0.96,
+                      colors[i][2] * 0.96];
         body.color = colors[i];
         person.hidden = true;
     }
@@ -518,10 +522,21 @@ function load() {
     questionMark = SquareTitle.create();
     questionMark.scale = 3;
     questionMark.position = [-0.7, -0.5, 0.24];
-    questionMark.color = [0.11, 0.36, 0.40];
+    questionMark.color = [0.08, 0.24, 0.27];
     questionMark.string = "?";
     questionMark.weight = "bold";
     questionMark.hidden = true;
+
+
+    background = Plane.create();
+    background.color = [0.035, 0.090, 0.098];
+    background.position = [0, 0, -4];
+    background.scale = 100;
+    background.hidden = true;
+
+
+    creator = Creator.create();
+    creator.hidden = true;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -874,10 +889,13 @@ function next() {
         objectSymbol.position = [x, y, z];
         objectSymbol.scale = file.scale.times(1.2);
 
+        creator.scale = iPad.scale;
+        creator.position = iPad.position;
+
         bounceScale(file);
         bounceScale(file2);
         bounceScale(title);
-        bounceScale(iPad);
+        bounceScale(creator);
 
         bounceScale(fileText2);
         bounceScale(objectSymbol);
@@ -962,7 +980,7 @@ function next() {
         disappear(fileText2);
 
         disappear(title);
-        disappear(iPad);
+        disappear(creator);
     }
     else if (step == 41) { // Fade in code backgrounds
         bounceScale(codeBackgroundML);
@@ -1106,6 +1124,8 @@ function next() {
 
         disappear(saturn);
         appear(solarSystem);
+
+        appear(background);
     }
     else if (step == 50) { // Iluminação
         spotlight.addAnimation({"keyPath": "position.y",
@@ -1166,6 +1186,8 @@ function next() {
         disappear(codeTextML);
         disappear(codeBackgroundJS);
         disappear(codeTextJS);
+
+        disappear(background);
     }
     else if (step == 56) { // Fade in castle
         Physics.gravity = [0, -7.5, 0];
@@ -1259,7 +1281,7 @@ function next() {
         appear(githubText);
     }
     else if (step == 65) { // Fade in email
-        languagesText.position = [-3.62, -2.25, 0.24];
+        languagesText.position = [-2.65, -2.25, 0.24];
         languagesText.scale = 0.4;
         languagesText.weight = "bold";
         languagesText.font = "";

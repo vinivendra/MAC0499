@@ -18,7 +18,7 @@ templates
             physics is kinematic
 
     PinballWalls Item
-        color is 0.19 0.61 0.64
+        color is 0.35 0.67 0.69
 
         Box left
             height is 8
@@ -133,8 +133,8 @@ templates
 ////////////////////////////////////////////////////////////////////////////////
 
     
-    FileBody Item
-        color is 0.95 0.95 0.96
+    FileShape Item
+        color is white
 
         Box body
             length is 0.1
@@ -154,17 +154,23 @@ templates
             position is -0.2 0.45 0
             rotation is 0 0 1 0.7853
 
+    FileAll Item
+        FileShape
+
         Pyramid fold
-            color is 0.9 0.9 0.91
+            color is 0.9 0.9 0.9
             length is 0.1
             width is 0.423
             height is 0.22
             position is -0.35 0.6 0.05
             rotation is 0 0 1 -2.356
 
+    FileBody Item
+        FileAll
+
     FileText Text
         scale is 0.5
-        color is 0.19 0.61 0.64
+        color is 0.35 0.67 0.69
         position is -0.3 -0.1 0.15
         string is EK
 
@@ -193,13 +199,13 @@ templates
         Box background
             length is 0.1
 
-        Box top
-            length is 0.05
-            height is 0.1
-            position is 0 0.45 0.075
-
-        X x
-            position is -0.45 0.45 0.1
+//        Box top
+//            length is 0.05
+//            height is 0.1
+//            position is 0 0.45 0.075
+//
+//        X x
+//            position is -0.45 0.45 0.1
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -209,68 +215,50 @@ templates
             width is 1.5
             color is 0.99 0.83 0.18
 
-        Box top
-            length is 0.025
-            height is 0.1
-            width is 1.5
-            position is 0 0.45 0.0375
-            color is 0.59 0.49 0.10
-
-        X x
-            position is -0.7 0.45 0.04
-            color is 0.35 0.29 0.06
-
-    WideWindowCenter Item
-        Box background
-            length is 0.05
-            width is 1.5
-            color is 0.43 0.77 0.79
-
-        Box top
-            length is 0.025
-            height is 0.1
-            width is 1.5
-            position is 0 0.45 0.0375
-            color is 0.16 0.50 0.54
-
-        X x
-            position is -0.7 0.45 0.04
-            color is 0.18 0.27 0.28
-
+//        Box top
+//            length is 0.025
+//            height is 0.1
+//            width is 1.5
+//            position is 0 0.45 0.0375
+//            color is 0.59 0.49 0.10
+//
+//        X x
+//            position is -0.7 0.45 0.04
+//            color is 0.35 0.29 0.06
 
     WideWindowLight Item
         Box background
             length is 0.05
             width is 1.5
-            color is 0.49 0.78 0.79
+            color is 0.53 0.85 0.87
 
-        Box top
-            length is 0.025
-            height is 0.1
-            width is 1.5
-            position is 0 0.45 0.0375
-            color is 0.30 0.46 0.47
-
-        X x
-            position is -0.7 0.45 0.04
-            color is 0.18 0.27 0.28
+//        Box top
+//            length is 0.025
+//            height is 0.1
+//            width is 1.5
+//            position is 0 0.45 0.0375
+//            color is 0.06 0.21 0.24
+//
+//        X x
+//            position is -0.7 0.45 0.04
+//            color is black
 
     WideWindowMedium Item
         Box background
             length is 0.05
             width is 1.5
-            color is 0.19 0.61 0.64
+            color is 0.35 0.67 0.69
 
-        Box top
-            length is 0.025
-            height is 0.1
-            width is 1.5
-            position is 0 0.45 0.0375
-            color is 0.11 0.36 0.38
-
-        X x
-            position is -0.7 0.45 0.04
-            color is 0.06 0.21 0.22
+//        Box top
+//            length is 0.025
+//            height is 0.1
+//            width is 1.5
+//            position is 0 0.45 0.0375
+//            color is 0.06 0.21 0.24
+//
+//        X x
+//            position is -0.7 0.45 0.04
+//            color is black
 
     WideWindowDark Item
         Box background
@@ -278,29 +266,29 @@ templates
             width is 1.5
             color is 0.11 0.36 0.40
 
-        Box top
-            length is 0.025
-            height is 0.1
-            width is 1.5
-            position is 0 0.45 0.0375
-            color is 0.06 0.21 0.24
-
-        X x
-            position is -0.7 0.45 0.04
-            color is 0.03 0.12 0.14
+//        Box top
+//            length is 0.025
+//            height is 0.1
+//            width is 1.5
+//            position is 0 0.45 0.0375
+//            color is 0.06 0.21 0.24
+//
+//        X x
+//            position is -0.7 0.45 0.04
+//            color is black
 
     TallWindowDark Item
         Box background
             length is 0.05
             width is 1
-            color is 0.19 0.61 0.64
+            color is 0.35 0.67 0.69
 
-        Box top
-            length is 0.025
-            height is 0.07
-            width is 1
-            position is 0 0.465 0.0375
-            color is 0.11 0.36 0.38
+//        Box top
+//            length is 0.025
+//            height is 0.07
+//            width is 1
+//            position is 0 0.465 0.0375
+//            color is 0.11 0.36 0.38
 
     TallWindowMedium Item
         Box background
@@ -308,32 +296,32 @@ templates
             width is 1
             color is 0.49 0.78 0.79
 
-        Box top
-            length is 0.025
-            height is 0.07
-            width is 1
-            position is 0 0.465 0.0375
-            color is 0.30 0.46 0.47
+//        Box top
+//            length is 0.025
+//            height is 0.07
+//            width is 1
+//            position is 0 0.465 0.0375
+//            color is 0.30 0.46 0.47
 
     TallWindowCenter Item
         Box background
             length is 0.05
             width is 1
-            color is 0.43 0.77 0.79
+            color is 0.35 0.67 0.69
 
-        Box top
-            length is 0.025
-            height is 0.07
-            width is 1
-            position is 0 0.465 0.0375
-            color is 0.16 0.50 0.54
+//        Box top
+//            length is 0.025
+//            height is 0.07
+//            width is 1
+//            position is 0 0.465 0.0375
+//            color is 0.16 0.50 0.54
 
     AreasText Text
         scale is 0.1
-        weight is regular
+        weight is light
 
     Areas Item
-        color is 0.11 0.36 0.40
+        color is 0.08 0.24 0.27
 
         AreasText text1
             string is Hardware
@@ -421,9 +409,9 @@ templates
         square
             color is 0.18 0.56 0.60
         circle
-            color is 0.19 0.61 0.64
+            color is 0.35 0.67 0.69
         triangle
-            color is 0.20 0.68 0.70
+            color is 0.26 0.60 0.64
 
     Features Item
         WideWindowYellow
@@ -431,11 +419,11 @@ templates
             background
                 color is 0.49 0.78 0.79
 
-            top
-                color is 0.30 0.46 0.47
-
-            x
-                color is 0.18 0.27 0.28
+//            top
+//                color is 0.30 0.46 0.47
+//
+//            x
+//                color is 0.18 0.27 0.28
 
         Areas
             scale is 5
@@ -449,7 +437,7 @@ templates
 
 
     Brick Box
-        color is 0.19 0.61 0.64
+        color is 0.35 0.67 0.69
 
         width is 0.95
         height is 0.95
@@ -478,11 +466,6 @@ templates
 
         physics is kinematic
 
-    Bullet Sphere
-        radius is 0.4
-        color is 0.99 0.83 0.18
-
-        physics is dynamic
 
     Castle Item
 //        Brick
@@ -527,32 +510,40 @@ templates
 
     SquareBackground Item
         Box foreground
-            color is 0.43 0.77 0.79
-            width is 2
-            length is 0.1
-
-        Box background
-            color is 0.16 0.50 0.54
+            color is 0.41 0.70 0.72
             width is 2.1
             height is 1.1
             length is 0.1
-            position is 0 0 -0.05
+
+//        Box background
+//            color is 0.16 0.50 0.54
+//            width is 2.1
+//            height is 1.1
+//            length is 0.1
+//            position is 0 0 -0.05
+
+    TitleBackground Item
+        Box foreground
+            color is 0.35 0.67 0.69
+            width is 2
+            length is 0.1
 
     SquareBackgroundDark SquareBackground
         foreground
             color is 0.18 0.56 0.60
-        background
-            color is 0.11 0.36 0.38
+//        background
+//            color is 0.11 0.36 0.38
 
     SquareBackgroundSmall SquareBackgroundDark
-        background
-            height is 1.17
-            width is 2.17
+//        background
+//            height is 1.17
+//            width is 2.17
 
     SquareTitle Text
         string is EngineKit
         scale is 0.4
-        color is 0.11 0.36 0.40
+        color is 0.95 0.95 0.96
+        weight is thin
 
 
     TitleSquare Item
@@ -560,15 +551,21 @@ templates
         SquareBackground background
 
         SquareTitle title
-            position is -0.8 -0.15 0.1
+            position is -0.8 -0.15 0.01
 
+    TitleSquareLight Item
+
+        TitleBackground background
+
+        SquareTitle title
+            position is -0.8 -0.15 0.1
 
     ObjectSquareMedium Item
         SquareBackground background
-            background
-                color is 0.11 0.36 0.38
+//            background
+//                color is 0.11 0.36 0.38
             foreground
-                color is 0.19 0.61 0.64
+                color is 0.35 0.67 0.69
         ObjectSymbol symbol
             color is 0.11 0.36 0.38
             scale is 1.3 1.3 0.8
@@ -576,8 +573,8 @@ templates
 
     ObjectSquareLight Item
         SquareBackground background
-            background
-                color is 0.19 0.61 0.64
+//            background
+//                color is 0.35 0.67 0.69
             foreground
                 color is 0.49 0.78 0.79
         ObjectSymbolMedium symbol
@@ -586,8 +583,8 @@ templates
 
     ObjectSquareDark Item
         SquareBackground background
-            background
-                color is 0.06 0.21 0.24
+//            background
+//                color is 0.06 0.21 0.24
             foreground
                 color is 0.11 0.36 0.40
         ObjectSymbolMedium symbol
@@ -596,8 +593,8 @@ templates
 
     ObjectSquareYellow Item
         SquareBackground background
-            background
-                color is 0.59 0.49 0.10
+//            background
+//                color is 0.59 0.49 0.10
             foreground
                 color is 0.99 0.83 0.18
         ObjectSymbolMedium symbol
@@ -622,7 +619,7 @@ templates
         radius is 0.17
 
     DataPointFlatA DataPointFlat
-        color is 0.19 0.61 0.64
+        color is 0.11 0.36 0.40
 
     DataPointFlatB DataPointFlat
         color is 0.95 0.95 0.96
@@ -632,10 +629,10 @@ templates
 
     Graph Item
         AxisRound
-            color is 0.16 0.50 0.54
+            color is 0.11 0.36 0.40
 
         AxisRound
-            color is 0.16 0.50 0.54
+            color is 0.11 0.36 0.40
             rotation is 0 0 1 -1.5707
 
 
@@ -877,7 +874,7 @@ templates
         iDeviceMetal metal
             position is 0 -0.05 0
         Box screen
-            color is 0.11 0.36 0.40
+            color is 0.16 0.50 0.54
             height is 0.05
             width is 2.5
             length is 3.1
@@ -980,7 +977,7 @@ templates
             position is 6 -0.35 0.1
 
     NavigationButton Item
-        NavigationUI
+        NavigationUI navbar
             color is 0.16 0.50 0.54
 
         Box background
@@ -993,7 +990,7 @@ templates
 
 
     ViewBackground Box
-        color is 0.43 0.77 0.79
+        color is 0.49 0.78 0.79
         length is 0.1
         width is 1
         height is 1
@@ -1023,7 +1020,7 @@ templates
 
         NavigationButton
             scale is 0.165
-            position is -1.23 1.51 0.1
+            position is -1.25 1.52 0.1
 
 //        GraphView
 //            position is -0.1 0.1 0
@@ -1037,6 +1034,18 @@ templates
         TextView
             position is 1.1 -1.1 0
 
+
+    Creator Item
+        iDevice
+
+        NavigationButton
+            scale is 0.165
+            position is -1.25 1.52 0.1
+
+            navbar
+                title
+                    string is EngineKit
+                    position is 5.9 -0.35 0.1
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -1139,7 +1148,7 @@ templates
 ////////////////////////////////////////////////////////////////////////////////
 
     Axis Item
-        color is 0.19 0.61 0.64
+        color is 0.35 0.67 0.69
 
         Cylinder line
             height is 4
@@ -1175,8 +1184,8 @@ templates
         Box
             width is 0.3
             height is 0.3
-            depth is 0.3
-            color is 0.19 0.61 0.64
+            length is 0.3
+            color is 0.35 0.67 0.69
 
         DataPointA
             position is 1.7719 2.6327 2.0855
@@ -1359,17 +1368,17 @@ templates
 
 
     Mercury Sphere
-        color is 0.19 0.61 0.64
+        color is 0.35 0.67 0.69
         radius is 0.05
 
 
     Venus Sphere
-        color is 0.19 0.61 0.64
+        color is 0.35 0.67 0.69
         radius is 0.075
 
 
     EarthBody Sphere
-        color is 0.19 0.61 0.64
+        color is 0.35 0.67 0.69
         radius is 0.15
 
     EarthMoon Sphere
@@ -1383,7 +1392,7 @@ templates
 
 
     MarsBody Sphere
-        color is 0.19 0.61 0.64
+        color is 0.35 0.67 0.69
         radius is 0.1
 
     MarsMoon Sphere
@@ -1399,7 +1408,7 @@ templates
 
 
     JupiterBody Sphere
-        color is 0.19 0.61 0.64
+        color is 0.35 0.67 0.69
         radius is 0.25
 
     JupiterMoon Sphere
@@ -1427,7 +1436,7 @@ templates
 
 
     SaturnBody Sphere
-        color is 0.19 0.61 0.64
+        color is 0.35 0.67 0.69
         radius is 0.15
 
     SaturnRing Tube
@@ -1483,7 +1492,7 @@ templates
             position is -0.3 0 -0.3
 
     UranusBody Sphere
-        color is 0.19 0.61 0.64
+        color is 0.35 0.67 0.69
         radius is 0.15
 
     UranusRing Tube
@@ -1512,7 +1521,7 @@ templates
 
 
     NeptuneBody Sphere
-        color is 0.19 0.61 0.64
+        color is 0.35 0.67 0.69
         radius is 0.15
 
     NeptuneRing Tube
@@ -1533,7 +1542,7 @@ templates
 
 
     PlutoBody Sphere
-        color is 0.19 0.61 0.64
+        color is 0.35 0.67 0.69
         radius is 0.07
 
     PlutoMoon Sphere
@@ -1544,6 +1553,10 @@ templates
         PlutoBody
         PlutoMoon moon1
             position is 0.15 0 0
+
+    TrajectoryRing Tube
+        color is 0.19 0.61 0.64
+        height is 0.005
 
     SolarSystem Item
         Sun
@@ -1557,6 +1570,41 @@ templates
         Neptune
         Pluto
 
+        TrajectoryRing
+            innerRadius is 1
+            outerRadius is 1.005
+
+        TrajectoryRing
+            innerRadius is 1.17
+            outerRadius is 1.175
+
+        TrajectoryRing
+            innerRadius is 1.33
+            outerRadius is 1.335
+
+        TrajectoryRing
+            innerRadius is 1.5
+            outerRadius is 1.505
+
+        TrajectoryRing
+            innerRadius is 1.67
+            outerRadius is 1.675
+
+        TrajectoryRing
+            innerRadius is 1.83
+            outerRadius is 1.835
+
+        TrajectoryRing
+            innerRadius is 2
+            outerRadius is 2.005
+
+        TrajectoryRing
+            innerRadius is 2.17
+            outerRadius is 2.175
+
+        TrajectoryRing
+            innerRadius is 2.33
+            outerRadius is 2.34
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -1821,6 +1869,14 @@ templates
 
 ////////////////////////////////////////////////////////////////////////////////
 
+    Bullet Sphere
+        radius is 0.4
+        color is 0.99 0.83 0.18
+        physics is dynamic
+
+
+////////////////////////////////////////////////////////////////////////////////
+
     PersonHead Box
 
     PersonBody Box
@@ -1838,5 +1894,5 @@ items
     Light
         position is -3 -3 -3
         type is ambient
-        color is 0.7 0.7 0.7
+        color is 0.9 0.9 0.9
 
